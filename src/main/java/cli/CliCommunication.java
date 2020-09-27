@@ -6,7 +6,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import conference.ConferenceModel;
 import divison.DivisonModel;
 import league.ILeagueModel;
+import league.ILeagueValidator;
 import league.LeagueModel;
+import league.LeagueValidator;
 import players.PlayerModel;
 import teams.TeamsModel;
 
@@ -18,11 +20,14 @@ import java.nio.file.Paths;
 
 public class CliCommunication implements ICliCommunication {
 
-   public static LeagueModel leagueModel;
+   public  LeagueModel leagueModel;
    public static ObjectMapper objectMapper;
+   private ILeagueValidator leagueValidator;
 
     public CliCommunication() {
         objectMapper =new ObjectMapper();
+        leagueValidator=new LeagueValidator();
+
     }
 
 
@@ -36,7 +41,7 @@ public class CliCommunication implements ICliCommunication {
                 return false;
             }
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println("Error while parsing");
         }
         return false;
 
@@ -44,38 +49,33 @@ public class CliCommunication implements ICliCommunication {
 
 
     @Override
-    public void parseJson(String fileName) throws IOException {
+    public void parseJson(String fileName)  {
+        System.out.println("Inside parse JSON method");
+        try{
         byte[] mapData = Files.readAllBytes(Paths.get(fileName));
 
 
 
-        //creating league model object
-        leagueModel=new LeagueModel();
 
         //Read the json
          JsonNode data= objectMapper.readTree(mapData);
         System.out.println(data);
+        //call the method of model class to validate the data
+
 
         //calling the method to set the data to model
         leagueModel =fromJson(data,LeagueModel.class);
 
-        System.out.println(leagueModel.getLeagueName());
-
-
-
-        for(ConferenceModel temp:leagueModel.getConferences()){
-           for(DivisonModel temp01 : temp.getDivisions()){
-              for(TeamsModel temp02 : temp01.getTeams()){
-                 for(PlayerModel temp03  :temp02.getPlayers())
-                 {
-                     System.out.println(temp03.getPlayerName());
-                 }
-              }
-           }
+        if(leagueValidator.validateLeagueObject(leagueModel)){
+            //create team
+            System.out.println("Valid JSON");
         }
-
-
-
+        else {
+            System.out.println("Invalid JSON");
+        }}
+        catch (IOException e){
+            System.out.println("Error occurred while parsing the file due to syntax issue");
+        }
     }
 
     public static <A> A fromJson(JsonNode node,Class<A> classObj ) throws JsonProcessingException {

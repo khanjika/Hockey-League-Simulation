@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class InitialCli {
 
-        private  static ICliCommunication cliCommunication;
+    private  static ICliCommunication cliCommunication;
 
     public InitialCli() {
         cliCommunication =new CliCommunication();

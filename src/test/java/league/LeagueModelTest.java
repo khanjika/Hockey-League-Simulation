@@ -1,11 +1,14 @@
 package league;
 
 import conference.ConferenceModel;
+import conference.ConferenceModelTest;
 import divison.DivisonModel;
 import freeagent.FreeAgentModel;
 import org.junit.jupiter.api.Test;
+import players.PlayerModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -51,5 +54,17 @@ class LeagueModelTest {
         LeagueModel leagueModel = new LeagueModel();
         leagueModel.setFreeAgents(new ArrayList<FreeAgentModel>());
         assertNotNull(leagueModel.getFreeAgents(),"Failed to set Free agents in Division object");
+    }
+
+    public static LeagueModel getLeagueObject(){
+        LeagueModel leagueModel= new LeagueModel();
+        leagueModel.setLeagueName("Dalhousie Hockey League");
+        List<ConferenceModel>  conferenceModelObjectList = new ArrayList<>();
+        for(int i=0;i<2;i++) {
+            ConferenceModel conferenceModel = ConferenceModelTest.getConferenceObject();
+            conferenceModelObjectList.add(conferenceModel);
+        }
+        leagueModel.setConferences(conferenceModelObjectList);
+        return leagueModel;
     }
 }

@@ -1,13 +1,15 @@
 package conference;
 
 import divison.DivisonModel;
+import divison.DivisonModelTest;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ConferenceModelTest {
+public class ConferenceModelTest {
 
     @Test
     void setDivisionsTest(){
@@ -35,5 +37,18 @@ class ConferenceModelTest {
         ConferenceModel conferenceModel = new ConferenceModel();
         conferenceModel.setConferenceName("Conference one");
         assertEquals("Conference one",conferenceModel.getConferenceName(),"Failed to get conference name");
+    }
+
+    public static ConferenceModel getConferenceObject(){
+        ConferenceModel conferenceModel = new ConferenceModel();
+        conferenceModel.setConferenceName("Eastern Conference");
+        List<DivisonModel> divisionModelObjectList = new ArrayList<>();
+        for(int i=0;i<2;i++)
+        {
+            DivisonModel divisonModel = DivisonModelTest.getDivisionObject();
+            divisionModelObjectList.add(divisonModel);
+        }
+        conferenceModel.setDivisions(divisionModelObjectList);
+        return  conferenceModel;
     }
 }

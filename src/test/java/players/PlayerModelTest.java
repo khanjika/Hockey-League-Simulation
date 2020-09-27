@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PlayerModelTest {
+public class PlayerModelTest {
 
     @Test
     void getPlayerName() {
@@ -47,5 +47,14 @@ class PlayerModelTest {
        PlayerModel playerModel=new PlayerModel();
         playerModel.setCaptain(true);
         assertTrue(playerModel.isCaptain(),"Failed set player is captain or not in  player object");
+    }
+
+    public static PlayerModel getPlayerModel(String playerName, String position, boolean iscaptain){
+        PlayerModel playerModel = new PlayerModel();
+        playerModel.setCaptain(iscaptain);
+        playerModel.setPlayerName(playerName);
+        playerModel.setPosition(position);
+
+        return playerModel;
     }
 }

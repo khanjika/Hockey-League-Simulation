@@ -1,0 +1,122 @@
+{
+  "leagueName": "Dalhousie Hockey League",
+  "conferences": [
+    {
+      "conferenceName": "Eastern Conference",
+      "divisions": [
+        {
+          "divisionName": "Atlantic",
+          "teams": [
+            {
+              "teamName": "Boston",
+              "generalManager": "Mister Fred",
+              "headCoach": "Mary Smith",
+              "players": [
+                {
+                  "playerName": "Player One",
+                  "position": "forward",
+                  "captain": true
+                },
+                {
+                  "playerName": "Player Two",
+                  "position": "defense",
+                  "captain": false
+                },
+                {
+                  "playerName": "Player Three",
+                  "position": "goalie",
+                  "captain": false
+                },
+                 {
+                  "playerName": "Player One",
+                  "position": "forward",
+                  "captain": false
+                },
+                {
+                  "playerName": "Player Two",
+                  "position": "defense",
+                  "captain": false
+                },
+                {
+                  "playerName": "Player Three",
+                  "position": "goalie",
+                  "captain": false
+                },
+                 {
+                  "playerName": "Player One",
+                  "position": "forward",
+                  "captain": false
+                },
+                {
+                  "playerName": "Player Two",
+                  "position": "defense",
+                  "captain": false
+                },
+                {
+                  "playerName": "Player Three",
+                  "position": "goalie",
+                  "captain": false
+                },
+                 {
+                  "playerName": "Player One",
+                  "position": "forward",
+                  "captain": false
+                },
+                   {
+                  "playerName": "Player One",
+                  "position": "forward",
+                  "captain": false
+                },
+                {
+                  "playerName": "Player Two",
+                  "position": "defense",
+                  "captain": false
+                },
+                {
+                  "playerName": "Player Three",
+                  "position": "goalie",
+                  "captain": false
+                },
+                 {
+                  "playerName": "Player One",
+                  "position": "forward",
+                  "captain": false
+                },
+                {
+                  "playerName": "Player Two",
+                  "position": "defense",
+                  "captain": false
+                },
+                {
+                  "playerName": "Player Three",
+                  "position": "goalie",
+                  "captain": false
+                },
+                 {
+                  "playerName": "Player One",
+                  "position": "forward",
+                  "captain": false
+                },
+                {
+                  "playerName": "Player Two",
+                  "position": "defense",
+                  "captain": false
+                },
+                {
+                  "playerName": "Player Three",
+                  "position": "goalie",
+                  "captain": false
+                },
+                 {
+                  "playerName": "Player One",
+                  "position": "forward",
+                  "captain": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

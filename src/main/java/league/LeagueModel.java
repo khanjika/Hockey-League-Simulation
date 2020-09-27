@@ -11,6 +11,11 @@ public class LeagueModel {
     private List<ConferenceModel> conferences;
     private List<FreeAgentModel> freeAgents;
 
+
+    public LeagueModel() {
+
+    }
+
     public String getLeagueName() {
         return leagueName;
     }
@@ -34,4 +39,6 @@ public class LeagueModel {
     public void setFreeAgents(List<FreeAgentModel> freeAgents) {
         this.freeAgents = freeAgents;
     }
+
+
 }

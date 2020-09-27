@@ -1,11 +1,13 @@
 package players;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class PlayerModel {
 
     private String playerName;
     private String position;
-
-    private  boolean captain;
+    @JsonProperty(required = true)
+    private  Boolean captain;
 
     public String getPlayerName() {
         return playerName;
@@ -23,11 +25,11 @@ public class PlayerModel {
         this.position = position;
     }
 
-    public boolean isCaptain() {
+    public Boolean isCaptain() {
         return captain;
     }
 
-    public void setCaptain(boolean captain) {
+    public void setCaptain(Boolean captain) {
         this.captain = captain;
     }
 

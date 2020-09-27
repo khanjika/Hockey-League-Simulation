@@ -12,6 +12,7 @@ public class Main {
         obj.initializedCommunication("D:\\JsonRead\\demo.txt");
 
 
+
     }
 
 }
