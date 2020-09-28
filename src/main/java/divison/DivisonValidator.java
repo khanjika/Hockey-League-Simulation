@@ -1,5 +1,7 @@
 package divison;
 
+import conference.ConferenceModel;
+import league.LeagueModel;
 import players.IPlayerValidator;
 import players.PlayerModel;
 import players.PlayerValidator;
@@ -30,5 +32,19 @@ public class DivisonValidator implements IDivisonValidator{
             }
         }
         return true;
+    }
+
+    @Override
+    public boolean isDivisionExist(LeagueModel leagueModel, String divisionName) {
+
+        for(ConferenceModel conferenceModel: leagueModel.getConferences()){
+            for(DivisonModel divisonModel : conferenceModel.getDivisions()){
+                if(divisonModel.getDivisionName().equalsIgnoreCase(divisionName)){
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 }

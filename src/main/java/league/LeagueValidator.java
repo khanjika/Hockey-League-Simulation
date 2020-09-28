@@ -6,6 +6,9 @@ import conference.IConferenceValidator;
 import divison.DivisonModel;
 import divison.DivisonValidator;
 import divison.IDivisonValidator;
+import freeagent.FreeAgentModel;
+import freeagent.FreeAgentValidator;
+import freeagent.IFreeAgentValidator;
 import players.IPlayerValidator;
 import players.PlayerModel;
 import players.PlayerValidator;
@@ -16,16 +19,13 @@ import teams.TeamsValidator;
 public class LeagueValidator implements ILeagueValidator {
 
     private static IConferenceValidator conferenceValidator;
-    private static IDivisonValidator divisonValidator;
-    private static ITeamsValidator teamsValidator;
-    private static IPlayerValidator playerValidator;
+    private static IFreeAgentValidator freeAgentValidator;
+
     private int numberOfConference = 0;
 
     public LeagueValidator() {
         conferenceValidator = new ConferenceValidator();
-        divisonValidator = new DivisonValidator();
-        teamsValidator = new TeamsValidator();
-
+        freeAgentValidator=new FreeAgentValidator();
     }
 
     @Override
@@ -45,6 +45,15 @@ public class LeagueValidator implements ILeagueValidator {
 
                 return false;
             }
+        }
+        for(FreeAgentModel freeAgentModel : leagueModel.getFreeAgents()){
+                    if(freeAgentValidator.validateFreeAgentObject(freeAgentModel)){
+                        continue;
+                    }
+                    else {
+                        System.out.println("Encountered Problem While validating Free Agents in the league==> "+leagueModel.getLeagueName());
+                        return false;
+                    }
         }
         if (numberOfConference % 2 == 0) {
             return true;

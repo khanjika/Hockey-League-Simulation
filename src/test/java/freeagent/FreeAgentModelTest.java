@@ -1,10 +1,11 @@
 package freeagent;
 
 import org.junit.jupiter.api.Test;
+import players.PlayerModel;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class FreeAgentModelTest {
+public class FreeAgentModelTest {
 
     @Test
     void getPlayerName() {
@@ -46,5 +47,14 @@ class FreeAgentModelTest {
         FreeAgentModel freeAgentModel =new FreeAgentModel();
         freeAgentModel.setCaptain(true);
         assertTrue(freeAgentModel.isCaptain(),"Failed set player is captain or not in Free agent object");
+    }
+
+    public static FreeAgentModel getFreeAgentModel(String playerName, String position, boolean iscaptain){
+        FreeAgentModel freeAgentModel = new FreeAgentModel();
+        freeAgentModel.setCaptain(iscaptain);
+        freeAgentModel.setPlayerName(playerName);
+        freeAgentModel.setPosition(position);
+
+        return freeAgentModel;
     }
 }

@@ -4,6 +4,7 @@ import conference.ConferenceModel;
 import conference.ConferenceModelTest;
 import divison.DivisonModel;
 import freeagent.FreeAgentModel;
+import freeagent.FreeAgentModelTest;
 import org.junit.jupiter.api.Test;
 import players.PlayerModel;
 
@@ -12,7 +13,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class LeagueModelTest {
+public  class LeagueModelTest {
 
     @Test
     void getLeagueNameTest() {
@@ -65,6 +66,12 @@ class LeagueModelTest {
             conferenceModelObjectList.add(conferenceModel);
         }
         leagueModel.setConferences(conferenceModelObjectList);
+        List<FreeAgentModel> freeAgentModelList = new ArrayList<>();
+        for(int i=0;i<2;i++) {
+            FreeAgentModel freeAgentModel = FreeAgentModelTest.getFreeAgentModel("Roshan","forward",false);
+            freeAgentModelList.add(freeAgentModel);
+        }
+        leagueModel.setFreeAgents(freeAgentModelList);
         return leagueModel;
     }
 }

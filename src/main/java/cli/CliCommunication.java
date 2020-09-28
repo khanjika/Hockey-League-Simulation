@@ -53,22 +53,16 @@ public class CliCommunication implements ICliCommunication {
         System.out.println("Inside parse JSON method");
         try{
         byte[] mapData = Files.readAllBytes(Paths.get(fileName));
-
-
-
-
         //Read the json
          JsonNode data= objectMapper.readTree(mapData);
         System.out.println(data);
-        //call the method of model class to validate the data
-
-
         //calling the method to set the data to model
         leagueModel =fromJson(data,LeagueModel.class);
-
         if(leagueValidator.validateLeagueObject(leagueModel)){
             //create team
             System.out.println("Valid JSON");
+            CreateTeamCli createTeamCli = new CreateTeamCli();
+           LeagueModel newlyCreatedLeagueObject= createTeamCli.createNewTeam(leagueModel);
         }
         else {
             System.out.println("Invalid JSON");
@@ -79,7 +73,6 @@ public class CliCommunication implements ICliCommunication {
     }
 
     public static <A> A fromJson(JsonNode node,Class<A> classObj ) throws JsonProcessingException {
-
         return  objectMapper.treeToValue(node,classObj);
 
     }

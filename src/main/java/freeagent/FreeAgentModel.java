@@ -4,7 +4,7 @@ public class FreeAgentModel {
 
     private  String playerName;
     private  String position;
-    private boolean captain;
+    private Boolean captain;
 
     public String getPlayerName() {
         return playerName;
@@ -22,11 +22,11 @@ public class FreeAgentModel {
         this.position = position;
     }
 
-    public boolean isCaptain() {
+    public Boolean isCaptain() {
         return captain;
     }
 
-    public void setCaptain(boolean captain) {
+    public void setCaptain(Boolean captain) {
         this.captain = captain;
     }
 }

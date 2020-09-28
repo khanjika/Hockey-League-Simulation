@@ -3,6 +3,7 @@ package conference;
 import divison.DivisonModel;
 import divison.DivisonValidator;
 import divison.IDivisonValidator;
+import league.LeagueModel;
 
 
 public class ConferenceValidator implements IConferenceValidator {
@@ -24,9 +25,7 @@ public class ConferenceValidator implements IConferenceValidator {
         if (conferenceModel.getConferenceName() == null || conferenceModel.getConferenceName() == "") {
             return false;
         } else {
-          //  System.out.println(conferenceModel.getConferenceName());
             for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
-               // System.out.println(divisonModel);
                 numberOfDivision++;
                 if (divisonValidator.validateDivisionObject(divisonModel)) {
                     continue;
@@ -45,6 +44,16 @@ public class ConferenceValidator implements IConferenceValidator {
             //System.out.println("Number of Division is not even");
             return true;
         }
+    }
+
+    @Override
+    public boolean isConferenceExist(LeagueModel leagueModel,String conferenceName) {
+        for(ConferenceModel conferenceModel:leagueModel.getConferences()){
+            if(conferenceModel.getConferenceName().equalsIgnoreCase(conferenceName)){
+                return true;
+            }
+        }
+        return false;
     }
 
 }
