@@ -28,4 +28,30 @@ public class TeamsPersistent implements ITeamsPersistent{
         }
         return 0;
     }
+
+    @Override
+    public boolean isTeamNameExist(String teamName) {
+        CallStoredProcedure proc = null;
+        try {
+            proc = new CallStoredProcedure("IsLeagueNameAlreadyExist(?)");
+            proc.setParameter(1,teamName);
+            proc.registerOutParameter(2);
+            proc.execute();
+            int newlyReturedValue= proc.getNumericReturnValue(2);
+            if(newlyReturedValue == 1){
+                return true;
+            }
+            else {
+                return false;
+            }
+        } catch (Exception e) {
+            System.out.println("Exception is Team");
+            System.out.println(e);
+        } finally {
+            if (null != proc) {
+                //DO CLEANUP
+            }
+        }
+        return false;
+    }
 }

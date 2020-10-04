@@ -23,13 +23,19 @@ public class CliCommunication implements ICliCommunication {
    public  LeagueModel leagueModel;
    public static ObjectMapper objectMapper;
    private ILeagueValidator leagueValidator;
+   private  loadTeamCli loadTeamCli;
 
     public CliCommunication() {
         objectMapper =new ObjectMapper();
         leagueValidator=new LeagueValidator();
-
+        loadTeamCli = new loadTeamCli();
     }
 
+
+    @Override
+    public void loadTeamFromDatabase() {
+            loadTeamCli.getUserInput();
+    }
 
     @Override
     public boolean isFileExist(String fileName) {

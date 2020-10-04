@@ -30,4 +30,33 @@ public class LeaguePersistent implements ILeaguePersistent {
 
         return 0;
     }
+
+    @Override
+    public boolean isLeagueAlreadyExist(String leagueName) {
+        CallStoredProcedure proc = null;
+        try {
+            proc = new CallStoredProcedure("isLeagueNameAlreadyExist(?)");
+            proc.setParameter(1,leagueName);
+           proc.registerOutParameter(2);
+            proc.execute();
+            int returendValue = proc.getNumericReturnValue(2);
+            if(returendValue==1){
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        } catch (Exception e) {
+            System.out.println("Exception in League Validation");
+            System.out.println(e);
+        } finally {
+            if (null != proc) {
+                //DO CLEANUP
+            }
+        }
+
+        return false;
+    }
 }

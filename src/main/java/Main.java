@@ -1,6 +1,7 @@
 import cli.InitialCli;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import database.DatabaseConnection;
+import freeagent.FreeAgentPersistent;
 import league.LeaguePersistent;
 
 import java.io.IOException;
@@ -12,11 +13,10 @@ public class Main {
 //        DatabaseConnection connection = new DatabaseConnection();
 //        connection.getConnection();
 //
-        LeaguePersistent leaguePersistent = new LeaguePersistent();
-        leaguePersistent. addLeagueInforamtion();
-        InitialCli obj = new InitialCli();
-
+//        InitialCli obj = new InitialCli();
+//        obj.initializedCommunication();
 //        obj.initializedCommunication("D:\\JsonRead\\demo.txt");
+
 
     }
 
