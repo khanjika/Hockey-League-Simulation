@@ -23,7 +23,7 @@ public class InitialCli {
             parseJson();
         }
         else{
-            System.out.println("Loading team /.....");
+            System.out.println("Loading team....");
             cliCommunication.loadTeamFromDatabase();
 
         }
