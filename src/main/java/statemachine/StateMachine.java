@@ -5,6 +5,9 @@ public enum StateMachine {
         @Override
         public void state(){
             System.out.println("import");
+            for(State state: State.values()){
+                System.out.println(state.toString());
+            }
         }
     },
     Player_Choice{
@@ -25,6 +28,5 @@ public enum StateMachine {
             System.out.println("load_team");
         }
     };
-    State state;
     public abstract void state();
 }
