@@ -10,6 +10,14 @@ public class TeamsModel {
     private  String generalManager;
     private String  headCoach;
    private List<PlayerModel> players;
+   private PlayerModel playerModel;
+   private ITeamsPersistent iTeamsPersistent;
+
+
+    public TeamsModel() {
+        playerModel =new PlayerModel();
+        iTeamsPersistent=new TeamsPersistent();
+    }
 
     public String getTeamName() {
         return teamName;
@@ -42,5 +50,13 @@ public class TeamsModel {
 
     public void setPlayers(List<PlayerModel> players) {
         this.players = players;
+    }
+
+    public boolean storeTeamInformation(TeamsModel teamsModel,int divisionId){
+            int teamId=iTeamsPersistent.addTeamInformation(teamsModel.getTeamName(),teamsModel.getHeadCoach(),teamsModel.getGeneralManager(),divisionId);
+            for(PlayerModel playerModel:teamsModel.getPlayers()){
+
+            }
+        return false;
     }
 }

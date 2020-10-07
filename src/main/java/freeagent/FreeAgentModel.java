@@ -5,6 +5,11 @@ public class FreeAgentModel {
     private  String playerName;
     private  String position;
     private Boolean captain;
+    private IFreeAgentPersistent iFreeAgentPersistent;
+
+    public FreeAgentModel() {
+        iFreeAgentPersistent=new FreeAgentPersistent();
+    }
 
     public String getPlayerName() {
         return playerName;
@@ -28,5 +33,10 @@ public class FreeAgentModel {
 
     public void setCaptain(Boolean captain) {
         this.captain = captain;
+    }
+
+    public boolean storeFreeAgentInformation(FreeAgentModel freeAgentModel,int leagueId){
+        iFreeAgentPersistent.addFreeAgentInformation(freeAgentModel.getPlayerName(),freeAgentModel.getPosition(),freeAgentModel.isCaptain(),leagueId);
+        return false;
     }
 }

@@ -44,6 +44,7 @@ public class CreateTeamCli {
                     System.out.println("Conference name->    " + conferenceModel.getConferenceName());
                     for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
                         System.out.println("Division name->     " + divisonModel.getDivisionName());
+
                         for(TeamsModel teamsModel:divisonModel.getTeams()){
                             System.out.println("Team is---> " +teamsModel.getTeamName());
                         }
