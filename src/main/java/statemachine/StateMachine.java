@@ -95,10 +95,11 @@ public class StateMachine {
         return playerTeamChoice;
     }
 
-    //add parameter and call accordingly
-    public ITransition playerChoice(){
+    public ITransition playerChoiceLoadTeam(){
         return loadTeam;
     }
+
+    public ITransition playerChoiceCreateTeam(){ return createTeam;}
 
     public ITransition teamLoaded(){
         return playerSeasonsChoice;

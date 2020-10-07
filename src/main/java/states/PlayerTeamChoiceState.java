@@ -9,6 +9,13 @@ public class PlayerTeamChoiceState implements ITransition {
     public PlayerTeamChoiceState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
     }
+    public StateMachine getStateMachine() {
+        return stateMachine;
+    }
+
+    public void setStateMachine(StateMachine stateMachine) {
+        this.stateMachine = stateMachine;
+    }
     @Override
     public void entry() {
         System.out.println("Output choice to user");
@@ -23,6 +30,6 @@ public class PlayerTeamChoiceState implements ITransition {
     public void exit() {
         System.out.println("Transition to choice");
         // get choice from user and pass as parameter
-        stateMachine.setCurrentState(stateMachine.playerChoice());
+        stateMachine.setCurrentState(stateMachine.playerChoiceCreateTeam());
     }
 }
