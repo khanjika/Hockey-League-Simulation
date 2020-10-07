@@ -2,13 +2,15 @@ package league;
 
 import conference.ConferenceModel;
 import freeagent.FreeAgentModel;
+import freeagent.FreeAgentPersistent;
 
 import java.util.List;
 
-public class LeagueModel implements ILeagueModel{
+public class LeagueModel implements ILeagueModel {
 
     private ILeaguePersistent iLeaguePersistent;
     private ConferenceModel conferenceModel;
+    private FreeAgentModel freeAgentModel;
     private String leagueName;
     private List<ConferenceModel> conferences;
     private List<FreeAgentModel> freeAgents;
@@ -17,6 +19,7 @@ public class LeagueModel implements ILeagueModel{
     public LeagueModel() {
         iLeaguePersistent = new LeaguePersistent();
         conferenceModel = new ConferenceModel();
+        freeAgentModel = new FreeAgentModel();
     }
 
     public String getLeagueName() {
@@ -50,6 +53,9 @@ public class LeagueModel implements ILeagueModel{
         for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
             this.conferenceModel.storeConferenceInformation(conferenceModel, leagueId);
         }
+        for (FreeAgentModel freeAgentModel : leagueModel.getFreeAgents()) {
+            this.freeAgentModel.storeFreeAgentInformation(freeAgentModel, leagueId);
+        }
         return false;
     }
 
@@ -63,5 +69,15 @@ public class LeagueModel implements ILeagueModel{
         //call the conference method
         //conference model will return and pass the league ID
         //which will set all the onference
+    }
+
+    @Override
+    public int getLeagueId(String leageuName) {
+        return 0;
+    }
+
+    @Override
+    public boolean isLeagueExist(String leagueName) {
+        return false;
     }
 }

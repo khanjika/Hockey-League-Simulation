@@ -41,9 +41,6 @@ public class LeaguePersistent implements ILeaguePersistent {
 
     @Override
     public int getLeagueId(String teamName) {
-
-
-
         return 0;
     }
 

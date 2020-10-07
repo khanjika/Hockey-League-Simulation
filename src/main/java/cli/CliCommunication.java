@@ -34,7 +34,7 @@ public class CliCommunication implements ICliCommunication {
 
     @Override
     public void loadTeamFromDatabase() {
-            loadTeamCli.getUserInput();
+        loadTeamCli.getData();
     }
 
     @Override
@@ -68,6 +68,7 @@ public class CliCommunication implements ICliCommunication {
             //create team
             System.out.println("Valid JSON");
             CreateTeamCli createTeamCli = new CreateTeamCli();
+            //Here i have all the updated league model object
            LeagueModel newlyCreatedLeagueObject= createTeamCli.createNewTeam(leagueModel);
         }
         else {
@@ -80,7 +81,6 @@ public class CliCommunication implements ICliCommunication {
 
     public static <A> A fromJson(JsonNode node,Class<A> classObj ) throws JsonProcessingException {
         return  objectMapper.treeToValue(node,classObj);
-
     }
 
 
