@@ -30,7 +30,7 @@ public class SimulateState implements ITransition {
 
     @Override
     public void entry() {
-        System.out.println("Run internal State Machine");
+
         nestedSimulator = new NestedSimulator();
     }
 

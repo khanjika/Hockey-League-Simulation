@@ -13,7 +13,7 @@ public class Main {
 //
 //        DatabaseConnection connection = new DatabaseConnection();
 //        connection.getConnection();
-//
+
 //        InitialCli obj = new InitialCli();
 //        obj.initializedCommunication();
 //        obj.initializedCommunication("D:\\JsonRead\\demo.txt");

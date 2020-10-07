@@ -1,5 +1,6 @@
 package states;
 
+import cli.InitialCli;
 import statemachine.StateMachine;
 
 public class ImportJsonState implements ITransition {
@@ -20,6 +21,8 @@ public class ImportJsonState implements ITransition {
     @Override
     public void entry() {
         System.out.println("Parse Json Import");
+        InitialCli initialCli = new InitialCli();
+        initialCli.initializedCommunication();
     }
 
     @Override

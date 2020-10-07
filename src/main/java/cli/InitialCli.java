@@ -12,9 +12,7 @@ public class InitialCli {
     public InitialCli() {
         cliCommunication =new CliCommunication();
         scannerObject = new Scanner(System.in);
-
     }
-
 
     public void initializedCommunication()  {
         System.out.println("Do you want to provide json path to import ?");
@@ -25,27 +23,24 @@ public class InitialCli {
         else{
             System.out.println("Loading team....");
             cliCommunication.loadTeamFromDatabase();
-
         }
+    }
 
-        }
-
-        public void parseJson(){
-            System.out.println("Provide complete file path");
-            String filePath=scannerObject.nextLine();
-            if(cliCommunication.isFileExist(filePath)){
-                try {
-                    cliCommunication.parseJson(filePath);
-                }
-                catch (IOException e){
-                    System.out.println("Error while parsing the file"+e);
-                }
-
+    public void parseJson(){
+        System.out.println("Provide complete file path");
+        String filePath=scannerObject.nextLine();
+        if(cliCommunication.isFileExist(filePath)){
+            try {
+                cliCommunication.parseJson(filePath);
             }
-            else{
-                System.out.println("File does not exist in the specified location");
+            catch (IOException e){
+                System.out.println("Error while parsing the file"+e);
             }
         }
+        else{
+            System.out.println("File does not exists in the specified location");
+        }
+    }
 
 
 

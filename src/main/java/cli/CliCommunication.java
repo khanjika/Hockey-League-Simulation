@@ -63,7 +63,7 @@ public class CliCommunication implements ICliCommunication {
          JsonNode data= objectMapper.readTree(mapData);
         System.out.println(data);
         //calling the method to set the data to model
-        leagueModel =fromJson(data,LeagueModel.class);
+        leagueModel = fromJson(data,LeagueModel.class);
         if(leagueValidator.validateLeagueObject(leagueModel)){
             //create team
             System.out.println("Valid JSON");
@@ -82,7 +82,4 @@ public class CliCommunication implements ICliCommunication {
         return  objectMapper.treeToValue(node,classObj);
 
     }
-
-
-
 }
