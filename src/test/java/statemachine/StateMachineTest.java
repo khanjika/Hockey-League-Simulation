@@ -1,5 +1,5 @@
 package statemachine;
 
-public class StateMachineSimulatorTest {
+public class StateMachineTest {
 
 }
