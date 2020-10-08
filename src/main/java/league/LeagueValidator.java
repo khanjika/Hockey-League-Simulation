@@ -42,7 +42,6 @@ public class LeagueValidator implements ILeagueValidator {
                 continue;
             } else {
                 System.out.println("Encountered Problem While validating Conferences");
-
                 return false;
             }
         }

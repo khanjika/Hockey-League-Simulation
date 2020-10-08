@@ -28,7 +28,7 @@ public class PlayerValidator implements IPlayerValidator {
 
    private boolean validatePosition(String str){
 
-       String position= str.toLowerCase();
+       String position = str.toLowerCase();
         if(position.equals("goalie") || position.equals("forward") || position.equals("defense")){
             return true;
         }

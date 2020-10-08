@@ -1,5 +1,8 @@
 package league;
 
 public interface ILeagueModel {
-    boolean validateLeagueObject(LeagueModel leagueModel);
+
+    void createNewLeagueModelFromDatabase(int leagueId);
+    int getLeagueId(String leageuName);
+    boolean isLeagueExist(String leagueName);
 }

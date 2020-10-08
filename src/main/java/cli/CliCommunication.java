@@ -23,13 +23,19 @@ public class CliCommunication implements ICliCommunication {
    public  LeagueModel leagueModel;
    public static ObjectMapper objectMapper;
    private ILeagueValidator leagueValidator;
+   private  loadTeamCli loadTeamCli;
 
     public CliCommunication() {
         objectMapper =new ObjectMapper();
         leagueValidator=new LeagueValidator();
-
+        loadTeamCli = new loadTeamCli();
     }
 
+
+    @Override
+    public void loadTeamFromDatabase() {
+        loadTeamCli.getData();
+    }
 
     @Override
     public boolean isFileExist(String fileName) {
@@ -49,7 +55,7 @@ public class CliCommunication implements ICliCommunication {
 
 
     @Override
-    public void parseJson(String fileName)  {
+    public LeagueModel parseJson(String fileName)  {
         System.out.println("Inside parse JSON method");
         try{
         byte[] mapData = Files.readAllBytes(Paths.get(fileName));
@@ -57,12 +63,15 @@ public class CliCommunication implements ICliCommunication {
          JsonNode data= objectMapper.readTree(mapData);
         System.out.println(data);
         //calling the method to set the data to model
-        leagueModel =fromJson(data,LeagueModel.class);
+        leagueModel = fromJson(data,LeagueModel.class);
         if(leagueValidator.validateLeagueObject(leagueModel)){
             //create team
             System.out.println("Valid JSON");
-            CreateTeamCli createTeamCli = new CreateTeamCli();
-           LeagueModel newlyCreatedLeagueObject= createTeamCli.createNewTeam(leagueModel);
+
+            return leagueModel;
+           // CreateTeamCli createTeamCli = new CreateTeamCli();
+            //Here i have all the updated league model object
+         //  LeagueModel newlyCreatedLeagueObject= createTeamCli.createNewTeam(leagueModel);
         }
         else {
             System.out.println("Invalid JSON");
@@ -70,13 +79,10 @@ public class CliCommunication implements ICliCommunication {
         catch (IOException e){
             System.out.println("Error occurred while parsing the file due to syntax issue");
         }
+        return null;
     }
 
     public static <A> A fromJson(JsonNode node,Class<A> classObj ) throws JsonProcessingException {
         return  objectMapper.treeToValue(node,classObj);
-
     }
-
-
-
 }
