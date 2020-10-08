@@ -1,17 +1,28 @@
 package states;
 
+import league.LeagueModel;
 import statemachine.StateMachine;
 import states.ITransition;
 
 public class PlayerSeasonsChoiceState implements ITransition {
     StateMachine stateMachine;
+    LeagueModel currentModel;
 
     public PlayerSeasonsChoiceState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
     }
+    public PlayerSeasonsChoiceState(LeagueModel leagueModel){this.currentModel = leagueModel;}
 
     public StateMachine getStateMachine() {
         return stateMachine;
+    }
+
+    public LeagueModel getCurrentModel() {
+        return currentModel;
+    }
+
+    public void setCurrentModel(LeagueModel currentModel) {
+        this.currentModel = currentModel;
     }
 
     public void setStateMachine(StateMachine stateMachine) {

@@ -11,6 +11,7 @@ public class ImportJsonState implements ITransition {
     private  static ICliCommunication cliCommunication;
     String userInput;
     InitialCli initialCli;
+    CreateTeamState createTeamState;
 
 
     public ImportJsonState() {
@@ -35,7 +36,8 @@ public class ImportJsonState implements ITransition {
     public void entry() {
         System.out.println("Parse Json Import");
         InitialCli initialCli = new InitialCli();
-      userInput=  initialCli.initializedCommunication();
+        userInput=  initialCli.initializedCommunication();
+        task();
     }
 
     @Override
@@ -45,21 +47,20 @@ public class ImportJsonState implements ITransition {
 
             //i need to transit to create team state and i want to pass the below variable.
             LeagueModel leagueModel = initialCli.parseJson();
-
+            createTeamState = new CreateTeamState(leagueModel);
+            stateMachine.setCurrentState(stateMachine.playerChoiceCreateTeam());
         }
         else {
-
 
             stateMachine.setCurrentState(stateMachine.playerChoiceLoadTeam());
           //  cliCommunication.loadTeamFromDatabase();
         }
 
-
+        exit();
     }
 
     @Override
     public void exit() {
-
-        stateMachine.setCurrentState(stateMachine.fileImported());
+        stateMachine.getCurrentState().entry();
     }
 }

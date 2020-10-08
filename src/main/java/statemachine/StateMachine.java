@@ -21,6 +21,7 @@ public class StateMachine {
         simulate = new SimulateState(this);
 
         currentState = importJson;
+        currentState.entry();
     }
 
     public ITransition getImportJson() {
