@@ -4,6 +4,7 @@ public class TeamPojo {
     private int teamId;
     private String generalManagerName;
     private String headCoach;
+
     public int getTeamId() {
         return teamId;
     }
