@@ -25,6 +25,7 @@ class CreateTeamCliTest {
         System.setIn(teamMockData);
         CreateTeamCli createTeamCli = new CreateTeamCli();
         assertNotNull(createTeamCli.createNewTeam(leagueModel));
+
     }
 
     @Test

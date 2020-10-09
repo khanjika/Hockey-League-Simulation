@@ -67,7 +67,7 @@ public class CliCommunication implements ICliCommunication {
         return null;
     }
 
-    public static <A> A fromJson(JsonNode node, Class<A> classObj) throws JsonProcessingException {
+    private static <A> A fromJson(JsonNode node, Class<A> classObj) throws JsonProcessingException {
         return objectMapper.treeToValue(node, classObj);
     }
 }

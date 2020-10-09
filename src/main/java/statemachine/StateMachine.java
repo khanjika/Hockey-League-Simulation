@@ -13,7 +13,7 @@ public class StateMachine {
     ITransition currentState;
 
     public StateMachine() {
-        System.out.println("State Machine object");
+
         importJson = new ImportJsonState(this);
         playerTeamChoice = new PlayerTeamChoiceState(this);
         loadTeam = new LoadTeamState(this);
@@ -21,7 +21,6 @@ public class StateMachine {
         playerSeasonsChoice = new PlayerSeasonsChoiceState(this);
         simulate = new SimulateState(this);
         currentState = importJson;
-       // currentState.entry();
     }
 
     public ITransition getImportJson() {
@@ -100,7 +99,8 @@ public class StateMachine {
         return loadTeam;
     }
 
-    public ITransition playerChoiceCreateTeam(){ return createTeam;}
+    public ITransition playerChoiceCreateTeam(){
+        return createTeam;}
 
     public ITransition teamLoaded(){
         return playerSeasonsChoice;

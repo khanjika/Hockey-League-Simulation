@@ -56,7 +56,7 @@ public class loadTeamCli {
                         TeamPojo teamPojo = iTeamsModel.getTeamInformation(teamName, divisionId);
                         List<PlayerModel> listOfPLayers = iPlayerModel.getPlayerInformation(teamId);
                         System.out.println("Loading the data....");
-                        System.out.println("=================================");
+                        System.out.println("=====================================");
                         System.out.println("General Manager = " + teamPojo.getGeneralManagerName());
                         System.out.println("Head Coach = " + teamPojo.getHeadCoach());
                         System.out.println();
@@ -100,7 +100,6 @@ public class loadTeamCli {
         if (iLeagueModel.isLeagueExist(leagueName)) {
             return true;
         } else {
-            System.out.println("League does not exist in the DB");
             return false;
         }
     }

@@ -10,7 +10,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public  class TeamsModelTest {
+public class TeamsModelTest {
 
     @Test
     void getTeamName() {
@@ -75,16 +75,37 @@ public  class TeamsModelTest {
         teamsModel.setGeneralManager("Mister Fred");
         teamsModel.setTeamName("Boston");
         boolean isCaptain = true;
-        String  playerName = "A";
+        String playerName = "A";
         List<PlayerModel> playerModelObjectList = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
 
             playerName = playerName + i;
-            PlayerModel playerModel= PlayerModelTest.getPlayerModel(playerName,"forward",isCaptain);
+            PlayerModel playerModel = PlayerModelTest.getPlayerModel(playerName, "forward", isCaptain);
             isCaptain = false;
             playerModelObjectList.add(playerModel);
         }
         teamsModel.setPlayers(playerModelObjectList);
-        return  teamsModel;
+        return teamsModel;
     }
+
+    @Test
+    void isTeamAlreadyExist() {
+        MockTeamsPersistent mock = new MockTeamsPersistent();
+        assertTrue(mock.isTeamNameExist());
+    }
+
+    @Test
+    void getTeamId() {
+        MockTeamsPersistent mock = new MockTeamsPersistent();
+        assertEquals(mock.getTeamId(), 1);
+    }
+
+    @Test
+    void getTeamInformation() {
+        MockTeamsPersistent mock = new MockTeamsPersistent();
+        TeamPojo teamPojo = mock.getTeamInformation();
+        assertEquals(teamPojo.getTeamId(),1);
+        assertEquals(teamPojo.getHeadCoach(),"Rob");
+    }
+
 }

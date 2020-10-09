@@ -15,7 +15,6 @@ public class ImportJsonState implements ITransition {
 
 
     public ImportJsonState() {
-        System.out.println("constructor of import json created");
 
         cliCommunication = new CliCommunication();
     }
@@ -42,13 +41,14 @@ public class ImportJsonState implements ITransition {
     @Override
     public void task() {
         if (userInput.equalsIgnoreCase("yes")) {
+            System.out.println("Import json class "+stateMachine);
             InitialCli initialCli01 = new InitialCli();
             LeagueModel leagueModel = initialCli01.parseJson();
             if(leagueModel==null){
 
             }
             else {
-                createTeamState = new CreateTeamState(leagueModel);
+                createTeamState = new CreateTeamState(leagueModel,stateMachine);
                 stateMachine.setCreateTeam(createTeamState);
                 stateMachine.setCurrentState(stateMachine.playerChoiceCreateTeam());
                 exit();

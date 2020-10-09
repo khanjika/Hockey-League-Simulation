@@ -13,7 +13,7 @@ public class FreeAgentPersistent implements  IFreeAgentPersistent{
             storedProcedure = new CallStoredProcedure("storeNewFreeAgentInformation(?, ?, ? ,?)");
             storedProcedure.setParameter(1,freeAgentName);
             storedProcedure.setParameter(2,freeAgnetPosition);
-            storedProcedure.setParameter(3,isCaptain);
+            storedProcedure.setParameter(3,Boolean.toString(isCaptain));
             storedProcedure.setParameter(4,leagueId);
             storedProcedure.execute();
         } catch (Exception e) {

@@ -16,16 +16,13 @@ public class CreateTeamState implements ITransition {
         this.stateMachine = stateMachine;
     }
 
-    public CreateTeamState(LeagueModel leagueModel) {
+    public CreateTeamState(LeagueModel leagueModel,StateMachine stateMachine) {
         iLeagueModel = new LeagueModel();
         createTeamCli = new CreateTeamCli();
         this.currentModel = leagueModel;
+        this.stateMachine =stateMachine;
     }
 
-
-    public CreateTeamState() {
-
-    }
 
     public StateMachine getStateMachine() {
         return stateMachine;
@@ -57,19 +54,18 @@ public class CreateTeamState implements ITransition {
 
     @Override
     public void exit() {
-        iLeagueModel.storeLeagueInformation(updatedLeagueModel);
-        System.out.println("=====================================");
-        System.out.println("Your data have been successfully stored in the database");
-        System.out.println("=====================================");
-        //NULL
-        stateMachine.setCurrentState(stateMachine.teamLoaded());
-        stateMachine.getCurrentState().entry();
-        //I WILL BE USING THIS FOR THE TRANSITION.
-        //  stateMachine.getCurrentState().entry();
-//        }
-//        else {
-//            System.out.println("Sorry error occured");
-//        }
+        if(iLeagueModel.storeLeagueInformation(updatedLeagueModel)) {
+            System.out.println("=====================================");
+            System.out.println("Your data have been successfully stored in the database");
+            System.out.println("=====================================");
+            stateMachine.setCurrentState(stateMachine.teamLoaded());
+            stateMachine.getCurrentState().entry();
+        }
+        else {
+            System.out.println("=====================================");
+            System.out.println("Error Encountered while storing data in the database");
+            System.out.println("=====================================");
+        }
 
     }
 }

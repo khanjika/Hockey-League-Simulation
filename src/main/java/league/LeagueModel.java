@@ -49,23 +49,23 @@ public class LeagueModel implements ILeagueModel {
         this.freeAgents = freeAgents;
     }
 
-    public void storeLeagueInformation(LeagueModel leagueModel) {
+    public boolean storeLeagueInformation(LeagueModel leagueModel) {
         loadTeamCli = new loadTeamCli();
         if(loadTeamCli.isLeagueExist(leagueModel.getLeagueName())){
             System.out.println("League already Exit in the DB");
+            return false;
         }
         else{
             int leagueId = iLeaguePersistent.addLeagueInformation(leagueModel.getLeagueName());
             for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
                this.conferenceModel.storeConferenceInformation(conferenceModel, leagueId);
             }
-//            for (FreeAgentModel freeAgentModel : leagueModel.getFreeAgents()) {
-//               this.freeAgentModel.storeFreeAgentInformation(freeAgentModel, leagueId);
-//
-//            }
+            for (FreeAgentModel freeAgentModel : leagueModel.getFreeAgents()) {
+               this.freeAgentModel.storeFreeAgentInformation(freeAgentModel, leagueId);
+
+            }
         }
-
-
+        return true;
     }
 
     @Override

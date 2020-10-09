@@ -36,7 +36,7 @@ public class CreateTeamCli {
             if (isDivisionNameValid(leagueModel)) {
                 if(this.isTeamInformationSetProperly(leagueModel)){
                     LeagueModel newlyCreatedLeagueModelObject = getNewlyCreatedLeagueObject(leagueModel);
-                    System.out.println("―――――――――――――――――――――");
+                    System.out.println("=====================================");
                 for (ConferenceModel conferenceModel : newlyCreatedLeagueModelObject.getConferences()) {
                     System.out.println("Conference name->    " + conferenceModel.getConferenceName());
                     for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
@@ -46,7 +46,7 @@ public class CreateTeamCli {
                         }
                     }
                 }
-                System.out.println("―――――――――――――――――――――");
+                    System.out.println("=====================================");
                 return newlyCreatedLeagueModelObject;
                 }
             }
@@ -55,9 +55,9 @@ public class CreateTeamCli {
     }
 
     public boolean isConferenceNameValid(LeagueModel leagueModel) {
-        System.out.println("====");
+        System.out.println("=====================================");
         System.out.println("Here You need to create a new Team in the EXISTING division");
-        System.out.println("====");
+        System.out.println("=====================================");
         System.out.println("Enter Conference name in which you want to create new Team");
         String conferenceName = scannerObject.nextLine();
         if (isStringValid(conferenceName)) {
@@ -138,10 +138,10 @@ public class CreateTeamCli {
                 }
             }
         }
-        System.out.println("―――――――――――――――――――――");
+        System.out.println("=====================================");
         System.out.println("Conference name is " + this.userEnteredConferenceName + " and " + "Division name is " + this.userEnteredDivisionName);
         System.out.println("In memory Team created Successfully!!");
-        System.out.println("―――――――――――――――――――――");
+        System.out.println("=====================================");
         return leagueModel;
     }
 

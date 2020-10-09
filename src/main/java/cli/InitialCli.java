@@ -19,7 +19,7 @@ public class InitialCli {
 
     public String initializedCommunication()  {
         System.out.println("Do you want to provide json path to import ?");
-        String userInput = scannerObject.nextLine();
+        String userInput = this.scannerObject.nextLine();
         if(userInput.equalsIgnoreCase("yes")){
             return "yes";
         }

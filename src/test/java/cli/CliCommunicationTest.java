@@ -1,5 +1,6 @@
 package cli;
 
+import league.LeagueModel;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -13,8 +14,10 @@ class CliCommunicationTest {
        assertFalse(cliCommunication.isFileExist("xyz.txt"));
     }
 
-
     @Test
-    void fromJson() {
+    void parseJson(){
+        CliCommunication cliCommunication = new CliCommunication();
+      LeagueModel leagueModel=cliCommunication.parseJson("src/test/java/resources/TestJson.txt");
+      assertNotNull(leagueModel);
     }
 }

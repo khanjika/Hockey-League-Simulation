@@ -1,10 +1,12 @@
 package league;
 
+import cli.loadTeamCli;
 import conference.ConferenceModel;
 import conference.ConferenceModelTest;
 import divison.DivisonModel;
 import freeagent.FreeAgentModel;
 import freeagent.FreeAgentModelTest;
+import javafx.beans.binding.When;
 import org.junit.jupiter.api.Test;
 import players.PlayerModel;
 
@@ -81,4 +83,6 @@ public  class LeagueModelTest {
         MockLeaguePersistent mock = new MockLeaguePersistent();
         assertEquals(mock.getLeagueId("Leagu name"),1);
     }
+
+
 }
