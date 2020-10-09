@@ -1,6 +1,8 @@
 package league;
 
+import cli.loadTeamCli;
 import conference.ConferenceModel;
+import conference.IConferenceModel;
 import freeagent.FreeAgentModel;
 import freeagent.FreeAgentPersistent;
 
@@ -9,14 +11,16 @@ import java.util.List;
 public class LeagueModel implements ILeagueModel {
 
     private ILeaguePersistent iLeaguePersistent;
-    private ConferenceModel conferenceModel;
+    private IConferenceModel conferenceModel;
     private FreeAgentModel freeAgentModel;
+    loadTeamCli loadTeamCli;
     private String leagueName;
     private List<ConferenceModel> conferences;
     private List<FreeAgentModel> freeAgents;
 
 
     public LeagueModel() {
+        System.out.println("League Model object created");
         iLeaguePersistent = new LeaguePersistent();
         conferenceModel = new ConferenceModel();
         freeAgentModel = new FreeAgentModel();
@@ -48,15 +52,25 @@ public class LeagueModel implements ILeagueModel {
 
 
     //IN future if there are multiple league then argumnet will accept league arraylist
-    public boolean storeLeagueInformation(LeagueModel leagueModel) {
-        int leagueId = iLeaguePersistent.addLeagueInformation(leagueModel.getLeagueName());
-        for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
-            this.conferenceModel.storeConferenceInformation(conferenceModel, leagueId);
+    public void storeLeagueInformation(LeagueModel leagueModel) {
+
+        loadTeamCli = new loadTeamCli();
+        if(loadTeamCli.isLeagueExist(leagueModel.getLeagueName())){
+            System.out.println("League already Exit in the DB");
+
         }
-        for (FreeAgentModel freeAgentModel : leagueModel.getFreeAgents()) {
-            this.freeAgentModel.storeFreeAgentInformation(freeAgentModel, leagueId);
+        else{
+            int leagueId = iLeaguePersistent.addLeagueInformation(leagueModel.getLeagueName());
+            for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
+               this.conferenceModel.storeConferenceInformation(conferenceModel, leagueId);
+            }
+            for (FreeAgentModel freeAgentModel : leagueModel.getFreeAgents()) {
+               this.freeAgentModel.storeFreeAgentInformation(freeAgentModel, leagueId);
+
+            }
         }
-        return false;
+
+
     }
 
 

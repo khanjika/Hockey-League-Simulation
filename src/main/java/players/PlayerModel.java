@@ -2,18 +2,18 @@ package players;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class PlayerModel {
+public class PlayerModel implements  IPlayerModel{
 
     private IPlayerPersistent iPlayerPersistent;
 
     public PlayerModel() {
-        iPlayerPersistent=new PlayerPersistent();
+        iPlayerPersistent = new PlayerPersistent();
     }
 
     private String playerName;
     private String position;
     @JsonProperty(required = true)
-    private  Boolean captain;
+    private Boolean captain;
 
     public String getPlayerName() {
         return playerName;
@@ -39,8 +39,12 @@ public class PlayerModel {
         this.captain = captain;
     }
 
-    public boolean storePlayerInformation(PlayerModel playerModel,int teamId){
-        iPlayerPersistent.addPlayerInformation(playerModel.getPlayerName(),playerModel.getPosition(),playerModel.isCaptain(),teamId);
-        return true;
+    public void storePlayerInformation(PlayerModel playerModel, int teamId) {
+        //get last inserted player if
+        int lastInsertedPLayerId = iPlayerPersistent.addPlayerInformation(playerModel.getPlayerName(), playerModel.getPosition(), playerModel.isCaptain(), teamId);
+        if (lastInsertedPLayerId != 0) {
+          iPlayerPersistent.storePlayerId(lastInsertedPLayerId, teamId);
+        }
+
     }
 }

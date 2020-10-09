@@ -6,9 +6,9 @@ import java.sql.ResultSet;
 
 public class FreeAgentPersistent implements  IFreeAgentPersistent{
     @Override
-    public void addFreeAgentInformation(String freeAgentName, String freeAgnetPosition, boolean isCaptain, int leagueId) {
+    public boolean addFreeAgentInformation(String freeAgentName, String freeAgnetPosition, boolean isCaptain, int leagueId) {
 
-
+return false;
     }
 
 

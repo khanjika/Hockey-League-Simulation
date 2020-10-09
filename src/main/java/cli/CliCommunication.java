@@ -3,14 +3,9 @@ package cli;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import conference.ConferenceModel;
-import divison.DivisonModel;
-import league.ILeagueModel;
 import league.ILeagueValidator;
 import league.LeagueModel;
 import league.LeagueValidator;
-import players.PlayerModel;
-import teams.TeamsModel;
 
 import java.io.File;
 import java.io.IOException;
@@ -33,8 +28,8 @@ public class CliCommunication implements ICliCommunication {
 
 
     @Override
-    public void loadTeamFromDatabase() {
-        loadTeamCli.getData();
+    public boolean loadTeamFromDatabase() {
+      return loadTeamCli.getData();
     }
 
     @Override

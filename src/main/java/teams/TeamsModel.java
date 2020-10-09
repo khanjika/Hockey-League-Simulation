@@ -1,5 +1,6 @@
 package teams;
 
+import players.IPlayerModel;
 import players.PlayerModel;
 
 import java.util.List;
@@ -10,7 +11,7 @@ public class TeamsModel implements  ITeamsModel{
     private String generalManager;
     private String headCoach;
     private List<PlayerModel> players;
-    private PlayerModel playerModel;
+    private IPlayerModel playerModel;
     private ITeamsPersistent iTeamsPersistent;
 
 
@@ -52,11 +53,11 @@ public class TeamsModel implements  ITeamsModel{
         this.players = players;
     }
 
-    public boolean storeTeamInformation(TeamsModel teamsModel, int divisionId) {
+    public void storeTeamInformation(TeamsModel teamsModel, int divisionId) {
         if (isTeamAlreadyExist(teamsModel.getTeamName(), divisionId)) {
             System.out.println("Team already Exist in the DB");
-            return false;
         } else {
+            System.out.println("Inside team method to store information="+teamsModel.getTeamName());
             //Store head coach
             int headCoachId =0 ;
             //store general manager
@@ -64,10 +65,11 @@ public class TeamsModel implements  ITeamsModel{
             //Store team Information
             int teamId =0;
             for (PlayerModel playerModel : teamsModel.getPlayers()) {
-                this.playerModel.storePlayerInformation(playerModel, teamId);
+               this.playerModel.storePlayerInformation(playerModel, teamId);
+
             }
         }
-        return false;
+
     }
 
     @Override

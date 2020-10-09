@@ -1,13 +1,14 @@
 package conference;
 
 import divison.DivisonModel;
+import divison.IDivisonModel;
 
 import java.util.List;
 
 public class ConferenceModel implements  IConferenceModel{
 
     private IConferencePersistent iConferencePersistent;
-    private DivisonModel divisonModel;
+    private IDivisonModel divisonModel;
     private String conferenceName;
     private List<DivisonModel> divisions;
 
@@ -33,21 +34,23 @@ public class ConferenceModel implements  IConferenceModel{
         this.divisions = divisions;
     }
 
-    public boolean storeConferenceInformation(ConferenceModel conferenceModel, int leagueId) {
+    public void storeConferenceInformation(ConferenceModel conferenceModel, int leagueId) {
 
-        //is conference in that specific eague already exist
+        //is conference in that specific league already exist
        if(isConferenceAlreadyExist(conferenceModel.getConferenceName(),leagueId))
        {
            System.out.println("Conference already Exist in the DB");
-           return false;
+
        }
        else {
+           System.out.println("Inside store conference information method=>"+conferenceModel.getConferenceName());
            int conferenceId = iConferencePersistent.addConferenceInformation(conferenceModel.getConferenceName(), leagueId);
            for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
                this.divisonModel.storeDivisionInformation(divisonModel, conferenceId);
+
            }
        }
-        return false;
+
     }
 
     public boolean isConferenceAlreadyExist(String conferenceName, int leagueId){
