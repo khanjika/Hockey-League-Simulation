@@ -32,10 +32,8 @@ public class CreateTeamCli {
 
     //Method used to create new team
     public LeagueModel createNewTeam(LeagueModel leagueModel) {
-
         if (isConferenceNameValid(leagueModel)) {
             if (isDivisionNameValid(leagueModel)) {
-
                 if(this.isTeamInformationSetProperly(leagueModel)){
                     LeagueModel newlyCreatedLeagueModelObject = getNewlyCreatedLeagueObject(leagueModel);
                     System.out.println("―――――――――――――――――――――");

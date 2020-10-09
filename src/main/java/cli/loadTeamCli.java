@@ -37,16 +37,21 @@ public class loadTeamCli {
     public boolean getData() {
         String leagueName = getUserInput("League");
         if (isLeagueExist(leagueName)) {
+            System.out.println(leagueName);
             int leagueId = iLeagueModel.getLeagueId(leagueName);
+            System.out.println("League Exist");
             String conferenceName = getUserInput("Conference");
             if (isConferenceExist(conferenceName, leagueId))
             {
+                System.out.println("Conference Exist");
                 int conferenceId = iConferenceModel.getConferenceId(conferenceName, leagueId);
                 String divisionName = getUserInput("Division");
                 if (isDivisionExist(divisionName, conferenceId)) {
+                    System.out.println("Division Exist");
                     int divisionId = iDivisonModel.getDivisionId(divisionName, conferenceId);
                     String teamName = getUserInput("Team");
                     if (isTeamExist(teamName, divisionId)) {
+                        System.out.println("Team Exist");
                         int teamId = iTeamsModel.getTeamId(teamName, divisionId);
                         System.out.println("Team Exist in the DB");
                         System.out.println("Loading the data....");

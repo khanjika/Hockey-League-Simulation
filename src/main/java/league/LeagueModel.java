@@ -53,32 +53,26 @@ public class LeagueModel implements ILeagueModel {
 
     //IN future if there are multiple league then argumnet will accept league arraylist
     public void storeLeagueInformation(LeagueModel leagueModel) {
-
         loadTeamCli = new loadTeamCli();
         if(loadTeamCli.isLeagueExist(leagueModel.getLeagueName())){
             System.out.println("League already Exit in the DB");
-
         }
         else{
             int leagueId = iLeaguePersistent.addLeagueInformation(leagueModel.getLeagueName());
             for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
                this.conferenceModel.storeConferenceInformation(conferenceModel, leagueId);
             }
-            for (FreeAgentModel freeAgentModel : leagueModel.getFreeAgents()) {
-               this.freeAgentModel.storeFreeAgentInformation(freeAgentModel, leagueId);
-
-            }
+//            for (FreeAgentModel freeAgentModel : leagueModel.getFreeAgents()) {
+//               this.freeAgentModel.storeFreeAgentInformation(freeAgentModel, leagueId);
+//
+//            }
         }
 
 
     }
 
-
-
     @Override
     public void createNewLeagueModelFromDatabase(int leagueId) {
-
-
         //Return i will have all the league name set.
         //call the conference method
         //conference model will return and pass the league ID
@@ -86,12 +80,12 @@ public class LeagueModel implements ILeagueModel {
     }
 
     @Override
-    public int getLeagueId(String leageuName) {
-        return 0;
+    public int getLeagueId(String name) {
+        return iLeaguePersistent.getLeagueId(name);
     }
 
     @Override
     public boolean isLeagueExist(String leagueName) {
-        return false;
+        return iLeaguePersistent.isLeagueAlreadyExist(leagueName);
     }
 }

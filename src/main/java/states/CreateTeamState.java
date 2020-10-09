@@ -59,7 +59,6 @@ public class CreateTeamState implements ITransition {
     public void task() {
         System.out.println("Inside the task method of create team state");
       this.updatedLeagueModel= createTeamCli.createNewTeam(currentModel);
-
         exit();
     }
 

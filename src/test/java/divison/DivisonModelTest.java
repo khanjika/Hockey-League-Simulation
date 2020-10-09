@@ -60,4 +60,15 @@ public class DivisonModelTest {
         return  divisonModel;
     }
 
+    @Test
+    void isDivisionAlreadyExist(){
+        MockDivisionPersistent mock =new MockDivisionPersistent();
+        assertTrue( mock.isDivisionAlreadyExist("Atlantic",1));
+    }
+
+    @Test
+    void getDivisionInformation(){
+        MockDivisionPersistent mock =new MockDivisionPersistent();
+        assertEquals(mock.getDivisionInformation("atlantic",1),1);
+    }
 }

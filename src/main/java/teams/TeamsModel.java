@@ -59,34 +59,43 @@ public class TeamsModel implements  ITeamsModel{
         } else {
             System.out.println("Inside team method to store information="+teamsModel.getTeamName());
             //Store head coach
-            int headCoachId =0 ;
+            int headCoachId =storeHeadCoachInfirmation(teamsModel.getHeadCoach()) ;
+            System.out.println("Head coch ID=>"+headCoachId);
             //store general manager
-            int generalManagerName = 0;
+            int generalManagerId = storeGeneralManagerInformation(teamsModel.getGeneralManager());
+            System.out.println("General manager ID=>"+generalManagerId);
             //Store team Information
-            int teamId =0;
-            for (PlayerModel playerModel : teamsModel.getPlayers()) {
-               this.playerModel.storePlayerInformation(playerModel, teamId);
-
-            }
+            int teamId =addTeamInformation(teamsModel.getTeamName(),generalManagerId,headCoachId,divisionId);
+            System.out.println("New Team ID=>"+teamId);
+//            for (PlayerModel playerModel : teamsModel.getPlayers()) {
+//               this.playerModel.storePlayerInformation(playerModel, teamId);
+//
+//            }
         }
 
     }
 
+    public int addTeamInformation(String teamName, int generalManagerId, int headCoachId, int divisionId){
+        return iTeamsPersistent.addTeamInformation(teamName,generalManagerId,headCoachId,divisionId);
+    }
+
     @Override
     public boolean isTeamAlreadyExist(String teamName, int divisionId) {
-        return false;
+        return iTeamsPersistent.isTeamNameExist(teamName,divisionId);
     }
 
     @Override
     public int getTeamId(String teamName, int divisionId) {
-        return 0;
+        return iTeamsPersistent.getTeamId(teamName,divisionId);
     }
 
     private int storeHeadCoachInfirmation(String headCoachName){
-        return 0;
+        System.out.println("Storing Head coach info");
+        return iTeamsPersistent.addHeadCoahDetails(headCoachName);
     }
 
     private int storeGeneralManagerInformation(String generalManagerName){
-        return 0;
+        System.out.println("Storing general manager info");
+        return iTeamsPersistent.addGeneralManagerDetails(generalManagerName);
     }
 }

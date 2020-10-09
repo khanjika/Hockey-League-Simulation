@@ -44,7 +44,6 @@ public class DivisonModel implements IDivisonModel{
             for (TeamsModel teamsModel : divisonModel.getTeams()) {
                 System.out.println("Calling teams method for the team=>"+teamsModel.getTeamName());
                 this.teamsModel.storeTeamInformation(teamsModel, divisionId);
-
             }
 
         }
@@ -53,12 +52,11 @@ public class DivisonModel implements IDivisonModel{
     }
 
     public boolean isDivisionAlreadyExist(String divisionName, int conferenceId) {
-            return false;
+            return iDivisonPersistent.isDivisionAlreadyExist(divisionName,conferenceId);
     }
-
     @Override
     public int getDivisionId(String divisionName, int conferenceId) {
-        return 0;
+        return iDivisonPersistent.getDivisionInformation(divisionName,conferenceId);
     }
 
 
