@@ -48,6 +48,10 @@ public class CallStoredProcedure {
        statement.setLong(paramIndex, value);
     }
 
+    public void setParameter(int paramIndex, boolean value) throws SQLException {
+        statement.setBoolean (paramIndex, value);
+    }
+
     public void setParameter(int paramIndex, String value) throws SQLException {
         statement.setString(paramIndex, value);
     }
