@@ -55,9 +55,8 @@ public class LeagueValidator implements ILeagueValidator {
         if (numberOfConference % 2 == 0) {
             return true;
         } else {
-            //IMPORTANT NEED TO MAKE IT TO FALSE
-           // System.out.println("Number of Conference is not even");
-            return true;
+            System.out.println("Number of Conference is not even");
+            return false;
         }
     }
 

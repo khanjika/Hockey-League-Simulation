@@ -84,7 +84,6 @@ public class TeamsPersistent implements ITeamsPersistent {
             storedProcedure.setParameter (1, headCoachName);
             storedProcedure.registerOutParameter (2);
             storedProcedure.execute ();
-            //  System.out.println("Head Coach id is "+storedProcedure.getNumericReturnValue(2));
             return storedProcedure.getNumericReturnValue (2);
         } catch (Exception e) {
             System.out.println ("Exception in fetching information about head coach");
@@ -105,7 +104,6 @@ public class TeamsPersistent implements ITeamsPersistent {
             storedProcedure.setParameter (1, managerName);
             storedProcedure.registerOutParameter (2);
             storedProcedure.execute ();
-            //  System.out.println("General Manager id is "+storedProcedure.getNumericReturnValue(2));
             return storedProcedure.getNumericReturnValue (2);
         } catch (Exception e) {
             System.out.println ("Exception in fetching information about general manager");
