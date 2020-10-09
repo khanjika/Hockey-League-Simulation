@@ -14,7 +14,7 @@ public class ConferenceValidator implements IConferenceValidator {
 
 
     public ConferenceValidator() {
-        System.out.println("Inside the constructor of Conference Validator");
+
       divisonValidator  = new DivisonValidator();
     }
 

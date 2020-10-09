@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 
 public class FreeAgentPersistent implements  IFreeAgentPersistent{
     @Override
+
     public void addFreeAgentInformation(String freeAgentName, String freeAgnetPosition, boolean isCaptain, int leagueId) {
         CallStoredProcedure storedProcedure = null;
         try {
@@ -23,6 +24,7 @@ public class FreeAgentPersistent implements  IFreeAgentPersistent{
                 storedProcedure.clean ();
             }
         }
+
 
     }
 

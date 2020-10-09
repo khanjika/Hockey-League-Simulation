@@ -1,6 +1,8 @@
 package league;
 
+import cli.loadTeamCli;
 import conference.ConferenceModel;
+import conference.IConferenceModel;
 import freeagent.FreeAgentModel;
 import freeagent.FreeAgentPersistent;
 
@@ -9,8 +11,9 @@ import java.util.List;
 public class LeagueModel implements ILeagueModel {
 
     private ILeaguePersistent iLeaguePersistent;
-    private ConferenceModel conferenceModel;
+    private IConferenceModel conferenceModel;
     private FreeAgentModel freeAgentModel;
+    loadTeamCli loadTeamCli;
     private String leagueName;
     private List<ConferenceModel> conferences;
     private List<FreeAgentModel> freeAgents;
@@ -46,38 +49,32 @@ public class LeagueModel implements ILeagueModel {
         this.freeAgents = freeAgents;
     }
 
-
-    //IN future if there are multiple league then argumnet will accept league arraylist
-    public boolean storeLeagueInformation(LeagueModel leagueModel) {
-        int leagueId = iLeaguePersistent.addLeagueInformation(leagueModel.getLeagueName());
-        for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
-            this.conferenceModel.storeConferenceInformation(conferenceModel, leagueId);
+    public void storeLeagueInformation(LeagueModel leagueModel) {
+        loadTeamCli = new loadTeamCli();
+        if(loadTeamCli.isLeagueExist(leagueModel.getLeagueName())){
+            System.out.println("League already Exit in the DB");
         }
-        for (FreeAgentModel freeAgentModel : leagueModel.getFreeAgents()) {
-            this.freeAgentModel.storeFreeAgentInformation(freeAgentModel, leagueId);
+        else{
+            int leagueId = iLeaguePersistent.addLeagueInformation(leagueModel.getLeagueName());
+            for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
+               this.conferenceModel.storeConferenceInformation(conferenceModel, leagueId);
+            }
+//            for (FreeAgentModel freeAgentModel : leagueModel.getFreeAgents()) {
+//               this.freeAgentModel.storeFreeAgentInformation(freeAgentModel, leagueId);
+//
+//            }
         }
-        return false;
-    }
 
 
-
-    @Override
-    public void createNewLeagueModelFromDatabase(int leagueId) {
-
-
-        //Return i will have all the league name set.
-        //call the conference method
-        //conference model will return and pass the league ID
-        //which will set all the onference
     }
 
     @Override
-    public int getLeagueId(String leageuName) {
-        return 0;
+    public int getLeagueId(String name) {
+        return iLeaguePersistent.getLeagueId(name);
     }
 
     @Override
     public boolean isLeagueExist(String leagueName) {
-        return false;
+        return iLeaguePersistent.isLeagueAlreadyExist(leagueName);
     }
 }

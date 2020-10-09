@@ -1,13 +1,14 @@
 package conference;
 
 import divison.DivisonModel;
+import divison.IDivisonModel;
 
 import java.util.List;
 
-public class ConferenceModel implements  IConferenceModel{
+public class ConferenceModel implements IConferenceModel {
 
     private IConferencePersistent iConferencePersistent;
-    private DivisonModel divisonModel;
+    private IDivisonModel divisonModel;
     private String conferenceName;
     private List<DivisonModel> divisions;
 
@@ -33,30 +34,26 @@ public class ConferenceModel implements  IConferenceModel{
         this.divisions = divisions;
     }
 
-    public boolean storeConferenceInformation(ConferenceModel conferenceModel, int leagueId) {
+    public void storeConferenceInformation(ConferenceModel conferenceModel, int leagueId) {
+        //is conference in that specific league already exist
+        if (isConferenceAlreadyExist(conferenceModel.getConferenceName(), leagueId)) {
+            System.out.println("Conference already Exist in the DB");
+        } else {
+            int conferenceId = iConferencePersistent.addConferenceInformation(conferenceModel.getConferenceName(), leagueId);
+            for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
+                this.divisonModel.storeDivisionInformation(divisonModel, conferenceId);
+            }
+        }
 
-        //is conference in that specific eague already exist
-       if(isConferenceAlreadyExist(conferenceModel.getConferenceName(),leagueId))
-       {
-           System.out.println("Conference already Exist in the DB");
-           return false;
-       }
-       else {
-           int conferenceId = iConferencePersistent.addConferenceInformation(conferenceModel.getConferenceName(), leagueId);
-           for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
-               this.divisonModel.storeDivisionInformation(divisonModel, conferenceId);
-           }
-       }
-        return false;
     }
 
-    public boolean isConferenceAlreadyExist(String conferenceName, int leagueId){
-        return false;
+    public boolean isConferenceAlreadyExist(String conferenceName, int leagueId) {
+        return iConferencePersistent.isConferenceAlreadyExist(conferenceName, leagueId);
     }
 
     @Override
     public int getConferenceId(String conferenceName, int leagueId) {
-        return 0;
+        return iConferencePersistent.getConferenceInformation(conferenceName, leagueId);
     }
 
 

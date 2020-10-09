@@ -10,11 +10,15 @@ class MockLeaguePersistent {
        return 1;
     }
 
-    boolean isLeagueAlreadyExist() {
+    boolean isLeagueAlreadyExist(String leagueName) {
         return true;
     }
 
     String getLeagueInformation() {
         return "Dalhousie Hockey League";
+    }
+
+    int getLeagueId(String leagueName){
+        return 1;
     }
 }

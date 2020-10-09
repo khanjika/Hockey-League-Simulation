@@ -4,6 +4,7 @@ import database.CallStoredProcedure;
 import java.sql.ResultSet;
 
 public class LeaguePersistent implements ILeaguePersistent {
+
     @Override
     public int addLeagueInformation(String leagueName) {
 
@@ -13,7 +14,7 @@ public class LeaguePersistent implements ILeaguePersistent {
             storedProcedure.setParameter(1,leagueName);
             storedProcedure.registerOutParameter(2);
             storedProcedure.execute();
-            System.out.println("Newly created League id is "+storedProcedure.getNumericReturnValue(2));
+           // System.out.println("Newly created League id is "+storedProcedure.getNumericReturnValue(2));
             return storedProcedure.getNumericReturnValue(2);
         } catch (Exception e) {
             System.out.println("Exception in storing league");
@@ -62,7 +63,7 @@ public class LeaguePersistent implements ILeaguePersistent {
             storedProcedure.setParameter(1,leagueId);
             storedProcedure.registerOutParameterString(2);
             storedProcedure.execute();
-            System.out.println("League name is "+storedProcedure.getStringReturnValue(2));
+           // System.out.println("League name is "+storedProcedure.getStringReturnValue(2));
             return storedProcedure.getStringReturnValue(2);
         } catch (Exception e) {
             System.out.println("Exception in fetching League name");
@@ -74,6 +75,29 @@ public class LeaguePersistent implements ILeaguePersistent {
         }
 
         return null;
+    }
+
+    @Override
+    public int getLeagueId(String leagueName) {
+        CallStoredProcedure storedProcedure = null;
+        try {
+            System.out.println(leagueName);
+            storedProcedure = new CallStoredProcedure("getLeagueId(?, ?)");
+            storedProcedure.setParameter(1,leagueName);
+            storedProcedure.registerOutParameter(2);
+            storedProcedure.execute();
+          //  System.out.println("LeagueId based on the given league name is "+storedProcedure.getNumericReturnValue(2));
+            return storedProcedure.getNumericReturnValue(2);
+        } catch (Exception e) {
+            System.out.println("Exception in getting id of league");
+            System.out.println(e);
+        } finally {
+            if (storedProcedure != null) {
+                storedProcedure.clean ();
+            }
+        }
+        return 0;
+
     }
 
 }

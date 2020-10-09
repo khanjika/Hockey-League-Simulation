@@ -4,6 +4,8 @@ import league.LeagueModel;
 import statemachine.StateMachine;
 import states.ITransition;
 
+import java.util.Scanner;
+
 public class PlayerSeasonsChoiceState implements ITransition {
     StateMachine stateMachine;
     LeagueModel currentModel;
@@ -31,19 +33,25 @@ public class PlayerSeasonsChoiceState implements ITransition {
 
     @Override
     public void entry() {
-        System.out.println("Output choice to user");
+
+        task();
     }
 
     @Override
     public void task() {
-        System.out.println("Wait for input");
+
+        System.out.println("Enter Number of season you want to simulate");
+        Scanner scannerObject =new Scanner(System.in);
+        String enteredInupt = scannerObject.nextLine();
+        System.out.println("You have entered "+enteredInupt);
+        exit();
+
     }
 
     @Override
     public void exit() {
-        System.out.println("Transition to choice");
-        // get choice from user and pass as parameter
         stateMachine.setCurrentState(stateMachine.simulateSeasons());
+        stateMachine.getCurrentState().entry();
     }
 }
 

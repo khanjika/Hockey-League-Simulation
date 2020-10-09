@@ -1,12 +1,17 @@
+//
 //package statesTest;
 //
+//import org.junit.Ignore;
 //import org.junit.jupiter.api.Test;
 //import statemachine.StateMachine;
 //import states.LoadTeamState;
 //
 //import static org.junit.jupiter.api.Assertions.*;
 //
+//
+//@Ignore
 //public class LoadTeamStateTest {
+//    @Ignore
 //    @Test
 //    void isState(){
 //        try{
@@ -22,6 +27,7 @@
 //        }
 //    }
 //
+//    @Ignore
 //    @Test
 //    void setState(){
 //        try{
