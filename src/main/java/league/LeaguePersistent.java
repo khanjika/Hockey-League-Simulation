@@ -1,7 +1,6 @@
 package league;
 
 import database.CallStoredProcedure;
-import java.sql.ResultSet;
 
 public class LeaguePersistent implements ILeaguePersistent {
 
@@ -10,15 +9,14 @@ public class LeaguePersistent implements ILeaguePersistent {
 
         CallStoredProcedure storedProcedure = null;
         try {
-            storedProcedure = new CallStoredProcedure("storeNewLeagueInformation(?, ?)");
-            storedProcedure.setParameter(1,leagueName);
-            storedProcedure.registerOutParameter(2);
-            storedProcedure.execute();
-           // System.out.println("Newly created League id is "+storedProcedure.getNumericReturnValue(2));
-            return storedProcedure.getNumericReturnValue(2);
+            storedProcedure = new CallStoredProcedure ("storeNewLeagueInformation(?, ?)");
+            storedProcedure.setParameter (1, leagueName);
+            storedProcedure.registerOutParameter (2);
+            storedProcedure.execute ();
+            return storedProcedure.getNumericReturnValue (2);
         } catch (Exception e) {
-            System.out.println("Exception in storing league");
-            System.out.println(e);
+            System.out.println ("Exception in storing league");
+            System.out.println (e);
         } finally {
             if (storedProcedure != null) {
                 storedProcedure.clean ();
@@ -31,20 +29,18 @@ public class LeaguePersistent implements ILeaguePersistent {
     public boolean isLeagueAlreadyExist(String leagueName) {
         CallStoredProcedure storedProcedure = null;
         try {
-            storedProcedure = new CallStoredProcedure("IsLeagueNameAlreadyExist(?, ?)");
-            storedProcedure.setParameter(1,leagueName);
-            storedProcedure.registerOutParameter(2);
-            storedProcedure.execute();
-            if(storedProcedure.getNumericReturnValue(2) == 0)
-            {
+            storedProcedure = new CallStoredProcedure ("isLeagueNameAlreadyExist(?, ?)");
+            storedProcedure.setParameter (1, leagueName);
+            storedProcedure.registerOutParameter (2);
+            storedProcedure.execute ();
+            if (storedProcedure.getNumericReturnValue (2) == 0) {
                 return false;
-            }
-            else {
+            } else {
                 return true;
             }
         } catch (Exception e) {
-            System.out.println("Exception in obtaining League information");
-            System.out.println(e);
+            System.out.println ("Exception in obtaining League information");
+            System.out.println (e);
         } finally {
             if (storedProcedure != null) {
                 storedProcedure.clean ();
@@ -56,18 +52,17 @@ public class LeaguePersistent implements ILeaguePersistent {
 
     @Override
     public String getLeagueInformation(int leagueId) {
-        LeagueModel league = new LeagueModel();
+        LeagueModel league = new LeagueModel ();
         CallStoredProcedure storedProcedure = null;
         try {
-            storedProcedure = new CallStoredProcedure("GetLeagueInfo(?,?)");
-            storedProcedure.setParameter(1,leagueId);
-            storedProcedure.registerOutParameterString(2);
-            storedProcedure.execute();
-           // System.out.println("League name is "+storedProcedure.getStringReturnValue(2));
-            return storedProcedure.getStringReturnValue(2);
+            storedProcedure = new CallStoredProcedure ("getLeagueInfo(?,?)");
+            storedProcedure.setParameter (1, leagueId);
+            storedProcedure.registerOutParameterString (2);
+            storedProcedure.execute ();
+            return storedProcedure.getStringReturnValue (2);
         } catch (Exception e) {
-            System.out.println("Exception in fetching League name");
-            System.out.println(e);
+            System.out.println ("Exception in fetching League name");
+            System.out.println (e);
         } finally {
             if (storedProcedure != null) {
                 storedProcedure.clean ();
@@ -81,16 +76,15 @@ public class LeaguePersistent implements ILeaguePersistent {
     public int getLeagueId(String leagueName) {
         CallStoredProcedure storedProcedure = null;
         try {
-            System.out.println(leagueName);
-            storedProcedure = new CallStoredProcedure("getLeagueId(?, ?)");
-            storedProcedure.setParameter(1,leagueName);
-            storedProcedure.registerOutParameter(2);
-            storedProcedure.execute();
-          //  System.out.println("LeagueId based on the given league name is "+storedProcedure.getNumericReturnValue(2));
-            return storedProcedure.getNumericReturnValue(2);
+            System.out.println (leagueName);
+            storedProcedure = new CallStoredProcedure ("getLeagueId(?, ?)");
+            storedProcedure.setParameter (1, leagueName);
+            storedProcedure.registerOutParameter (2);
+            storedProcedure.execute ();
+            return storedProcedure.getNumericReturnValue (2);
         } catch (Exception e) {
-            System.out.println("Exception in getting id of league");
-            System.out.println(e);
+            System.out.println ("Exception in getting id of league");
+            System.out.println (e);
         } finally {
             if (storedProcedure != null) {
                 storedProcedure.clean ();
