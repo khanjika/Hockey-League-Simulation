@@ -26,11 +26,11 @@ public class DatabaseConnection<inputStream, prop> {
                 return null;
             } finally {
                 try {
-                    inputStream.close();
-                }
-                catch (IOException e) {
+                    inputStream.close ();
+                } catch (IOException e) {
                     e.printStackTrace ();
-                } {
+                }
+                {
 
                 }
             }
