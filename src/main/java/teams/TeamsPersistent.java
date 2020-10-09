@@ -2,6 +2,8 @@ package teams;
 
 import database.CallStoredProcedure;
 
+import java.sql.ResultSet;
+
 public class TeamsPersistent implements ITeamsPersistent{
 
 
@@ -118,6 +120,33 @@ public class TeamsPersistent implements ITeamsPersistent{
             }
         }
         return 0;
+    }
+
+    @Override
+    public TeamPojo getTeamInformation(String teamName, int divisionId) {
+        TeamPojo team = new TeamPojo();
+        CallStoredProcedure storedProcedure = null;
+        try {
+            storedProcedure = new CallStoredProcedure("getTeamInformation(?,?)");
+            storedProcedure.setParameter(1,teamName);
+            storedProcedure.setParameter(2,divisionId);
+            ResultSet rs= storedProcedure.getResultSetObject();
+            if(rs != null) {
+                while (rs.next ()) {
+                    team.setTeamId(rs.getInt (1));
+                    team.setGeneralManagerName(rs.getString (2));
+                    team.setHeadCoach(rs.getString (3));
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Exception in obtaining team information");
+            System.out.println(e);
+        } finally {
+            if (storedProcedure != null) {
+                storedProcedure.clean ();
+            }
+        }
+        return team;
     }
 
 }
