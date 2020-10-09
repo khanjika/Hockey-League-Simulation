@@ -11,15 +11,12 @@ public class LoadTeamState implements ITransition {
     LeagueModel currentLeague;
     CliCommunication cliCommunication;
 
-
     public LoadTeamState(StateMachine stateMachine) {
-        System.out.println("Load team state object created");
         this.stateMachine = stateMachine;
-
     }
 
     public LoadTeamState(LeagueModel leagueModel) {
-        System.out.println("Load team state object created with league model");
+
         this.currentLeague = leagueModel;
     }
 
@@ -44,28 +41,22 @@ public class LoadTeamState implements ITransition {
 
     @Override
     public void entry() {
-        System.out.println("Inside the LoadTeam state");
         task();
     }
 
     @Override
     public void task() {
-        System.out.println("load team data");
         cliCommunication = new CliCommunication();
-        if(cliCommunication.loadTeamFromDatabase())
-        {
-            //HERE in true need to do some work
+        if (cliCommunication.loadTeamFromDatabase()) {
             exit();
-        }
-        else{
-            //IT migh have caugh problem..EXIT from the DB
+        } else {
+            System.out.println("Encountered Error while loading Team");
         }
 
     }
 
     @Override
     public void exit() {
-
         stateMachine.setCurrentState(stateMachine.teamLoaded());
         stateMachine.getCurrentState().entry();
     }

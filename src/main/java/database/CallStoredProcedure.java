@@ -28,7 +28,6 @@ public class CallStoredProcedure {
                 statement.close();
             }
             if (connection != null) {
-                System.out.println("Closed");
                 connection.close();
             }
         } catch (Exception e) {
@@ -46,6 +45,10 @@ public class CallStoredProcedure {
     }
     public void setParameter(int paramIndex, long value) throws SQLException {
        statement.setLong(paramIndex, value);
+    }
+
+    public void setParameter(int paramIndex, boolean value) throws SQLException {
+        statement.setBoolean (paramIndex, value);
     }
 
     public void setParameter(int paramIndex, String value) throws SQLException {

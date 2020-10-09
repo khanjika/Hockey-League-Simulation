@@ -20,7 +20,6 @@ public class LeagueModel implements ILeagueModel {
 
 
     public LeagueModel() {
-        System.out.println("League Model object created");
         iLeaguePersistent = new LeaguePersistent();
         conferenceModel = new ConferenceModel();
         freeAgentModel = new FreeAgentModel();
@@ -50,8 +49,6 @@ public class LeagueModel implements ILeagueModel {
         this.freeAgents = freeAgents;
     }
 
-
-    //IN future if there are multiple league then argumnet will accept league arraylist
     public void storeLeagueInformation(LeagueModel leagueModel) {
         loadTeamCli = new loadTeamCli();
         if(loadTeamCli.isLeagueExist(leagueModel.getLeagueName())){
@@ -69,14 +66,6 @@ public class LeagueModel implements ILeagueModel {
         }
 
 
-    }
-
-    @Override
-    public void createNewLeagueModelFromDatabase(int leagueId) {
-        //Return i will have all the league name set.
-        //call the conference method
-        //conference model will return and pass the league ID
-        //which will set all the onference
     }
 
     @Override

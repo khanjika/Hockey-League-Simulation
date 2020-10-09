@@ -2,6 +2,8 @@ package teams;
 
 import database.CallStoredProcedure;
 
+import java.sql.ResultSet;
+
 public class TeamsPersistent implements ITeamsPersistent{
 
 
@@ -16,7 +18,7 @@ public class TeamsPersistent implements ITeamsPersistent{
             storedProcedure.setParameter(4,divisionId);
             storedProcedure.registerOutParameter(5);
             storedProcedure.execute();
-            System.out.println("Newly created Team id is "+storedProcedure.getNumericReturnValue(5));
+           // System.out.println("Newly created Team id is "+storedProcedure.getNumericReturnValue(5));
             return storedProcedure.getNumericReturnValue(5);
         } catch (Exception e) {
             System.out.println("Exception in storing team details");
@@ -65,7 +67,7 @@ public class TeamsPersistent implements ITeamsPersistent{
             storedProcedure.setParameter(2,divisionId);
             storedProcedure.registerOutParameter(3);
             storedProcedure.execute();
-            System.out.println("Team id is "+storedProcedure.getNumericReturnValue(3));
+          //  System.out.println("Team id is "+storedProcedure.getNumericReturnValue(3));
             return storedProcedure.getNumericReturnValue(3);
         } catch (Exception e) {
             System.out.println("Exception in fetching information about team");
@@ -86,7 +88,7 @@ public class TeamsPersistent implements ITeamsPersistent{
             storedProcedure.setParameter(1,headCoachName);
             storedProcedure.registerOutParameter(2);
             storedProcedure.execute();
-            System.out.println("Head Coach id is "+storedProcedure.getNumericReturnValue(2));
+          //  System.out.println("Head Coach id is "+storedProcedure.getNumericReturnValue(2));
             return storedProcedure.getNumericReturnValue(2);
         } catch (Exception e) {
             System.out.println("Exception in fetching information about head coach");
@@ -107,7 +109,7 @@ public class TeamsPersistent implements ITeamsPersistent{
             storedProcedure.setParameter(1,managerName);
             storedProcedure.registerOutParameter(2);
             storedProcedure.execute();
-            System.out.println("General Manager id is "+storedProcedure.getNumericReturnValue(2));
+          //  System.out.println("General Manager id is "+storedProcedure.getNumericReturnValue(2));
             return storedProcedure.getNumericReturnValue(2);
         } catch (Exception e) {
             System.out.println("Exception in fetching information about general manager");
@@ -118,6 +120,33 @@ public class TeamsPersistent implements ITeamsPersistent{
             }
         }
         return 0;
+    }
+
+    @Override
+    public TeamPojo getTeamInformation(String teamName, int divisionId) {
+        TeamPojo team = new TeamPojo();
+        CallStoredProcedure storedProcedure = null;
+        try {
+            storedProcedure = new CallStoredProcedure("getTeamInformation(?,?)");
+            storedProcedure.setParameter(1,teamName);
+            storedProcedure.setParameter(2,divisionId);
+            ResultSet rs= storedProcedure.getResultSetObject();
+            if(rs != null) {
+                while (rs.next ()) {
+                    team.setTeamId(rs.getInt (1));
+                    team.setGeneralManagerName(rs.getString (2));
+                    team.setHeadCoach(rs.getString (3));
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Exception in obtaining team information");
+            System.out.println(e);
+        } finally {
+            if (storedProcedure != null) {
+                storedProcedure.clean ();
+            }
+        }
+        return team;
     }
 
 }

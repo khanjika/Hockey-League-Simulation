@@ -1,15 +1,17 @@
 package players;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import teams.TeamPojo;
 
-public class PlayerModel implements  IPlayerModel{
+import java.util.ArrayList;
+
+public class PlayerModel implements IPlayerModel {
 
     private IPlayerPersistent iPlayerPersistent;
 
     public PlayerModel() {
         iPlayerPersistent = new PlayerPersistent();
     }
-
     private String playerName;
     private String position;
     @JsonProperty(required = true)
@@ -40,11 +42,13 @@ public class PlayerModel implements  IPlayerModel{
     }
 
     public void storePlayerInformation(PlayerModel playerModel, int teamId) {
-        //get last inserted player if
-        int lastInsertedPLayerId = iPlayerPersistent.addPlayerInformation(playerModel.getPlayerName(), playerModel.getPosition(), playerModel.isCaptain(), teamId);
-        if (lastInsertedPLayerId != 0) {
-          iPlayerPersistent.storePlayerId(lastInsertedPLayerId, teamId);
-        }
-
+        iPlayerPersistent.addPlayerInformation(playerModel.getPlayerName(), playerModel.getPosition(), playerModel.isCaptain(), teamId);
     }
+
+    @Override
+    public ArrayList<PlayerModel> getPlayerInformation(int teamId) {
+        return iPlayerPersistent.getPlayerInformation(teamId);
+    }
+
+
 }

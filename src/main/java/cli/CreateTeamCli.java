@@ -37,12 +37,10 @@ public class CreateTeamCli {
                 if(this.isTeamInformationSetProperly(leagueModel)){
                     LeagueModel newlyCreatedLeagueModelObject = getNewlyCreatedLeagueObject(leagueModel);
                     System.out.println("―――――――――――――――――――――");
-                System.out.println("Printing the Model data After");
                 for (ConferenceModel conferenceModel : newlyCreatedLeagueModelObject.getConferences()) {
                     System.out.println("Conference name->    " + conferenceModel.getConferenceName());
                     for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
                         System.out.println("Division name->     " + divisonModel.getDivisionName());
-
                         for(TeamsModel teamsModel:divisonModel.getTeams()){
                             System.out.println("Team is---> " +teamsModel.getTeamName());
                         }
@@ -57,7 +55,10 @@ public class CreateTeamCli {
     }
 
     public boolean isConferenceNameValid(LeagueModel leagueModel) {
-        System.out.println("Enter Conference name");
+        System.out.println("====");
+        System.out.println("Here You need to create a new Team in the EXISTING division");
+        System.out.println("====");
+        System.out.println("Enter Conference name in which you want to create new Team");
         String conferenceName = scannerObject.nextLine();
         if (isStringValid(conferenceName)) {
             if (conferenceValidator.isConferenceExist(leagueModel, conferenceName)) {
@@ -76,7 +77,7 @@ public class CreateTeamCli {
     }
 
     public boolean isDivisionNameValid(LeagueModel leagueModel) {
-        System.out.println("Enter Division name");
+        System.out.println("Enter Division name In which You want to create new Team");
         String divisionName = scannerObject.nextLine();
         if (isStringValid(divisionName)) {
             if (divisonValidator.isDivisionExist(leagueModel, divisionName)) {
@@ -94,7 +95,7 @@ public class CreateTeamCli {
     }
 
     public boolean isTeamInformationSetProperly(LeagueModel leagueModel) {
-        System.out.println("Enter Team name");
+        System.out.println("Enter New Team name");
         this.userEnteredTeamName = scannerObject.nextLine();
         if (isStringValid(userEnteredTeamName)) {
             System.out.println("Enter General Manager name");
@@ -102,7 +103,6 @@ public class CreateTeamCli {
             if (isStringValid(userEnteredGeneralManagerName)) {
                 System.out.println("Enter Head coach name");
                 this.userEnteredHeadCoachName = scannerObject.nextLine();
-                //Creating new team data in the existing JSON object
                     if (isStringValid(userEnteredHeadCoachName)) {
                             return true;
                 }
@@ -140,7 +140,7 @@ public class CreateTeamCli {
         }
         System.out.println("―――――――――――――――――――――");
         System.out.println("Conference name is " + this.userEnteredConferenceName + " and " + "Division name is " + this.userEnteredDivisionName);
-        System.out.println("Team created Successfully!!");
+        System.out.println("In memory Team created Successfully!!");
         System.out.println("―――――――――――――――――――――");
         return leagueModel;
     }

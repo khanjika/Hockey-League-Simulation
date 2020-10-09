@@ -12,5 +12,7 @@ public interface ITeamsPersistent {
 
     int addGeneralManagerDetails(String managerName);
 
+    TeamPojo getTeamInformation(String teamName, int divisionId);
+
 
 }

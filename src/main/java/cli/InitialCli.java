@@ -12,7 +12,7 @@ public class InitialCli {
     Scanner scannerObject;
 
     public InitialCli() {
-        System.out.println("Intial Cli object is created");
+
         cliCommunication =new CliCommunication();
         scannerObject = new Scanner(System.in);
     }

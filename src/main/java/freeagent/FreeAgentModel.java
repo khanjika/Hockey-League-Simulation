@@ -37,6 +37,5 @@ public class FreeAgentModel {
 
     public void storeFreeAgentInformation(FreeAgentModel freeAgentModel,int leagueId){
          iFreeAgentPersistent.addFreeAgentInformation(freeAgentModel.getPlayerName(),freeAgentModel.getPosition(),freeAgentModel.isCaptain(),leagueId);
-       // return false;
     }
 }

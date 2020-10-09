@@ -14,7 +14,7 @@ public class DivisonPersistent implements IDivisonPersistent{
             storedProcedure.setParameter(2,conferenceId);
             storedProcedure.registerOutParameter(3);
             storedProcedure.execute();
-            System.out.println("Newly created Division id is "+storedProcedure.getNumericReturnValue(3));
+            //System.out.println("Newly created Division id is "+storedProcedure.getNumericReturnValue(3));
             return storedProcedure.getNumericReturnValue(3);
         } catch (Exception e) {
             System.out.println("Exception in storing division");
@@ -63,7 +63,7 @@ public class DivisonPersistent implements IDivisonPersistent{
             storedProcedure.setParameter(2,conferenceId);
             storedProcedure.registerOutParameter(3);
             storedProcedure.execute();
-            System.out.println("Division id is "+storedProcedure.getNumericReturnValue(3));
+            //System.out.println("Division id is "+storedProcedure.getNumericReturnValue(3));
             return storedProcedure.getNumericReturnValue(3);
         } catch (Exception e) {
             System.out.println("Exception in fetching information about division");

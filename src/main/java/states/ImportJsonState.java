@@ -8,7 +8,7 @@ import statemachine.StateMachine;
 
 public class ImportJsonState implements ITransition {
     StateMachine stateMachine;
-    private  static ICliCommunication cliCommunication;
+    private static ICliCommunication cliCommunication;
     String userInput;
     InitialCli initialCli;
     CreateTeamState createTeamState;
@@ -17,7 +17,7 @@ public class ImportJsonState implements ITransition {
     public ImportJsonState() {
         System.out.println("constructor of import json created");
 
-        cliCommunication =new CliCommunication();
+        cliCommunication = new CliCommunication();
     }
 
     public ImportJsonState(StateMachine newStateMachine) {
@@ -36,32 +36,25 @@ public class ImportJsonState implements ITransition {
     public void entry() {
         System.out.println("Parse Json Import");
         initialCli = new InitialCli();
-        userInput=  initialCli.initializedCommunication();
+        userInput = initialCli.initializedCommunication();
         task();
     }
 
     @Override
     public void task() {
-        System.out.println(userInput);
-        System.out.println("instantiate and configure league model");
-        if(userInput.equalsIgnoreCase("yes")){
-            System.out.println("YES input");
-            InitialCli initialCli01 =new InitialCli();
+        if (userInput.equalsIgnoreCase("yes")) {
+            InitialCli initialCli01 = new InitialCli();
             LeagueModel leagueModel = initialCli01.parseJson();
             createTeamState = new CreateTeamState(leagueModel);
             stateMachine.setCreateTeam(createTeamState);
-            System.out.println("Going to Create Team state");
             stateMachine.setCurrentState(stateMachine.playerChoiceCreateTeam());
-        }
-        else if(userInput.equalsIgnoreCase("no")){
+        } else if (userInput.equalsIgnoreCase("no")) {
             //cliCommunication.loadTeamFromDatabase();
             stateMachine.setCurrentState(stateMachine.playerChoiceLoadTeam());
 
-        }
-        else {
+        } else {
             System.out.println(this.userInput);
             System.out.println("Enter YES or NO");
-
         }
 
         exit();

@@ -15,21 +15,21 @@ import java.nio.file.Paths;
 
 public class CliCommunication implements ICliCommunication {
 
-   public  LeagueModel leagueModel;
-   public static ObjectMapper objectMapper;
-   private ILeagueValidator leagueValidator;
-   private  loadTeamCli loadTeamCli;
+    public LeagueModel leagueModel;
+    public static ObjectMapper objectMapper;
+    private ILeagueValidator leagueValidator;
+    private loadTeamCli loadTeamCli;
 
     public CliCommunication() {
-        objectMapper =new ObjectMapper();
-        leagueValidator=new LeagueValidator();
+        objectMapper = new ObjectMapper();
+        leagueValidator = new LeagueValidator();
         loadTeamCli = new loadTeamCli();
     }
 
 
     @Override
     public boolean loadTeamFromDatabase() {
-      return loadTeamCli.getData();
+        return loadTeamCli.getData();
     }
 
     @Override
@@ -50,34 +50,24 @@ public class CliCommunication implements ICliCommunication {
 
 
     @Override
-    public LeagueModel parseJson(String fileName)  {
-        System.out.println("Inside parse JSON method");
-        try{
-        byte[] mapData = Files.readAllBytes(Paths.get(fileName));
-        //Read the json
-         JsonNode data= objectMapper.readTree(mapData);
-        System.out.println(data);
-        //calling the method to set the data to model
-        leagueModel = fromJson(data,LeagueModel.class);
-        if(leagueValidator.validateLeagueObject(leagueModel)){
-            //create team
-            System.out.println("Valid JSON");
-
-            return leagueModel;
-           // CreateTeamCli createTeamCli = new CreateTeamCli();
-            //Here i have all the updated league model object
-         //  LeagueModel newlyCreatedLeagueObject= createTeamCli.createNewTeam(leagueModel);
-        }
-        else {
-            System.out.println("Invalid JSON");
-        }}
-        catch (IOException e){
+    public LeagueModel parseJson(String fileName) {
+        try {
+            byte[] mapData = Files.readAllBytes(Paths.get(fileName));
+            JsonNode data = objectMapper.readTree(mapData);
+            leagueModel = fromJson(data, LeagueModel.class);
+            if (leagueValidator.validateLeagueObject(leagueModel)) {
+                System.out.println("Your Provide JSON is valid.");
+                return leagueModel;
+            } else {
+                System.out.println("Invalid JSON");
+            }
+        } catch (IOException e) {
             System.out.println("Error occurred while parsing the file due to syntax issue");
         }
         return null;
     }
 
-    public static <A> A fromJson(JsonNode node,Class<A> classObj ) throws JsonProcessingException {
-        return  objectMapper.treeToValue(node,classObj);
+    public static <A> A fromJson(JsonNode node, Class<A> classObj) throws JsonProcessingException {
+        return objectMapper.treeToValue(node, classObj);
     }
 }

@@ -5,7 +5,7 @@ import teams.TeamsModel;
 
 import java.util.List;
 
-public class DivisonModel implements IDivisonModel{
+public class DivisonModel implements IDivisonModel {
     private String divisionName;
     private ITeamsModel teamsModel;
     private List<TeamsModel> teams;
@@ -39,10 +39,8 @@ public class DivisonModel implements IDivisonModel{
             System.out.println("Division Already Exist in the DB");
 
         } else {
-            System.out.println("Inside store Division Method="+divisonModel.getDivisionName());
             int divisionId = iDivisonPersistent.addDivisionInformation(divisonModel.getDivisionName(), conferenceId);
             for (TeamsModel teamsModel : divisonModel.getTeams()) {
-                System.out.println("Calling teams method for the team=>"+teamsModel.getTeamName());
                 this.teamsModel.storeTeamInformation(teamsModel, divisionId);
             }
 
@@ -52,11 +50,12 @@ public class DivisonModel implements IDivisonModel{
     }
 
     public boolean isDivisionAlreadyExist(String divisionName, int conferenceId) {
-            return iDivisonPersistent.isDivisionAlreadyExist(divisionName,conferenceId);
+        return iDivisonPersistent.isDivisionAlreadyExist(divisionName, conferenceId);
     }
+
     @Override
     public int getDivisionId(String divisionName, int conferenceId) {
-        return iDivisonPersistent.getDivisionInformation(divisionName,conferenceId);
+        return iDivisonPersistent.getDivisionInformation(divisionName, conferenceId);
     }
 
 

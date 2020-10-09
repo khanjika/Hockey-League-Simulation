@@ -5,7 +5,7 @@ import players.PlayerModel;
 
 import java.util.List;
 
-public class TeamsModel implements  ITeamsModel{
+public class TeamsModel implements ITeamsModel {
 
     private String teamName;
     private String generalManager;
@@ -57,45 +57,43 @@ public class TeamsModel implements  ITeamsModel{
         if (isTeamAlreadyExist(teamsModel.getTeamName(), divisionId)) {
             System.out.println("Team already Exist in the DB");
         } else {
-            System.out.println("Inside team method to store information="+teamsModel.getTeamName());
-            //Store head coach
-            int headCoachId =storeHeadCoachInfirmation(teamsModel.getHeadCoach()) ;
-            System.out.println("Head coch ID=>"+headCoachId);
+            //Store head coach info.
+            int headCoachId = storeHeadCoachInfirmation(teamsModel.getHeadCoach());
             //store general manager
             int generalManagerId = storeGeneralManagerInformation(teamsModel.getGeneralManager());
-            System.out.println("General manager ID=>"+generalManagerId);
             //Store team Information
-            int teamId =addTeamInformation(teamsModel.getTeamName(),generalManagerId,headCoachId,divisionId);
-            System.out.println("New Team ID=>"+teamId);
-//            for (PlayerModel playerModel : teamsModel.getPlayers()) {
-//               this.playerModel.storePlayerInformation(playerModel, teamId);
-//
-//            }
+            int teamId = addTeamInformation(teamsModel.getTeamName(), generalManagerId, headCoachId, divisionId);
+            for (PlayerModel playerModel : teamsModel.getPlayers()) {
+                this.playerModel.storePlayerInformation(playerModel, teamId);
+            }
         }
 
     }
 
-    public int addTeamInformation(String teamName, int generalManagerId, int headCoachId, int divisionId){
-        return iTeamsPersistent.addTeamInformation(teamName,generalManagerId,headCoachId,divisionId);
+    public int addTeamInformation(String teamName, int generalManagerId, int headCoachId, int divisionId) {
+        return iTeamsPersistent.addTeamInformation(teamName, generalManagerId, headCoachId, divisionId);
     }
 
     @Override
     public boolean isTeamAlreadyExist(String teamName, int divisionId) {
-        return iTeamsPersistent.isTeamNameExist(teamName,divisionId);
+        return iTeamsPersistent.isTeamNameExist(teamName, divisionId);
     }
 
     @Override
     public int getTeamId(String teamName, int divisionId) {
-        return iTeamsPersistent.getTeamId(teamName,divisionId);
+        return iTeamsPersistent.getTeamId(teamName, divisionId);
     }
 
-    private int storeHeadCoachInfirmation(String headCoachName){
-        System.out.println("Storing Head coach info");
+    @Override
+    public TeamPojo getTeamInformation(String teamName, int divisionId) {
+        return iTeamsPersistent.getTeamInformation(teamName, divisionId);
+    }
+
+    private int storeHeadCoachInfirmation(String headCoachName) {
         return iTeamsPersistent.addHeadCoahDetails(headCoachName);
     }
 
-    private int storeGeneralManagerInformation(String generalManagerName){
-        System.out.println("Storing general manager info");
+    private int storeGeneralManagerInformation(String generalManagerName) {
         return iTeamsPersistent.addGeneralManagerDetails(generalManagerName);
     }
 }

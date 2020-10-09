@@ -10,11 +10,11 @@ import league.ILeagueModel;
 import league.ILeaguePersistent;
 import league.LeagueModel;
 import league.LeaguePersistent;
-import teams.ITeamsModel;
-import teams.ITeamsPersistent;
-import teams.TeamsModel;
-import teams.TeamsPersistent;
+import players.IPlayerModel;
+import players.PlayerModel;
+import teams.*;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class loadTeamCli {
@@ -23,6 +23,7 @@ public class loadTeamCli {
     private static IConferenceModel iConferenceModel;
     private static IDivisonModel iDivisonModel;
     private static ITeamsModel iTeamsModel;
+    private static IPlayerModel iPlayerModel;
     Scanner scannerObject;
 
     public loadTeamCli() {
@@ -32,17 +33,16 @@ public class loadTeamCli {
         iConferenceModel = new ConferenceModel();
         iDivisonModel = new DivisonModel();
         iTeamsModel = new TeamsModel();
+        iPlayerModel = new PlayerModel();
     }
 
     public boolean getData() {
         String leagueName = getUserInput("League");
         if (isLeagueExist(leagueName)) {
-            System.out.println(leagueName);
             int leagueId = iLeagueModel.getLeagueId(leagueName);
             System.out.println("League Exist");
             String conferenceName = getUserInput("Conference");
-            if (isConferenceExist(conferenceName, leagueId))
-            {
+            if (isConferenceExist(conferenceName, leagueId)) {
                 System.out.println("Conference Exist");
                 int conferenceId = iConferenceModel.getConferenceId(conferenceName, leagueId);
                 String divisionName = getUserInput("Division");
@@ -53,8 +53,23 @@ public class loadTeamCli {
                     if (isTeamExist(teamName, divisionId)) {
                         System.out.println("Team Exist");
                         int teamId = iTeamsModel.getTeamId(teamName, divisionId);
-                        System.out.println("Team Exist in the DB");
+                        TeamPojo teamPojo = iTeamsModel.getTeamInformation(teamName, divisionId);
+                        List<PlayerModel> listOfPLayers = iPlayerModel.getPlayerInformation(teamId);
                         System.out.println("Loading the data....");
+                        System.out.println("=================================");
+                        System.out.println("General Manager = " + teamPojo.getGeneralManagerName());
+                        System.out.println("Head Coach = " + teamPojo.getHeadCoach());
+                        System.out.println();
+                        for (PlayerModel playerModel : listOfPLayers) {
+                            System.out.println("Player Name = " + playerModel.getPlayerName());
+                            System.out.println("Player Position = " + playerModel.getPosition());
+                            if (playerModel.isCaptain()) {
+                                System.out.println("** " + playerModel.getPlayerName() + " is the captain of the Team **");
+
+                            }
+                            System.out.println();
+                        }
+
                         //here at the end load the team
                         return true;
                     }
@@ -70,7 +85,6 @@ public class loadTeamCli {
 
     public boolean isTeamExist(String teamName, int divisionId) {
         if (iTeamsModel.isTeamAlreadyExist(teamName, divisionId)) {
-            System.out.println("Team Exist in the database");
             return true;
         }
         return false;
@@ -109,11 +123,4 @@ public class loadTeamCli {
             return false;
         }
     }
-
-
-    public void createNewModel(int leagueId) {
-
-    }
-
-
 }

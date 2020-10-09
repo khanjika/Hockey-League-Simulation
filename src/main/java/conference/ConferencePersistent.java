@@ -15,7 +15,7 @@ public class ConferencePersistent implements IConferencePersistent{
             storedProcedure.setParameter(2,leagueId);
             storedProcedure.registerOutParameter(3);
             storedProcedure.execute();
-            System.out.println("Newly created Conference id is "+storedProcedure.getNumericReturnValue(3));
+           // System.out.println("Newly created Conference id is "+storedProcedure.getNumericReturnValue(3));
             return storedProcedure.getNumericReturnValue(3);
         } catch (Exception e) {
             System.out.println("Exception in Conference storing");
@@ -64,7 +64,7 @@ public class ConferencePersistent implements IConferencePersistent{
             storedProcedure.setParameter(2,leagueId);
             storedProcedure.registerOutParameter(3);
             storedProcedure.execute();
-            System.out.println("Conference id is "+storedProcedure.getNumericReturnValue(3));
+           // System.out.println("Conference id is "+storedProcedure.getNumericReturnValue(3));
             return storedProcedure.getNumericReturnValue(3);
         } catch (Exception e) {
             System.out.println("Exception in fetching information about conference");
