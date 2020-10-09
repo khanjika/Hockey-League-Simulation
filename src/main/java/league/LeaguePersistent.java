@@ -1,68 +1,79 @@
 package league;
 
 import database.CallStoredProcedure;
-import database.DatabaseConnection;
-
-import java.sql.CallableStatement;
-import java.sql.Connection;
 import java.sql.ResultSet;
 
 public class LeaguePersistent implements ILeaguePersistent {
-
-
     @Override
     public int addLeagueInformation(String leagueName) {
-//        CallStoredProcedure proc = null;
-//        try {
-//            proc = new CallStoredProcedure("storeNewLeagueInformation(?)");
-//            proc.setParameter(1,leagueName);
-//            proc.registerOutParameter(2);
-//            proc.execute();
-//            System.out.println("Newly created League id is "+proc.getNumericReturnValue(2));
-//            return proc.getNumericReturnValue(2);
-//        } catch (Exception e) {
-//            System.out.println("Exception in League storing");
-//            System.out.println(e);
-//        } finally {
-//            if (null != proc) {
-//                //DO CLEANUP
-//            }
-//        }
 
+        CallStoredProcedure storedProcedure = null;
+        try {
+            storedProcedure = new CallStoredProcedure("storeNewLeagueInformation(?, ?)");
+            storedProcedure.setParameter(1,leagueName);
+            storedProcedure.registerOutParameter(2);
+            storedProcedure.execute();
+            System.out.println("Newly created League id is "+storedProcedure.getNumericReturnValue(2));
+            return storedProcedure.getNumericReturnValue(2);
+        } catch (Exception e) {
+            System.out.println("Exception in storing league");
+            System.out.println(e);
+        } finally {
+            if (storedProcedure != null) {
+                storedProcedure.clean ();
+            }
+        }
         return 0;
     }
 
     @Override
     public boolean isLeagueAlreadyExist(String leagueName) {
-
-
+        CallStoredProcedure storedProcedure = null;
+        try {
+            storedProcedure = new CallStoredProcedure("IsLeagueNameAlreadyExist(?, ?)");
+            storedProcedure.setParameter(1,leagueName);
+            storedProcedure.registerOutParameter(2);
+            storedProcedure.execute();
+            if(storedProcedure.getNumericReturnValue(2) == 0)
+            {
+                return false;
+            }
+            else {
+                return true;
+            }
+        } catch (Exception e) {
+            System.out.println("Exception in obtaining League information");
+            System.out.println(e);
+        } finally {
+            if (storedProcedure != null) {
+                storedProcedure.clean ();
+            }
+        }
         return false;
     }
 
-    @Override
-    public int getLeagueId(String teamName) {
-        return 0;
-    }
 
     @Override
-    //PENDING
-    public LeagueModel getLeagueInformation(int leagueId) {
-        CallStoredProcedure proc = null;
-//        try {
-//            proc = new CallStoredProcedure("GetLeagueInfo(?)");
-//            proc.setParameter(1,leagueId);
-//            proc.registerOutParameter(2);
-//            proc.execute();
-//            ResultSet rs= proc.getResultSetObject();
-//        } catch (Exception e) {
-//            System.out.println("Exception in League Validation");
-//            System.out.println(e);
-//        } finally {
-//            if (null != proc) {
-//                //DO CLEANUP
-//            }
-//        }
+    public String getLeagueInformation(int leagueId) {
+        LeagueModel league = new LeagueModel();
+        CallStoredProcedure storedProcedure = null;
+        try {
+            storedProcedure = new CallStoredProcedure("GetLeagueInfo(?,?)");
+            storedProcedure.setParameter(1,leagueId);
+            storedProcedure.registerOutParameterString(2);
+            storedProcedure.execute();
+            System.out.println("League name is "+storedProcedure.getStringReturnValue(2));
+            return storedProcedure.getStringReturnValue(2);
+        } catch (Exception e) {
+            System.out.println("Exception in fetching League name");
+            System.out.println(e);
+        } finally {
+            if (storedProcedure != null) {
+                storedProcedure.clean ();
+            }
+        }
 
-        return new LeagueModel();
+        return null;
     }
+
 }
