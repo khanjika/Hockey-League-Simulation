@@ -61,4 +61,4 @@ deploy_prod:
     - zip -r ${CI_COMMIT_REF_NAME}_${CI_COMMIT_SHORT_SHA}.zip *
     - scp -r -o StrictHostKeyChecking=no -i "${PROD_DEPLOY_SSH_KEY}" "${CI_COMMIT_REF_NAME}_${CI_COMMIT_SHORT_SHA}.zip" "${PROD_DEPLOY_USER}@${PROD_DEPLOY_HOST}:${PROD_DEPLOY_DIR}/${CI_COMMIT_REF_NAME}_${CI_COMMIT_SHORT_SHA}.zip"
   only:
-    - master
+    - release
