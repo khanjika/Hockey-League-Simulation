@@ -41,6 +41,8 @@ deploy_dev:
     - mv -fv databaseconfig.properties src/main/resources/databaseconfig.properties
     - zip -r ${CI_COMMIT_SHORT_SHA}.zip *
     - scp -r -o StrictHostKeyChecking=no -i "${DEV_DEPLOY_SSH_KEY}" "${CI_COMMIT_SHORT_SHA}.zip" "${DEV_DEPLOY_USER}@${DEV_DEPLOY_HOST}:${DEV_DEPLOY_DIR}/${CI_COMMIT_SHORT_SHA}.zip"
+  only:
+    - develop
 
 deploy_prod:
   stage: deploy_prod
@@ -60,3 +62,5 @@ deploy_prod:
     - chmod og-rwx ${PROD_DEPLOY_SSH_KEY}
     - zip -r ${CI_COMMIT_SHORT_SHA}.zip *
     - scp -r -o StrictHostKeyChecking=no -i "${PROD_DEPLOY_SSH_KEY}" "${CI_COMMIT_SHORT_SHA}.zip" "${PROD_DEPLOY_USER}@${PROD_DEPLOY_HOST}:${PROD_DEPLOY_DIR}/${CI_COMMIT_SHORT_SHA}.zip"
+  only:
+    - master
