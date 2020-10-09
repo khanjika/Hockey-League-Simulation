@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class PlayerSeasonsChoiceState implements ITransition {
     StateMachine stateMachine;
     LeagueModel currentModel;
+    Integer enteredInput;
 
     public PlayerSeasonsChoiceState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
@@ -37,13 +38,21 @@ public class PlayerSeasonsChoiceState implements ITransition {
         task();
     }
 
+    public Integer getEnteredInput() {
+        return enteredInput;
+    }
+
+    public void setEnteredInput(Integer enteredInput) {
+        this.enteredInput = enteredInput;
+    }
+
     @Override
     public void task() {
 
         System.out.println("Enter Number of season you want to simulate");
         Scanner scannerObject =new Scanner(System.in);
-        String enteredInupt = scannerObject.nextLine();
-        System.out.println("You have entered "+enteredInupt);
+        setEnteredInput(scannerObject.nextInt());
+        System.out.println("You have entered "+enteredInput);
         exit();
 
     }

@@ -23,10 +23,6 @@ public class CreateTeamState implements ITransition {
     }
 
 
-    public CreateTeamState() {
-
-    }
-
     public StateMachine getStateMachine() {
         return stateMachine;
     }

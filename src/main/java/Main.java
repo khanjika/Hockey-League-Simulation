@@ -11,7 +11,12 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) {
 //        obj.initializedCommunication("D:\\JsonRead\\demo.txt");
+        Main main = new Main();
+        main.StateEntry();
+    }
+    public void StateEntry(){
         StateMachine stateMachine = new StateMachine();
+        stateMachine.entry();
     }
 
 }

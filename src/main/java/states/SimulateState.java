@@ -7,6 +7,7 @@ import states.ITransition;
 public class SimulateState implements ITransition {
     StateMachine stateMachine;
     NestedSimulator nestedSimulator;
+    PlayerSeasonsChoiceState playerSeasonsChoiceState;
 
     public StateMachine getStateMachine() {
         return stateMachine;
@@ -31,7 +32,7 @@ public class SimulateState implements ITransition {
     @Override
     public void entry() {
         System.out.println("Simulation started");
-        nestedSimulator = new NestedSimulator();
+        nestedSimulator = new NestedSimulator(playerSeasonsChoiceState.getEnteredInput());
         task();
     }
 
