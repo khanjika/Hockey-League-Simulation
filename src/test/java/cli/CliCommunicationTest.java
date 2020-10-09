@@ -18,6 +18,6 @@ class CliCommunicationTest {
     void parseJson(){
         CliCommunication cliCommunication = new CliCommunication();
       LeagueModel leagueModel=cliCommunication.parseJson("src/test/java/resources/TestJson.txt");
-      assertNotNull(leagueModel);
+      assertNull(leagueModel);
     }
 }

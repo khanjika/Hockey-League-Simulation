@@ -54,6 +54,7 @@ public class CreateTeamState implements ITransition {
 
     @Override
     public void exit() {
+        System.out.println("Please Wait, Storing Data in the Database...");
         if(iLeagueModel.storeLeagueInformation(updatedLeagueModel)) {
             System.out.println("=====================================");
             System.out.println("Your data have been successfully stored in the database");

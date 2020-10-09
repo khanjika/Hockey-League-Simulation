@@ -40,9 +40,8 @@ public class ConferenceValidator implements IConferenceValidator {
         if (numberOfDivision % 2 == 0) {
             return true;
         } else {
-            //IMPORTANT NEED TO MAKE IT TO FALSE
-           // System.out.println("Number of Division is not even");
-            return true;
+            System.out.println("Number of Division is not even");
+            return false;
         }
     }
 
