@@ -51,4 +51,18 @@ public class ConferenceModelTest {
         conferenceModel.setDivisions(divisionModelObjectList);
         return  conferenceModel;
     }
+
+
+    @Test
+    void isConferenceAlreadyExist(){
+        ModelConferencePersistent mock = new ModelConferencePersistent();
+        assertTrue(mock.isConferenceAlreadyExist("Eastern Conference"));
+    }
+
+    @Test
+    void getConferenceId(){
+        ModelConferencePersistent mock = new ModelConferencePersistent();
+       assertEquals(mock.getConferenceInformation("Easter",1),1);
+
+    }
 }

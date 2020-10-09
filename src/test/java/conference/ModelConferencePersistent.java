@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ModelConferencePersistent {
+public class ModelConferencePersistent {
 
 
     int addConferenceInformation() {
@@ -12,12 +12,12 @@ class ModelConferencePersistent {
     }
 
 
-    boolean isConferenceAlreadyExist() {
+    boolean isConferenceAlreadyExist(String conferenceName) {
         return true;
     }
 
 
-    int getConferenceInformation() {
+    int getConferenceInformation(String conferenceName, int leagueId) {
         return 1;
     }
 }

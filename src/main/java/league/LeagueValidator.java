@@ -25,7 +25,7 @@ public class LeagueValidator implements ILeagueValidator {
 
     public LeagueValidator() {
         conferenceValidator = new ConferenceValidator();
-        freeAgentValidator=new FreeAgentValidator();
+        freeAgentValidator = new FreeAgentValidator();
     }
 
     @Override
@@ -33,7 +33,6 @@ public class LeagueValidator implements ILeagueValidator {
 
         if (leagueModel.getLeagueName() == "" || leagueModel.getLeagueName() == null) {
             System.out.println("League name can not be empty");
-
             return false;
         }
         for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
@@ -45,14 +44,13 @@ public class LeagueValidator implements ILeagueValidator {
                 return false;
             }
         }
-        for(FreeAgentModel freeAgentModel : leagueModel.getFreeAgents()){
-                    if(freeAgentValidator.validateFreeAgentObject(freeAgentModel)){
-                        continue;
-                    }
-                    else {
-                        System.out.println("Encountered Problem While validating Free Agents in the league==> "+leagueModel.getLeagueName());
-                        return false;
-                    }
+        for (FreeAgentModel freeAgentModel : leagueModel.getFreeAgents()) {
+            if (freeAgentValidator.validateFreeAgentObject(freeAgentModel)) {
+                continue;
+            } else {
+                System.out.println("Encountered Problem While validating Free Agents in the league==> " + leagueModel.getLeagueName());
+                return false;
+            }
         }
         if (numberOfConference % 2 == 0) {
             return true;

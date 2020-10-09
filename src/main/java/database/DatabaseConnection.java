@@ -48,7 +48,6 @@ public class DatabaseConnection<inputStream, prop> {
             String databaseUrl = properties.getProperty ("datasource.url");
             String password = properties.getProperty ("datasource.password");
             Connection connection = DriverManager.getConnection (databaseUrl, username, password);
-            System.out.println ("Connection created");
             return connection;
         } catch (Exception e) {
             e.printStackTrace ();

@@ -10,11 +10,11 @@ class MockDivisionPersistent {
         return 1;
     }
 
-    boolean isDivisionAlreadyExist() {
+    boolean isDivisionAlreadyExist(String divisionName, int conferenceId) {
         return true;
     }
 
-    int getDivisionInformation() {
+    int getDivisionInformation(String divisionName, int conferenceId) {
         return 1;
     }
 }

@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: freeagent.FreeAgentValidatorTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.004 s <<< FAILURE! - in freeagent.FreeAgentValidatorTest
+validateFreeAgentObject  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at freeagent.FreeAgentValidatorTest.validateFreeAgentObject(FreeAgentValidatorTest.java:19)
+

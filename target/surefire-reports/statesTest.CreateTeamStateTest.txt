@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: statesTest.CreateTeamStateTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.039 s <<< FAILURE! - in statesTest.CreateTeamStateTest
+setState  Time elapsed: 0.018 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: State not set for create team. Got an Exception
+	at statesTest.CreateTeamStateTest.setState(CreateTeamStateTest.java:36)
+
+isState  Time elapsed: 0.015 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: State is not valid. Got an Exception
+	at statesTest.CreateTeamStateTest.isState(CreateTeamStateTest.java:21)
+

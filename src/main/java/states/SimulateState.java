@@ -30,8 +30,9 @@ public class SimulateState implements ITransition {
 
     @Override
     public void entry() {
-
+        System.out.println("Simulation started");
         nestedSimulator = new NestedSimulator();
+        task();
     }
 
     @Override

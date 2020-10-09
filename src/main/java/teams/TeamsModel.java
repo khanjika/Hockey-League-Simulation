@@ -1,16 +1,17 @@
 package teams;
 
+import players.IPlayerModel;
 import players.PlayerModel;
 
 import java.util.List;
 
-public class TeamsModel implements  ITeamsModel{
+public class TeamsModel implements ITeamsModel {
 
     private String teamName;
     private String generalManager;
     private String headCoach;
     private List<PlayerModel> players;
-    private PlayerModel playerModel;
+    private IPlayerModel playerModel;
     private ITeamsPersistent iTeamsPersistent;
 
 
@@ -52,39 +53,47 @@ public class TeamsModel implements  ITeamsModel{
         this.players = players;
     }
 
-    public boolean storeTeamInformation(TeamsModel teamsModel, int divisionId) {
+    public void storeTeamInformation(TeamsModel teamsModel, int divisionId) {
         if (isTeamAlreadyExist(teamsModel.getTeamName(), divisionId)) {
             System.out.println("Team already Exist in the DB");
-            return false;
         } else {
-            //Store head coach
-            int headCoachId =0 ;
+            //Store head coach info.
+            int headCoachId = storeHeadCoachInfirmation(teamsModel.getHeadCoach());
             //store general manager
-            int generalManagerName = 0;
+            int generalManagerId = storeGeneralManagerInformation(teamsModel.getGeneralManager());
             //Store team Information
-            int teamId =0;
+            int teamId = addTeamInformation(teamsModel.getTeamName(), generalManagerId, headCoachId, divisionId);
             for (PlayerModel playerModel : teamsModel.getPlayers()) {
                 this.playerModel.storePlayerInformation(playerModel, teamId);
             }
         }
-        return false;
+
+    }
+
+    public int addTeamInformation(String teamName, int generalManagerId, int headCoachId, int divisionId) {
+        return iTeamsPersistent.addTeamInformation(teamName, generalManagerId, headCoachId, divisionId);
     }
 
     @Override
     public boolean isTeamAlreadyExist(String teamName, int divisionId) {
-        return false;
+        return iTeamsPersistent.isTeamNameExist(teamName, divisionId);
     }
 
     @Override
     public int getTeamId(String teamName, int divisionId) {
-        return 0;
+        return iTeamsPersistent.getTeamId(teamName, divisionId);
     }
 
-    private int storeHeadCoachInfirmation(String headCoachName){
-        return 0;
+    @Override
+    public TeamPojo getTeamInformation(String teamName, int divisionId) {
+        return iTeamsPersistent.getTeamInformation(teamName, divisionId);
     }
 
-    private int storeGeneralManagerInformation(String generalManagerName){
-        return 0;
+    private int storeHeadCoachInfirmation(String headCoachName) {
+        return iTeamsPersistent.addHeadCoahDetails(headCoachName);
+    }
+
+    private int storeGeneralManagerInformation(String generalManagerName) {
+        return iTeamsPersistent.addGeneralManagerDetails(generalManagerName);
     }
 }

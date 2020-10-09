@@ -8,4 +8,6 @@ public interface ILeaguePersistent {
 
     String getLeagueInformation(int leagueId);
 
+    int getLeagueId(String leagueName);
+
 }

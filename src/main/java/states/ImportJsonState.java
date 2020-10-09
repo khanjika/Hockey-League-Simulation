@@ -8,16 +8,16 @@ import statemachine.StateMachine;
 
 public class ImportJsonState implements ITransition {
     StateMachine stateMachine;
-    private  static ICliCommunication cliCommunication;
+    private static ICliCommunication cliCommunication;
     String userInput;
     InitialCli initialCli;
     CreateTeamState createTeamState;
 
 
     public ImportJsonState() {
-        initialCli = new InitialCli();
-        cliCommunication =new CliCommunication();
-        cliCommunication =new CliCommunication();
+        System.out.println("constructor of import json created");
+
+        cliCommunication = new CliCommunication();
     }
 
     public ImportJsonState(StateMachine newStateMachine) {
@@ -35,25 +35,26 @@ public class ImportJsonState implements ITransition {
     @Override
     public void entry() {
         System.out.println("Parse Json Import");
-        InitialCli initialCli = new InitialCli();
-        userInput=  initialCli.initializedCommunication();
+        initialCli = new InitialCli();
+        userInput = initialCli.initializedCommunication();
         task();
     }
 
     @Override
     public void task() {
-        System.out.println("instantiate and configure league model");
-        if(userInput.equalsIgnoreCase("yes")){
-
-            //i need to transit to create team state and i want to pass the below variable.
-            LeagueModel leagueModel = initialCli.parseJson();
+        if (userInput.equalsIgnoreCase("yes")) {
+            InitialCli initialCli01 = new InitialCli();
+            LeagueModel leagueModel = initialCli01.parseJson();
             createTeamState = new CreateTeamState(leagueModel);
+            stateMachine.setCreateTeam(createTeamState);
             stateMachine.setCurrentState(stateMachine.playerChoiceCreateTeam());
-        }
-        else {
-
+        } else if (userInput.equalsIgnoreCase("no")) {
+            //cliCommunication.loadTeamFromDatabase();
             stateMachine.setCurrentState(stateMachine.playerChoiceLoadTeam());
-          //  cliCommunication.loadTeamFromDatabase();
+
+        } else {
+            System.out.println(this.userInput);
+            System.out.println("Enter YES or NO");
         }
 
         exit();

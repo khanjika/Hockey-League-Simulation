@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: statesTest.SimulateStateTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.014 s <<< FAILURE! - in statesTest.SimulateStateTest
+setState  Time elapsed: 0.005 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: State not set for simulate state. Got an Exception
+	at statesTest.SimulateStateTest.setState(SimulateStateTest.java:37)
+
+isState  Time elapsed: 0.006 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: State is not valid. Got an Exception
+	at statesTest.SimulateStateTest.isState(SimulateStateTest.java:22)
+

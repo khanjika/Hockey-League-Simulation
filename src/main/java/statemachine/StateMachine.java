@@ -13,13 +13,13 @@ public class StateMachine {
     ITransition currentState;
 
     public StateMachine() {
+        System.out.println("State Machine object");
         importJson = new ImportJsonState(this);
         playerTeamChoice = new PlayerTeamChoiceState(this);
         loadTeam = new LoadTeamState(this);
         createTeam = new CreateTeamState(this);
         playerSeasonsChoice = new PlayerSeasonsChoiceState(this);
         simulate = new SimulateState(this);
-
         currentState = importJson;
         currentState.entry();
     }
