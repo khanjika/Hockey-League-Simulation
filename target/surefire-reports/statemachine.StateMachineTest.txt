@@ -1,0 +1,76 @@
+-------------------------------------------------------------------------------
+Test set: statemachine.StateMachineTest
+-------------------------------------------------------------------------------
+Tests run: 18, Failures: 18, Errors: 0, Skipped: 0, Time elapsed: 0.282 s <<< FAILURE! - in statemachine.StateMachineTest
+playerChoiceLoadTeam  Time elapsed: 0.007 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Load team state not returned. Got an Exception
+	at statemachine.StateMachineTest.playerChoiceLoadTeam(StateMachineTest.java:171)
+
+setPlayerTeamChoice  Time elapsed: 0.008 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: State is not set. Got an Exception
+	at statemachine.StateMachineTest.setPlayerTeamChoice(StateMachineTest.java:53)
+
+setSimulate  Time elapsed: 0.005 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: State is not set. Got an Exception
+	at statemachine.StateMachineTest.setSimulate(StateMachineTest.java:149)
+
+getSimulate  Time elapsed: 0.008 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: State is not valid. Got an Exception
+	at statemachine.StateMachineTest.getSimulate(StateMachineTest.java:137)
+
+teamLoaded  Time elapsed: 0.007 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Player Seasons choice state not returned. Got an Exception
+	at statemachine.StateMachineTest.teamLoaded(StateMachineTest.java:192)
+
+setImportJson  Time elapsed: 0.006 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: State is not set. Got an Exception
+	at statemachine.StateMachineTest.setImportJson(StateMachineTest.java:29)
+
+fileImported  Time elapsed: 0.007 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Player team choice state not returned. Got an Exception
+	at statemachine.StateMachineTest.fileImported(StateMachineTest.java:160)
+
+setLoadTeam  Time elapsed: 0.007 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: State is not set. Got an Exception
+	at statemachine.StateMachineTest.setLoadTeam(StateMachineTest.java:125)
+
+getPlayerTeamChoice  Time elapsed: 0.007 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: State is not valid. Got an Exception
+	at statemachine.StateMachineTest.getPlayerTeamChoice(StateMachineTest.java:41)
+
+getLoadTeam  Time elapsed: 0.006 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: State is not valid. Got an Exception
+	at statemachine.StateMachineTest.getLoadTeam(StateMachineTest.java:113)
+
+newTeamCreated  Time elapsed: 0.007 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Player Seasons choice state not returned. Got an Exception
+	at statemachine.StateMachineTest.newTeamCreated(StateMachineTest.java:203)
+
+getPlayerSeasonsChoice  Time elapsed: 0.012 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: State is not valid. Got an Exception
+	at statemachine.StateMachineTest.getPlayerSeasonsChoice(StateMachineTest.java:65)
+
+getCreateTeam  Time elapsed: 0.017 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: State is not valid. Got an Exception
+	at statemachine.StateMachineTest.getCreateTeam(StateMachineTest.java:89)
+
+playerChoiceCreateTeam  Time elapsed: 0.019 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Create team state not returned. Got an Exception
+	at statemachine.StateMachineTest.playerChoiceCreateTeam(StateMachineTest.java:182)
+
+getImportJson  Time elapsed: 0.014 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: State is not valid. Got an Exception
+	at statemachine.StateMachineTest.getImportJson(StateMachineTest.java:17)
+
+setCreateTeam  Time elapsed: 0.055 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: State is not set. Got an Exception
+	at statemachine.StateMachineTest.setCreateTeam(StateMachineTest.java:101)
+
+setPlayerSeasonsChoice  Time elapsed: 0.01 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: State is not set. Got an Exception
+	at statemachine.StateMachineTest.setPlayerSeasonsChoice(StateMachineTest.java:77)
+
+simulateSeasons  Time elapsed: 0.075 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Seasons simulate state not returned. Got an Exception
+	at statemachine.StateMachineTest.simulateSeasons(StateMachineTest.java:214)
+

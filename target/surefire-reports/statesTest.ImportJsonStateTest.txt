@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: statesTest.ImportJsonStateTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.033 s <<< FAILURE! - in statesTest.ImportJsonStateTest
+setState  Time elapsed: 0.014 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: State not set for import Json. Got an Exception
+	at statesTest.ImportJsonStateTest.setState(ImportJsonStateTest.java:37)
+
+isState  Time elapsed: 0.007 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: State is not valid. Got an Exception
+	at statesTest.ImportJsonStateTest.isState(ImportJsonStateTest.java:23)
+

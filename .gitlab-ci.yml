@@ -1,0 +1,64 @@
+image: maven:latest
+
+variables:
+  MAVEN_CLI_OPTS: "clean"
+
+stages:
+  - build
+  - test
+  - deploy_dev
+  - deploy_prod
+
+build:
+  stage: build
+  tags:
+    - ugrad
+  script:
+    - mvn $MAVEN_CLI_OPTS compile
+
+test:
+  stage: test
+  tags:
+    - ugrad
+  script:
+    - mvn verify
+
+deploy_dev:
+  stage: deploy_dev
+  tags:
+    - ugrad
+  artifacts:
+    paths:
+      - target
+  script:
+    - echo ${TEST_DATABASE_JDBC_DRIVER} >> databaseconfig.properties
+    - echo ${TEST_DATABASE_URL} >> databaseconfig.properties
+    - echo ${TEST_DATABASE_USERNAME} >> databaseconfig.properties
+    - echo ${TEST_DATABASE_PASSWORD} >> databaseconfig.properties
+    - mv -fv databaseconfig.properties src/main/resources/databaseconfig.properties
+    - mvn $MAVEN_CLI_OPTS install -U
+    - chmod og-rwx ${DEV_DEPLOY_SSH_KEY}
+    - zip -r ${CI_COMMIT_REF_NAME}_${CI_COMMIT_SHORT_SHA}.zip *
+    - scp -r -o StrictHostKeyChecking=no -i "${DEV_DEPLOY_SSH_KEY}" "${CI_COMMIT_REF_NAME}_${CI_COMMIT_SHORT_SHA}.zip" "${DEV_DEPLOY_USER}@${DEV_DEPLOY_HOST}:${DEV_DEPLOY_DIR}/${CI_COMMIT_REF_NAME}_${CI_COMMIT_SHORT_SHA}.zip"
+  only:
+    - develop
+
+deploy_prod:
+  stage: deploy_prod
+  tags:
+    - ugrad
+  artifacts:
+    paths:
+      - target
+  script:
+    - echo ${PROD_DATABASE_JDBC_DRIVER} >> databaseconfig.properties
+    - echo ${PROD_DATABASE_URL} >> databaseconfig.properties
+    - echo ${PROD_DATABASE_USERNAME} >> databaseconfig.properties
+    - echo ${PROD_DATABASE_PASSWORD} >> databaseconfig.properties
+    - mv -fv databaseconfig.properties src/main/resources/databaseconfig.properties
+    - mvn clean install -U
+    - chmod og-rwx ${PROD_DEPLOY_SSH_KEY}
+    - zip -r ${CI_COMMIT_REF_NAME}_${CI_COMMIT_SHORT_SHA}.zip *
+    - scp -r -o StrictHostKeyChecking=no -i "${PROD_DEPLOY_SSH_KEY}" "${CI_COMMIT_REF_NAME}_${CI_COMMIT_SHORT_SHA}.zip" "${PROD_DEPLOY_USER}@${PROD_DEPLOY_HOST}:${PROD_DEPLOY_DIR}/${CI_COMMIT_REF_NAME}_${CI_COMMIT_SHORT_SHA}.zip"
+  only:
+    - release
