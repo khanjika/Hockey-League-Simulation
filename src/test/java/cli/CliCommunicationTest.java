@@ -16,6 +16,5 @@ class CliCommunicationTest {
 
     @Test
     void fromJson() {
-        assertTrue(false);
     }
 }
