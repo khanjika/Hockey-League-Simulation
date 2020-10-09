@@ -21,7 +21,7 @@ public class StateMachine {
         playerSeasonsChoice = new PlayerSeasonsChoiceState(this);
         simulate = new SimulateState(this);
         currentState = importJson;
-        currentState.entry();
+//        currentState.entry();
     }
 
     public ITransition getImportJson() {
