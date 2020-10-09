@@ -62,7 +62,7 @@ public class CliCommunication implements ICliCommunication {
                 System.out.println("Invalid JSON");
             }
         } catch (IOException e) {
-            System.out.println("Error occurred while parsing the file due to syntax issue");
+            System.out.println("Error occurred while parsing the file due to syntax issue"+ e);
         }
         return null;
     }

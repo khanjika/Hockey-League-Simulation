@@ -30,7 +30,7 @@ public class ConferenceValidator implements IConferenceValidator {
                 if (divisonValidator.validateDivisionObject(divisonModel)) {
                     continue;
                 } else {
-                    System.out.println("Encountered problem while validating Divisions");
+                    System.out.println("Encountered problem while validating Divisions in Conferene ==> "+conferenceModel.getConferenceName());
                     return false;
                 }
 
@@ -41,8 +41,8 @@ public class ConferenceValidator implements IConferenceValidator {
             return true;
         } else {
             //IMPORTANT NEED TO MAKE IT TO FALSE
-            //System.out.println("Number of Division is not even");
-            return true;
+            System.out.println("Number of Division is not even");
+            return false;
         }
     }
 

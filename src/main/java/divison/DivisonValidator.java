@@ -22,7 +22,7 @@ public class DivisonValidator implements IDivisonValidator {
                 if (teamsValidator.validateTeamObject(teamsModel)) {
                     continue;
                 } else {
-                    System.out.println("Encountered Problem While validating Teams");
+                    System.out.println("Encountered Problem While validating Teams in Division ==> "+divisonModel.getDivisionName());
                     return false;
                 }
             }

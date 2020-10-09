@@ -61,6 +61,7 @@ public class CreateTeamState implements ITransition {
         System.out.println("=====================================");
         System.out.println("Your data have been successfully stored in the database");
         System.out.println("=====================================");
+        //NULL
         stateMachine.setCurrentState(stateMachine.teamLoaded());
         stateMachine.getCurrentState().entry();
         //I WILL BE USING THIS FOR THE TRANSITION.

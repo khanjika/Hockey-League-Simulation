@@ -34,7 +34,6 @@ public class ImportJsonState implements ITransition {
 
     @Override
     public void entry() {
-        System.out.println("Parse Json Import");
         initialCli = new InitialCli();
         userInput = initialCli.initializedCommunication();
         task();
@@ -45,19 +44,25 @@ public class ImportJsonState implements ITransition {
         if (userInput.equalsIgnoreCase("yes")) {
             InitialCli initialCli01 = new InitialCli();
             LeagueModel leagueModel = initialCli01.parseJson();
-            createTeamState = new CreateTeamState(leagueModel);
-            stateMachine.setCreateTeam(createTeamState);
-            stateMachine.setCurrentState(stateMachine.playerChoiceCreateTeam());
+            if(leagueModel==null){
+
+            }
+            else {
+                createTeamState = new CreateTeamState(leagueModel);
+                stateMachine.setCreateTeam(createTeamState);
+                stateMachine.setCurrentState(stateMachine.playerChoiceCreateTeam());
+                exit();
+            }
+
         } else if (userInput.equalsIgnoreCase("no")) {
-            //cliCommunication.loadTeamFromDatabase();
             stateMachine.setCurrentState(stateMachine.playerChoiceLoadTeam());
+            exit();
 
         } else {
             System.out.println(this.userInput);
             System.out.println("Enter YES or NO");
+            exit();
         }
-
-        exit();
     }
 
     @Override

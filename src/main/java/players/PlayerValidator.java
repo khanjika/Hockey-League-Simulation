@@ -17,6 +17,7 @@ public class PlayerValidator implements IPlayerValidator {
                 return false;
             }
         } else {
+            System.out.println("Player Information can not be NULL or EMPTY");
             return false;
         }
 

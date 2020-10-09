@@ -27,7 +27,7 @@ public class TeamsValidator implements ITeamsValidator {
                     }
 
                 } else {
-                    System.out.println("Encountered Problem while validating Players in team==>" + teamsModel.getTeamName());
+                    System.out.println("Encountered Problem while validating Players in team ==> " + teamsModel.getTeamName());
                     return false;
                 }
             }
@@ -39,9 +39,9 @@ public class TeamsValidator implements ITeamsValidator {
             if (playerCount == 20) {
                 return true;
             } else {
-                //  System.out.println("Player Count is less than 20. Current count is==>"+playerCount);
+                 System.out.println("Player Count is not equal to 20. Current count is==>"+playerCount);
                 //HERE NEED TO CHANGE TO FALSE
-                return true;
+                return false;
             }
         } else {
 
