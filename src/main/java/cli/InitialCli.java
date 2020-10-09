@@ -12,6 +12,7 @@ public class InitialCli {
     Scanner scannerObject;
 
     public InitialCli() {
+
         cliCommunication =new CliCommunication();
         scannerObject = new Scanner(System.in);
     }
@@ -21,12 +22,14 @@ public class InitialCli {
         String userInput = scannerObject.nextLine();
         if(userInput.equalsIgnoreCase("yes")){
             return "yes";
-         //   parseJson();
         }
-        else{
-            System.out.println("Loading team....");
+        else if(userInput.equalsIgnoreCase("no")){
+            System.out.println("You need to provide some information inorder to load team");
             return "no";
-         //   cliCommunication.loadTeamFromDatabase();
+        }
+        else {
+            return "NOT PROVIDED";
+
         }
     }
 

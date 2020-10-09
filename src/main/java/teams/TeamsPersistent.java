@@ -18,7 +18,7 @@ public class TeamsPersistent implements ITeamsPersistent{
             storedProcedure.setParameter(4,divisionId);
             storedProcedure.registerOutParameter(5);
             storedProcedure.execute();
-            System.out.println("Newly created Team id is "+storedProcedure.getNumericReturnValue(5));
+           // System.out.println("Newly created Team id is "+storedProcedure.getNumericReturnValue(5));
             return storedProcedure.getNumericReturnValue(5);
         } catch (Exception e) {
             System.out.println("Exception in storing team details");
@@ -67,7 +67,7 @@ public class TeamsPersistent implements ITeamsPersistent{
             storedProcedure.setParameter(2,divisionId);
             storedProcedure.registerOutParameter(3);
             storedProcedure.execute();
-            System.out.println("Team id is "+storedProcedure.getNumericReturnValue(3));
+          //  System.out.println("Team id is "+storedProcedure.getNumericReturnValue(3));
             return storedProcedure.getNumericReturnValue(3);
         } catch (Exception e) {
             System.out.println("Exception in fetching information about team");
@@ -88,7 +88,7 @@ public class TeamsPersistent implements ITeamsPersistent{
             storedProcedure.setParameter(1,headCoachName);
             storedProcedure.registerOutParameter(2);
             storedProcedure.execute();
-            System.out.println("Head Coach id is "+storedProcedure.getNumericReturnValue(2));
+          //  System.out.println("Head Coach id is "+storedProcedure.getNumericReturnValue(2));
             return storedProcedure.getNumericReturnValue(2);
         } catch (Exception e) {
             System.out.println("Exception in fetching information about head coach");
@@ -109,7 +109,7 @@ public class TeamsPersistent implements ITeamsPersistent{
             storedProcedure.setParameter(1,managerName);
             storedProcedure.registerOutParameter(2);
             storedProcedure.execute();
-            System.out.println("General Manager id is "+storedProcedure.getNumericReturnValue(2));
+          //  System.out.println("General Manager id is "+storedProcedure.getNumericReturnValue(2));
             return storedProcedure.getNumericReturnValue(2);
         } catch (Exception e) {
             System.out.println("Exception in fetching information about general manager");

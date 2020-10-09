@@ -74,4 +74,11 @@ public  class LeagueModelTest {
         leagueModel.setFreeAgents(freeAgentModelList);
         return leagueModel;
     }
+
+
+    @Test
+    void getLeagueId(){
+        MockLeaguePersistent mock = new MockLeaguePersistent();
+        assertEquals(mock.getLeagueId("Leagu name"),1);
+    }
 }

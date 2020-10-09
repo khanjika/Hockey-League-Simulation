@@ -28,7 +28,6 @@ public class CallStoredProcedure {
                 statement.close();
             }
             if (connection != null) {
-                System.out.println("Closed");
                 connection.close();
             }
         } catch (Exception e) {

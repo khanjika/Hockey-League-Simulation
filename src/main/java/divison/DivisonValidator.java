@@ -9,20 +9,16 @@ import teams.ITeamsValidator;
 import teams.TeamsModel;
 import teams.TeamsValidator;
 
-public class DivisonValidator implements IDivisonValidator{
-
+public class DivisonValidator implements IDivisonValidator {
 
     private static ITeamsValidator teamsValidator = new TeamsValidator();
 
-
     @Override
     public boolean validateDivisionObject(DivisonModel divisonModel) {
-        if(divisonModel.getDivisionName() =="" || divisonModel.getDivisionName()==null){
+        if (divisonModel.getDivisionName() == "" || divisonModel.getDivisionName() == null) {
             return false;
-        }
-        else {
+        } else {
             for (TeamsModel teamsModel : divisonModel.getTeams()) {
-               // System.out.println("Teams Model Addrsdd "+teamsModel);
                 if (teamsValidator.validateTeamObject(teamsModel)) {
                     continue;
                 } else {
@@ -36,10 +32,9 @@ public class DivisonValidator implements IDivisonValidator{
 
     @Override
     public boolean isDivisionExist(LeagueModel leagueModel, String divisionName) {
-
-        for(ConferenceModel conferenceModel: leagueModel.getConferences()){
-            for(DivisonModel divisonModel : conferenceModel.getDivisions()){
-                if(divisonModel.getDivisionName().equalsIgnoreCase(divisionName)){
+        for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
+            for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
+                if (divisonModel.getDivisionName().equalsIgnoreCase(divisionName)) {
                     return true;
                 }
             }

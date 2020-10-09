@@ -1,19 +1,21 @@
 package players;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import teams.TeamPojo;
 
-public class PlayerModel {
+import java.util.ArrayList;
+
+public class PlayerModel implements IPlayerModel {
 
     private IPlayerPersistent iPlayerPersistent;
 
     public PlayerModel() {
-        iPlayerPersistent=new PlayerPersistent();
+        iPlayerPersistent = new PlayerPersistent();
     }
-
     private String playerName;
     private String position;
     @JsonProperty(required = true)
-    private  Boolean captain;
+    private Boolean captain;
 
     public String getPlayerName() {
         return playerName;
@@ -39,8 +41,14 @@ public class PlayerModel {
         this.captain = captain;
     }
 
-    public boolean storePlayerInformation(PlayerModel playerModel,int teamId){
-        iPlayerPersistent.addPlayerInformation(playerModel.getPlayerName(),playerModel.getPosition(),playerModel.isCaptain(),teamId);
-        return true;
+    public void storePlayerInformation(PlayerModel playerModel, int teamId) {
+        iPlayerPersistent.addPlayerInformation(playerModel.getPlayerName(), playerModel.getPosition(), playerModel.isCaptain(), teamId);
     }
+
+    @Override
+    public ArrayList<PlayerModel> getPlayerInformation(int teamId) {
+        return iPlayerPersistent.getPlayerInformation(teamId);
+    }
+
+
 }
