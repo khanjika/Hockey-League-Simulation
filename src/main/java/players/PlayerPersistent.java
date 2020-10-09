@@ -2,6 +2,9 @@ package players;
 
 import database.CallStoredProcedure;
 
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
 public class PlayerPersistent implements IPlayerPersistent{
     @Override
     public void addPlayerInformation(String playerName, String position, boolean caption, int teamId) {
@@ -22,5 +25,33 @@ public class PlayerPersistent implements IPlayerPersistent{
             }
         }
 
+    }
+
+    @Override
+    public ArrayList<PlayerModel> getPlayerInformation(int teamId) {
+        ArrayList<PlayerModel> playersInfo = new ArrayList<PlayerModel>();
+        CallStoredProcedure storedProcedure = null;
+        try {
+            storedProcedure = new CallStoredProcedure("GetPlayerInformation(?)");
+            storedProcedure.setParameter(1,teamId);
+            ResultSet rs= storedProcedure.getResultSetObject();
+            if(rs != null) {
+                while (rs.next ()) {
+                    PlayerModel player = new PlayerModel ();
+                    player.setCaptain (rs.getBoolean (4));
+                    player.setPosition (rs.getString (3));
+                    player.setPlayerName (rs.getString (2));
+                    playersInfo.add(player);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Exception in obtaining team information");
+            System.out.println(e);
+        } finally {
+            if (storedProcedure != null) {
+                storedProcedure.clean ();
+            }
+        }
+        return playersInfo;
     }
 }
