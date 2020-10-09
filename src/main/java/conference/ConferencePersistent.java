@@ -57,7 +57,6 @@ public class ConferencePersistent implements IConferencePersistent{
 
     @Override
     public int getConferenceInformation(String conferenceName, int leagueId) {
-        ConferenceModel conference = new ConferenceModel();
         CallStoredProcedure storedProcedure = null;
         try {
             storedProcedure = new CallStoredProcedure("getConferenceId(?,?,?)");

@@ -1,12 +1,16 @@
 package teams;
 
-import league.LeagueModel;
-
 public interface ITeamsPersistent {
 
-    int addTeamInformation(String teamName, String headCoach, String generalManager,int divisionId);
+    int addTeamInformation(String teamName, int generalManager , int headCoach,int divisionId);
 
-    boolean isTeamNameExist(String teamName);
+    boolean isTeamNameExist(String teamName, int divisionId);
 
-    void getTeamInformation(String teamName);
+    int getTeamId(String teamName, int divisionId);
+
+    int addHeadCoahDetails(String headCoachName);
+
+    int addGeneralManagerDetails(String managerName);
+
+
 }
