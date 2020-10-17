@@ -9,18 +9,26 @@ public class StateMachine {
     ITransition createTeam;
     ITransition playerSeasonsChoice;
     ITransition simulate;
-
     ITransition currentState;
+    ITransition persistLeagueStae;
+
 
     public StateMachine() {
 
+        System.out.println("Object of state machine is created "+this);
         importJson = new ImportJsonState(this);
+        System.out.println("Object of ImportJsonState is created "+importJson);
         playerTeamChoice = new PlayerTeamChoiceState(this);
+        System.out.println("Object of PlayerTeamChoiceState is created "+playerTeamChoice);
         loadTeam = new LoadTeamState(this);
+        System.out.println("Object of LoadTeamState is created "+loadTeam);
         createTeam = new CreateTeamState(this);
+        System.out.println("Object of CreateTeamState is created "+createTeam);
         playerSeasonsChoice = new PlayerSeasonsChoiceState(this);
+        System.out.println("Object of PlayerSeasonsChoiceState id created "+playerSeasonsChoice);
         simulate = new SimulateState(this);
-        currentState = importJson;
+        System.out.println("Object of SimulateState is created "+simulate);
+        persistLeagueStae=new PersistLeagueState(this);
     }
 
     public ITransition getImportJson() {
@@ -53,6 +61,15 @@ public class StateMachine {
 
     public void setCreateTeam(ITransition createTeam) {
         this.createTeam = createTeam;
+    }
+
+
+    public ITransition getPersistLeagueStae() {
+        return persistLeagueStae;
+    }
+
+    public void setPersistLeagueStae(ITransition persistLeagueStae) {
+        this.persistLeagueStae = persistLeagueStae;
     }
 
     public ITransition getPlayerSeasonsChoice() {

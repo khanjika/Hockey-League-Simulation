@@ -19,6 +19,7 @@ public class LeagueModel implements ILeagueModel {
     private List<FreeAgentModel> freeAgents;
 
 
+
     public LeagueModel() {
         iLeaguePersistent = new LeaguePersistent();
         conferenceModel = new ConferenceModel();

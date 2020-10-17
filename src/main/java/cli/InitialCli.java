@@ -17,25 +17,25 @@ public class InitialCli {
         scannerObject = new Scanner(System.in);
     }
 
-    public String initializedCommunication()  {
-        System.out.println("Do you want to provide json path to import ?");
-        String userInput = this.scannerObject.nextLine();
-        if(userInput.equalsIgnoreCase("yes")){
-            return "yes";
-        }
-        else if(userInput.equalsIgnoreCase("no")){
-            System.out.println("You need to provide some information inorder to load team");
-            return "no";
-        }
-        else {
-            return "NOT PROVIDED";
+//    public boolean initializedCommunication()  {
+//        System.out.println("Do you want to provide json path to import ?");
+//        String userInput = this.scannerObject.nextLine();
+//        if(userInput.equalsIgnoreCase("yes")){
+//            return true;
+//        }
+//        else if(userInput.equalsIgnoreCase("no")){
+//            System.out.println("You need to provide some information inorder to load team");
+//            return false;
+//        }
+//        else {
+//            System.out.println("enter YES or NO");
+//            initializedCommunication();
+//        }
+//        return true;
+//    }
 
-        }
-    }
+    public LeagueModel parseJson(String filePath){
 
-    public LeagueModel parseJson(){
-        System.out.println("Provide complete file path");
-        String filePath=scannerObject.nextLine();
         if(cliCommunication.isFileExist(filePath)){
             try {
                LeagueModel leagueModel= cliCommunication.parseJson(filePath);
@@ -47,6 +47,7 @@ public class InitialCli {
         }
         else{
             System.out.println("File does not exists in the specified location");
+            System.exit(0);
         }
         return null;
     }
