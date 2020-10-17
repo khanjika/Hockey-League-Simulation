@@ -65,7 +65,6 @@ public class loadTeamCli {
                             System.out.println("Player Position = " + playerModel.getPosition());
                             if (playerModel.isCaptain()) {
                                 System.out.println("** " + playerModel.getPlayerName() + " is the captain of the Team **");
-
                             }
                             System.out.println();
                         }

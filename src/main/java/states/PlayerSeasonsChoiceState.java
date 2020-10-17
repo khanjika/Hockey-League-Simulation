@@ -14,10 +14,11 @@ public class PlayerSeasonsChoiceState implements ITransition {
     public PlayerSeasonsChoiceState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
     }
-    public PlayerSeasonsChoiceState(LeagueModel leagueModel,StateMachine stateMachine){
-        this.stateMachine =stateMachine;
+
+    public PlayerSeasonsChoiceState(LeagueModel leagueModel, StateMachine stateMachine) {
+        this.stateMachine = stateMachine;
         this.currentModel = leagueModel;
-        System.out.println("player season choice state "+stateMachine);
+        System.out.println("player season choice state " + stateMachine);
     }
 
     public StateMachine getStateMachine() {
@@ -53,16 +54,17 @@ public class PlayerSeasonsChoiceState implements ITransition {
     @Override
     public void task() {
         System.out.println("Enter Number of season you want to simulate");
-        Scanner scannerObject =new Scanner(System.in);
+        Scanner scannerObject = new Scanner(System.in);
         setEnteredInput(scannerObject.nextInt());
-        System.out.println("You have entered "+enteredInput);
+        System.out.println("You have entered " + enteredInput);
         exit();
     }
+
     @Override
     public void exit() {
-      for(int i=1;i<=enteredInput;i++){
-          System.out.println("Simulation Has been Started For Season "+i);
-      }
+        for (int i = 1; i <= enteredInput; i++) {
+            System.out.println("Simulation Has been Started For Season " + i);
+        }
     }
 }
 

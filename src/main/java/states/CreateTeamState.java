@@ -11,6 +11,7 @@ public class CreateTeamState implements ITransition {
     CreateTeamCli createTeamCli;
     LeagueModel updatedLeagueModel;
     ILeagueModel iLeagueModel;
+    PersistLeagueState persistLeagueState;
 
     public CreateTeamState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
@@ -55,18 +56,27 @@ public class CreateTeamState implements ITransition {
     @Override
     public void exit() {
         System.out.println("Please Wait, Storing Data in the Database...");
-        if(iLeagueModel.storeLeagueInformation(updatedLeagueModel)) {
-            System.out.println("=====================================");
-            System.out.println("Your data have been successfully stored in the database");
-            System.out.println("=====================================");
-            stateMachine.setCurrentState(stateMachine.teamLoaded());
+        if(true){
+
+//        if(iLeagueModel.storeLeagueInformation(updatedLeagueModel)) {
+            persistLeagueState=new PersistLeagueState(updatedLeagueModel,stateMachine);
+            stateMachine.setPersistLeagueStae(persistLeagueState);
+            stateMachine.setCurrentState(stateMachine.getPersistLeagueStae());
             stateMachine.getCurrentState().entry();
+            //THE ABOVE CODE WILL BE USED TO CHANGE THE STATE
+//
+//            System.out.println("=====================================");
+//            System.out.println("Your data have been successfully stored in the database");
+//            System.out.println("=====================================");
+          //  stateMachine.setCurrentState(stateMachine.teamLoaded());
+          //  stateMachine.getCurrentState().entry();
         }
-        else {
-            System.out.println("=====================================");
-            System.out.println("Error Encountered while storing data in the database");
-            System.out.println("=====================================");
         }
+//        else {
+//            System.out.println("=====================================");
+//            System.out.println("Error Encountered while storing data in the database");
+//            System.out.println("=====================================");
+//        }
 
     }
-}
+

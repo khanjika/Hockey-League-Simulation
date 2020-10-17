@@ -21,6 +21,7 @@ public class CliCommunication implements ICliCommunication {
     private loadTeamCli loadTeamCli;
 
     public CliCommunication() {
+        System.out.println("CLI communication object is created");
         objectMapper = new ObjectMapper();
         leagueValidator = new LeagueValidator();
         loadTeamCli = new loadTeamCli();
