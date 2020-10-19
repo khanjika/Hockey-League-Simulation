@@ -9,7 +9,9 @@ public class PlayerValidator implements IPlayerValidator {
 
     @Override
     public boolean validatePlayerObject(PlayerModel playerModel) {
-        if (isStringValid(playerModel.getPlayerName()) && isStringValid(playerModel.getPosition()) && playerModel.isCaptain() != null) {
+        if (isStringValid(playerModel.getPlayerName()) && isStringValid(playerModel.getPosition()) && playerModel.isCaptain() != null &&
+                isAgeValid(playerModel.getAge()) && isStatValid(playerModel.getSaving()) && isStatValid(playerModel.getShooting()) &&
+        isStatValid(playerModel.getSkating()) && isStatValid(playerModel.getChecking())) {
             if (validatePosition(playerModel.getPosition())) {
                 return true;
             } else {
@@ -40,5 +42,17 @@ public class PlayerValidator implements IPlayerValidator {
         return true;
     }
 
+    private boolean isStatValid(float stat){
+        if(stat < 1 && stat > 20){
+            return false;
+        }
+        return true;
+    }
 
+    private boolean isAgeValid(int age){
+        if(age <= 0){
+            return false;
+        }
+        return true;
+    }
 }

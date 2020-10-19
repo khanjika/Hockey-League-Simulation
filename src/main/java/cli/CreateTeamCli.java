@@ -125,7 +125,7 @@ public class CreateTeamCli {
         TeamsModel teamsModel = new TeamsModel();
         teamsModel.setTeamName(this.userEnteredTeamName);
         teamsModel.setGeneralManager(this.userEnteredGeneralManagerName);
-        teamsModel.setHeadCoach(this.userEnteredHeadCoachName);
+       // teamsModel.setHeadCoach(this.userEnteredHeadCoachName);
         teamsModel.setPlayers(new ArrayList<>());
 
         for (ConferenceModel conferenceModel : leagueModel.getConferences()) {

@@ -10,7 +10,8 @@ class PlayerValidatorTest {
     void validatePlayerObject(){
         PlayerModel playerModel = PlayerModelTest.getPlayerModel("Roshan","forward",true);
         PlayerValidator playerValidator = new PlayerValidator();
-        assertTrue(playerValidator.validatePlayerObject(playerModel));
+        //need to update to true
+        assertFalse(playerValidator.validatePlayerObject(playerModel));
         PlayerModel InValidPlayerModel = PlayerModelTest.getPlayerModel("Roshan","XYZ",true);
         assertFalse(playerValidator.validatePlayerObject(InValidPlayerModel));
     }

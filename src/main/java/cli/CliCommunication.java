@@ -57,7 +57,7 @@ public class CliCommunication implements ICliCommunication {
             JsonNode data = objectMapper.readTree(mapData);
             leagueModel = fromJson(data, LeagueModel.class);
             if (leagueValidator.validateLeagueObject(leagueModel)) {
-                System.out.println("Your Provide JSON is valid.");
+                System.out.println("Your Provided JSON is valid.");
                 return leagueModel;
             } else {
                 System.out.println("Invalid JSON");
