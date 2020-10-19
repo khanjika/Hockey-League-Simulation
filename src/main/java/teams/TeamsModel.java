@@ -9,7 +9,7 @@ public class TeamsModel implements ITeamsModel {
 
     private String teamName;
     private String generalManager;
-    private String headCoach;
+    private HeadCoachModel headCoach;
     private List<PlayerModel> players;
     private IPlayerModel playerModel;
     private ITeamsPersistent iTeamsPersistent;
@@ -36,14 +36,13 @@ public class TeamsModel implements ITeamsModel {
         this.generalManager = generalManager;
     }
 
-    public String getHeadCoach() {
+    public HeadCoachModel getHeadCoach() {
         return headCoach;
     }
 
-    public void setHeadCoach(String headCoach) {
+    public void setHeadCoach(HeadCoachModel headCoach) {
         this.headCoach = headCoach;
     }
-
 
     public List<PlayerModel> getPlayers() {
         return players;
@@ -58,7 +57,8 @@ public class TeamsModel implements ITeamsModel {
             System.out.println("Team already Exist in the DB");
         } else {
             //Store head coach info.
-            int headCoachId = storeHeadCoachInfirmation(teamsModel.getHeadCoach());
+            int headCoachId = 0;
+                    //storeHeadCoachInfirmation(teamsModel.getHeadCoach());
             //store general manager
             int generalManagerId = storeGeneralManagerInformation(teamsModel.getGeneralManager());
             //Store team Information

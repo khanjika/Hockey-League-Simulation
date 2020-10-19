@@ -40,19 +40,19 @@ public class TeamsModelTest {
         assertEquals("Manager one", teamsModel.getGeneralManager(), "Failed to set GeneralManager in TeamModel Object");
     }
 
-    @Test
-    void getHeadCoach() {
-        TeamsModel teamsModel = new TeamsModel();
-        teamsModel.setHeadCoach("Head coach one");
-        assertEquals("Head coach one", teamsModel.getHeadCoach(), "Failed to get head coach name in TeamModel Object");
-    }
-
-    @Test
-    void setHeadCoach() {
-        TeamsModel teamsModel = new TeamsModel();
-        teamsModel.setHeadCoach("Head coach one");
-        assertEquals("Head coach one", teamsModel.getHeadCoach(), "Failed to set head coach name in TeamModel Object");
-    }
+//    @Test
+//    void getHeadCoach() {
+//        TeamsModel teamsModel = new TeamsModel();
+//        teamsModel.setHeadCoach("Head coach one");
+//        assertEquals("Head coach one", teamsModel.getHeadCoach(), "Failed to get head coach name in TeamModel Object");
+//    }
+//
+//    @Test
+//    void setHeadCoach() {
+//        TeamsModel teamsModel = new TeamsModel();
+//        teamsModel.setHeadCoach("Head coach one");
+//        assertEquals("Head coach one", teamsModel.getHeadCoach(), "Failed to set head coach name in TeamModel Object");
+//    }
 
     @Test
     void getPlayers() {
@@ -71,7 +71,7 @@ public class TeamsModelTest {
 
     public static TeamsModel getTeamsObject() {
         TeamsModel teamsModel = new TeamsModel();
-        teamsModel.setHeadCoach("Mary Smith");
+        //teamsModel.setHeadCoach("Mary Smith");
         teamsModel.setGeneralManager("Mister Fred");
         teamsModel.setTeamName("Boston");
         boolean isCaptain = true;

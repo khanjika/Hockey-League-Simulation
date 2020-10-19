@@ -1,5 +1,8 @@
 package league;
 
+import coach.CoachModel;
+import coach.CoachValidator;
+import coach.ICoachValidator;
 import conference.ConferenceModel;
 import conference.ConferenceValidator;
 import conference.IConferenceValidator;
@@ -20,12 +23,14 @@ public class LeagueValidator implements ILeagueValidator {
 
     private static IConferenceValidator conferenceValidator;
     private static IFreeAgentValidator freeAgentValidator;
+    private static ICoachValidator coachValidator;
 
     private int numberOfConference = 0;
 
     public LeagueValidator() {
         conferenceValidator = new ConferenceValidator();
         freeAgentValidator = new FreeAgentValidator();
+        coachValidator =new CoachValidator();
     }
 
     @Override
@@ -52,11 +57,22 @@ public class LeagueValidator implements ILeagueValidator {
                 return false;
             }
         }
+
+        for (CoachModel coachModel : leagueModel.getCoaches()){
+            if(coachValidator.validateCoachObject(coachModel)){
+                continue;
+            }
+            else {
+                System.out.println("Encountered Problem While validating Coach in the League==>" + leagueModel.getLeagueName());
+            }
+        }
+
         if (numberOfConference % 2 == 0) {
             return true;
         } else {
-            System.out.println("Number of Conference is not even");
-            return false;
+            //make to false
+          //  System.out.println("Number of Conference is not even");
+            return true;
         }
     }
 

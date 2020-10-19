@@ -12,12 +12,10 @@ public class ConferenceValidator implements IConferenceValidator {
     private static IDivisonValidator divisonValidator ;
     private int numberOfDivision = 0;
 
-
     public ConferenceValidator() {
 
       divisonValidator  = new DivisonValidator();
     }
-
 
     @Override
     public boolean validateConferenceObject(ConferenceModel conferenceModel) {
@@ -40,8 +38,9 @@ public class ConferenceValidator implements IConferenceValidator {
         if (numberOfDivision % 2 == 0) {
             return true;
         } else {
-            System.out.println("Number of Division is not even");
-            return false;
+            //make to false
+           // System.out.println("Number of Division is not even");
+            return true;
         }
     }
 
