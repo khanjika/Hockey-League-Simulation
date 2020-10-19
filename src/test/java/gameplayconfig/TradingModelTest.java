@@ -24,14 +24,14 @@ class TradingModelTest {
     void getRandomTradeOfferChance() {
         TradingModel tradingModel = new TradingModel();
         tradingModel.setRandomTradeOfferChance(0.05f);
-        assertEquals(0.05,tradingModel.getRandomTradeOfferChance(),"Failed to get randomtradeofferhance in Trading object");
+        assertEquals(0.05f,tradingModel.getRandomTradeOfferChance(),"Failed to get randomtradeofferhance in Trading object");
     }
 
     @Test
     void setRandomTradeOfferChance() {
         TradingModel tradingModel = new TradingModel();
         tradingModel.setRandomTradeOfferChance(0.05f);
-        assertEquals(0.05,tradingModel.getRandomTradeOfferChance(),"Failed to set randomtradeofferhance in Trading object");
+        assertEquals(0.05f,tradingModel.getRandomTradeOfferChance(),"Failed to set randomtradeofferhance in Trading object");
     }
 
     @Test

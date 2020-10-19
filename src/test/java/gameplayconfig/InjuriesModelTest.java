@@ -10,14 +10,14 @@ class InjuriesModelTest {
     void getRandomInjuryChance() {
         InjuriesModel injuriesModel = new InjuriesModel();
         injuriesModel.setRandomInjuryChance(0.05f);
-        assertEquals(0.05,injuriesModel.getRandomInjuryChance(),"Failed to get randomInjuryChance in Injuries object");
+        assertEquals(0.05f,injuriesModel.getRandomInjuryChance(),"Failed to get randomInjuryChance in Injuries object");
     }
 
     @Test
     void setRandomInjuryChance() {
         InjuriesModel injuriesModel = new InjuriesModel();
         injuriesModel.setRandomInjuryChance(0.05f);
-        assertEquals(0.05,injuriesModel.getRandomInjuryChance(),"Failed to set randomInjuryChance in Injuries object");
+        assertEquals(0.05f,injuriesModel.getRandomInjuryChance(),"Failed to set randomInjuryChance in Injuries object");
     }
 
     @Test

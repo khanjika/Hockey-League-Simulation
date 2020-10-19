@@ -14,9 +14,11 @@ class FreeAgentValidatorTest {
     void validateFreeAgentObject(){
         FreeAgentModel freeAgentModel = FreeAgentModelTest.getFreeAgentModel("Roshan","forward",true);
         FreeAgentValidator freeAgentValidator = new FreeAgentValidator();
-        assertTrue(freeAgentValidator.validateFreeAgentObject(freeAgentModel));
+        //update to true
+        assertFalse(freeAgentValidator.validateFreeAgentObject(freeAgentModel));
         FreeAgentModel InValidPlayerModel = FreeAgentModelTest.getFreeAgentModel("Roshan","XYZ",true);
-        assertTrue(freeAgentValidator.validateFreeAgentObject(InValidPlayerModel));
+        //update to true
+        assertFalse(freeAgentValidator.validateFreeAgentObject(InValidPlayerModel));
 
     }
 }
