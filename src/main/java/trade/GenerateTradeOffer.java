@@ -44,7 +44,7 @@ public class GenerateTradeOffer implements IGenerateTradeOffer{
         for(ConferenceModel conference : leagueModel.getConferences()) {
             for(DivisonModel division : conference.getDivisions ()) {
                 for(TeamsModel team : division.getTeams ()) {
-                    float lossMatches = 9;
+                    float lossMatches = 0;
                         //Get the loss point of the team
                       if (calculateLossPoint (lossMatches, tradeModel) == true) {
                              if(makeTradeOffer (tradeModel)) {
