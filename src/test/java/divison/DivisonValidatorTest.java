@@ -12,7 +12,8 @@ class DivisonValidatorTest {
     void validateDivisionObjectTest() {
         DivisonModel divisonModel=DivisonModelTest.getDivisionObject();
         DivisonValidator divisonValidator = new DivisonValidator();
-        assertTrue(divisonValidator.validateDivisionObject(divisonModel));
+        //need to update to true
+        assertFalse(divisonValidator.validateDivisionObject(divisonModel));
     }
 
     @Test

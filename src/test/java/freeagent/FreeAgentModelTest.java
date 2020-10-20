@@ -36,23 +36,8 @@ public class FreeAgentModelTest {
         assertEquals("player one",freeAgentModel.getPosition(),"Failed to set player position in Free agent object");
     }
 
-    @Test
-    void isCaptain() {
-        FreeAgentModel freeAgentModel =new FreeAgentModel();
-        freeAgentModel.setCaptain(true);
-        assertTrue(freeAgentModel.isCaptain(),"Failed check player is captain or not in Free agent object");
-    }
-
-    @Test
-    void setCaptain() {
-        FreeAgentModel freeAgentModel =new FreeAgentModel();
-        freeAgentModel.setCaptain(true);
-        assertTrue(freeAgentModel.isCaptain(),"Failed set player is captain or not in Free agent object");
-    }
-
     public static FreeAgentModel getFreeAgentModel(String playerName, String position, boolean iscaptain){
         FreeAgentModel freeAgentModel = new FreeAgentModel();
-        freeAgentModel.setCaptain(iscaptain);
         freeAgentModel.setPlayerName(playerName);
         freeAgentModel.setPosition(position);
 

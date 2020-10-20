@@ -16,6 +16,12 @@ public class PlayerModel implements IPlayerModel {
     private String position;
     @JsonProperty(required = true)
     private Boolean captain;
+    private int age;
+    private float skating;
+    private float shooting;
+    private float checking;
+    private float saving;
+
 
     public String getPlayerName() {
         return playerName;
@@ -40,6 +46,26 @@ public class PlayerModel implements IPlayerModel {
     public void setCaptain(Boolean captain) {
         this.captain = captain;
     }
+
+    public int getAge() { return age; }
+
+    public void setAge(int age) { this.age = age; }
+
+    public float getSkating() { return skating; }
+
+    public void setSkating(float skating) { this.skating = skating; }
+
+    public float getShooting() { return shooting;}
+
+    public void setShooting(float shooting) { this.shooting = shooting; }
+
+    public float getChecking() { return checking; }
+
+    public void setChecking(float checking) { this.checking = checking; }
+
+    public float getSaving() { return saving; }
+
+    public void setSaving(float saving) { this.saving = saving; }
 
     public void storePlayerInformation(PlayerModel playerModel, int teamId) {
         iPlayerPersistent.addPlayerInformation(playerModel.getPlayerName(), playerModel.getPosition(), playerModel.isCaptain(), teamId);

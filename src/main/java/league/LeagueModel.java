@@ -1,10 +1,13 @@
 package league;
 
 import cli.loadTeamCli;
+import coach.CoachModel;
+import coach.ICoachModel;
 import conference.ConferenceModel;
 import conference.IConferenceModel;
 import freeagent.FreeAgentModel;
 import freeagent.FreeAgentPersistent;
+import gameplayconfig.GamePlayConfigModel;
 
 import java.util.List;
 
@@ -18,12 +21,18 @@ public class LeagueModel implements ILeagueModel {
     private List<ConferenceModel> conferences;
     private List<FreeAgentModel> freeAgents;
 
+    //Milestone 2
+    private List<CoachModel> coaches;
+    private ICoachModel coachModel;
+    private List<String> generalManagers;
+    private GamePlayConfigModel gameplayConfig;
 
 
     public LeagueModel() {
         iLeaguePersistent = new LeaguePersistent();
         conferenceModel = new ConferenceModel();
         freeAgentModel = new FreeAgentModel();
+        coachModel = new CoachModel();
     }
 
     public String getLeagueName() {
@@ -48,6 +57,26 @@ public class LeagueModel implements ILeagueModel {
 
     public void setFreeAgents(List<FreeAgentModel> freeAgents) {
         this.freeAgents = freeAgents;
+    }
+
+    public List<CoachModel> getCoaches() { return coaches; }
+
+    public void setCoaches(List<CoachModel> coaches) { this.coaches = coaches; }
+
+    public List<String> getGeneralManagers() {
+        return generalManagers;
+    }
+
+    public void setGeneralManagers(List<String> generalManagers) {
+        this.generalManagers = generalManagers;
+    }
+
+    public GamePlayConfigModel getGameplayConfig() {
+        return gameplayConfig;
+    }
+
+    public void setGameplayConfig(GamePlayConfigModel gameplayConfig) {
+        this.gameplayConfig = gameplayConfig;
     }
 
     public boolean storeLeagueInformation(LeagueModel leagueModel) {

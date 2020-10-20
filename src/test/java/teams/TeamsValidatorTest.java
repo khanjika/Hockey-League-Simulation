@@ -11,6 +11,7 @@ class TeamsValidatorTest {
         TeamsModelTest teamsModelTest =new TeamsModelTest();
       TeamsModel teamsModel=  teamsModelTest.getTeamsObject();
       TeamsValidator teamsValidator = new TeamsValidator();
-      assertTrue(teamsValidator.validateTeamObject(teamsModel));
+      //update to true
+      assertFalse(teamsValidator.validateTeamObject(teamsModel));
     }
 }

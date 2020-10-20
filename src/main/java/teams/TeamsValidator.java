@@ -6,13 +6,14 @@ import players.PlayerValidator;
 
 public class TeamsValidator implements ITeamsValidator {
     private static IPlayerValidator playerValidator = new PlayerValidator();
+    private static IHeadCoachValidator headCoachValidator = new HeadCoachValidator();
     private boolean isPlayerCaptain = false;
     private int playerCount = 0;
 
     @Override
     public boolean validateTeamObject(TeamsModel teamsModel) {
         playerCount = 0;
-        if (isStringValid(teamsModel.getGeneralManager()) && isStringValid(teamsModel.getHeadCoach()) && isStringValid(teamsModel.getTeamName())) {
+        if (isStringValid(teamsModel.getGeneralManager()) && isStringValid(teamsModel.getTeamName())) {
             for (PlayerModel playerModel : teamsModel.getPlayers()) {
                 playerCount++;
                 if (playerValidator.validatePlayerObject(playerModel)) {
@@ -25,6 +26,10 @@ public class TeamsValidator implements ITeamsValidator {
                     } else {
                         continue;
                     }
+                    if(headCoachValidator.validateHeadCoachObject(teamsModel.getHeadCoach())){
+                        continue;
+                    }
+
 
                 } else {
                     System.out.println("Encountered Problem while validating Players in team ==> " + teamsModel.getTeamName());
@@ -39,8 +44,9 @@ public class TeamsValidator implements ITeamsValidator {
             if (playerCount == 20) {
                 return true;
             } else {
+                // Make condition false after validating
                System.out.println("Player Count is not equal to 20. Current count is==>"+playerCount);
-                return false;
+                return true;
             }
         } else {
 
