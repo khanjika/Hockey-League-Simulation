@@ -1,9 +1,9 @@
 package states;
 
-import cli.CliCommunication;
-import cli.ICliCommunication;
 import cli.InitialCli;
 import league.LeagueModel;
+import matchSchedules.IRegularSeasonSchedule;
+import matchSchedules.RegularSeasonSchedule;
 import statemachine.StateMachine;
 
 public class ImportJsonState implements ITransition {

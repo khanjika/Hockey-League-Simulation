@@ -10,6 +10,7 @@ public class CreateTeamState implements ITransition {
     LeagueModel currentModel;
     CreateTeamCli createTeamCli;
     LeagueModel updatedLeagueModel;
+    PlayerSeasonsChoiceState playerSeasonsChoiceState;
     ILeagueModel iLeagueModel;
     PersistLeagueState persistLeagueState;
 
@@ -55,28 +56,22 @@ public class CreateTeamState implements ITransition {
 
     @Override
     public void exit() {
-        System.out.println("Please Wait, Storing Data in the Database...");
+       // System.out.println("Please Wait, Storing Data in the Database...");
+        //here previously i was storing the data in database once the team was created not onve the team is
+        //created i need to go to ask number of season simulate.
         if(true){
 
 //        if(iLeagueModel.storeLeagueInformation(updatedLeagueModel)) {
-            persistLeagueState=new PersistLeagueState(updatedLeagueModel,stateMachine);
-            stateMachine.setPersistLeagueStae(persistLeagueState);
-            stateMachine.setCurrentState(stateMachine.getPersistLeagueStae());
+            playerSeasonsChoiceState=new PlayerSeasonsChoiceState(updatedLeagueModel,stateMachine);
+            stateMachine.setPlayerSeasonsChoice(playerSeasonsChoiceState);
+            stateMachine.setCurrentState(stateMachine.getPlayerSeasonsChoice());
+//            persistLeagueState=new PersistLeagueState(updatedLeagueModel,stateMachine);
+//            stateMachine.setPersistLeagueStae(persistLeagueState);
+//            stateMachine.setCurrentState(stateMachine.getPersistLeagueStae());
             stateMachine.getCurrentState().entry();
-            //THE ABOVE CODE WILL BE USED TO CHANGE THE STATE
-//
-//            System.out.println("=====================================");
-//            System.out.println("Your data have been successfully stored in the database");
-//            System.out.println("=====================================");
-          //  stateMachine.setCurrentState(stateMachine.teamLoaded());
-          //  stateMachine.getCurrentState().entry();
+
         }
         }
-//        else {
-//            System.out.println("=====================================");
-//            System.out.println("Error Encountered while storing data in the database");
-//            System.out.println("=====================================");
-//        }
 
     }
 
