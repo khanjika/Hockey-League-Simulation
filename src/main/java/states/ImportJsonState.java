@@ -1,13 +1,13 @@
 package states;
 
-import cli.CliCommunication;
-import cli.ICliCommunication;
 import cli.InitialCli;
 import coach.CoachModel;
 import conference.ConferenceModel;
 import gameplayconfig.AgingModel;
 import gameplayconfig.GamePlayConfigModel;
 import league.LeagueModel;
+import matchSchedules.IRegularSeasonSchedule;
+import matchSchedules.RegularSeasonSchedule;
 import statemachine.StateMachine;
 
 public class ImportJsonState implements ITransition {

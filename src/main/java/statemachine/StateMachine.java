@@ -8,9 +8,19 @@ public class StateMachine {
     ITransition loadTeam;
     ITransition createTeam;
     ITransition playerSeasonsChoice;
-    ITransition simulate;
     ITransition currentState;
-    ITransition persistLeagueStae;
+    ITransition persistLeagueState;
+    ITransition trainingState;
+
+    public ITransition getInitlailizeSeasonState() {
+        return initlailizeSeasonState;
+    }
+
+    public void setInitlailizeSeasonState(ITransition initlailizeSeasonState) {
+        this.initlailizeSeasonState = initlailizeSeasonState;
+    }
+
+    ITransition initlailizeSeasonState;
 
 
     public StateMachine() {
@@ -26,9 +36,9 @@ public class StateMachine {
         System.out.println("Object of CreateTeamState is created "+createTeam);
         playerSeasonsChoice = new PlayerSeasonsChoiceState(this);
         System.out.println("Object of PlayerSeasonsChoiceState id created "+playerSeasonsChoice);
-        simulate = new SimulateState(this);
-        System.out.println("Object of SimulateState is created "+simulate);
-        persistLeagueStae=new PersistLeagueState(this);
+        persistLeagueState=new PersistLeagueState(this);
+        initlailizeSeasonState=new InitializeSeasonState(this);
+        trainingState=new TrainingState(this);
     }
 
     public ITransition getImportJson() {
@@ -65,11 +75,11 @@ public class StateMachine {
 
 
     public ITransition getPersistLeagueStae() {
-        return persistLeagueStae;
+        return persistLeagueState;
     }
 
     public void setPersistLeagueStae(ITransition persistLeagueStae) {
-        this.persistLeagueStae = persistLeagueStae;
+        this.persistLeagueState = persistLeagueStae;
     }
 
     public ITransition getPlayerSeasonsChoice() {
@@ -79,14 +89,14 @@ public class StateMachine {
     public void setPlayerSeasonsChoice(ITransition playerSeasonsChoice) {
         this.playerSeasonsChoice = playerSeasonsChoice;
     }
-
-    public ITransition getSimulate() {
-        return simulate;
-    }
-
-    public void setSimulate(ITransition simulate) {
-        this.simulate = simulate;
-    }
+//
+//    public ITransition getSimulate() {
+//        return simulate;
+//    }
+//
+//    public void setSimulate(ITransition simulate) {
+//        this.simulate = simulate;
+//    }
 
     public ITransition getCurrentState() {
         return currentState;
@@ -127,7 +137,7 @@ public class StateMachine {
         return playerSeasonsChoice;
     }
 
-    public ITransition simulateSeasons(){
-        return simulate;
-    }
+//    public ITransition simulateSeasons(){
+//        return simulate;
+//    }
 }

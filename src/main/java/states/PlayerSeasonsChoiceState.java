@@ -4,12 +4,14 @@ import league.LeagueModel;
 import statemachine.StateMachine;
 import states.ITransition;
 
+import java.util.Calendar;
 import java.util.Scanner;
 
 public class PlayerSeasonsChoiceState implements ITransition {
     StateMachine stateMachine;
     LeagueModel currentModel;
     Integer enteredInput;
+    InitializeSeasonState initializeSeasonState;
 
     public PlayerSeasonsChoiceState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
@@ -62,9 +64,17 @@ public class PlayerSeasonsChoiceState implements ITransition {
 
     @Override
     public void exit() {
-        for (int i = 1; i <= enteredInput; i++) {
-            System.out.println("Simulation Has been Started For Season " + i);
+        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+        System.out.println(currentYear);
+        for (int i = 0; i < enteredInput; i++) {
+//            System.out.println("Simulation Has been Started For Season " + i);
+            initializeSeasonState = new InitializeSeasonState(stateMachine,currentModel,currentModel,currentYear+i);
+            stateMachine.setInitlailizeSeasonState(initializeSeasonState);
+            stateMachine.setCurrentState(stateMachine.getInitlailizeSeasonState());
+            stateMachine.getCurrentState().entry();
+
         }
+
     }
 }
 
