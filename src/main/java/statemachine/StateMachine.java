@@ -11,34 +11,51 @@ public class StateMachine {
     ITransition currentState;
     ITransition persistLeagueState;
     ITransition trainingState;
-
-    public ITransition getInitlailizeSeasonState() {
-        return initlailizeSeasonState;
-    }
-
-    public void setInitlailizeSeasonState(ITransition initlailizeSeasonState) {
-        this.initlailizeSeasonState = initlailizeSeasonState;
-    }
-
+    ITransition simulateGameState;
     ITransition initlailizeSeasonState;
-
 
     public StateMachine() {
 
-        System.out.println("Object of state machine is created "+this);
+        System.out.println("Object of state machine is created " + this);
         importJson = new ImportJsonState(this);
-        System.out.println("Object of ImportJsonState is created "+importJson);
+        System.out.println("Object of ImportJsonState is created " + importJson);
         playerTeamChoice = new PlayerTeamChoiceState(this);
-        System.out.println("Object of PlayerTeamChoiceState is created "+playerTeamChoice);
+        System.out.println("Object of PlayerTeamChoiceState is created " + playerTeamChoice);
         loadTeam = new LoadTeamState(this);
-        System.out.println("Object of LoadTeamState is created "+loadTeam);
+        System.out.println("Object of LoadTeamState is created " + loadTeam);
         createTeam = new CreateTeamState(this);
-        System.out.println("Object of CreateTeamState is created "+createTeam);
+        System.out.println("Object of CreateTeamState is created " + createTeam);
         playerSeasonsChoice = new PlayerSeasonsChoiceState(this);
-        System.out.println("Object of PlayerSeasonsChoiceState id created "+playerSeasonsChoice);
-        persistLeagueState=new PersistLeagueState(this);
-        initlailizeSeasonState=new InitializeSeasonState(this);
-        trainingState=new TrainingState(this);
+        System.out.println("Object of PlayerSeasonsChoiceState id created " + playerSeasonsChoice);
+        persistLeagueState = new PersistLeagueState(this);
+        initlailizeSeasonState = new InitializeSeasonState(this);
+        trainingState = new TrainingState(this);
+        simulateGameState = new SimulateGameState(this);
+    }
+
+    //List of Getters and setters
+    public ITransition getPersistLeagueState() {
+        return persistLeagueState;
+    }
+
+    public void setPersistLeagueState(ITransition persistLeagueState) {
+        this.persistLeagueState = persistLeagueState;
+    }
+
+    public ITransition getTrainingState() {
+        return trainingState;
+    }
+
+    public void setTrainingState(ITransition trainingState) {
+        this.trainingState = trainingState;
+    }
+
+    public ITransition getSimulateGameState() {
+        return simulateGameState;
+    }
+
+    public void setSimulateGameState(ITransition simulateGameState) {
+        this.simulateGameState = simulateGameState;
     }
 
     public ITransition getImportJson() {
@@ -102,42 +119,49 @@ public class StateMachine {
         return currentState;
     }
 
-    public void setCurrentState(ITransition newState){
+    public void setCurrentState(ITransition newState) {
         currentState = newState;
     }
 
-    public void entry(){
+    public void entry() {
         currentState.entry();
     }
 
-    public void task(){
+    public void task() {
         currentState.task();
     }
 
-    public void exit(){
+    public void exit() {
         currentState.exit();
     }
 
-    public ITransition fileImported(){
+    public ITransition fileImported() {
         return playerTeamChoice;
     }
 
-    public ITransition playerChoiceLoadTeam(){
+    public ITransition playerChoiceLoadTeam() {
         return loadTeam;
     }
 
-    public ITransition playerChoiceCreateTeam(){
-        return createTeam;}
+    public ITransition playerChoiceCreateTeam() {
+        return createTeam;
+    }
 
-    public ITransition teamLoaded(){
+    public ITransition teamLoaded() {
         return playerSeasonsChoice;
     }
 
-    public ITransition newTeamCreated(){
+    public ITransition newTeamCreated() {
         return playerSeasonsChoice;
     }
 
-//    public ITransition simulateSeasons(){
-//        return simulate;
-//    }
+
+    public void setInitlailizeSeasonState(ITransition initlailizeSeasonState) {
+        this.initlailizeSeasonState = initlailizeSeasonState;
+    }
+
+    public ITransition getInitlailizeSeasonState() {
+        return initlailizeSeasonState;
+    }
+
 }

@@ -26,6 +26,8 @@ public class TrainingState implements ITransition {
     @Override
     public void task() {
 
+        //call the method to perform training.
+
     }
 
     @Override

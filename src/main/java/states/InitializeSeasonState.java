@@ -1,5 +1,7 @@
 package states;
 
+import conference.ConferenceModel;
+import divison.DivisonModel;
 import league.LeagueModel;
 import matchSchedules.Deadlines;
 import matchSchedules.IDeadlines;
@@ -23,7 +25,6 @@ public class InitializeSeasonState implements ITransition {
     LeagueModel updatedLeagueModel;
     LeagueModel initialLeagueModel;
     IRegularSeasonSchedule iRegularSeasonSchedule;
-    ;
     private int year;
 
     public InitializeSeasonState(StateMachine stateMachine) {
@@ -47,6 +48,18 @@ public class InitializeSeasonState implements ITransition {
         long availableDaysForMatches = DAYS.between(iDeadlines.getEndOfRegularSeasonDate(year + 1), iDeadlines.getRegularSeasonStartDate(year + 1));
         long matchesPlayedInOneDay = totalMatches / availableDaysForMatches;
 
+        for(ConferenceModel conferenceModel: updatedLeagueModel.getConferences()){
+            System.out.println(conferenceModel.getConferenceName());
+            for(DivisonModel divisonModel : conferenceModel.getDivisions()){
+                System.out.println(divisonModel.getDivisionName());
+                {
+                    for(TeamsModel teamsModel: divisonModel.getTeams()){
+                        System.out.println("teams" + teamsModel.getTeamName());
+                    }
+                }
+            }
+        }
+
         int temp=0;
         for (int i = 1; i <= availableDaysForMatches; i++) {
 
@@ -55,8 +68,10 @@ public class InitializeSeasonState implements ITransition {
             }
             for(int j=(i-1)*(int)matchesPlayedInOneDay;j<i*matchesPlayedInOneDay;j++){
                 System.out.println(currentSeasonSchedule.get(j).get(0)+"---"+ currentSeasonSchedule.get(j).get(1));
+
+
             }
-            System.out.println();
+            //System.out.println();
 
         }
         task();
