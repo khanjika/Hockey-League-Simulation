@@ -16,7 +16,7 @@ public class ImportJsonState implements ITransition {
     private boolean userInput;
     private String cliArgument;
     private LeagueModel inMemoryLeagueModel;
-    CreateTeamState createTeamState;
+    ITransition createTeamState;
 
     public ImportJsonState(StateMachine currentStateMachine) {
         stateMachine = currentStateMachine;
@@ -77,12 +77,6 @@ public class ImportJsonState implements ITransition {
             System.out.println(gamePlayConfigModel.getTrading().getRandomTradeOfferChance());
             System.out.println(gamePlayConfigModel.getTrading().getMaxPlayersPerTrade());
             System.out.println(gamePlayConfigModel.getTrading().getRandomAcceptanceChance());
-
-
-
-
-
-
             task();
         }
     }

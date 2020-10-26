@@ -2,6 +2,8 @@ package statemachine;
 
 import states.*;
 
+import java.time.LocalDate;
+
 public class StateMachine {
     ITransition importJson;
     ITransition playerTeamChoice;
@@ -13,6 +15,10 @@ public class StateMachine {
     ITransition trainingState;
     ITransition simulateGameState;
     ITransition initlailizeSeasonState;
+    ITransition agingState;
+    LocalDate currentDate;
+    ITransition injuryCheckState;
+    ITransition tradingState;
 
     public StateMachine() {
 
@@ -31,6 +37,16 @@ public class StateMachine {
         initlailizeSeasonState = new InitializeSeasonState(this);
         trainingState = new TrainingState(this);
         simulateGameState = new SimulateGameState(this);
+        agingState = new AgingState(this);
+        injuryCheckState = new InjuryCheckState(this);
+        trainingState = new TrainingState(this);
+    }
+
+    public ITransition getAgingState() {
+        return agingState;
+    }
+    public void setAgingState(ITransition agingState) {
+        this.agingState = agingState;
     }
 
     //List of Getters and setters
@@ -164,4 +180,27 @@ public class StateMachine {
         return initlailizeSeasonState;
     }
 
+    public LocalDate getCurrentDate() {
+        return currentDate;
+    }
+
+    public void setCurrentDate(LocalDate currentDate) {
+        this.currentDate = currentDate;
+    }
+
+    public ITransition getInjuryCheckState() {
+        return injuryCheckState;
+    }
+
+    public void setInjuryCheckState(ITransition injuryCheckState) {
+        this.injuryCheckState = injuryCheckState;
+    }
+
+    public ITransition getTradingState() {
+        return tradingState;
+    }
+
+    public void setTradingState(ITransition tradingState) {
+        this.tradingState = tradingState;
+    }
 }

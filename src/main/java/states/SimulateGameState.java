@@ -6,6 +6,7 @@ import league.LeagueModel;
 import statemachine.StateMachine;
 import teams.TeamsModel;
 
+import java.time.LocalDate;
 import java.util.Random;
 
 public class SimulateGameState implements ITransition {
@@ -14,23 +15,26 @@ public class SimulateGameState implements ITransition {
     TeamsModel teamOne;
     TeamsModel teamTwo;
     TeamsModel winnerTeam;
+    ITransition injuryCheckState;
 
     public SimulateGameState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
     }
 
-    public SimulateGameState(StateMachine stateMachine, LeagueModel leagueModel) {
+    public SimulateGameState(StateMachine stateMachine, LeagueModel leagueModel,TeamsModel teamsModelOne, TeamsModel teamsModelTwo) {
         this.stateMachine = stateMachine;
         this.leagueModel = leagueModel;
-    }
-
-    public void SetTeamModelInformation(TeamsModel teamsModelOne, TeamsModel teamsModelTwo) {
         this.teamOne = teamsModelOne;
         this.teamTwo = teamsModelTwo;
     }
+//    public void setTeamModelInformation(TeamsModel teamsModelOne, TeamsModel teamsModelTwo) {
+//        this.teamOne = teamsModelOne;
+//        this.teamTwo = teamsModelTwo;
+//    }
 
     @Override
     public void entry() {
+        System.out.println("Inside Simulate Game state league model address=>"+leagueModel);
         task();
     }
 
@@ -53,6 +57,18 @@ public class SimulateGameState implements ITransition {
                 }
         }
         //here once the match is complete i need to increment the loss count value and win count value.
+        //and once that complete i need to call injury check with three argument. LeagueModel, TeamModel, Date
+        injuryCheckState=new InjuryCheckState(stateMachine,leagueModel,teamOne);
+        stateMachine.setSimulateGameState(injuryCheckState);
+        stateMachine.setCurrentState(stateMachine.getInjuryCheckState());
+        stateMachine.getCurrentState().entry();
+
+        //Second team
+        injuryCheckState=new InjuryCheckState(stateMachine,leagueModel,teamTwo);
+        stateMachine.setSimulateGameState(injuryCheckState);
+        stateMachine.setCurrentState(stateMachine.getInjuryCheckState());
+        stateMachine.getCurrentState().entry();
+
     }
 
     @Override
@@ -61,7 +77,7 @@ public class SimulateGameState implements ITransition {
     }
 
 
-    //Dummy Method for team strength calculation
+    //Dummy Method for team strength calculation Will be replaced By zankruts Code
     int dummyTeamStrenght(TeamsModel teamsModel) {
         return 0;
     }

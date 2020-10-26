@@ -3,31 +3,29 @@ package states;
 import league.LeagueModel;
 import statemachine.StateMachine;
 
-import java.time.LocalDate;
-
-public class TrainingState implements ITransition {
+public class TradingState implements ITransition {
 
     StateMachine stateMachine;
     LeagueModel leagueModel;
 
-    public TrainingState(StateMachine stateMachine) {
+    public TradingState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
     }
 
-    public TrainingState(StateMachine stateMachine,LeagueModel leagueModel) {
+    public TradingState(StateMachine stateMachine, LeagueModel leagueModel) {
         this.stateMachine = stateMachine;
         this.leagueModel = leagueModel;
     }
 
-
     @Override
     public void entry() {
+        System.out.println("Inside Trading address=>" + leagueModel);
         task();
     }
 
     @Override
     public void task() {
-        //call the method to perform training.
+
     }
 
     @Override
@@ -35,9 +33,8 @@ public class TrainingState implements ITransition {
 
     }
 
-
-    //Dummy method will be replaced by Arth's code
-    void performTraining(LeagueModel leagueModel){
+    //Dummy method will be replaced by Khnajika's method
+    void performTrading(LeagueModel leagueModel) {
         //perform task
     }
 }
