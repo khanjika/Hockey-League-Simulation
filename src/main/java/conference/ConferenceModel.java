@@ -25,7 +25,6 @@ public class ConferenceModel implements IConferenceModel {
         this.conferenceName = conferenceName;
     }
 
-
     public List<DivisonModel> getDivisions() {
         return divisions;
     }
@@ -35,7 +34,6 @@ public class ConferenceModel implements IConferenceModel {
     }
 
     public void storeConferenceInformation(ConferenceModel conferenceModel, int leagueId) {
-        //is conference in that specific league already exist
         if (isConferenceAlreadyExist(conferenceModel.getConferenceName(), leagueId)) {
             System.out.println("Conference already Exist in the DB");
         } else {
@@ -55,6 +53,5 @@ public class ConferenceModel implements IConferenceModel {
     public int getConferenceId(String conferenceName, int leagueId) {
         return iConferencePersistent.getConferenceInformation(conferenceName, leagueId);
     }
-
 
 }

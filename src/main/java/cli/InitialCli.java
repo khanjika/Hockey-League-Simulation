@@ -37,13 +37,8 @@ public class InitialCli {
     public LeagueModel parseJson(String filePath){
 
         if(cliCommunication.isFileExist(filePath)){
-            try {
-               LeagueModel leagueModel= cliCommunication.parseJson(filePath);
-               return leagueModel;
-            }
-            catch (IOException e){
-                System.out.println("Error while parsing the file"+e);
-            }
+            LeagueModel leagueModel= cliCommunication.parseJson(filePath);
+            return leagueModel;
         }
         else{
             System.out.println("File does not exists in the specified location");

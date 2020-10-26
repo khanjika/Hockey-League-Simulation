@@ -44,16 +44,89 @@ public class PlayerModelTest {
     @Test
     void setCaptain() {
        PlayerModel playerModel=new PlayerModel();
-        playerModel.setCaptain(true);
-        assertTrue(playerModel.isCaptain(),"Failed set player is captain or not in  player object");
+       playerModel.setCaptain(true);
+       assertTrue(playerModel.isCaptain(),"Failed set player is captain or not in  player object");
     }
 
-    public static PlayerModel getPlayerModel(String playerName, String position, boolean iscaptain){
+    @Test
+    void getAge(){
+        PlayerModel playerModel = new PlayerModel();
+        playerModel.setAge(27);
+        assertEquals(27,playerModel.getAge(),"Failed get Age in player object");
+    }
+
+    @Test
+    void setAge(){
+        PlayerModel playerModel = new PlayerModel();
+        playerModel.setAge(27);
+        assertEquals(27,playerModel.getAge(),"Failed set Age in player object");
+    }
+
+    @Test
+    void getSkating(){
+        PlayerModel playermodel = new PlayerModel();
+        playermodel.setSkating(15);
+        assertEquals(15,playermodel.getSkating(),"Failed get skating in player object");
+    }
+
+    @Test
+    void setSkating(){
+        PlayerModel playermodel = new PlayerModel();
+        playermodel.setSkating(15);
+        assertEquals(15,playermodel.getSkating(),"Failed get skating in player object");
+    }
+
+    @Test
+    void getShooting(){
+        PlayerModel playerModel = new PlayerModel();
+        playerModel.setShooting(18);
+        assertEquals(18,playerModel.getShooting(),"Failed get shooting in player object");
+    }
+
+    @Test
+    void setShooting(){
+        PlayerModel playerModel = new PlayerModel();
+        playerModel.setShooting(18);
+        assertEquals(18,playerModel.getShooting(),"Failed set shooting in player object");
+    }
+
+    @Test
+    void getChecking(){
+        PlayerModel playerModel = new PlayerModel();
+        playerModel.setChecking(10);
+        assertEquals(10,playerModel.getChecking(),"Failed get checing in player object");
+    }
+
+    @Test
+    void setChecking(){
+        PlayerModel playerModel = new PlayerModel();
+        playerModel.setChecking(10);
+        assertEquals(10,playerModel.getChecking(),"Failed get shooting in player object");
+    }
+
+    @Test
+    void getSaving(){
+        PlayerModel playerModel = new PlayerModel();
+        playerModel.setSaving(1);
+        assertEquals(1,playerModel.getSaving(),"Failed get saving in player object");
+    }
+
+    @Test
+    void setSaving(){
+        PlayerModel playerModel = new PlayerModel();
+        playerModel.setSaving(1);
+        assertEquals(1,playerModel.getSaving(),"Failed set saving in player object");
+    }
+
+    public static PlayerModel getPlayerModel(String playerName, String position, boolean iscaptain,int age, float skating, float shooting, float checking, float saving){
         PlayerModel playerModel = new PlayerModel();
         playerModel.setCaptain(iscaptain);
         playerModel.setPlayerName(playerName);
         playerModel.setPosition(position);
-
+        playerModel.setAge(age);
+        playerModel.setSkating(skating);
+        playerModel.setChecking(checking);
+        playerModel.setSaving(saving);
         return playerModel;
     }
 }

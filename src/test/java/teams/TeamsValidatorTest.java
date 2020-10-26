@@ -9,9 +9,8 @@ class TeamsValidatorTest {
     @Test
     void validateTeamObject() {
         TeamsModelTest teamsModelTest =new TeamsModelTest();
-      TeamsModel teamsModel=  teamsModelTest.getTeamsObject();
-      TeamsValidator teamsValidator = new TeamsValidator();
-      //update to true
-      assertFalse(teamsValidator.validateTeamObject(teamsModel));
+        TeamsModel teamsModel=  teamsModelTest.getTeamsObject();
+        TeamsValidator teamsValidator = new TeamsValidator();
+        assertTrue(teamsValidator.validateTeamObject(teamsModel));
     }
 }

@@ -14,7 +14,7 @@ class ConferenceValidatorTest {
         ConferenceModel conferenceModel = ConferenceModelTest.getConferenceObject();
         ConferenceValidator conferenceValidator =new ConferenceValidator();
         // need to update to true
-       assertFalse(conferenceValidator.validateConferenceObject(conferenceModel));
+       assertTrue(conferenceValidator.validateConferenceObject(conferenceModel));
     }
 
     @Test

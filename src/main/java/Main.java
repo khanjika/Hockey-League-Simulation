@@ -10,13 +10,13 @@ import java.io.IOException;
 
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
        // System.out.println(args[0]);
         Main main = new Main();
         main.StateEntry(args);
     }
 
-    public void StateEntry(String[] args) {
+    public void StateEntry(String[] args) throws Exception {
         StateMachine stateMachine = new StateMachine();
         stateMachine.setCurrentState(new ImportJsonState(args,stateMachine));
         stateMachine.entry();

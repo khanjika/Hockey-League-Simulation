@@ -7,7 +7,7 @@ class MockPlayerPersistent {
     void addPlayerInformation() {
     }
 
-    ArrayList<PlayerModel> getPlayerInformation() {
+    ArrayList<PlayerModel> getPlayerInformation() throws Exception {
         ArrayList<PlayerModel> playersInfo = new ArrayList<PlayerModel> ();
         PlayerModel player = new PlayerModel ();
         player.setPlayerName ("Player One");

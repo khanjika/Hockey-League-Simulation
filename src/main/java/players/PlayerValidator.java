@@ -3,9 +3,7 @@ package players;
 public class PlayerValidator implements IPlayerValidator {
 
 
-    public PlayerValidator() {
-
-    }
+    public PlayerValidator() { }
 
     @Override
     public boolean validatePlayerObject(PlayerModel playerModel) {
@@ -22,13 +20,12 @@ public class PlayerValidator implements IPlayerValidator {
             System.out.println("Player Information can not be NULL or EMPTY");
             return false;
         }
-
     }
 
     private boolean validatePosition(String str) {
 
         String position = str.toLowerCase();
-        if (position.equals("goalie") || position.equals("forward") || position.equals("defense")) {
+        if (position.equals(PlayerPosition.GOALIE.toString()) || position.equals(PlayerPosition.FORWARD.toString()) || position.equals(PlayerPosition.DEFENSE.toString())) {
             return true;
         } else {
             return false;

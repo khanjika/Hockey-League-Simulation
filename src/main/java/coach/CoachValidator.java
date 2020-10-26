@@ -11,18 +11,16 @@ public class CoachValidator implements ICoachValidator{
             return false;
         }
     }
-
     private boolean isStringValid(String str) {
         if (str == null || str.isEmpty()) {
             return false;
         }
         return true;
     }
-
     private boolean isStatValid(float stat){
-        if(stat < 1 && stat > 0){
-            return false;
+        if(stat <= 1 && stat > 0){
+            return true;
         }
-        return true;
+        return false;
     }
 }

@@ -2,10 +2,10 @@ package coach;
 
 public class CoachModel implements ICoachModel {
     private String name;
-    private Float skating;
-    private Float shooting;
-    private Float checking;
-    private Float saving;
+    private float skating;
+    private float shooting;
+    private float checking;
+    private float saving;
 
     public String getName() {
         return name;
@@ -15,35 +15,35 @@ public class CoachModel implements ICoachModel {
         this.name = name;
     }
 
-    public Float getSkating() {
+    public float getSkating() {
         return skating;
     }
 
-    public void setSkating(Float skating) {
+    public void setSkating(float skating) {
         this.skating = skating;
     }
 
-    public Float getShooting() {
+    public float getShooting() {
         return shooting;
     }
 
-    public void setShooting(Float shooting) {
+    public void setShooting(float shooting) {
         this.shooting = shooting;
     }
 
-    public Float getChecking() {
+    public float getChecking() {
         return checking;
     }
 
-    public void setChecking(Float checking) {
+    public void setChecking(float checking) {
         this.checking = checking;
     }
 
-    public Float getSaving() {
+    public float getSaving() {
         return saving;
     }
 
-    public void setSaving(Float saving) {
+    public void setSaving(float saving) {
         this.saving = saving;
     }
 }

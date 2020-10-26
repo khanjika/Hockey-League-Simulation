@@ -13,9 +13,9 @@ public class TeamsModel implements ITeamsModel {
     private List<PlayerModel> players;
     private IPlayerModel playerModel;
     private ITeamsPersistent iTeamsPersistent;
+    private float teamStrength;
 
-
-    public TeamsModel() {
+    public TeamsModel()  {
         playerModel = new PlayerModel();
         iTeamsPersistent = new TeamsPersistent();
     }
@@ -52,13 +52,17 @@ public class TeamsModel implements ITeamsModel {
         this.players = players;
     }
 
+    public float getTeamStrength() {
+        return teamStrength;
+    }
+
     public void storeTeamInformation(TeamsModel teamsModel, int divisionId) {
         if (isTeamAlreadyExist(teamsModel.getTeamName(), divisionId)) {
             System.out.println("Team already Exist in the DB");
         } else {
             //Store head coach info.
             int headCoachId = 0;
-                    //storeHeadCoachInfirmation(teamsModel.getHeadCoach());
+            //storeHeadCoachInfirmation(teamsModel.getHeadCoach());
             //store general manager
             int generalManagerId = storeGeneralManagerInformation(teamsModel.getGeneralManager());
             //Store team Information
@@ -67,7 +71,6 @@ public class TeamsModel implements ITeamsModel {
                 this.playerModel.storePlayerInformation(playerModel, teamId);
             }
         }
-
     }
 
     public int addTeamInformation(String teamName, int generalManagerId, int headCoachId, int divisionId) {
@@ -89,7 +92,15 @@ public class TeamsModel implements ITeamsModel {
         return iTeamsPersistent.getTeamInformation(teamName, divisionId);
     }
 
-    private int storeHeadCoachInfirmation(String headCoachName) {
+    @Override
+    public void calculateTeamStrength(TeamsModel teamsModel) {
+        teamsModel.teamStrength=0;
+        for(PlayerModel playerModel : teamsModel.getPlayers()){
+            this.teamStrength += playerModel.getPlayerStrength();
+        }
+    }
+
+    private int storeHeadCoachInformation(String headCoachName) {
         return iTeamsPersistent.addHeadCoahDetails(headCoachName);
     }
 

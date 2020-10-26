@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class LeagueValidatorTest {
 
     @Test
-    void validateLeagueObject() {
+    void validateLeagueObject() throws Exception {
         LeagueModel leagueModel = LeagueModelTest.getLeagueObject();
         LeagueValidator leagueValidator =new LeagueValidator();
         //update to true

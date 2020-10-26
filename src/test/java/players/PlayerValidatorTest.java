@@ -8,14 +8,10 @@ class PlayerValidatorTest {
 
     @Test
     void validatePlayerObject(){
-        PlayerModel playerModel = PlayerModelTest.getPlayerModel("Roshan","forward",true);
+        PlayerModel playerModel = PlayerModelTest.getPlayerModel("Roshan","forward",true,20,10,10,10,10);
         PlayerValidator playerValidator = new PlayerValidator();
-        //need to update to true
-        assertFalse(playerValidator.validatePlayerObject(playerModel));
-        PlayerModel InValidPlayerModel = PlayerModelTest.getPlayerModel("Roshan","XYZ",true);
+        assertTrue(playerValidator.validatePlayerObject(playerModel));
+        PlayerModel InValidPlayerModel = PlayerModelTest.getPlayerModel("Roshan","XYZ",true,20,10,10,10,0);
         assertFalse(playerValidator.validatePlayerObject(InValidPlayerModel));
     }
-
-
-
 }

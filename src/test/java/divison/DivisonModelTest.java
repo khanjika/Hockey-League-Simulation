@@ -51,8 +51,7 @@ public class DivisonModelTest {
         List<TeamsModel> teamModelObjectList =new ArrayList<>();
 
         for(int i=0;i<2;i++){
-            TeamsModel teamsModel=new TeamsModel();
-            teamsModel= teamsModelTest.getTeamsObject();
+            TeamsModel teamsModel=teamsModelTest.getTeamsObject();
             teamModelObjectList.add(teamsModel);
         }
 

@@ -1,6 +1,7 @@
 package players;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jdk.nashorn.internal.runtime.ECMAException;
 import teams.TeamPojo;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class PlayerModel implements IPlayerModel {
     private float shooting;
     private float checking;
     private float saving;
-
+    private float playerStrength;
 
     public String getPlayerName() {
         return playerName;
@@ -67,14 +68,30 @@ public class PlayerModel implements IPlayerModel {
 
     public void setSaving(float saving) { this.saving = saving; }
 
+    public float getPlayerStrength() { return playerStrength; }
+
+    //public void setPlayerStrength(float playerStrength) throws Exception { this.playerStrength = playerStrength; }
+
+
     public void storePlayerInformation(PlayerModel playerModel, int teamId) {
         iPlayerPersistent.addPlayerInformation(playerModel.getPlayerName(), playerModel.getPosition(), playerModel.isCaptain(), teamId);
+    }
+
+    @Override
+    public void calculatePlayerStrength(PlayerModel playerModel) {
+        if(playerModel.getPosition().equals(PlayerPosition.FORWARD.toString())){
+            playerModel.playerStrength = getSkating()+ getShooting() + (getChecking()/2);
+        }
+        else if(playerModel.getPosition().equals(PlayerPosition.DEFENSE.toString())){
+            playerModel.playerStrength = getSkating() + getChecking() + (getShooting()/2);
+        }
+        else if(playerModel.getPosition().equals(PlayerPosition.GOALIE.toString())){
+            playerModel.playerStrength = getSkating() + getShooting();
+        }
     }
 
     @Override
     public ArrayList<PlayerModel> getPlayerInformation(int teamId) {
         return iPlayerPersistent.getPlayerInformation(teamId);
     }
-
-
 }
