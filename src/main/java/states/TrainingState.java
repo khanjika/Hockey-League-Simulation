@@ -8,13 +8,15 @@ import java.time.LocalDate;
 public class TrainingState implements ITransition {
 
     StateMachine stateMachine;
+    LeagueModel leagueModel;
 
     public TrainingState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
     }
 
-    public TrainingState(LeagueModel leagueModel, LocalDate currentDate, LocalDate deadline) {
-
+    public TrainingState(StateMachine stateMachine,LeagueModel leagueModel) {
+        this.stateMachine = stateMachine;
+        this.leagueModel = leagueModel;
     }
 
 
@@ -25,11 +27,17 @@ public class TrainingState implements ITransition {
 
     @Override
     public void task() {
-
+        //call the method to perform training.
     }
 
     @Override
     public void exit() {
 
+    }
+
+
+    //Dummy method will be replaced by Arth's code
+    void performTraining(LeagueModel leagueModel){
+        //perform task
     }
 }

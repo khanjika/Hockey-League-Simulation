@@ -20,20 +20,19 @@ public class PlayerSeasonsChoiceState implements ITransition {
     public PlayerSeasonsChoiceState(LeagueModel leagueModel, StateMachine stateMachine) {
         this.stateMachine = stateMachine;
         this.currentModel = leagueModel;
-        System.out.println("player season choice state " + stateMachine);
     }
 
     public StateMachine getStateMachine() {
         return stateMachine;
     }
 
-    public LeagueModel getCurrentModel() {
-        return currentModel;
-    }
-
-    public void setCurrentModel(LeagueModel currentModel) {
-        this.currentModel = currentModel;
-    }
+//    public LeagueModel getCurrentModel() {
+//        return currentModel;
+//    }
+//
+//    public void setCurrentModel(LeagueModel currentModel) {
+//        this.currentModel = currentModel;
+//    }
 
     public void setStateMachine(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
@@ -41,7 +40,6 @@ public class PlayerSeasonsChoiceState implements ITransition {
 
     @Override
     public void entry() {
-
         task();
     }
 

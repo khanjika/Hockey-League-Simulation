@@ -14,6 +14,17 @@ public class TeamsModel implements ITeamsModel {
     private IPlayerModel playerModel;
     private ITeamsPersistent iTeamsPersistent;
 
+    public boolean isUserCreatedTeam() {
+        return isUserCreatedTeam;
+    }
+
+    public void setUserCreatedTeam(boolean userCreatedTeam) {
+        isUserCreatedTeam = userCreatedTeam;
+    }
+
+    private boolean isUserCreatedTeam;
+
+
 
     public TeamsModel() {
         playerModel = new PlayerModel();
