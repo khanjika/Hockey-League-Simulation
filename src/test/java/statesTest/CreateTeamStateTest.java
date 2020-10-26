@@ -25,8 +25,6 @@ public class CreateTeamStateTest {
         }
     }
 
-
-
     @Test
     void setStateMachine(){
         try{

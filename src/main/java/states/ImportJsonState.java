@@ -1,7 +1,5 @@
 package states;
 
-import cli.CliCommunication;
-import cli.ICliCommunication;
 import cli.InitialCli;
 import coach.CoachModel;
 import conference.ConferenceModel;
@@ -10,6 +8,8 @@ import gameplayconfig.AgingModel;
 import gameplayconfig.GamePlayConfigModel;
 import league.LeagueModel;
 import players.PlayerModel;
+import matchSchedules.IRegularSeasonSchedule;
+import matchSchedules.RegularSeasonSchedule;
 import statemachine.StateMachine;
 import teams.TeamsModel;
 
@@ -19,7 +19,7 @@ public class ImportJsonState implements ITransition {
     private boolean userInput;
     private String cliArgument;
     private LeagueModel inMemoryLeagueModel;
-    CreateTeamState createTeamState;
+    ITransition createTeamState;
 
     public ImportJsonState(StateMachine currentStateMachine) {
         stateMachine = currentStateMachine;

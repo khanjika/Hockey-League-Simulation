@@ -4,6 +4,9 @@ import conference.ConferenceModel;
 import conference.ConferenceModelTest;
 import freeagent.FreeAgentModel;
 import freeagent.FreeAgentModelTest;
+import gameplayconfig.GamePlayConfigModel;
+import gameplayconfig.TradingModel;
+import gameplayconfig.TradingModelTest;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -57,6 +60,8 @@ public class LeagueModelTest {
 
     public static LeagueModel getLeagueObject() {
         LeagueModel leagueModel = new LeagueModel();
+        GamePlayConfigModel gamePLayModel = new GamePlayConfigModel();
+        TradingModel tradingModel = TradingModelTest.getTradingModel (8,0.05f,2,0.05f);
         leagueModel.setLeagueName("Dalhousie Hockey League");
         List<ConferenceModel> conferenceModelObjectList = new ArrayList<>();
         for (int i = 0; i < 2; i++) {
@@ -70,6 +75,8 @@ public class LeagueModelTest {
             freeAgentModelList.add(freeAgentModel);
         }
         leagueModel.setFreeAgents(freeAgentModelList);
+        leagueModel.setGameplayConfig (gamePLayModel);
+        gamePLayModel.setTrading (tradingModel);
         return leagueModel;
     }
 
