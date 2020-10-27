@@ -7,6 +7,17 @@ public class HeadCoachModel implements IHeadCoachModel{
     private float checking;
     private float saving;
 
+    public HeadCoachModel() {
+    }
+
+    public HeadCoachModel(String name, float skating, float shooting, float checking, float saving) {
+        this.name = name;
+        this.skating = skating;
+        this.shooting = shooting;
+        this.checking = checking;
+        this.saving = saving;
+    }
+
     public String getName() {
         return name;
     }

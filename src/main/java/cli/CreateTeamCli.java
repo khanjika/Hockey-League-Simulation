@@ -1,13 +1,18 @@
 package cli;
 
+import coach.CoachModel;
 import conference.ConferenceModel;
 import conference.ConferenceValidator;
 import divison.DivisonModel;
 import divison.DivisonValidator;
+import freeagent.FreeAgentModel;
 import league.LeagueModel;
+import players.PlayerModel;
+import teams.HeadCoachModel;
 import teams.TeamsModel;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -21,33 +26,37 @@ public class CreateTeamCli {
     private String userEnteredDivisionName;
     private String userEnteredTeamName;
     private String userEnteredGeneralManagerName;
-    private String userEnteredHeadCoachName;
+    private HeadCoachModel userEnteredHeadCoachName;
     Scanner scannerObject;
+    List<PlayerModel> userCreatedPlayers;
+//    List<FreeAgentModel> availableFreeAgents;
+    int choice;
 
     public CreateTeamCli() {
         conferenceValidator = new ConferenceValidator();
         divisonValidator = new DivisonValidator();
         scannerObject = new Scanner(System.in);
+        userCreatedPlayers = new ArrayList<>();
     }
 
     //Method used to create new team
     public LeagueModel createNewTeam(LeagueModel leagueModel) {
         if (isConferenceNameValid(leagueModel)) {
             if (isDivisionNameValid(leagueModel)) {
-                if(this.isTeamInformationSetProperly(leagueModel)){
+                if (this.isTeamInformationSetProperly(leagueModel)) {
                     LeagueModel newlyCreatedLeagueModelObject = getNewlyCreatedLeagueObject(leagueModel);
                     System.out.println("=====================================");
-                for (ConferenceModel conferenceModel : newlyCreatedLeagueModelObject.getConferences()) {
-                    System.out.println("Conference name->    " + conferenceModel.getConferenceName());
-                    for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
-                        System.out.println("Division name->     " + divisonModel.getDivisionName());
-                        for(TeamsModel teamsModel:divisonModel.getTeams()){
-                            System.out.println("Team is---> " +teamsModel.getTeamName());
+                    for (ConferenceModel conferenceModel : newlyCreatedLeagueModelObject.getConferences()) {
+                        System.out.println("Conference name->    " + conferenceModel.getConferenceName());
+                        for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
+                            System.out.println("Division name->     " + divisonModel.getDivisionName());
+                            for (TeamsModel teamsModel : divisonModel.getTeams()) {
+                                System.out.println("Team is---> " + teamsModel.getTeamName());
+                            }
                         }
                     }
-                }
                     System.out.println("=====================================");
-                return newlyCreatedLeagueModelObject;
+                    return newlyCreatedLeagueModelObject;
                 }
             }
         }
@@ -98,27 +107,143 @@ public class CreateTeamCli {
         System.out.println("Enter New Team name");
         this.userEnteredTeamName = scannerObject.nextLine();
         if (isStringValid(userEnteredTeamName)) {
-            System.out.println("Enter General Manager name");
-            this.userEnteredGeneralManagerName = scannerObject.nextLine();
-            if (isStringValid(userEnteredGeneralManagerName)) {
-                System.out.println("Enter Head coach name");
-                this.userEnteredHeadCoachName = scannerObject.nextLine();
-                    if (isStringValid(userEnteredHeadCoachName)) {
-                            return true;
+            if (isManagerValid(leagueModel)) {
+                if (isHeadCoachValid(leagueModel)) {
+//                    availableFreeAgents = leagueModel.getFreeAgents();
+                    if (isPlayersValid(leagueModel)) {
+                        return true;
+                    }
                 }
-                else {
-                    System.out.println("Enter valid data");
-                    isTeamInformationSetProperly(leagueModel);
-                }
-            } else {
-                System.out.println("Enter valid data");
-                isTeamInformationSetProperly(leagueModel);
             }
-        } else {
-            System.out.println("Enter valid data");
-            isTeamInformationSetProperly(leagueModel);
         }
         return true;
+    }
+
+    String name;
+    String position;
+    Boolean captain;
+    float skating;
+    float shooting;
+    float saving;
+    float checking;
+    int age;
+
+
+    private boolean isPlayersValid(LeagueModel leagueModel) {
+        int goalies = 0;
+        int totalPlayers = 20;
+        List<FreeAgentModel> currentAvailablePlayers = new ArrayList<>(leagueModel.getFreeAgents());
+        PlayerModel player;
+        int players = 0;
+        while (players < totalPlayers) {
+            System.out.printf("Select %d more players for your team", totalPlayers - players);
+            System.out.println();
+            System.out.println("=====================================");
+            int displayNumber = 1;
+            for (FreeAgentModel freeAgentModel : currentAvailablePlayers) {
+                System.out.println(displayNumber + " -> " + freeAgentModel.getPlayerName() + " " + freeAgentModel.getAge() + " " + freeAgentModel.getPosition() + " " + freeAgentModel.getChecking()
+                        + " " + freeAgentModel.getSaving() +
+                        " " + freeAgentModel.getShooting() + " " + freeAgentModel.getSkating());
+                displayNumber++;
+            }
+            System.out.println("Enter Player " + (players + 1));
+            choice = scannerObject.nextInt();
+            if (choice > 0 && choice <= currentAvailablePlayers.size()) {
+                name = currentAvailablePlayers.get(choice - 1).getPlayerName();
+                captain = false;
+                age = currentAvailablePlayers.get(choice - 1).getAge();
+                position = currentAvailablePlayers.get(choice - 1).getPosition();
+                saving = currentAvailablePlayers.get(choice - 1).getSaving();
+                checking = currentAvailablePlayers.get(choice - 1).getChecking();
+                shooting = currentAvailablePlayers.get(choice - 1).getShooting();
+                skating = currentAvailablePlayers.get(choice - 1).getSkating();
+                if (position.equals("goalie")) { // add to constants
+                    goalies++;
+                }
+                System.out.println(goalies);
+                player = new PlayerModel(name, position, captain, age, skating, shooting, checking, saving);
+                userCreatedPlayers.add(player);
+                currentAvailablePlayers.remove(choice - 1);
+                players++;
+                }
+            }
+        if (goalies == 2){
+            leagueModel.setFreeAgents(currentAvailablePlayers);
+            return true;
+        }
+        else{
+            System.out.println("Select 2 goalies for the team");
+            return isPlayersValid(leagueModel);
+        }
+
+    }
+    private boolean isHeadCoachValid(LeagueModel leagueModel){
+        displayCoaches(leagueModel);
+        choice = scannerObject.nextInt();
+        List<CoachModel> coachList = leagueModel.getCoaches();
+        HeadCoachModel headCoach;
+        if (choice > 0 && choice <= coachList.size()){
+            name = coachList.get(choice - 1).getName();
+            skating = coachList.get(choice - 1).getSkating();
+            shooting = coachList.get(choice - 1).getShooting();
+            saving = coachList.get(choice - 1).getSaving();
+            checking = coachList.get(choice - 1).getChecking();
+            headCoach = new HeadCoachModel(name, skating, shooting, checking, saving);
+            this.userEnteredHeadCoachName = headCoach;
+            leagueModel.getCoaches().remove(choice - 1);
+            return true;
+        } else{
+            System.out.println("Enter a valid choice from the list");
+            return isHeadCoachValid(leagueModel);
+        }
+    }
+
+    private boolean isManagerValid(LeagueModel leagueModel){
+        displayManagers(leagueModel);
+        choice = scannerObject.nextInt();
+        List<String> managersList = leagueModel.getGeneralManagers();
+        if (choice > 0 && choice <= managersList.size()){
+            this.userEnteredGeneralManagerName = managersList.get(choice - 1);
+            leagueModel.getGeneralManagers().remove(choice - 1);
+            return true;
+        }else {
+            System.out.println("Enter a valid choice from the list");
+            return isManagerValid(leagueModel);
+        }
+    }
+
+    private void displayManagers(LeagueModel leagueModel){
+        System.out.println("Select a Manager for the team");
+        System.out.println("=====================================");
+        int ManagerCount = 1;
+        for(String generalManager:leagueModel.getGeneralManagers()){
+            System.out.println(ManagerCount+ " -> "+ generalManager);
+            ManagerCount ++;
+        }
+    }
+
+    private void displayCoaches(LeagueModel leagueModel){
+        System.out.println("Select a Coach for the team");
+        System.out.println("=====================================");
+        int CoachCount = 1;
+        leagueModel.getCoaches().sort(Comparator.comparing(CoachModel::getName));
+        for(CoachModel coachModel:leagueModel.getCoaches()){
+            System.out.println(CoachCount+ " -> "+coachModel.getName()  + " " + coachModel.getChecking() + " " +
+                    coachModel.getSaving() + " " + coachModel.getShooting() + " " + coachModel.getSkating());
+            CoachCount ++;
+        }
+    }
+
+    private void displayFreeAgents(LeagueModel leagueModel){
+
+        leagueModel.getFreeAgents().sort(Comparator.comparing(FreeAgentModel::getAge));
+        int displayNumber = 1;
+        for (FreeAgentModel freeAgentModel:leagueModel.getFreeAgents()){
+            System.out.println(displayNumber + " -> " + freeAgentModel.getPlayerName() + " " +freeAgentModel.getAge() + " " +freeAgentModel.getChecking()
+                    + " " +freeAgentModel.getSaving() +
+                    " " + freeAgentModel.getShooting() + " " + freeAgentModel.getSkating());
+            displayNumber ++;
+        }
     }
 
     private LeagueModel getNewlyCreatedLeagueObject(LeagueModel leagueModel){
@@ -126,8 +251,8 @@ public class CreateTeamCli {
         teamsModel.setTeamName(this.userEnteredTeamName);
         teamsModel.setGeneralManager(this.userEnteredGeneralManagerName);
         teamsModel.setUserCreatedTeam(true);
-       // teamsModel.setHeadCoach(this.userEnteredHeadCoachName);
-        teamsModel.setPlayers(new ArrayList<>());
+        teamsModel.setHeadCoach(this.userEnteredHeadCoachName);
+        teamsModel.setPlayers(userCreatedPlayers);
 
         for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
             if (conferenceModel.getConferenceName().equalsIgnoreCase(userEnteredConferenceName)) {

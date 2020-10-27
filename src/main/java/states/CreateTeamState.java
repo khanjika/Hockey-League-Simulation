@@ -1,6 +1,7 @@
 package states;
 
 import cli.CreateTeamCli;
+import coach.CoachModel;
 import conference.ConferenceModel;
 import divison.DivisonModel;
 import league.ILeagueModel;
@@ -72,6 +73,12 @@ public class CreateTeamState implements ITransition {
         //created i need to go to ask number of season simulate.
         if(true){
 
+            System.out.println(this.updatedLeagueModel.getFreeAgents().size());
+            System.out.println(this.updatedLeagueModel.getCoaches().size());
+            for (CoachModel coachModel:this.updatedLeagueModel.getCoaches()){
+                System.out.println(coachModel.getName());
+            }
+            System.out.println(this.updatedLeagueModel.getGeneralManagers().size());
 //        if(iLeagueModel.storeLeagueInformation(updatedLeagueModel)) {
             playerSeasonsChoiceState=new PlayerSeasonsChoiceState(updatedLeagueModel,stateMachine);
             stateMachine.setPlayerSeasonsChoice(playerSeasonsChoiceState);

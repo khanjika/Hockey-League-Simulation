@@ -24,6 +24,17 @@ public class PlayerModel implements IPlayerModel {
     private float saving;
     private float playerStrength;
 
+    public PlayerModel(String playerName, String position, Boolean captain, int age, float skating, float shooting, float checking, float saving) {
+        this.playerName = playerName;
+        this.position = position;
+        this.captain = captain;
+        this.age = age;
+        this.skating = skating;
+        this.shooting = shooting;
+        this.checking = checking;
+        this.saving = saving;
+    }
+
     public String getPlayerName() {
         return playerName;
     }
