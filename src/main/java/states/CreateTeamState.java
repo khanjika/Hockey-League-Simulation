@@ -6,6 +6,7 @@ import conference.ConferenceModel;
 import divison.DivisonModel;
 import league.ILeagueModel;
 import league.LeagueModel;
+import serializeObject.SerializeObject;
 import statemachine.StateMachine;
 import teams.TeamsModel;
 
@@ -79,6 +80,7 @@ public class CreateTeamState implements ITransition {
                 System.out.println(coachModel.getName());
             }
             System.out.println(this.updatedLeagueModel.getGeneralManagers().size());
+
 //        if(iLeagueModel.storeLeagueInformation(updatedLeagueModel)) {
             playerSeasonsChoiceState=new PlayerSeasonsChoiceState(updatedLeagueModel,stateMachine);
             stateMachine.setPlayerSeasonsChoice(playerSeasonsChoiceState);

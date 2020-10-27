@@ -1,6 +1,7 @@
 package players;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.Expose;
 import jdk.nashorn.internal.runtime.ECMAException;
 import teams.TeamPojo;
 
@@ -13,14 +14,22 @@ public class PlayerModel implements IPlayerModel {
     public PlayerModel() {
         iPlayerPersistent = new PlayerPersistent();
     }
+    @Expose
     private String playerName;
+    @Expose
     private String position;
+    @Expose
     @JsonProperty(required = true)
     private Boolean captain;
+    @Expose
     private int age;
+    @Expose
     private float skating;
+    @Expose
     private float shooting;
+    @Expose
     private float checking;
+    @Expose
     private float saving;
     private float playerStrength;
 

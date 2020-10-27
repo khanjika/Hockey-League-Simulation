@@ -1,10 +1,17 @@
 package teams;
 
+import com.google.gson.annotations.Expose;
+
 public class HeadCoachModel implements IHeadCoachModel{
+    @Expose
     private String name;
+    @Expose
     private float skating;
+    @Expose
     private float shooting;
+    @Expose
     private float checking;
+    @Expose
     private float saving;
 
     public HeadCoachModel() {

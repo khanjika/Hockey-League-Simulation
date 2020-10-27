@@ -1,9 +1,15 @@
 package gameplayconfig;
 
+import com.google.gson.annotations.Expose;
+
 public class TradingModel implements ITradingModel{
+    @Expose
     private int lossPoint;
+    @Expose
     private float randomTradeOfferChance;
+    @Expose
     private int maxPlayersPerTrade;
+    @Expose
     private float randomAcceptanceChance;
 
     public int getLossPoint() {

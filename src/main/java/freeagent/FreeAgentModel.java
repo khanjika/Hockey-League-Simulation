@@ -1,13 +1,22 @@
 package freeagent;
 
+import com.google.gson.annotations.Expose;
+
 public class FreeAgentModel {
 
+    @Expose
     private  String playerName;
+    @Expose
     private  String position;
+    @Expose
     private int age;
+    @Expose
     private float skating;
+    @Expose
     private float shooting;
+    @Expose
     private float checking;
+    @Expose
     private float saving;
 
     private IFreeAgentPersistent iFreeAgentPersistent;

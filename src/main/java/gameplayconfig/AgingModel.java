@@ -1,7 +1,11 @@
 package gameplayconfig;
 
+import com.google.gson.annotations.Expose;
+
 public class AgingModel implements IAgingModel{
+    @Expose
     private int averageRetirementAge;
+    @Expose
     private int maximumAge;
 
     public int getAverageRetirementAge() {

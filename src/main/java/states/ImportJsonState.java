@@ -10,6 +10,7 @@ import league.LeagueModel;
 import players.PlayerModel;
 import matchSchedules.IRegularSeasonSchedule;
 import matchSchedules.RegularSeasonSchedule;
+import serializeObject.SerializeObject;
 import statemachine.StateMachine;
 import teams.TeamsModel;
 
@@ -98,6 +99,8 @@ public class ImportJsonState implements ITransition {
 
     @Override
     public void task(){
+        SerializeObject object = new SerializeObject();
+        object.serializeLeagueObject(inMemoryLeagueModel);
         createTeamState = new CreateTeamState(inMemoryLeagueModel, stateMachine);
         stateMachine.setCreateTeam(createTeamState);
         stateMachine.setCurrentState(stateMachine.playerChoiceCreateTeam());

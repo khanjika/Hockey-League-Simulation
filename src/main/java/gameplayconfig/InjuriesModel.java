@@ -1,8 +1,13 @@
 package gameplayconfig;
 
+import com.google.gson.annotations.Expose;
+
 public class InjuriesModel implements IInjuriesModel {
+    @Expose
     private float randomInjuryChance;
+    @Expose
     private int injuryDaysLow;
+    @Expose
     private int injuryDaysHigh;
 
     public float getRandomInjuryChance() {
