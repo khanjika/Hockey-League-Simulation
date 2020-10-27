@@ -75,5 +75,4 @@ public class LeagueValidator implements ILeagueValidator {
             return true;
         }
     }
-
 }

@@ -100,7 +100,7 @@ public class ImportJsonState implements ITransition {
     @Override
     public void task(){
         SerializeObject object = new SerializeObject();
-        object.serializeLeagueObject(inMemoryLeagueModel);
+        object.serializeLeagueObject(inMemoryLeagueModel,"C:\\Users\\AVuser\\Desktop\\test.JSON");
         createTeamState = new CreateTeamState(inMemoryLeagueModel, stateMachine);
         stateMachine.setCreateTeam(createTeamState);
         stateMachine.setCurrentState(stateMachine.playerChoiceCreateTeam());
