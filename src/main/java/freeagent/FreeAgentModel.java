@@ -1,6 +1,10 @@
 package freeagent;
 
-public class FreeAgentModel {
+import players.IPlayerModel;
+import players.PlayerModel;
+import players.PlayerPosition;
+
+public class FreeAgentModel implements IFreeAgentModel{
 
     private  String playerName;
     private  String position;
@@ -9,7 +13,7 @@ public class FreeAgentModel {
     private float shooting;
     private float checking;
     private float saving;
-
+    private float freeAgentStrength;
     private IFreeAgentPersistent iFreeAgentPersistent;
 
     public FreeAgentModel() {
@@ -72,7 +76,24 @@ public class FreeAgentModel {
         this.saving = saving;
     }
 
+    public float getFreeAgentStrength() { return freeAgentStrength; }
+
+    public void setFreeAgentStrength(float freeAgentStrength) { this.freeAgentStrength = freeAgentStrength; }
+
     public void storeFreeAgentInformation(FreeAgentModel freeAgentModel, int leagueId){
          iFreeAgentPersistent.addFreeAgentInformation(freeAgentModel.getPlayerName(),freeAgentModel.getPosition(),leagueId);
+    }
+
+    @Override
+    public void calculateFreeAgentStrength(FreeAgentModel freeAgentModel) {
+        if(freeAgentModel.getPosition().equals(PlayerPosition.FORWARD.toString())){
+            freeAgentModel.freeAgentStrength = freeAgentModel.getSkating() + freeAgentModel.getShooting() + (freeAgentModel.getChecking()/2);
+        }
+        else if(freeAgentModel.getPosition().equals(PlayerPosition.DEFENSE.toString())){
+            freeAgentModel.freeAgentStrength = freeAgentModel.getSkating() + freeAgentModel.getChecking() + (freeAgentModel.getShooting()/2);
+        }
+        else if(freeAgentModel.getPosition().equals(PlayerPosition.GOALIE.toString())){
+            freeAgentModel.freeAgentStrength = freeAgentModel.getSkating() + freeAgentModel.getShooting();
+        }
     }
 }
