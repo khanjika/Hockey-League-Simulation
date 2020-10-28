@@ -19,6 +19,15 @@ public class TeamsModel implements ITeamsModel {
     private IPlayerModel playerModel;
     private ITeamsPersistent iTeamsPersistent;
     private float teamStrength;
+    private int winPoint;
+
+    public int getWinPoint() {
+        return winPoint;
+    }
+
+    public void setWinPoint(int winPoint) {
+        this.winPoint = winPoint;
+    }
 
     public boolean isUserCreatedTeam() {
         return isUserCreatedTeam;

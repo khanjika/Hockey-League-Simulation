@@ -80,7 +80,8 @@ public class CreateTeamState implements ITransition {
                 System.out.println(coachModel.getName());
             }
             System.out.println(this.updatedLeagueModel.getGeneralManagers().size());
-
+            SerializeObject serializeObject = new SerializeObject();
+            serializeObject.serializeLeagueObject(this.updatedLeagueModel);
 //        if(iLeagueModel.storeLeagueInformation(updatedLeagueModel)) {
             playerSeasonsChoiceState=new PlayerSeasonsChoiceState(updatedLeagueModel,stateMachine);
             stateMachine.setPlayerSeasonsChoice(playerSeasonsChoiceState);

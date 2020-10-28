@@ -53,6 +53,10 @@ public class ImportJsonState implements ITransition {
             inMemoryLeagueModel = initialCli.parseJson(cliArgument);
 
             System.out.println("Printing values for testing");
+            System.out.println(inMemoryLeagueModel);
+            for (ConferenceModel conferenceModel:inMemoryLeagueModel.getConferences()) {
+                System.out.println(conferenceModel.getConferenceName());
+            }
             for(ConferenceModel conferenceModel:inMemoryLeagueModel.getConferences()){
                 System.out.println(conferenceModel.getConferenceName());
                 for(DivisonModel divisonModel:conferenceModel.getDivisions()){

@@ -38,6 +38,7 @@ public class InitialCli {
 
         if(cliCommunication.isFileExist(filePath)){
             LeagueModel leagueModel= cliCommunication.parseJson(filePath);
+            System.out.println(leagueModel);
             return leagueModel;
         }
         else{
