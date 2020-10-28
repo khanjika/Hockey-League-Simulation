@@ -9,7 +9,7 @@ import freeagent.FreeAgentModel;
 import league.LeagueModel;
 import players.PlayerModel;
 import teams.HeadCoachModel;
-import teams.TeamsModel;
+import teams.*;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -27,9 +27,10 @@ public class CreateTeamCli implements  ICreateTeamCli{
     private String userEnteredTeamName;
     private String userEnteredGeneralManagerName;
     private HeadCoachModel userEnteredHeadCoachName;
+    private DisplayPersons displayPersons;
+    private static ITeamsModel iTeamsModel;
     Scanner scannerObject;
     List<PlayerModel> userCreatedPlayers;
-//    List<FreeAgentModel> availableFreeAgents;
     int choice;
 
     public CreateTeamCli() {
@@ -37,6 +38,8 @@ public class CreateTeamCli implements  ICreateTeamCli{
         divisonValidator = new DivisonValidator();
         scannerObject = new Scanner(System.in);
         userCreatedPlayers = new ArrayList<>();
+        displayPersons = new DisplayPersons();
+        iTeamsModel = new TeamsModel();
     }
 
     //Method used to create new team
@@ -64,7 +67,7 @@ public class CreateTeamCli implements  ICreateTeamCli{
         return null;
     }
 
-    public boolean isConferenceNameValid(LeagueModel leagueModel) {
+    private boolean isConferenceNameValid(LeagueModel leagueModel) {
         System.out.println("=====================================");
         System.out.println("Here You need to create a new Team in the EXISTING division");
         System.out.println("=====================================");
@@ -86,7 +89,7 @@ public class CreateTeamCli implements  ICreateTeamCli{
         return true;
     }
 
-    public boolean isDivisionNameValid(LeagueModel leagueModel) {
+    private boolean isDivisionNameValid(LeagueModel leagueModel) {
         System.out.println("Enter Division name In which You want to create new Team");
         String divisionName = scannerObject.nextLine();
         if (isStringValid(divisionName)) {
@@ -104,13 +107,31 @@ public class CreateTeamCli implements  ICreateTeamCli{
         return true;
     }
 
-    public boolean isTeamInformationSetProperly(LeagueModel leagueModel) {
+//    private boolean isTeamUnique(LeagueModel leagueModel) {
+//        if (iLeagueModel.isLeagueExist(leagueModel.getLeagueName())) {
+//            int leagueId = iLeagueModel.getLeagueId(leagueName);
+//            if (isConferenceExist(userEnteredConferenceName, leagueId)) {
+//                System.out.println("Conference Exist");
+//                int conferenceId = iConferenceModel.getConferenceId(conferenceName, leagueId);
+//                String divisionName = getUserInput("Division");
+//                if (isDivisionExist(divisionName, conferenceId)) {
+//                    System.out.println("Division Exist");
+//                    int divisionId = iDivisonModel.getDivisionId(divisionName, conferenceId);
+//                    String teamName = getUserInput("Team");
+//                    if (isTeamExist(teamName, divisionId)) {
+//                        System.out.println("Team Exist");
+//                    }
+//                }
+//            }
+//        }
+    //}
+
+    private boolean isTeamInformationSetProperly(LeagueModel leagueModel) {
         System.out.println("Enter New Team name");
         this.userEnteredTeamName = scannerObject.nextLine();
         if (isStringValid(userEnteredTeamName)) {
             if (isManagerValid(leagueModel)) {
                 if (isHeadCoachValid(leagueModel)) {
-//                    availableFreeAgents = leagueModel.getFreeAgents();
                     if (isPlayersValid(leagueModel)) {
                         return true;
                     }
@@ -120,17 +141,18 @@ public class CreateTeamCli implements  ICreateTeamCli{
         return true;
     }
 
-    String name;
-    String position;
-    Boolean captain;
-    float skating;
-    float shooting;
-    float saving;
-    float checking;
-    int age;
+
 
 
     private boolean isPlayersValid(LeagueModel leagueModel) {
+        String name;
+        String position;
+        Boolean captain;
+        float skating;
+        float shooting;
+        float saving;
+        float checking;
+        int age;
         int goalies = 2;
         int skaters = 18;
         int totalPlayers = 20;
@@ -138,16 +160,10 @@ public class CreateTeamCli implements  ICreateTeamCli{
         PlayerModel player;
         int players = 0;
         while (players < totalPlayers) {
-            System.out.printf("Select %d more players for your team", totalPlayers - players);
+            System.out.printf("Select %d more players for the team", totalPlayers - players);
             System.out.println();
-            System.out.println("=====================================");
-            int displayNumber = 1;
-            for (FreeAgentModel freeAgentModel : currentAvailablePlayers) {
-                System.out.println(displayNumber + " -> " + freeAgentModel.getPlayerName() + " " + freeAgentModel.getAge() + " " + freeAgentModel.getPosition() + " " + freeAgentModel.getChecking()
-                        + " " + freeAgentModel.getSaving() +
-                        " " + freeAgentModel.getShooting() + " " + freeAgentModel.getSkating());
-                displayNumber++;
-            }
+
+            displayPersons.displayPlayers(currentAvailablePlayers);
             System.out.println("Enter Player " + (players + 1));
             choice = scannerObject.nextInt();
             if (choice > 0 && choice <= currentAvailablePlayers.size()) {
@@ -179,22 +195,21 @@ public class CreateTeamCli implements  ICreateTeamCli{
                 }
             }
         System.out.println("The newly created team players");
-        System.out.println("=====================================");
-        int displayNumber = 1;
-        for (PlayerModel teamPlayer : userCreatedPlayers){
-            System.out.println(displayNumber + " -> " + teamPlayer.getPlayerName() + " " + teamPlayer.getAge() + " " + teamPlayer.getPosition() + " " + teamPlayer.getChecking()
-                    + " " + teamPlayer.getSaving() +
-                    " " + teamPlayer.getShooting() + " " + teamPlayer.getSkating());
-            displayNumber++;
-        }
+        displayPersons.displayTeamPlayers(userCreatedPlayers);
         System.out.println("Select a captain for the team");
         choice = scannerObject.nextInt();
         userCreatedPlayers.get(choice - 1).setCaptain(true);
         System.out.println(userCreatedPlayers.get(choice - 1).getPlayerName() + " is the team captain" );
+        leagueModel.setFreeAgents(currentAvailablePlayers);
         return (goalies == 0 && skaters == 0);
     }
     private boolean isHeadCoachValid(LeagueModel leagueModel){
-        displayCoaches(leagueModel);
+        String name;
+        float skating;
+        float shooting;
+        float saving;
+        float checking;
+        displayPersons.displayCoaches(leagueModel.getCoaches());
         choice = scannerObject.nextInt();
         List<CoachModel> coachList = leagueModel.getCoaches();
         HeadCoachModel headCoach;
@@ -215,7 +230,8 @@ public class CreateTeamCli implements  ICreateTeamCli{
     }
 
     private boolean isManagerValid(LeagueModel leagueModel){
-        displayManagers(leagueModel);
+
+        displayPersons.displayManagers(leagueModel.getGeneralManagers());
         choice = scannerObject.nextInt();
         List<String> managersList = leagueModel.getGeneralManagers();
         if (choice > 0 && choice <= managersList.size()){
@@ -228,39 +244,6 @@ public class CreateTeamCli implements  ICreateTeamCli{
         }
     }
 
-    private void displayManagers(LeagueModel leagueModel){
-        System.out.println("Select a Manager for the team");
-        System.out.println("=====================================");
-        int ManagerCount = 1;
-        for(String generalManager:leagueModel.getGeneralManagers()){
-            System.out.println(ManagerCount+ " -> "+ generalManager);
-            ManagerCount ++;
-        }
-    }
-
-    private void displayCoaches(LeagueModel leagueModel){
-        System.out.println("Select a Coach for the team");
-        System.out.println("=====================================");
-        int CoachCount = 1;
-        leagueModel.getCoaches().sort(Comparator.comparing(CoachModel::getName));
-        for(CoachModel coachModel:leagueModel.getCoaches()){
-            System.out.println(CoachCount+ " -> "+coachModel.getName()  + " " + coachModel.getChecking() + " " +
-                    coachModel.getSaving() + " " + coachModel.getShooting() + " " + coachModel.getSkating());
-            CoachCount ++;
-        }
-    }
-
-    private void displayFreeAgents(LeagueModel leagueModel){
-
-        leagueModel.getFreeAgents().sort(Comparator.comparing(FreeAgentModel::getAge));
-        int displayNumber = 1;
-        for (FreeAgentModel freeAgentModel:leagueModel.getFreeAgents()){
-            System.out.println(displayNumber + " -> " + freeAgentModel.getPlayerName() + " " +freeAgentModel.getAge() + " " +freeAgentModel.getChecking()
-                    + " " +freeAgentModel.getSaving() +
-                    " " + freeAgentModel.getShooting() + " " + freeAgentModel.getSkating());
-            displayNumber ++;
-        }
-    }
 
     private LeagueModel getNewlyCreatedLeagueObject(LeagueModel leagueModel){
         TeamsModel teamsModel = new TeamsModel();

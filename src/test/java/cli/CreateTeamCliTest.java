@@ -21,30 +21,29 @@ class CreateTeamCliTest {
 //    @Test
 //    void createNewTeam() {
 //        LeagueModel leagueModel = LeagueModelTest.getLeagueObject();
-//        ByteArrayInputStream teamMockData = new ByteArrayInputStream("Eastern Conference\nAtlantic\nxyz\npqr\nabc".getBytes());
+//        ByteArrayInputStream teamMockData = new ByteArrayInputStream("Eastern Conference\nAtlantic\ntest\n1\n1".getBytes());
 //        System.setIn(teamMockData);
 //        CreateTeamCli createTeamCli = new CreateTeamCli();
 //        assertNotNull(createTeamCli.createNewTeam(leagueModel));
-//
 //    }
 
-    @Test
-    void isConferenceNameValid() {
-        ByteArrayInputStream validConfNameTest = new ByteArrayInputStream("Eastern Conferenc \nEastern Conference".getBytes());
-        System.setIn(validConfNameTest);
-        LeagueModel leagueModel = LeagueModelTest.getLeagueObject();
-        CreateTeamCli createTeamCli = new CreateTeamCli();
-        assertTrue(createTeamCli.isConferenceNameValid(leagueModel));
-    }
+//    @Test
+//    void isConferenceNameValid() {
+//        ByteArrayInputStream validConfNameTest = new ByteArrayInputStream("Eastern Conferenc \nEastern Conference".getBytes());
+//        System.setIn(validConfNameTest);
+//        LeagueModel leagueModel = LeagueModelTest.getLeagueObject();
+//        CreateTeamCli createTeamCli = new CreateTeamCli();
+//        assertTrue(createTeamCli.isConferenceNameValid(leagueModel));
+//    }
 
-    @Test
-    void isDivisionNameValid() {
-        ByteArrayInputStream validDivisionNameTest = new ByteArrayInputStream("Atlanti\nAtlantic".getBytes());
-        System.setIn(validDivisionNameTest);
-        LeagueModel leagueModel = LeagueModelTest.getLeagueObject();
-        CreateTeamCli createTeamCli = new CreateTeamCli();
-        assertTrue(createTeamCli.isDivisionNameValid(leagueModel));
-    }
+//    @Test
+//    void isDivisionNameValid() {
+//        ByteArrayInputStream validDivisionNameTest = new ByteArrayInputStream("Atlanti\nAtlantic".getBytes());
+//        System.setIn(validDivisionNameTest);
+//        LeagueModel leagueModel = LeagueModelTest.getLeagueObject();
+//        CreateTeamCli createTeamCli = new CreateTeamCli();
+//        assertTrue(createTeamCli.isDivisionNameValid(leagueModel));
+//    }
 
 //    @Test
 //    void isTeamInformationSetProperly() {

@@ -11,17 +11,19 @@ public class Training {
 
     TrainingConstants constants = new TrainingConstants();
 
-    public LeagueModel trainingLogic(LeagueModel currentLeagueModel) {
+    public boolean trainingLogic(LeagueModel currentLeagueModel) {
         for (ConferenceModel currentConference : currentLeagueModel.getConferences()) {
             for (DivisonModel currentDivision : currentConference.getDivisions()) {
                 for (TeamsModel currentTeam : currentDivision.getTeams()) {
                     for (PlayerModel player : currentTeam.getPlayers()) {
-                        performTraining(player, currentTeam.getHeadCoach());
+                        if (performTraining(player, currentTeam.getHeadCoach())){
+                            return true;
+                        }
                     }
                 }
             }
         }
-        return currentLeagueModel;
+        return false;
     }
     private boolean performTraining(PlayerModel player, HeadCoachModel headCoach){
         if (headCoach.getChecking() > constants.getRandomNumber()) {
@@ -49,6 +51,6 @@ public class Training {
 //            player.isPlayerInjured();
         }
 
-        return false;
+        return true;
     }
 }
