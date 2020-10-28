@@ -8,14 +8,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class SerializeObject {
-    public boolean serializeLeagueObject(LeagueModel leagueModel) {
+    public void serializeLeagueObject(LeagueModel leagueModel) {
 
         Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
-        try (FileWriter writer = new FileWriter("C:\\Users\\AVuser\\Downloads\\test.JSON")) {
+        try (FileWriter writer = new FileWriter("test.JSON")) {
             gson.toJson(leagueModel, writer);
         } catch (IOException exception) {
-            return false;
+            exception.printStackTrace();
         }
-        return true;
     }
 }

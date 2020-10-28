@@ -1,9 +1,9 @@
 package freeagent;
 
 import com.google.gson.annotations.Expose;
+import players.PlayerPosition;
 
-public class FreeAgentModel {
-
+public class FreeAgentModel implements IFreeAgentModel{
     @Expose
     private  String playerName;
     @Expose
@@ -18,7 +18,7 @@ public class FreeAgentModel {
     private float checking;
     @Expose
     private float saving;
-
+    private float freeAgentStrength;
     private IFreeAgentPersistent iFreeAgentPersistent;
 
     public FreeAgentModel() {
@@ -81,7 +81,24 @@ public class FreeAgentModel {
         this.saving = saving;
     }
 
+    public float getFreeAgentStrength() { return freeAgentStrength; }
+
+    public void setFreeAgentStrength(float freeAgentStrength) { this.freeAgentStrength = freeAgentStrength; }
+
     public void storeFreeAgentInformation(FreeAgentModel freeAgentModel, int leagueId){
          iFreeAgentPersistent.addFreeAgentInformation(freeAgentModel.getPlayerName(),freeAgentModel.getPosition(),leagueId);
+    }
+
+    @Override
+    public void calculateFreeAgentStrength(FreeAgentModel freeAgentModel) {
+        if(freeAgentModel.getPosition().equals(PlayerPosition.FORWARD.toString())){
+            freeAgentModel.freeAgentStrength = freeAgentModel.getSkating() + freeAgentModel.getShooting() + (freeAgentModel.getChecking()/2);
+        }
+        else if(freeAgentModel.getPosition().equals(PlayerPosition.DEFENSE.toString())){
+            freeAgentModel.freeAgentStrength = freeAgentModel.getSkating() + freeAgentModel.getChecking() + (freeAgentModel.getShooting()/2);
+        }
+        else if(freeAgentModel.getPosition().equals(PlayerPosition.GOALIE.toString())){
+            freeAgentModel.freeAgentStrength = freeAgentModel.getSkating() + freeAgentModel.getShooting();
+        }
     }
 }
