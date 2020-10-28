@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Scanner;
 
 //This class is used to create a new team using cli
-public class CreateTeamCli {
+public class CreateTeamCli implements  ICreateTeamCli{
 
     ConferenceValidator conferenceValidator;
     DivisonValidator divisonValidator;
@@ -40,6 +40,7 @@ public class CreateTeamCli {
     }
 
     //Method used to create new team
+    @Override
     public LeagueModel createNewTeam(LeagueModel leagueModel) {
         if (isConferenceNameValid(leagueModel)) {
             if (isDivisionNameValid(leagueModel)) {
@@ -130,7 +131,8 @@ public class CreateTeamCli {
 
 
     private boolean isPlayersValid(LeagueModel leagueModel) {
-        int goalies = 0;
+        int goalies = 2;
+        int skaters = 18;
         int totalPlayers = 20;
         List<FreeAgentModel> currentAvailablePlayers = new ArrayList<>(leagueModel.getFreeAgents());
         PlayerModel player;
@@ -158,24 +160,38 @@ public class CreateTeamCli {
                 shooting = currentAvailablePlayers.get(choice - 1).getShooting();
                 skating = currentAvailablePlayers.get(choice - 1).getSkating();
                 if (position.equals("goalie")) { // add to constants
-                    goalies++;
+                    goalies--;
+                }else{
+                    skaters--;
                 }
-                System.out.println(goalies);
-                player = new PlayerModel(name, position, captain, age, skating, shooting, checking, saving);
-                userCreatedPlayers.add(player);
-                currentAvailablePlayers.remove(choice - 1);
-                players++;
+                System.out.println(2 - goalies);
+                System.out.println(18 - skaters);
+                if (skaters < 0){
+                    skaters ++;
+                    System.out.printf("Enter %d more goalies",goalies);
+                    System.out.println();
+                }else {
+                    player = new PlayerModel(name, position, captain, age, skating, shooting, checking, saving);
+                    userCreatedPlayers.add(player);
+                    currentAvailablePlayers.remove(choice - 1);
+                    players++;
+                }
                 }
             }
-        if (goalies == 2){
-            leagueModel.setFreeAgents(currentAvailablePlayers);
-            return true;
+        System.out.println("The newly created team players");
+        System.out.println("=====================================");
+        int displayNumber = 1;
+        for (PlayerModel teamPlayer : userCreatedPlayers){
+            System.out.println(displayNumber + " -> " + teamPlayer.getPlayerName() + " " + teamPlayer.getAge() + " " + teamPlayer.getPosition() + " " + teamPlayer.getChecking()
+                    + " " + teamPlayer.getSaving() +
+                    " " + teamPlayer.getShooting() + " " + teamPlayer.getSkating());
+            displayNumber++;
         }
-        else{
-            System.out.println("Select 2 goalies for the team");
-            return isPlayersValid(leagueModel);
-        }
-
+        System.out.println("Select a captain for the team");
+        choice = scannerObject.nextInt();
+        userCreatedPlayers.get(choice - 1).setCaptain(true);
+        System.out.println(userCreatedPlayers.get(choice - 1).getPlayerName() + " is the team captain" );
+        return (goalies == 0 && skaters == 0);
     }
     private boolean isHeadCoachValid(LeagueModel leagueModel){
         displayCoaches(leagueModel);
