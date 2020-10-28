@@ -5,4 +5,6 @@ import league.LeagueModel;
 public interface IGenerateTradeOffer {
 
     boolean checkTrading(LeagueModel leagueModel);
+
+    float generateRandomNumber();
 }
