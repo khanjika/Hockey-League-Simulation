@@ -1,5 +1,7 @@
 package league;
 
+import coach.CoachModel;
+import coach.CoachModelTest;
 import conference.ConferenceModel;
 import conference.ConferenceModelTest;
 import freeagent.FreeAgentModel;
@@ -75,6 +77,19 @@ public class LeagueModelTest {
             freeAgentModelList.add(freeAgentModel);
         }
         leagueModel.setFreeAgents(freeAgentModelList);
+        List<CoachModel> coachModelsList = new ArrayList<>();
+        for (int i = 0;i < 3; i++){
+            CoachModel coachModel = CoachModelTest.getCoachModel("Arthy", 2.0f,5.0f,6.0f,7.0f);
+            coachModelsList.add(coachModel);
+        }
+        List<String> generalManagers = new ArrayList<String>(){
+            {
+                add("Arthy");
+                add("Roshan");
+                add("Zankrut");
+                add("Khanjiga");
+            }
+        };
         leagueModel.setGameplayConfig (gamePLayModel);
         gamePLayModel.setTrading (tradingModel);
         return leagueModel;

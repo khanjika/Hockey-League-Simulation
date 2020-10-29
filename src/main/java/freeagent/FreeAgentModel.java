@@ -4,18 +4,26 @@ import gameplayconfig.AgingModel;
 import league.LeagueModel;
 import players.IPlayerModel;
 import players.PlayerModel;
+
+import com.google.gson.annotations.Expose;
 import players.PlayerPosition;
 
 import java.util.*;
 
 public class FreeAgentModel implements IFreeAgentModel{
-
+    @Expose
     private  String playerName;
+    @Expose
     private  String position;
+    @Expose
     private int age;
+    @Expose
     private float skating;
+    @Expose
     private float shooting;
+    @Expose
     private float checking;
+    @Expose
     private float saving;
     private float freeAgentStrength;
     private int days;

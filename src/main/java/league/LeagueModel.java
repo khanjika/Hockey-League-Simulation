@@ -3,6 +3,7 @@ package league;
 import cli.loadTeamCli;
 import coach.CoachModel;
 import coach.ICoachModel;
+import com.google.gson.annotations.Expose;
 import conference.ConferenceModel;
 import conference.IConferenceModel;
 import freeagent.FreeAgentModel;
@@ -17,14 +18,20 @@ public class LeagueModel implements ILeagueModel {
     private IConferenceModel conferenceModel;
     private FreeAgentModel freeAgentModel;
     loadTeamCli loadTeamCli;
+    @Expose
     private String leagueName;
+    @Expose
     private List<ConferenceModel> conferences;
+    @Expose
     private List<FreeAgentModel> freeAgents;
 
     //Milestone 2
+    @Expose
     private List<CoachModel> coaches;
     private ICoachModel coachModel;
+    @Expose
     private List<String> generalManagers;
+    @Expose
     private GamePlayConfigModel gameplayConfig;
 
 

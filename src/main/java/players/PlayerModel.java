@@ -1,6 +1,10 @@
 package players;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.Expose;
+import jdk.nashorn.internal.runtime.ECMAException;
+import teams.TeamPojo;
+import java.util.ArrayList;
 import conference.ConferenceModel;
 import divison.DivisonModel;
 import freeagent.FreeAgentModel;
@@ -13,6 +17,7 @@ import teams.TeamsModel;
 import java.time.LocalDate;
 import java.util.*;
 
+
 public class PlayerModel implements IPlayerModel {
 
     private IPlayerPersistent iPlayerPersistent;
@@ -20,16 +25,24 @@ public class PlayerModel implements IPlayerModel {
     public PlayerModel() {
         iPlayerPersistent = new PlayerPersistent();
     }
+    @Expose
     private String playerName;
+    @Expose
     private String position;
+    @Expose
     @JsonProperty(required = true)
     private Boolean captain;
-    private Boolean isPlayerRetired;
+    @Expose
     private int age;
+    @Expose
+    private Boolean isPlayerRetired;
     private int days;
     private float skating;
+    @Expose
     private float shooting;
+    @Expose
     private float checking;
+    @Expose
     private float saving;
     private float playerStrength;
     private boolean isPlayerInjured;
@@ -42,6 +55,17 @@ public class PlayerModel implements IPlayerModel {
     private IFreeAgentModel freeAgentModel;
     private List<FreeAgentModel> freeAgentsList;
 
+
+    public PlayerModel(String playerName, String position, Boolean captain, int age, float skating, float shooting, float checking, float saving) {
+        this.playerName = playerName;
+        this.position = position;
+        this.captain = captain;
+        this.age = age;
+        this.skating = skating;
+        this.shooting = shooting;
+        this.checking = checking;
+        this.saving = saving;
+    }
 
     public String getPlayerName() {
         return playerName;
