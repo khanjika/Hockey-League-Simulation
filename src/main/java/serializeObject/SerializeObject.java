@@ -7,7 +7,8 @@ import league.LeagueModel;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class SerializeObject {
+public class SerializeObject implements  ISerializeObject{
+    @Override
     public boolean serializeLeagueObject(LeagueModel leagueModel) {
 
         Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
@@ -15,7 +16,6 @@ public class SerializeObject {
             gson.toJson(leagueModel, writer);
         } catch (IOException exception) {
             return false;
-//            exception.printStackTrace();
         }
         return true;
     }

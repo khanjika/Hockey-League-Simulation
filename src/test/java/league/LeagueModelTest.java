@@ -72,9 +72,10 @@ public class LeagueModelTest {
         }
         leagueModel.setConferences(conferenceModelObjectList);
         List<FreeAgentModel> freeAgentModelList = new ArrayList<>();
-        for (int i = 0; i < 2; i++) {
-            FreeAgentModel freeAgentModel = FreeAgentModelTest.getFreeAgentModel("Roshan", "forward", false);
-            freeAgentModelList.add(freeAgentModel);
+        for (int i = 0; i < 10; i++) {
+            freeAgentModelList.add(FreeAgentModelTest.getFreeAgentModel("Roshan", "forward", false));
+            freeAgentModelList.add(FreeAgentModelTest.getFreeAgentModel("Arthy", "defense", false));
+            freeAgentModelList.add(FreeAgentModelTest.getFreeAgentModel("Zankruth", "goalie", false));
         }
         leagueModel.setFreeAgents(freeAgentModelList);
         List<CoachModel> coachModelsList = new ArrayList<>();
@@ -82,6 +83,7 @@ public class LeagueModelTest {
             CoachModel coachModel = CoachModelTest.getCoachModel("Arthy", 2.0f,5.0f,6.0f,7.0f);
             coachModelsList.add(coachModel);
         }
+        leagueModel.setCoaches(coachModelsList);
         List<String> generalManagers = new ArrayList<String>(){
             {
                 add("Arthy");
@@ -90,6 +92,7 @@ public class LeagueModelTest {
                 add("Khanjiga");
             }
         };
+        leagueModel.setGeneralManagers(generalManagers);
         leagueModel.setGameplayConfig (gamePLayModel);
         gamePLayModel.setTrading (tradingModel);
         return leagueModel;

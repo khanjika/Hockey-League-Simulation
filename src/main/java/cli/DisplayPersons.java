@@ -11,6 +11,7 @@ import java.util.stream.Stream;
 public class DisplayPersons {
 
     public void displayTeamPlayers(List<PlayerModel> players){
+        System.out.println();
         Map<Integer, Integer> columnLength = new HashMap<Integer, Integer>();
         StringBuilder format = new StringBuilder();
         String header[] = {"Number", "Name", "Position",
@@ -54,6 +55,7 @@ public class DisplayPersons {
 
 
     public void displayCoaches(List<CoachModel> coaches){
+        System.out.println("Select a Head Coach for the team");
         Map<Integer, Integer> columnLength = new HashMap<Integer, Integer>();
         StringBuilder format = new StringBuilder();
         String header[] = {"Number", "Name", "Checking", "Skating", "Shooting", "Saving"};
@@ -91,6 +93,7 @@ public class DisplayPersons {
     }
 
     public void displayManagers(List<String> generalManagers){
+        System.out.println("Select a Manager for the team");
         Map<Integer, Integer> columnLength = new HashMap<Integer, Integer>();
         StringBuilder format = new StringBuilder();
         String header[] = {"Number", "Name"};

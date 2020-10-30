@@ -141,9 +141,6 @@ public class CreateTeamCli implements  ICreateTeamCli{
         return true;
     }
 
-
-
-
     private boolean isPlayersValid(LeagueModel leagueModel) {
         String name;
         String position;
@@ -203,6 +200,7 @@ public class CreateTeamCli implements  ICreateTeamCli{
         leagueModel.setFreeAgents(currentAvailablePlayers);
         return (goalies == 0 && skaters == 0);
     }
+
     private boolean isHeadCoachValid(LeagueModel leagueModel){
         String name;
         float skating;
