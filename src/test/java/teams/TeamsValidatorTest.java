@@ -6,11 +6,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TeamsValidatorTest {
 
-//    @Test
-//    void validateTeamObject() {
-//        TeamsModelTest teamsModelTest =new TeamsModelTest();
-//        TeamsModel teamsModel=  teamsModelTest.getTeamsObject();
-//        TeamsValidator teamsValidator = new TeamsValidator();
-//        assertTrue(teamsValidator.validateTeamObject(teamsModel));
-//    }
+    @Test
+    void validateTeamObject() {
+        TeamsModelTest teamsModelTest =new TeamsModelTest();
+        TeamsModel teamsModel=  teamsModelTest.getTeamsObject();
+        TeamsValidator teamsValidator = new TeamsValidator();
+        assertTrue(teamsValidator.validateTeamObject(teamsModel));
+    }
 }

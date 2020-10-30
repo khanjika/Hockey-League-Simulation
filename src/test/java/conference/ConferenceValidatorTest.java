@@ -8,14 +8,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ConferenceValidatorTest {
 
-//    @Test
-//    void validateConferenceObject() {
-//        ConferenceModelTest conferenceModelTest = new ConferenceModelTest();
-//        ConferenceModel conferenceModel = ConferenceModelTest.getConferenceObject();
-//        ConferenceValidator conferenceValidator =new ConferenceValidator();
-//        // need to update to true
-//       assertTrue(conferenceValidator.validateConferenceObject(conferenceModel));
-//    }
+    @Test
+    void validateConferenceObject() {
+        ConferenceModelTest conferenceModelTest = new ConferenceModelTest();
+        ConferenceModel conferenceModel = ConferenceModelTest.getConferenceObject();
+        ConferenceValidator conferenceValidator =new ConferenceValidator();
+        // need to update to true
+       assertTrue(conferenceValidator.validateConferenceObject(conferenceModel));
+    }
 
     @Test
     void isConferenceExistTest(){

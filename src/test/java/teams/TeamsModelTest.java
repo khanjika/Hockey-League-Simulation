@@ -91,7 +91,7 @@ public class TeamsModelTest {
         PlayerModel playerModel;
         playerModel = PlayerModelTest.getPlayerModel(playerName+19, "goalie", false,20,10,10,10,10);
         playerModelObjectList.add(playerModel);
-        playerModel = PlayerModelTest.getPlayerModel(playerName+19, "goalie", true,20,10,10,10,10);
+        playerModel = PlayerModelTest.getPlayerModel(playerName+19, "goalie", false,20,10,10,10,10);
         playerModelObjectList.add(playerModel);
         teamsModel.setPlayers(playerModelObjectList);
         return teamsModel;
