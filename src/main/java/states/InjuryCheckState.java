@@ -33,12 +33,18 @@ public class InjuryCheckState implements ITransition {
 
     @Override
     public void task() {
+        //recover Player(LeagueMOdel, TeamModel,LocalDATE)
         //there is no need to retun anything.
         checkPlayerInjury(leagueModel,teamsModel,currentDate);
     }
 
     @Override
     public void exit() {
+    }
+
+
+    void recoverPlayer(LeagueModel leagueModel, TeamsModel teamsModel, LocalDate date){
+        //perform recovery task
     }
     //Dummy method that will be replaced by zankrut's code
     public LeagueModel checkPlayerInjury(LeagueModel leagueModel, TeamsModel teamsModel, LocalDate date) {

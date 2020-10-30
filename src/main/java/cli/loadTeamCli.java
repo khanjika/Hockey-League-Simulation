@@ -68,8 +68,6 @@ public class loadTeamCli {
                             }
                             System.out.println();
                         }
-
-                        //here at the end load the team
                         return true;
                     }
                     return false;

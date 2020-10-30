@@ -5,6 +5,7 @@ import conference.ConferenceModel;
 import divison.DivisonModel;
 import league.ILeagueModel;
 import league.LeagueModel;
+import matchSchedules.PlayoffSchedule;
 import statemachine.StateMachine;
 import teams.TeamsModel;
 
@@ -54,15 +55,9 @@ public class CreateTeamState implements ITransition {
     @Override
     public void task() {
         this.updatedLeagueModel = createTeamCli.createNewTeam(currentModel);
-//
-//        for(ConferenceModel conferenceModel : this.updatedLeagueModel.getConferences()){
-//            for(DivisonModel divisonModel  :conferenceModel.getDivisions()){
-//                for(TeamsModel teamsModel:divisonModel.getTeams()){
-//                    System.out.println(teamsModel.isUserCreatedTeam()+teamsModel.getTeamName());
-//                }
-//            }
-//        }
-        exit();
+        PlayoffSchedule playoffSchedule =new PlayoffSchedule();
+        playoffSchedule.generatePlayoffSchedule(updatedLeagueModel);
+       // exit();
     }
 
     @Override

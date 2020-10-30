@@ -14,6 +14,8 @@ public class TeamsModel implements ITeamsModel {
     private IPlayerModel playerModel;
     private ITeamsPersistent iTeamsPersistent;
     private float teamStrength;
+    private int winPoint;
+    private int lossPoint;
 
     public boolean isUserCreatedTeam() {
         return isUserCreatedTeam;
@@ -66,6 +68,7 @@ public class TeamsModel implements ITeamsModel {
         return teamStrength;
     }
 
+
     public void storeTeamInformation(TeamsModel teamsModel, int divisionId) {
         if (isTeamAlreadyExist(teamsModel.getTeamName(), divisionId)) {
             System.out.println("Team already Exist in the DB");
@@ -116,5 +119,21 @@ public class TeamsModel implements ITeamsModel {
 
     private int storeGeneralManagerInformation(String generalManagerName) {
         return iTeamsPersistent.addGeneralManagerDetails(generalManagerName);
+    }
+
+    public int getWinPoint() {
+        return winPoint;
+    }
+
+    public void setWinPoint(int winPoint) {
+        this.winPoint = winPoint;
+    }
+
+    public int getLossPoint() {
+        return lossPoint;
+    }
+
+    public void setLossPoint(int lossPoint) {
+        this.lossPoint = lossPoint;
     }
 }
