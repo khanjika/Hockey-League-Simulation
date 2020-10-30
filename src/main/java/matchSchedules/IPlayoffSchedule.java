@@ -1,9 +1,11 @@
 package matchSchedules;
 
 import league.LeagueModel;
+import teams.TeamsModel;
+
+import java.util.List;
 
 public interface IPlayoffSchedule {
 
-
-    void generatePlayoffSchedule(LeagueModel leagueModel);
+    List<List<TeamsModel>> generatePlayoffSchedule(LeagueModel leagueModel);
 }

@@ -192,7 +192,15 @@ public class FreeAgentModel implements IFreeAgentModel{
         for(FreeAgentModel freeAgent : freeAgents){
             if(freeAgent.getPosition().equals(playerPosition)) {
                 matchedfreeAgents.add(freeAgent);
+                calculateFreeAgentStrength(freeAgent);
             }
+        }
+        if(matchedfreeAgents.size()==0){
+            System.out.println("NO MATCH FOUND FOR THE PLAYER WITH POSITION "+playerPosition);
+            System.exit(0);
+        }
+        for(FreeAgentModel freeAgentModel:matchedfreeAgents){
+            System.out.println(freeAgentModel.getFreeAgentStrength());
         }
         FreeAgentModel ReplacementFreeAgent = Collections.max(matchedfreeAgents,Comparator.comparing(f->f.getFreeAgentStrength()));
         freeAgents.remove(ReplacementFreeAgent);
