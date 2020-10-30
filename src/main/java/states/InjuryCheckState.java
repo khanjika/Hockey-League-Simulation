@@ -24,6 +24,7 @@ public class InjuryCheckState implements ITransition {
         this.leagueModel = leagueModel;
         this.teamsModel=teamsModel;
         currentDate =stateMachine.getCurrentDate();
+        System.out.println(currentDate);
     }
 
     @Override

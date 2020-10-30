@@ -5,7 +5,7 @@ import players.PlayerModel;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class AgingModelTest {
+public class AgingModelTest {
 
     @Test
     void getAverageRetirementAge() {

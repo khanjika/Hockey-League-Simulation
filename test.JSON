@@ -181,8 +181,8 @@
                   "saving": 10.0
                 },
                 {
-                  "playerName": "A0123456789101112131415161718",
-                  "position": "forward",
+                  "playerName": "A0123456789101112131415161719",
+                  "position": "goalie",
                   "captain": false,
                   "age": 20,
                   "shooting": 0.0,
@@ -190,9 +190,9 @@
                   "saving": 10.0
                 },
                 {
-                  "playerName": "A012345678910111213141516171819",
-                  "position": "forward",
-                  "captain": false,
+                  "playerName": "A0123456789101112131415161719",
+                  "position": "goalie",
+                  "captain": true,
                   "age": 20,
                   "shooting": 0.0,
                   "checking": 10.0,
@@ -374,8 +374,8 @@
                   "saving": 10.0
                 },
                 {
-                  "playerName": "A0123456789101112131415161718",
-                  "position": "forward",
+                  "playerName": "A0123456789101112131415161719",
+                  "position": "goalie",
                   "captain": false,
                   "age": 20,
                   "shooting": 0.0,
@@ -383,9 +383,9 @@
                   "saving": 10.0
                 },
                 {
-                  "playerName": "A012345678910111213141516171819",
-                  "position": "forward",
-                  "captain": false,
+                  "playerName": "A0123456789101112131415161719",
+                  "position": "goalie",
+                  "captain": true,
                   "age": 20,
                   "shooting": 0.0,
                   "checking": 10.0,
@@ -572,8 +572,8 @@
                   "saving": 10.0
                 },
                 {
-                  "playerName": "A0123456789101112131415161718",
-                  "position": "forward",
+                  "playerName": "A0123456789101112131415161719",
+                  "position": "goalie",
                   "captain": false,
                   "age": 20,
                   "shooting": 0.0,
@@ -581,9 +581,9 @@
                   "saving": 10.0
                 },
                 {
-                  "playerName": "A012345678910111213141516171819",
-                  "position": "forward",
-                  "captain": false,
+                  "playerName": "A0123456789101112131415161719",
+                  "position": "goalie",
+                  "captain": true,
                   "age": 20,
                   "shooting": 0.0,
                   "checking": 10.0,
@@ -765,8 +765,8 @@
                   "saving": 10.0
                 },
                 {
-                  "playerName": "A0123456789101112131415161718",
-                  "position": "forward",
+                  "playerName": "A0123456789101112131415161719",
+                  "position": "goalie",
                   "captain": false,
                   "age": 20,
                   "shooting": 0.0,
@@ -774,9 +774,9 @@
                   "saving": 10.0
                 },
                 {
-                  "playerName": "A012345678910111213141516171819",
-                  "position": "forward",
-                  "captain": false,
+                  "playerName": "A0123456789101112131415161719",
+                  "position": "goalie",
+                  "captain": true,
                   "age": 20,
                   "shooting": 0.0,
                   "checking": 10.0,
@@ -968,8 +968,8 @@
                   "saving": 10.0
                 },
                 {
-                  "playerName": "A0123456789101112131415161718",
-                  "position": "forward",
+                  "playerName": "A0123456789101112131415161719",
+                  "position": "goalie",
                   "captain": false,
                   "age": 20,
                   "shooting": 0.0,
@@ -977,9 +977,9 @@
                   "saving": 10.0
                 },
                 {
-                  "playerName": "A012345678910111213141516171819",
-                  "position": "forward",
-                  "captain": false,
+                  "playerName": "A0123456789101112131415161719",
+                  "position": "goalie",
+                  "captain": true,
                   "age": 20,
                   "shooting": 0.0,
                   "checking": 10.0,
@@ -1161,8 +1161,8 @@
                   "saving": 10.0
                 },
                 {
-                  "playerName": "A0123456789101112131415161718",
-                  "position": "forward",
+                  "playerName": "A0123456789101112131415161719",
+                  "position": "goalie",
                   "captain": false,
                   "age": 20,
                   "shooting": 0.0,
@@ -1170,9 +1170,9 @@
                   "saving": 10.0
                 },
                 {
-                  "playerName": "A012345678910111213141516171819",
-                  "position": "forward",
-                  "captain": false,
+                  "playerName": "A0123456789101112131415161719",
+                  "position": "goalie",
+                  "captain": true,
                   "age": 20,
                   "shooting": 0.0,
                   "checking": 10.0,
@@ -1359,8 +1359,8 @@
                   "saving": 10.0
                 },
                 {
-                  "playerName": "A0123456789101112131415161718",
-                  "position": "forward",
+                  "playerName": "A0123456789101112131415161719",
+                  "position": "goalie",
                   "captain": false,
                   "age": 20,
                   "shooting": 0.0,
@@ -1368,9 +1368,9 @@
                   "saving": 10.0
                 },
                 {
-                  "playerName": "A012345678910111213141516171819",
-                  "position": "forward",
-                  "captain": false,
+                  "playerName": "A0123456789101112131415161719",
+                  "position": "goalie",
+                  "captain": true,
                   "age": 20,
                   "shooting": 0.0,
                   "checking": 10.0,
@@ -1552,8 +1552,8 @@
                   "saving": 10.0
                 },
                 {
-                  "playerName": "A0123456789101112131415161718",
-                  "position": "forward",
+                  "playerName": "A0123456789101112131415161719",
+                  "position": "goalie",
                   "captain": false,
                   "age": 20,
                   "shooting": 0.0,
@@ -1561,9 +1561,9 @@
                   "saving": 10.0
                 },
                 {
-                  "playerName": "A012345678910111213141516171819",
-                  "position": "forward",
-                  "captain": false,
+                  "playerName": "A0123456789101112131415161719",
+                  "position": "goalie",
+                  "captain": true,
                   "age": 20,
                   "shooting": 0.0,
                   "checking": 10.0,
@@ -1587,260 +1587,8 @@
       "saving": 0.0
     },
     {
-      "playerName": "Arthy",
-      "position": "defense",
-      "age": 0,
-      "skating": 0.0,
-      "shooting": 0.0,
-      "checking": 0.0,
-      "saving": 0.0
-    },
-    {
-      "playerName": "Zankruth",
-      "position": "goalie",
-      "age": 0,
-      "skating": 0.0,
-      "shooting": 0.0,
-      "checking": 0.0,
-      "saving": 0.0
-    },
-    {
       "playerName": "Roshan",
       "position": "forward",
-      "age": 0,
-      "skating": 0.0,
-      "shooting": 0.0,
-      "checking": 0.0,
-      "saving": 0.0
-    },
-    {
-      "playerName": "Arthy",
-      "position": "defense",
-      "age": 0,
-      "skating": 0.0,
-      "shooting": 0.0,
-      "checking": 0.0,
-      "saving": 0.0
-    },
-    {
-      "playerName": "Zankruth",
-      "position": "goalie",
-      "age": 0,
-      "skating": 0.0,
-      "shooting": 0.0,
-      "checking": 0.0,
-      "saving": 0.0
-    },
-    {
-      "playerName": "Roshan",
-      "position": "forward",
-      "age": 0,
-      "skating": 0.0,
-      "shooting": 0.0,
-      "checking": 0.0,
-      "saving": 0.0
-    },
-    {
-      "playerName": "Arthy",
-      "position": "defense",
-      "age": 0,
-      "skating": 0.0,
-      "shooting": 0.0,
-      "checking": 0.0,
-      "saving": 0.0
-    },
-    {
-      "playerName": "Zankruth",
-      "position": "goalie",
-      "age": 0,
-      "skating": 0.0,
-      "shooting": 0.0,
-      "checking": 0.0,
-      "saving": 0.0
-    },
-    {
-      "playerName": "Roshan",
-      "position": "forward",
-      "age": 0,
-      "skating": 0.0,
-      "shooting": 0.0,
-      "checking": 0.0,
-      "saving": 0.0
-    },
-    {
-      "playerName": "Arthy",
-      "position": "defense",
-      "age": 0,
-      "skating": 0.0,
-      "shooting": 0.0,
-      "checking": 0.0,
-      "saving": 0.0
-    },
-    {
-      "playerName": "Zankruth",
-      "position": "goalie",
-      "age": 0,
-      "skating": 0.0,
-      "shooting": 0.0,
-      "checking": 0.0,
-      "saving": 0.0
-    },
-    {
-      "playerName": "Roshan",
-      "position": "forward",
-      "age": 0,
-      "skating": 0.0,
-      "shooting": 0.0,
-      "checking": 0.0,
-      "saving": 0.0
-    },
-    {
-      "playerName": "Arthy",
-      "position": "defense",
-      "age": 0,
-      "skating": 0.0,
-      "shooting": 0.0,
-      "checking": 0.0,
-      "saving": 0.0
-    },
-    {
-      "playerName": "Zankruth",
-      "position": "goalie",
-      "age": 0,
-      "skating": 0.0,
-      "shooting": 0.0,
-      "checking": 0.0,
-      "saving": 0.0
-    },
-    {
-      "playerName": "Roshan",
-      "position": "forward",
-      "age": 0,
-      "skating": 0.0,
-      "shooting": 0.0,
-      "checking": 0.0,
-      "saving": 0.0
-    },
-    {
-      "playerName": "Arthy",
-      "position": "defense",
-      "age": 0,
-      "skating": 0.0,
-      "shooting": 0.0,
-      "checking": 0.0,
-      "saving": 0.0
-    },
-    {
-      "playerName": "Zankruth",
-      "position": "goalie",
-      "age": 0,
-      "skating": 0.0,
-      "shooting": 0.0,
-      "checking": 0.0,
-      "saving": 0.0
-    },
-    {
-      "playerName": "Roshan",
-      "position": "forward",
-      "age": 0,
-      "skating": 0.0,
-      "shooting": 0.0,
-      "checking": 0.0,
-      "saving": 0.0
-    },
-    {
-      "playerName": "Arthy",
-      "position": "defense",
-      "age": 0,
-      "skating": 0.0,
-      "shooting": 0.0,
-      "checking": 0.0,
-      "saving": 0.0
-    },
-    {
-      "playerName": "Zankruth",
-      "position": "goalie",
-      "age": 0,
-      "skating": 0.0,
-      "shooting": 0.0,
-      "checking": 0.0,
-      "saving": 0.0
-    },
-    {
-      "playerName": "Roshan",
-      "position": "forward",
-      "age": 0,
-      "skating": 0.0,
-      "shooting": 0.0,
-      "checking": 0.0,
-      "saving": 0.0
-    },
-    {
-      "playerName": "Arthy",
-      "position": "defense",
-      "age": 0,
-      "skating": 0.0,
-      "shooting": 0.0,
-      "checking": 0.0,
-      "saving": 0.0
-    },
-    {
-      "playerName": "Zankruth",
-      "position": "goalie",
-      "age": 0,
-      "skating": 0.0,
-      "shooting": 0.0,
-      "checking": 0.0,
-      "saving": 0.0
-    },
-    {
-      "playerName": "Roshan",
-      "position": "forward",
-      "age": 0,
-      "skating": 0.0,
-      "shooting": 0.0,
-      "checking": 0.0,
-      "saving": 0.0
-    },
-    {
-      "playerName": "Arthy",
-      "position": "defense",
-      "age": 0,
-      "skating": 0.0,
-      "shooting": 0.0,
-      "checking": 0.0,
-      "saving": 0.0
-    },
-    {
-      "playerName": "Zankruth",
-      "position": "goalie",
-      "age": 0,
-      "skating": 0.0,
-      "shooting": 0.0,
-      "checking": 0.0,
-      "saving": 0.0
-    },
-    {
-      "playerName": "Roshan",
-      "position": "forward",
-      "age": 0,
-      "skating": 0.0,
-      "shooting": 0.0,
-      "checking": 0.0,
-      "saving": 0.0
-    },
-    {
-      "playerName": "Arthy",
-      "position": "defense",
-      "age": 0,
-      "skating": 0.0,
-      "shooting": 0.0,
-      "checking": 0.0,
-      "saving": 0.0
-    },
-    {
-      "playerName": "Zankruth",
-      "position": "goalie",
       "age": 0,
       "skating": 0.0,
       "shooting": 0.0,
@@ -1878,6 +1626,18 @@
     "Khanjiga"
   ],
   "gameplayConfig": {
+    "aging": {
+      "averageRetirementAge": 35,
+      "maximumAge": 50
+    },
+    "gameResolver": {
+      "randomWinChance": 0.1
+    },
+    "injuries": {
+      "randomInjuryChance": 0.05,
+      "injuryDaysLow": 1,
+      "injuryDaysHigh": 260
+    },
     "trading": {
       "lossPoint": 8,
       "randomTradeOfferChance": 0.05,

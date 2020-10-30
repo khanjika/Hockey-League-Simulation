@@ -221,7 +221,7 @@ public class PlayerModel implements IPlayerModel {
                 float randomInjuryChance = injuriesModel.getRandomInjuryChance();
                 int injuryDaysLow = injuriesModel.getInjuryDaysLow();
                 int injuryDaysHigh = injuriesModel.getInjuryDaysHigh();
-                Random randomObj =new Random();
+                Random randomObj = new Random();
                 float injuryChance= randomObj.nextFloat();
                 int injuryDays = randomObj.nextInt(injuryDaysHigh - injuryDaysLow)+injuryDaysLow;
                 if(injuryChance > randomInjuryChance){
