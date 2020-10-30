@@ -1,5 +1,6 @@
 package conference;
 
+import com.google.gson.annotations.Expose;
 import divison.DivisonModel;
 import divison.IDivisonModel;
 
@@ -9,7 +10,9 @@ public class ConferenceModel implements IConferenceModel {
 
     private IConferencePersistent iConferencePersistent;
     private IDivisonModel divisonModel;
+    @Expose
     private String conferenceName;
+    @Expose
     private List<DivisonModel> divisions;
 
     public ConferenceModel() {

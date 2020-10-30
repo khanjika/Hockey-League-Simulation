@@ -18,7 +18,7 @@ public class CoachValidator implements ICoachValidator{
         return true;
     }
     private boolean isStatValid(float stat){
-        if(stat <= 1 && stat > 0){
+        if(stat <= 1 && stat >= 0){
             return true;
         }
         return false;

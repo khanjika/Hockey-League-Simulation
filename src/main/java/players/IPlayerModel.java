@@ -1,6 +1,13 @@
 package players;
 
+import freeagent.FreeAgentModel;
+import gameplayconfig.AgingModel;
+import league.LeagueModel;
+import teams.TeamsModel;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 public interface IPlayerModel {
 
@@ -9,4 +16,9 @@ public interface IPlayerModel {
     ArrayList<PlayerModel> getPlayerInformation(int teamId);
 
     void calculatePlayerStrength(PlayerModel playerModel);
+    void checkPlayerInjury(PlayerModel playerModel, LocalDate date);
+    void recoverPlayer(PlayerModel playerModel, LocalDate date);
+    void aging(PlayerModel playerModel, int daysToAge);
+    void setAgingModel(AgingModel agingModel);
+    void setFreeAgentsList(List<FreeAgentModel> freeAgentList);
 }

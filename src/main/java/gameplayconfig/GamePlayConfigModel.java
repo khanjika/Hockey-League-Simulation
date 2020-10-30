@@ -1,10 +1,17 @@
 package gameplayconfig;
 
+import com.google.gson.annotations.Expose;
+
 public class GamePlayConfigModel implements IGamePlayConfigModel{
+    @Expose
     AgingModel aging;
+    @Expose
     GameResolverModel gameResolver;
+    @Expose
     InjuriesModel injuries;
+    @Expose
     TrainingModel training;
+    @Expose
     TradingModel trading;
 
     public AgingModel getAging() {

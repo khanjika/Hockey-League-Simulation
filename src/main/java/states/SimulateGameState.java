@@ -39,7 +39,7 @@ public class SimulateGameState implements ITransition {
 
     @Override
     public void entry() {
-        System.out.println("Inside Simulate Game state league model address=>"+leagueModel);
+     //   System.out.println("Inside Simulate Game state league model address=>"+leagueModel);
         task();
     }
 
@@ -48,6 +48,8 @@ public class SimulateGameState implements ITransition {
     public void task() {
         float teamOneStrength = getTeamStrenght(teamOne);
         float teamTwoStrength = getTeamStrenght(teamTwo);
+      //  System.out.println("team One name is "+teamOne.getTeamName()+"And Strength is "+teamOneStrength);
+     //   System.out.println("team One name is "+teamTwo.getTeamName()+"And Strength is "+teamTwoStrength);
         GamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
         GameResolverModel gameResolverModel = gamePlayConfigModel.getGameResolver();
         float randomChanceToWin = gameResolverModel.getRandomWinChance();
@@ -63,6 +65,17 @@ public class SimulateGameState implements ITransition {
                     winnerTeam=teamTwo;
                     losserTeam=teamOne;
                 }
+        }
+        else {
+            if(floatRandomValue>randomChanceToWin){
+                winnerTeam=teamTwo;
+                losserTeam=teamOne;
+            }
+            else
+            {
+                winnerTeam=teamOne;
+                losserTeam=teamTwo;
+            }
         }
         //Updating Win and Loss Point
         for(ConferenceModel conferenceModel: leagueModel.getConferences()){
@@ -80,12 +93,14 @@ public class SimulateGameState implements ITransition {
         }
         //here once the match is complete i need to increment the loss count value and win count value.
         //and once that complete i need to call injury check with three argument. LeagueModel, TeamModel, Date
+       // System.out.println("Calling Injury check from simulate game state"+teamOne.getTeamName());
         injuryCheckState=new InjuryCheckState(stateMachine,leagueModel,teamOne);
-        stateMachine.setSimulateGameState(injuryCheckState);
+        stateMachine.setInjuryCheckState(injuryCheckState);
         stateMachine.setCurrentState(stateMachine.getInjuryCheckState());
         stateMachine.getCurrentState().entry();
 
         //Second team
+       // System.out.println("Calling Injury check from simulate game state"+teamTwo.getTeamName());
         injuryCheckState=new InjuryCheckState(stateMachine,leagueModel,teamTwo);
         stateMachine.setSimulateGameState(injuryCheckState);
         stateMachine.setCurrentState(stateMachine.getInjuryCheckState());

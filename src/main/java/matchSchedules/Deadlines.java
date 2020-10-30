@@ -21,6 +21,7 @@ public class Deadlines implements IDeadlines{
         LocalDate tradeDeadlineDate = ld.with( TemporalAdjusters.dayOfWeekInMonth( ordinal , DayOfWeek.MONDAY ) );
         return tradeDeadlineDate;
     }
+
     @Override
     public  LocalDate getEndOfRegularSeasonDate(int year){
         YearMonth ym = YearMonth.of( year , Month.APRIL );

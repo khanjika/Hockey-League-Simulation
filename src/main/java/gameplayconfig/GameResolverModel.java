@@ -1,6 +1,9 @@
 package gameplayconfig;
 
+import com.google.gson.annotations.Expose;
+
 public class GameResolverModel implements IGameResolverModel{
+    @Expose
     private float randomWinChance;
 
     public float getRandomWinChance() {

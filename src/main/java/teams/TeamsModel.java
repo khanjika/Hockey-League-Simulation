@@ -1,5 +1,6 @@
 package teams;
 
+import com.google.gson.annotations.Expose;
 import players.IPlayerModel;
 import players.PlayerModel;
 
@@ -7,15 +8,20 @@ import java.util.List;
 
 public class TeamsModel implements ITeamsModel {
 
+    @Expose
     private String teamName;
+    @Expose
     private String generalManager;
+    @Expose
     private HeadCoachModel headCoach;
+    @Expose
     private List<PlayerModel> players;
     private IPlayerModel playerModel;
     private ITeamsPersistent iTeamsPersistent;
     private float teamStrength;
     private int winPoint;
     private int lossPoint;
+
 
     public boolean isUserCreatedTeam() {
         return isUserCreatedTeam;
