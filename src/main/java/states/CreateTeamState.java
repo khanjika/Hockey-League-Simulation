@@ -6,7 +6,11 @@ import conference.ConferenceModel;
 import divison.DivisonModel;
 import league.ILeagueModel;
 import league.LeagueModel;
+
+import matchSchedules.PlayoffSchedule;
+
 import serializeObject.SerializeObject;
+
 import statemachine.StateMachine;
 import teams.TeamsModel;
 
@@ -55,20 +59,16 @@ public class CreateTeamState implements ITransition {
 
     @Override
     public void task() {
+        System.out.println("Inside task method of create team state");
         this.updatedLeagueModel = createTeamCli.createNewTeam(currentModel);
-//
-//        for(ConferenceModel conferenceModel : this.updatedLeagueModel.getConferences()){
-//            for(DivisonModel divisonModel  :conferenceModel.getDivisions()){
-//                for(TeamsModel teamsModel:divisonModel.getTeams()){
-//                    System.out.println(teamsModel.isUserCreatedTeam()+teamsModel.getTeamName());
-//                }
-//            }
-//        }
+        PlayoffSchedule playoffSchedule =new PlayoffSchedule();
+        playoffSchedule.generatePlayoffSchedule(updatedLeagueModel);
         exit();
     }
 
     @Override
     public void exit() {
+        System.out.println("Inside exit methof of the create team state");
        // System.out.println("Please Wait, Storing Data in the Database...");
         //here previously i was storing the data in database once the team was created not onve the team is
         //created i need to go to ask number of season simulate.

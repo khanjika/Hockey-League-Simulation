@@ -1,6 +1,10 @@
 package states;
 
+import conference.ConferenceModel;
+import divison.DivisonModel;
 import league.LeagueModel;
+import players.IPlayerModel;
+import players.PlayerModel;
 import statemachine.StateMachine;
 import teams.TeamsModel;
 
@@ -14,15 +18,17 @@ import java.time.LocalDate;
 public class InjuryCheckState implements ITransition {
     StateMachine stateMachine;
     LeagueModel leagueModel;
-    TeamsModel teamsModel;
+    TeamsModel teamsModelTemp;
     LocalDate currentDate;
+    IPlayerModel playerModel;
     public InjuryCheckState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
     }
     public InjuryCheckState(StateMachine stateMachine, LeagueModel leagueModel,TeamsModel teamsModel) {
+     //   System.out.println("Injury check state constructor "+leagueModel+"      " + stateMachine+"  "+ teamsModel);
         this.stateMachine = stateMachine;
         this.leagueModel = leagueModel;
-        this.teamsModel=teamsModel;
+        this.teamsModelTemp=teamsModel;
         currentDate =stateMachine.getCurrentDate();
         System.out.println(currentDate);
     }
@@ -34,16 +40,27 @@ public class InjuryCheckState implements ITransition {
 
     @Override
     public void task() {
+      //  System.out.println("Inside injury check method:"+leagueModel);
+
+        //recover Player(LeagueMOdel, TeamModel,LocalDATE)
         //there is no need to retun anything.
-        checkPlayerInjury(leagueModel,teamsModel,currentDate);
+        playerModel=new PlayerModel();
+      //  playerModel.checkPlayerInjury();
+        for(ConferenceModel conferenceModel:leagueModel.getConferences()){
+            for(DivisonModel divisonModel:conferenceModel.getDivisions()){
+                for(TeamsModel teamsModel:divisonModel.getTeams()){
+                    if(teamsModel.getTeamName().equals(teamsModelTemp)){
+                       for(PlayerModel playerModelTemp:teamsModel.getPlayers()){
+                           playerModel.checkPlayerInjury(playerModelTemp,currentDate);
+                       }
+                    }
+                }
+            }
+        }
+        //checkPlayerInjury(leagueModel,teamsModel,currentDate);
     }
 
     @Override
     public void exit() {
-    }
-    //Dummy method that will be replaced by zankrut's code
-    public LeagueModel checkPlayerInjury(LeagueModel leagueModel, TeamsModel teamsModel, LocalDate date) {
-        //this method will check for injury and if any injury has occured it will modify the league model object
-        return leagueModel;
     }
 }

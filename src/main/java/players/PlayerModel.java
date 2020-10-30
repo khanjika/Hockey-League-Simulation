@@ -35,7 +35,7 @@ public class PlayerModel implements IPlayerModel {
     @Expose
     private int age;
     @Expose
-    private Boolean isPlayerRetired;
+    private boolean isPlayerRetired;
     private int days;
     private float skating;
     @Expose
@@ -151,7 +151,7 @@ public class PlayerModel implements IPlayerModel {
         iPlayerPersistent.addPlayerInformation(playerModel.getPlayerName(), playerModel.getPosition(), playerModel.isCaptain(), teamId);
     }
 
-    public Boolean getPlayerRetired() {
+    public Boolean isPlayerRetired() {
         return isPlayerRetired;
     }
 
@@ -256,11 +256,13 @@ public class PlayerModel implements IPlayerModel {
         }
         int retirementLikelyHood = checkPlayerRetirementPossibility(playerModel);
         if(retirementLikelyHood>=90){
+            System.out.println("LIKLIHOOD is MORE THAN 90");
             playerModel.setPlayerRetired(true);
         }
-        if(playerModel.getPlayerRetired()){
+        if(playerModel.isPlayerRetired()){
+            System.out.println("INSIDE PLAYER MODEL. THE PLAYER IS RETIRED "+playerModel.getPlayerName()+playerModel.getAge()+"Address  "+playerModel);
             String playerPosition = playerModel.getPosition();
-            List<FreeAgentModel> availableFreeAgents = playerModel.getFreeAgentsList();
+            List<FreeAgentModel> availableFreeAgents = this.getFreeAgentsList();
             freeAgentModel =new FreeAgentModel();
             FreeAgentModel replacementFreeAgent = freeAgentModel.getReplacementFreeAgent(availableFreeAgents,playerPosition);
             playerModel.setPlayerName(replacementFreeAgent.getPlayerName());
@@ -270,6 +272,9 @@ public class PlayerModel implements IPlayerModel {
             playerModel.setShooting(replacementFreeAgent.getShooting());
             playerModel.setChecking(replacementFreeAgent.getChecking());
             playerModel.setSaving(replacementFreeAgent.getSaving());
+            playerModel.isPlayerRetired=false;
+            System.out.println("PLAYER IS REPLACED");
+
         }
     }
 
@@ -284,11 +289,24 @@ public class PlayerModel implements IPlayerModel {
         }
         else{
             int AgeDifference = averageRetirementAge -  playerAge;
+           // System.out.println("printing Age Difference"+AgeDifference);
             if(AgeDifference >= 0 ){
-                likelyHood = randomObj.nextInt(50-likelyHood)+likelyHood;
+                likelyHood=randomObj.nextInt(50);
+              //  likelyHood = randomObj.nextInt(50-likelyHood)+likelyHood;
+
+            }
+            else if (AgeDifference<0 && AgeDifference>=-5){
+                //CHANGE
+                //System.out.println("IF Age Difference is between 0 & -5");
+                likelyHood = randomObj.nextInt(60-50)+50;
+            }
+            else if(AgeDifference<-5 && AgeDifference>=-10){
+               // System.out.println("Inside else if loop and age difference is between -5 and -10");
+                likelyHood = randomObj.nextInt(70-60)+60;
             }
             else {
-                likelyHood = randomObj.nextInt(100-likelyHood)+likelyHood;
+              //  System.out.println("Inside else if loop and age difference is greater than 10");
+                likelyHood = randomObj.nextInt(99-70)+70;
             }
         }
         playerModel.setRetirementLikelyHood(likelyHood);
