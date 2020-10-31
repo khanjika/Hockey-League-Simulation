@@ -1,38 +1,76 @@
 package trade;
 
+import cli.IUserTradeCli;
+import cli.UserTradeCli;
 import conference.ConferenceModel;
 import divison.DivisonModel;
+import gameplayconfig.GamePlayConfigModel;
 import gameplayconfig.TradingModel;
 import league.LeagueModel;
 import players.PlayerModel;
 import teams.TeamsModel;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class FindPlayerToSwap implements IFindPlayerToSwap {
-    ITradeTeamPojo tradindgTeam2Details = new TradeTeamPojo ();
+    ITradeTeamPojo RequestTeamDetails = new TradeTeamPojo ();
+    ISortTeams sort = new SortTeams ();
+    IAcceptRejectTrade acceptReject = new AcceptRejectTrade ();
+
 
     @Override
-    public void swapPlayer(TeamsModel team, TradingModel tradeModel, LeagueModel league, ITradeTeamPojo tradingTeamDetails) {
-        String teamName = team.getTeamName ();
-        List<PlayerModel> tradeWeakPlayers = findWeakPlayer (team, tradeModel);
-        Map<Float, ArrayList> finalPlayerMap = findTeamForSwap (league, tradeWeakPlayers, tradingTeamDetails);
-        //change this
-//        if (tradindgTeam2Details.isUserCreated () == false) {
-//            //if (tradindgTeam2Details.isUserCreated () == true) {
-//            IAcceptRejectTrade acceptReject = new AcceptRejectTrade ();
-//            acceptReject.acceptRejectTrade (tradindgTeam2Details, tradingTeamDetails, tradeWeakPlayers, finalPlayerMap, tradeModel, league);
-//        } else {
-//            IUserTradeCli userTrade = new UserTradeCli ();
-//            userTrade.displayTeamDetails (tradeWeakPlayers);
-//
-//        }
+    public LeagueModel swapPlayer(LeagueModel league, TeamsModel team, ITradeTeamPojo tradingTeamDetails) {
+        GamePlayConfigModel gameConfig = league.getGameplayConfig ();
+        TradingModel tradeModel = gameConfig.getTrading ();
 
+        //Remove this part of the code
+        //boolean b = true;
+        //league.getConferences ().get (0).getDivisions ().get (1).getTeams ().get (1).setUserCreatedTeam (b);
+        //////////////////////////////////////////////
+
+        TradeModel trade = offeredPlayer (team, tradeModel);
+        findTeamForSwap (league, tradingTeamDetails, trade);
+
+        if (RequestTeamDetails.isUserCreated () == false) {
+            league = acceptReject.acceptRejectTrade (RequestTeamDetails, tradingTeamDetails, trade, league);
+        } else {
+            IUserTradeCli userTrade = new UserTradeCli ();
+            int userInput = userTrade.displayTeamDetails (trade);
+            if (userInput == 1) {
+                league = acceptReject.tradeAccepted (RequestTeamDetails, tradingTeamDetails, trade, league);
+            }
+        }
+        return league;
     }
 
-    public Map<Float, ArrayList> findTeamForSwap(LeagueModel league, List<PlayerModel> weakPlayers, ITradeTeamPojo tradingTeamDetails) {
-        Map<Float, ArrayList> finalPlayerMap = new HashMap<> ();
+    @Override
+    public TradeModel offeredPlayer(TeamsModel team, TradingModel tradeModel) {
+        TradeModel trade = new TradeModel ();
+        List<PlayerModel> offeredPlayerList = new ArrayList<> ();
+        int maxPlayerTrade = tradeModel.getMaxPlayersPerTrade ();
+        List<PlayerModel> players = null;
+        players = sort.sortPlayersAscending (team.getPlayers ());
+        if (players.isEmpty () == false) {
+            String weakestPlayerPosition = players.stream ().findFirst ().get ().getPosition ();
+            for (int i = 0; i < maxPlayerTrade; i++) {
+                if (players.get (i).getPosition ().equals (weakestPlayerPosition)) {
+                    PlayerModel p = new PlayerModel ();
+                    p = players.get (i);
+                    offeredPlayerList.add (p);
+                }
+            }
+        }
+        trade.setOfferedPlayer (offeredPlayerList);
+        return trade;
+    }
+
+    public TradeModel findTeamForSwap(LeagueModel league, ITradeTeamPojo tradingTeamDetails, TradeModel trade) {
+        Map<Float, ArrayList> requestingPlayerMap = new HashMap<> ();
+
         String generateTradeTeam = tradingTeamDetails.getTeamName ();
         String generateTradeDivision = tradingTeamDetails.getDivisionName ();
         String generateTradeConference = tradingTeamDetails.getConferenceName ();
@@ -47,26 +85,40 @@ public class FindPlayerToSwap implements IFindPlayerToSwap {
                     if (potentialTeamName.equals (generateTradeTeam) && (potentialDivisionName.equals (generateTradeDivision)) && (potentialConferenceName.equals (generateTradeConference))) {
                     } else {
                         List<PlayerModel> potentialPlayers = new ArrayList<> ();
-                        potentialPlayers = playersFromTeam (team, weakPlayers);
-                        finalPlayerMap = teamWithMaxStrength (potentialPlayers, potentialTeamName, potentialDivisionName, potentialConferenceName, isUserCreated, finalPlayerMap);
+                        ITradeTeamPojo potentialTeamDetails = new TradeTeamPojo ();
+
+                        potentialPlayers = playersFromTeam (team, trade);
+
+                        potentialTeamDetails.setTeamName (potentialTeamName);
+                        potentialTeamDetails.setDivisionName (potentialDivisionName);
+                        potentialTeamDetails.setConferenceName (potentialConferenceName);
+                        potentialTeamDetails.setUserCreated (isUserCreated);
+
+                        requestingPlayerMap = teamWithMaxStrength (potentialPlayers, potentialTeamDetails, requestingPlayerMap);
                     }
                 }
             }
         }
-        return finalPlayerMap;
+        Map.Entry<Float, ArrayList> entry = requestingPlayerMap.entrySet ().iterator ().next ();
+        ArrayList teamPlayer2 = entry.getValue ();
+        trade.setRequestedPlayers (teamPlayer2);
+        return trade;
     }
 
-    public List<PlayerModel> playersFromTeam(TeamsModel team, List<PlayerModel> weakPlayers) {
-        List<PlayerModel> strongPlayers = new ArrayList<> ();
-        String weakPlayersPosition = weakPlayers.get (0).getPosition ();
-        int noOfPlayersToSwap = weakPlayers.size ();
-        int counter = 0;
-        strongPlayers = sortPlayersDescending (team.getPlayers ());
+    public List<PlayerModel> playersFromTeam(TeamsModel team, TradeModel trade) {
+        List<PlayerModel> sortedPlayerList = new ArrayList<> ();
+        List<PlayerModel> offeredPlayers = trade.getOfferedPlayer ();
         List<PlayerModel> potentialPlayers = new ArrayList<> ();
-        for (int i = 0; i < strongPlayers.size (); i++) {
-            if (strongPlayers.get (i).getPosition ().equals (weakPlayersPosition) && counter < noOfPlayersToSwap) {
+        String weakPlayersPosition = offeredPlayers.stream ().findFirst ().get ().getPosition ();
+        int noOfPlayersToSwap = offeredPlayers.size ();
+
+        int counter = 0;
+        sortedPlayerList = sort.sortPlayersDescending (team.getPlayers ());
+
+        for (int i = 0; i < sortedPlayerList.size (); i++) {
+            if (sortedPlayerList.get (i).getPosition ().equals (weakPlayersPosition) && counter < noOfPlayersToSwap) {
                 counter++;
-                potentialPlayers.add (strongPlayers.get (i));
+                potentialPlayers.add (sortedPlayerList.get (i));
             } else {
                 if (counter == noOfPlayersToSwap) {
                     counter = 0;
@@ -77,7 +129,7 @@ public class FindPlayerToSwap implements IFindPlayerToSwap {
         return potentialPlayers;
     }
 
-    public Map<Float, ArrayList> teamWithMaxStrength(List<PlayerModel> potentialPlayers, String teamName, String divisionName, String conferenceName, boolean isUserCreated, Map<Float, ArrayList> finalPlayerMap) {
+    public Map<Float, ArrayList> teamWithMaxStrength(List<PlayerModel> potentialPlayers, ITradeTeamPojo potentialTeamDetails, Map<Float, ArrayList> requestingPlayerMap) {
         ArrayList swapTeamDetails = new ArrayList ();
         float strength = 0;
         int size = potentialPlayers.size ();
@@ -85,56 +137,25 @@ public class FindPlayerToSwap implements IFindPlayerToSwap {
             swapTeamDetails.add (potentialPlayers.get (i));
             strength = (potentialPlayers.get (i).getPlayerStrength () + strength);
         }
-        if (finalPlayerMap.size () > 0) {
-            Map.Entry<Float, ArrayList> entry = finalPlayerMap.entrySet ().iterator ().next ();
+        if (requestingPlayerMap.size () > 0) {
+            Map.Entry<Float, ArrayList> entry = requestingPlayerMap.entrySet ().iterator ().next ();
             Float mapKey = entry.getKey ();
             if (mapKey < strength) {
-                finalPlayerMap.remove (mapKey);
-                finalPlayerMap.put (strength, swapTeamDetails);
-                tradindgTeam2Details.setTeamName (teamName);
-                tradindgTeam2Details.setDivisionName (divisionName);
-                tradindgTeam2Details.setConferenceName (conferenceName);
-                tradindgTeam2Details.setUserCreated (isUserCreated);
+                requestingPlayerMap.remove (mapKey);
+                requestingPlayerMap.put (strength, swapTeamDetails);
+                RequestTeamDetails.setTeamName (potentialTeamDetails.getTeamName ());
+                RequestTeamDetails.setDivisionName (potentialTeamDetails.getDivisionName ());
+                RequestTeamDetails.setConferenceName (potentialTeamDetails.getConferenceName ());
+                RequestTeamDetails.setUserCreated (potentialTeamDetails.isUserCreated ());
             }
-        } else if (finalPlayerMap.size () == 0) {
-            finalPlayerMap.put (strength, swapTeamDetails);
-            tradindgTeam2Details.setTeamName (teamName);
-            tradindgTeam2Details.setDivisionName (divisionName);
-            tradindgTeam2Details.setConferenceName (conferenceName);
-            tradindgTeam2Details.setUserCreated (isUserCreated);
+        } else if (requestingPlayerMap.size () == 0) {
+            requestingPlayerMap.put (strength, swapTeamDetails);
+            RequestTeamDetails.setTeamName (potentialTeamDetails.getTeamName ());
+            RequestTeamDetails.setDivisionName (potentialTeamDetails.getDivisionName ());
+            RequestTeamDetails.setConferenceName (potentialTeamDetails.getConferenceName ());
+            RequestTeamDetails.setUserCreated (potentialTeamDetails.isUserCreated ());
         }
-        return finalPlayerMap;
-    }
-
-
-    public List<PlayerModel> findWeakPlayer(TeamsModel team, TradingModel tradeModel) {
-        List<PlayerModel> tradeWeakPlayers = new ArrayList<> ();
-        int maxPlayerTrade = tradeModel.getMaxPlayersPerTrade ();
-        List<PlayerModel> players = null;
-        players = sortPlayersAscending (team.getPlayers ());
-        if (players.isEmpty () == false) {
-            String weakestPlayerPosition = players.get (0).getPosition ();
-            for (int i = 0; i < maxPlayerTrade; i++) {
-                if (players.get (i).getPosition ().equals (weakestPlayerPosition)) {
-                    PlayerModel p = new PlayerModel ();
-                    p = players.get (i);
-                    tradeWeakPlayers.add (p);
-                }
-            }
-        }
-        return tradeWeakPlayers;
-    }
-
-    @Override
-    public List<PlayerModel> sortPlayersAscending(List<PlayerModel> players) {
-        players.sort (Comparator.comparing (PlayerModel::getPlayerStrength));
-        return players;
-    }
-
-    @Override
-    public List<PlayerModel> sortPlayersDescending(List<PlayerModel> players) {
-        players.sort (Comparator.comparing (PlayerModel::getPlayerStrength).reversed ());
-        return players;
+        return requestingPlayerMap;
     }
 
 }
