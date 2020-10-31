@@ -10,11 +10,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class GenerateTradeOfferTest {
 
     GenerateTradeOffer generateOffer = new GenerateTradeOffer ();
+    TradingModel trade = new TradingModel ();
 
     @Test
     void calculateLossPoint() {
         MockLeague league = new MockLeague ();
-        TradingModel trade = new TradingModel ();
 
         trade = league.getLeagueObject ().getGameplayConfig ().getTrading ();
         assertTrue (generateOffer.calculateLossPoint (9, trade));
@@ -24,7 +24,6 @@ public class GenerateTradeOfferTest {
     @Test
     void makeTradeOffer() {
         MockLeague league = new MockLeague ();
-        TradingModel trade = new TradingModel ();
 
         trade = league.getLeagueObject ().getGameplayConfig ().getTrading ();
         trade.setRandomTradeOfferChance (2.0f);
@@ -35,7 +34,7 @@ public class GenerateTradeOfferTest {
     void checkTrading() {
         MockLeague league = new MockLeague ();
         LeagueModel leagueModel = league.getLeagueObject ();
-        assertFalse (generateOffer.checkTrading (leagueModel));
+        generateOffer.checkTrading (leagueModel);
     }
 
 }
