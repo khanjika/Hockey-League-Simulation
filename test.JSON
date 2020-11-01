@@ -1309,7 +1309,7 @@
                 {
                   "playerName": "Agent Two",
                   "position": "defense",
-                  "captain": false,
+                  "captain": true,
                   "age": 25,
                   "isPlayerRetired": false,
                   "shooting": 10.0,
@@ -1329,7 +1329,7 @@
                 {
                   "playerName": "Agent One",
                   "position": "forward",
-                  "captain": true,
+                  "captain": false,
                   "age": 25,
                   "isPlayerRetired": false,
                   "shooting": 10.0,

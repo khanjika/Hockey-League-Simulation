@@ -22,7 +22,15 @@ public class TeamsModel implements ITeamsModel {
     private int winPoint;
     private int lossPoint;
 
+    public int getLossPointForTrading() {
+        return lossPointForTrading;
+    }
 
+    public void setLossPointForTrading(int lossPointForTrading) {
+        this.lossPointForTrading = lossPointForTrading;
+    }
+
+    private int lossPointForTrading;
     public boolean isUserCreatedTeam() {
         return isUserCreatedTeam;
     }

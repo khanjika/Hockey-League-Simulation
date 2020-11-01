@@ -87,6 +87,7 @@ public class SimulateGameState implements ITransition {
                     if(teamsModel.getTeamName().equals(losserTeam.getTeamName()))
                     {
                         teamsModel.setLossPoint(teamsModel.getLossPoint()+1);
+                        teamsModel.setLossPointForTrading(teamsModel.getLossPointForTrading()+1);
                     }
                 }
             }
