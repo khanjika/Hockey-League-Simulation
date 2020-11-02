@@ -23,7 +23,7 @@ public class FindPlayerToSwapTest {
     void offeredPlayer() {
         MockLeague league = new MockLeague ();
         TradingModel tradeModel = new TradingModel ();
-        TradeModel trade = new TradeModel ();
+        ITradeModel trade = new TradeModel ();
 
         tradeModel = league.getLeagueObject ().getGameplayConfig ().getTrading ();
         TeamsModel team1 = league.getTeamsObject1 ();
@@ -84,7 +84,7 @@ public class FindPlayerToSwapTest {
     void findTeamForSwap() {
         MockLeague league = new MockLeague ();
         TradeTeamPojo pojo = new TradeTeamPojo ();
-        TradeModel trade = new TradeModel ();
+        ITradeModel trade = new TradeModel ();
 
         LeagueModel leaguemodel = league.getLeagueObject ();
         pojo.setConferenceName ("Eastern Conference");

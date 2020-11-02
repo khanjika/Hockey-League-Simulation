@@ -8,10 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AfterTradingTeamValidator implements IAfterTradingTeamValidator {
-    List<FreeAgentModel> freeAgents = new ArrayList<> ();
-    List<PlayerModel> players = new ArrayList<> ();
     ISortTeams sort = new SortTeams ();
-    int skater = 18;
+    int skater = 6;
     int goalie = 2;
 
     enum playerPosition {
@@ -41,6 +39,8 @@ public class AfterTradingTeamValidator implements IAfterTradingTeamValidator {
 
     @Override
     public LeagueModel teamIsValid(List<PlayerModel> validatePlayers, LeagueModel leagueModel) {
+        List<FreeAgentModel> freeAgents = new ArrayList<> ();
+        List<PlayerModel> players = new ArrayList<> ();
         int counterSkater = 0;
         int counterGoalie = 0;
 
@@ -66,21 +66,25 @@ public class AfterTradingTeamValidator implements IAfterTradingTeamValidator {
             return leagueModel;
         } else {
             if (counterSkater < skater) {
-                addSkatersFromFreeagent (counterSkater, players);
+                int skatersRequired = skater - counterSkater;
+                addSkatersFromFreeagent (skatersRequired, players, freeAgents);
             } else {
-                removeSkaters (counterSkater, players);
+                int noOfSkatersRemoved = counterSkater - skater;
+                removeSkaters (noOfSkatersRemoved, players, freeAgents);
             }
 
             if (counterGoalie < goalie) {
-                addGoaliesFromFreeagent (counterGoalie, players);
+                int goaliesRequired = goalie - counterGoalie;
+                addGoaliesFromFreeagent (goaliesRequired, players, freeAgents);
             } else {
-                removeGoalies (counterGoalie, players);
+                int noOfGoaliesRemoved = counterGoalie - goalie;
+                removeGoalies (noOfGoaliesRemoved, players, freeAgents);
             }
             return leagueModel;
         }
     }
 
-    public List<FreeAgentModel> addingFreeAgent(PlayerModel p) {
+    public List<FreeAgentModel> addingFreeAgent(PlayerModel p, List<FreeAgentModel> freeAgents) {
         FreeAgentModel agent = new FreeAgentModel ();
         agent.setPlayerName (p.getPlayerName ());
         agent.setPosition (p.getPosition ());
@@ -94,17 +98,16 @@ public class AfterTradingTeamValidator implements IAfterTradingTeamValidator {
         return freeAgents;
     }
 
-    public void removeGoalies(int counterGoalie, List<PlayerModel> players) {
+    public void removeGoalies(int noOfGoaliesRemoved, List<PlayerModel> players, List<FreeAgentModel> freeAgents) {
         int counter = 0;
         List<PlayerModel> playersRemoved = new ArrayList<> ();
-        int noOfGoaliesRemoved = counterGoalie - goalie;
         players = sort.sortPlayersAscending (players);
         for (int i = 0; i < players.size (); i++) {
             if (counter < noOfGoaliesRemoved) {
                 if (players.get (i).getPosition ().equals (playerPosition.goalie.toString ())) {
                     counter++;
                     PlayerModel p = players.get (i);
-                    addingFreeAgent (p);
+                    addingFreeAgent (p, freeAgents);
                     playersRemoved.add (players.get (i));
                 }
             }
@@ -114,17 +117,16 @@ public class AfterTradingTeamValidator implements IAfterTradingTeamValidator {
         }
     }
 
-    public void removeSkaters(int counterSkater, List<PlayerModel> players) {
+    public void removeSkaters(int noOfSkatersRemoved, List<PlayerModel> players, List<FreeAgentModel> freeAgents) {
         int counter = 0;
         List<PlayerModel> playersRemoved = new ArrayList<> ();
-        int noOfSkatersRemoved = counterSkater - skater;
         players = sort.sortPlayersAscending (players);
         for (int i = 0; i < players.size (); i++) {
             if (counter < noOfSkatersRemoved) {
                 if (players.get (i).getPosition ().equals (playerPosition.forward.toString ()) || players.get (i).getPosition ().equals (playerPosition.defense.toString ())) {
                     counter++;
                     PlayerModel p = players.get (i);
-                    addingFreeAgent (p);
+                    addingFreeAgent (p, freeAgents);
                     playersRemoved.add (players.get (i));
                 }
             }
@@ -134,7 +136,7 @@ public class AfterTradingTeamValidator implements IAfterTradingTeamValidator {
         }
     }
 
-    public List<PlayerModel> addingPlayer(FreeAgentModel f) {
+    public List<PlayerModel> addingPlayer(FreeAgentModel f, List<PlayerModel> players) {
         PlayerModel playerAdded = new PlayerModel ();
         playerAdded.setPlayerName (f.getPlayerName ());
         playerAdded.setPosition (f.getPosition ());
@@ -149,16 +151,15 @@ public class AfterTradingTeamValidator implements IAfterTradingTeamValidator {
         return players;
     }
 
-    public void addGoaliesFromFreeagent(int counterGoalie, List<PlayerModel> players) {
+    public void addGoaliesFromFreeagent(int goaliesRequired, List<PlayerModel> players, List<FreeAgentModel> freeAgents) {
         int counter = 0;
         List<FreeAgentModel> agentsRemoved = new ArrayList<> ();
         List<FreeAgentModel> sortFreeAgent = sort.sortFreeAgentDescending (freeAgents);
-        int goaliesRequired = goalie - counterGoalie;
         for (int i = 0; i < sortFreeAgent.size (); i++) {
-            if (counter <= goaliesRequired && sortFreeAgent.get (i).getPosition ().equals (playerPosition.goalie.toString ())) {
+            if (counter < goaliesRequired && sortFreeAgent.get (i).getPosition ().equals (playerPosition.goalie.toString ())) {
                 counter++;
                 FreeAgentModel f = freeAgents.get (i);
-                addingPlayer (f);
+                addingPlayer (f, players);
                 agentsRemoved.add (sortFreeAgent.get (i));
             }
         }
@@ -167,17 +168,17 @@ public class AfterTradingTeamValidator implements IAfterTradingTeamValidator {
         }
     }
 
-    public void addSkatersFromFreeagent(int counterSkater, List<PlayerModel> players) {
+    public void addSkatersFromFreeagent(int skatersRequired, List<PlayerModel> players, List<FreeAgentModel> freeAgents) {
         int counter = 0;
         List<FreeAgentModel> AgentsRemoved = new ArrayList<> ();
         List<FreeAgentModel> sortFreeAgent = sort.sortFreeAgentDescending (freeAgents);
-        int skatersRequired = skater - counterSkater;
+
         for (int i = 0; i < sortFreeAgent.size (); i++) {
             if (counter < skatersRequired) {
                 if (sortFreeAgent.get (i).getPosition ().equals (playerPosition.forward.toString ()) || sortFreeAgent.get (i).getPosition ().equals (playerPosition.defense.toString ())) {
                     counter++;
                     FreeAgentModel f = freeAgents.get (i);
-                    addingPlayer (f);
+                    addingPlayer (f, players);
                     AgentsRemoved.add (sortFreeAgent.get (i));
                 }
             }

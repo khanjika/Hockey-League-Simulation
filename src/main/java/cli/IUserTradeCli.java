@@ -1,8 +1,8 @@
 package cli;
 
-import trade.TradeModel;
+import trade.ITradeModel;
 
 public interface IUserTradeCli {
 
-    int displayTeamDetails(TradeModel trade);
+    int displayTeamDetails(ITradeModel trade);
 }
