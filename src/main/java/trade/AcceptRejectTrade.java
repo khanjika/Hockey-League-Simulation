@@ -4,9 +4,7 @@ import conference.ConferenceModel;
 import divison.DivisonModel;
 import league.LeagueModel;
 import players.PlayerModel;
-import teams.AfterTradingTeamValidator;
-import teams.IAfterTradingTeamValidator;
-import teams.TeamsModel;
+import teams.*;
 
 import java.util.ArrayList;
 import java.util.List;
