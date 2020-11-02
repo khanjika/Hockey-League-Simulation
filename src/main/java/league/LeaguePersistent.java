@@ -4,16 +4,16 @@ import database.CallStoredProcedure;
 
 public class LeaguePersistent implements ILeaguePersistent {
 
-    @Override
-    public int addLeagueInformation(String leagueName) {
-
+    public int addLeagueInformation(String leagueName, int gamePlayConfigId, int timePassedId) {
         CallStoredProcedure storedProcedure = null;
         try {
-            storedProcedure = new CallStoredProcedure ("storeNewLeagueInformation(?, ?)");
+            storedProcedure = new CallStoredProcedure ("storeNewLeagueInformation(?,?,? ?)");
             storedProcedure.setParameter (1, leagueName);
-            storedProcedure.registerOutParameter (2);
+            storedProcedure.setParameter(2,gamePlayConfigId);
+            storedProcedure.setParameter(3,timePassedId);
+            storedProcedure.registerOutParameter (4);
             storedProcedure.execute ();
-            return storedProcedure.getNumericReturnValue (2);
+            return storedProcedure.getNumericReturnValue (4);
         } catch (Exception e) {
             System.out.println ("Exception in storing league");
             System.out.println (e);
@@ -24,7 +24,6 @@ public class LeaguePersistent implements ILeaguePersistent {
         }
         return 0;
     }
-
     @Override
     public boolean isLeagueAlreadyExist(String leagueName) {
         CallStoredProcedure storedProcedure = null;
@@ -47,6 +46,23 @@ public class LeaguePersistent implements ILeaguePersistent {
             }
         }
         return false;
+    }
+
+    @Override
+    public void storeAvailableGeneralManagerInformation(int leagueId, String generalManagerName) {
+        CallStoredProcedure storedProcedure = null;
+        try {
+            storedProcedure = new CallStoredProcedure("storeAvailableGeneralManagerInformation(?, ?)");
+            storedProcedure.setParameter(1, leagueId);
+            storedProcedure.setParameter(2, generalManagerName);
+        } catch (Exception e) {
+            System.out.println("Exception in storing league");
+            System.out.println(e);
+        } finally {
+            if (storedProcedure != null) {
+                storedProcedure.clean();
+            }
+        }
     }
 
 

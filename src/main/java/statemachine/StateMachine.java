@@ -21,7 +21,6 @@ public class StateMachine {
     ITransition tradingState;
 
     public StateMachine() {
-
         importJson = new ImportJsonState(this);
         playerTeamChoice = new PlayerTeamChoiceState(this);
         loadTeam = new LoadTeamState(this);

@@ -93,7 +93,8 @@ public class LeagueModel implements ILeagueModel {
             return false;
         }
         else{
-            int leagueId = iLeaguePersistent.addLeagueInformation(leagueModel.getLeagueName());
+            //CHANGE HERE
+            int leagueId = iLeaguePersistent.addLeagueInformation(leagueModel.getLeagueName(),0,0);
             for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
                this.conferenceModel.storeConferenceInformation(conferenceModel, leagueId);
             }

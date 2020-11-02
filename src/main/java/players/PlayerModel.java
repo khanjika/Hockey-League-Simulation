@@ -148,7 +148,7 @@ public class PlayerModel implements IPlayerModel {
     }
 
     public void storePlayerInformation(PlayerModel playerModel, int teamId) {
-        iPlayerPersistent.addPlayerInformation(playerModel.getPlayerName(), playerModel.getPosition(), playerModel.isCaptain(), teamId);
+        iPlayerPersistent.addPlayerInformation(teamId,playerModel.getPlayerName(), playerModel.getPosition(), playerModel.isCaptain(),playerModel.getAge(),playerModel.isPlayerRetired(),playerModel.getSkating(),playerModel.getShooting(),playerModel.getChecking(),playerModel.getSaving(),playerModel.getInjuryDays(),playerModel.getDays(),playerModel.getRetirementLikelyHood(),playerModel.getRecoveryDate());
     }
 
     public Boolean isPlayerRetired() {
