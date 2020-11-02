@@ -14,11 +14,9 @@ import java.util.List;
 public class AcceptRejectTrade implements IAcceptRejectTrade {
 
     IAfterTradingTeamValidator teamValidator = new AfterTradingTeamValidator ();
-    ISortTeams sort = new SortTeams ();
-
 
     @Override
-    public LeagueModel acceptRejectTrade(ITradeTeamPojo team2, ITradeTeamPojo team1, TradeModel trade, LeagueModel leagueModel) {
+    public LeagueModel acceptRejectTrade(ITradeTeamPojo team2, ITradeTeamPojo team1, ITradeModel trade, LeagueModel leagueModel) {
         float offeredPlayerStrength = 0;
         float requestedPlayerStrength = 0;
         int noOfPlayersToSwap = trade.getOfferedPlayer ().size ();
@@ -40,7 +38,7 @@ public class AcceptRejectTrade implements IAcceptRejectTrade {
     }
 
     @Override
-    public LeagueModel tradeRejected(ITradeTeamPojo team2, ITradeTeamPojo team1, LeagueModel leagueModel, TradeModel trade) {
+    public LeagueModel tradeRejected(ITradeTeamPojo team2, ITradeTeamPojo team1, LeagueModel leagueModel, ITradeModel trade) {
         float randomAcceptanceChance = leagueModel.getGameplayConfig ().getTrading ().getRandomAcceptanceChance ();
 
         //if (Math.random () < randomAcceptanceChance) {
@@ -51,7 +49,7 @@ public class AcceptRejectTrade implements IAcceptRejectTrade {
     }
 
     @Override
-    public LeagueModel tradeAccepted(ITradeTeamPojo team2, ITradeTeamPojo team1, TradeModel trade, LeagueModel league) {
+    public LeagueModel tradeAccepted(ITradeTeamPojo team2, ITradeTeamPojo team1, ITradeModel trade, LeagueModel league) {
         System.out.println ("Trade is accepted");
         boolean successTeam1 = false;
         boolean successTeam2 = false;
@@ -92,7 +90,7 @@ public class AcceptRejectTrade implements IAcceptRejectTrade {
     }
 
     @Override
-    public boolean swapTeam1(TeamsModel team, TradeModel trade) {
+    public boolean swapTeam1(TeamsModel team, ITradeModel trade) {
         List<PlayerModel> t1 = new ArrayList ();
 
         t1 = team.getPlayers ();
@@ -114,7 +112,7 @@ public class AcceptRejectTrade implements IAcceptRejectTrade {
     }
 
     @Override
-    public boolean swapTeam2(TeamsModel team, TradeModel trade) {
+    public boolean swapTeam2(TeamsModel team, ITradeModel trade) {
         List<PlayerModel> t2 = new ArrayList<> ();
 
         t2 = team.getPlayers ();
