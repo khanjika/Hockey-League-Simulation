@@ -79,9 +79,9 @@ public class LeagueModelTest {
         leagueModel.setConferences(conferenceModelObjectList);
         List<FreeAgentModel> freeAgentModelList = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
-            FreeAgentModel freeAgentModel = FreeAgentModelTest.getFreeAgentModel("Roshan", "forward", false);
-            FreeAgentModel freeAgentModel1 = FreeAgentModelTest.getFreeAgentModel("Arthy", "defense", false);
-            FreeAgentModel freeAgentModel2 = FreeAgentModelTest.getFreeAgentModel("Zankruth", "goalie", false);
+            FreeAgentModel freeAgentModel = FreeAgentModelTest.getFreeAgentModel("Roshan", "forward", 18,2.0f,5.0f,6.0f,7.0f);
+            FreeAgentModel freeAgentModel1 = FreeAgentModelTest.getFreeAgentModel("Arthy", "defense", 18,2.0f,5.0f,6.0f,7.0f);
+            FreeAgentModel freeAgentModel2 = FreeAgentModelTest.getFreeAgentModel("Zankruth", "goalie", 18,2.0f,5.0f,6.0f,7.0f);
             freeAgentModelList.add(freeAgentModel);
             freeAgentModelList.add((freeAgentModel1));
             freeAgentModelList.add(freeAgentModel2);

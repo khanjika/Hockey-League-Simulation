@@ -14,6 +14,6 @@ class LeagueValidatorTest {
         LeagueModel leagueModel = LeagueModelTest.getLeagueObject();
         LeagueValidator leagueValidator =new LeagueValidator();
         //update to true
-        assertFalse(leagueValidator.validateLeagueObject(leagueModel));
+        assertTrue(leagueValidator.validateLeagueObject(leagueModel));
     }
 }

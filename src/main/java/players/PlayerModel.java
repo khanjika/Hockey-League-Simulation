@@ -34,7 +34,6 @@ public class PlayerModel implements IPlayerModel {
     private Boolean captain;
     @Expose
     private int age;
-    @Expose
     private boolean isPlayerRetired;
     private int days;
     private float skating;
