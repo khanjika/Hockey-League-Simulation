@@ -11,7 +11,7 @@ public class TrainingValidator implements ITrainingValidator{
         }
     }
 
-    public boolean isNotNull(int value){
+    private boolean isNotNull(int value){
         if(value == 0){
             return false;
         }

@@ -1,7 +1,5 @@
 package states;
 
-import conference.ConferenceModel;
-import divison.DivisonModel;
 import league.LeagueModel;
 import players.IPlayerModel;
 import players.PlayerModel;
@@ -21,43 +19,33 @@ public class InjuryCheckState implements ITransition {
     TeamsModel teamsModelTemp;
     LocalDate currentDate;
     IPlayerModel playerModel;
+
     public InjuryCheckState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
     }
-    public InjuryCheckState(StateMachine stateMachine, LeagueModel leagueModel,TeamsModel teamsModel) {
-     //   System.out.println("Injury check state constructor "+leagueModel+"      " + stateMachine+"  "+ teamsModel);
+
+    public InjuryCheckState(StateMachine stateMachine, LeagueModel leagueModel, TeamsModel teamsModel) {
+        //System.out.println("Injury check state constructor "+leagueModel+"      " + stateMachine+"  "+ teamsModel);
         this.stateMachine = stateMachine;
         this.leagueModel = leagueModel;
         this.teamsModelTemp=teamsModel;
         currentDate =stateMachine.getCurrentDate();
-        System.out.println(currentDate);
     }
 
     @Override
     public void entry() {
+        //System.out.println("Inside Entry Method of Injury Check State");
         task();
     }
 
     @Override
     public void task() {
-      //  System.out.println("Inside injury check method:"+leagueModel);
-
-        //recover Player(LeagueMOdel, TeamModel,LocalDATE)
-        //there is no need to retun anything.
-        playerModel=new PlayerModel();
-      //  playerModel.checkPlayerInjury();
-        for(ConferenceModel conferenceModel:leagueModel.getConferences()){
-            for(DivisonModel divisonModel:conferenceModel.getDivisions()){
-                for(TeamsModel teamsModel:divisonModel.getTeams()){
-                    if(teamsModel.getTeamName().equals(teamsModelTemp)){
-                       for(PlayerModel playerModelTemp:teamsModel.getPlayers()){
-                           playerModel.checkPlayerInjury(playerModelTemp,currentDate);
-                       }
-                    }
-                }
-            }
+        playerModel = new PlayerModel();
+        playerModel.setInjuriesModel(leagueModel.getGameplayConfig().getInjuries());
+        for (PlayerModel playerModel : teamsModelTemp.getPlayers()) {
+            playerModel.setInjuriesModel(leagueModel.getGameplayConfig().getInjuries());
+            playerModel.checkPlayerInjury(playerModel, currentDate);
         }
-        //checkPlayerInjury(leagueModel,teamsModel,currentDate);
     }
 
     @Override
