@@ -8,7 +8,7 @@
           "divisionName": "Atlantic",
           "teams": [
             {
-              "teamName": "BostonB3",
+              "teamName": "Boston",
               "generalManager": "Mister Fred",
               "headCoach": {
                 "name": "Mary Smith",
@@ -19,189 +19,189 @@
               },
               "players": [
                 {
-                  "playerName": "Player One",
+                  "playerName": "A0",
                   "position": "forward",
                   "captain": true,
-                  "age": 27,
-                  "shooting": 18.0,
-                  "checking": 12.0,
-                  "saving": 0.0
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
                 },
                 {
-                  "playerName": "Player Two",
-                  "position": "defense",
+                  "playerName": "A01",
+                  "position": "forward",
                   "captain": false,
                   "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
+                  "saving": 10.0
                 },
                 {
-                  "playerName": "Player Three",
+                  "playerName": "A012",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234567",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345678",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345678910",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234567891011",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789101112",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345678910111213",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234567891011121314",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789101112131415",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345678910111213141516",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234567891011121314151617",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789101112131415161719",
                   "position": "goalie",
                   "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
                   "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
+                  "saving": 10.0
                 },
                 {
-                  "playerName": "Player Three",
+                  "playerName": "A0123456789101112131415161719",
                   "position": "goalie",
                   "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
                   "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
+                  "saving": 10.0
                 }
               ]
             },
             {
-              "teamName": "BostonA2",
+              "teamName": "Boston",
               "generalManager": "Mister Fred",
               "headCoach": {
                 "name": "Mary Smith",
@@ -212,1159 +212,194 @@
               },
               "players": [
                 {
-                  "playerName": "Player One",
+                  "playerName": "A0",
                   "position": "forward",
                   "captain": true,
-                  "age": 27,
-                  "shooting": 18.0,
-                  "checking": 12.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
                   "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                }
-              ]
-            },
-            {
-              "teamName": "BostonB2",
-              "generalManager": "Mister Fred",
-              "headCoach": {
-                "name": "Mary Smith",
-                "skating": 0.5,
-                "shooting": 0.8,
-                "checking": 0.3,
-                "saving": 0.5
-              },
-              "players": [
-                {
-                  "playerName": "Player One",
-                  "position": "forward",
-                  "captain": true,
-                  "age": 27,
-                  "shooting": 18.0,
-                  "checking": 12.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                }
-              ]
-            },
-            {
-              "teamName": "BostonA1",
-              "generalManager": "Mister Fred",
-              "headCoach": {
-                "name": "Mary Smith",
-                "skating": 0.5,
-                "shooting": 0.8,
-                "checking": 0.3,
-                "saving": 0.5
-              },
-              "players": [
-                {
-                  "playerName": "Zankrut",
-                  "position": "forward",
-                  "captain": true,
-                  "age": 49,
-                  "shooting": 18.0,
-                  "checking": 12.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Roshan",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                }
-              ]
-            },
-            {
-              "teamName": "BostonA3",
-              "generalManager": "Mister Fred",
-              "headCoach": {
-                "name": "Mary Smith",
-                "skating": 0.5,
-                "shooting": 0.8,
-                "checking": 0.3,
-                "saving": 0.5
-              },
-              "players": [
-                {
-                  "playerName": "Player One",
-                  "position": "forward",
-                  "captain": true,
-                  "age": 27,
-                  "shooting": 18.0,
-                  "checking": 12.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                }
-              ]
-            },
-            {
-              "teamName": "BostonB1",
-              "generalManager": "Mister Fred",
-              "headCoach": {
-                "name": "Mary Smith",
-                "skating": 0.5,
-                "shooting": 0.8,
-                "checking": 0.3,
-                "saving": 0.5
-              },
-              "players": [
-                {
-                  "playerName": "Player One",
-                  "position": "forward",
-                  "captain": true,
-                  "age": 27,
-                  "shooting": 18.0,
-                  "checking": 12.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                }
-              ]
-            },
-            {
-              "teamName": "abc",
-              "generalManager": "Karen Potam",
-              "headCoach": {
-                "name": "Joe Smith",
-                "skating": 0.5,
-                "shooting": 0.8,
-                "checking": 0.3,
-                "saving": 1.0
-              },
-              "players": [
-                {
-                  "playerName": "Agent One",
-                  "position": "forward",
-                  "captain": true,
-                  "age": 25,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Agent Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 25,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Agent Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 25,
-                  "shooting": 5.0,
-                  "checking": 5.0,
                   "saving": 10.0
                 },
                 {
-                  "playerName": "Agent One",
+                  "playerName": "A01",
                   "position": "forward",
                   "captain": false,
-                  "age": 25,
+                  "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Agent Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 25,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Agent Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 25,
-                  "shooting": 5.0,
-                  "checking": 5.0,
                   "saving": 10.0
                 },
                 {
-                  "playerName": "Agent One",
+                  "playerName": "A012",
                   "position": "forward",
                   "captain": false,
-                  "age": 25,
+                  "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Agent Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 25,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Agent Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 25,
-                  "shooting": 5.0,
-                  "checking": 5.0,
                   "saving": 10.0
                 },
                 {
-                  "playerName": "Agent One",
+                  "playerName": "A0123",
                   "position": "forward",
                   "captain": false,
-                  "age": 25,
+                  "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Agent Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 25,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Agent Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 25,
-                  "shooting": 5.0,
-                  "checking": 5.0,
                   "saving": 10.0
                 },
                 {
-                  "playerName": "Agent One",
+                  "playerName": "A01234",
                   "position": "forward",
                   "captain": false,
-                  "age": 25,
+                  "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Agent Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 25,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Agent Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 25,
-                  "shooting": 5.0,
-                  "checking": 5.0,
                   "saving": 10.0
                 },
                 {
-                  "playerName": "Agent One",
+                  "playerName": "A012345",
                   "position": "forward",
                   "captain": false,
-                  "age": 25,
+                  "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Agent Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 25,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Agent Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 25,
-                  "shooting": 5.0,
-                  "checking": 5.0,
                   "saving": 10.0
                 },
                 {
-                  "playerName": "Agent One",
+                  "playerName": "A0123456",
                   "position": "forward",
                   "captain": false,
-                  "age": 25,
+                  "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
+                  "saving": 10.0
                 },
                 {
-                  "playerName": "Agent Two",
-                  "position": "defense",
+                  "playerName": "A01234567",
+                  "position": "forward",
                   "captain": false,
-                  "age": 25,
+                  "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345678",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345678910",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234567891011",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789101112",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345678910111213",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234567891011121314",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789101112131415",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345678910111213141516",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234567891011121314151617",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789101112131415161719",
+                  "position": "goalie",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789101112131415161719",
+                  "position": "goalie",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
                 }
               ]
             }
           ]
         },
         {
-          "divisionName": "Central",
+          "divisionName": "Atlantic",
           "teams": [
             {
-              "teamName": "BostonY2",
+              "teamName": "Boston",
               "generalManager": "Mister Fred",
               "headCoach": {
                 "name": "Mary Smith",
@@ -1375,189 +410,189 @@
               },
               "players": [
                 {
-                  "playerName": "Player One",
+                  "playerName": "A0",
                   "position": "forward",
                   "captain": true,
-                  "age": 27,
-                  "shooting": 18.0,
-                  "checking": 12.0,
-                  "saving": 0.0
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
                 },
                 {
-                  "playerName": "Player Two",
-                  "position": "defense",
+                  "playerName": "A01",
+                  "position": "forward",
                   "captain": false,
                   "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
+                  "saving": 10.0
                 },
                 {
-                  "playerName": "Player Three",
+                  "playerName": "A012",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234567",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345678",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345678910",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234567891011",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789101112",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345678910111213",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234567891011121314",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789101112131415",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345678910111213141516",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234567891011121314151617",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789101112131415161719",
                   "position": "goalie",
                   "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
                   "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
+                  "saving": 10.0
                 },
                 {
-                  "playerName": "Player Three",
+                  "playerName": "A0123456789101112131415161719",
                   "position": "goalie",
                   "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
                   "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
+                  "saving": 10.0
                 }
               ]
             },
             {
-              "teamName": "BostonL1",
+              "teamName": "Boston",
               "generalManager": "Mister Fred",
               "headCoach": {
                 "name": "Mary Smith",
@@ -1568,956 +603,184 @@
               },
               "players": [
                 {
-                  "playerName": "Player One",
+                  "playerName": "A0",
                   "position": "forward",
                   "captain": true,
-                  "age": 27,
-                  "shooting": 18.0,
-                  "checking": 12.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
                   "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
+                  "saving": 10.0
                 },
                 {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                }
-              ]
-            },
-            {
-              "teamName": "BostoY",
-              "generalManager": "Mister Fred",
-              "headCoach": {
-                "name": "Mary Smith",
-                "skating": 0.5,
-                "shooting": 0.8,
-                "checking": 0.3,
-                "saving": 0.5
-              },
-              "players": [
-                {
-                  "playerName": "Player One",
+                  "playerName": "A01",
                   "position": "forward",
-                  "captain": true,
-                  "age": 27,
-                  "shooting": 18.0,
-                  "checking": 12.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
                   "captain": false,
                   "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
+                  "saving": 10.0
                 },
                 {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                }
-              ]
-            },
-            {
-              "teamName": "BostonL2",
-              "generalManager": "Mister Fred",
-              "headCoach": {
-                "name": "Mary Smith",
-                "skating": 0.5,
-                "shooting": 0.8,
-                "checking": 0.3,
-                "saving": 0.5
-              },
-              "players": [
-                {
-                  "playerName": "Player One",
+                  "playerName": "A012",
                   "position": "forward",
-                  "captain": true,
-                  "age": 27,
-                  "shooting": 18.0,
-                  "checking": 12.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
                   "captain": false,
                   "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
+                  "saving": 10.0
                 },
                 {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                }
-              ]
-            },
-            {
-              "teamName": "BostonL3",
-              "generalManager": "Mister Fred",
-              "headCoach": {
-                "name": "Mary Smith",
-                "skating": 0.5,
-                "shooting": 0.8,
-                "checking": 0.3,
-                "saving": 0.5
-              },
-              "players": [
-                {
-                  "playerName": "Player One",
+                  "playerName": "A0123",
                   "position": "forward",
-                  "captain": true,
-                  "age": 27,
-                  "shooting": 18.0,
-                  "checking": 12.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
                   "captain": false,
                   "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
+                  "saving": 10.0
                 },
                 {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                }
-              ]
-            },
-            {
-              "teamName": "BostonX3",
-              "generalManager": "Mister Fred",
-              "headCoach": {
-                "name": "Mary Smith",
-                "skating": 0.5,
-                "shooting": 0.8,
-                "checking": 0.3,
-                "saving": 0.5
-              },
-              "players": [
-                {
-                  "playerName": "Player One",
+                  "playerName": "A01234",
                   "position": "forward",
-                  "captain": true,
-                  "age": 27,
-                  "shooting": 18.0,
-                  "checking": 12.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
                   "captain": false,
                   "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
+                  "saving": 10.0
                 },
                 {
-                  "playerName": "Player Three",
+                  "playerName": "A012345",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234567",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345678",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345678910",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234567891011",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789101112",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345678910111213",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234567891011121314",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789101112131415",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345678910111213141516",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234567891011121314151617",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789101112131415161719",
                   "position": "goalie",
                   "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
                   "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
+                  "saving": 10.0
                 },
                 {
-                  "playerName": "Player Three",
+                  "playerName": "A0123456789101112131415161719",
                   "position": "goalie",
                   "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
                   "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
+                  "saving": 10.0
                 }
               ]
             }
@@ -2526,13 +789,13 @@
       ]
     },
     {
-      "conferenceName": "Mega Conference",
+      "conferenceName": "Eastern Conference",
       "divisions": [
         {
           "divisionName": "Atlantic",
           "teams": [
             {
-              "teamName": "Boston01",
+              "teamName": "Boston",
               "generalManager": "Mister Fred",
               "headCoach": {
                 "name": "Mary Smith",
@@ -2543,189 +806,189 @@
               },
               "players": [
                 {
-                  "playerName": "Player One",
+                  "playerName": "A0",
                   "position": "forward",
                   "captain": true,
-                  "age": 27,
-                  "shooting": 18.0,
-                  "checking": 12.0,
-                  "saving": 0.0
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
                 },
                 {
-                  "playerName": "Player Two",
-                  "position": "defense",
+                  "playerName": "A01",
+                  "position": "forward",
                   "captain": false,
                   "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
+                  "saving": 10.0
                 },
                 {
-                  "playerName": "Player Three",
+                  "playerName": "A012",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234567",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345678",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345678910",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234567891011",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789101112",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345678910111213",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234567891011121314",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789101112131415",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345678910111213141516",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234567891011121314151617",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789101112131415161719",
                   "position": "goalie",
                   "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
                   "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
+                  "saving": 10.0
                 },
                 {
-                  "playerName": "Player Three",
+                  "playerName": "A0123456789101112131415161719",
                   "position": "goalie",
                   "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
                   "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
+                  "saving": 10.0
                 }
               ]
             },
             {
-              "teamName": "Boston03",
+              "teamName": "Boston",
               "generalManager": "Mister Fred",
               "headCoach": {
                 "name": "Mary Smith",
@@ -2736,189 +999,387 @@
               },
               "players": [
                 {
-                  "playerName": "Player One",
+                  "playerName": "A0",
                   "position": "forward",
                   "captain": true,
-                  "age": 27,
-                  "shooting": 18.0,
-                  "checking": 12.0,
-                  "saving": 0.0
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
                 },
                 {
-                  "playerName": "Player Two",
-                  "position": "defense",
+                  "playerName": "A01",
+                  "position": "forward",
                   "captain": false,
                   "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
+                  "saving": 10.0
                 },
                 {
-                  "playerName": "Player Three",
+                  "playerName": "A012",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234567",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345678",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345678910",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234567891011",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789101112",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345678910111213",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234567891011121314",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789101112131415",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345678910111213141516",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234567891011121314151617",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789101112131415161719",
                   "position": "goalie",
                   "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
                   "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
+                  "saving": 10.0
                 },
                 {
-                  "playerName": "Player Three",
+                  "playerName": "A0123456789101112131415161719",
                   "position": "goalie",
                   "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "divisionName": "Atlantic",
+          "teams": [
+            {
+              "teamName": "Boston",
+              "generalManager": "Mister Fred",
+              "headCoach": {
+                "name": "Mary Smith",
+                "skating": 0.5,
+                "shooting": 0.8,
+                "checking": 0.3,
+                "saving": 0.5
+              },
+              "players": [
+                {
+                  "playerName": "A0",
+                  "position": "forward",
+                  "captain": true,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
                 },
                 {
-                  "playerName": "Player Two",
-                  "position": "defense",
+                  "playerName": "A01",
+                  "position": "forward",
                   "captain": false,
                   "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
+                  "saving": 10.0
                 },
                 {
-                  "playerName": "Player Three",
+                  "playerName": "A012",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234567",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345678",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345678910",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234567891011",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789101112",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345678910111213",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234567891011121314",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789101112131415",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345678910111213141516",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234567891011121314151617",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789101112131415161719",
                   "position": "goalie",
                   "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
                   "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
+                  "saving": 10.0
                 },
                 {
-                  "playerName": "Player Three",
+                  "playerName": "A0123456789101112131415161719",
                   "position": "goalie",
                   "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
                   "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
+                  "saving": 10.0
                 }
               ]
             },
             {
-              "teamName": "Boston02",
+              "teamName": "Boston",
               "generalManager": "Mister Fred",
               "headCoach": {
                 "name": "Mary Smith",
@@ -2929,377 +1390,184 @@
               },
               "players": [
                 {
-                  "playerName": "Player One",
+                  "playerName": "A0",
                   "position": "forward",
                   "captain": true,
-                  "age": 27,
-                  "shooting": 18.0,
-                  "checking": 12.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
                   "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
+                  "saving": 10.0
                 },
                 {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                }
-              ]
-            },
-            {
-              "teamName": "Boston04",
-              "generalManager": "Mister Fred",
-              "headCoach": {
-                "name": "Mary Smith",
-                "skating": 0.5,
-                "shooting": 0.8,
-                "checking": 0.3,
-                "saving": 0.5
-              },
-              "players": [
-                {
-                  "playerName": "Player One",
+                  "playerName": "A01",
                   "position": "forward",
-                  "captain": true,
-                  "age": 27,
-                  "shooting": 18.0,
-                  "checking": 12.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
                   "captain": false,
                   "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
+                  "saving": 10.0
                 },
                 {
-                  "playerName": "Player Three",
+                  "playerName": "A012",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234567",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345678",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345678910",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234567891011",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789101112",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345678910111213",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234567891011121314",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789101112131415",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A012345678910111213141516",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A01234567891011121314151617",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 20,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "A0123456789101112131415161719",
                   "position": "goalie",
                   "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
                   "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
+                  "saving": 10.0
                 },
                 {
-                  "playerName": "Player Three",
+                  "playerName": "A0123456789101112131415161719",
                   "position": "goalie",
                   "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
                   "age": 20,
                   "shooting": 10.0,
                   "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Player Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 33,
-                  "shooting": 4.0,
-                  "checking": 9.0,
-                  "saving": 18.0
-                },
-                {
-                  "playerName": "Player Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 20,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
+                  "saving": 10.0
                 }
               ]
             }
@@ -3310,115 +1578,214 @@
   ],
   "freeAgents": [
     {
-      "playerName": "Agent Three",
-      "position": "goalie",
-      "age": 25,
-      "skating": 10.0,
-      "shooting": 5.0,
-      "checking": 5.0,
-      "saving": 10.0
-    },
-    {
-      "playerName": "Agent One",
+      "playerName": "Agent one",
       "position": "forward",
       "age": 25,
       "skating": 10.0,
       "shooting": 10.0,
       "checking": 10.0,
-      "saving": 0.0
-    },
-    {
-      "playerName": "Agent Two",
-      "position": "defense",
-      "age": 25,
-      "skating": 10.0,
-      "shooting": 10.0,
-      "checking": 10.0,
-      "saving": 0.0
-    },
-    {
-      "playerName": "Agent Three",
-      "position": "goalie",
-      "age": 25,
-      "skating": 10.0,
-      "shooting": 5.0,
-      "checking": 5.0,
       "saving": 10.0
     },
     {
-      "playerName": "Agent One",
+      "playerName": "Agent one",
       "position": "forward",
       "age": 25,
       "skating": 10.0,
       "shooting": 10.0,
       "checking": 10.0,
-      "saving": 0.0
-    },
-    {
-      "playerName": "Agent Two",
-      "position": "defense",
-      "age": 25,
-      "skating": 10.0,
-      "shooting": 10.0,
-      "checking": 10.0,
-      "saving": 0.0
-    },
-    {
-      "playerName": "Agent Three",
-      "position": "goalie",
-      "age": 25,
-      "skating": 10.0,
-      "shooting": 5.0,
-      "checking": 5.0,
       "saving": 10.0
     },
     {
-      "playerName": "Agent One",
+      "playerName": "Agent one",
       "position": "forward",
       "age": 25,
       "skating": 10.0,
       "shooting": 10.0,
       "checking": 10.0,
-      "saving": 0.0
+      "saving": 10.0
     },
     {
-      "playerName": "Agent Two",
-      "position": "defense",
+      "playerName": "Agent one",
+      "position": "forward",
       "age": 25,
       "skating": 10.0,
       "shooting": 10.0,
       "checking": 10.0,
-      "saving": 0.0
+      "saving": 10.0
     },
     {
-      "playerName": "Agent Three",
-      "position": "goalie",
+      "playerName": "Agent one",
+      "position": "forward",
       "age": 25,
       "skating": 10.0,
-      "shooting": 5.0,
-      "checking": 5.0,
+      "shooting": 10.0,
+      "checking": 10.0,
+      "saving": 10.0
+    },
+    {
+      "playerName": "Agent one",
+      "position": "forward",
+      "age": 25,
+      "skating": 10.0,
+      "shooting": 10.0,
+      "checking": 10.0,
+      "saving": 10.0
+    },
+    {
+      "playerName": "Agent one",
+      "position": "forward",
+      "age": 25,
+      "skating": 10.0,
+      "shooting": 10.0,
+      "checking": 10.0,
+      "saving": 10.0
+    },
+    {
+      "playerName": "Agent one",
+      "position": "forward",
+      "age": 25,
+      "skating": 10.0,
+      "shooting": 10.0,
+      "checking": 10.0,
+      "saving": 10.0
+    },
+    {
+      "playerName": "Agent one",
+      "position": "forward",
+      "age": 25,
+      "skating": 10.0,
+      "shooting": 10.0,
+      "checking": 10.0,
+      "saving": 10.0
+    },
+    {
+      "playerName": "Agent one",
+      "position": "forward",
+      "age": 25,
+      "skating": 10.0,
+      "shooting": 10.0,
+      "checking": 10.0,
+      "saving": 10.0
+    },
+    {
+      "playerName": "Agent one",
+      "position": "forward",
+      "age": 25,
+      "skating": 10.0,
+      "shooting": 10.0,
+      "checking": 10.0,
+      "saving": 10.0
+    },
+    {
+      "playerName": "Agent one",
+      "position": "forward",
+      "age": 25,
+      "skating": 10.0,
+      "shooting": 10.0,
+      "checking": 10.0,
+      "saving": 10.0
+    },
+    {
+      "playerName": "Agent one",
+      "position": "forward",
+      "age": 25,
+      "skating": 10.0,
+      "shooting": 10.0,
+      "checking": 10.0,
+      "saving": 10.0
+    },
+    {
+      "playerName": "Agent one",
+      "position": "forward",
+      "age": 25,
+      "skating": 10.0,
+      "shooting": 10.0,
+      "checking": 10.0,
+      "saving": 10.0
+    },
+    {
+      "playerName": "Agent one",
+      "position": "forward",
+      "age": 25,
+      "skating": 10.0,
+      "shooting": 10.0,
+      "checking": 10.0,
+      "saving": 10.0
+    },
+    {
+      "playerName": "Agent one",
+      "position": "forward",
+      "age": 25,
+      "skating": 10.0,
+      "shooting": 10.0,
+      "checking": 10.0,
+      "saving": 10.0
+    },
+    {
+      "playerName": "Agent one",
+      "position": "forward",
+      "age": 25,
+      "skating": 10.0,
+      "shooting": 10.0,
+      "checking": 10.0,
+      "saving": 10.0
+    },
+    {
+      "playerName": "Agent one",
+      "position": "forward",
+      "age": 25,
+      "skating": 10.0,
+      "shooting": 10.0,
+      "checking": 10.0,
+      "saving": 10.0
+    },
+    {
+      "playerName": "Agent one",
+      "position": "forward",
+      "age": 25,
+      "skating": 10.0,
+      "shooting": 10.0,
+      "checking": 10.0,
+      "saving": 10.0
+    },
+    {
+      "playerName": "Agent one",
+      "position": "forward",
+      "age": 25,
+      "skating": 10.0,
+      "shooting": 10.0,
+      "checking": 10.0,
       "saving": 10.0
     }
   ],
   "coaches": [
     {
-      "name": "Frank Smith",
-      "skating": 0.5,
+      "name": "Joe Smith",
+      "skating": 0.3,
       "shooting": 0.8,
-      "checking": 0.3,
+      "checking": 1.0,
       "saving": 0.5
     },
     {
-      "name": "Samantha Smith",
-      "skating": 1.0,
-      "shooting": 0.5,
-      "checking": 0.5,
-      "saving": 0.0
+      "name": "Joe Smith",
+      "skating": 0.3,
+      "shooting": 0.8,
+      "checking": 1.0,
+      "saving": 0.5
+    },
+    {
+      "name": "Joe Smith",
+      "skating": 0.3,
+      "shooting": 0.8,
+      "checking": 1.0,
+      "saving": 0.5
     }
   ],
   "generalManagers": [
-    "Joseph Squidly",
-    "Tom Spaghetti"
+    "Arthy",
+    "Roshan",
+    "Zankrut",
+    "Khanjiga"
   ],
   "gameplayConfig": {
     "aging": {
@@ -3432,9 +1799,6 @@
       "randomInjuryChance": 0.05,
       "injuryDaysLow": 1,
       "injuryDaysHigh": 260
-    },
-    "training": {
-      "daysUntilStatIncreaseCheck": 100
     },
     "trading": {
       "lossPoint": 8,

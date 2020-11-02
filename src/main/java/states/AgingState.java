@@ -57,6 +57,7 @@ public class AgingState implements ITransition{
         GamePlayConfigModel gamePlayConfigModel=leagueModel.getGameplayConfig();
         iPlayerModel.setAgingModel(gamePlayConfigModel.getAging());
        // System.out.println("INSIDE THE AGING STATE PRINITNG FREE AGENT "+leagueModel.getFreeAgents().size());
+        System.out.println(leagueModel.getFreeAgents());
         iPlayerModel.setFreeAgentsList(leagueModel.getFreeAgents());
         for(ConferenceModel conferenceModel:leagueModel.getConferences()){
             for(DivisonModel divisonModel:conferenceModel.getDivisions()){

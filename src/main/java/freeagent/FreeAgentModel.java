@@ -190,6 +190,10 @@ public class FreeAgentModel implements IFreeAgentModel {
     @Override
     public FreeAgentModel getReplacementFreeAgent(List<FreeAgentModel> freeAgents, String playerPosition) {
         List<FreeAgentModel> matchedfreeAgents = new ArrayList<>();
+        if(freeAgents == null){
+            return null;
+        }
+        System.out.println(freeAgents);
         for (FreeAgentModel freeAgent : freeAgents) {
             if (freeAgent.getPosition().equals(playerPosition)) {
                 matchedfreeAgents.add(freeAgent);
@@ -200,9 +204,9 @@ public class FreeAgentModel implements IFreeAgentModel {
             System.out.println("NO MATCH FOUND FOR THE PLAYER WITH POSITION " + playerPosition);
             System.exit(0);
         }
-        FreeAgentModel ReplacementFreeAgent = Collections.max(matchedfreeAgents, Comparator.comparing(f -> f.getFreeAgentStrength()));
-        freeAgents.remove(ReplacementFreeAgent);
-        return ReplacementFreeAgent;
+        FreeAgentModel replacementFreeAgent = Collections.max(matchedfreeAgents, Comparator.comparing(f -> f.getFreeAgentStrength()));
+        freeAgents.remove(replacementFreeAgent);
+        return replacementFreeAgent;
 
     }
 
