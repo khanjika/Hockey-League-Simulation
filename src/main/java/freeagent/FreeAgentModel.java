@@ -1,20 +1,16 @@
 package freeagent;
 
-import gameplayconfig.AgingModel;
-import league.LeagueModel;
-import players.IPlayerModel;
-import players.PlayerModel;
-
 import com.google.gson.annotations.Expose;
+import gameplayconfig.AgingModel;
 import players.PlayerPosition;
 
 import java.util.*;
 
-public class FreeAgentModel implements IFreeAgentModel{
+public class FreeAgentModel implements IFreeAgentModel {
     @Expose
-    private  String playerName;
+    private String playerName;
     @Expose
-    private  String position;
+    private String position;
     @Expose
     private int age;
     @Expose
@@ -35,7 +31,7 @@ public class FreeAgentModel implements IFreeAgentModel{
     private IFreeAgentPersistent iFreeAgentPersistent;
 
     public FreeAgentModel() {
-        iFreeAgentPersistent=new FreeAgentPersistent();
+        iFreeAgentPersistent = new FreeAgentPersistent();
     }
 
     public String getPlayerName() {
@@ -94,9 +90,13 @@ public class FreeAgentModel implements IFreeAgentModel{
         this.saving = saving;
     }
 
-    public float getFreeAgentStrength() { return freeAgentStrength; }
+    public float getFreeAgentStrength() {
+        return freeAgentStrength;
+    }
 
-    public void setFreeAgentStrength(float freeAgentStrength) { this.freeAgentStrength = freeAgentStrength; }
+    public void setFreeAgentStrength(float freeAgentStrength) {
+        this.freeAgentStrength = freeAgentStrength;
+    }
 
     public int getDays() {
         return days;
@@ -130,36 +130,35 @@ public class FreeAgentModel implements IFreeAgentModel{
         this.agingModel = agingModel;
     }
 
-    public void storeFreeAgentInformation(FreeAgentModel freeAgentModel, int leagueId){
-         iFreeAgentPersistent.addFreeAgentInformation(freeAgentModel.getPlayerName(),freeAgentModel.getPosition(),leagueId);
+    public void storeFreeAgentInformation(FreeAgentModel freeAgentModel, int leagueId) {
+        iFreeAgentPersistent.addFreeAgentInformation(freeAgentModel.getPlayerName(), freeAgentModel.getPosition(), leagueId);
     }
 
     @Override
     public void calculateFreeAgentStrength(FreeAgentModel freeAgentModel) {
-        if(freeAgentModel.getPosition().equals(PlayerPosition.FORWARD.toString())){
-            freeAgentModel.freeAgentStrength = freeAgentModel.getSkating() + freeAgentModel.getShooting() + (freeAgentModel.getChecking()/2);
+        float strength = 0;
+        if (freeAgentModel.getPosition().equals(PlayerPosition.FORWARD.toString())) {
+            strength = freeAgentModel.getSkating() + freeAgentModel.getShooting() + (freeAgentModel.getChecking() / 2);
+        } else if (freeAgentModel.getPosition().equals(PlayerPosition.DEFENSE.toString())) {
+            strength = freeAgentModel.getSkating() + freeAgentModel.getChecking() + (freeAgentModel.getShooting() / 2);
+        } else if (freeAgentModel.getPosition().equals(PlayerPosition.GOALIE.toString())) {
+            strength = freeAgentModel.getSkating() + freeAgentModel.getShooting();
         }
-        else if(freeAgentModel.getPosition().equals(PlayerPosition.DEFENSE.toString())){
-            freeAgentModel.freeAgentStrength = freeAgentModel.getSkating() + freeAgentModel.getChecking() + (freeAgentModel.getShooting()/2);
-        }
-        else if(freeAgentModel.getPosition().equals(PlayerPosition.GOALIE.toString())){
-            freeAgentModel.freeAgentStrength = freeAgentModel.getSkating() + freeAgentModel.getShooting();
-        }
+        freeAgentModel.setFreeAgentStrength(strength);
     }
 
     @Override
     public void aging(FreeAgentModel freeAgentModel, int daysToAge) {
         int days = freeAgentModel.getDays();
         int age = freeAgentModel.getAge();
-        if(days + daysToAge >=365){
+        if (days + daysToAge >= 365) {
             freeAgentModel.setDays(0);
-            freeAgentModel.setAge(age+1);
-        }
-        else {
-            freeAgentModel.setDays(days+daysToAge);
+            freeAgentModel.setAge(age + 1);
+        } else {
+            freeAgentModel.setDays(days + daysToAge);
         }
         int retirementLikelyHood = checkRetirement(freeAgentModel);
-        if(retirementLikelyHood >= 90 ){
+        if (retirementLikelyHood >= 90) {
             freeAgentModel.setRetired(true);
         }
     }
@@ -170,16 +169,18 @@ public class FreeAgentModel implements IFreeAgentModel{
         int maximumAge = agingModel.getMaximumAge();
         int likelyHood = freeAgentModel.getRetirementLikelyHood();
         Random randomObj = new Random();
-        if(freeAgentAge >= maximumAge){
-            likelyHood=100;
-        }
-        else{
+        if (freeAgentAge >= maximumAge) {
+            likelyHood = 100;
+        } else {
             int AgeDifference = averageRetirementAge - freeAgentAge;
-            if(AgeDifference >= 0 ){
-                likelyHood = randomObj.nextInt(50-likelyHood)+likelyHood;
-            }
-            else {
-                likelyHood = randomObj.nextInt(100-likelyHood)+likelyHood;
+            if (AgeDifference >= 0) {
+                likelyHood = randomObj.nextInt(50);
+            } else if (AgeDifference >= -5) {
+                likelyHood = randomObj.nextInt(60 - 50) + 50;
+            } else if (AgeDifference >= -10) {
+                likelyHood = randomObj.nextInt(70 - 60) + 60;
+            } else {
+                likelyHood = randomObj.nextInt(99 - 70) + 70;
             }
         }
         freeAgentModel.setRetirementLikelyHood(likelyHood);
@@ -187,22 +188,19 @@ public class FreeAgentModel implements IFreeAgentModel{
     }
 
     @Override
-    public FreeAgentModel getReplacementFreeAgent(List<FreeAgentModel> freeAgents,String playerPosition) {
-        List<FreeAgentModel> matchedfreeAgents =  new ArrayList<>();
-        for(FreeAgentModel freeAgent : freeAgents){
-            if(freeAgent.getPosition().equals(playerPosition)) {
+    public FreeAgentModel getReplacementFreeAgent(List<FreeAgentModel> freeAgents, String playerPosition) {
+        List<FreeAgentModel> matchedfreeAgents = new ArrayList<>();
+        for (FreeAgentModel freeAgent : freeAgents) {
+            if (freeAgent.getPosition().equals(playerPosition)) {
                 matchedfreeAgents.add(freeAgent);
                 calculateFreeAgentStrength(freeAgent);
             }
         }
-        if(matchedfreeAgents.size()==0){
-            System.out.println("NO MATCH FOUND FOR THE PLAYER WITH POSITION "+playerPosition);
+        if (matchedfreeAgents.size() == 0) {
+            System.out.println("NO MATCH FOUND FOR THE PLAYER WITH POSITION " + playerPosition);
             System.exit(0);
         }
-        for(FreeAgentModel freeAgentModel:matchedfreeAgents){
-            System.out.println(freeAgentModel.getFreeAgentStrength());
-        }
-        FreeAgentModel ReplacementFreeAgent = Collections.max(matchedfreeAgents,Comparator.comparing(f->f.getFreeAgentStrength()));
+        FreeAgentModel ReplacementFreeAgent = Collections.max(matchedfreeAgents, Comparator.comparing(f -> f.getFreeAgentStrength()));
         freeAgents.remove(ReplacementFreeAgent);
         return ReplacementFreeAgent;
 

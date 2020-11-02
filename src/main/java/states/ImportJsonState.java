@@ -4,23 +4,19 @@ import cli.InitialCli;
 import coach.CoachModel;
 import conference.ConferenceModel;
 import divison.DivisonModel;
-import gameplayconfig.AgingModel;
 import gameplayconfig.GamePlayConfigModel;
 import league.LeagueModel;
 import players.PlayerModel;
-import matchSchedules.IRegularSeasonSchedule;
-import matchSchedules.RegularSeasonSchedule;
-import serializeObject.SerializeObject;
 import statemachine.StateMachine;
 import teams.TeamsModel;
 
 public class ImportJsonState implements ITransition {
     StateMachine stateMachine;
     InitialCli initialCli;
+    ITransition createTeamState;
     private boolean userInput;
     private String cliArgument;
     private LeagueModel inMemoryLeagueModel;
-    ITransition createTeamState;
 
     public ImportJsonState(StateMachine currentStateMachine) {
         stateMachine = currentStateMachine;
@@ -45,7 +41,7 @@ public class ImportJsonState implements ITransition {
     }
 
     @Override
-    public void entry(){
+    public void entry() {
         if (cliArgument == null) {
             stateMachine.setCurrentState(stateMachine.playerChoiceLoadTeam());
             exit();
@@ -54,26 +50,22 @@ public class ImportJsonState implements ITransition {
 
             System.out.println("Printing values for testing");
             System.out.println(inMemoryLeagueModel);
-            for (ConferenceModel conferenceModel:inMemoryLeagueModel.getConferences()) {
+            for (ConferenceModel conferenceModel : inMemoryLeagueModel.getConferences()) {
                 System.out.println(conferenceModel.getConferenceName());
             }
-            for(ConferenceModel conferenceModel:inMemoryLeagueModel.getConferences()){
+            for (ConferenceModel conferenceModel : inMemoryLeagueModel.getConferences()) {
                 System.out.println(conferenceModel.getConferenceName());
-                for(DivisonModel divisonModel:conferenceModel.getDivisions()){
-                    for(TeamsModel teamsModel:divisonModel.getTeams()){
-                        System.out.println("--------Team and Player Strength---------");
-                        System.out.println(teamsModel.getTeamName());
+                for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
+                    for (TeamsModel teamsModel : divisonModel.getTeams()) {
                         teamsModel.calculateTeamStrength(teamsModel);
-                        System.out.println(teamsModel.getTeamName()+" : "+teamsModel.getTeamStrength());
-                        for (PlayerModel playerModel : teamsModel.getPlayers()){
+                        for (PlayerModel playerModel : teamsModel.getPlayers()) {
                             playerModel.calculatePlayerStrength(playerModel);
-                            System.out.println(playerModel.getPlayerName()+" : "+playerModel.getPlayerStrength());
                         }
                     }
                 }
             }
             System.out.println(inMemoryLeagueModel.getGeneralManagers());
-            for(CoachModel coachModel:inMemoryLeagueModel.getCoaches()){
+            for (CoachModel coachModel : inMemoryLeagueModel.getCoaches()) {
                 System.out.println(coachModel.getName());
             }
             GamePlayConfigModel gamePlayConfigModel = inMemoryLeagueModel.getGameplayConfig();
@@ -102,7 +94,7 @@ public class ImportJsonState implements ITransition {
     }
 
     @Override
-    public void task(){
+    public void task() {
         createTeamState = new CreateTeamState(inMemoryLeagueModel, stateMachine);
         stateMachine.setCreateTeam(createTeamState);
         stateMachine.setCurrentState(stateMachine.playerChoiceCreateTeam());
@@ -110,7 +102,7 @@ public class ImportJsonState implements ITransition {
     }
 
     @Override
-    public void exit(){
+    public void exit() {
         stateMachine.getCurrentState().entry();
     }
 }

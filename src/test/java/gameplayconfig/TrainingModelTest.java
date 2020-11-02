@@ -17,4 +17,9 @@ class TrainingModelTest {
         TrainingModel trainingModel = new TrainingModel();
         trainingModel.setDaysUntilStatIncreaseCheck(100);
     }
+    public static TrainingModel getTrainingModel(int DaysUntilStatIncreaseCheck){
+        TrainingModel trainingModel = new TrainingModel();
+        trainingModel.setDaysUntilStatIncreaseCheck(DaysUntilStatIncreaseCheck);
+        return trainingModel;
+    }
 }

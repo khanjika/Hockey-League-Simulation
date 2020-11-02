@@ -77,14 +77,4 @@ public class CoachModelTest {
         coachModel.setSaving(2.0f);
         assertEquals(2.0f,coachModel.getSaving(),"Failed to set Coach Saving in Coach object");
     }
-
-    public static CoachModel getCoachModel(String name, float skating, float shooting, float checking, float saving){
-        CoachModel coachModel = new CoachModel();
-        coachModel.setName(name);
-        coachModel.setSkating(skating);
-        coachModel.setShooting(shooting);
-        coachModel.setSaving(saving);
-        coachModel.setChecking(checking);
-        return coachModel;
-    }
 }

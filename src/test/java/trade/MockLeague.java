@@ -2,13 +2,13 @@ package trade;
 
 import conference.ConferenceModel;
 import divison.DivisonModel;
-import gameplayconfig.GamePlayConfigModel;
-import gameplayconfig.TradingModel;
+import gameplayconfig.*;
 import league.LeagueModel;
 import players.PlayerModel;
 import teams.HeadCoachModel;
 import teams.TeamsModel;
 import teams.TeamsModelTest;
+import training.Training;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,16 +24,30 @@ public class MockLeague {
         tradingModel.setMaxPlayersPerTrade (1);
         tradingModel.setRandomAcceptanceChance (0.05f);
         tradingModel.setRandomTradeOfferChance (0.05f);
-
         leagueModel.setLeagueName ("Dalhousie Hockey League");
+        AgingModel agingModel = new AgingModel();
+        agingModel.setAverageRetirementAge(35);
+        agingModel.setMaximumAge(50);
+        GameResolverModel gameResolverModel = new GameResolverModel();
+        gameResolverModel.setRandomWinChance(0.1f);
+        TrainingModel trainingModel =  new TrainingModel();
+        trainingModel.setDaysUntilStatIncreaseCheck(100);
+        InjuriesModel injuriesModel = new InjuriesModel();
+        injuriesModel.setInjuryDaysHigh(250);
+        injuriesModel.setInjuryDaysLow(1);
+        injuriesModel.setRandomInjuryChance(0.05f);
         java.util.List<ConferenceModel> conferenceModelObjectList = new ArrayList<> ();
         for (int i = 0; i < 1; i++) {
             ConferenceModel conferenceModel = getConferenceObject ();
             conferenceModelObjectList.add (conferenceModel);
         }
         leagueModel.setConferences (conferenceModelObjectList);
-        leagueModel.setGameplayConfig (gamePLayModel);
+        gamePLayModel.setInjuries(injuriesModel);
         gamePLayModel.setTrading (tradingModel);
+        gamePLayModel.setAging(agingModel);
+        gamePLayModel.setGameResolver(gameResolverModel);
+        gamePLayModel.setTraining(trainingModel);
+        leagueModel.setGameplayConfig (gamePLayModel);
         return leagueModel;
     }
 

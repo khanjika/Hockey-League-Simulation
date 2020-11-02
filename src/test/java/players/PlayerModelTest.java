@@ -126,6 +126,7 @@ public class PlayerModelTest {
         playerModel.setAge(age);
         playerModel.setSkating(skating);
         playerModel.setChecking(checking);
+        playerModel.setShooting(shooting);
         playerModel.setSaving(saving);
         return playerModel;
     }
