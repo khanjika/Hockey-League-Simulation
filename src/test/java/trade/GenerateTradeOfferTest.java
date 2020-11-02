@@ -46,7 +46,7 @@ public class GenerateTradeOfferTest {
 
         List<TeamsModel> t = leagueModel.getConferences ().get (0).getDivisions ().get (0).getTeams ();
         String team1Player1 = t.get (0).getPlayers ().get (0).getPlayerName ();
-        String team1Player2 = t.get (0).getPlayers ().get (2).getPlayerName ();
+        String team1Player2 = t.get (0).getPlayers ().get (3).getPlayerName ();
 
         String team2Player1 = t.get (1).getPlayers ().get (0).getPlayerName ();
         String team2Player2 = t.get (1).getPlayers ().get (3).getPlayerName ();
