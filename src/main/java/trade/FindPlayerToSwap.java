@@ -28,8 +28,8 @@ public class FindPlayerToSwap implements IFindPlayerToSwap {
         IUserTradeCli userTrade = new UserTradeCli ();
         GamePlayConfigModel gameConfig = league.getGameplayConfig ();
         TradingModel tradeModel = gameConfig.getTrading ();
-
-        TradeModel trade = offeredPlayer (team, tradeModel);
+        
+        ITradeModel trade = offeredPlayer (team, tradeModel);
         findTeamForSwap (league, tradingTeamDetails, trade);
 
         if (RequestTeamDetails.isUserCreated ()) {
@@ -46,8 +46,8 @@ public class FindPlayerToSwap implements IFindPlayerToSwap {
     }
 
     @Override
-    public TradeModel offeredPlayer(TeamsModel team, TradingModel tradeModel) {
-        TradeModel trade = new TradeModel ();
+    public ITradeModel offeredPlayer(TeamsModel team, TradingModel tradeModel) {
+        ITradeModel trade = new TradeModel ();
         List<PlayerModel> offeredPlayerList = new ArrayList<> ();
         List<PlayerModel> players = null;
 
@@ -70,7 +70,7 @@ public class FindPlayerToSwap implements IFindPlayerToSwap {
         return trade;
     }
 
-    public TradeModel findTeamForSwap(LeagueModel league, ITradeTeamPojo tradingTeamDetails, TradeModel trade) {
+    public ITradeModel findTeamForSwap(LeagueModel league, ITradeTeamPojo tradingTeamDetails, ITradeModel trade) {
         Map<Float, ArrayList> requestingPlayerMap = new HashMap<> ();
 
         String generateTradeTeam = tradingTeamDetails.getTeamName ();
@@ -107,7 +107,7 @@ public class FindPlayerToSwap implements IFindPlayerToSwap {
         return trade;
     }
 
-    public List<PlayerModel> playersFromTeam(TeamsModel team, TradeModel trade) {
+    public List<PlayerModel> playersFromTeam(TeamsModel team, ITradeModel trade) {
         List<PlayerModel> sortedPlayerList = new ArrayList<> ();
         List<PlayerModel> potentialPlayers = new ArrayList<> ();
 
