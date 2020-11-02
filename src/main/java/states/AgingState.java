@@ -17,12 +17,13 @@ import static java.time.temporal.ChronoUnit.DAYS;
 
 public class AgingState implements ITransition{
 
+    IDeadlines iDeadlines;
     StateMachine stateMachine;
     LeagueModel leagueModel;
     LocalDate currentDate;
     IPlayerModel iPlayerModel;
     private int daysToAge;
-    IDeadlines iDeadlines;
+
 
     public AgingState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;

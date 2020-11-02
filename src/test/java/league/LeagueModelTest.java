@@ -4,12 +4,14 @@ import coach.CoachModel;
 import coach.CoachModelTest;
 import conference.ConferenceModel;
 import conference.ConferenceModelTest;
+import divison.DivisonModel;
 import freeagent.FreeAgentModel;
 import freeagent.FreeAgentModelTest;
-import gameplayconfig.GamePlayConfigModel;
-import gameplayconfig.TradingModel;
-import gameplayconfig.TradingModelTest;
+import gameplayconfig.*;
 import org.junit.jupiter.api.Test;
+import players.PlayerModel;
+import players.PlayerModelTest;
+import teams.TeamsModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,6 +66,10 @@ public class LeagueModelTest {
         LeagueModel leagueModel = new LeagueModel();
         GamePlayConfigModel gamePLayModel = new GamePlayConfigModel();
         TradingModel tradingModel = TradingModelTest.getTradingModel (8,0.05f,2,0.05f);
+        InjuriesModel injuriesModel = InjuriesModelTest.getInjuriesModel(0.05f,1,260);
+        AgingModel agingModel = AgingModelTest.getAgingModel(35,50);
+        GameResolverModel gameResolverModel = GameResolverModelTest.getgameResolverModel(0.1f);
+
         leagueModel.setLeagueName("Dalhousie Hockey League");
         List<ConferenceModel> conferenceModelObjectList = new ArrayList<>();
         for (int i = 0; i < 2; i++) {
@@ -72,9 +78,13 @@ public class LeagueModelTest {
         }
         leagueModel.setConferences(conferenceModelObjectList);
         List<FreeAgentModel> freeAgentModelList = new ArrayList<>();
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 20; i++) {
             FreeAgentModel freeAgentModel = FreeAgentModelTest.getFreeAgentModel("Roshan", "forward", false);
+            FreeAgentModel freeAgentModel1 = FreeAgentModelTest.getFreeAgentModel("Arthy", "defense", false);
+            FreeAgentModel freeAgentModel2 = FreeAgentModelTest.getFreeAgentModel("Zankruth", "goalie", false);
             freeAgentModelList.add(freeAgentModel);
+            freeAgentModelList.add((freeAgentModel1));
+            freeAgentModelList.add(freeAgentModel2);
         }
         leagueModel.setFreeAgents(freeAgentModelList);
         List<CoachModel> coachModelsList = new ArrayList<>();
@@ -90,11 +100,15 @@ public class LeagueModelTest {
                 add("Khanjiga");
             }
         };
-        leagueModel.setGameplayConfig (gamePLayModel);
-        gamePLayModel.setTrading (tradingModel);
+        leagueModel.setCoaches(coachModelsList);
+        leagueModel.setGeneralManagers(generalManagers);
+        leagueModel.setGameplayConfig(gamePLayModel);
+        gamePLayModel.setTrading(tradingModel);
+        gamePLayModel.setGameResolver(gameResolverModel);
+        gamePLayModel.setInjuries(injuriesModel);
+        gamePLayModel.setAging(agingModel);
         return leagueModel;
     }
-
 
     @Test
     void getLeagueId() {

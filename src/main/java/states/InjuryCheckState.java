@@ -10,11 +10,6 @@ import teams.TeamsModel;
 
 import java.time.LocalDate;
 
-//here first i need to pass two parameter first will be the leageu model object so
-// the the placyer can be injured the second will be the teammodel object.
-//this thing will be called for both the team model.
-//the third argument will be the date at which the player is injured.
-
 public class InjuryCheckState implements ITransition {
     StateMachine stateMachine;
     LeagueModel leagueModel;
@@ -25,11 +20,11 @@ public class InjuryCheckState implements ITransition {
         this.stateMachine = stateMachine;
     }
     public InjuryCheckState(StateMachine stateMachine, LeagueModel leagueModel,TeamsModel teamsModel) {
-     //   System.out.println("Injury check state constructor "+leagueModel+"      " + stateMachine+"  "+ teamsModel);
         this.stateMachine = stateMachine;
         this.leagueModel = leagueModel;
         this.teamsModelTemp=teamsModel;
         currentDate =stateMachine.getCurrentDate();
+        System.out.println(currentDate);
     }
 
     @Override
@@ -39,12 +34,7 @@ public class InjuryCheckState implements ITransition {
 
     @Override
     public void task() {
-      //  System.out.println("Inside injury check method:"+leagueModel);
-
-        //recover Player(LeagueMOdel, TeamModel,LocalDATE)
-        //there is no need to retun anything.
         playerModel=new PlayerModel();
-      //  playerModel.checkPlayerInjury();
         for(ConferenceModel conferenceModel:leagueModel.getConferences()){
             for(DivisonModel divisonModel:conferenceModel.getDivisions()){
                 for(TeamsModel teamsModel:divisonModel.getTeams()){
@@ -56,10 +46,8 @@ public class InjuryCheckState implements ITransition {
                 }
             }
         }
-        //checkPlayerInjury(leagueModel,teamsModel,currentDate);
     }
 
     @Override
-    public void exit() {
-    }
+    public void exit() { }
 }

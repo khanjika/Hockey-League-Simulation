@@ -1,24 +1,28 @@
 package states;
 
+import conference.ConferenceModel;
+import divison.DivisonModel;
 import league.LeagueModel;
+import players.PlayerModel;
 import statemachine.StateMachine;
-
-import java.time.LocalDate;
+import teams.TeamsModel;
+import training.ITraining;
+import training.Training;
 
 public class TrainingState implements ITransition {
 
     StateMachine stateMachine;
     LeagueModel leagueModel;
+    ITraining iTraining;
 
     public TrainingState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
     }
 
-    public TrainingState(StateMachine stateMachine,LeagueModel leagueModel) {
+    public TrainingState(StateMachine stateMachine, LeagueModel leagueModel) {
         this.stateMachine = stateMachine;
         this.leagueModel = leagueModel;
     }
-
 
     @Override
     public void entry() {
@@ -27,17 +31,21 @@ public class TrainingState implements ITransition {
 
     @Override
     public void task() {
-        //call the method to perform training.
+        System.out.println("Inside Training " + leagueModel + "" + stateMachine + "" + stateMachine.getCurrentDate());
+        iTraining = new Training();
+        iTraining.setInjuriesModel(leagueModel.getGameplayConfig().getInjuries());
+        for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
+            for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
+                for (TeamsModel teamsModel : divisonModel.getTeams()) {
+                    for (PlayerModel playerModel : teamsModel.getPlayers()) {
+                        iTraining.performTraining(playerModel, teamsModel.getHeadCoach(), stateMachine.getCurrentDate());
+                    }
+                }
+            }
+        }
     }
-
     @Override
     public void exit() {
-
-    }
-
-
-    //Dummy method will be replaced by Arth's code
-    void performTraining(LeagueModel leagueModel){
-        //perform task
+        return;
     }
 }

@@ -22,7 +22,7 @@ public class MockLeague {
         TradingModel tradingModel = new TradingModel ();
         tradingModel.setLossPoint (8);
         tradingModel.setMaxPlayersPerTrade (1);
-        tradingModel.setRandomAcceptanceChance (0.05f);
+        tradingModel.setRandomAcceptanceChance (1f);
         tradingModel.setRandomTradeOfferChance (0.05f);
 
         leagueModel.setLeagueName ("Dalhousie Hockey League");
@@ -77,7 +77,7 @@ public class MockLeague {
         teamsModel.setHeadCoach (headCoachModel);
         teamsModel.setGeneralManager ("Mister Fred");
         teamsModel.setTeamName ("Boston");
-        teamsModel.setUserCreatedTeam (true);
+        teamsModel.setUserCreatedTeam (false);
         boolean isCaptain = true;
         String playerName = "A";
         List<PlayerModel> playerModelObjectList = new ArrayList<> ();
@@ -105,7 +105,7 @@ public class MockLeague {
         teamsModel.setHeadCoach (headCoachModel);
         teamsModel.setGeneralManager ("Mister Fred");
         teamsModel.setTeamName ("Halifax");
-        teamsModel.setUserCreatedTeam (true);
+        teamsModel.setUserCreatedTeam (false);
         boolean isCaptain = true;
         String playerName = "C";
         List<PlayerModel> playerModelObjectList = new ArrayList<> ();

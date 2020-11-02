@@ -1299,16 +1299,6 @@
                 {
                   "playerName": "Agent One",
                   "position": "forward",
-                  "captain": false,
-                  "age": 25,
-                  "isPlayerRetired": false,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Agent Two",
-                  "position": "defense",
                   "captain": true,
                   "age": 25,
                   "isPlayerRetired": false,
@@ -1317,6 +1307,76 @@
                   "saving": 0.0
                 },
                 {
+                  "playerName": "Agent Two",
+                  "position": "defense",
+                  "captain": false,
+                  "age": 25,
+                  "isPlayerRetired": false,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 0.0
+                },
+                {
+                  "playerName": "Agent Three",
+                  "position": "goalie",
+                  "captain": false,
+                  "age": 25,
+                  "isPlayerRetired": false,
+                  "shooting": 5.0,
+                  "checking": 5.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "Agent One",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 25,
+                  "isPlayerRetired": false,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 0.0
+                },
+                {
+                  "playerName": "Agent Two",
+                  "position": "defense",
+                  "captain": false,
+                  "age": 25,
+                  "isPlayerRetired": false,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 0.0
+                },
+                {
+                  "playerName": "Agent Three",
+                  "position": "goalie",
+                  "captain": false,
+                  "age": 25,
+                  "isPlayerRetired": false,
+                  "shooting": 5.0,
+                  "checking": 5.0,
+                  "saving": 10.0
+                },
+                {
+                  "playerName": "Agent One",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 25,
+                  "isPlayerRetired": false,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 0.0
+                },
+                {
+                  "playerName": "Agent Two",
+                  "position": "defense",
+                  "captain": false,
+                  "age": 25,
+                  "isPlayerRetired": false,
+                  "shooting": 10.0,
+                  "checking": 10.0,
+                  "saving": 0.0
+                },
+                {
                   "playerName": "Agent Three",
                   "position": "goalie",
                   "captain": false,
@@ -1417,16 +1477,6 @@
                   "saving": 10.0
                 },
                 {
-                  "playerName": "Agent Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 25,
-                  "isPlayerRetired": false,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
                   "playerName": "Agent One",
                   "position": "forward",
                   "captain": false,
@@ -1439,56 +1489,6 @@
                 {
                   "playerName": "Agent Two",
                   "position": "defense",
-                  "captain": false,
-                  "age": 25,
-                  "isPlayerRetired": false,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Agent Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 25,
-                  "isPlayerRetired": false,
-                  "shooting": 5.0,
-                  "checking": 5.0,
-                  "saving": 10.0
-                },
-                {
-                  "playerName": "Agent One",
-                  "position": "forward",
-                  "captain": false,
-                  "age": 25,
-                  "isPlayerRetired": false,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Agent Two",
-                  "position": "defense",
-                  "captain": false,
-                  "age": 25,
-                  "isPlayerRetired": false,
-                  "shooting": 10.0,
-                  "checking": 10.0,
-                  "saving": 0.0
-                },
-                {
-                  "playerName": "Agent Three",
-                  "position": "goalie",
-                  "captain": false,
-                  "age": 25,
-                  "isPlayerRetired": false,
-                  "shooting": 5.0,
-                  "checking": 5.0,
-                  "saving": 10.0
-                },
-                {
-                  "playerName": "Agent One",
-                  "position": "forward",
                   "captain": false,
                   "age": 25,
                   "isPlayerRetired": false,
@@ -3650,15 +3650,6 @@
   ],
   "freeAgents": [
     {
-      "playerName": "Agent Two",
-      "position": "defense",
-      "age": 25,
-      "skating": 10.0,
-      "shooting": 10.0,
-      "checking": 10.0,
-      "saving": 0.0
-    },
-    {
       "playerName": "Agent Three",
       "position": "goalie",
       "age": 25,
@@ -3670,6 +3661,15 @@
     {
       "playerName": "Agent One",
       "position": "forward",
+      "age": 25,
+      "skating": 10.0,
+      "shooting": 10.0,
+      "checking": 10.0,
+      "saving": 0.0
+    },
+    {
+      "playerName": "Agent Two",
+      "position": "defense",
       "age": 25,
       "skating": 10.0,
       "shooting": 10.0,

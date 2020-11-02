@@ -2,17 +2,11 @@ package states;
 
 import cli.CreateTeamCli;
 import coach.CoachModel;
-import conference.ConferenceModel;
-import divison.DivisonModel;
 import league.ILeagueModel;
 import league.LeagueModel;
-
 import matchSchedules.PlayoffSchedule;
-
 import serializeObject.SerializeObject;
-
 import statemachine.StateMachine;
-import teams.TeamsModel;
 
 public class CreateTeamState implements ITransition {
     StateMachine stateMachine;
@@ -21,7 +15,6 @@ public class CreateTeamState implements ITransition {
     LeagueModel updatedLeagueModel;
     PlayerSeasonsChoiceState playerSeasonsChoiceState;
     ILeagueModel iLeagueModel;
-    PersistLeagueState persistLeagueState;
 
     public CreateTeamState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
@@ -34,7 +27,6 @@ public class CreateTeamState implements ITransition {
         this.stateMachine =stateMachine;
     }
 
-
     public StateMachine getStateMachine() {
         return stateMachine;
     }
@@ -42,15 +34,6 @@ public class CreateTeamState implements ITransition {
     public void setStateMachine(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
     }
-
-    public LeagueModel getCurrentModel() {
-        return currentModel;
-    }
-
-    public void setCurrentModel(LeagueModel currentModel) {
-        this.currentModel = currentModel;
-    }
-
 
     @Override
     public void entry() {

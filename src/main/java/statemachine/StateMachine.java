@@ -22,17 +22,11 @@ public class StateMachine {
 
     public StateMachine() {
 
-        System.out.println("Object of state machine is created " + this);
         importJson = new ImportJsonState(this);
-        System.out.println("Object of ImportJsonState is created " + importJson);
         playerTeamChoice = new PlayerTeamChoiceState(this);
-        System.out.println("Object of PlayerTeamChoiceState is created " + playerTeamChoice);
         loadTeam = new LoadTeamState(this);
-        System.out.println("Object of LoadTeamState is created " + loadTeam);
         createTeam = new CreateTeamState(this);
-        System.out.println("Object of CreateTeamState is created " + createTeam);
         playerSeasonsChoice = new PlayerSeasonsChoiceState(this);
-        System.out.println("Object of PlayerSeasonsChoiceState id created " + playerSeasonsChoice);
         persistLeagueState = new PersistLeagueState(this);
         initlailizeSeasonState = new InitializeSeasonState(this);
         trainingState = new TrainingState(this);
@@ -45,11 +39,11 @@ public class StateMachine {
     public ITransition getAgingState() {
         return agingState;
     }
+
     public void setAgingState(ITransition agingState) {
         this.agingState = agingState;
     }
 
-    //List of Getters and setters
     public ITransition getPersistLeagueState() {
         return persistLeagueState;
     }
@@ -106,7 +100,6 @@ public class StateMachine {
         this.createTeam = createTeam;
     }
 
-
     public ITransition getPersistLeagueStae() {
         return persistLeagueState;
     }
@@ -119,17 +112,7 @@ public class StateMachine {
         return playerSeasonsChoice;
     }
 
-    public void setPlayerSeasonsChoice(ITransition playerSeasonsChoice) {
-        this.playerSeasonsChoice = playerSeasonsChoice;
-    }
-//
-//    public ITransition getSimulate() {
-//        return simulate;
-//    }
-//
-//    public void setSimulate(ITransition simulate) {
-//        this.simulate = simulate;
-//    }
+    public void setPlayerSeasonsChoice(ITransition playerSeasonsChoice) { this.playerSeasonsChoice = playerSeasonsChoice; }
 
     public ITransition getCurrentState() {
         return currentState;
@@ -171,10 +154,7 @@ public class StateMachine {
         return playerSeasonsChoice;
     }
 
-
-    public void setInitlailizeSeasonState(ITransition initlailizeSeasonState) {
-        this.initlailizeSeasonState = initlailizeSeasonState;
-    }
+    public void setInitlailizeSeasonState(ITransition initlailizeSeasonState) { this.initlailizeSeasonState = initlailizeSeasonState; }
 
     public ITransition getInitlailizeSeasonState() {
         return initlailizeSeasonState;
@@ -196,11 +176,7 @@ public class StateMachine {
         this.injuryCheckState = injuryCheckState;
     }
 
-    public ITransition getTradingState() {
-        return tradingState;
-    }
+    public ITransition getTradingState() { return tradingState; }
 
-    public void setTradingState(ITransition tradingState) {
-        this.tradingState = tradingState;
-    }
+    public void setTradingState(ITransition tradingState) { this.tradingState = tradingState; }
 }

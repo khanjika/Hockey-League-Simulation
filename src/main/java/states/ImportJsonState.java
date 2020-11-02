@@ -1,26 +1,22 @@
 package states;
 
+import cli.IInitCli;
 import cli.InitialCli;
 import coach.CoachModel;
 import conference.ConferenceModel;
 import divison.DivisonModel;
-import gameplayconfig.AgingModel;
 import gameplayconfig.GamePlayConfigModel;
 import league.LeagueModel;
 import players.PlayerModel;
-import matchSchedules.IRegularSeasonSchedule;
-import matchSchedules.RegularSeasonSchedule;
-import serializeObject.SerializeObject;
 import statemachine.StateMachine;
 import teams.TeamsModel;
 
 public class ImportJsonState implements ITransition {
     StateMachine stateMachine;
-    InitialCli initialCli;
-    private boolean userInput;
+    IInitCli initialCli;
+    ITransition createTeamState;
     private String cliArgument;
     private LeagueModel inMemoryLeagueModel;
-    ITransition createTeamState;
 
     public ImportJsonState(StateMachine currentStateMachine) {
         stateMachine = currentStateMachine;

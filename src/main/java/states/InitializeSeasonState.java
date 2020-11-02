@@ -16,55 +16,54 @@ public class InitializeSeasonState implements ITransition {
 
     IDeadlines iDeadlines;
     StateMachine stateMachine;
-    LeagueModel updatedLeagueModel;
-    LeagueModel initialLeagueModel;
+    LeagueModel updatedLeagueModelObject;
+    LeagueModel initialLeagueModelObject;
     ITransition agingState;
     ITransition simulateGameState;
     IRegularSeasonSchedule iRegularSeasonSchedule;
     ITransition trainingState;
     ITransition tradingState;
     IPlayoffSchedule playoffSchedule;
-    private int year;
+    private int currentSimulationYear;
 
-    public InitializeSeasonState(StateMachine stateMachine) {
+    public InitializeSeasonState(StateMachine stateMachine){
+        this.stateMachine=stateMachine;
     }
-
     public InitializeSeasonState(StateMachine stateMachine, LeagueModel updatedLeagueModel, LeagueModel initialLeagueModel, int currentYear) {
         this.stateMachine = stateMachine;
-        this.updatedLeagueModel = updatedLeagueModel;
-        this.initialLeagueModel = initialLeagueModel;
-        year = currentYear;
+        this.updatedLeagueModelObject = updatedLeagueModel;
+        this.initialLeagueModelObject = initialLeagueModel;
+        currentSimulationYear = currentYear;
         iDeadlines = new Deadlines();
     }
 
     @Override
     public void entry() {
-        System.out.println("Seasone simualtion starts for the year-->" + year);
         iRegularSeasonSchedule = new RegularSeasonSchedule();
-        List<List<TeamsModel>> currentSeasonSchedule = iRegularSeasonSchedule.generateSeasonSchedule(updatedLeagueModel);
+        List<List<TeamsModel>> currentSeasonSchedule = iRegularSeasonSchedule.generateSeasonSchedule(updatedLeagueModelObject);
         int totalMatches = currentSeasonSchedule.size();
-        long availableDaysForMatches = DAYS.between(iDeadlines.getRegularSeasonStartDate(year), iDeadlines.getEndOfRegularSeasonDate(year + 1));
+        long availableDaysForMatches = DAYS.between(iDeadlines.getRegularSeasonStartDate(currentSimulationYear), iDeadlines.getEndOfRegularSeasonDate(currentSimulationYear + 1));
         long matchesPlayedInOneDay = totalMatches / availableDaysForMatches;
-        long availableDaysForTrade = DAYS.between(iDeadlines.getRegularSeasonStartDate(year), iDeadlines.getTradeDeadlineDate(year + 1));
-        LocalDate regularSeasonStartDate = iDeadlines.getRegularSeasonStartDate(year);
+        long availableDaysForTrade = DAYS.between(iDeadlines.getRegularSeasonStartDate(currentSimulationYear), iDeadlines.getTradeDeadlineDate(currentSimulationYear + 1));
+        LocalDate regularSeasonStartDate = iDeadlines.getRegularSeasonStartDate(currentSimulationYear);
         int currentDaysCount=0;
         LocalDate currentDate=regularSeasonStartDate;
         for (int i = 1; i <= availableDaysForMatches; i++) {
-            //cretae schedule each day
-            //ACTUAL CODE
-//            if (i % 100 == 0) {
-//                trainingState=new TrainingState(stateMachine,updatedLeagueModel);
-//                stateMachine.setTrainingState(trainingState);
-//                stateMachine.setCurrentState(stateMachine.getTrainingState());
-//                stateMachine.getCurrentState().entry();
-//            }
+            if (i % 100 == 0) {
+                System.out.println("Calling Training from Initialize season");
+                trainingState=new TrainingState(stateMachine,updatedLeagueModelObject);
+                stateMachine.setTrainingState(trainingState);
+                stateMachine.setCurrentDate(currentDate);
+                stateMachine.setCurrentState(stateMachine.getTrainingState());
+                stateMachine.getCurrentState().entry();
+            }
             //checking whether the days for trading are passed or not.
             currentDaysCount++;
             for (int j = (i - 1) * (int) matchesPlayedInOneDay; j < i * matchesPlayedInOneDay; j++) {
                 System.out.println(currentSeasonSchedule.get(j).get(0) + "---" + currentSeasonSchedule.get(j).get(1));
 
                 //here i have simulated the game
-                simulateGameState=new SimulateGameState(stateMachine,updatedLeagueModel,currentSeasonSchedule.get(j).get(0),currentSeasonSchedule.get(j).get(1));
+                simulateGameState=new SimulateGameState(stateMachine,updatedLeagueModelObject,currentSeasonSchedule.get(j).get(0),currentSeasonSchedule.get(j).get(1));
                 stateMachine.setSimulateGameState(simulateGameState);
                 stateMachine.setCurrentState(stateMachine.getSimulateGameState());
                 stateMachine.setCurrentDate(currentDate);
@@ -74,15 +73,15 @@ public class InitializeSeasonState implements ITransition {
             if(currentDaysCount<availableDaysForTrade){
                 //perform trading between two teams.
                 //ACTUAL CODE
-//                tradingState=new TradingState(stateMachine,updatedLeagueModel);
-//                stateMachine.setTradingState(tradingState);
-//                stateMachine.setCurrentState(stateMachine.getTradingState());
-//                stateMachine.getCurrentState().entry();
+                tradingState=new TradingState(stateMachine,updatedLeagueModelObject);
+                stateMachine.setTradingState(tradingState);
+                stateMachine.setCurrentState(stateMachine.getTradingState());
+                stateMachine.getCurrentState().entry();
 
             }
             // once all of this thing is complete i will perform aging on all the players by one day.
             //the below is the date i will pass for aging/injury check
-            agingState=new AgingState(stateMachine,updatedLeagueModel);
+            agingState=new AgingState(stateMachine,updatedLeagueModelObject);
             stateMachine.setAgingState(agingState);
             stateMachine.setCurrentState(stateMachine.getAgingState());
             stateMachine.setCurrentDate(currentDate);
@@ -93,7 +92,7 @@ public class InitializeSeasonState implements ITransition {
         }
 
         System.out.println("AGING COMPLETE PRINITING DATA");
-        for(ConferenceModel conferenceModel:updatedLeagueModel.getConferences()){
+        for(ConferenceModel conferenceModel:updatedLeagueModelObject.getConferences()){
             for(DivisonModel divisonModel:conferenceModel.getDivisions()){
                 for(TeamsModel teamsModel:divisonModel.getTeams()){
                     for(PlayerModel playerModel:teamsModel.getPlayers()){
@@ -102,32 +101,43 @@ public class InitializeSeasonState implements ITransition {
                 }
             }
         }
-        //PLayOff Starts Here
-        //ACTUAL CODE
-//        LocalDate playOffStartDate=iDeadlines.getPlayOffStartDate(year);
-//        currentDate=playOffStartDate;
-//        long availableDaysForPlayOff=DAYS.between(iDeadlines.getPlayOffStartDate(year), iDeadlines.getLastDayOfStanleyCup(year + 1));
-//        int trainingDaysPassed= (int) availableDaysForPlayOff;
-//        List<List<TeamsModel>> playOffSchedule = playoffSchedule.generatePlayoffSchedule(updatedLeagueModel);
-//        int numberOfPlayOffMatch=playOffSchedule.size();
-//        for(int i=0;i<numberOfPlayOffMatch;i++){
-//            if(trainingDaysPassed%100==0){
-//                //perform training
-//                trainingState=new TrainingState(stateMachine,updatedLeagueModel);
-//                stateMachine.setTrainingState(trainingState);
-//                stateMachine.setCurrentState(stateMachine.getTrainingState());
-//                stateMachine.getCurrentState().entry();
-//            }
-//            //performing game between two teams
-//            simulateGameState=new SimulateGameState(stateMachine,updatedLeagueModel,playOffSchedule.get(i).get(0),playOffSchedule.get(i).get(1));
-//            stateMachine.setSimulateGameState(simulateGameState);
-//            stateMachine.setCurrentState(stateMachine.getSimulateGameState());
-//            stateMachine.setCurrentDate(currentDate);
-//            stateMachine.getCurrentState().entry();
-//            trainingDaysPassed++;
-//            currentDate=playOffStartDate.plusDays(i);
-//        }
 
+        LocalDate playOffStartDate=iDeadlines.getPlayOffStartDate(currentSimulationYear);
+        currentDate=playOffStartDate;
+        long availableDaysForPlayOff=DAYS.between(iDeadlines.getPlayOffStartDate(currentSimulationYear), iDeadlines.getLastDayOfStanleyCup(currentSimulationYear + 1));
+        int trainingDaysPassed= (int) availableDaysForPlayOff;
+        playoffSchedule=new PlayoffSchedule();
+        List<List<TeamsModel>> playOffSchedule = playoffSchedule.generatePlayoffSchedule(updatedLeagueModelObject);
+        int numberOfPlayOffMatch=playOffSchedule.size();
+        for(int i=0;i<numberOfPlayOffMatch;i++){
+            if(trainingDaysPassed%100==0){
+                //perform training
+                trainingState=new TrainingState(stateMachine,updatedLeagueModelObject);
+                stateMachine.setTrainingState(trainingState);
+                stateMachine.setCurrentState(stateMachine.getTrainingState());
+                stateMachine.getCurrentState().entry();
+            }
+            //performing game between two teams
+            simulateGameState=new SimulateGameState(stateMachine,updatedLeagueModelObject,playOffSchedule.get(i).get(0),playOffSchedule.get(i).get(1));
+            stateMachine.setSimulateGameState(simulateGameState);
+            stateMachine.setCurrentState(stateMachine.getSimulateGameState());
+            stateMachine.setCurrentDate(currentDate);
+            stateMachine.getCurrentState().entry();
+            trainingDaysPassed++;
+            currentDate=playOffStartDate.plusDays(i);
+        }
+
+        TeamsModel winnerTeam = new TeamsModel();
+        for(List<TeamsModel> list:playOffSchedule){
+            for(TeamsModel teamsModel:list){
+              if(teamsModel.getWinPoint()>winnerTeam.getWinPoint()){
+                  winnerTeam=teamsModel;
+              }
+            }
+        }
+
+        System.out.println("Staly Cup Winner Determined");
+        System.out.println("Winner is "+winnerTeam.getTeamName()+ " With Points "+winnerTeam.getWinPoint());
         task();
     }
 
