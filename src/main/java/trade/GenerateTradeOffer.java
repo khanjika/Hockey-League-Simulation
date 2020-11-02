@@ -7,8 +7,6 @@ import gameplayconfig.TradingModel;
 import league.LeagueModel;
 import teams.TeamsModel;
 
-import java.util.Random;
-
 
 public class GenerateTradeOffer implements IGenerateTradeOffer {
     ITradeTeamPojo tradingTeamDetails = new TradeTeamPojo ();
@@ -23,19 +21,11 @@ public class GenerateTradeOffer implements IGenerateTradeOffer {
         }
     }
 
-    public float generateRandomNumber() {
-        Random random = new Random ();
-        float randomNo = 0;
-        randomNo = random.nextFloat ();
-        return randomNo;
-    }
 
     public boolean makeTradeOffer(TradingModel tradeModel) {
-        //Uncomment this
-        //float randomNo = generateRandomNumber();
-        float randomNo = 0.02f;
         float tradeChance = tradeModel.getRandomTradeOfferChance ();
-        if (randomNo < tradeChance) {
+        //if (Math.random () < tradeChance) {
+        if (0.01f < tradeChance) {
             return true;
         } else {
             return false;
@@ -43,40 +33,42 @@ public class GenerateTradeOffer implements IGenerateTradeOffer {
     }
 
     @Override
-    public boolean checkTrading(LeagueModel leagueModel) {
+    public LeagueModel checkTrading(LeagueModel leagueModel) {
         GamePlayConfigModel gameConfig = leagueModel.getGameplayConfig ();
         TradingModel tradeModel = gameConfig.getTrading ();
-        for (ConferenceModel conference : leagueModel.getConferences ()) {
-            String conferenceName = conference.getConferenceName ();
-            for (DivisonModel division : conference.getDivisions ()) {
-                String divisionName = division.getDivisionName ();
-                for (TeamsModel team : division.getTeams ()) {
-                    String teamName = team.getTeamName ();
-                    if (team.isUserCreatedTeam () == false) {
-                        //Fetch lossMatch value
-                        float lossMatches = 9;
-                        //Get the loss point of the team
-                        if (calculateLossPoint (lossMatches, tradeModel)) {
-                            if (makeTradeOffer (tradeModel)) {
-                                //set the tradeloss point to zero here
-                                FindPlayerToSwap findPlayer = new FindPlayerToSwap ();
-                                tradingTeamDetails.setConferenceName (conferenceName);
-                                tradingTeamDetails.setDivisionName (divisionName);
-                                tradingTeamDetails.setTeamName (teamName);
-                                tradingTeamDetails.setUserCreated (false);
-                                tradePlayers.swapPlayer (team, tradeModel, leagueModel, tradingTeamDetails);
-                            } else {
-                                return false;
+        if (leagueModel == null) {
+            System.out.println ("League Model is null");
+            return leagueModel;
+        } else {
+            for (ConferenceModel conference : leagueModel.getConferences ()) {
+                String conferenceName = conference.getConferenceName ();
+                for (DivisonModel division : conference.getDivisions ()) {
+                    String divisionName = division.getDivisionName ();
+                    for (TeamsModel team : division.getTeams ()) {
+                        String teamName = team.getTeamName ();
+                        if (team.isUserCreatedTeam () == false) {
+                            //Uncomment the below statement
+                            //float lossPoint = team.getLossPoint ();
+                            float lossPoint = 9;
+                            if (calculateLossPoint (lossPoint, tradeModel)) {
+                                if (makeTradeOffer (tradeModel)) {
+                                    //set the tradeloss point to zero here
+                                    System.out.println ("Trade initiated by team:" + " " + teamName);
+                                    tradingTeamDetails.setConferenceName (conferenceName);
+                                    tradingTeamDetails.setDivisionName (divisionName);
+                                    tradingTeamDetails.setTeamName (teamName);
+                                    tradingTeamDetails.setUserCreated (false);
+                                    tradePlayers.findPlayersToSwap (leagueModel, team, tradingTeamDetails);
+                                }
                             }
-                        } else {
-                            return false;
                         }
                     }
                 }
             }
+            return leagueModel;
         }
-        return false;
     }
+
 }
 
 

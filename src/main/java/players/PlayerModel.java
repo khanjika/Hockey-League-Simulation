@@ -25,7 +25,6 @@ public class PlayerModel implements IPlayerModel {
     private Boolean captain;
     @Expose
     private int age;
-    @Expose
     private boolean isPlayerRetired;
     private int days;
     private float skating;
@@ -249,9 +248,9 @@ public class PlayerModel implements IPlayerModel {
                 int injuryDaysLow = injuriesModel.getInjuryDaysLow();
                 int injuryDaysHigh = injuriesModel.getInjuryDaysHigh();
                 Random randomObj = new Random();
-                float injuryChance = randomObj.nextFloat();
-                int injuryDays = randomObj.nextInt(injuryDaysHigh - injuryDaysLow) + injuryDaysLow;
-                if (injuryChance > randomInjuryChance) {
+                float injuryChance= randomObj.nextFloat();
+                int injuryDays = randomObj.nextInt(injuryDaysHigh - injuryDaysLow)+injuryDaysLow;
+                if(injuryChance > randomInjuryChance){
                     playerModel.setPlayerInjured(true);
                     playerModel.setInjuryDays(injuryDays);
                     playerModel.setInjuredDate(date);

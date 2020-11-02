@@ -1,15 +1,19 @@
 package serializeObject;
 
+import cli.CliCommunication;
 import league.LeagueModel;
+import league.LeagueModelTest;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class SerializeObjectTest {
     @Test
-    void serializeLeagueObjectTest(){
-        LeagueModel leagueModel = new LeagueModel();
+    void serializeLeagueObjectTest() {
+        LeagueModel leagueModel = LeagueModelTest.getLeagueObject();
         SerializeObject serializeObject = new SerializeObject();
-        assertTrue(serializeObject.serializeLeagueObject(leagueModel));
+        serializeObject.serializeLeagueObject(leagueModel);
+        CliCommunication cliCommunication = new CliCommunication();
+        assertNotNull(cliCommunication.parseJson("test.JSON"));
     }
 }

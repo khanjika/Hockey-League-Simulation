@@ -7,16 +7,15 @@ import league.LeagueModel;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class SerializeObject {
-    public boolean serializeLeagueObject(LeagueModel leagueModel) {
+public class SerializeObject implements  ISerializeObject{
+    @Override
+    public void serializeLeagueObject(LeagueModel leagueModel) {
 
         Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
         try (FileWriter writer = new FileWriter("test.JSON")) {
             gson.toJson(leagueModel, writer);
         } catch (IOException exception) {
-            return false;
-//            exception.printStackTrace();
+            exception.printStackTrace();
         }
-        return true;
     }
 }

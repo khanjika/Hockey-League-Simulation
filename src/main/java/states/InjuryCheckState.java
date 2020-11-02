@@ -28,8 +28,8 @@ public class InjuryCheckState implements ITransition {
         //System.out.println("Injury check state constructor "+leagueModel+"      " + stateMachine+"  "+ teamsModel);
         this.stateMachine = stateMachine;
         this.leagueModel = leagueModel;
-        this.teamsModelTemp = teamsModel;
-        currentDate = stateMachine.getCurrentDate();
+        this.teamsModelTemp=teamsModel;
+        currentDate =stateMachine.getCurrentDate();
     }
 
     @Override

@@ -17,5 +17,6 @@ class FreeAgentValidatorTest {
         assertTrue(freeAgentValidator.validateFreeAgentObject(freeAgentModel));
         FreeAgentModel freeAgentModel1 = MockFreeAgent.getInvalidFreeAgentModel();
         assertFalse(freeAgentValidator.validateFreeAgentObject(freeAgentModel1));
+
     }
 }
