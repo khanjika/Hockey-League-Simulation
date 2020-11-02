@@ -86,7 +86,7 @@ public class CliCommunication implements ICliCommunication {
     }
 
     @Override
-    public LeagueModel calculateStrength(LeagueModel leagueModel) throws Exception {
+    public LeagueModel calculateStrength(LeagueModel leagueModel) {
         LeagueModel updatedLeagueModel = leagueModel;
         for(ConferenceModel conferenceModel:updatedLeagueModel.getConferences()){
             for(DivisonModel divisonModel:conferenceModel.getDivisions()){

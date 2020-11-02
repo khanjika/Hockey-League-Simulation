@@ -11,6 +11,7 @@ public class SortTeamsTest {
 
     SortTeams sort = new SortTeams ();
 
+
     @Test
     void sortPlayersAscending() {
         MockLeague league = new MockLeague ();
