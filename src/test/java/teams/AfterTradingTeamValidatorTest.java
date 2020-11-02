@@ -95,4 +95,36 @@ public class AfterTradingTeamValidatorTest {
         Assert.assertEquals (playersList.size (), 3);
         Assert.assertEquals (freeAgents.size (), 13);
     }
+
+    @Test
+    void addGoaliesFromFreeagent() {
+        MockLeague league = new MockLeague ();
+        List<PlayerModel> playersList = new ArrayList<> ();
+        List<FreeAgentModel> freeAgents = new ArrayList ();
+
+        playersList = league.getLeagueObject ().getConferences ().get (0).getDivisions ().get (0).getTeams ().get (0).getPlayers ();
+        freeAgents = league.getLeagueObject ().getFreeAgents ();
+        int goaliesRequired = 1;
+        validator.addGoaliesFromFreeagent (goaliesRequired, playersList, freeAgents);
+
+        Assert.assertEquals (playersList.size (), 5);
+        Assert.assertEquals (freeAgents.size (), 11);
+    }
+
+    @Test
+    void addSkatersFromFreeagent(){
+        MockLeague league = new MockLeague ();
+        List<PlayerModel> playersList = new ArrayList<> ();
+        List<FreeAgentModel> freeAgents = new ArrayList ();
+
+        playersList = league.getLeagueObject ().getConferences ().get (0).getDivisions ().get (0).getTeams ().get (0).getPlayers ();
+        freeAgents = league.getLeagueObject ().getFreeAgents ();
+        int skatersRequired = 1;
+        validator.addSkatersFromFreeagent (skatersRequired, playersList, freeAgents);
+
+        Assert.assertEquals (playersList.size (), 5);
+        Assert.assertEquals (freeAgents.size (), 11);
+    }
+
+
 }
