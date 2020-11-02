@@ -7,5 +7,5 @@ import teams.TeamsModel;
 public interface IFindPlayerToSwap {
     LeagueModel findPlayersToSwap(LeagueModel league, TeamsModel team, ITradeTeamPojo tradingTeamDetails);
 
-    TradeModel offeredPlayer(TeamsModel team, TradingModel tradeModel);
+    ITradeModel offeredPlayer(TeamsModel team, TradingModel tradeModel);
 }

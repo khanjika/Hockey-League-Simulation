@@ -17,12 +17,13 @@ import static java.time.temporal.ChronoUnit.DAYS;
 
 public class AgingState implements ITransition{
 
+    IDeadlines iDeadlines;
     StateMachine stateMachine;
     LeagueModel leagueModel;
     LocalDate currentDate;
     IPlayerModel iPlayerModel;
     private int daysToAge;
-    IDeadlines iDeadlines;
+
 
     public AgingState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
@@ -32,37 +33,29 @@ public class AgingState implements ITransition{
         this.leagueModel = leagueModel;
         iDeadlines=new Deadlines();
     }
-    void setCurrentDate(LocalDate date){
-        this.currentDate=date;
-    }
     @Override
     public void entry() {
         task();
     }
     @Override
     public void task() {
-      //  System.out.println("In the task method Of the Aging State");
-        //Perform aging
         iPlayerModel=new PlayerModel();
         daysToAge=1;
         currentDate=stateMachine.getCurrentDate();
-        System.out.println(currentDate);
         int currentYear=currentDate.getYear();
         long tempDays = DAYS.between(currentDate, iDeadlines.getEndOfRegularSeasonDate(currentYear));
         System.out.println(tempDays);
         if(tempDays==1){
-            System.out.println("DIFFERENCE BETWEEN TWO DAYS IS ZERO" + tempDays);
                 daysToAge=183;
         }
         GamePlayConfigModel gamePlayConfigModel=leagueModel.getGameplayConfig();
         iPlayerModel.setAgingModel(gamePlayConfigModel.getAging());
-       // System.out.println("INSIDE THE AGING STATE PRINITNG FREE AGENT "+leagueModel.getFreeAgents().size());
         iPlayerModel.setFreeAgentsList(leagueModel.getFreeAgents());
         for(ConferenceModel conferenceModel:leagueModel.getConferences()){
             for(DivisonModel divisonModel:conferenceModel.getDivisions()){
                 for(TeamsModel teamsModel:divisonModel.getTeams()){
                         for(PlayerModel playerModelTemp:teamsModel.getPlayers()){
-                            iPlayerModel.aging(playerModelTemp,daysToAge);
+                            iPlayerModel.aging(playerModelTemp,daysToAge,currentDate);
                         }
                     }
                 }

@@ -24,8 +24,7 @@ public class GenerateTradeOffer implements IGenerateTradeOffer {
 
     public boolean makeTradeOffer(TradingModel tradeModel) {
         float tradeChance = tradeModel.getRandomTradeOfferChance ();
-        //if (Math.random () < tradeChance) {
-        if (0.01f < tradeChance) {
+        if (Math.random () < tradeChance) {
             return true;
         } else {
             return false;
@@ -47,9 +46,7 @@ public class GenerateTradeOffer implements IGenerateTradeOffer {
                     for (TeamsModel team : division.getTeams ()) {
                         String teamName = team.getTeamName ();
                         if (team.isUserCreatedTeam () == false) {
-                            //Uncomment the below statement
-                            //float lossPoint = team.getLossPoint ();
-                            float lossPoint = 9;
+                            float lossPoint = team.getLossPoint ();
                             if (calculateLossPoint (lossPoint, tradeModel)) {
                                 if (makeTradeOffer (tradeModel)) {
                                     //set the tradeloss point to zero here

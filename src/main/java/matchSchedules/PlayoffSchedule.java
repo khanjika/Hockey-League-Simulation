@@ -19,12 +19,13 @@ public class PlayoffSchedule implements IPlayoffSchedule {
         for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
             for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
                 Collections.sort(divisonModel.getTeams(), teamModelComparator);
-                List<TeamsModel> temp = new ArrayList<>();
+                List<TeamsModel> subList = new ArrayList<>();
+                System.out.println(divisonModel.getTeams().size());
                 for (int i = 0; i < 3; i++) {
-                    temp.add(divisonModel.getTeams().get(i));
+                    subList.add(divisonModel.getTeams().get(i));
                     allTheTopTeams.add(divisonModel.getTeams().get(i));
                 }
-                topTeamFromDivisionList.add(temp);
+                topTeamFromDivisionList.add(subList);
             }
         }
         List<TeamsModel> wildCardTeam = getWildCardTeam(leagueModel);

@@ -26,21 +26,8 @@ public class PlayerSeasonsChoiceState implements ITransition {
         return stateMachine;
     }
 
-//    public LeagueModel getCurrentModel() {
-//        return currentModel;
-//    }
-//
-//    public void setCurrentModel(LeagueModel currentModel) {
-//        this.currentModel = currentModel;
-//    }
-
     public void setStateMachine(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
-    }
-
-    @Override
-    public void entry() {
-        task();
     }
 
     public Integer getEnteredInput() {
@@ -49,6 +36,11 @@ public class PlayerSeasonsChoiceState implements ITransition {
 
     public void setEnteredInput(Integer enteredInput) {
         this.enteredInput = enteredInput;
+    }
+
+    @Override
+    public void entry() {
+        task();
     }
 
     @Override
@@ -63,10 +55,8 @@ public class PlayerSeasonsChoiceState implements ITransition {
     @Override
     public void exit() {
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
-        System.out.println(currentYear);
         for (int i = 0; i < enteredInput; i++) {
-//            System.out.println("Simulation Has been Started For Season " + i);
-            initializeSeasonState = new InitializeSeasonState(stateMachine,currentModel,currentModel,currentYear+i);
+            initializeSeasonState = new InitializeSeasonState(stateMachine,currentModel,currentYear+i);
             stateMachine.setInitlailizeSeasonState(initializeSeasonState);
             stateMachine.setCurrentState(stateMachine.getInitlailizeSeasonState());
             stateMachine.getCurrentState().entry();

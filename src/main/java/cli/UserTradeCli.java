@@ -1,14 +1,14 @@
 package cli;
 
 import players.PlayerModel;
-import trade.TradeModel;
+import trade.ITradeModel;
 
 import java.util.Scanner;
 
 
 public class UserTradeCli implements IUserTradeCli {
     @Override
-    public int displayTeamDetails(TradeModel trade) {
+    public int displayTeamDetails(ITradeModel trade) {
         System.out.println ("The players offered and their statistics:-");
         for (int i = 0; i < trade.getOfferedPlayer ().size (); i++) {
             PlayerModel player = trade.getOfferedPlayer ().get (i);

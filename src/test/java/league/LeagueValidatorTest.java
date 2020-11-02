@@ -13,7 +13,6 @@ class LeagueValidatorTest {
     void validateLeagueObject() throws Exception {
         LeagueModel leagueModel = LeagueModelTest.getLeagueObject();
         LeagueValidator leagueValidator =new LeagueValidator();
-        //update to true
         assertTrue(leagueValidator.validateLeagueObject(leagueModel));
     }
 }

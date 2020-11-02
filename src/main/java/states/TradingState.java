@@ -2,11 +2,14 @@ package states;
 
 import league.LeagueModel;
 import statemachine.StateMachine;
+import trade.GenerateTradeOffer;
+import trade.IGenerateTradeOffer;
 
 public class TradingState implements ITransition {
 
     StateMachine stateMachine;
     LeagueModel leagueModel;
+    IGenerateTradeOffer iGenerateTradeOffer;
 
     public TradingState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
@@ -19,22 +22,18 @@ public class TradingState implements ITransition {
 
     @Override
     public void entry() {
-        System.out.println("Inside Trading address=>" + leagueModel);
         task();
     }
 
     @Override
     public void task() {
-
+        iGenerateTradeOffer=new GenerateTradeOffer();
+        iGenerateTradeOffer.checkTrading(leagueModel);
+        exit();
     }
 
     @Override
     public void exit() {
-
-    }
-
-    //Dummy method will be replaced by Khnajika's method
-    void performTrading(LeagueModel leagueModel) {
-        //perform task
+        return;
     }
 }
