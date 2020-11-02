@@ -156,7 +156,7 @@ public class AfterTradingTeamValidator implements IAfterTradingTeamValidator {
         List<FreeAgentModel> agentsRemoved = new ArrayList<> ();
         List<FreeAgentModel> sortFreeAgent = sort.sortFreeAgentDescending (freeAgents);
         for (int i = 0; i < sortFreeAgent.size (); i++) {
-            if (counter <= goaliesRequired && sortFreeAgent.get (i).getPosition ().equals (playerPosition.goalie.toString ())) {
+            if (counter < goaliesRequired && sortFreeAgent.get (i).getPosition ().equals (playerPosition.goalie.toString ())) {
                 counter++;
                 FreeAgentModel f = freeAgents.get (i);
                 addingPlayer (f, players);
