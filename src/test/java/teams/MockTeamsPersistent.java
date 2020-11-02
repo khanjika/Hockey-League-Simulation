@@ -22,7 +22,6 @@ class MockTeamsPersistent {
         return 1;
     }
 
-
     int addGeneralManagerDetails() {
         return 1;
     }

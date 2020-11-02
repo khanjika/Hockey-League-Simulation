@@ -60,13 +60,6 @@ public class RegularSeasonSchedule implements IRegularSeasonSchedule {
                 }
             }
         }
-
-
-        System.out.println(regularSchedule.size());
-        for(List<TeamsModel> list : regularSchedule){
-            System.out.println(list.get(0).getTeamName()+"--"+list.get(1).getTeamName());
-        }
-
         return regularSchedule;
     }
 

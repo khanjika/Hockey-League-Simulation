@@ -1,10 +1,14 @@
 
 package statesTest;
 
+import league.LeagueModel;
 import org.junit.jupiter.api.Test;
 import statemachine.StateMachine;
 import states.CreateTeamState;
+import trade.MockLeague;
 
+
+import java.io.ByteArrayInputStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 public class CreateTeamStateTest {
@@ -35,12 +39,13 @@ public class CreateTeamStateTest {
             teamState.setStateMachine(stateMachine);
             StateMachine currentState = teamState.getStateMachine();
             assertNotNull(currentState);
-
         }
         catch(Exception exception){
             fail("State not set for create team. Got an Exception");
         }
     }
+
+
 }
 
 

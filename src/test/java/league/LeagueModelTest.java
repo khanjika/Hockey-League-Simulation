@@ -7,6 +7,11 @@ import conference.ConferenceModelTest;
 import divison.DivisonModel;
 import freeagent.FreeAgentModel;
 import freeagent.FreeAgentModelTest;
+import gameplayconfig.GamePlayConfigModel;
+import gameplayconfig.TradingModel;
+import gameplayconfig.TradingModelTest;
+import mock.MockCoach;
+import mock.MockFreeAgent;
 import gameplayconfig.*;
 import org.junit.jupiter.api.Test;
 import players.PlayerModel;
@@ -79,17 +84,15 @@ public class LeagueModelTest {
         leagueModel.setConferences(conferenceModelObjectList);
         List<FreeAgentModel> freeAgentModelList = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
-            FreeAgentModel freeAgentModel = FreeAgentModelTest.getFreeAgentModel("Roshan", "forward", false);
-            FreeAgentModel freeAgentModel1 = FreeAgentModelTest.getFreeAgentModel("Arthy", "defense", false);
-            FreeAgentModel freeAgentModel2 = FreeAgentModelTest.getFreeAgentModel("Zankruth", "goalie", false);
+            FreeAgentModel freeAgentModel = MockFreeAgent.getFreeAgentModel();
             freeAgentModelList.add(freeAgentModel);
-            freeAgentModelList.add((freeAgentModel1));
-            freeAgentModelList.add(freeAgentModel2);
         }
         leagueModel.setFreeAgents(freeAgentModelList);
         List<CoachModel> coachModelsList = new ArrayList<>();
         for (int i = 0;i < 3; i++){
-            CoachModel coachModel = CoachModelTest.getCoachModel("Arthy", 2.0f,5.0f,6.0f,7.0f);
+            //CoachModel coachModel = CoachModelTest.getCoachModel("Arthy", 2.0f,5.0f,6.0f,7.0f);
+            CoachModel coachModel = MockCoach.getValidCoachModel();
+            System.out.println(coachModel);
             coachModelsList.add(coachModel);
         }
         List<String> generalManagers = new ArrayList<String>(){

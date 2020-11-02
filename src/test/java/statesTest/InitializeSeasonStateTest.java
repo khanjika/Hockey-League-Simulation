@@ -1,7 +1,8 @@
-package states;
+package statesTest;
 
 import org.junit.jupiter.api.Test;
 import statemachine.StateMachine;
+import states.InitializeSeasonState;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -13,12 +14,13 @@ class InitializeSeasonStateTest {
             StateMachine stateMachine = new StateMachine();
             InitializeSeasonState initializeSeasonState = new InitializeSeasonState(stateMachine);
             stateMachine.setCurrentState(initializeSeasonState);
-            //assertNotNull(currentState);
+
         }
         catch(Exception exception){
             fail("State is not valid. Got an Exception");
         }
     }
+
 
 
 }

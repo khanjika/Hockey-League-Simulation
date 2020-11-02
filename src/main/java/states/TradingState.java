@@ -29,6 +29,7 @@ public class TradingState implements ITransition {
     public void task() {
         iGenerateTradeOffer=new GenerateTradeOffer();
         iGenerateTradeOffer.checkTrading(leagueModel);
+        exit();
     }
 
     @Override

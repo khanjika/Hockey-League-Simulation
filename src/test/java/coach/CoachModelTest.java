@@ -25,66 +25,56 @@ public class CoachModelTest {
     @Test
     void getCoachSkating() {
         CoachModel coachModel = new CoachModel();
-        coachModel.setSkating(2.0f);
-        assertEquals(2.0f,coachModel.getSkating(),"Failed to get Coach Skating in Coach object");
+        coachModel.setSkating(0.2f);
+        assertEquals(0.2f,coachModel.getSkating(),"Failed to get Coach Skating in Coach object");
     }
 
     @Test
     void setCoachSkating() {
         CoachModel coachModel = new CoachModel();
-        coachModel.setSkating(2.0f);
-        assertEquals(2.0f,coachModel.getSkating(),"Failed to set Coach Skating in Coach object");
+        coachModel.setSkating(0.2f);
+        assertEquals(0.2f,coachModel.getSkating(),"Failed to set Coach Skating in Coach object");
     }
 
     @Test
     void getCoachShooting() {
         CoachModel coachModel = new CoachModel();
-        coachModel.setShooting(2.0f);
-        assertEquals(2.0f,coachModel.getShooting(),"Failed to get Coach Shooting in Coach object");
+        coachModel.setShooting(0.2f);
+        assertEquals(0.2f,coachModel.getShooting(),"Failed to get Coach Shooting in Coach object");
     }
 
     @Test
     void setCoachShooting() {
         CoachModel coachModel = new CoachModel();
-        coachModel.setShooting(2.0f);
-        assertEquals(2.0f,coachModel.getShooting(),"Failed to set Coach Shooting in Coach object");
+        coachModel.setShooting(0.2f);
+        assertEquals(0.2f,coachModel.getShooting(),"Failed to set Coach Shooting in Coach object");
     }
 
     @Test
     void getCoachChecking() {
         CoachModel coachModel = new CoachModel();
-        coachModel.setChecking(2.0f);
-        assertEquals(2.0f,coachModel.getChecking(),"Failed to get Coach Checking in Coach object");
+        coachModel.setChecking(0.2f);
+        assertEquals(0.2f,coachModel.getChecking(),"Failed to get Coach Checking in Coach object");
     }
 
     @Test
     void setCoachChecking() {
         CoachModel coachModel = new CoachModel();
-        coachModel.setChecking(2.0f);
-        assertEquals(2.0f,coachModel.getChecking(),"Failed to set Coach Checking in Coach object");
+        coachModel.setChecking(0.2f);
+        assertEquals(0.2f,coachModel.getChecking(),"Failed to set Coach Checking in Coach object");
     }
 
     @Test
     void getCoachSaving() {
         CoachModel coachModel = new CoachModel();
-        coachModel.setSaving(2.0f);
-        assertEquals(2.0f,coachModel.getSaving(),"Failed to get Coach Saving in Coach object");
+        coachModel.setSaving(0.2f);
+        assertEquals(0.2f,coachModel.getSaving(),"Failed to get Coach Saving in Coach object");
     }
 
     @Test
     void setCoachSaving() {
         CoachModel coachModel = new CoachModel();
-        coachModel.setSaving(2.0f);
-        assertEquals(2.0f,coachModel.getSaving(),"Failed to set Coach Saving in Coach object");
-    }
-
-    public static CoachModel getCoachModel(String name, float skating, float shooting, float checking, float saving){
-        CoachModel coachModel = new CoachModel();
-        coachModel.setName(name);
-        coachModel.setSkating(skating);
-        coachModel.setShooting(shooting);
-        coachModel.setSaving(saving);
-        coachModel.setChecking(checking);
-        return coachModel;
+        coachModel.setSaving(0.2f);
+        assertEquals(0.2f,coachModel.getSaving(),"Failed to set Coach Saving in Coach object");
     }
 }

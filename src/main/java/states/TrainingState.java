@@ -31,7 +31,6 @@ public class TrainingState implements ITransition {
 
     @Override
     public void task() {
-        System.out.println("Inside Training " + leagueModel + "" + stateMachine + "" + stateMachine.getCurrentDate());
         iTraining = new Training();
         iTraining.setInjuriesModel(leagueModel.getGameplayConfig().getInjuries());
         for (ConferenceModel conferenceModel : leagueModel.getConferences()) {

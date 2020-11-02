@@ -22,7 +22,6 @@ public class StateMachine {
 
     public StateMachine() {
         importJson = new ImportJsonState(this);
-        playerTeamChoice = new PlayerTeamChoiceState(this);
         loadTeam = new LoadTeamState(this);
         createTeam = new CreateTeamState(this);
         playerSeasonsChoice = new PlayerSeasonsChoiceState(this);

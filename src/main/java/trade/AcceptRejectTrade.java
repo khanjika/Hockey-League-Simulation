@@ -4,6 +4,8 @@ import conference.ConferenceModel;
 import divison.DivisonModel;
 import league.LeagueModel;
 import players.PlayerModel;
+import teams.AfterTradingTeamValidator;
+import teams.IAfterTradingTeamValidator;
 import teams.TeamsModel;
 
 import java.util.ArrayList;
@@ -11,11 +13,10 @@ import java.util.List;
 
 public class AcceptRejectTrade implements IAcceptRejectTrade {
 
-    ISortTeams sort = new SortTeams ();
-    IGenerateRandomNo random = new GenerateRandomNo ();
+    IAfterTradingTeamValidator teamValidator = new AfterTradingTeamValidator ();
 
     @Override
-    public LeagueModel acceptRejectTrade(ITradeTeamPojo team2, ITradeTeamPojo team1, TradeModel trade, LeagueModel leagueModel) {
+    public LeagueModel acceptRejectTrade(ITradeTeamPojo team2, ITradeTeamPojo team1, ITradeModel trade, LeagueModel leagueModel) {
         float offeredPlayerStrength = 0;
         float requestedPlayerStrength = 0;
         int noOfPlayersToSwap = trade.getOfferedPlayer ().size ();
@@ -29,30 +30,27 @@ public class AcceptRejectTrade implements IAcceptRejectTrade {
         }
 
         if (offeredPlayerStrength > requestedPlayerStrength) {
-            //Trade is accepted
             leagueModel = tradeAccepted (team2, team1, trade, leagueModel);
         } else {
-            //Trade is rejected
             leagueModel = tradeRejected (team2, team1, leagueModel, trade);
         }
         return leagueModel;
     }
 
     @Override
-    public LeagueModel tradeRejected(ITradeTeamPojo team2, ITradeTeamPojo team1, LeagueModel leagueModel, TradeModel trade) {
+    public LeagueModel tradeRejected(ITradeTeamPojo team2, ITradeTeamPojo team1, LeagueModel leagueModel, ITradeModel trade) {
         float randomAcceptanceChance = leagueModel.getGameplayConfig ().getTrading ().getRandomAcceptanceChance ();
 
-        float randomNo = random.generateRandomNumber ();
-
-        if (randomNo < randomAcceptanceChance) {
+        //if (Math.random () < randomAcceptanceChance) {
+        if (0.01f < randomAcceptanceChance) {
             leagueModel = tradeAccepted (team2, team1, trade, leagueModel);
         }
         return leagueModel;
     }
 
     @Override
-    public LeagueModel tradeAccepted(ITradeTeamPojo team2, ITradeTeamPojo team1, TradeModel trade, LeagueModel league) {
-
+    public LeagueModel tradeAccepted(ITradeTeamPojo team2, ITradeTeamPojo team1, ITradeModel trade, LeagueModel league) {
+        System.out.println ("Trade is accepted");
         boolean successTeam1 = false;
         boolean successTeam2 = false;
 
@@ -64,6 +62,7 @@ public class AcceptRejectTrade implements IAcceptRejectTrade {
         String TradingDivision2 = team2.getDivisionName ();
         String TradingConference2 = team2.getConferenceName ();
 
+
         for (ConferenceModel conference : league.getConferences ()) {
             for (DivisonModel division : conference.getDivisions ()) {
                 for (TeamsModel team : division.getTeams ()) {
@@ -72,9 +71,13 @@ public class AcceptRejectTrade implements IAcceptRejectTrade {
                     String conferenceName = conference.getConferenceName ();
                     if (teamName.equals (TradingTeam1) && divisionName.equals (TradingDivision1) && conferenceName.equals (TradingConference1)) {
                         successTeam1 = swapTeam1 (team, trade);
+                        teamValidator.isCaptainPresent (team.getPlayers ());
+                        team.calculateTeamStrength (team);
                     }
                     if (teamName.equals (TradingTeam2) && divisionName.equals (TradingDivision2) && conferenceName.equals (TradingConference2)) {
                         successTeam2 = swapTeam2 (team, trade);
+                        teamValidator.isCaptainPresent (team.getPlayers ());
+                        team.calculateTeamStrength (team);
                     }
                     if (successTeam1 && successTeam2) {
                         break;
@@ -87,8 +90,9 @@ public class AcceptRejectTrade implements IAcceptRejectTrade {
     }
 
     @Override
-    public boolean swapTeam1(TeamsModel team, TradeModel trade) {
+    public boolean swapTeam1(TeamsModel team, ITradeModel trade) {
         List<PlayerModel> t1 = new ArrayList ();
+
         t1 = team.getPlayers ();
         for (int i = 0; i < trade.getRequestedPlayers ().size (); i++) {
             PlayerModel strongPlayer = (PlayerModel) trade.getRequestedPlayers ().get (i);
@@ -104,14 +108,13 @@ public class AcceptRejectTrade implements IAcceptRejectTrade {
             }
         }
         team.setPlayers (t1);
-        isCaptainPresent (t1);
-        team.calculateTeamStrength (team);
         return true;
     }
 
     @Override
-    public boolean swapTeam2(TeamsModel team, TradeModel trade) {
+    public boolean swapTeam2(TeamsModel team, ITradeModel trade) {
         List<PlayerModel> t2 = new ArrayList<> ();
+
         t2 = team.getPlayers ();
         for (int i = 0; i < trade.getOfferedPlayer ().size (); i++) {
             PlayerModel weakPlayer = trade.getOfferedPlayer ().get (i);
@@ -127,30 +130,8 @@ public class AcceptRejectTrade implements IAcceptRejectTrade {
             }
         }
         team.setPlayers (t2);
-        isCaptainPresent (t2);
-        team.calculateTeamStrength (team);
         return true;
     }
-
-    @Override
-    public List<PlayerModel> isCaptainPresent(List<PlayerModel> teamPlayerDetails) {
-        int counter = 0;
-        teamPlayerDetails = sort.sortPlayersDescending (teamPlayerDetails);
-        for (int i = 0; i < teamPlayerDetails.size (); i++) {
-            if (teamPlayerDetails.get (i).isCaptain ()) {
-                counter++;
-                if (counter == 2) {
-                    teamPlayerDetails.get (i).setCaptain (false);
-                }
-            }
-        }
-
-        if (counter == 0 && !teamPlayerDetails.isEmpty ()) {
-            teamPlayerDetails.stream ().findFirst ().get ().setCaptain (true);
-        }
-        return teamPlayerDetails;
-    }
-
 }
 
 

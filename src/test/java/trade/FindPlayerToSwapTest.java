@@ -23,7 +23,7 @@ public class FindPlayerToSwapTest {
     void offeredPlayer() {
         MockLeague league = new MockLeague ();
         TradingModel tradeModel = new TradingModel ();
-        TradeModel trade = new TradeModel ();
+        ITradeModel trade = new TradeModel ();
 
         tradeModel = league.getLeagueObject ().getGameplayConfig ().getTrading ();
         TeamsModel team1 = league.getTeamsObject1 ();
@@ -65,7 +65,6 @@ public class FindPlayerToSwapTest {
         TeamsModel t2 = league.getTeamsObject2 ();
         List<PlayerModel> listOfPlayers = t2.getPlayers ();
 
-
         requestingPlayerMap = findPlayerToSwap.teamWithMaxStrength (listOfPlayers, pojo, requestingPlayerMap);
         Assert.assertNotNull (requestingPlayerMap);
 
@@ -76,7 +75,7 @@ public class FindPlayerToSwapTest {
 
         Map.Entry<Float, ArrayList> entry = requestingPlayerMap.entrySet ().iterator ().next ();
         Float mapKey = entry.getKey ();
-        Float value = 45f;
+        Float value = 75f;
         Assert.assertEquals (mapKey, value);
     }
 
@@ -85,7 +84,7 @@ public class FindPlayerToSwapTest {
     void findTeamForSwap() {
         MockLeague league = new MockLeague ();
         TradeTeamPojo pojo = new TradeTeamPojo ();
-        TradeModel trade = new TradeModel ();
+        ITradeModel trade = new TradeModel ();
 
         LeagueModel leaguemodel = league.getLeagueObject ();
         pojo.setConferenceName ("Eastern Conference");
@@ -106,7 +105,7 @@ public class FindPlayerToSwapTest {
     }
 
     @Test
-    void swapPlayer() {
+    void findPlayersToSwap() {
         MockLeague league = new MockLeague ();
         TeamsModel t = new TeamsModel ();
         TradeTeamPojo pojo1 = new TradeTeamPojo ();
@@ -125,13 +124,13 @@ public class FindPlayerToSwapTest {
         pojo1.setDivisionName ("Atlantic");
         pojo1.setTeamName ("Boston");
 
-        LeagueModel leagueAfterTrade = findPlayerToSwap.swapPlayer (leagueModel, t, pojo1);
+        LeagueModel leagueAfterTrade = findPlayerToSwap.findPlayersToSwap (leagueModel, t, pojo1);
 
         String player1Name = leagueAfterTrade.getConferences ().get (0).getDivisions ().get (0).getTeams ().get (0).getPlayers ().get (0).getPlayerName ();
-        String player2Name = leagueAfterTrade.getConferences ().get (0).getDivisions ().get (0).getTeams ().get (0).getPlayers ().get (1).getPlayerName ();
+        String player2Name = leagueAfterTrade.getConferences ().get (0).getDivisions ().get (0).getTeams ().get (0).getPlayers ().get (2).getPlayerName ();
 
         String player1 = leagueAfterTrade.getConferences ().get (0).getDivisions ().get (0).getTeams ().get (1).getPlayers ().get (0).getPlayerName ();
-        String player2 = leagueAfterTrade.getConferences ().get (0).getDivisions ().get (0).getTeams ().get (1).getPlayers ().get (1).getPlayerName ();
+        String player2 = leagueAfterTrade.getConferences ().get (0).getDivisions ().get (0).getTeams ().get (1).getPlayers ().get (3).getPlayerName ();
 
         Assert.assertEquals (player1Name, "A0");
         Assert.assertEquals (player2Name, "C0");

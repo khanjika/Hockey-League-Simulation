@@ -15,26 +15,6 @@ public class AcceptRejectTradeTest {
 
     AcceptRejectTrade acceptReject = new AcceptRejectTrade ();
 
-
-    @Test
-    void isCaptainPresent() {
-        List<PlayerModel> list = null;
-        MockLeague league = new MockLeague ();
-
-        TeamsModel t = league.getTeamsObject1 ();
-        List<PlayerModel> listOfPlayers = t.getPlayers ();
-
-        acceptReject.isCaptainPresent (listOfPlayers);
-        Assert.assertFalse (listOfPlayers.get (1).isCaptain ());
-        Assert.assertTrue (listOfPlayers.get (0).isCaptain ());
-
-        listOfPlayers.get (0).setCaptain (false);
-        listOfPlayers.get (1).setCaptain (false);
-
-        acceptReject.isCaptainPresent (listOfPlayers);
-        Assert.assertTrue (listOfPlayers.get (0).isCaptain ());
-    }
-
     @Test
     void swapTeams1() {
         MockLeague league = new MockLeague ();
@@ -53,8 +33,8 @@ public class AcceptRejectTradeTest {
         trade.setRequestedPlayers (team2PLayers);
 
         acceptReject.swapTeam1 (t1, trade);
-        Assert.assertEquals (t1.getPlayers ().size (), 2);
-        Assert.assertEquals (t1.getPlayers ().get (1).getPlayerName (), "C0");
+        Assert.assertEquals (t1.getPlayers ().size (), 4);
+        Assert.assertEquals (t1.getPlayers ().get (3).getPlayerName (), "C0");
     }
 
     @Test
@@ -75,8 +55,8 @@ public class AcceptRejectTradeTest {
         trade.setOfferedPlayer (team2PLayers);
 
         acceptReject.swapTeam1 (t2, trade);
-        Assert.assertEquals (t2.getPlayers ().size (), 2);
-        Assert.assertEquals (t2.getPlayers ().get (1).getPlayerName (), "A0");
+        Assert.assertEquals (t2.getPlayers ().size (), 4);
+        Assert.assertEquals (t2.getPlayers ().get (3).getPlayerName (), "A0");
     }
 
     @Test
@@ -124,8 +104,8 @@ public class AcceptRejectTradeTest {
         LeagueModel leagueAfterTrading = acceptReject.tradeAccepted (pojo2, pojo1, trade, leagueModel);
         int sizeTeam1 = leagueAfterTrading.getConferences ().get (0).getDivisions ().get (0).getTeams ().get (0).getPlayers ().size ();
         int sizeTeam2 = leagueAfterTrading.getConferences ().get (0).getDivisions ().get (0).getTeams ().get (1).getPlayers ().size ();
-        Assert.assertEquals (sizeTeam1, 2);
-        Assert.assertEquals (sizeTeam2, 2);
+        Assert.assertEquals (sizeTeam1, 4);
+        Assert.assertEquals (sizeTeam2, 4);
     }
 
     @Test
@@ -173,11 +153,11 @@ public class AcceptRejectTradeTest {
         LeagueModel leagueAfterTrading = acceptReject.tradeRejected (pojo2, pojo1, leagueModel, trade);
         int sizeTeam1 = leagueAfterTrading.getConferences ().get (0).getDivisions ().get (0).getTeams ().get (0).getPlayers ().size ();
         int sizeTeam2 = leagueAfterTrading.getConferences ().get (0).getDivisions ().get (0).getTeams ().get (1).getPlayers ().size ();
-        Assert.assertEquals (sizeTeam1, 2);
-        Assert.assertEquals (sizeTeam2, 2);
+        Assert.assertEquals (sizeTeam1, 4);
+        Assert.assertEquals (sizeTeam2, 4);
 
         String player1Name = leagueAfterTrading.getConferences ().get (0).getDivisions ().get (0).getTeams ().get (0).getPlayers ().get (0).getPlayerName ();
-        String player2Name = leagueAfterTrading.getConferences ().get (0).getDivisions ().get (0).getTeams ().get (0).getPlayers ().get (1).getPlayerName ();
+        String player2Name = leagueAfterTrading.getConferences ().get (0).getDivisions ().get (0).getTeams ().get (0).getPlayers ().get (2).getPlayerName ();
 
         Assert.assertEquals (player1Name, "A0");
         Assert.assertEquals (player2Name, "C0");
@@ -228,11 +208,11 @@ public class AcceptRejectTradeTest {
         LeagueModel leagueAfterTrading = acceptReject.acceptRejectTrade (pojo2, pojo1, trade, leagueModel);
         int sizeTeam1 = leagueAfterTrading.getConferences ().get (0).getDivisions ().get (0).getTeams ().get (0).getPlayers ().size ();
         int sizeTeam2 = leagueAfterTrading.getConferences ().get (0).getDivisions ().get (0).getTeams ().get (1).getPlayers ().size ();
-        Assert.assertEquals (sizeTeam1, 2);
-        Assert.assertEquals (sizeTeam2, 2);
+        Assert.assertEquals (sizeTeam1, 4);
+        Assert.assertEquals (sizeTeam2, 4);
 
         String player1Name = leagueAfterTrading.getConferences ().get (0).getDivisions ().get (0).getTeams ().get (0).getPlayers ().get (0).getPlayerName ();
-        String player2Name = leagueAfterTrading.getConferences ().get (0).getDivisions ().get (0).getTeams ().get (0).getPlayers ().get (1).getPlayerName ();
+        String player2Name = leagueAfterTrading.getConferences ().get (0).getDivisions ().get (0).getTeams ().get (0).getPlayers ().get (2).getPlayerName ();
 
         Assert.assertEquals (player1Name, "A0");
         Assert.assertEquals (player2Name, "C0");

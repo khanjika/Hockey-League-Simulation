@@ -1,7 +1,5 @@
 package states;
 
-import conference.ConferenceModel;
-import divison.DivisonModel;
 import league.LeagueModel;
 import players.IPlayerModel;
 import players.PlayerModel;
@@ -16,15 +14,16 @@ public class InjuryCheckState implements ITransition {
     TeamsModel teamsModelTemp;
     LocalDate currentDate;
     IPlayerModel playerModel;
+
     public InjuryCheckState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
     }
     public InjuryCheckState(StateMachine stateMachine, LeagueModel leagueModel,TeamsModel teamsModel) {
+
         this.stateMachine = stateMachine;
         this.leagueModel = leagueModel;
         this.teamsModelTemp=teamsModel;
         currentDate =stateMachine.getCurrentDate();
-        System.out.println(currentDate);
     }
 
     @Override
@@ -34,17 +33,11 @@ public class InjuryCheckState implements ITransition {
 
     @Override
     public void task() {
-        playerModel=new PlayerModel();
-        for(ConferenceModel conferenceModel:leagueModel.getConferences()){
-            for(DivisonModel divisonModel:conferenceModel.getDivisions()){
-                for(TeamsModel teamsModel:divisonModel.getTeams()){
-                    if(teamsModel.getTeamName().equals(teamsModelTemp)){
-                       for(PlayerModel playerModelTemp:teamsModel.getPlayers()){
-                           playerModel.checkPlayerInjury(playerModelTemp,currentDate);
-                       }
-                    }
-                }
-            }
+        playerModel = new PlayerModel();
+        playerModel.setInjuriesModel(leagueModel.getGameplayConfig().getInjuries());
+        for (PlayerModel playerModel : teamsModelTemp.getPlayers()) {
+            playerModel.setInjuriesModel(leagueModel.getGameplayConfig().getInjuries());
+            playerModel.checkPlayerInjury(playerModel, currentDate);
         }
     }
 

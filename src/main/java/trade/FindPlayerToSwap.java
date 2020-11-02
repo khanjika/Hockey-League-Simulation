@@ -8,6 +8,8 @@ import gameplayconfig.GamePlayConfigModel;
 import gameplayconfig.TradingModel;
 import league.LeagueModel;
 import players.PlayerModel;
+import teams.ISortTeams;
+import teams.SortTeams;
 import teams.TeamsModel;
 
 import java.util.ArrayList;
@@ -18,49 +20,49 @@ import java.util.Map;
 
 public class FindPlayerToSwap implements IFindPlayerToSwap {
     ITradeTeamPojo RequestTeamDetails = new TradeTeamPojo ();
-    ISortTeams sort = new SortTeams ();
     IAcceptRejectTrade acceptReject = new AcceptRejectTrade ();
-
+    ISortTeams sort = new SortTeams ();
 
     @Override
-    public LeagueModel swapPlayer(LeagueModel league, TeamsModel team, ITradeTeamPojo tradingTeamDetails) {
+    public LeagueModel findPlayersToSwap(LeagueModel league, TeamsModel team, ITradeTeamPojo tradingTeamDetails) {
+        IUserTradeCli userTrade = new UserTradeCli ();
         GamePlayConfigModel gameConfig = league.getGameplayConfig ();
         TradingModel tradeModel = gameConfig.getTrading ();
-
-        //Remove this part of the code
-        //boolean b = true;
-        //league.getConferences ().get (0).getDivisions ().get (1).getTeams ().get (1).setUserCreatedTeam (b);
-        //////////////////////////////////////////////
-
-        TradeModel trade = offeredPlayer (team, tradeModel);
+        
+        ITradeModel trade = offeredPlayer (team, tradeModel);
         findTeamForSwap (league, tradingTeamDetails, trade);
 
-        if (RequestTeamDetails.isUserCreated () == false) {
-            league = acceptReject.acceptRejectTrade (RequestTeamDetails, tradingTeamDetails, trade, league);
-        } else {
-            IUserTradeCli userTrade = new UserTradeCli ();
+        if (RequestTeamDetails.isUserCreated ()) {
+
             int userInput = userTrade.displayTeamDetails (trade);
             if (userInput == 1) {
                 league = acceptReject.tradeAccepted (RequestTeamDetails, tradingTeamDetails, trade, league);
             }
+        } else {
+            System.out.println ("Trade offered to team:" + " " + RequestTeamDetails.getTeamName ());
+            league = acceptReject.acceptRejectTrade (RequestTeamDetails, tradingTeamDetails, trade, league);
         }
         return league;
     }
 
     @Override
-    public TradeModel offeredPlayer(TeamsModel team, TradingModel tradeModel) {
-        TradeModel trade = new TradeModel ();
+    public ITradeModel offeredPlayer(TeamsModel team, TradingModel tradeModel) {
+        ITradeModel trade = new TradeModel ();
         List<PlayerModel> offeredPlayerList = new ArrayList<> ();
-        int maxPlayerTrade = tradeModel.getMaxPlayersPerTrade ();
         List<PlayerModel> players = null;
+
+        int maxPlayerTrade = tradeModel.getMaxPlayersPerTrade ();
         players = sort.sortPlayersAscending (team.getPlayers ());
+
         if (players.isEmpty () == false) {
             String weakestPlayerPosition = players.stream ().findFirst ().get ().getPosition ();
-            for (int i = 0; i < maxPlayerTrade; i++) {
-                if (players.get (i).getPosition ().equals (weakestPlayerPosition)) {
-                    PlayerModel p = new PlayerModel ();
-                    p = players.get (i);
-                    offeredPlayerList.add (p);
+            if (weakestPlayerPosition.length () > 0) {
+                for (int i = 0; i < maxPlayerTrade; i++) {
+                    if (players.get (i).getPosition ().equals (weakestPlayerPosition)) {
+                        PlayerModel p = new PlayerModel ();
+                        p = players.get (i);
+                        offeredPlayerList.add (p);
+                    }
                 }
             }
         }
@@ -68,7 +70,7 @@ public class FindPlayerToSwap implements IFindPlayerToSwap {
         return trade;
     }
 
-    public TradeModel findTeamForSwap(LeagueModel league, ITradeTeamPojo tradingTeamDetails, TradeModel trade) {
+    public ITradeModel findTeamForSwap(LeagueModel league, ITradeTeamPojo tradingTeamDetails, ITradeModel trade) {
         Map<Float, ArrayList> requestingPlayerMap = new HashMap<> ();
 
         String generateTradeTeam = tradingTeamDetails.getTeamName ();
@@ -105,24 +107,26 @@ public class FindPlayerToSwap implements IFindPlayerToSwap {
         return trade;
     }
 
-    public List<PlayerModel> playersFromTeam(TeamsModel team, TradeModel trade) {
+    public List<PlayerModel> playersFromTeam(TeamsModel team, ITradeModel trade) {
         List<PlayerModel> sortedPlayerList = new ArrayList<> ();
-        List<PlayerModel> offeredPlayers = trade.getOfferedPlayer ();
         List<PlayerModel> potentialPlayers = new ArrayList<> ();
-        String weakPlayersPosition = offeredPlayers.stream ().findFirst ().get ().getPosition ();
+
+        List<PlayerModel> offeredPlayers = trade.getOfferedPlayer ();
         int noOfPlayersToSwap = offeredPlayers.size ();
+        if (noOfPlayersToSwap > 0) {
+            String weakPlayersPosition = offeredPlayers.stream ().findFirst ().get ().getPosition ();
+            int counter = 0;
+            sortedPlayerList = sort.sortPlayersDescending (team.getPlayers ());
 
-        int counter = 0;
-        sortedPlayerList = sort.sortPlayersDescending (team.getPlayers ());
-
-        for (int i = 0; i < sortedPlayerList.size (); i++) {
-            if (sortedPlayerList.get (i).getPosition ().equals (weakPlayersPosition) && counter < noOfPlayersToSwap) {
-                counter++;
-                potentialPlayers.add (sortedPlayerList.get (i));
-            } else {
-                if (counter == noOfPlayersToSwap) {
-                    counter = 0;
-                    break;
+            for (int i = 0; i < sortedPlayerList.size (); i++) {
+                if (sortedPlayerList.get (i).getPosition ().equals (weakPlayersPosition) && counter < noOfPlayersToSwap) {
+                    counter++;
+                    potentialPlayers.add (sortedPlayerList.get (i));
+                } else {
+                    if (counter == noOfPlayersToSwap) {
+                        counter = 0;
+                        break;
+                    }
                 }
             }
         }
@@ -131,6 +135,7 @@ public class FindPlayerToSwap implements IFindPlayerToSwap {
 
     public Map<Float, ArrayList> teamWithMaxStrength(List<PlayerModel> potentialPlayers, ITradeTeamPojo potentialTeamDetails, Map<Float, ArrayList> requestingPlayerMap) {
         ArrayList swapTeamDetails = new ArrayList ();
+
         float strength = 0;
         int size = potentialPlayers.size ();
         for (int i = 0; i < size; i++) {

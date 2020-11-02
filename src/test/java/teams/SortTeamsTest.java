@@ -1,9 +1,10 @@
-package trade;
+package teams;
 
+import freeagent.FreeAgentModel;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import players.PlayerModel;
-import teams.TeamsModel;
+import trade.MockLeague;
 
 import java.util.List;
 
@@ -29,5 +30,14 @@ public class SortTeamsTest {
         List<PlayerModel> list = t.getPlayers ();
         list = sort.sortPlayersDescending (list);
         Assert.assertTrue (list.get (0).getPlayerStrength () >= list.get (1).getPlayerStrength ());
+    }
+
+    @Test
+    void sortFreeAgentDescending() {
+        MockLeague league = new MockLeague ();
+        List<FreeAgentModel> list = league.getLeagueObject ().getFreeAgents ();
+
+        list = sort.sortFreeAgentDescending (list);
+        Assert.assertTrue (list.get (0).getFreeAgentStrength () >= list.get (1).getFreeAgentStrength ());
     }
 }
