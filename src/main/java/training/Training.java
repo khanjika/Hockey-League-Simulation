@@ -2,6 +2,7 @@ package training;
 
 import conference.ConferenceModel;
 import divison.DivisonModel;
+import gameplayconfig.InjuriesModel;
 import league.LeagueModel;
 import players.PlayerModel;
 import teams.HeadCoachModel;
@@ -9,26 +10,14 @@ import teams.TeamsModel;
 
 import java.time.LocalDate;
 
-public class Training {
+public class Training implements  ITraining{
 
     TrainingConstants constants = new TrainingConstants();
     private static LocalDate currentDate;
-    private LeagueModel currentLeague;
+    private static InjuriesModel currentInjuriesModel;
 
-    public void trainingLogic(LeagueModel currentLeagueModel, LocalDate date) {
-        currentLeague = currentLeagueModel;
-        currentDate = date;
-        for (ConferenceModel currentConference : currentLeagueModel.getConferences()) {
-            for (DivisonModel currentDivision : currentConference.getDivisions()) {
-                for (TeamsModel currentTeam : currentDivision.getTeams()) {
-                    for (PlayerModel player : currentTeam.getPlayers()) {
-                        performTraining(player, currentTeam.getHeadCoach());
-                    }
-                }
-            }
-        }
-    }
-    private void performTraining(PlayerModel player, HeadCoachModel headCoach){
+    public void performTraining(PlayerModel player, HeadCoachModel headCoach,LocalDate currentDate){
+        this.currentDate=currentDate;
         boolean isPlayerInjured = false;
         if (headCoach.getChecking() > constants.getRandomNumber()) {
             player.setChecking(player.getChecking() + 1);
@@ -64,8 +53,13 @@ public class Training {
         }
     }
 
+    @Override
+    public void setInjuriesModel(InjuriesModel injuriesModel) {
+        currentInjuriesModel=injuriesModel;
+    }
+
     private boolean checkForInjury(PlayerModel player){
-        player.setInjuriesModel(currentLeague.getGameplayConfig().getInjuries());
+        player.setInjuriesModel(currentInjuriesModel);
         player.checkPlayerInjury(player, currentDate);
         if(player.isPlayerInjured()){
             return true;

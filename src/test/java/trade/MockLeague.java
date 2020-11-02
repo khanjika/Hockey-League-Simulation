@@ -17,7 +17,7 @@ import java.util.List;
 
 public class MockLeague {
 
-    public LeagueModel getLeagueObject() {
+    public static  LeagueModel getLeagueObject() {
         LeagueModel leagueModel = new LeagueModel ();
         GamePlayConfigModel gamePLayModel = new GamePlayConfigModel ();
         TradingModel tradingModel = new TradingModel ();

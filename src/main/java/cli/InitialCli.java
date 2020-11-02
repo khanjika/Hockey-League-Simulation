@@ -1,44 +1,21 @@
 package cli;
-
 import league.LeagueModel;
-
-import java.io.File;
-import java.io.IOException;
 import java.util.Scanner;
 
-public class InitialCli {
+public class InitialCli implements IInitCli{
 
-    private  static ICliCommunication cliCommunication;
+    private final ICliCommunication cliCommunication;
     Scanner scannerObject;
 
     public InitialCli() {
-
         cliCommunication =new CliCommunication();
         scannerObject = new Scanner(System.in);
     }
-
-//    public boolean initializedCommunication()  {
-//        System.out.println("Do you want to provide json path to import ?");
-//        String userInput = this.scannerObject.nextLine();
-//        if(userInput.equalsIgnoreCase("yes")){
-//            return true;
-//        }
-//        else if(userInput.equalsIgnoreCase("no")){
-//            System.out.println("You need to provide some information inorder to load team");
-//            return false;
-//        }
-//        else {
-//            System.out.println("enter YES or NO");
-//            initializedCommunication();
-//        }
-//        return true;
-//    }
-
+    @Override
     public LeagueModel parseJson(String filePath){
 
         if(cliCommunication.isFileExist(filePath)){
             LeagueModel leagueModel= cliCommunication.parseJson(filePath);
-            System.out.println(leagueModel);
             return leagueModel;
         }
         else{
@@ -47,5 +24,4 @@ public class InitialCli {
         }
         return null;
     }
-
 }

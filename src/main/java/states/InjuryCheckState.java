@@ -8,11 +8,6 @@ import teams.TeamsModel;
 
 import java.time.LocalDate;
 
-//here first i need to pass two parameter first will be the leageu model object so
-// the the placyer can be injured the second will be the teammodel object.
-//this thing will be called for both the team model.
-//the third argument will be the date at which the player is injured.
-
 public class InjuryCheckState implements ITransition {
     StateMachine stateMachine;
     LeagueModel leagueModel;
@@ -23,9 +18,8 @@ public class InjuryCheckState implements ITransition {
     public InjuryCheckState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
     }
+    public InjuryCheckState(StateMachine stateMachine, LeagueModel leagueModel,TeamsModel teamsModel) {
 
-    public InjuryCheckState(StateMachine stateMachine, LeagueModel leagueModel, TeamsModel teamsModel) {
-        //System.out.println("Injury check state constructor "+leagueModel+"      " + stateMachine+"  "+ teamsModel);
         this.stateMachine = stateMachine;
         this.leagueModel = leagueModel;
         this.teamsModelTemp=teamsModel;
@@ -34,7 +28,6 @@ public class InjuryCheckState implements ITransition {
 
     @Override
     public void entry() {
-        //System.out.println("Inside Entry Method of Injury Check State");
         task();
     }
 
@@ -49,6 +42,5 @@ public class InjuryCheckState implements ITransition {
     }
 
     @Override
-    public void exit() {
-    }
+    public void exit() { }
 }

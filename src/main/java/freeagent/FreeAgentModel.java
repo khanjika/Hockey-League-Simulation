@@ -130,8 +130,9 @@ public class FreeAgentModel implements IFreeAgentModel {
         this.agingModel = agingModel;
     }
 
-    public void storeFreeAgentInformation(FreeAgentModel freeAgentModel, int leagueId) {
-        iFreeAgentPersistent.addFreeAgentInformation(freeAgentModel.getPlayerName(), freeAgentModel.getPosition(), leagueId);
+
+    public void storeFreeAgentInformation(FreeAgentModel freeAgentModel, int leagueId){
+         iFreeAgentPersistent.addFreeAgentInformation(leagueId,freeAgentModel.getPlayerName(),freeAgentModel.getPosition(),freeAgentModel.getAge(),freeAgentModel.isRetired(),freeAgentModel.getSkating(),freeAgentModel.getShooting(),freeAgentModel.getChecking(),freeAgentModel.getSaving(),freeAgentModel.getDays(),freeAgentModel.getRetirementLikelyHood());
     }
 
     @Override

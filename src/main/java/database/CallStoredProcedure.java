@@ -1,6 +1,7 @@
 package database;
 
 import java.sql.*;
+import java.time.LocalDate;
 
 public class CallStoredProcedure {
 
@@ -63,6 +64,13 @@ public class CallStoredProcedure {
         statement.setString (paramIndex, value);
     }
 
+    public void setParameter(int paramIndex, float value) throws SQLException {
+        statement.setFloat (paramIndex, value);
+    }
+    public void setParameter(int paramIndex, LocalDate value) throws SQLException {
+        statement.setDate (paramIndex, Date.valueOf(value));
+    }
+
     public void registerOutParameter(int index) throws SQLException {
         statement.registerOutParameter (index, Types.INTEGER);
     }
@@ -77,5 +85,6 @@ public class CallStoredProcedure {
         }
         return null;
     }
+
 
 }

@@ -1,5 +1,6 @@
 package states;
 
+import cli.IInitCli;
 import cli.InitialCli;
 import coach.CoachModel;
 import conference.ConferenceModel;
@@ -12,9 +13,9 @@ import teams.TeamsModel;
 
 public class ImportJsonState implements ITransition {
     StateMachine stateMachine;
-    InitialCli initialCli;
+    IInitCli initialCli;
     ITransition createTeamState;
-    private boolean userInput;
+
     private String cliArgument;
     private LeagueModel inMemoryLeagueModel;
 
@@ -48,13 +49,7 @@ public class ImportJsonState implements ITransition {
         } else {
             inMemoryLeagueModel = initialCli.parseJson(cliArgument);
 
-            System.out.println("Printing values for testing");
-            System.out.println(inMemoryLeagueModel);
             for (ConferenceModel conferenceModel : inMemoryLeagueModel.getConferences()) {
-                System.out.println(conferenceModel.getConferenceName());
-            }
-            for (ConferenceModel conferenceModel : inMemoryLeagueModel.getConferences()) {
-                System.out.println(conferenceModel.getConferenceName());
                 for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
                     for (TeamsModel teamsModel : divisonModel.getTeams()) {
                         teamsModel.calculateTeamStrength(teamsModel);
@@ -64,31 +59,6 @@ public class ImportJsonState implements ITransition {
                     }
                 }
             }
-            System.out.println(inMemoryLeagueModel.getGeneralManagers());
-            for (CoachModel coachModel : inMemoryLeagueModel.getCoaches()) {
-                System.out.println(coachModel.getName());
-            }
-            GamePlayConfigModel gamePlayConfigModel = inMemoryLeagueModel.getGameplayConfig();
-            System.out.println("---------------AGING-------------------");
-            System.out.println(gamePlayConfigModel.getAging().getAverageRetirementAge());
-            System.out.println(gamePlayConfigModel.getAging().getMaximumAge());
-
-            System.out.println("---------------GameResolver-------------------");
-            System.out.println(gamePlayConfigModel.getGameResolver().getRandomWinChance());
-
-            System.out.println("---------------Injuries-------------------");
-            System.out.println(gamePlayConfigModel.getInjuries().getRandomInjuryChance());
-            System.out.println(gamePlayConfigModel.getInjuries().getInjuryDaysLow());
-            System.out.println(gamePlayConfigModel.getInjuries().getInjuryDaysHigh());
-
-            System.out.println("---------------training-------------------");
-            System.out.println(gamePlayConfigModel.getTraining().getDaysUntilStatIncreaseCheck());
-
-            System.out.println("---------------Trading-------------------");
-            System.out.println(gamePlayConfigModel.getTrading().getLossPoint());
-            System.out.println(gamePlayConfigModel.getTrading().getRandomTradeOfferChance());
-            System.out.println(gamePlayConfigModel.getTrading().getMaxPlayersPerTrade());
-            System.out.println(gamePlayConfigModel.getTrading().getRandomAcceptanceChance());
             task();
         }
     }

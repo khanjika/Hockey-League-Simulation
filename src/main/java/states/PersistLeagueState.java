@@ -27,8 +27,6 @@ public class PersistLeagueState implements ITransition{
 
     @Override
     public void task() {
-        //DO NOT DELETE THE BELOW LINE
-
         if( iLeagueModel.storeLeagueInformation(leagueModel)){
             System.out.println("=====================================");
             System.out.println("Your data have been successfully stored in the database");

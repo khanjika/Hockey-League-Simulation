@@ -166,7 +166,7 @@ public class PlayerModel implements IPlayerModel {
     }
 
     public void storePlayerInformation(PlayerModel playerModel, int teamId) {
-        iPlayerPersistent.addPlayerInformation(playerModel.getPlayerName(), playerModel.getPosition(), playerModel.isCaptain(), teamId);
+        iPlayerPersistent.addPlayerInformation(teamId,playerModel.getPlayerName(), playerModel.getPosition(), playerModel.isCaptain(),playerModel.getAge(),playerModel.isPlayerRetired(),playerModel.getSkating(),playerModel.getShooting(),playerModel.getChecking(),playerModel.getSaving(),playerModel.getInjuryDays(),playerModel.getDays(),playerModel.getRetirementLikelyHood(),playerModel.getRecoveryDate());
     }
 
     public Boolean isPlayerRetired() {
@@ -240,25 +240,29 @@ public class PlayerModel implements IPlayerModel {
 
     @Override
     public void checkPlayerInjury(PlayerModel playerModel, LocalDate date) {
-        try {
-            if (playerModel.isPlayerInjured()) {
-                return;
-            } else {
-                float randomInjuryChance = injuriesModel.getRandomInjuryChance();
-                int injuryDaysLow = injuriesModel.getInjuryDaysLow();
-                int injuryDaysHigh = injuriesModel.getInjuryDaysHigh();
-                Random randomObj = new Random();
-                float injuryChance= randomObj.nextFloat();
-                int injuryDays = randomObj.nextInt(injuryDaysHigh - injuryDaysLow)+injuryDaysLow;
-                if(injuryChance > randomInjuryChance){
-                    playerModel.setPlayerInjured(true);
-                    playerModel.setInjuryDays(injuryDays);
-                    playerModel.setInjuredDate(date);
-                    playerModel.setRecoveryDate(date.plusDays(injuryDays));
-                }
+//        try {
+        if (playerModel.isPlayerInjured()) {
+            return;
+        } else {
+            float randomInjuryChance = injuriesModel.getRandomInjuryChance();
+            int injuryDaysLow = injuriesModel.getInjuryDaysLow();
+            int injuryDaysHigh = injuriesModel.getInjuryDaysHigh();
+            Random randomObj = new Random();
+            float injuryChance = randomObj.nextFloat();
+            int injuryDays = randomObj.nextInt(injuryDaysHigh - injuryDaysLow) + injuryDaysLow;
+            if (injuryChance > randomInjuryChance) {
+                playerModel.setPlayerInjured(true);
+                playerModel.setInjuryDays(injuryDays);
+                playerModel.setInjuredDate(date);
+                System.out.println(injuryDays);
+                System.out.println(date);
+                playerModel.setRecoveryDate(date.plusDays(injuryDays));
+                System.out.println(playerModel.getPlayerName() + " Player Injured for " + playerModel.getInjuryDays());
             }
-        } catch (Exception e) {
-            System.out.println("Error in checkPlayerInjury method of player model" + e);
+
+//        } catch (Exception e) {
+//            System.out.println("Error in checkPlayerInjury method of player model" + e);
+//        }
         }
     }
 
@@ -275,6 +279,7 @@ public class PlayerModel implements IPlayerModel {
                 playerModel.setInjuryDays(0);
                 playerModel.setInjuredDate(null);
                 playerModel.setRecoveryDate(null);
+                System.out.println(playerModel.getPlayerName()+" Player Recovered from Injury");
             }
         } catch (Exception e) {
             System.out.println("Error in checkPlayerInjury method of player model" + e);
@@ -302,6 +307,7 @@ public class PlayerModel implements IPlayerModel {
                 String playerPosition = playerModel.getPosition();
                 List<FreeAgentModel> availableFreeAgents = this.getFreeAgentsList();
                 FreeAgentModel replacementFreeAgent = freeAgentModel.getReplacementFreeAgent(availableFreeAgents, playerPosition);
+                System.out.println("Player "+playerModel.getPlayerName()+" is Retired and Replace with FreeAgent "+replacementFreeAgent.getPlayerName());
                 replacePlayerWithFreeAgent(playerModel, replacementFreeAgent);
             }
         } catch (Exception e) {
