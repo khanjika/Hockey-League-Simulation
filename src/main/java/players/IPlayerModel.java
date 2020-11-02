@@ -17,7 +17,6 @@ public interface IPlayerModel {
     ArrayList<PlayerModel> getPlayerInformation(int teamId);
     void calculatePlayerStrength(PlayerModel playerModel);
     void checkPlayerInjury(PlayerModel playerModel, LocalDate date);
-    void recoverPlayer(PlayerModel playerModel, LocalDate date);
     void aging(PlayerModel playerModel, int daysToAge,LocalDate date);
     void setAgingModel(AgingModel agingModel);
     void setFreeAgentsList(List<FreeAgentModel> freeAgentList);
