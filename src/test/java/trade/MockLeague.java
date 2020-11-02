@@ -2,6 +2,7 @@ package trade;
 
 import conference.ConferenceModel;
 import divison.DivisonModel;
+import freeagent.FreeAgentModel;
 import gameplayconfig.GamePlayConfigModel;
 import gameplayconfig.TradingModel;
 import league.LeagueModel;
@@ -32,6 +33,16 @@ public class MockLeague {
             conferenceModelObjectList.add (conferenceModel);
         }
         leagueModel.setConferences (conferenceModelObjectList);
+        List<FreeAgentModel> freeAgentModelList = new ArrayList<>();
+        for (int i = 0; i < 4; i++) {
+            FreeAgentModel freeAgentModel = getFreeAgentModel("Roshan", "forward",20,16,12,11,0);
+            FreeAgentModel freeAgentModel1 = getFreeAgentModel("Arthy", "defense", 25,3,16,13,15);
+            FreeAgentModel freeAgentModel2 = getFreeAgentModel("Zankruth", "goalie", 24,18,13,9,10);
+            freeAgentModelList.add(freeAgentModel);
+            freeAgentModelList.add((freeAgentModel1));
+            freeAgentModelList.add(freeAgentModel2);
+        }
+        leagueModel.setFreeAgents(freeAgentModelList);
         leagueModel.setGameplayConfig (gamePLayModel);
         gamePLayModel.setTrading (tradingModel);
         return leagueModel;
@@ -84,11 +95,15 @@ public class MockLeague {
         for (int i = 0; i < 1; i++) {
 
             playerName = playerName + i;
-            PlayerModel playerModel = getPlayerModel (playerName, "forward", isCaptain, 20, 10, 10, 10, 10);
-            PlayerModel playerModel1 = getPlayerModel (playerName, "defense", isCaptain, 20, 13, 16, 17, 11);
+            PlayerModel playerModel = getPlayerModel (playerName, "forward", false, 20, 10, 10, 10, 10);
+            PlayerModel playerModel1 = getPlayerModel (playerName, "defense", false, 20, 13, 16, 17, 11);
+            PlayerModel playerModel2 = getPlayerModel (playerName, "goalie", false, 20, 11, 18, 17, 11);
+            PlayerModel playerModel3 = getPlayerModel (playerName, "goalie", false, 20, 19, 16, 17, 10);
             isCaptain = false;
             playerModelObjectList.add (playerModel);
             playerModelObjectList.add (playerModel1);
+            playerModelObjectList.add (playerModel2);
+            playerModelObjectList.add (playerModel3);
         }
         teamsModel.setPlayers (playerModelObjectList);
         return teamsModel;
@@ -112,11 +127,15 @@ public class MockLeague {
         for (int i = 0; i < 1; i++) {
 
             playerName = playerName + i;
-            PlayerModel playerModel = getPlayerModel (playerName, "forward", isCaptain, 20, 12, 10, 11, 10);
-            PlayerModel playerModel1 = getPlayerModel (playerName, "defense", isCaptain, 20, 13, 19, 7, 11);
+            PlayerModel playerModel = getPlayerModel (playerName, "forward", false, 20, 12, 10, 11, 10);
+            PlayerModel playerModel1 = getPlayerModel (playerName, "defense", false, 20, 13, 19, 7, 11);
+            PlayerModel playerModel2 = getPlayerModel (playerName, "goalie", false, 20, 11, 18, 17, 11);
+            PlayerModel playerModel3 = getPlayerModel (playerName, "goalie", false, 20, 19, 16, 17, 10);
             isCaptain = false;
             playerModelObjectList.add (playerModel);
             playerModelObjectList.add (playerModel1);
+            playerModelObjectList.add (playerModel2);
+            playerModelObjectList.add (playerModel3);
         }
         teamsModel.setPlayers (playerModelObjectList);
         return teamsModel;
@@ -134,5 +153,16 @@ public class MockLeague {
         playerModel.setSaving (saving);
         playerModel.calculatePlayerStrength (playerModel);
         return playerModel;
+    }
+
+    public static FreeAgentModel getFreeAgentModel(String playerName, String position, int age, float skating, float shooting, float checking, float saving) {
+        FreeAgentModel freeAgentModel = new FreeAgentModel ();
+        freeAgentModel.setPlayerName (playerName);
+        freeAgentModel.setAge (age);
+        freeAgentModel.setSkating (skating);
+        freeAgentModel.setShooting (shooting);
+        freeAgentModel.setChecking (checking);
+        freeAgentModel.setSaving (saving);
+        return freeAgentModel;
     }
 }

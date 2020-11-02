@@ -17,5 +17,4 @@ public interface IAcceptRejectTrade {
 
     boolean swapTeam2(TeamsModel team, TradeModel trade);
 
-    List<PlayerModel> isCaptainPresent(List<PlayerModel> teamDetails);
 }
