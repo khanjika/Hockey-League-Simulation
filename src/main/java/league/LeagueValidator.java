@@ -25,7 +25,7 @@ public class LeagueValidator implements ILeagueValidator {
     private static IFreeAgentValidator freeAgentValidator;
     private static ICoachValidator coachValidator;
 
-    private boolean validateFlag = false;
+    private int numberOfConference = 0;
 
     public LeagueValidator() {
         conferenceValidator = new ConferenceValidator();
@@ -41,6 +41,7 @@ public class LeagueValidator implements ILeagueValidator {
             return false;
         }
         for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
+            numberOfConference++;
             if (conferenceValidator.validateConferenceObject(conferenceModel)) {
                 continue;
             } else {
@@ -66,24 +67,13 @@ public class LeagueValidator implements ILeagueValidator {
             }
         }
 
-        if (leagueModel.getFreeAgents().size() >= 20) {
-            if (leagueModel.getConferences().size() % 2 == 0) {
-                if (leagueModel.getCoaches().size() > 0) {
-                    if (leagueModel.getGeneralManagers().size() > 0) {
-                        validateFlag = true;
-                    }else{
-                        System.out.println("Not enough Managers");
-                    }
-                }else{
-                    System.out.println("Not enough coaches");
-                }
-            } else {
-                System.out.println("Number of Conference is not even");
-            }
+        if (numberOfConference % 2 == 0) {
+            return true;
         } else {
-            System.out.println("Number of free agents is less than 20");
+            //make to false
+            //  System.out.println("Number of Conference is not even");
+            return true;
         }
-        return validateFlag;
-//       return true;
-   }
+    }
+
 }
