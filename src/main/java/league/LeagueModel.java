@@ -8,6 +8,7 @@ import conference.ConferenceModel;
 import conference.IConferenceModel;
 import freeagent.FreeAgentModel;
 import freeagent.FreeAgentPersistent;
+import freeagent.IFreeAgentModel;
 import gameplayconfig.GamePlayConfigModel;
 
 import java.util.List;
@@ -16,7 +17,7 @@ public class LeagueModel implements ILeagueModel {
 
     private ILeaguePersistent iLeaguePersistent;
     private IConferenceModel conferenceModel;
-    private FreeAgentModel freeAgentModel;
+    private IFreeAgentModel freeAgentModel;
     loadTeamCli loadTeamCli;
     @Expose
     private String leagueName;
@@ -24,8 +25,6 @@ public class LeagueModel implements ILeagueModel {
     private List<ConferenceModel> conferences;
     @Expose
     private List<FreeAgentModel> freeAgents;
-
-    //Milestone 2
     @Expose
     private List<CoachModel> coaches;
     private ICoachModel coachModel;

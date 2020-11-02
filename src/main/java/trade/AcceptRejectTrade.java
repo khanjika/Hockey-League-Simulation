@@ -41,8 +41,7 @@ public class AcceptRejectTrade implements IAcceptRejectTrade {
     public LeagueModel tradeRejected(ITradeTeamPojo team2, ITradeTeamPojo team1, LeagueModel leagueModel, ITradeModel trade) {
         float randomAcceptanceChance = leagueModel.getGameplayConfig ().getTrading ().getRandomAcceptanceChance ();
 
-        //if (Math.random () < randomAcceptanceChance) {
-        if (0.01f < randomAcceptanceChance) {
+        if (Math.random () < randomAcceptanceChance) {
             leagueModel = tradeAccepted (team2, team1, trade, leagueModel);
         }
         return leagueModel;

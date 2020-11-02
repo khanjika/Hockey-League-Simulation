@@ -173,6 +173,7 @@ public class MockLeague {
     public static FreeAgentModel getFreeAgentModel(String playerName, String position, int age, float skating, float shooting, float checking, float saving) {
         FreeAgentModel freeAgentModel = new FreeAgentModel ();
         freeAgentModel.setPlayerName (playerName);
+        freeAgentModel.setPosition (position);
         freeAgentModel.setAge (age);
         freeAgentModel.setSkating (skating);
         freeAgentModel.setShooting (shooting);

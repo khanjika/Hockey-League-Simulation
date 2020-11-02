@@ -129,7 +129,7 @@ public class PlayerModel implements IPlayerModel {
         return playerStrength;
     }
 
-    public void setPlayerStrength(float playerStrength) throws Exception {
+    public void setPlayerStrength(float playerStrength){
         this.playerStrength = playerStrength;
     }
 
@@ -266,8 +266,7 @@ public class PlayerModel implements IPlayerModel {
         }
     }
 
-    @Override
-    public void recoverPlayer(PlayerModel playerModel, LocalDate date) {
+    private void recoverPlayer(PlayerModel playerModel, LocalDate date) {
         try {
             long recoveryDayDifference = 0;
             if (playerModel.getRecoveryDate() != null) {
@@ -300,6 +299,7 @@ public class PlayerModel implements IPlayerModel {
             }
             playerModel.recoverPlayer(playerModel, date);
             int retirementLikelyHood = checkPlayerRetirementPossibility(playerModel);
+            System.out.println(retirementLikelyHood);
             if (retirementLikelyHood >= 90) {
                 playerModel.setPlayerRetired(true);
             }
@@ -311,12 +311,16 @@ public class PlayerModel implements IPlayerModel {
                 replacePlayerWithFreeAgent(playerModel, replacementFreeAgent);
             }
         } catch (Exception e) {
-            System.out.println("Error in aging method of player model" + e);
+            //System.out.println("Error in aging method of player model" + e);
+            e.printStackTrace();
         }
     }
 
     private void replacePlayerWithFreeAgent(PlayerModel playerModel, FreeAgentModel replacementFreeAgent) {
         try {
+            if(replacementFreeAgent == null){
+                return;
+            }
             System.out.println("Replacing Player "+playerModel.getPlayerName()+" With Free Agent "+replacementFreeAgent.getPlayerName());
             playerModel.setPlayerName(replacementFreeAgent.getPlayerName());
             playerModel.setPosition(replacementFreeAgent.getPosition());

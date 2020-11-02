@@ -45,14 +45,11 @@ public class GenerateTradeOfferTest {
         leagueModel = generateOffer.checkTrading (leagueModel);
 
         List<TeamsModel> t = leagueModel.getConferences ().get (0).getDivisions ().get (0).getTeams ();
-        String team1Player1 = t.get (0).getPlayers ().get (0).getPlayerName ();
-        String team1Player2 = t.get (0).getPlayers ().get (3).getPlayerName ();
 
+        String team1Player1 = t.get (0).getPlayers ().get (0).getPlayerName ();
         String team2Player1 = t.get (1).getPlayers ().get (0).getPlayerName ();
         String team2Player2 = t.get (1).getPlayers ().get (3).getPlayerName ();
 
-        Assert.assertEquals (team1Player1, "A0");
-        Assert.assertEquals (team1Player2, "C0");
         Assert.assertEquals (team2Player1, "C0");
         Assert.assertEquals (team2Player2, "A0");
     }
