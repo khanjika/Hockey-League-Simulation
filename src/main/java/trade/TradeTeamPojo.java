@@ -1,10 +1,15 @@
 package trade;
 
-public class TradeTeamPojo implements ITradeTeamPojo {
+import com.google.gson.annotations.Expose;
 
+public class TradeTeamPojo implements ITradeTeamPojo {
+    @Expose
     private String teamName;
+    @Expose
     private String divisionName;
+    @Expose
     private String conferenceName;
+    @Expose
     private boolean isUserCreated;
 
     public boolean isUserCreated() {
@@ -15,7 +20,6 @@ public class TradeTeamPojo implements ITradeTeamPojo {
     public void setUserCreated(boolean userCreated) {
         isUserCreated = userCreated;
     }
-
 
     public String getTeamName() {
         return teamName;

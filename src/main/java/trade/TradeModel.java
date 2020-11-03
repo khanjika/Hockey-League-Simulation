@@ -1,11 +1,15 @@
 package trade;
 
+import com.google.gson.annotations.Expose;
 import players.PlayerModel;
 
 import java.util.List;
 
 public class TradeModel implements ITradeModel {
+    @Expose
     List<PlayerModel> offeredPlayer;
+
+    @Expose
     List<PlayerModel> requestedPlayers;
 
     @Override
