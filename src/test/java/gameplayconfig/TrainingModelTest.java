@@ -2,8 +2,6 @@ package gameplayconfig;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 public class TrainingModelTest {
 
     @Test
@@ -17,7 +15,8 @@ public class TrainingModelTest {
         TrainingModel trainingModel = new TrainingModel();
         trainingModel.setDaysUntilStatIncreaseCheck(100);
     }
-    public static TrainingModel getTrainingModel(int DaysUntilStatIncreaseCheck){
+
+    public static TrainingModel getTrainingModel(int DaysUntilStatIncreaseCheck) {
         TrainingModel trainingModel = new TrainingModel();
         trainingModel.setDaysUntilStatIncreaseCheck(DaysUntilStatIncreaseCheck);
         return trainingModel;

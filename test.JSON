@@ -1758,29 +1758,7 @@
       "saving": 10.0
     }
   ],
-  "coaches": [
-    {
-      "name": "Joe Smith",
-      "skating": 0.3,
-      "shooting": 0.8,
-      "checking": 1.0,
-      "saving": 0.5
-    },
-    {
-      "name": "Joe Smith",
-      "skating": 0.3,
-      "shooting": 0.8,
-      "checking": 1.0,
-      "saving": 0.5
-    },
-    {
-      "name": "Joe Smith",
-      "skating": 0.3,
-      "shooting": 0.8,
-      "checking": 1.0,
-      "saving": 0.5
-    }
-  ],
+  "coaches": [],
   "generalManagers": [
     "Arthy",
     "Roshan",

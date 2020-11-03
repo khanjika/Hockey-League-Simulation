@@ -98,9 +98,6 @@ public class StateMachine {
         this.createTeam = createTeam;
     }
 
-    public ITransition getPersistLeagueStae() {
-        return persistLeagueState;
-    }
 
     public void setPersistLeagueStae(ITransition persistLeagueStae) {
         this.persistLeagueState = persistLeagueStae;
@@ -110,7 +107,9 @@ public class StateMachine {
         return playerSeasonsChoice;
     }
 
-    public void setPlayerSeasonsChoice(ITransition playerSeasonsChoice) { this.playerSeasonsChoice = playerSeasonsChoice; }
+    public void setPlayerSeasonsChoice(ITransition playerSeasonsChoice) {
+        this.playerSeasonsChoice = playerSeasonsChoice;
+    }
 
     public ITransition getCurrentState() {
         return currentState;
@@ -152,7 +151,9 @@ public class StateMachine {
         return playerSeasonsChoice;
     }
 
-    public void setInitlailizeSeasonState(ITransition initlailizeSeasonState) { this.initlailizeSeasonState = initlailizeSeasonState; }
+    public void setInitlailizeSeasonState(ITransition initlailizeSeasonState) {
+        this.initlailizeSeasonState = initlailizeSeasonState;
+    }
 
     public ITransition getInitlailizeSeasonState() {
         return initlailizeSeasonState;
@@ -174,7 +175,11 @@ public class StateMachine {
         this.injuryCheckState = injuryCheckState;
     }
 
-    public ITransition getTradingState() { return tradingState; }
+    public ITransition getTradingState() {
+        return tradingState;
+    }
 
-    public void setTradingState(ITransition tradingState) { this.tradingState = tradingState; }
+    public void setTradingState(ITransition tradingState) {
+        this.tradingState = tradingState;
+    }
 }

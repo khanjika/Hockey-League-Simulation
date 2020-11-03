@@ -2,5 +2,5 @@ package gameplayconfig;
 
 public interface ITrainingValidator {
 
-    public boolean validateTraining(TrainingModel trainingModel);
+    boolean validateTraining(TrainingModel trainingModel);
 }

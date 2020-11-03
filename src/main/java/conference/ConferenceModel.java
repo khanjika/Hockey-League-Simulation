@@ -8,8 +8,8 @@ import java.util.List;
 
 public class ConferenceModel implements IConferenceModel {
 
-    private IConferencePersistent iConferencePersistent;
-    private IDivisonModel divisonModel;
+    private final IConferencePersistent iConferencePersistent;
+    private final IDivisonModel divisonModel;
     @Expose
     private String conferenceName;
     @Expose

@@ -8,66 +8,66 @@ public class TradeTeamPojoTest {
     TradeTeamPojo pojo = new TradeTeamPojo();
 
     @Test
-    void setConferenceName(){
+    void setConferenceName() {
         String conferenceName = "Eastern Conference";
-        pojo.setConferenceName (conferenceName);
+        pojo.setConferenceName(conferenceName);
 
-        Assert.assertEquals (pojo.getConferenceName (),"Eastern Conference");
+        Assert.assertEquals(pojo.getConferenceName(), "Eastern Conference");
     }
 
     @Test
-    void setDivisionName(){
+    void setDivisionName() {
         String divisionName = "Atlantic";
-        pojo.setDivisionName (divisionName);
+        pojo.setDivisionName(divisionName);
 
-        Assert.assertEquals (pojo.getDivisionName (),"Atlantic");
+        Assert.assertEquals(pojo.getDivisionName(), "Atlantic");
     }
 
     @Test
-    void setTeamName(){
+    void setTeamName() {
         String teamName = "Boston";
-        pojo.setTeamName (teamName);
+        pojo.setTeamName(teamName);
 
-        Assert.assertEquals (pojo.getTeamName (), "Boston");
+        Assert.assertEquals(pojo.getTeamName(), "Boston");
     }
 
     @Test
-    void setUserCreated(){
+    void setUserCreated() {
         Boolean isUserCreated = true;
-        pojo.setUserCreated (isUserCreated);
+        pojo.setUserCreated(isUserCreated);
 
-        Assert.assertEquals (pojo.isUserCreated (), true);
+        Assert.assertEquals(pojo.isUserCreated(), true);
     }
 
     @Test
-    void getConferenceName(){
+    void getConferenceName() {
         String conferenceName = "Eastern Conference";
-        pojo.setConferenceName (conferenceName);
+        pojo.setConferenceName(conferenceName);
 
-        Assert.assertEquals (pojo.getConferenceName (),"Eastern Conference");
+        Assert.assertEquals(pojo.getConferenceName(), "Eastern Conference");
     }
 
     @Test
-    void getDivisionName(){
+    void getDivisionName() {
         String divisionName = "Atlantic";
-        pojo.setDivisionName (divisionName);
+        pojo.setDivisionName(divisionName);
 
-        Assert.assertEquals (pojo.getDivisionName (),"Atlantic");
+        Assert.assertEquals(pojo.getDivisionName(), "Atlantic");
     }
 
     @Test
-    void getTeamName(){
+    void getTeamName() {
         String teamName = "Boston";
-        pojo.setTeamName (teamName);
+        pojo.setTeamName(teamName);
 
-        Assert.assertEquals (pojo.getTeamName (), "Boston");
+        Assert.assertEquals(pojo.getTeamName(), "Boston");
     }
 
     @Test
-    void isUserCreated(){
+    void isUserCreated() {
         Boolean isUserCreated = true;
-        pojo.setUserCreated (isUserCreated);
+        pojo.setUserCreated(isUserCreated);
 
-        Assert.assertEquals (pojo.isUserCreated (), true);
+        Assert.assertEquals(pojo.isUserCreated(), true);
     }
 }

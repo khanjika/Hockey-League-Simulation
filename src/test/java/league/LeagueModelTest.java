@@ -1,27 +1,19 @@
 package league;
 
 import coach.CoachModel;
-import coach.CoachModelTest;
 import conference.ConferenceModel;
 import conference.ConferenceModelTest;
-import divison.DivisonModel;
 import freeagent.FreeAgentModel;
-import freeagent.FreeAgentModelTest;
-import gameplayconfig.GamePlayConfigModel;
-import gameplayconfig.TradingModel;
-import gameplayconfig.TradingModelTest;
+import gameplayconfig.*;
 import mock.MockCoach;
 import mock.MockFreeAgent;
-import gameplayconfig.*;
 import org.junit.jupiter.api.Test;
-import players.PlayerModel;
-import players.PlayerModelTest;
-import teams.TeamsModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class LeagueModelTest {
 
@@ -70,9 +62,9 @@ public class LeagueModelTest {
     public static LeagueModel getLeagueObject() {
         LeagueModel leagueModel = new LeagueModel();
         GamePlayConfigModel gamePLayModel = new GamePlayConfigModel();
-        TradingModel tradingModel = TradingModelTest.getTradingModel (8,0.05f,2,0.05f);
-        InjuriesModel injuriesModel = InjuriesModelTest.getInjuriesModel(0.05f,1,260);
-        AgingModel agingModel = AgingModelTest.getAgingModel(35,50);
+        TradingModel tradingModel = TradingModelTest.getTradingModel(8, 0.05f, 2, 0.05f);
+        InjuriesModel injuriesModel = InjuriesModelTest.getInjuriesModel(0.05f, 1, 260);
+        AgingModel agingModel = AgingModelTest.getAgingModel(35, 50);
         GameResolverModel gameResolverModel = GameResolverModelTest.getgameResolverModel(0.1f);
 
         leagueModel.setLeagueName("Dalhousie Hockey League");
@@ -89,13 +81,10 @@ public class LeagueModelTest {
         }
         leagueModel.setFreeAgents(freeAgentModelList);
         List<CoachModel> coachModelsList = new ArrayList<>();
-        for (int i = 0;i < 3; i++){
-            //CoachModel coachModel = CoachModelTest.getCoachModel("Arthy", 2.0f,5.0f,6.0f,7.0f);
+        for (int i = 0; i < 3; i++) {
             CoachModel coachModel = MockCoach.getValidCoachModel();
-            System.out.println(coachModel);
-            coachModelsList.add(coachModel);
         }
-        List<String> generalManagers = new ArrayList<String>(){
+        List<String> generalManagers = new ArrayList<String>() {
             {
                 add("Arthy");
                 add("Roshan");

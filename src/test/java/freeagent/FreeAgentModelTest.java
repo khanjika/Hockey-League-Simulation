@@ -169,7 +169,7 @@ public class FreeAgentModelTest {
     @Test
     void getAgingModel() {
         MockLeague leagueModel = new MockLeague();
-        LeagueModel leagueModel1 = leagueModel.getLeagueObject();
+        LeagueModel leagueModel1 = MockLeague.getLeagueObject();
         FreeAgentModel freeAgentModel = new FreeAgentModel();
         freeAgentModel.setAgingModel(leagueModel1.getGameplayConfig().getAging());
         assertEquals(leagueModel1.getGameplayConfig().getAging(), freeAgentModel.getAgingModel(), "Error in getting Aging Model In free Agent Model");
@@ -178,7 +178,7 @@ public class FreeAgentModelTest {
     @Test
     void setAgingModel() {
         MockLeague leagueModel = new MockLeague();
-        LeagueModel leagueModel1 = leagueModel.getLeagueObject();
+        LeagueModel leagueModel1 = MockLeague.getLeagueObject();
         FreeAgentModel freeAgentModel = new FreeAgentModel();
         freeAgentModel.setAgingModel(leagueModel1.getGameplayConfig().getAging());
         assertEquals(leagueModel1.getGameplayConfig().getAging(), freeAgentModel.getAgingModel(), "Error in getting Aging Model In free Agent Model");
@@ -205,7 +205,7 @@ public class FreeAgentModelTest {
     @Test
     void aging() {
         MockLeague league = new MockLeague();
-        LeagueModel leagueModel = league.getLeagueObject();
+        LeagueModel leagueModel = MockLeague.getLeagueObject();
         FreeAgentModel freeAgentModel = MockFreeAgent.getFreeAgentModel();
         freeAgentModel.setAgingModel(leagueModel.getGameplayConfig().getAging());
         freeAgentModel.aging(freeAgentModel, 1);
@@ -221,7 +221,6 @@ public class FreeAgentModelTest {
         freeAgentModelList.add(MockFreeAgent.getForwardFreeAgentModel());
         freeAgentModelList.add(MockFreeAgent.getDefenseFreeAgentModel());
         freeAgentModelList.add(MockFreeAgent.getGoalieFreeAgentModel());
-        System.out.println(freeAgentModelList);
         FreeAgentModel freeAgentModel = new FreeAgentModel();
         FreeAgentModel replacement = freeAgentModel.getReplacementFreeAgent(freeAgentModelList, "forward");
         assertEquals(freeAgentModelList.get(0).getPlayerName(), replacement.getPlayerName(), "Error in getReplacementFreeAgent of Free Agent Model");

@@ -28,7 +28,7 @@ public class FreeAgentModel implements IFreeAgentModel {
     private AgingModel agingModel;
 
 
-    private IFreeAgentPersistent iFreeAgentPersistent;
+    private final IFreeAgentPersistent iFreeAgentPersistent;
 
     public FreeAgentModel() {
         iFreeAgentPersistent = new FreeAgentPersistent();
@@ -131,8 +131,8 @@ public class FreeAgentModel implements IFreeAgentModel {
     }
 
 
-    public void storeFreeAgentInformation(FreeAgentModel freeAgentModel, int leagueId){
-         iFreeAgentPersistent.addFreeAgentInformation(leagueId,freeAgentModel.getPlayerName(),freeAgentModel.getPosition(),freeAgentModel.getAge(),freeAgentModel.isRetired(),freeAgentModel.getSkating(),freeAgentModel.getShooting(),freeAgentModel.getChecking(),freeAgentModel.getSaving(),freeAgentModel.getDays(),freeAgentModel.getRetirementLikelyHood());
+    public void storeFreeAgentInformation(FreeAgentModel freeAgentModel, int leagueId) {
+        iFreeAgentPersistent.addFreeAgentInformation(leagueId, freeAgentModel.getPlayerName(), freeAgentModel.getPosition(), freeAgentModel.getAge(), freeAgentModel.isRetired(), freeAgentModel.getSkating(), freeAgentModel.getShooting(), freeAgentModel.getChecking(), freeAgentModel.getSaving(), freeAgentModel.getDays(), freeAgentModel.getRetirementLikelyHood());
     }
 
     @Override
@@ -191,10 +191,9 @@ public class FreeAgentModel implements IFreeAgentModel {
     @Override
     public FreeAgentModel getReplacementFreeAgent(List<FreeAgentModel> freeAgents, String playerPosition) {
         List<FreeAgentModel> matchedfreeAgents = new ArrayList<>();
-        if(freeAgents == null){
+        if (freeAgents == null) {
             return null;
         }
-        System.out.println(freeAgents);
         for (FreeAgentModel freeAgent : freeAgents) {
             if (freeAgent.getPosition().equals(playerPosition)) {
                 matchedfreeAgents.add(freeAgent);

@@ -1,7 +1,6 @@
 package players;
 
 import freeagent.FreeAgentModel;
-import gameplayconfig.GamePlayConfigModel;
 import gameplayconfig.InjuriesModel;
 import league.LeagueModel;
 import mock.MockFreeAgent;
@@ -33,9 +32,9 @@ public class PlayerModelTest {
     }
 
     @Test
-    public void PlayerModel(){
-        PlayerModel playerModel = new PlayerModel("Zankrut","forward",true,25,10,10,10,10);
-        assertEquals("Zankrut",playerModel.getPlayerName(),"Faled to get player name in player constructor");
+    public void PlayerModel() {
+        PlayerModel playerModel = new PlayerModel("Zankrut", "forward", true, 25, 10, 10, 10, 10);
+        assertEquals("Zankrut", playerModel.getPlayerName(), "Faled to get player name in player constructor");
     }
 
     @Test
@@ -269,7 +268,7 @@ public class PlayerModelTest {
     @Test
     void getAgingModel() {
         MockLeague leagueModel = new MockLeague();
-        LeagueModel leagueModel1 = leagueModel.getLeagueObject();
+        LeagueModel leagueModel1 = MockLeague.getLeagueObject();
         PlayerModel playerModel = new PlayerModel();
         playerModel.setAgingModel(leagueModel1.getGameplayConfig().getAging());
         assertEquals(leagueModel1.getGameplayConfig().getAging(), playerModel.getAgingModel(), "Failed getAgingModel in player object");
@@ -278,7 +277,7 @@ public class PlayerModelTest {
     @Test
     void setAgingModel() {
         MockLeague leagueModel = new MockLeague();
-        LeagueModel leagueModel1 = leagueModel.getLeagueObject();
+        LeagueModel leagueModel1 = MockLeague.getLeagueObject();
         PlayerModel playerModel = new PlayerModel();
         playerModel.setAgingModel(leagueModel1.getGameplayConfig().getAging());
         assertEquals(leagueModel1.getGameplayConfig().getAging(), playerModel.getAgingModel(), "Failed getAgingModel in player object");
@@ -309,7 +308,7 @@ public class PlayerModelTest {
     @Test
     void getInjuriesModel() {
         MockLeague leagueModel = new MockLeague();
-        LeagueModel leagueModel1 = leagueModel.getLeagueObject();
+        LeagueModel leagueModel1 = MockLeague.getLeagueObject();
         PlayerModel playerModel = new PlayerModel();
         playerModel.setInjuriesModel(leagueModel1.getGameplayConfig().getInjuries());
         assertEquals(leagueModel1.getGameplayConfig().getInjuries(), playerModel.getInjuriesModel(), "Failed getInjuriesModel in player object");
@@ -318,7 +317,7 @@ public class PlayerModelTest {
     @Test
     void setInjuriesModel() {
         MockLeague leagueModel = new MockLeague();
-        LeagueModel leagueModel1 = leagueModel.getLeagueObject();
+        LeagueModel leagueModel1 = MockLeague.getLeagueObject();
         PlayerModel playerModel = new PlayerModel();
         playerModel.setInjuriesModel(leagueModel1.getGameplayConfig().getInjuries());
         assertEquals(leagueModel1.getGameplayConfig().getInjuries(), playerModel.getInjuriesModel(), "Failed setInjuriesModel in player object");
@@ -340,21 +339,21 @@ public class PlayerModelTest {
     @Test
     void checkPlayerInjury() {
         MockLeague league = new MockLeague();
-        LeagueModel leagueModel = league.getLeagueObject();
+        LeagueModel leagueModel = MockLeague.getLeagueObject();
         InjuriesModel injuriesModel = leagueModel.getGameplayConfig().getInjuries();
         LocalDate date = LocalDate.now();
         PlayerModel playerModel = MockPlayer.getPlayerModel();
         playerModel.setInjuriesModel(injuriesModel);
-        playerModel.checkPlayerInjury(playerModel,date);
+        playerModel.checkPlayerInjury(playerModel, date);
         PlayerModel playerModel1 = MockPlayer.getPlayer();
         playerModel.setInjuriesModel(injuriesModel);
-        playerModel1.checkPlayerInjury(playerModel1,date);
+        playerModel1.checkPlayerInjury(playerModel1, date);
     }
 
     @Test
     void aging() {
         MockLeague league = new MockLeague();
-        LeagueModel leagueModel = league.getLeagueObject();
+        LeagueModel leagueModel = MockLeague.getLeagueObject();
         List<FreeAgentModel> freeAgentModelList = new ArrayList<>();
         freeAgentModelList.add(MockFreeAgent.getForwardFreeAgentModel());
         freeAgentModelList.add(MockFreeAgent.getDefenseFreeAgentModel());
@@ -390,13 +389,13 @@ public class PlayerModelTest {
     @Test
     public void storePlayerInformation() {
         MockPlayerPersistent mockPlayerPersistent = new MockPlayerPersistent();
-        mockPlayerPersistent.addPlayerInformation(1,"zankrut","forward",true,25,false,10,10,10,10,0,10,10,LocalDate.now());
+        mockPlayerPersistent.addPlayerInformation(1, "zankrut", "forward", true, 25, false, 10, 10, 10, 10, 0, 10, 10, LocalDate.now());
     }
 
     @Test
     void getPlayerInformation() throws Exception {
-     MockPlayerPersistent mockPlayerPersistent = new MockPlayerPersistent();
-     ArrayList<PlayerModel> playerModels = mockPlayerPersistent.getPlayerInformation();
-     assertEquals("Zankrut",playerModels.get(0).getPlayerName(),"Error in getting player information");
+        MockPlayerPersistent mockPlayerPersistent = new MockPlayerPersistent();
+        ArrayList<PlayerModel> playerModels = mockPlayerPersistent.getPlayerInformation();
+        assertEquals("Zankrut", playerModels.get(0).getPlayerName(), "Error in getting player information");
     }
 }

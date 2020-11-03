@@ -4,17 +4,19 @@ import coach.CoachModel;
 import freeagent.FreeAgentModel;
 import players.PlayerModel;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class DisplayPersons {
 
-    public void displayTeamPlayers(List<PlayerModel> players){
+    public void displayTeamPlayers(List<PlayerModel> players) {
         System.out.println();
         Map<Integer, Integer> columnLength = new HashMap<Integer, Integer>();
         StringBuilder format = new StringBuilder();
-        String header[] = {"Number", "Name", "Position",
+        String[] header = {"Number", "Name", "Position",
                 "Age", "Checking", "Skating", "Shooting", "Saving"};
 
         IntStream.range(0, header.length).forEach(a -> {
@@ -30,7 +32,7 @@ public class DisplayPersons {
         });
         String line = columnLength.entrySet().stream().reduce("", (ln, b) -> {
             String templn = "+-";
-            templn = templn + Stream.iterate(0, i -> i +1).limit(b.getValue()).reduce("", (ln1, b1) -> ln1 + "-",
+            templn = templn + Stream.iterate(0, i -> i + 1).limit(b.getValue()).reduce("", (ln1, b1) -> ln1 + "-",
                     (a1, b1) -> a1 + b1);
             templn = templn + "-";
             return ln + templn;
@@ -53,12 +55,11 @@ public class DisplayPersons {
     }
 
 
-
-    public void displayCoaches(List<CoachModel> coaches){
+    public void displayCoaches(List<CoachModel> coaches) {
         System.out.println("Select a Head Coach for the team");
         Map<Integer, Integer> columnLength = new HashMap<Integer, Integer>();
         StringBuilder format = new StringBuilder();
-        String header[] = {"Number", "Name", "Checking", "Skating", "Shooting", "Saving"};
+        String[] header = {"Number", "Name", "Checking", "Skating", "Shooting", "Saving"};
         IntStream.range(0, header.length).forEach(a -> {
             if (columnLength.get(a) == null) {
                 columnLength.put(a, header[a].length());
@@ -72,7 +73,7 @@ public class DisplayPersons {
         });
         String line = columnLength.entrySet().stream().reduce("", (ln, b) -> {
             String templn = "+-";
-            templn = templn + Stream.iterate(0, i -> i +1).limit(b.getValue()).reduce("", (ln1, b1) -> ln1 + "-",
+            templn = templn + Stream.iterate(0, i -> i + 1).limit(b.getValue()).reduce("", (ln1, b1) -> ln1 + "-",
                     (a1, b1) -> a1 + b1);
             templn = templn + "-";
             return ln + templn;
@@ -92,11 +93,11 @@ public class DisplayPersons {
         System.out.println(line);
     }
 
-    public void displayManagers(List<String> generalManagers){
+    public void displayManagers(List<String> generalManagers) {
         System.out.println("Select a Manager for the team");
         Map<Integer, Integer> columnLength = new HashMap<Integer, Integer>();
         StringBuilder format = new StringBuilder();
-        String header[] = {"Number", "Name"};
+        String[] header = {"Number", "Name"};
         IntStream.range(0, header.length).forEach(a -> {
             if (columnLength.get(a) == null) {
                 columnLength.put(a, header[a].length());
@@ -110,7 +111,7 @@ public class DisplayPersons {
         });
         String line = columnLength.entrySet().stream().reduce("", (ln, b) -> {
             String templn = "+-";
-            templn = templn + Stream.iterate(0, i -> i +1).limit(b.getValue()).reduce("", (ln1, b1) -> ln1 + "-",
+            templn = templn + Stream.iterate(0, i -> i + 1).limit(b.getValue()).reduce("", (ln1, b1) -> ln1 + "-",
                     (a1, b1) -> a1 + b1);
             templn = templn + "-";
             return ln + templn;
@@ -127,11 +128,12 @@ public class DisplayPersons {
         line = line + "+\n";
         System.out.println(line);
     }
+
     public void displayPlayers(List<FreeAgentModel> freeAgentModel) {
 
         Map<Integer, Integer> columnLength = new HashMap<Integer, Integer>();
         StringBuilder format = new StringBuilder();
-        String header[] = {"Number", "Name", "Position",
+        String[] header = {"Number", "Name", "Position",
                 "Age", "Checking", "Skating", "Shooting", "Saving"};
 
         IntStream.range(0, header.length).forEach(a -> {
@@ -147,7 +149,7 @@ public class DisplayPersons {
         });
         String line = columnLength.entrySet().stream().reduce("", (ln, b) -> {
             String templn = "+-";
-            templn = templn + Stream.iterate(0, i -> i +1).limit(b.getValue()).reduce("", (ln1, b1) -> ln1 + "-",
+            templn = templn + Stream.iterate(0, i -> i + 1).limit(b.getValue()).reduce("", (ln1, b1) -> ln1 + "-",
                     (a1, b1) -> a1 + b1);
             templn = templn + "-";
             return ln + templn;

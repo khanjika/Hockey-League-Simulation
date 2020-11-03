@@ -43,6 +43,7 @@ public class TrainingState implements ITransition {
             }
         }
     }
+
     @Override
     public void exit() {
         return;

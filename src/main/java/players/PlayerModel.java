@@ -6,10 +6,12 @@ import freeagent.FreeAgentModel;
 import freeagent.IFreeAgentModel;
 import gameplayconfig.AgingModel;
 import gameplayconfig.InjuriesModel;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
 import static java.time.temporal.ChronoUnit.DAYS;
 
 
@@ -129,7 +131,7 @@ public class PlayerModel implements IPlayerModel {
         return playerStrength;
     }
 
-    public void setPlayerStrength(float playerStrength){
+    public void setPlayerStrength(float playerStrength) {
         this.playerStrength = playerStrength;
     }
 
@@ -249,10 +251,8 @@ public class PlayerModel implements IPlayerModel {
                 playerModel.setPlayerInjured(true);
                 playerModel.setInjuryDays(injuryDays);
                 playerModel.setInjuredDate(date);
-                System.out.println(injuryDays);
-                System.out.println(date);
                 playerModel.setRecoveryDate(date.plusDays(injuryDays));
-                System.out.println(playerModel.getPlayerName() + " Player Injured for " + playerModel.getInjuryDays());
+                System.out.println(playerModel.getPlayerName() + " Player Injured for " + playerModel.getInjuryDays() + " Days");
             }
         }
     }
@@ -270,7 +270,7 @@ public class PlayerModel implements IPlayerModel {
                 playerModel.setInjuryDays(0);
                 playerModel.setInjuredDate(null);
                 playerModel.setRecoveryDate(null);
-                System.out.println(playerModel.getPlayerName()+" Player Recovered from Injury");
+                System.out.println(playerModel.getPlayerName() + " Player Recovered from Injury");
             }
         } catch (Exception e) {
             System.out.println("Error in checkPlayerInjury method of player model" + e);
@@ -290,7 +290,6 @@ public class PlayerModel implements IPlayerModel {
             }
             playerModel.recoverPlayer(playerModel, date);
             int retirementLikelyHood = checkPlayerRetirementPossibility(playerModel);
-            System.out.println(retirementLikelyHood);
             if (retirementLikelyHood >= 90) {
                 playerModel.setPlayerRetired(true);
             }
@@ -298,7 +297,7 @@ public class PlayerModel implements IPlayerModel {
                 String playerPosition = playerModel.getPosition();
                 List<FreeAgentModel> availableFreeAgents = this.getFreeAgentsList();
                 FreeAgentModel replacementFreeAgent = freeAgentModel.getReplacementFreeAgent(availableFreeAgents, playerPosition);
-                System.out.println("Player "+playerModel.getPlayerName()+" is Retired and Replace with FreeAgent "+replacementFreeAgent.getPlayerName());
+                System.out.println("Player " + playerModel.getPlayerName() + " is Retired and Replace with FreeAgent " + replacementFreeAgent.getPlayerName());
                 replacePlayerWithFreeAgent(playerModel, replacementFreeAgent);
             }
         } catch (Exception e) {
@@ -308,10 +307,10 @@ public class PlayerModel implements IPlayerModel {
 
     private void replacePlayerWithFreeAgent(PlayerModel playerModel, FreeAgentModel replacementFreeAgent) {
         try {
-            if(replacementFreeAgent == null){
+            if (replacementFreeAgent == null) {
                 return;
             }
-            System.out.println("Replacing Player "+playerModel.getPlayerName()+" With Free Agent "+replacementFreeAgent.getPlayerName());
+            System.out.println("Replacing Player " + playerModel.getPlayerName() + " With Free Agent " + replacementFreeAgent.getPlayerName());
             playerModel.setPlayerName(replacementFreeAgent.getPlayerName());
             playerModel.setPosition(replacementFreeAgent.getPosition());
             playerModel.setAge(replacementFreeAgent.getAge());
@@ -358,7 +357,7 @@ public class PlayerModel implements IPlayerModel {
 
     @Override
     public void storePlayerInformation(PlayerModel playerModel, int teamId) {
-        iPlayerPersistent.addPlayerInformation(teamId,playerModel.getPlayerName(), playerModel.getPosition(), playerModel.isCaptain(),playerModel.getAge(),playerModel.isPlayerRetired(),playerModel.getSkating(),playerModel.getShooting(),playerModel.getChecking(),playerModel.getSaving(),playerModel.getInjuryDays(),playerModel.getDays(),playerModel.getRetirementLikelyHood(),playerModel.getRecoveryDate());
+        iPlayerPersistent.addPlayerInformation(teamId, playerModel.getPlayerName(), playerModel.getPosition(), playerModel.isCaptain(), playerModel.getAge(), playerModel.isPlayerRetired(), playerModel.getSkating(), playerModel.getShooting(), playerModel.getChecking(), playerModel.getSaving(), playerModel.getInjuryDays(), playerModel.getDays(), playerModel.getRetirementLikelyHood(), playerModel.getRecoveryDate());
     }
 
     @Override

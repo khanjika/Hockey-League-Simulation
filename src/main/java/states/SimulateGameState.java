@@ -8,6 +8,7 @@ import league.LeagueModel;
 import statemachine.StateMachine;
 import teams.ITeamsModel;
 import teams.TeamsModel;
+
 import java.util.Random;
 
 public class SimulateGameState implements ITransition {
@@ -30,6 +31,7 @@ public class SimulateGameState implements ITransition {
         this.teamOne = teamsModelOne;
         this.teamTwo = teamsModelTwo;
     }
+
     @Override
     public void entry() {
         task();
@@ -88,14 +90,13 @@ public class SimulateGameState implements ITransition {
         stateMachine.getCurrentState().entry();
 
 
-
     }
 
     @Override
     public void exit() {
     }
 
-   public float getTeamStrength(TeamsModel teamsModel) {
+    public float getTeamStrength(TeamsModel teamsModel) {
         teamsModel.calculateTeamStrength(teamsModel);
         return teamsModel.getTeamStrength();
     }

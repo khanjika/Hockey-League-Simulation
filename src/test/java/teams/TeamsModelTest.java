@@ -3,7 +3,6 @@ package teams;
 import org.junit.jupiter.api.Test;
 import players.PlayerModel;
 import players.PlayerModelTest;
-import players.PlayerValidator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +54,7 @@ public class TeamsModelTest {
     }
 
     @Test
-    void getHeadCoach(){
+    void getHeadCoach() {
         HeadCoachModel headCoachModel = new HeadCoachModel();
         headCoachModel.setName("Mary Smith");
         headCoachModel.setSkating(0.5f);
@@ -64,7 +63,7 @@ public class TeamsModelTest {
         headCoachModel.setSaving(0.5f);
         TeamsModel teamsModel = new TeamsModel();
         teamsModel.setHeadCoach(headCoachModel);
-        assertEquals(headCoachModel,teamsModel.getHeadCoach(),"failed to set player object in teams object");
+        assertEquals(headCoachModel, teamsModel.getHeadCoach(), "failed to set player object in teams object");
     }
 
     public static TeamsModel getTeamsObject() {
@@ -84,14 +83,14 @@ public class TeamsModelTest {
         for (int i = 0; i < 18; i++) {
 
             playerName = playerName + i;
-            PlayerModel playerModel = PlayerModelTest.getPlayerModel(playerName, "forward", isCaptain,20,10,10,10,10);
+            PlayerModel playerModel = PlayerModelTest.getPlayerModel(playerName, "forward", isCaptain, 20, 10, 10, 10, 10);
             isCaptain = false;
             playerModelObjectList.add(playerModel);
         }
         PlayerModel playerModel;
-        playerModel = PlayerModelTest.getPlayerModel(playerName+19, "goalie", false,20,10,10,10,10);
+        playerModel = PlayerModelTest.getPlayerModel(playerName + 19, "goalie", false, 20, 10, 10, 10, 10);
         playerModelObjectList.add(playerModel);
-        playerModel = PlayerModelTest.getPlayerModel(playerName+19, "goalie", false,20,10,10,10,10);
+        playerModel = PlayerModelTest.getPlayerModel(playerName + 19, "goalie", false, 20, 10, 10, 10, 10);
         playerModelObjectList.add(playerModel);
         teamsModel.setPlayers(playerModelObjectList);
         return teamsModel;
@@ -113,8 +112,8 @@ public class TeamsModelTest {
     void getTeamInformation() {
         MockTeamsPersistent mock = new MockTeamsPersistent();
         TeamPojo teamPojo = mock.getTeamInformation();
-        assertEquals(teamPojo.getTeamId(),1);
-        assertEquals(teamPojo.getHeadCoach(),"Rob");
+        assertEquals(teamPojo.getTeamId(), 1);
+        assertEquals(teamPojo.getHeadCoach(), "Rob");
     }
 
 }

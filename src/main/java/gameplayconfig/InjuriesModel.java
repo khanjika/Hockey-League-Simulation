@@ -9,6 +9,7 @@ public class InjuriesModel implements IInjuriesModel {
     private int injuryDaysLow;
     @Expose
     private int injuryDaysHigh;
+    IInjuriesPersistent iInjuriesPersistent;
 
     public float getRandomInjuryChance() {
         return randomInjuryChance;
@@ -32,5 +33,10 @@ public class InjuriesModel implements IInjuriesModel {
 
     public void setInjuryDaysHigh(int injuryDaysHigh) {
         this.injuryDaysHigh = injuryDaysHigh;
+    }
+
+    public int addInjuriesInformation(InjuriesModel injuriesModel) {
+        iInjuriesPersistent = new InjuriesPersistent();
+        return iInjuriesPersistent.storeInjuriesInformation(injuriesModel.getRandomInjuryChance(), injuriesModel.getInjuryDaysLow(), injuriesModel.getInjuryDaysLow());
     }
 }

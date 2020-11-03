@@ -2,10 +2,8 @@ package states;
 
 import cli.IInitCli;
 import cli.InitialCli;
-import coach.CoachModel;
 import conference.ConferenceModel;
 import divison.DivisonModel;
-import gameplayconfig.GamePlayConfigModel;
 import league.LeagueModel;
 import players.PlayerModel;
 import statemachine.StateMachine;

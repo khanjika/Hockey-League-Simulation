@@ -3,7 +3,7 @@ package mock;
 import players.PlayerModel;
 
 public class MockPlayer {
-    public static PlayerModel getPlayerModel(){
+    public static PlayerModel getPlayerModel() {
         PlayerModel playerModel = new PlayerModel();
         playerModel.setPlayerName("Zankrut");
         playerModel.setPosition("forward");
@@ -21,7 +21,7 @@ public class MockPlayer {
         return playerModel;
     }
 
-    public static PlayerModel getForwardPlayer(){
+    public static PlayerModel getForwardPlayer() {
         PlayerModel playerModel = new PlayerModel();
         playerModel.setPlayerName("Zankrut");
         playerModel.setPosition("forward");
@@ -39,7 +39,7 @@ public class MockPlayer {
         return playerModel;
     }
 
-    public static PlayerModel getDefensePlayer(){
+    public static PlayerModel getDefensePlayer() {
         PlayerModel playerModel = new PlayerModel();
         playerModel.setPlayerName("Zankrut");
         playerModel.setPosition("defense");
@@ -57,7 +57,7 @@ public class MockPlayer {
         return playerModel;
     }
 
-    public static PlayerModel getGoaliePlayer(){
+    public static PlayerModel getGoaliePlayer() {
         PlayerModel playerModel = new PlayerModel();
         playerModel.setPlayerName("Zankrut");
         playerModel.setPosition("goalie");
@@ -75,7 +75,7 @@ public class MockPlayer {
         return playerModel;
     }
 
-    public static PlayerModel getInvalidPlayerModel(){
+    public static PlayerModel getInvalidPlayerModel() {
         PlayerModel playerModel = new PlayerModel();
         playerModel.setPlayerName("");
         playerModel.setPosition("forward");
@@ -93,7 +93,7 @@ public class MockPlayer {
         return playerModel;
     }
 
-    public static PlayerModel getRetiredPlayer(){
+    public static PlayerModel getRetiredPlayer() {
         PlayerModel playerModel = new PlayerModel();
         playerModel.setPlayerName("");
         playerModel.setPosition("forward");
@@ -111,7 +111,7 @@ public class MockPlayer {
         return playerModel;
     }
 
-    public static PlayerModel getPlayer39(){
+    public static PlayerModel getPlayer39() {
         PlayerModel playerModel = new PlayerModel();
         playerModel.setPlayerName("");
         playerModel.setPosition("forward");
@@ -129,7 +129,7 @@ public class MockPlayer {
         return playerModel;
     }
 
-    public static PlayerModel getPlayer45(){
+    public static PlayerModel getPlayer45() {
         PlayerModel playerModel = new PlayerModel();
         playerModel.setPlayerName("");
         playerModel.setPosition("forward");
@@ -147,7 +147,7 @@ public class MockPlayer {
         return playerModel;
     }
 
-    public static PlayerModel getPlayer(){
+    public static PlayerModel getPlayer() {
         PlayerModel playerModel = new PlayerModel();
         playerModel.setPlayerName("Zankrut");
         playerModel.setPosition("forward");

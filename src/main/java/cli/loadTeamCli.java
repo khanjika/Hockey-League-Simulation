@@ -1,15 +1,11 @@
 package cli;
 
 import conference.ConferenceModel;
-import conference.ConferencePersistent;
 import conference.IConferenceModel;
-import conference.IConferencePersistent;
 import divison.DivisonModel;
 import divison.IDivisonModel;
 import league.ILeagueModel;
-import league.ILeaguePersistent;
 import league.LeagueModel;
-import league.LeaguePersistent;
 import players.IPlayerModel;
 import players.PlayerModel;
 import teams.*;
@@ -81,10 +77,7 @@ public class loadTeamCli {
     }
 
     public boolean isTeamExist(String teamName, int divisionId) {
-        if (iTeamsModel.isTeamAlreadyExist(teamName, divisionId)) {
-            return true;
-        }
-        return false;
+        return iTeamsModel.isTeamAlreadyExist(teamName, divisionId);
     }
 
     public String getUserInput(String input) {
@@ -94,11 +87,7 @@ public class loadTeamCli {
     }
 
     public boolean isLeagueExist(String leagueName) {
-        if (iLeagueModel.isLeagueExist(leagueName)) {
-            return true;
-        } else {
-            return false;
-        }
+        return iLeagueModel.isLeagueExist(leagueName);
     }
 
     public boolean isConferenceExist(String confereceName, int leagueId) {

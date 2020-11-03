@@ -1,6 +1,6 @@
 package gameplayconfig;
 
-public interface ITradingValidator{
-    public boolean validateTrading(TradingModel tradingModel);
+public interface ITradingValidator {
+    boolean validateTrading(TradingModel tradingModel);
 
 }

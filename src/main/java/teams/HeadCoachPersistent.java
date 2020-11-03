@@ -1,4 +1,4 @@
 package teams;
 
-public class HeadCoachPersistent implements IHeadCoachPersistent{
+public class HeadCoachPersistent implements IHeadCoachPersistent {
 }

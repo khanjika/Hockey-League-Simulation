@@ -21,8 +21,8 @@ public class CliCommunication implements ICliCommunication {
 
     public LeagueModel leagueModel;
     public static ObjectMapper objectMapper;
-    private ILeagueValidator leagueValidator;
-    private loadTeamCli loadTeamCli;
+    private final ILeagueValidator leagueValidator;
+    private final loadTeamCli loadTeamCli;
 
     public CliCommunication() {
         objectMapper = new ObjectMapper();
@@ -40,11 +40,7 @@ public class CliCommunication implements ICliCommunication {
     public boolean isFileExist(String fileName) {
         try {
             File myObj = new File(fileName);
-            if (myObj.exists()) {
-                return true;
-            } else {
-                return false;
-            }
+            return myObj.exists();
         } catch (Exception e) {
             System.out.println("Error while parsing");
         }
@@ -61,10 +57,10 @@ public class CliCommunication implements ICliCommunication {
             leagueModel = fromJson(data, LeagueModel.class);
             if (leagueValidator.validateLeagueObject(leagueModel)) {
                 System.out.println("Your Provided JSON is valid.");
-                for(ConferenceModel conferenceModel:leagueModel.getConferences()){
-                    for(DivisonModel divisonModel:conferenceModel.getDivisions()){
-                        for(TeamsModel teamsModel:divisonModel.getTeams()){
-                            for (PlayerModel playerModel : teamsModel.getPlayers()){
+                for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
+                    for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
+                        for (TeamsModel teamsModel : divisonModel.getTeams()) {
+                            for (PlayerModel playerModel : teamsModel.getPlayers()) {
                                 playerModel.calculatePlayerStrength(playerModel);
                             }
                         }
@@ -76,7 +72,7 @@ public class CliCommunication implements ICliCommunication {
                 System.out.println("Invalid JSON");
             }
         } catch (IOException e) {
-            System.out.println("Error occurred while parsing the file due to syntax issue"+ e);
+            System.out.println("Error occurred while parsing the file due to syntax issue" + e);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -86,16 +82,16 @@ public class CliCommunication implements ICliCommunication {
     @Override
     public LeagueModel calculateStrength(LeagueModel leagueModel) {
         LeagueModel updatedLeagueModel = leagueModel;
-        for(ConferenceModel conferenceModel:updatedLeagueModel.getConferences()){
-            for(DivisonModel divisonModel:conferenceModel.getDivisions()){
-                for(TeamsModel teamsModel:divisonModel.getTeams()){
-                    for (PlayerModel playerModel : teamsModel.getPlayers()){
+        for (ConferenceModel conferenceModel : updatedLeagueModel.getConferences()) {
+            for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
+                for (TeamsModel teamsModel : divisonModel.getTeams()) {
+                    for (PlayerModel playerModel : teamsModel.getPlayers()) {
                         playerModel.calculatePlayerStrength(playerModel);
                     }
                 }
             }
         }
-     return updatedLeagueModel;
+        return updatedLeagueModel;
     }
 
 

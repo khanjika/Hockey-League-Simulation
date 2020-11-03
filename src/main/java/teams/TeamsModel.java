@@ -16,11 +16,12 @@ public class TeamsModel implements ITeamsModel {
     private HeadCoachModel headCoach;
     @Expose
     private List<PlayerModel> players;
-    private IPlayerModel playerModel;
-    private ITeamsPersistent iTeamsPersistent;
+    private final IPlayerModel playerModel;
+    private final ITeamsPersistent iTeamsPersistent;
     private float teamStrength;
     private int winPoint;
     private int lossPoint;
+    private int lossPointForTrading;
 
     public int getLossPointForTrading() {
         return lossPointForTrading;
@@ -30,7 +31,6 @@ public class TeamsModel implements ITeamsModel {
         this.lossPointForTrading = lossPointForTrading;
     }
 
-    private int lossPointForTrading;
     public boolean isUserCreatedTeam() {
         return isUserCreatedTeam;
     }
@@ -82,17 +82,12 @@ public class TeamsModel implements ITeamsModel {
         return teamStrength;
     }
 
-
     public void storeTeamInformation(TeamsModel teamsModel, int divisionId) {
         if (isTeamAlreadyExist(teamsModel.getTeamName(), divisionId)) {
             System.out.println("Team already Exist in the DB");
         } else {
-            //Store head coach info.
             int headCoachId = 0;
-            //storeHeadCoachInfirmation(teamsModel.getHeadCoach());
-            //store general manager
             int generalManagerId = storeGeneralManagerInformation(teamsModel.getGeneralManager());
-            //Store team Information
             int teamId = addTeamInformation(teamsModel.getTeamName(), generalManagerId, headCoachId, divisionId);
             for (PlayerModel playerModel : teamsModel.getPlayers()) {
                 this.playerModel.storePlayerInformation(playerModel, teamId);
@@ -121,8 +116,8 @@ public class TeamsModel implements ITeamsModel {
 
     @Override
     public void calculateTeamStrength(TeamsModel teamsModel) {
-        teamsModel.teamStrength=0;
-        for(PlayerModel playerModel : teamsModel.getPlayers()){
+        teamsModel.teamStrength = 0;
+        for (PlayerModel playerModel : teamsModel.getPlayers()) {
             this.teamStrength += playerModel.getPlayerStrength();
         }
     }
@@ -132,7 +127,7 @@ public class TeamsModel implements ITeamsModel {
     }
 
     private int storeGeneralManagerInformation(String generalManagerName) {
-        return iTeamsPersistent.addGeneralManagerDetails(generalManagerName);
+        return 1;
     }
 
     public int getWinPoint() {

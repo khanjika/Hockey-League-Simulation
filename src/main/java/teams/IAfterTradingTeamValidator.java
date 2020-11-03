@@ -1,6 +1,5 @@
 package teams;
 
-import freeagent.FreeAgentModel;
 import league.LeagueModel;
 import players.PlayerModel;
 

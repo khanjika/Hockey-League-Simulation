@@ -11,7 +11,7 @@ class GamePlayConfigModelTest {
     @Test
     void getAging() {
         MockLeague leagueModel = new MockLeague();
-        LeagueModel leagueModel1 = leagueModel.getLeagueObject();
+        LeagueModel leagueModel1 = MockLeague.getLeagueObject();
         GamePlayConfigModel gamePlayConfigModel = leagueModel1.getGameplayConfig();
         GamePlayConfigModel gamePlayConfigModel1 = new GamePlayConfigModel();
         gamePlayConfigModel1.setAging(gamePlayConfigModel.getAging());
@@ -21,7 +21,7 @@ class GamePlayConfigModelTest {
     @Test
     void setAging() {
         MockLeague leagueModel = new MockLeague();
-        LeagueModel leagueModel1 = leagueModel.getLeagueObject();
+        LeagueModel leagueModel1 = MockLeague.getLeagueObject();
         GamePlayConfigModel gamePlayConfigModel = leagueModel1.getGameplayConfig();
         GamePlayConfigModel gamePlayConfigModel1 = new GamePlayConfigModel();
         gamePlayConfigModel1.setAging(gamePlayConfigModel.getAging());
@@ -31,7 +31,7 @@ class GamePlayConfigModelTest {
     @Test
     void getGameResolver() {
         MockLeague league = new MockLeague();
-        LeagueModel leagueModel = league.getLeagueObject();
+        LeagueModel leagueModel = MockLeague.getLeagueObject();
         GamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
         GamePlayConfigModel gamePlayConfigModel1 = new GamePlayConfigModel();
         gamePlayConfigModel1.setGameResolver(gamePlayConfigModel.getGameResolver());
@@ -41,7 +41,7 @@ class GamePlayConfigModelTest {
     @Test
     void setGameResolver() {
         MockLeague league = new MockLeague();
-        LeagueModel leagueModel = league.getLeagueObject();
+        LeagueModel leagueModel = MockLeague.getLeagueObject();
         GamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
         GamePlayConfigModel gamePlayConfigModel1 = new GamePlayConfigModel();
         gamePlayConfigModel1.setGameResolver(gamePlayConfigModel.getGameResolver());
@@ -51,7 +51,7 @@ class GamePlayConfigModelTest {
     @Test
     void getInjuries() {
         MockLeague league = new MockLeague();
-        LeagueModel leagueModel = league.getLeagueObject();
+        LeagueModel leagueModel = MockLeague.getLeagueObject();
         GamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
         GamePlayConfigModel gamePlayConfigModel1 = new GamePlayConfigModel();
         gamePlayConfigModel1.setInjuries(gamePlayConfigModel.getInjuries());
@@ -61,7 +61,7 @@ class GamePlayConfigModelTest {
     @Test
     void setInjuries() {
         MockLeague league = new MockLeague();
-        LeagueModel leagueModel = league.getLeagueObject();
+        LeagueModel leagueModel = MockLeague.getLeagueObject();
         GamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
         GamePlayConfigModel gamePlayConfigModel1 = new GamePlayConfigModel();
         gamePlayConfigModel1.setInjuries(gamePlayConfigModel.getInjuries());
@@ -71,7 +71,7 @@ class GamePlayConfigModelTest {
     @Test
     void getTraining() {
         MockLeague league = new MockLeague();
-        LeagueModel leagueModel = league.getLeagueObject();
+        LeagueModel leagueModel = MockLeague.getLeagueObject();
         GamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
         GamePlayConfigModel gamePlayConfigModel1 = new GamePlayConfigModel();
         gamePlayConfigModel1.setTraining(gamePlayConfigModel.getTraining());
@@ -81,7 +81,7 @@ class GamePlayConfigModelTest {
     @Test
     void setTraining() {
         MockLeague league = new MockLeague();
-        LeagueModel leagueModel = league.getLeagueObject();
+        LeagueModel leagueModel = MockLeague.getLeagueObject();
         GamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
         GamePlayConfigModel gamePlayConfigModel1 = new GamePlayConfigModel();
         gamePlayConfigModel1.setTraining(gamePlayConfigModel.getTraining());
@@ -91,7 +91,7 @@ class GamePlayConfigModelTest {
     @Test
     void getTrading() {
         MockLeague league = new MockLeague();
-        LeagueModel leagueModel = league.getLeagueObject();
+        LeagueModel leagueModel = MockLeague.getLeagueObject();
         GamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
         GamePlayConfigModel gamePlayConfigModel1 = new GamePlayConfigModel();
         gamePlayConfigModel1.setTrading(gamePlayConfigModel.getTrading());
@@ -101,7 +101,7 @@ class GamePlayConfigModelTest {
     @Test
     void setTrading() {
         MockLeague league = new MockLeague();
-        LeagueModel leagueModel = league.getLeagueObject();
+        LeagueModel leagueModel = MockLeague.getLeagueObject();
         GamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
         GamePlayConfigModel gamePlayConfigModel1 = new GamePlayConfigModel();
         gamePlayConfigModel1.setTrading(gamePlayConfigModel.getTrading());

@@ -11,7 +11,7 @@ import trade.MockLeague;
 
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SimulateGameStateTest {
 
@@ -39,10 +39,9 @@ class SimulateGameStateTest {
         stateMachine.setCurrentDate(LocalDate.now());
         simulateGameState.entry();
 
-      float strength=  simulateGameState.getTeamStrength(teamOne);
-      assertEquals(75.0,strength);
+        float strength = simulateGameState.getTeamStrength(teamOne);
+        assertEquals(75.0, strength);
     }
-
 
 
 }

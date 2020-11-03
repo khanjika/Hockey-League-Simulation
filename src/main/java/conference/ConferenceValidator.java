@@ -9,12 +9,12 @@ import league.LeagueModel;
 public class ConferenceValidator implements IConferenceValidator {
 
     private static IConferenceValidator conferenceValidator;
-    private static IDivisonValidator divisonValidator ;
+    private static IDivisonValidator divisonValidator;
     private int numberOfDivision = 0;
 
     public ConferenceValidator() {
 
-      divisonValidator  = new DivisonValidator();
+        divisonValidator = new DivisonValidator();
     }
 
     @Override
@@ -28,7 +28,7 @@ public class ConferenceValidator implements IConferenceValidator {
                 if (divisonValidator.validateDivisionObject(divisonModel)) {
                     continue;
                 } else {
-                    System.out.println("Encountered problem while validating Divisions in Conferene ==> "+conferenceModel.getConferenceName());
+                    System.out.println("Encountered problem while validating Divisions in Conferene ==> " + conferenceModel.getConferenceName());
                     return false;
                 }
 
@@ -43,9 +43,9 @@ public class ConferenceValidator implements IConferenceValidator {
     }
 
     @Override
-    public boolean isConferenceExist(LeagueModel leagueModel,String conferenceName) {
-        for(ConferenceModel conferenceModel:leagueModel.getConferences()){
-            if(conferenceModel.getConferenceName().equalsIgnoreCase(conferenceName)){
+    public boolean isConferenceExist(LeagueModel leagueModel, String conferenceName) {
+        for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
+            if (conferenceModel.getConferenceName().equalsIgnoreCase(conferenceName)) {
                 return true;
             }
         }

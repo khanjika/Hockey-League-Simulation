@@ -16,19 +16,19 @@ class CliCommunicationTest {
     }
 
     @Test
-    void parseJson(){
+    void parseJson() {
         CliCommunication cliCommunication = new CliCommunication();
-        LeagueModel leagueModel=cliCommunication.parseJson("src/test/java/resources/TestJson.txt");
+        LeagueModel leagueModel = cliCommunication.parseJson("src/test/java/resources/TestJson.txt");
         assertNotNull(leagueModel);
     }
 
     @Test
-    void calculateStrength(){
+    void calculateStrength() {
         CliCommunication cliCommunication = new CliCommunication();
         LeagueModel testModel = LeagueModelTest.getLeagueObject();
         LeagueModel leagueModel = LeagueModelTest.getLeagueObject();
         LeagueModel updatedleagueModel = cliCommunication.calculateStrength(leagueModel);
         assertNotNull(updatedleagueModel);
-        assertNotEquals(testModel.toString(),updatedleagueModel.toString());
+        assertNotEquals(testModel.toString(), updatedleagueModel.toString());
     }
 }

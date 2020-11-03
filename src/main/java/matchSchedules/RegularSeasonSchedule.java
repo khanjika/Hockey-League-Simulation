@@ -11,10 +11,11 @@ import java.util.List;
 public class RegularSeasonSchedule implements IRegularSeasonSchedule {
 
 
-    List<List<TeamsModel>> regularSchedule ;
+    List<List<TeamsModel>> regularSchedule;
+
     @Override
     public List<List<TeamsModel>> generateSeasonSchedule(LeagueModel leagueModel) {
-        regularSchedule= new ArrayList<>();
+        regularSchedule = new ArrayList<>();
         for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
             List<TeamsModel> teamsOfDifferentConference = getOutOfConferenceTeamList(conferenceModel.getConferenceName(), leagueModel.getConferences());
             for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
@@ -101,7 +102,7 @@ public class RegularSeasonSchedule implements IRegularSeasonSchedule {
         if (teamName == null || teamName.equals("")) {
             return null;
         }
-        for (TeamsModel teamsModel :divisonModel.getTeams()) {
+        for (TeamsModel teamsModel : divisonModel.getTeams()) {
             if (teamsModel.getTeamName().equals(teamName)) {
                 continue;
             } else {

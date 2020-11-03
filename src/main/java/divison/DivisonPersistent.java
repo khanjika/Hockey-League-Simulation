@@ -9,18 +9,18 @@ public class DivisonPersistent implements IDivisonPersistent {
 
         CallStoredProcedure storedProcedure = null;
         try {
-            storedProcedure = new CallStoredProcedure ("storeNewDivisionInformation(?, ?, ?)");
-            storedProcedure.setParameter (1, divisionName);
-            storedProcedure.setParameter (2, conferenceId);
-            storedProcedure.registerOutParameter (3);
-            storedProcedure.execute ();
-            return storedProcedure.getNumericReturnValue (3);
+            storedProcedure = new CallStoredProcedure("storeNewDivisionInformation(?, ?, ?)");
+            storedProcedure.setParameter(1, divisionName);
+            storedProcedure.setParameter(2, conferenceId);
+            storedProcedure.registerOutParameter(3);
+            storedProcedure.execute();
+            return storedProcedure.getNumericReturnValue(3);
         } catch (Exception e) {
-            System.out.println ("Exception in storing division information.");
-            System.out.println (e);
+            System.out.println("Exception in storing division information.");
+            System.out.println(e);
         } finally {
             if (storedProcedure != null) {
-                storedProcedure.clean ();
+                storedProcedure.clean();
             }
         }
         return 0;
@@ -30,22 +30,18 @@ public class DivisonPersistent implements IDivisonPersistent {
     public boolean isDivisionAlreadyExist(String divisionName, int conferenceId) {
         CallStoredProcedure storedProcedure = null;
         try {
-            storedProcedure = new CallStoredProcedure ("isDivisionAlreadyExist(?,?,?)");
-            storedProcedure.setParameter (1, divisionName);
-            storedProcedure.setParameter (2, conferenceId);
-            storedProcedure.registerOutParameter (3);
-            storedProcedure.execute ();
-            if (storedProcedure.getNumericReturnValue (3) == 0) {
-                return false;
-            } else {
-                return true;
-            }
+            storedProcedure = new CallStoredProcedure("isDivisionAlreadyExist(?,?,?)");
+            storedProcedure.setParameter(1, divisionName);
+            storedProcedure.setParameter(2, conferenceId);
+            storedProcedure.registerOutParameter(3);
+            storedProcedure.execute();
+            return storedProcedure.getNumericReturnValue(3) != 0;
         } catch (Exception e) {
-            System.out.println ("Exception in obtaining division information");
-            System.out.println (e);
+            System.out.println("Exception in obtaining division information");
+            System.out.println(e);
         } finally {
             if (storedProcedure != null) {
-                storedProcedure.clean ();
+                storedProcedure.clean();
             }
         }
         return false;
@@ -55,18 +51,18 @@ public class DivisonPersistent implements IDivisonPersistent {
     public int getDivisionInformation(String divisionName, int conferenceId) {
         CallStoredProcedure storedProcedure = null;
         try {
-            storedProcedure = new CallStoredProcedure ("getDivisionId(?,?,?)");
-            storedProcedure.setParameter (1, divisionName);
-            storedProcedure.setParameter (2, conferenceId);
-            storedProcedure.registerOutParameter (3);
-            storedProcedure.execute ();
-            return storedProcedure.getNumericReturnValue (3);
+            storedProcedure = new CallStoredProcedure("getDivisionId(?,?,?)");
+            storedProcedure.setParameter(1, divisionName);
+            storedProcedure.setParameter(2, conferenceId);
+            storedProcedure.registerOutParameter(3);
+            storedProcedure.execute();
+            return storedProcedure.getNumericReturnValue(3);
         } catch (Exception e) {
-            System.out.println ("Exception in fetching information about division");
-            System.out.println (e);
+            System.out.println("Exception in fetching information about division");
+            System.out.println(e);
         } finally {
             if (storedProcedure != null) {
-                storedProcedure.clean ();
+                storedProcedure.clean();
             }
         }
 

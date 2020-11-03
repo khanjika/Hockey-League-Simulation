@@ -1,5 +1,5 @@
 package teams;
 
 public interface IHeadCoachValidator {
-    public boolean validateHeadCoachObject(HeadCoachModel headCoachModel);
+    boolean validateHeadCoachObject(HeadCoachModel headCoachModel);
 }

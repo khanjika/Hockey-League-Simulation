@@ -4,6 +4,7 @@ import conference.ConferenceModel;
 import divison.DivisonModel;
 import league.LeagueModel;
 import teams.TeamsModel;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -32,6 +33,7 @@ public class PlayoffSchedule implements IPlayoffSchedule {
         List<List<TeamsModel>> finalSchedule = generateScheduleWithWIldCard(topTeamFromDivisionList, wildCardTeam);
         return finalSchedule;
     }
+
     private List<TeamsModel> getWildCardTeam(LeagueModel leagueModel) {
         List<TeamsModel> allTeamsList = new ArrayList<>();
         for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
@@ -46,12 +48,18 @@ public class PlayoffSchedule implements IPlayoffSchedule {
         Collections.sort(allTeamsList, teamModelComparator);
         return allTeamsList;
     }
+
     List<List<TeamsModel>> generateScheduleWithWIldCard(List<List<TeamsModel>> topTeamFromDivisionList, List<TeamsModel> wildCardList) {
         List<List<TeamsModel>> schedule = new ArrayList<>();
         int i = 0;
         int wildCardTeamCount = 0;
+
         for (List<TeamsModel> teamsModelList : topTeamFromDivisionList) {
+            if (wildCardTeamCount > 2) {
+                break;
+            }
             List<TeamsModel> matchWithWildCard = new ArrayList<>();
+            System.out.println(wildCardTeamCount);
             matchWithWildCard.add(teamsModelList.get(wildCardTeamCount));
             matchWithWildCard.add(wildCardList.get(i));
             schedule.add(matchWithWildCard);
@@ -61,9 +69,11 @@ public class PlayoffSchedule implements IPlayoffSchedule {
             schedule.add(matchWithEachOther);
             i = 0;
             wildCardTeamCount++;
+
         }
         return schedule;
     }
+
     public static Comparator<TeamsModel> teamModelComparator = new Comparator<TeamsModel>() {
         @Override
         public int compare(TeamsModel o1, TeamsModel o2) {

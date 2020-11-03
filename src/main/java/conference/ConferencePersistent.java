@@ -7,18 +7,18 @@ public class ConferencePersistent implements IConferencePersistent {
     public int addConferenceInformation(String conferenceName, int leagueId) {
         CallStoredProcedure storedProcedure = null;
         try {
-            storedProcedure = new CallStoredProcedure ("storeNewConferenceInformation(?, ?, ?)");
-            storedProcedure.setParameter (1, conferenceName);
-            storedProcedure.setParameter (2, leagueId);
-            storedProcedure.registerOutParameter (3);
-            storedProcedure.execute ();
-            return storedProcedure.getNumericReturnValue (3);
+            storedProcedure = new CallStoredProcedure("storeNewConferenceInformation(?, ?, ?)");
+            storedProcedure.setParameter(1, conferenceName);
+            storedProcedure.setParameter(2, leagueId);
+            storedProcedure.registerOutParameter(3);
+            storedProcedure.execute();
+            return storedProcedure.getNumericReturnValue(3);
         } catch (Exception e) {
-            System.out.println ("Exception in storing conference information.");
-            System.out.println (e);
+            System.out.println("Exception in storing conference information.");
+            System.out.println(e);
         } finally {
             if (storedProcedure != null) {
-                storedProcedure.clean ();
+                storedProcedure.clean();
             }
         }
         return 0;
@@ -28,22 +28,18 @@ public class ConferencePersistent implements IConferencePersistent {
     public boolean isConferenceAlreadyExist(String conferenceName, int leagueId) {
         CallStoredProcedure storedProcedure = null;
         try {
-            storedProcedure = new CallStoredProcedure ("isConferenceAlreadyExist(?,?,?)");
-            storedProcedure.setParameter (1, conferenceName);
-            storedProcedure.setParameter (2, leagueId);
-            storedProcedure.registerOutParameter (3);
-            storedProcedure.execute ();
-            if (storedProcedure.getNumericReturnValue (3) == 0) {
-                return false;
-            } else {
-                return true;
-            }
+            storedProcedure = new CallStoredProcedure("isConferenceAlreadyExist(?,?,?)");
+            storedProcedure.setParameter(1, conferenceName);
+            storedProcedure.setParameter(2, leagueId);
+            storedProcedure.registerOutParameter(3);
+            storedProcedure.execute();
+            return storedProcedure.getNumericReturnValue(3) != 0;
         } catch (Exception e) {
-            System.out.println ("Exception in obtaining conference information.");
-            System.out.println (e);
+            System.out.println("Exception in obtaining conference information.");
+            System.out.println(e);
         } finally {
             if (storedProcedure != null) {
-                storedProcedure.clean ();
+                storedProcedure.clean();
             }
         }
         return false;
@@ -53,18 +49,18 @@ public class ConferencePersistent implements IConferencePersistent {
     public int getConferenceInformation(String conferenceName, int leagueId) {
         CallStoredProcedure storedProcedure = null;
         try {
-            storedProcedure = new CallStoredProcedure ("getConferenceId(?,?,?)");
-            storedProcedure.setParameter (1, conferenceName);
-            storedProcedure.setParameter (2, leagueId);
-            storedProcedure.registerOutParameter (3);
-            storedProcedure.execute ();
-            return storedProcedure.getNumericReturnValue (3);
+            storedProcedure = new CallStoredProcedure("getConferenceId(?,?,?)");
+            storedProcedure.setParameter(1, conferenceName);
+            storedProcedure.setParameter(2, leagueId);
+            storedProcedure.registerOutParameter(3);
+            storedProcedure.execute();
+            return storedProcedure.getNumericReturnValue(3);
         } catch (Exception e) {
-            System.out.println ("Exception in fetching information about conference.");
-            System.out.println (e);
+            System.out.println("Exception in fetching information about conference.");
+            System.out.println(e);
         } finally {
             if (storedProcedure != null) {
-                storedProcedure.clean ();
+                storedProcedure.clean();
             }
         }
         return 0;

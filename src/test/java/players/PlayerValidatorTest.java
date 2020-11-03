@@ -3,12 +3,13 @@ package players;
 import mock.MockPlayer;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class PlayerValidatorTest {
 
     @Test
-    void validatePlayerObject(){
+    void validatePlayerObject() {
         PlayerModel playerModel = MockPlayer.getPlayerModel();
         PlayerValidator playerValidator = new PlayerValidator();
         assertTrue(playerValidator.validatePlayerObject(playerModel));

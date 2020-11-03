@@ -2,7 +2,7 @@ package teams;
 
 import com.google.gson.annotations.Expose;
 
-public class HeadCoachModel implements IHeadCoachModel{
+public class HeadCoachModel implements IHeadCoachModel {
     @Expose
     private String name;
     @Expose
