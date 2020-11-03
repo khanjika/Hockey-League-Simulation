@@ -13,27 +13,25 @@ public class PlayerPersistent implements IPlayerPersistent {
     public void addPlayerInformation(int teamId, String playerName, String playerPosition, boolean isCaptain, int age, boolean isPlayerRetired, float skating, float shooting, float checking, float saving, int agingDays, int injuryDays, int retirementLikelyHood, LocalDate recoveryDate) {
         CallStoredProcedure storedProcedure = null;
         try {
-            storedProcedure = new CallStoredProcedure ("addPlayerInformation (?, ?, ?,?,?,?,?,?,?,?,?,?,?,?)");
+            storedProcedure = new CallStoredProcedure ("storeNewPlayerInformation (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             storedProcedure.setParameter (1, teamId);
             storedProcedure.setParameter (2, playerName);
-            storedProcedure.setParameter (1, playerPosition);
-            storedProcedure.setParameter (2, isCaptain);
-            storedProcedure.setParameter (1, age);
-            storedProcedure.setParameter (2, isPlayerRetired);
-            storedProcedure.setParameter (1, skating);
-            storedProcedure.setParameter (2, shooting);
-            storedProcedure.setParameter (1, checking);
-            storedProcedure.setParameter (2, saving);
-            storedProcedure.setParameter (1, agingDays);
-            storedProcedure.setParameter (2, injuryDays);
-            storedProcedure.setParameter (1, retirementLikelyHood);
-            storedProcedure.setParameter (2, recoveryDate);
+            storedProcedure.setParameter (3, playerPosition);
+            storedProcedure.setParameter (4, isCaptain);
+            storedProcedure.setParameter (5, age);
+            storedProcedure.setParameter (6, isPlayerRetired);
+            storedProcedure.setParameter (7, skating);
+            storedProcedure.setParameter (8, shooting);
+            storedProcedure.setParameter (9, checking);
+            storedProcedure.setParameter (10, saving);
+            storedProcedure.setParameter (11, agingDays);
+            storedProcedure.setParameter (12, injuryDays);
+            storedProcedure.setParameter (13, retirementLikelyHood);
+            storedProcedure.setParameter (14, recoveryDate);
 
             storedProcedure.execute ();
 
         } catch (Exception e) {
-            System.out.println ("Exception in storing league");
-            System.out.println (e);
         } finally {
             if (storedProcedure != null) {
                 storedProcedure.clean ();

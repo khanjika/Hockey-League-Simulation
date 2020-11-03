@@ -194,7 +194,6 @@ public class FreeAgentModel implements IFreeAgentModel {
         if(freeAgents == null){
             return null;
         }
-        System.out.println(freeAgents);
         for (FreeAgentModel freeAgent : freeAgents) {
             if (freeAgent.getPosition().equals(playerPosition)) {
                 matchedfreeAgents.add(freeAgent);

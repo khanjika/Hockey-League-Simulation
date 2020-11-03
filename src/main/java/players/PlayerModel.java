@@ -240,7 +240,6 @@ public class PlayerModel implements IPlayerModel {
 
     @Override
     public void checkPlayerInjury(PlayerModel playerModel, LocalDate date) {
-//        try {
         if (playerModel.isPlayerInjured()) {
             return;
         } else {
@@ -254,15 +253,10 @@ public class PlayerModel implements IPlayerModel {
                 playerModel.setPlayerInjured(true);
                 playerModel.setInjuryDays(injuryDays);
                 playerModel.setInjuredDate(date);
-                System.out.println(injuryDays);
-                System.out.println(date);
                 playerModel.setRecoveryDate(date.plusDays(injuryDays));
-                System.out.println(playerModel.getPlayerName() + " Player Injured for " + playerModel.getInjuryDays());
+                System.out.println(playerModel.getPlayerName() + " Player Injured for " + playerModel.getInjuryDays()+" Days");
             }
 
-//        } catch (Exception e) {
-//            System.out.println("Error in checkPlayerInjury method of player model" + e);
-//        }
         }
     }
 
@@ -299,7 +293,6 @@ public class PlayerModel implements IPlayerModel {
             }
             playerModel.recoverPlayer(playerModel, date);
             int retirementLikelyHood = checkPlayerRetirementPossibility(playerModel);
-            System.out.println(retirementLikelyHood);
             if (retirementLikelyHood >= 90) {
                 playerModel.setPlayerRetired(true);
             }
@@ -311,7 +304,6 @@ public class PlayerModel implements IPlayerModel {
                 replacePlayerWithFreeAgent(playerModel, replacementFreeAgent);
             }
         } catch (Exception e) {
-            //System.out.println("Error in aging method of player model" + e);
             e.printStackTrace();
         }
     }

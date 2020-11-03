@@ -22,6 +22,7 @@ public class InitializeSeasonState implements ITransition {
     IRegularSeasonSchedule iRegularSeasonSchedule;
     ITransition trainingState;
     ITransition tradingState;
+    ITransition persistLeagueState;
     IPlayoffSchedule playoffSchedule;
     private int currentSimulationYear;
 
@@ -67,7 +68,6 @@ public class InitializeSeasonState implements ITransition {
                 stateMachine.setTradingState(tradingState);
                 stateMachine.setCurrentState(stateMachine.getTradingState());
                 stateMachine.getCurrentState().entry();
-
             }
             agingState=new AgingState(stateMachine,updatedLeagueModelObject);
             stateMachine.setAgingState(agingState);
@@ -77,8 +77,6 @@ public class InitializeSeasonState implements ITransition {
             currentDate=regularSeasonStartDate.plusDays(i);
 
         }
-
-         performPlayoffmatch();
         LocalDate playOffStartDate=iDeadlines.getPlayOffStartDate(currentSimulationYear);
         currentDate=playOffStartDate;
         long availableDaysForPlayOff=DAYS.between(iDeadlines.getPlayOffStartDate(currentSimulationYear), iDeadlines.getLastDayOfStanleyCup(currentSimulationYear + 1));
@@ -115,10 +113,6 @@ public class InitializeSeasonState implements ITransition {
         System.out.println("Winner is "+winnerTeam.getTeamName()+ " With Points "+winnerTeam.getWinPoint()+ " For the year "+ currentSimulationYear);
         task();
     }
-
-   void performPlayoffmatch(){
-
-    }
     @Override
     public void task() {
         exit();
@@ -126,6 +120,6 @@ public class InitializeSeasonState implements ITransition {
 
     @Override
     public void exit() {
-        System.out.println("Season simulation ends");
+        System.out.println("Season simulation ends for the year "+currentSimulationYear);
     }
 }

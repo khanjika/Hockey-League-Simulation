@@ -18,7 +18,7 @@ public class TradingPersistent implements ITradingPersistent {
             storedProcedure.execute();
             return storedProcedure.getNumericReturnValue(5);
         } catch (Exception e) {
-            System.out.println("Exception in storing league");
+            System.out.println("Exception in storing Trading Model");
             System.out.println(e);
         } finally {
             if (storedProcedure != null) {

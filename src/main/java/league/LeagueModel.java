@@ -10,6 +10,7 @@ import freeagent.FreeAgentModel;
 import freeagent.FreeAgentPersistent;
 import freeagent.IFreeAgentModel;
 import gameplayconfig.GamePlayConfigModel;
+import gameplayconfig.IGamePlayConfigModel;
 
 import java.util.List;
 
@@ -32,6 +33,9 @@ public class LeagueModel implements ILeagueModel {
     private List<String> generalManagers;
     @Expose
     private GamePlayConfigModel gameplayConfig;
+
+    IGamePlayConfigModel iGamePlayConfigModel;
+
 
 
     public LeagueModel() {
@@ -85,7 +89,7 @@ public class LeagueModel implements ILeagueModel {
         this.gameplayConfig = gameplayConfig;
     }
 
-    public boolean storeLeagueInformation(LeagueModel leagueModel) {
+    public boolean storeLeagueInformation(LeagueModel leagueModel,int year) {
         loadTeamCli = new loadTeamCli();
         if(loadTeamCli.isLeagueExist(leagueModel.getLeagueName())){
             System.out.println("League already Exit in the DB");
@@ -93,14 +97,16 @@ public class LeagueModel implements ILeagueModel {
         }
         else{
             //CHANGE HERE
-            int leagueId = iLeaguePersistent.addLeagueInformation(leagueModel.getLeagueName(),0,0);
+            iGamePlayConfigModel=new GamePlayConfigModel();
+           int gamePlayConfigId= iGamePlayConfigModel.addGamePlayConfigInformation(leagueModel.getGameplayConfig());
+            int leagueId = iLeaguePersistent.addLeagueInformation(leagueModel.getLeagueName(),gamePlayConfigId,year);
             for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
                this.conferenceModel.storeConferenceInformation(conferenceModel, leagueId);
             }
             for (FreeAgentModel freeAgentModel : leagueModel.getFreeAgents()) {
                this.freeAgentModel.storeFreeAgentInformation(freeAgentModel, leagueId);
-
             }
+            storeGeneralManagerInformation(leagueId,leagueModel.getGeneralManagers());
         }
         return true;
     }
@@ -113,5 +119,11 @@ public class LeagueModel implements ILeagueModel {
     @Override
     public boolean isLeagueExist(String leagueName) {
         return iLeaguePersistent.isLeagueAlreadyExist(leagueName);
+    }
+
+    public void storeGeneralManagerInformation(int leagueId,List<String> generalManagers){
+        for(String generalManager:generalManagers) {
+            iLeaguePersistent.storeAvailableGeneralManagerInformation(leagueId,generalManager);
+        }
     }
 }

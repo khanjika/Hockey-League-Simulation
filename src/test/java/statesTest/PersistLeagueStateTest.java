@@ -17,7 +17,7 @@ class PersistLeagueStateTest {
         PersistLeagueState persistLeagueState = new PersistLeagueState(stateMachine);
         stateMachine.setCurrentState(persistLeagueState);
         stateMachine.setPersistLeagueStae(persistLeagueState);
-        PersistLeagueState persistLeagueState1= (PersistLeagueState) stateMachine.getPersistLeagueStae();
+        PersistLeagueState persistLeagueState1= (PersistLeagueState) stateMachine.getPersistLeagueState();
         assertTrue(persistLeagueState1 instanceof PersistLeagueState);
 
     }

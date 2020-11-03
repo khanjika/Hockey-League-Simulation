@@ -6,7 +6,6 @@ public interface ILeaguePersistent {
 
     boolean isLeagueAlreadyExist(String leagueName);
    void storeAvailableGeneralManagerInformation(int leagueId,String generalManagerName);
-
     String getLeagueInformation(int leagueId);
 
     int getLeagueId(String leagueName);

@@ -98,9 +98,6 @@ public class StateMachine {
         this.createTeam = createTeam;
     }
 
-    public ITransition getPersistLeagueStae() {
-        return persistLeagueState;
-    }
 
     public void setPersistLeagueStae(ITransition persistLeagueStae) {
         this.persistLeagueState = persistLeagueStae;

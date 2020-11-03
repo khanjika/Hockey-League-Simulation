@@ -44,7 +44,6 @@ public class TeamsValidator implements ITeamsValidator {
             if (playerCount == 20) {
                 return true;
             } else {
-                // Make condition false after validating
                System.out.println("Player Count is not equal to 20. Current count is==>"+playerCount);
                 return true;
             }

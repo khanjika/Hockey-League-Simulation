@@ -221,7 +221,6 @@ public class FreeAgentModelTest {
         freeAgentModelList.add(MockFreeAgent.getForwardFreeAgentModel());
         freeAgentModelList.add(MockFreeAgent.getDefenseFreeAgentModel());
         freeAgentModelList.add(MockFreeAgent.getGoalieFreeAgentModel());
-        System.out.println(freeAgentModelList);
         FreeAgentModel freeAgentModel = new FreeAgentModel();
         FreeAgentModel replacement = freeAgentModel.getReplacementFreeAgent(freeAgentModelList, "forward");
         assertEquals(freeAgentModelList.get(0).getPlayerName(), replacement.getPlayerName(), "Error in getReplacementFreeAgent of Free Agent Model");

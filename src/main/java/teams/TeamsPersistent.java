@@ -11,7 +11,7 @@ public class TeamsPersistent implements ITeamsPersistent {
     public int addTeamInformation(String teamName, int generalManager, int headCoach, int divisionId) {
         CallStoredProcedure storedProcedure = null;
         try {
-            storedProcedure = new CallStoredProcedure ("storeNewTeamInformation(?, ?, ? ,?, ?)");
+            storedProcedure = new CallStoredProcedure ("storeNewTeamInformation(?,?,?,?,?)");
             storedProcedure.setParameter (1, teamName);
             storedProcedure.setParameter (2, generalManager);
             storedProcedure.setParameter (3, headCoach);
@@ -106,7 +106,7 @@ public class TeamsPersistent implements ITeamsPersistent {
             storedProcedure.execute ();
             return storedProcedure.getNumericReturnValue (2);
         } catch (Exception e) {
-            System.out.println ("Exception in fetching information about general manager");
+            System.out.println ("Exception in storing General Manager ");
             System.out.println (e);
         } finally {
             if (storedProcedure != null) {

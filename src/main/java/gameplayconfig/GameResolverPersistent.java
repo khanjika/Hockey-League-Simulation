@@ -15,7 +15,7 @@ public class GameResolverPersistent implements IGameResolverPersistent{
             storedProcedure.execute ();
             return storedProcedure.getNumericReturnValue (2);
         } catch (Exception e) {
-            System.out.println ("Exception in getting id of league");
+            System.out.println ("Exception in Storing Game resolver Id.");
             System.out.println (e);
         } finally {
             if (storedProcedure != null) {

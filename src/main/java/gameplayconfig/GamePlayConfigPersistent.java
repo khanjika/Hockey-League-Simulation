@@ -17,7 +17,7 @@ public class GamePlayConfigPersistent implements IGamePlayConfigPersistent{
             storedProcedure.execute ();
             return storedProcedure.getNumericReturnValue (6);
         } catch (Exception e) {
-            System.out.println ("Exception in storing league");
+            System.out.println ("Exception in storing Game Play Config Model");
             System.out.println (e);
         } finally {
             if (storedProcedure != null) {

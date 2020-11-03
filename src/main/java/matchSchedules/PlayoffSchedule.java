@@ -50,17 +50,23 @@ public class PlayoffSchedule implements IPlayoffSchedule {
         List<List<TeamsModel>> schedule = new ArrayList<>();
         int i = 0;
         int wildCardTeamCount = 0;
-        for (List<TeamsModel> teamsModelList : topTeamFromDivisionList) {
-            List<TeamsModel> matchWithWildCard = new ArrayList<>();
-            matchWithWildCard.add(teamsModelList.get(wildCardTeamCount));
-            matchWithWildCard.add(wildCardList.get(i));
-            schedule.add(matchWithWildCard);
-            List<TeamsModel> matchWithEachOther = new ArrayList<>();
-            matchWithEachOther.add(teamsModelList.get(i + 1));
-            matchWithEachOther.add(teamsModelList.get(i + 2));
-            schedule.add(matchWithEachOther);
-            i = 0;
-            wildCardTeamCount++;
+
+            for (List<TeamsModel> teamsModelList : topTeamFromDivisionList) {
+                if(wildCardTeamCount>2){
+                    break;
+                }
+                List<TeamsModel> matchWithWildCard = new ArrayList<>();
+                System.out.println(wildCardTeamCount);
+                matchWithWildCard.add(teamsModelList.get(wildCardTeamCount));
+                matchWithWildCard.add(wildCardList.get(i));
+                schedule.add(matchWithWildCard);
+                List<TeamsModel> matchWithEachOther = new ArrayList<>();
+                matchWithEachOther.add(teamsModelList.get(i + 1));
+                matchWithEachOther.add(teamsModelList.get(i + 2));
+                schedule.add(matchWithEachOther);
+                i = 0;
+                wildCardTeamCount++;
+
         }
         return schedule;
     }

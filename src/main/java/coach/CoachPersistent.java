@@ -4,7 +4,7 @@ import database.CallStoredProcedure;
 
 public class CoachPersistent implements ICoachPersistent{
     @Override
-    public int storeCoachesInformation(int leagueId, int headCoachName, float skating, float shooting, float checking, float saving) {
+    public int storeCoachesInformation(String  leagueId, String headCoachName, float skating, float shooting, float checking, float saving) {
         CallStoredProcedure storedProcedure = null;
         try {
             storedProcedure = new CallStoredProcedure ("storeAvailableCoachesInformation(?, ?, ?,?,?,?,?)");
@@ -19,7 +19,7 @@ public class CoachPersistent implements ICoachPersistent{
             storedProcedure.execute ();
             return storedProcedure.getNumericReturnValue (7);
         } catch (Exception e) {
-            System.out.println ("Exception in storing league");
+            System.out.println ("Exception in storing List of coaches");
             System.out.println (e);
         } finally {
             if (storedProcedure != null) {

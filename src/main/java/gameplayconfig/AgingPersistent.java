@@ -16,7 +16,7 @@ public class AgingPersistent implements IAgingPersistent{
             storedProcedure.execute ();
             return storedProcedure.getNumericReturnValue (3);
         } catch (Exception e) {
-            System.out.println ("Exception in storing league");
+            System.out.println ("Exception in storing Aging model");
             System.out.println (e);
         } finally {
             if (storedProcedure != null) {

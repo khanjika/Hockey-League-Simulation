@@ -11,6 +11,7 @@ public class PlayerSeasonsChoiceState implements ITransition {
     StateMachine stateMachine;
     LeagueModel currentModel;
     Integer enteredInput;
+    ITransition persistLeagueState;
     InitializeSeasonState initializeSeasonState;
 
     public PlayerSeasonsChoiceState(StateMachine stateMachine) {
@@ -62,6 +63,10 @@ public class PlayerSeasonsChoiceState implements ITransition {
             stateMachine.getCurrentState().entry();
 
         }
+        persistLeagueState=new PersistLeagueState(currentModel,stateMachine,currentYear);
+        stateMachine.setPersistLeagueStae(persistLeagueState);
+        stateMachine.setCurrentState(stateMachine.getPersistLeagueState());
+        stateMachine.getCurrentState().entry();
 
     }
 }

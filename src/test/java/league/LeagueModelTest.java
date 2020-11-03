@@ -90,10 +90,7 @@ public class LeagueModelTest {
         leagueModel.setFreeAgents(freeAgentModelList);
         List<CoachModel> coachModelsList = new ArrayList<>();
         for (int i = 0;i < 3; i++){
-            //CoachModel coachModel = CoachModelTest.getCoachModel("Arthy", 2.0f,5.0f,6.0f,7.0f);
             CoachModel coachModel = MockCoach.getValidCoachModel();
-            System.out.println(coachModel);
-            coachModelsList.add(coachModel);
         }
         List<String> generalManagers = new ArrayList<String>(){
             {

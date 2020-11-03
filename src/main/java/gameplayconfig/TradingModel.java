@@ -12,6 +12,7 @@ public class TradingModel implements ITradingModel{
     @Expose
     private float randomAcceptanceChance;
 
+    ITradingPersistent iTradingPersistent;
     public int getLossPoint() {
         return lossPoint;
     }
@@ -42,5 +43,10 @@ public class TradingModel implements ITradingModel{
 
     public void setRandomAcceptanceChance(float randomAcceptanceChance) {
         this.randomAcceptanceChance = randomAcceptanceChance;
+    }
+
+    public int addTradingModelInformation(TradingModel tradingModel){
+        iTradingPersistent=new TradingPersistent();
+        return iTradingPersistent.storeTradingInformation(tradingModel.getLossPoint(),tradingModel.getRandomTradeOfferChance(),tradingModel.getMaxPlayersPerTrade(),tradingModel.getRandomAcceptanceChance());
     }
 }

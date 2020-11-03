@@ -18,7 +18,7 @@ public class InjuriesPersistent implements IInjuriesPersistent {
             storedProcedure.execute();
             return storedProcedure.getNumericReturnValue(4);
         } catch (Exception e) {
-            System.out.println("Exception in storing league");
+            System.out.println("Exception in Injuries Model");
             System.out.println(e);
         } finally {
             if (storedProcedure != null) {
