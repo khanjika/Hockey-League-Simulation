@@ -36,6 +36,7 @@ public class ConferenceModel implements IConferenceModel {
         this.divisions = divisions;
     }
 
+    @Override
     public void storeConferenceInformation(ConferenceModel conferenceModel, int leagueId) {
         if (isConferenceAlreadyExist(conferenceModel.getConferenceName(), leagueId)) {
             System.out.println("Conference already Exist in the DB");
@@ -45,9 +46,9 @@ public class ConferenceModel implements IConferenceModel {
                 this.divisonModel.storeDivisionInformation(divisonModel, conferenceId);
             }
         }
-
     }
 
+    @Override
     public boolean isConferenceAlreadyExist(String conferenceName, int leagueId) {
         return iConferencePersistent.isConferenceAlreadyExist(conferenceName, leagueId);
     }

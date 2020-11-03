@@ -4,7 +4,7 @@ import database.CallStoredProcedure;
 
 public class CoachPersistent implements ICoachPersistent{
     @Override
-    public int storeCoachesInformation(int leagueId, int headCoachName, float skating, float shooting, float checking, float saving) {
+    public int storeCoachesInformation(int leagueId, String headCoachName, float skating, float shooting, float checking, float saving) {
         CallStoredProcedure storedProcedure = null;
         try {
             storedProcedure = new CallStoredProcedure ("storeAvailableCoachesInformation(?, ?, ?,?,?,?,?)");

@@ -18,6 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PlayerModelTest {
 
+
     public static PlayerModel getPlayerModel(String playerName, String position, boolean iscaptain, int age, float skating, float shooting, float checking, float saving) {
         PlayerModel playerModel = new PlayerModel();
         playerModel.setCaptain(iscaptain);
@@ -384,5 +385,18 @@ public class PlayerModelTest {
         playerModel3.setFreeAgentsList(freeAgentModelList);
         playerModel3.aging(playerModel3, 100, currentdate);
         assertEquals(100, playerModel3.getDays(), "Error in aging method of PlayerModel");
+    }
+
+    @Test
+    public void storePlayerInformation() {
+        MockPlayerPersistent mockPlayerPersistent = new MockPlayerPersistent();
+        mockPlayerPersistent.addPlayerInformation(1,"zankrut","forward",true,25,false,10,10,10,10,0,10,10,LocalDate.now());
+    }
+
+    @Test
+    void getPlayerInformation() throws Exception {
+     MockPlayerPersistent mockPlayerPersistent = new MockPlayerPersistent();
+     ArrayList<PlayerModel> playerModels = mockPlayerPersistent.getPlayerInformation();
+     assertEquals("Zankrut",playerModels.get(0).getPlayerName(),"Error in getting player information");
     }
 }

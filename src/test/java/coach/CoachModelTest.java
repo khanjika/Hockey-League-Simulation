@@ -1,7 +1,6 @@
 package coach;
 
 import org.junit.jupiter.api.Test;
-import players.PlayerModel;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -76,5 +75,11 @@ public class CoachModelTest {
         CoachModel coachModel = new CoachModel();
         coachModel.setSaving(0.2f);
         assertEquals(0.2f,coachModel.getSaving(),"Failed to set Coach Saving in Coach object");
+    }
+
+    @Test
+    void storeCoachInformation(){
+        MockCoachPersistent mockCoachPersistent = new MockCoachPersistent();
+        mockCoachPersistent.storeCoachesInformation(1,"zankrut",10,10,10,10);
     }
 }
