@@ -13,7 +13,6 @@ import java.util.List;
 public interface IPlayerModel {
 
     void storePlayerInformation(PlayerModel playerModel,int teamId);
-
     ArrayList<PlayerModel> getPlayerInformation(int teamId);
     void calculatePlayerStrength(PlayerModel playerModel);
     void checkPlayerInjury(PlayerModel playerModel, LocalDate date);
@@ -21,5 +20,6 @@ public interface IPlayerModel {
     void setAgingModel(AgingModel agingModel);
     void setFreeAgentsList(List<FreeAgentModel> freeAgentList);
     void setInjuriesModel(InjuriesModel injuriesModel);
+
     InjuriesModel getInjuriesModel();
 }
