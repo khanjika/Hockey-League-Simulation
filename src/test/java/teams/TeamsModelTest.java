@@ -3,7 +3,6 @@ package teams;
 import org.junit.jupiter.api.Test;
 import players.PlayerModel;
 import players.PlayerModelTest;
-import players.PlayerValidator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,20 +40,6 @@ public class TeamsModelTest {
     }
 
     @Test
-    void getHeadCoach() {
-        TeamsModel teamsModel = new TeamsModel();
-        teamsModel.setHeadCoach("Head coach one");
-        assertEquals("Head coach one", teamsModel.getHeadCoach(), "Failed to get head coach name in TeamModel Object");
-    }
-
-    @Test
-    void setHeadCoach() {
-        TeamsModel teamsModel = new TeamsModel();
-        teamsModel.setHeadCoach("Head coach one");
-        assertEquals("Head coach one", teamsModel.getHeadCoach(), "Failed to set head coach name in TeamModel Object");
-    }
-
-    @Test
     void getPlayers() {
         TeamsModel teamsModel = new TeamsModel();
         teamsModel.setPlayers(new ArrayList<PlayerModel>());
@@ -68,22 +53,45 @@ public class TeamsModelTest {
         assertNotNull(teamsModel.getPlayers(), "failed to set player object in teams object");
     }
 
+    @Test
+    void getHeadCoach() {
+        HeadCoachModel headCoachModel = new HeadCoachModel();
+        headCoachModel.setName("Mary Smith");
+        headCoachModel.setSkating(0.5f);
+        headCoachModel.setShooting(0.8f);
+        headCoachModel.setChecking(0.3f);
+        headCoachModel.setSaving(0.5f);
+        TeamsModel teamsModel = new TeamsModel();
+        teamsModel.setHeadCoach(headCoachModel);
+        assertEquals(headCoachModel, teamsModel.getHeadCoach(), "failed to set player object in teams object");
+    }
 
     public static TeamsModel getTeamsObject() {
         TeamsModel teamsModel = new TeamsModel();
-        teamsModel.setHeadCoach("Mary Smith");
+        HeadCoachModel headCoachModel = new HeadCoachModel();
+        headCoachModel.setName("Mary Smith");
+        headCoachModel.setSkating(0.5f);
+        headCoachModel.setShooting(0.8f);
+        headCoachModel.setChecking(0.3f);
+        headCoachModel.setSaving(0.5f);
+        teamsModel.setHeadCoach(headCoachModel);
         teamsModel.setGeneralManager("Mister Fred");
         teamsModel.setTeamName("Boston");
         boolean isCaptain = true;
         String playerName = "A";
         List<PlayerModel> playerModelObjectList = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 18; i++) {
 
             playerName = playerName + i;
-            PlayerModel playerModel = PlayerModelTest.getPlayerModel(playerName, "forward", isCaptain);
+            PlayerModel playerModel = PlayerModelTest.getPlayerModel(playerName, "forward", isCaptain, 20, 10, 10, 10, 10);
             isCaptain = false;
             playerModelObjectList.add(playerModel);
         }
+        PlayerModel playerModel;
+        playerModel = PlayerModelTest.getPlayerModel(playerName + 19, "goalie", false, 20, 10, 10, 10, 10);
+        playerModelObjectList.add(playerModel);
+        playerModel = PlayerModelTest.getPlayerModel(playerName + 19, "goalie", false, 20, 10, 10, 10, 10);
+        playerModelObjectList.add(playerModel);
         teamsModel.setPlayers(playerModelObjectList);
         return teamsModel;
     }
@@ -104,8 +112,8 @@ public class TeamsModelTest {
     void getTeamInformation() {
         MockTeamsPersistent mock = new MockTeamsPersistent();
         TeamPojo teamPojo = mock.getTeamInformation();
-        assertEquals(teamPojo.getTeamId(),1);
-        assertEquals(teamPojo.getHeadCoach(),"Rob");
+        assertEquals(teamPojo.getTeamId(), 1);
+        assertEquals(teamPojo.getHeadCoach(), "Rob");
     }
 
 }

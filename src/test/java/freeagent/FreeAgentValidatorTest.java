@@ -1,22 +1,22 @@
 package freeagent;
 
-import org.junit.jupiter.api.Test;
-import players.PlayerModel;
-import players.PlayerModelTest;
-import players.PlayerValidator;
 
-import static org.junit.jupiter.api.Assertions.*;
+import mock.MockFreeAgent;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class FreeAgentValidatorTest {
 
 
     @Test
-    void validateFreeAgentObject(){
-        FreeAgentModel freeAgentModel = FreeAgentModelTest.getFreeAgentModel("Roshan","forward",true);
+    void validateFreeAgentObject() {
+        FreeAgentModel freeAgentModel = MockFreeAgent.getFreeAgentModel();
         FreeAgentValidator freeAgentValidator = new FreeAgentValidator();
         assertTrue(freeAgentValidator.validateFreeAgentObject(freeAgentModel));
-        FreeAgentModel InValidPlayerModel = FreeAgentModelTest.getFreeAgentModel("Roshan","XYZ",true);
-        assertTrue(freeAgentValidator.validateFreeAgentObject(InValidPlayerModel));
+        FreeAgentModel freeAgentModel1 = MockFreeAgent.getInvalidFreeAgentModel();
+        assertFalse(freeAgentValidator.validateFreeAgentObject(freeAgentModel1));
 
     }
 }

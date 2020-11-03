@@ -1,0 +1,5 @@
+package coach;
+
+class CoachPersistentTest {
+
+}

@@ -1,15 +1,18 @@
 package divison;
 
+import com.google.gson.annotations.Expose;
 import teams.ITeamsModel;
 import teams.TeamsModel;
 
 import java.util.List;
 
 public class DivisonModel implements IDivisonModel {
+    @Expose
     private String divisionName;
-    private ITeamsModel teamsModel;
+    private final ITeamsModel teamsModel;
+    @Expose
     private List<TeamsModel> teams;
-    private IDivisonPersistent iDivisonPersistent;
+    private final IDivisonPersistent iDivisonPersistent;
 
     public DivisonModel() {
         iDivisonPersistent = new DivisonPersistent();
@@ -43,10 +46,7 @@ public class DivisonModel implements IDivisonModel {
             for (TeamsModel teamsModel : divisonModel.getTeams()) {
                 this.teamsModel.storeTeamInformation(teamsModel, divisionId);
             }
-
         }
-
-
     }
 
     public boolean isDivisionAlreadyExist(String divisionName, int conferenceId) {

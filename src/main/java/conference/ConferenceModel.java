@@ -1,5 +1,6 @@
 package conference;
 
+import com.google.gson.annotations.Expose;
 import divison.DivisonModel;
 import divison.IDivisonModel;
 
@@ -7,9 +8,11 @@ import java.util.List;
 
 public class ConferenceModel implements IConferenceModel {
 
-    private IConferencePersistent iConferencePersistent;
-    private IDivisonModel divisonModel;
+    private final IConferencePersistent iConferencePersistent;
+    private final IDivisonModel divisonModel;
+    @Expose
     private String conferenceName;
+    @Expose
     private List<DivisonModel> divisions;
 
     public ConferenceModel() {
@@ -25,7 +28,6 @@ public class ConferenceModel implements IConferenceModel {
         this.conferenceName = conferenceName;
     }
 
-
     public List<DivisonModel> getDivisions() {
         return divisions;
     }
@@ -34,8 +36,8 @@ public class ConferenceModel implements IConferenceModel {
         this.divisions = divisions;
     }
 
+    @Override
     public void storeConferenceInformation(ConferenceModel conferenceModel, int leagueId) {
-        //is conference in that specific league already exist
         if (isConferenceAlreadyExist(conferenceModel.getConferenceName(), leagueId)) {
             System.out.println("Conference already Exist in the DB");
         } else {
@@ -44,9 +46,9 @@ public class ConferenceModel implements IConferenceModel {
                 this.divisonModel.storeDivisionInformation(divisonModel, conferenceId);
             }
         }
-
     }
 
+    @Override
     public boolean isConferenceAlreadyExist(String conferenceName, int leagueId) {
         return iConferencePersistent.isConferenceAlreadyExist(conferenceName, leagueId);
     }
@@ -55,6 +57,5 @@ public class ConferenceModel implements IConferenceModel {
     public int getConferenceId(String conferenceName, int leagueId) {
         return iConferencePersistent.getConferenceInformation(conferenceName, leagueId);
     }
-
 
 }

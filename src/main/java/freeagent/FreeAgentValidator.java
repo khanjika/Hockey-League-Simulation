@@ -1,22 +1,22 @@
 package freeagent;
 
-import players.PlayerModel;
-
-public class FreeAgentValidator implements  IFreeAgentValidator{
+public class FreeAgentValidator implements IFreeAgentValidator {
 
     @Override
     public boolean validateFreeAgentObject(FreeAgentModel freeAgentModel) {
-        if (isStringValid(freeAgentModel.getPlayerName()) && isStringValid(freeAgentModel.getPosition()) && freeAgentModel.isCaptain() != null) {
-           return true;
-        }
-        else{
-            return false;
-        }
+        return isStringValid(freeAgentModel.getPlayerName()) && isStringValid(freeAgentModel.getPosition()) && isAgeValid(freeAgentModel.getAge())
+                && isStatValid(freeAgentModel.getSkating()) && isStatValid(freeAgentModel.getShooting()) && isStatValid(freeAgentModel.getChecking()) && isStatValid(freeAgentModel.getSaving());
     }
+
     private boolean isStringValid(String str) {
-        if (str == null || str.isEmpty()) {
-            return false;
-        }
-        return true;
+        return str != null && !str.isEmpty();
+    }
+
+    private boolean isStatValid(float stat) {
+        return !(stat < 1) || !(stat > 20);
+    }
+
+    private boolean isAgeValid(int age) {
+        return age > 0;
     }
 }

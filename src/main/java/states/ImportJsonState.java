@@ -1,26 +1,34 @@
 package states;
 
-import cli.CliCommunication;
-import cli.ICliCommunication;
+import cli.IInitCli;
 import cli.InitialCli;
+import conference.ConferenceModel;
+import divison.DivisonModel;
 import league.LeagueModel;
+import players.PlayerModel;
 import statemachine.StateMachine;
+import teams.TeamsModel;
 
 public class ImportJsonState implements ITransition {
     StateMachine stateMachine;
-    private static ICliCommunication cliCommunication;
-    String userInput;
-    InitialCli initialCli;
-    CreateTeamState createTeamState;
+    IInitCli initialCli;
+    ITransition createTeamState;
 
+    private String cliArgument;
+    private LeagueModel inMemoryLeagueModel;
 
-    public ImportJsonState() {
-
-        cliCommunication = new CliCommunication();
+    public ImportJsonState(StateMachine currentStateMachine) {
+        stateMachine = currentStateMachine;
     }
 
-    public ImportJsonState(StateMachine newStateMachine) {
-        stateMachine = newStateMachine;
+    public ImportJsonState(String[] args, StateMachine currentStateMachine) {
+        if (args.length == 0) {
+            cliArgument = null;
+        } else {
+            cliArgument = args[0];
+        }
+        initialCli = new InitialCli();
+        stateMachine = currentStateMachine;
     }
 
     public StateMachine getStateMachine() {
@@ -33,35 +41,32 @@ public class ImportJsonState implements ITransition {
 
     @Override
     public void entry() {
-        initialCli = new InitialCli();
-        userInput = initialCli.initializedCommunication();
-        task();
+        if (cliArgument == null) {
+            stateMachine.setCurrentState(stateMachine.playerChoiceLoadTeam());
+            exit();
+        } else {
+            inMemoryLeagueModel = initialCli.parseJson(cliArgument);
+
+            for (ConferenceModel conferenceModel : inMemoryLeagueModel.getConferences()) {
+                for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
+                    for (TeamsModel teamsModel : divisonModel.getTeams()) {
+                        teamsModel.calculateTeamStrength(teamsModel);
+                        for (PlayerModel playerModel : teamsModel.getPlayers()) {
+                            playerModel.calculatePlayerStrength(playerModel);
+                        }
+                    }
+                }
+            }
+            task();
+        }
     }
 
     @Override
     public void task() {
-        if (userInput.equalsIgnoreCase("yes")) {
-            InitialCli initialCli01 = new InitialCli();
-            LeagueModel leagueModel = initialCli01.parseJson();
-            if(leagueModel==null){
-
-            }
-            else {
-                createTeamState = new CreateTeamState(leagueModel,stateMachine);
-                stateMachine.setCreateTeam(createTeamState);
-                stateMachine.setCurrentState(stateMachine.playerChoiceCreateTeam());
-                exit();
-            }
-
-        } else if (userInput.equalsIgnoreCase("no")) {
-            stateMachine.setCurrentState(stateMachine.playerChoiceLoadTeam());
-            exit();
-
-        } else {
-            System.out.println(this.userInput);
-            System.out.println("Enter YES or NO");
-            exit();
-        }
+        createTeamState = new CreateTeamState(inMemoryLeagueModel, stateMachine);
+        stateMachine.setCreateTeam(createTeamState);
+        stateMachine.setCurrentState(stateMachine.playerChoiceCreateTeam());
+        exit();
     }
 
     @Override

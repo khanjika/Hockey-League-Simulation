@@ -1,16 +1,16 @@
-
 package statesTest;
 
 import org.junit.jupiter.api.Test;
 import statemachine.StateMachine;
 import states.CreateTeamState;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.fail;
 
-import static org.junit.jupiter.api.Assertions.*;
 public class CreateTeamStateTest {
     @Test
-    void isStateMachine(){
-        try{
+    void isStateMachine() {
+        try {
 
             StateMachine stateMachine = new StateMachine();
             CreateTeamState teamState = new CreateTeamState(stateMachine);
@@ -19,17 +19,14 @@ public class CreateTeamStateTest {
             StateMachine currentState = teamState.getStateMachine();
             assertNotNull(currentState);
 
-        }
-        catch(Exception exception){
+        } catch (Exception exception) {
             fail("State is not valid. Got an Exception");
         }
     }
 
-
-
     @Test
-    void setStateMachine(){
-        try{
+    void setStateMachine() {
+        try {
 
             StateMachine stateMachine = new StateMachine();
             stateMachine.setCurrentState(stateMachine.getCreateTeam());
@@ -37,12 +34,12 @@ public class CreateTeamStateTest {
             teamState.setStateMachine(stateMachine);
             StateMachine currentState = teamState.getStateMachine();
             assertNotNull(currentState);
-
-        }
-        catch(Exception exception){
+        } catch (Exception exception) {
             fail("State not set for create team. Got an Exception");
         }
     }
+
+
 }
 
 
