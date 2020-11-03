@@ -38,10 +38,10 @@ public class GenerateTradeOffer implements IGenerateTradeOffer {
                     for (TeamsModel team : division.getTeams()) {
                         String teamName = team.getTeamName();
                         if (team.isUserCreatedTeam() == false) {
-                            float lossPoint = team.getLossPoint();
+                            float lossPoint = team.getLossPointForTrading ();
                             if (calculateLossPoint(lossPoint, tradeModel)) {
                                 if (makeTradeOffer(tradeModel)) {
-                                    //set the tradeloss point to zero here
+                                    team.setLossPointForTrading (0);
                                     System.out.println("Trade initiated by team:" + " " + teamName);
                                     tradingTeamDetails.setConferenceName(conferenceName);
                                     tradingTeamDetails.setDivisionName(divisionName);

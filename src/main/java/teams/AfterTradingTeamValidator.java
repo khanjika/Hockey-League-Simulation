@@ -9,7 +9,7 @@ import java.util.List;
 
 public class AfterTradingTeamValidator implements IAfterTradingTeamValidator {
     ISortTeams sort = new SortTeams();
-    int skater = 6;
+    int skater = 18;
     int goalie = 2;
 
     enum playerPosition {
