@@ -2,7 +2,7 @@ package gameplayconfig;
 
 import com.google.gson.annotations.Expose;
 
-public class GameResolverModel implements IGameResolverModel{
+public class GameResolverModel implements IGameResolverModel {
     @Expose
     private float randomWinChance;
     IGameResolverPersistent iGameResolverPersistent;
@@ -15,8 +15,8 @@ public class GameResolverModel implements IGameResolverModel{
         this.randomWinChance = randomWinChance;
     }
 
-    public int addGameResolverInformation(GameResolverModel gameResolverModel){
-        iGameResolverPersistent=new GameResolverPersistent();
+    public int addGameResolverInformation(GameResolverModel gameResolverModel) {
+        iGameResolverPersistent = new GameResolverPersistent();
         return iGameResolverPersistent.storeGameResolverInformation(gameResolverModel.getRandomWinChance());
     }
 }

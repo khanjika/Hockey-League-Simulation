@@ -1,13 +1,13 @@
 package gameplayconfig;
 
 import com.google.gson.annotations.Expose;
-import training.Training;
 
-public class TrainingModel implements ITrainingModel{
+public class TrainingModel implements ITrainingModel {
     @Expose
     private int daysUntilStatIncreaseCheck;
 
     ITrainingPersistent iTrainingPersistent;
+
     public int getDaysUntilStatIncreaseCheck() {
         return daysUntilStatIncreaseCheck;
     }
@@ -18,7 +18,7 @@ public class TrainingModel implements ITrainingModel{
 
     @Override
     public int addTrainingModelInformation(TrainingModel trainingModel) {
-        iTrainingPersistent=new TrainingPersistent();
+        iTrainingPersistent = new TrainingPersistent();
         return iTrainingPersistent.storeTrainingInformation(trainingModel.getDaysUntilStatIncreaseCheck());
     }
 }

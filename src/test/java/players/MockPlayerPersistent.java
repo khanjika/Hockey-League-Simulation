@@ -9,8 +9,8 @@ class MockPlayerPersistent {
     }
 
     ArrayList<PlayerModel> getPlayerInformation() throws Exception {
-        ArrayList<PlayerModel> playersInfo = new ArrayList<PlayerModel> ();
-        PlayerModel player = new PlayerModel ();
+        ArrayList<PlayerModel> playersInfo = new ArrayList<PlayerModel>();
+        PlayerModel player = new PlayerModel();
         player.setPlayerName("Zankrut");
         player.setPosition("forward");
         player.setCaptain(true);
@@ -24,7 +24,7 @@ class MockPlayerPersistent {
         player.setPlayerInjured(false);
         player.setPlayerRetired(false);
         player.setRetirementLikelyHood(0);
-        playersInfo.add (player);
+        playersInfo.add(player);
         return playersInfo;
     }
 }

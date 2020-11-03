@@ -7,7 +7,7 @@ import league.LeagueModel;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class SerializeObject implements  ISerializeObject{
+public class SerializeObject implements ISerializeObject {
     @Override
     public void serializeLeagueObject(LeagueModel leagueModel) {
 

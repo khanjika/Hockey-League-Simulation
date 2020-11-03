@@ -2,7 +2,6 @@ package states;
 
 import league.LeagueModel;
 import statemachine.StateMachine;
-import states.ITransition;
 
 import java.util.Calendar;
 import java.util.Scanner;
@@ -57,13 +56,13 @@ public class PlayerSeasonsChoiceState implements ITransition {
     public void exit() {
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
         for (int i = 0; i < enteredInput; i++) {
-            initializeSeasonState = new InitializeSeasonState(stateMachine,currentModel,currentYear+i);
+            initializeSeasonState = new InitializeSeasonState(stateMachine, currentModel, currentYear + i);
             stateMachine.setInitlailizeSeasonState(initializeSeasonState);
             stateMachine.setCurrentState(stateMachine.getInitlailizeSeasonState());
             stateMachine.getCurrentState().entry();
 
         }
-        persistLeagueState=new PersistLeagueState(currentModel,stateMachine,currentYear);
+        persistLeagueState = new PersistLeagueState(currentModel, stateMachine, currentYear);
         stateMachine.setPersistLeagueStae(persistLeagueState);
         stateMachine.setCurrentState(stateMachine.getPersistLeagueState());
         stateMachine.getCurrentState().entry();

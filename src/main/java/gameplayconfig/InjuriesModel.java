@@ -35,8 +35,8 @@ public class InjuriesModel implements IInjuriesModel {
         this.injuryDaysHigh = injuryDaysHigh;
     }
 
-    public int addInjuriesInformation(InjuriesModel injuriesModel){
-        iInjuriesPersistent=new InjuriesPersistent();
-        return iInjuriesPersistent.storeInjuriesInformation(injuriesModel.getRandomInjuryChance(),injuriesModel.getInjuryDaysLow(),injuriesModel.getInjuryDaysLow());
+    public int addInjuriesInformation(InjuriesModel injuriesModel) {
+        iInjuriesPersistent = new InjuriesPersistent();
+        return iInjuriesPersistent.storeInjuriesInformation(injuriesModel.getRandomInjuryChance(), injuriesModel.getInjuryDaysLow(), injuriesModel.getInjuryDaysLow());
     }
 }

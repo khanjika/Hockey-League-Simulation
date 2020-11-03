@@ -1,21 +1,13 @@
 package gameplayconfig;
 
-public class GameResolverValidator implements IGameResolverValidator{
+public class GameResolverValidator implements IGameResolverValidator {
 
     @Override
     public boolean validateGameResolver(GameResolverModel gameResolverModel) {
-        if(isNotNull(gameResolverModel.getRandomWinChance())){
-            return true;
-        }else {
-            return false;
-        }
+        return isNotNull(gameResolverModel.getRandomWinChance());
     }
-    public boolean isNotNull(float value){
-        if(value == 0){
-            return false;
-        }
-        else {
-            return true;
-        }
+
+    public boolean isNotNull(float value) {
+        return value != 0;
     }
 }

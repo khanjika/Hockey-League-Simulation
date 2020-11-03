@@ -16,7 +16,7 @@ public class CoachModel implements ICoachModel {
 
     ICoachPersistent iCoachPersistent;
 
-    public CoachModel(){
+    public CoachModel() {
         iCoachPersistent = new CoachPersistent();
     }
 
@@ -61,9 +61,9 @@ public class CoachModel implements ICoachModel {
     }
 
 
-    public void addCoachesInformation(String leagueName, String coachesName, float skating, float shooting, float checking, int saving){
-        iCoachPersistent=new CoachPersistent();
-        iCoachPersistent.storeCoachesInformation(leagueName,coachesName,skating,shooting,checking,saving);
+    public void addCoachesInformation(String leagueName, String coachesName, float skating, float shooting, float checking, int saving) {
+        iCoachPersistent = new CoachPersistent();
+        iCoachPersistent.storeCoachesInformation(leagueName, coachesName, skating, shooting, checking, saving);
     }
 
 }

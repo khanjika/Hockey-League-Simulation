@@ -18,12 +18,13 @@ public class InjuryCheckState implements ITransition {
     public InjuryCheckState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
     }
-    public InjuryCheckState(StateMachine stateMachine, LeagueModel leagueModel,TeamsModel teamsModel) {
+
+    public InjuryCheckState(StateMachine stateMachine, LeagueModel leagueModel, TeamsModel teamsModel) {
 
         this.stateMachine = stateMachine;
         this.leagueModel = leagueModel;
-        this.teamsModelTemp=teamsModel;
-        currentDate =stateMachine.getCurrentDate();
+        this.teamsModelTemp = teamsModel;
+        currentDate = stateMachine.getCurrentDate();
     }
 
     @Override
@@ -42,5 +43,6 @@ public class InjuryCheckState implements ITransition {
     }
 
     @Override
-    public void exit() { }
+    public void exit() {
+    }
 }

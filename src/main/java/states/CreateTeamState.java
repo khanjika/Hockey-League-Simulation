@@ -1,7 +1,6 @@
 package states;
 
 import cli.CreateTeamCli;
-import coach.CoachModel;
 import league.ILeagueModel;
 import league.LeagueModel;
 import matchSchedules.PlayoffSchedule;
@@ -36,9 +35,14 @@ public class CreateTeamState implements ITransition {
         this.stateMachine = stateMachine;
     }
 
-    public LeagueModel getUpdatedLeagueModel() { return updatedLeagueModel; }
+    public LeagueModel getUpdatedLeagueModel() {
+        return updatedLeagueModel;
+    }
 
-    public void setUpdatedLeagueModel(LeagueModel updatedLeagueModel) { this.updatedLeagueModel = updatedLeagueModel; }
+    public void setUpdatedLeagueModel(LeagueModel updatedLeagueModel) {
+        this.updatedLeagueModel = updatedLeagueModel;
+    }
+
     @Override
     public void entry() {
         task();
@@ -54,12 +58,12 @@ public class CreateTeamState implements ITransition {
 
     @Override
     public void exit() {
-            SerializeObject serializeObject = new SerializeObject();
-            serializeObject.serializeLeagueObject(this.updatedLeagueModel);
-            playerSeasonsChoiceState = new PlayerSeasonsChoiceState(updatedLeagueModel, stateMachine);
-            stateMachine.setPlayerSeasonsChoice(playerSeasonsChoiceState);
-            stateMachine.setCurrentState(stateMachine.getPlayerSeasonsChoice());
-            stateMachine.getCurrentState().entry();
+        SerializeObject serializeObject = new SerializeObject();
+        serializeObject.serializeLeagueObject(this.updatedLeagueModel);
+        playerSeasonsChoiceState = new PlayerSeasonsChoiceState(updatedLeagueModel, stateMachine);
+        stateMachine.setPlayerSeasonsChoice(playerSeasonsChoiceState);
+        stateMachine.setCurrentState(stateMachine.getPlayerSeasonsChoice());
+        stateMachine.getCurrentState().entry();
     }
 
 }

@@ -1,22 +1,12 @@
 package gameplayconfig;
 
-public class TrainingValidator implements ITrainingValidator{
+public class TrainingValidator implements ITrainingValidator {
     @Override
     public boolean validateTraining(TrainingModel trainingModel) {
-        if(isNotNull(trainingModel.getDaysUntilStatIncreaseCheck())){
-        return true;
-        }
-        else {
-            return false;
-        }
+        return isNotNull(trainingModel.getDaysUntilStatIncreaseCheck());
     }
 
-    private boolean isNotNull(int value){
-        if(value == 0){
-            return false;
-        }
-        else {
-            return true;
-        }
-}
+    private boolean isNotNull(int value) {
+        return value != 0;
+    }
 }

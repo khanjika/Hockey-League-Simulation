@@ -15,7 +15,7 @@ import java.time.LocalDate;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 
-public class AgingState implements ITransition{
+public class AgingState implements ITransition {
 
     IDeadlines iDeadlines;
     StateMachine stateMachine;
@@ -28,39 +28,43 @@ public class AgingState implements ITransition{
     public AgingState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
     }
+
     public AgingState(StateMachine stateMachine, LeagueModel leagueModel) {
         this.stateMachine = stateMachine;
         this.leagueModel = leagueModel;
-        iDeadlines=new Deadlines();
+        iDeadlines = new Deadlines();
     }
+
     @Override
     public void entry() {
         task();
     }
+
     @Override
     public void task() {
-        iPlayerModel=new PlayerModel();
-        daysToAge=1;
-        currentDate=stateMachine.getCurrentDate();
-        int currentYear=currentDate.getYear();
+        iPlayerModel = new PlayerModel();
+        daysToAge = 1;
+        currentDate = stateMachine.getCurrentDate();
+        int currentYear = currentDate.getYear();
         long tempDays = DAYS.between(currentDate, iDeadlines.getEndOfRegularSeasonDate(currentYear));
         System.out.println(tempDays);
-        if(tempDays==1){
-                daysToAge=183;
+        if (tempDays == 1) {
+            daysToAge = 183;
         }
-        GamePlayConfigModel gamePlayConfigModel=leagueModel.getGameplayConfig();
+        GamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
         iPlayerModel.setAgingModel(gamePlayConfigModel.getAging());
         iPlayerModel.setFreeAgentsList(leagueModel.getFreeAgents());
-        for(ConferenceModel conferenceModel:leagueModel.getConferences()){
-            for(DivisonModel divisonModel:conferenceModel.getDivisions()){
-                for(TeamsModel teamsModel:divisonModel.getTeams()){
-                        for(PlayerModel playerModelTemp:teamsModel.getPlayers()){
-                            iPlayerModel.aging(playerModelTemp,daysToAge,currentDate);
-                        }
+        for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
+            for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
+                for (TeamsModel teamsModel : divisonModel.getTeams()) {
+                    for (PlayerModel playerModelTemp : teamsModel.getPlayers()) {
+                        iPlayerModel.aging(playerModelTemp, daysToAge, currentDate);
                     }
                 }
             }
         }
+    }
+
     @Override
     public void exit() {
 

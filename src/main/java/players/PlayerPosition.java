@@ -1,17 +1,15 @@
 package players;
 
 public enum PlayerPosition {
-    FORWARD{
+    FORWARD {
         public String toString() {
             return "forward";
         }
-    }
-    ,DEFENSE{
+    }, DEFENSE {
         public String toString() {
             return "defense";
         }
-    }
-    ,GOALIE{
+    }, GOALIE {
         public String toString() {
             return "goalie";
         }

@@ -2,7 +2,7 @@ package gameplayconfig;
 
 import com.google.gson.annotations.Expose;
 
-public class TradingModel implements ITradingModel{
+public class TradingModel implements ITradingModel {
     @Expose
     private int lossPoint;
     @Expose
@@ -13,6 +13,7 @@ public class TradingModel implements ITradingModel{
     private float randomAcceptanceChance;
 
     ITradingPersistent iTradingPersistent;
+
     public int getLossPoint() {
         return lossPoint;
     }
@@ -45,8 +46,8 @@ public class TradingModel implements ITradingModel{
         this.randomAcceptanceChance = randomAcceptanceChance;
     }
 
-    public int addTradingModelInformation(TradingModel tradingModel){
-        iTradingPersistent=new TradingPersistent();
-        return iTradingPersistent.storeTradingInformation(tradingModel.getLossPoint(),tradingModel.getRandomTradeOfferChance(),tradingModel.getMaxPlayersPerTrade(),tradingModel.getRandomAcceptanceChance());
+    public int addTradingModelInformation(TradingModel tradingModel) {
+        iTradingPersistent = new TradingPersistent();
+        return iTradingPersistent.storeTradingInformation(tradingModel.getLossPoint(), tradingModel.getRandomTradeOfferChance(), tradingModel.getMaxPlayersPerTrade(), tradingModel.getRandomAcceptanceChance());
     }
 }

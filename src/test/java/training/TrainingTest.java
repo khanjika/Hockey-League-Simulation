@@ -4,14 +4,10 @@ import league.LeagueModel;
 import league.LeagueModelTest;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDate;
-
-import static org.junit.jupiter.api.Assertions.assertFalse;
-
 
 public class TrainingTest {
     @Test
-    void trainingLogicTest(){
+    void trainingLogicTest() {
         LeagueModel testModel = LeagueModelTest.getLeagueObject();
         LeagueModel leagueModel = LeagueModelTest.getLeagueObject();
         Training training = new Training();

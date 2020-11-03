@@ -3,7 +3,7 @@ package mock;
 import freeagent.FreeAgentModel;
 
 public class MockFreeAgent {
-    public static FreeAgentModel getFreeAgentModel(){
+    public static FreeAgentModel getFreeAgentModel() {
         FreeAgentModel freeAgentModel = new FreeAgentModel();
         freeAgentModel.setPlayerName("Agent one");
         freeAgentModel.setPosition("forward");
@@ -18,7 +18,7 @@ public class MockFreeAgent {
         return freeAgentModel;
     }
 
-    public static FreeAgentModel getInvalidFreeAgentModel(){
+    public static FreeAgentModel getInvalidFreeAgentModel() {
         FreeAgentModel freeAgentModel = new FreeAgentModel();
         freeAgentModel.setPlayerName("");
         freeAgentModel.setPosition("forward");
@@ -33,7 +33,7 @@ public class MockFreeAgent {
         return freeAgentModel;
     }
 
-    public static FreeAgentModel getInvalidStatFreeAgentModel(){
+    public static FreeAgentModel getInvalidStatFreeAgentModel() {
         FreeAgentModel freeAgentModel = new FreeAgentModel();
         freeAgentModel.setPlayerName("Agent one");
         freeAgentModel.setPosition("forward");
@@ -49,7 +49,7 @@ public class MockFreeAgent {
     }
 
 
-    public static FreeAgentModel getForwardFreeAgentModel(){
+    public static FreeAgentModel getForwardFreeAgentModel() {
         FreeAgentModel freeAgentModel = new FreeAgentModel();
         freeAgentModel.setPlayerName("Agent one");
         freeAgentModel.setPosition("forward");
@@ -64,7 +64,7 @@ public class MockFreeAgent {
         return freeAgentModel;
     }
 
-    public static FreeAgentModel getDefenseFreeAgentModel(){
+    public static FreeAgentModel getDefenseFreeAgentModel() {
         FreeAgentModel freeAgentModel = new FreeAgentModel();
         freeAgentModel.setPlayerName("Agent one");
         freeAgentModel.setPosition("defense");
@@ -79,7 +79,7 @@ public class MockFreeAgent {
         return freeAgentModel;
     }
 
-    public static FreeAgentModel getGoalieFreeAgentModel(){
+    public static FreeAgentModel getGoalieFreeAgentModel() {
         FreeAgentModel freeAgentModel = new FreeAgentModel();
         freeAgentModel.setPlayerName("Agent one");
         freeAgentModel.setPosition("goalie");

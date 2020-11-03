@@ -26,7 +26,7 @@ public class MockCoach {
     public static CoachModel getInvalidCoachModel2() {
         CoachModel coachModel = new CoachModel();
         coachModel.setName("Joe Smith");
-        coachModel.setSaving(   5f);
+        coachModel.setSaving(5f);
         coachModel.setShooting(0.8f);
         coachModel.setSkating(0.3f);
         coachModel.setChecking(1.0f);

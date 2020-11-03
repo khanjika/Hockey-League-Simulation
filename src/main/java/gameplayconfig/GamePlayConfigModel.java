@@ -1,9 +1,8 @@
 package gameplayconfig;
 
 import com.google.gson.annotations.Expose;
-import training.Training;
 
-public class GamePlayConfigModel implements IGamePlayConfigModel{
+public class GamePlayConfigModel implements IGamePlayConfigModel {
     @Expose
     AgingModel aging;
     @Expose
@@ -62,23 +61,23 @@ public class GamePlayConfigModel implements IGamePlayConfigModel{
         this.trading = trading;
     }
 
-    public int addGamePlayConfigInformation(GamePlayConfigModel gamePlayConfigModel){
-        iAgingModel=new AgingModel();
-        iInjuriesModel=new InjuriesModel();
-        iGameResolverModel=new GameResolverModel();
-        iTradingModel=new TradingModel();
+    public int addGamePlayConfigInformation(GamePlayConfigModel gamePlayConfigModel) {
+        iAgingModel = new AgingModel();
+        iInjuriesModel = new InjuriesModel();
+        iGameResolverModel = new GameResolverModel();
+        iTradingModel = new TradingModel();
         iTraining = new TrainingModel();
         iTraining = new TrainingModel();
-        iGamePlayConfigPersistent=new GamePlayConfigPersistent();
+        iGamePlayConfigPersistent = new GamePlayConfigPersistent();
 
-        int aginId= iAgingModel.addAgingInformation(gamePlayConfigModel.getAging());
-        int injuriesId= iInjuriesModel.addInjuriesInformation(gamePlayConfigModel.getInjuries());
-        int trainingId= iTraining.addTrainingModelInformation(gamePlayConfigModel.getTraining());
-        int tradingId= iTradingModel.addTradingModelInformation(gamePlayConfigModel.getTrading());
-        int gameResolverId= iGameResolverModel.addGameResolverInformation(gamePlayConfigModel.getGameResolver());
+        int aginId = iAgingModel.addAgingInformation(gamePlayConfigModel.getAging());
+        int injuriesId = iInjuriesModel.addInjuriesInformation(gamePlayConfigModel.getInjuries());
+        int trainingId = iTraining.addTrainingModelInformation(gamePlayConfigModel.getTraining());
+        int tradingId = iTradingModel.addTradingModelInformation(gamePlayConfigModel.getTrading());
+        int gameResolverId = iGameResolverModel.addGameResolverInformation(gamePlayConfigModel.getGameResolver());
 
-      int gamePlayConfigId=  iGamePlayConfigPersistent.storeGamePlayConfigInformation(aginId,gameResolverId,injuriesId,trainingId,tradingId);
+        int gamePlayConfigId = iGamePlayConfigPersistent.storeGamePlayConfigInformation(aginId, gameResolverId, injuriesId, trainingId, tradingId);
 
-      return gamePlayConfigId;
+        return gamePlayConfigId;
     }
 }
