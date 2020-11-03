@@ -31,17 +31,19 @@ public class UserTradeCli implements IUserTradeCli {
             System.out.println ("================================================");
         }
 
+        System.out.println("userinput");
         int userInput = userDecision ();
 
         return userInput;
     }
 
-    public int userDecision() {
+    private int userDecision() {
         int input = 0;
         Scanner sc = new Scanner (System.in);
         System.out.println ("Please enter 1 for accepting trade or enter 2 for rejecting trade");
         int userInput = sc.nextInt ();
         if (userInput == 1 || userInput == 2) {
+
             return userInput;
         } else {
             input = userDecision ();

@@ -3,7 +3,6 @@ package divison;
 import com.google.gson.annotations.Expose;
 import teams.ITeamsModel;
 import teams.TeamsModel;
-
 import java.util.List;
 
 public class DivisonModel implements IDivisonModel {
@@ -46,10 +45,7 @@ public class DivisonModel implements IDivisonModel {
             for (TeamsModel teamsModel : divisonModel.getTeams()) {
                 this.teamsModel.storeTeamInformation(teamsModel, divisionId);
             }
-
         }
-
-
     }
 
     public boolean isDivisionAlreadyExist(String divisionName, int conferenceId) {

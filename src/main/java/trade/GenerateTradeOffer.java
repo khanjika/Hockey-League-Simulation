@@ -55,7 +55,7 @@ public class GenerateTradeOffer implements IGenerateTradeOffer {
                                     tradingTeamDetails.setDivisionName (divisionName);
                                     tradingTeamDetails.setTeamName (teamName);
                                     tradingTeamDetails.setUserCreated (false);
-                                    tradePlayers.findPlayersToSwap (leagueModel, team, tradingTeamDetails);
+                                    tradePlayers.findPlayersToSwap(leagueModel,team,tradingTeamDetails);
                                 }
                             }
                         }

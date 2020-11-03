@@ -13,7 +13,13 @@ public class CoachModel implements ICoachModel {
     private float checking;
     @Expose
     private float saving;
+
     ICoachPersistent iCoachPersistent;
+
+    public CoachModel(){
+        iCoachPersistent = new CoachPersistent();
+    }
+
     public String getName() {
         return name;
     }
@@ -54,8 +60,13 @@ public class CoachModel implements ICoachModel {
         this.saving = saving;
     }
 
+
     public void addCoachesInformation(String leagueName, String coachesName, float skating, float shooting, float checking, int saving){
         iCoachPersistent=new CoachPersistent();
         iCoachPersistent.storeCoachesInformation(leagueName,coachesName,skating,shooting,checking,saving);
     }
+
 }
+
+
+

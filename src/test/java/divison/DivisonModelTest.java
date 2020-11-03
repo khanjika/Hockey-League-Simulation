@@ -44,6 +44,18 @@ public class DivisonModelTest {
         assertNotNull(divisonModel.getTeams(),"Failed to get teams in division object");
     }
 
+    @Test
+    void isDivisionAlreadyExist(){
+        MockDivisionPersistent mock =new MockDivisionPersistent();
+        assertTrue( mock.isDivisionAlreadyExist("Atlantic",1));
+    }
+
+    @Test
+    void getDivisionInformation(){
+        MockDivisionPersistent mock =new MockDivisionPersistent();
+        assertEquals(mock.getDivisionInformation("atlantic",1),1);
+    }
+
     public static DivisonModel getDivisionObject(){
         DivisonModel divisonModel=new DivisonModel();
         divisonModel.setDivisionName("Atlantic");
@@ -59,15 +71,4 @@ public class DivisonModelTest {
         return  divisonModel;
     }
 
-    @Test
-    void isDivisionAlreadyExist(){
-        MockDivisionPersistent mock =new MockDivisionPersistent();
-        assertTrue( mock.isDivisionAlreadyExist("Atlantic",1));
-    }
-
-    @Test
-    void getDivisionInformation(){
-        MockDivisionPersistent mock =new MockDivisionPersistent();
-        assertEquals(mock.getDivisionInformation("atlantic",1),1);
-    }
 }

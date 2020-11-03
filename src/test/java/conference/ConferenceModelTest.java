@@ -39,6 +39,25 @@ public class ConferenceModelTest {
         assertEquals("Conference one",conferenceModel.getConferenceName(),"Failed to get conference name");
     }
 
+    @Test
+    void isConferenceAlreadyExist(){
+        ModelConferencePersistent mock = new ModelConferencePersistent();
+        assertTrue(mock.isConferenceAlreadyExist("Eastern Conference"));
+    }
+
+    @Test
+    void getConferenceId(){
+        ModelConferencePersistent mock = new ModelConferencePersistent();
+        assertEquals(mock.getConferenceInformation("Easter",1),1);
+    }
+
+    @Test
+    void storeConferenceInformation() {
+        ModelConferencePersistent mock = new ModelConferencePersistent();
+        assertEquals(1,mock.addConferenceInformation());
+    }
+
+
     public static ConferenceModel getConferenceObject(){
         ConferenceModel conferenceModel = new ConferenceModel();
         conferenceModel.setConferenceName("Eastern Conference");
@@ -50,19 +69,5 @@ public class ConferenceModelTest {
         }
         conferenceModel.setDivisions(divisionModelObjectList);
         return  conferenceModel;
-    }
-
-
-    @Test
-    void isConferenceAlreadyExist(){
-        ModelConferencePersistent mock = new ModelConferencePersistent();
-        assertTrue(mock.isConferenceAlreadyExist("Eastern Conference"));
-    }
-
-    @Test
-    void getConferenceId(){
-        ModelConferencePersistent mock = new ModelConferencePersistent();
-       assertEquals(mock.getConferenceInformation("Easter",1),1);
-
     }
 }
