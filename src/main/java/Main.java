@@ -1,5 +1,4 @@
 import statemachine.StateMachine;
-import states.ImportJsonState;
 
 
 public class Main {
@@ -10,7 +9,8 @@ public class Main {
 
     public void StateEntry(String[] args) throws Exception {
         StateMachine stateMachine = new StateMachine();
-        stateMachine.setCurrentState(new ImportJsonState(args, stateMachine));
+        stateMachine.getUpdateStateValue().updateImportJsonStateValue(stateMachine,args);
+        stateMachine.setCurrentState(stateMachine.getImportJson());
         stateMachine.entry();
 
     }

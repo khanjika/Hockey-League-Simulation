@@ -1,6 +1,8 @@
 package statemachine;
 
-import states.*;
+import statemachine.states.*;
+import statemachine.states.updateStateValue.IUpdateStateValue;
+import statemachine.states.updateStateValue.UpdateStateValue;
 
 import java.time.LocalDate;
 
@@ -19,6 +21,7 @@ public class StateMachine {
     LocalDate currentDate;
     ITransition injuryCheckState;
     ITransition tradingState;
+    IUpdateStateValue updateStateValue;
 
     public StateMachine() {
         importJson = new ImportJsonState(this);
@@ -32,8 +35,16 @@ public class StateMachine {
         agingState = new AgingState(this);
         injuryCheckState = new InjuryCheckState(this);
         trainingState = new TrainingState(this);
+        updateStateValue=new UpdateStateValue();
+        tradingState=new TradingState(this);
+    }
+    public IUpdateStateValue getUpdateStateValue() {
+        return updateStateValue;
     }
 
+    public void setUpdateStateValue(IUpdateStateValue updateStateValue) {
+        this.updateStateValue = updateStateValue;
+    }
     public ITransition getAgingState() {
         return agingState;
     }
@@ -139,9 +150,9 @@ public class StateMachine {
         return loadTeam;
     }
 
-    public ITransition playerChoiceCreateTeam() {
-        return createTeam;
-    }
+//    public ITransition playerChoiceCreateTeam() {
+//        return createTeam;
+//    }
 
     public ITransition teamLoaded() {
         return playerSeasonsChoice;
@@ -182,4 +193,5 @@ public class StateMachine {
     public void setTradingState(ITransition tradingState) {
         this.tradingState = tradingState;
     }
+
 }
