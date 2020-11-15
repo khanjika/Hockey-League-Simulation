@@ -1,25 +1,23 @@
 package statesTest;
 
-import league.LeagueModel;
 import org.junit.jupiter.api.Test;
 import statemachine.StateMachine;
-import states.ITransition;
-import states.TradingState;
-import trade.MockLeague;
+import statemachine.states.ITransition;
+import statemachine.states.TradingState;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class TradingStateTest {
-
-    @Test
-    void task() {
-        StateMachine stateMachine = new StateMachine();
-        LeagueModel leagueModel = MockLeague.getLeagueObject();
-        TradingState tradingState = new TradingState(stateMachine, leagueModel);
-        stateMachine.setCurrentState(tradingState);
-        tradingState.entry();
-
-    }
+//
+//    @Test
+//    void task() {
+//        StateMachine stateMachine = new StateMachine();
+//        LeagueModel leagueModel = MockLeague.getLeagueObject();
+//        TradingState tradingState = new TradingState(stateMachine, leagueModel);
+//        stateMachine.setCurrentState(tradingState);
+//        tradingState.entry();
+//
+//    }
 
     @Test
     void getStateMachine() {

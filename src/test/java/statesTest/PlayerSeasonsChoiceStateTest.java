@@ -2,7 +2,7 @@ package statesTest;
 
 import org.junit.jupiter.api.Test;
 import statemachine.StateMachine;
-import states.PlayerSeasonsChoiceState;
+import statemachine.states.PlayerSeasonsChoiceState;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;

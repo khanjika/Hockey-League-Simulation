@@ -3,7 +3,7 @@ package statesTest;
 import league.LeagueModel;
 import org.junit.jupiter.api.Test;
 import statemachine.StateMachine;
-import states.PersistLeagueState;
+import statemachine.states.PersistLeagueState;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
