@@ -9,12 +9,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class DivisonValidatorTest {
 
-    @Test
-    void validateDivisionObjectTest() {
-        DivisonModel divisonModel = DivisonModelTest.getDivisionObject();
-        DivisonValidator divisonValidator = new DivisonValidator();
-        assertTrue(divisonValidator.validateDivisionObject(divisonModel));
-    }
+   // @Test
+//    void validateDivisionObjectTest() {
+//        DivisonModel divisonModel = DivisonModelTest.getDivisionObject();
+//        DivisonValidator divisonValidator = new DivisonValidator();
+//        assertTrue(divisonValidator.validateDivisionObject(divisonModel));
+//    }
 
     @Test
     void isDivisionExistTest() {

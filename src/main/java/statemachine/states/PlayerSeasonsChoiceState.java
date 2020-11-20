@@ -69,10 +69,10 @@ public class PlayerSeasonsChoiceState implements ITransition {
 
         }
         //This will be used to store the information
-        stateMachine.getUpdateStateValue().updatePersistStateValue(currentModel, stateMachine, currentYear);
-        stateMachine.setPersistLeagueStae(persistLeagueState);
-        stateMachine.setCurrentState(stateMachine.getPersistLeagueState());
-        stateMachine.getCurrentState().entry();
+//        stateMachine.getUpdateStateValue().updatePersistStateValue(currentModel, stateMachine, currentYear);
+//        stateMachine.setPersistLeagueStae(persistLeagueState);
+//        stateMachine.setCurrentState(stateMachine.getPersistLeagueState());
+//        stateMachine.getCurrentState().entry();
 
     }
 }

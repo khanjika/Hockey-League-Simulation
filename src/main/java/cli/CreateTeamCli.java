@@ -6,6 +6,7 @@ import conference.ConferenceValidator;
 import divison.DivisonModel;
 import divison.DivisonValidator;
 import freeagent.FreeAgentModel;
+import generalmanagers.GeneralManagersModel;
 import league.LeagueModel;
 import players.PlayerModel;
 import teams.HeadCoachModel;
@@ -25,7 +26,7 @@ public class CreateTeamCli implements ICreateTeamCli {
     private String userEnteredConferenceName;
     private String userEnteredDivisionName;
     private String userEnteredTeamName;
-    private String userEnteredGeneralManagerName;
+    private GeneralManagersModel userEnteredGeneralManagerName;
     private HeadCoachModel userEnteredHeadCoachName;
     private final DisplayPersons displayPersons;
     private static ITeamsModel iTeamsModel;
@@ -212,7 +213,7 @@ public class CreateTeamCli implements ICreateTeamCli {
 
         displayPersons.displayManagers(leagueModel.getGeneralManagers());
         choice = scannerObject.nextInt();
-        List<String> managersList = leagueModel.getGeneralManagers();
+        List<GeneralManagersModel> managersList = leagueModel.getGeneralManagers();
         if (choice > 0 && choice <= managersList.size()) {
             this.userEnteredGeneralManagerName = managersList.get(choice - 1);
             leagueModel.getGeneralManagers().remove(choice - 1);

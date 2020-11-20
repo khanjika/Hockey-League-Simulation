@@ -2,6 +2,7 @@ package cli;
 
 import coach.CoachModel;
 import freeagent.FreeAgentModel;
+import generalmanagers.GeneralManagersModel;
 import players.PlayerModel;
 
 import java.util.HashMap;
@@ -93,21 +94,21 @@ public class DisplayPersons {
         System.out.println(line);
     }
 
-    public void displayManagers(List<String> generalManagers) {
+    public void displayManagers(List<GeneralManagersModel> generalManagers) {
         System.out.println("Select a Manager for the team");
         Map<Integer, Integer> columnLength = new HashMap<Integer, Integer>();
         StringBuilder format = new StringBuilder();
-        String[] header = {"Number", "Name"};
+        String[] header = {"Number", "Name","Personality"};
         IntStream.range(0, header.length).forEach(a -> {
             if (columnLength.get(a) == null) {
                 columnLength.put(a, header[a].length());
             }
         });
         IntStream.range(0, generalManagers.size()).forEach(a -> {
-            String name = generalManagers.get(a);
-            if (columnLength.get(1) < name.length()) {
-                columnLength.put(1, name.length());
-            }
+            GeneralManagersModel name = generalManagers.get(a);
+//            if (columnLength.get(1) < name.length()) {
+//                columnLength.put(1, name.length());
+//            }
         });
         String line = columnLength.entrySet().stream().reduce("", (ln, b) -> {
             String templn = "+-";
@@ -116,14 +117,14 @@ public class DisplayPersons {
             templn = templn + "-";
             return ln + templn;
         }, (a, b) -> a + b);
-        columnLength.entrySet().stream().forEach(e -> format.append("| %" + "" + e.getValue() + "s "));
+        columnLength.entrySet().stream().forEach(e -> format.append("| %" + "" + e.getValue() + "s"));
         format.append("|\n");
         System.out.println(line);
-        System.out.printf(format.toString(), header[0], header[1]);
+        System.out.printf(format.toString(), header[0], header[1],header[2]);
         System.out.println(line);
         IntStream.range(0, generalManagers.size()).forEach(index -> {
             System.out.printf(format.toString(),
-                    index + 1, generalManagers.get(index));
+                    index + 1,generalManagers.get(index).getName(),generalManagers.get(index).getPersonality());
         });
         line = line + "+\n";
         System.out.println(line);

@@ -9,7 +9,6 @@
           "teams": [
             {
               "teamName": "Boston",
-              "generalManager": "Mister Fred",
               "headCoach": {
                 "name": "Mary Smith",
                 "skating": 0.5,
@@ -202,7 +201,6 @@
             },
             {
               "teamName": "Boston",
-              "generalManager": "Mister Fred",
               "headCoach": {
                 "name": "Mary Smith",
                 "skating": 0.5,
@@ -400,7 +398,6 @@
           "teams": [
             {
               "teamName": "Boston",
-              "generalManager": "Mister Fred",
               "headCoach": {
                 "name": "Mary Smith",
                 "skating": 0.5,
@@ -593,7 +590,6 @@
             },
             {
               "teamName": "Boston",
-              "generalManager": "Mister Fred",
               "headCoach": {
                 "name": "Mary Smith",
                 "skating": 0.5,
@@ -796,7 +792,6 @@
           "teams": [
             {
               "teamName": "Boston",
-              "generalManager": "Mister Fred",
               "headCoach": {
                 "name": "Mary Smith",
                 "skating": 0.5,
@@ -989,7 +984,6 @@
             },
             {
               "teamName": "Boston",
-              "generalManager": "Mister Fred",
               "headCoach": {
                 "name": "Mary Smith",
                 "skating": 0.5,
@@ -1187,7 +1181,6 @@
           "teams": [
             {
               "teamName": "Boston",
-              "generalManager": "Mister Fred",
               "headCoach": {
                 "name": "Mary Smith",
                 "skating": 0.5,
@@ -1380,7 +1373,6 @@
             },
             {
               "teamName": "Boston",
-              "generalManager": "Mister Fred",
               "headCoach": {
                 "name": "Mary Smith",
                 "skating": 0.5,
@@ -1759,12 +1751,6 @@
     }
   ],
   "coaches": [],
-  "generalManagers": [
-    "Arthy",
-    "Roshan",
-    "Zankrut",
-    "Khanjiga"
-  ],
   "gameplayConfig": {
     "aging": {
       "averageRetirementAge": 35,

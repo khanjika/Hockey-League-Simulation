@@ -36,6 +36,9 @@ public class PlayerModel implements IPlayerModel {
     private float checking;
     @Expose
     private float saving;
+    private int birthDay;
+    private int birthMonth;
+    private int birthYear;
     private float playerStrength;
     private int retirementLikelyHood;
     private int injuryDays;
@@ -213,6 +216,30 @@ public class PlayerModel implements IPlayerModel {
 
     public void setInjuriesModel(InjuriesModel injuriesModel) {
         this.injuriesModel = injuriesModel;
+    }
+
+    public int getBirthDay() {
+        return birthDay;
+    }
+
+    public void setBirthDay(int birthDay) {
+        this.birthDay = birthDay;
+    }
+
+    public int getBirthMonth() {
+        return birthMonth;
+    }
+
+    public void setBirthMonth(int birthMonth) {
+        this.birthMonth = birthMonth;
+    }
+
+    public int getBirthYear() {
+        return birthYear;
+    }
+
+    public void setBirthYear(int birthYear) {
+        this.birthYear = birthYear;
     }
 
     @Override

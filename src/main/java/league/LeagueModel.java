@@ -10,6 +10,7 @@ import freeagent.FreeAgentModel;
 import freeagent.IFreeAgentModel;
 import gameplayconfig.GamePlayConfigModel;
 import gameplayconfig.IGamePlayConfigModel;
+import generalmanagers.GeneralManagersModel;
 
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class LeagueModel implements ILeagueModel {
     private List<CoachModel> coaches;
     private final ICoachModel coachModel;
     @Expose
-    private List<String> generalManagers;
+    private List<GeneralManagersModel> generalManagers;
     @Expose
     private GamePlayConfigModel gameplayConfig;
 
@@ -75,11 +76,11 @@ public class LeagueModel implements ILeagueModel {
         this.coaches = coaches;
     }
 
-    public List<String> getGeneralManagers() {
+    public List<GeneralManagersModel> getGeneralManagers() {
         return generalManagers;
     }
 
-    public void setGeneralManagers(List<String> generalManagers) {
+    public void setGeneralManagers(List<GeneralManagersModel> generalManagers) {
         this.generalManagers = generalManagers;
     }
 
@@ -122,8 +123,8 @@ public class LeagueModel implements ILeagueModel {
         return iLeaguePersistent.isLeagueAlreadyExist(leagueName);
     }
 
-    public void storeGeneralManagerInformation(int leagueId, List<String> generalManagers) {
-        for (String generalManager : generalManagers) {
+    public void storeGeneralManagerInformation(int leagueId, List<GeneralManagersModel> generalManagers) {
+        for (GeneralManagersModel generalManager : generalManagers) {
             iLeaguePersistent.storeAvailableGeneralManagerInformation(leagueId, generalManager);
         }
     }

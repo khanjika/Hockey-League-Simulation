@@ -1,6 +1,7 @@
 package league;
 
 import database.CallStoredProcedure;
+import generalmanagers.GeneralManagersModel;
 
 public class LeaguePersistent implements ILeaguePersistent {
 
@@ -46,12 +47,12 @@ public class LeaguePersistent implements ILeaguePersistent {
     }
 
     @Override
-    public void storeAvailableGeneralManagerInformation(int leagueId, String generalManagerName) {
+    public void storeAvailableGeneralManagerInformation(int leagueId, GeneralManagersModel generalManagerName) {
         CallStoredProcedure storedProcedure = null;
         try {
             storedProcedure = new CallStoredProcedure("storeAvailableGeneralManagerInformation(?, ?, ?)");
             storedProcedure.setParameter(1, leagueId);
-            storedProcedure.setParameter(2, generalManagerName);
+      //      storedProcedure.setParameter(2, generalManagerName);
             storedProcedure.registerOutParameter(3);
             storedProcedure.execute();
         } catch (Exception e) {

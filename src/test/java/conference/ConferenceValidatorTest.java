@@ -9,13 +9,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ConferenceValidatorTest {
 
-    @Test
-    void validateConferenceObject() {
-        ConferenceModelTest conferenceModelTest = new ConferenceModelTest();
-        ConferenceModel conferenceModel = ConferenceModelTest.getConferenceObject();
-        ConferenceValidator conferenceValidator = new ConferenceValidator();
-        assertTrue(conferenceValidator.validateConferenceObject(conferenceModel));
-    }
+//    @Test
+//    void validateConferenceObject() {
+//        ConferenceModelTest conferenceModelTest = new ConferenceModelTest();
+//        ConferenceModel conferenceModel = ConferenceModelTest.getConferenceObject();
+//        ConferenceValidator conferenceValidator = new ConferenceValidator();
+//        assertTrue(conferenceValidator.validateConferenceObject(conferenceModel));
+//    }
 
     @Test
     void isConferenceExistTest() {

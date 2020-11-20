@@ -9,7 +9,7 @@ public class PlayerValidator implements IPlayerValidator {
     @Override
     public boolean validatePlayerObject(PlayerModel playerModel) {
         if (isStringValid(playerModel.getPlayerName()) && isStringValid(playerModel.getPosition()) && playerModel.isCaptain() != null &&
-                isAgeValid(playerModel.getAge()) && isStatValid(playerModel.getSaving()) && isStatValid(playerModel.getShooting()) &&
+                isStatValid(playerModel.getSaving()) && isStatValid(playerModel.getShooting()) &&
                 isStatValid(playerModel.getSkating()) && isStatValid(playerModel.getChecking())) {
             if (validatePosition(playerModel.getPosition())) {
                 return true;
@@ -18,6 +18,7 @@ public class PlayerValidator implements IPlayerValidator {
                 return false;
             }
         } else {
+            System.out.println("Error:::" + playerModel.getPlayerName() + playerModel.getPosition() + playerModel.isCaptain() + playerModel.getAge() + playerModel.getSaving() + playerModel.getShooting() + playerModel.getChecking());
             System.out.println("Player Information can not be NULL or EMPTY");
             return false;
         }
@@ -34,7 +35,7 @@ public class PlayerValidator implements IPlayerValidator {
     }
 
     private boolean isStatValid(float stat) {
-        return !(stat < 1) || !(stat > 20);
+        return !(stat < 0) || !(stat > 20);
     }
 
     private boolean isAgeValid(int age) {
