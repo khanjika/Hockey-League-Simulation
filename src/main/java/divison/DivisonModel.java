@@ -7,12 +7,12 @@ import teams.TeamsModel;
 import java.util.List;
 
 public class DivisonModel implements IDivisonModel {
+    private final ITeamsModel teamsModel;
+    private final IDivisonPersistent iDivisonPersistent;
     @Expose
     private String divisionName;
-    private final ITeamsModel teamsModel;
     @Expose
     private List<TeamsModel> teams;
-    private final IDivisonPersistent iDivisonPersistent;
 
     public DivisonModel() {
         iDivisonPersistent = new DivisonPersistent();
@@ -44,7 +44,7 @@ public class DivisonModel implements IDivisonModel {
         } else {
             int divisionId = iDivisonPersistent.addDivisionInformation(divisonModel.getDivisionName(), conferenceId);
             for (TeamsModel teamsModel : divisonModel.getTeams()) {
-                this.teamsModel.storeTeamInformation(teamsModel, divisionId);
+                //this.teamsModel.storeTeamInformation(teamsModel, divisionId);
             }
         }
     }
@@ -57,6 +57,4 @@ public class DivisonModel implements IDivisonModel {
     public int getDivisionId(String divisionName, int conferenceId) {
         return iDivisonPersistent.getDivisionInformation(divisionName, conferenceId);
     }
-
-
 }

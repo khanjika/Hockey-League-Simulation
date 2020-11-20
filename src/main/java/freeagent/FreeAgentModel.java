@@ -7,6 +7,7 @@ import players.PlayerPosition;
 import java.util.*;
 
 public class FreeAgentModel implements IFreeAgentModel {
+    private final IFreeAgentPersistent iFreeAgentPersistent;
     @Expose
     private String playerName;
     @Expose
@@ -21,14 +22,14 @@ public class FreeAgentModel implements IFreeAgentModel {
     private float checking;
     @Expose
     private float saving;
+    private int birthDay;
+    private int birthMonth;
+    private int birthYear;
     private float freeAgentStrength;
     private int days;
     private boolean isRetired;
     private int retirementLikelyHood;
     private AgingModel agingModel;
-
-
-    private final IFreeAgentPersistent iFreeAgentPersistent;
 
     public FreeAgentModel() {
         iFreeAgentPersistent = new FreeAgentPersistent();
@@ -130,6 +131,29 @@ public class FreeAgentModel implements IFreeAgentModel {
         this.agingModel = agingModel;
     }
 
+    public int getBirthDay() {
+        return birthDay;
+    }
+
+    public void setBirthDay(int birthDay) {
+        this.birthDay = birthDay;
+    }
+
+    public int getBirthMonth() {
+        return birthMonth;
+    }
+
+    public void setBirthMonth(int birthMonth) {
+        this.birthMonth = birthMonth;
+    }
+
+    public int getBirthYear() {
+        return birthYear;
+    }
+
+    public void setBirthYear(int birthYear) {
+        this.birthYear = birthYear;
+    }
 
     public void storeFreeAgentInformation(FreeAgentModel freeAgentModel, int leagueId) {
         iFreeAgentPersistent.addFreeAgentInformation(leagueId, freeAgentModel.getPlayerName(), freeAgentModel.getPosition(), freeAgentModel.getAge(), freeAgentModel.isRetired(), freeAgentModel.getSkating(), freeAgentModel.getShooting(), freeAgentModel.getChecking(), freeAgentModel.getSaving(), freeAgentModel.getDays(), freeAgentModel.getRetirementLikelyHood());
@@ -163,6 +187,7 @@ public class FreeAgentModel implements IFreeAgentModel {
             freeAgentModel.setRetired(true);
         }
     }
+
 
     private int checkRetirement(FreeAgentModel freeAgentModel) {
         int freeAgentAge = freeAgentModel.getAge();

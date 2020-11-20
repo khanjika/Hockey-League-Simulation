@@ -1,6 +1,7 @@
 package teams;
 
 import com.google.gson.annotations.Expose;
+import generalmanagers.GeneralManagersModel;
 import players.IPlayerModel;
 import players.PlayerModel;
 
@@ -11,7 +12,7 @@ public class TeamsModel implements ITeamsModel {
     @Expose
     private String teamName;
     @Expose
-    private String generalManager;
+    private GeneralManagersModel generalManager;
     @Expose
     private HeadCoachModel headCoach;
     @Expose
@@ -54,13 +55,6 @@ public class TeamsModel implements ITeamsModel {
         this.teamName = teamName;
     }
 
-    public String getGeneralManager() {
-        return generalManager;
-    }
-
-    public void setGeneralManager(String generalManager) {
-        this.generalManager = generalManager;
-    }
 
     public HeadCoachModel getHeadCoach() {
         return headCoach;
@@ -82,18 +76,26 @@ public class TeamsModel implements ITeamsModel {
         return teamStrength;
     }
 
-    public void storeTeamInformation(TeamsModel teamsModel, int divisionId) {
-        if (isTeamAlreadyExist(teamsModel.getTeamName(), divisionId)) {
-            System.out.println("Team already Exist in the DB");
-        } else {
-            int headCoachId = 0;
-            int generalManagerId = storeGeneralManagerInformation(teamsModel.getGeneralManager());
-            int teamId = addTeamInformation(teamsModel.getTeamName(), generalManagerId, headCoachId, divisionId);
-            for (PlayerModel playerModel : teamsModel.getPlayers()) {
-                this.playerModel.storePlayerInformation(playerModel, teamId);
-            }
-        }
+    public GeneralManagersModel getGeneralManager() {
+        return generalManager;
     }
+
+    public void setGeneralManager(GeneralManagersModel generalManager) {
+        this.generalManager = generalManager;
+    }
+    //
+//    public void storeTeamInformation(TeamsModel teamsModel, int divisionId) {
+//        if (isTeamAlreadyExist(teamsModel.getTeamName(), divisionId)) {
+//            System.out.println("Team already Exist in the DB");
+//        } else {
+//            int headCoachId = 0;
+//            int generalManagerId = storeGeneralManagerInformation(teamsModel.getGeneralManager());
+//            int teamId = addTeamInformation(teamsModel.getTeamName(), generalManagerId, headCoachId, divisionId);
+//            for (PlayerModel playerModel : teamsModel.getPlayers()) {
+//                this.playerModel.storePlayerInformation(playerModel, teamId);
+//            }
+//        }
+//    }
 
     public int addTeamInformation(String teamName, int generalManagerId, int headCoachId, int divisionId) {
         return iTeamsPersistent.addTeamInformation(teamName, generalManagerId, headCoachId, divisionId);

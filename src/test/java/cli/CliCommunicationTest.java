@@ -15,12 +15,12 @@ class CliCommunicationTest {
         assertFalse(cliCommunication.isFileExist("xyz.txt"));
     }
 
-    @Test
-    void parseJson() {
-        CliCommunication cliCommunication = new CliCommunication();
-        LeagueModel leagueModel = cliCommunication.parseJson("src/test/java/resources/TestJson.txt");
-        assertNotNull(leagueModel);
-    }
+//    @Test
+//    void parseJson() {
+//        CliCommunication cliCommunication = new CliCommunication();
+//        LeagueModel leagueModel = cliCommunication.parseJson("src/test/java/resources/TestJson.txt");
+//        assertNotNull(leagueModel);
+//    }
 
     @Test
     void calculateStrength() {

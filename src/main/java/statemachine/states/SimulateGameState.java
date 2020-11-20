@@ -50,7 +50,9 @@ public class SimulateGameState implements ITransition {
 
         GamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
         GameResolverModel gameResolverModel = gamePlayConfigModel.getGameResolver();
-        float randomChanceToWin = gameResolverModel.getRandomWinChance();
+       //Change Value
+
+        float randomChanceToWin = 0.1f;
         Random randomObj = new Random();
         float floatRandomValue = randomObj.nextFloat();
         if (teamOneStrength > teamTwoStrength) {

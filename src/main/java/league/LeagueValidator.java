@@ -40,6 +40,7 @@ public class LeagueValidator implements ILeagueValidator {
             }
         }
         for (FreeAgentModel freeAgentModel : leagueModel.getFreeAgents()) {
+            System.out.println("Validating Free Agents  " +freeAgentModel );
             if (freeAgentValidator.validateFreeAgentObject(freeAgentModel)) {
                 continue;
             } else {

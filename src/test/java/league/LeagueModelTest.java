@@ -93,7 +93,7 @@ public class LeagueModelTest {
             }
         };
         leagueModel.setCoaches(coachModelsList);
-        leagueModel.setGeneralManagers(generalManagers);
+        //leagueModel.setGeneralManagers(generalManagers);
         leagueModel.setGameplayConfig(gamePLayModel);
         gamePLayModel.setTrading(tradingModel);
         gamePLayModel.setGameResolver(gameResolverModel);

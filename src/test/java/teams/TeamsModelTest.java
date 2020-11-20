@@ -25,19 +25,19 @@ public class TeamsModelTest {
         assertEquals("TeamName one", teamsModel.getTeamName(), "Failed to get teamname in TeamModel Object");
     }
 
-    @Test
-    void getGeneralManager() {
-        TeamsModel teamsModel = new TeamsModel();
-        teamsModel.setGeneralManager("Manager one");
-        assertEquals("Manager one", teamsModel.getGeneralManager(), "Failed to get GeneralManager in TeamModel Object");
-    }
+//    @Test
+//    void getGeneralManager() {
+//        TeamsModel teamsModel = new TeamsModel();
+//        //teamsModel.setGeneralManager("Manager one");
+//        assertEquals("Manager one", teamsModel.getGeneralManager(), "Failed to get GeneralManager in TeamModel Object");
+//    }
 
-    @Test
-    void setGeneralManager() {
-        TeamsModel teamsModel = new TeamsModel();
-        teamsModel.setGeneralManager("Manager one");
-        assertEquals("Manager one", teamsModel.getGeneralManager(), "Failed to set GeneralManager in TeamModel Object");
-    }
+//    @Test
+//    void setGeneralManager() {
+//        TeamsModel teamsModel = new TeamsModel();
+//        //teamsModel.setGeneralManager("Manager one");
+//        assertEquals("Manager one", teamsModel.getGeneralManager(), "Failed to set GeneralManager in TeamModel Object");
+//    }
 
     @Test
     void getPlayers() {
@@ -75,7 +75,7 @@ public class TeamsModelTest {
         headCoachModel.setChecking(0.3f);
         headCoachModel.setSaving(0.5f);
         teamsModel.setHeadCoach(headCoachModel);
-        teamsModel.setGeneralManager("Mister Fred");
+        //teamsModel.setGeneralManager("Mister Fred");
         teamsModel.setTeamName("Boston");
         boolean isCaptain = true;
         String playerName = "A";

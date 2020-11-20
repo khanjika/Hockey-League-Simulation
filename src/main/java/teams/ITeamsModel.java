@@ -2,7 +2,7 @@ package teams;
 
 public interface ITeamsModel {
 
-    void storeTeamInformation(TeamsModel teamsModel, int divId);
+    //void storeTeamInformation(TeamsModel teamsModel, int divId);
 
     boolean isTeamAlreadyExist(String teamName, int divisionId);
 
