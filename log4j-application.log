@@ -1,0 +1,3 @@
+2020-11-20 15:36:03 DEBUG Main:11 - inside main
+2020-11-20 15:40:12 DEBUG Main:11 - inside main
+2020-11-20 15:40:16 DEBUG StateMachine:29 - inside state machine const
