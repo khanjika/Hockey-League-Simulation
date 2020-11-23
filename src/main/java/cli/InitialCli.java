@@ -1,6 +1,6 @@
 package cli;
 
-import league.LeagueModel;
+import leagueobjectmodel.LeagueModel;
 
 import java.util.Scanner;
 

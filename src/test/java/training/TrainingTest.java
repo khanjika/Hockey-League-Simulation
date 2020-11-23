@@ -1,7 +1,7 @@
 package training;
 
-import league.LeagueModel;
-import league.LeagueModelTest;
+import leagueobjectmodel.LeagueModel;
+import leagueobjectmodel.LeagueModelTest;
 import org.junit.jupiter.api.Test;
 
 

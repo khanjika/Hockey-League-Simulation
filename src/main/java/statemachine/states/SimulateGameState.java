@@ -1,13 +1,13 @@
 package statemachine.states;
 
-import conference.ConferenceModel;
-import divison.DivisonModel;
-import gameplayconfig.GamePlayConfigModel;
-import gameplayconfig.GameResolverModel;
-import league.LeagueModel;
+import leagueobjectmodel.ConferenceModel;
+import leagueobjectmodel.DivisonModel;
+import leagueobjectmodel.GamePlayConfigModel;
+import leagueobjectmodel.GameResolverModel;
+import leagueobjectmodel.LeagueModel;
 import statemachine.StateMachine;
-import teams.ITeamsModel;
-import teams.TeamsModel;
+import leagueobjectmodel.ITeamsModel;
+import leagueobjectmodel.TeamsModel;
 
 import java.util.Random;
 

@@ -1,6 +1,6 @@
 package trade;
 
-import league.LeagueModel;
+import leagueobjectmodel.LeagueModel;
 
 public interface IGenerateTradeOffer {
 

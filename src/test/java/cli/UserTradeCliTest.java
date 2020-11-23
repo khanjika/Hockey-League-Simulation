@@ -1,8 +1,8 @@
 package cli;
 
 import org.junit.jupiter.api.Test;
-import players.PlayerModel;
-import teams.TeamsModel;
+import leagueobjectmodel.PlayerModel;
+import leagueobjectmodel.TeamsModel;
 import trade.MockLeague;
 import trade.TradeModel;
 

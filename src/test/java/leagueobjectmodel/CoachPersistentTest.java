@@ -1,0 +1,5 @@
+package leagueobjectmodel;
+
+class CoachPersistentTest {
+
+}

@@ -1,9 +1,9 @@
 package cli;
 
-import coach.CoachModel;
-import freeagent.FreeAgentModel;
-import generalmanagers.GeneralManagersModel;
-import players.PlayerModel;
+import leagueobjectmodel.CoachModel;
+import leagueobjectmodel.FreeAgentModel;
+import leagueobjectmodel.GeneralManagersModel;
+import leagueobjectmodel.PlayerModel;
 
 import java.util.HashMap;
 import java.util.List;

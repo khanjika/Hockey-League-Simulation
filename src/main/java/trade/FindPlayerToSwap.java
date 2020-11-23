@@ -2,15 +2,15 @@ package trade;
 
 import cli.IUserTradeCli;
 import cli.UserTradeCli;
-import conference.ConferenceModel;
-import divison.DivisonModel;
-import gameplayconfig.GamePlayConfigModel;
-import gameplayconfig.TradingModel;
-import league.LeagueModel;
-import players.PlayerModel;
-import teams.ISortTeams;
-import teams.SortTeams;
-import teams.TeamsModel;
+import leagueobjectmodel.ConferenceModel;
+import leagueobjectmodel.DivisonModel;
+import leagueobjectmodel.GamePlayConfigModel;
+import leagueobjectmodel.TradingModel;
+import leagueobjectmodel.LeagueModel;
+import leagueobjectmodel.PlayerModel;
+import leagueobjectmodel.ISortTeams;
+import leagueobjectmodel.SortTeams;
+import leagueobjectmodel.TeamsModel;
 
 import java.util.ArrayList;
 import java.util.HashMap;

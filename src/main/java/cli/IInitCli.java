@@ -1,6 +1,6 @@
 package cli;
 
-import league.LeagueModel;
+import leagueobjectmodel.LeagueModel;
 
 public interface IInitCli {
     LeagueModel parseJson(String filePath);

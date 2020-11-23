@@ -1,11 +1,11 @@
 package statesTest;
 
-import conference.ConferenceModel;
-import divison.DivisonModel;
-import league.LeagueModel;
+import leagueobjectmodel.ConferenceModel;
+import leagueobjectmodel.DivisonModel;
+import leagueobjectmodel.LeagueModel;
 import org.junit.jupiter.api.Test;
 import statemachine.StateMachine;
-import teams.TeamsModel;
+import leagueobjectmodel.TeamsModel;
 import trade.MockLeague;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

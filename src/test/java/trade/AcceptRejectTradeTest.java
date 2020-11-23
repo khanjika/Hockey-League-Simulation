@@ -1,12 +1,12 @@
 package trade;
 
-import conference.ConferenceModel;
-import divison.DivisonModel;
-import league.LeagueModel;
+import leagueobjectmodel.ConferenceModel;
+import leagueobjectmodel.DivisonModel;
+import leagueobjectmodel.LeagueModel;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
-import players.PlayerModel;
-import teams.TeamsModel;
+import leagueobjectmodel.PlayerModel;
+import leagueobjectmodel.TeamsModel;
 
 import java.util.ArrayList;
 import java.util.List;

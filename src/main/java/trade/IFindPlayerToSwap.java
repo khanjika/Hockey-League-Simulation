@@ -1,8 +1,8 @@
 package trade;
 
-import gameplayconfig.TradingModel;
-import league.LeagueModel;
-import teams.TeamsModel;
+import leagueobjectmodel.TradingModel;
+import leagueobjectmodel.LeagueModel;
+import leagueobjectmodel.TeamsModel;
 
 public interface IFindPlayerToSwap {
     LeagueModel findPlayersToSwap(LeagueModel league, TeamsModel team, ITradeTeamPojo tradingTeamDetails);

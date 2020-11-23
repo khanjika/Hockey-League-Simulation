@@ -1,15 +1,9 @@
 package trade;
 
 
-import conference.ConferenceModel;
-import divison.DivisonModel;
-import freeagent.FreeAgentModel;
-import gameplayconfig.*;
-import league.LeagueModel;
-import players.PlayerModel;
-import teams.HeadCoachModel;
-import teams.TeamsModel;
-import teams.TeamsModelTest;
+import leagueobjectmodel.*;
+import leagueobjectmodel.LeagueModel;
+import leagueobjectmodel.TeamsModelTest;
 
 import java.util.ArrayList;
 import java.util.List;

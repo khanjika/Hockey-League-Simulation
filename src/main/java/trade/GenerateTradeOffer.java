@@ -1,11 +1,11 @@
 package trade;
 
-import conference.ConferenceModel;
-import divison.DivisonModel;
-import gameplayconfig.GamePlayConfigModel;
-import gameplayconfig.TradingModel;
-import league.LeagueModel;
-import teams.TeamsModel;
+import leagueobjectmodel.ConferenceModel;
+import leagueobjectmodel.DivisonModel;
+import leagueobjectmodel.GamePlayConfigModel;
+import leagueobjectmodel.TradingModel;
+import leagueobjectmodel.LeagueModel;
+import leagueobjectmodel.TeamsModel;
 
 
 public class GenerateTradeOffer implements IGenerateTradeOffer {

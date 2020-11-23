@@ -1,9 +1,9 @@
 package statemachine.states.matchSchedules;
 
-import conference.ConferenceModel;
-import divison.DivisonModel;
-import league.LeagueModel;
-import teams.TeamsModel;
+import leagueobjectmodel.ConferenceModel;
+import leagueobjectmodel.DivisonModel;
+import leagueobjectmodel.LeagueModel;
+import leagueobjectmodel.TeamsModel;
 
 import java.util.ArrayList;
 import java.util.List;
