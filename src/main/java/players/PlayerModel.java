@@ -46,6 +46,11 @@ public class PlayerModel implements IPlayerModel {
     private InjuriesModel injuriesModel;
     private IFreeAgentModel freeAgentModel;
     private List<FreeAgentModel> freeAgentsList;
+    private int saveForGoalie;
+    private int goalScorerCount;
+    private int currentPenaltyCount;
+    private int totalPenaltyCount;
+
 
     public PlayerModel() {
         iPlayerPersistent = new PlayerPersistent();
@@ -61,6 +66,38 @@ public class PlayerModel implements IPlayerModel {
         this.shooting = shooting;
         this.checking = checking;
         this.saving = saving;
+    }
+
+    public int getCurrentPenaltyCount() {
+        return currentPenaltyCount;
+    }
+
+    public void setCurrentPenaltyCount(int currentPenaltyCount) {
+        this.currentPenaltyCount = currentPenaltyCount;
+    }
+
+    public int getTotalPenaltyCount() {
+        return totalPenaltyCount;
+    }
+
+    public void setTotalPenaltyCount(int totalPenaltyCount) {
+        this.totalPenaltyCount = totalPenaltyCount;
+    }
+
+    public int getGoalScorerCount() {
+        return goalScorerCount;
+    }
+
+    public void setGoalScorerCount(int goalScorerCount) {
+        this.goalScorerCount = goalScorerCount;
+    }
+
+    public int getSaveForGoalie() {
+        return saveForGoalie;
+    }
+
+    public void setSaveForGoalie(int saveForGoalie) {
+        this.saveForGoalie = saveForGoalie;
     }
 
     public String getPlayerName() {

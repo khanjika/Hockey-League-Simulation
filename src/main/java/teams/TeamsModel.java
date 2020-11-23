@@ -22,6 +22,15 @@ public class TeamsModel implements ITeamsModel {
     private int winPoint;
     private int lossPoint;
     private int lossPointForTrading;
+    private int goalCount;
+
+    public int getGoalCount() {
+        return goalCount;
+    }
+
+    public void setGoalCount(int goalCount) {
+        this.goalCount = goalCount;
+    }
 
     public int getLossPointForTrading() {
         return lossPointForTrading;

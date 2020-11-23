@@ -1,7 +1,11 @@
 package statemachine.states;
 
+import conference.ConferenceModel;
+import divison.DivisonModel;
 import league.LeagueModel;
+import players.PlayerModel;
 import statemachine.StateMachine;
+import teams.TeamsModel;
 
 import java.util.Calendar;
 import java.util.Scanner;
@@ -68,11 +72,28 @@ public class PlayerSeasonsChoiceState implements ITransition {
             stateMachine.getCurrentState().entry();
 
         }
+
+        for(ConferenceModel conferenceModel:currentModel.getConferences()){
+            for(DivisonModel divisonModel:conferenceModel.getDivisions()){
+                for(TeamsModel teamsModel:divisonModel.getTeams()){
+                    System.out.println("Team name "+teamsModel.getTeamName()+" Goal "+teamsModel.getGoalCount());
+                    for(PlayerModel playerModel:teamsModel.getPlayers()){
+                        System.out.println(playerModel.getPlayerName()+" has goal "+playerModel.getGoalScorerCount());
+                        if(playerModel.getPosition().equals("defense")){
+                            System.out.println(playerModel.getPlayerName()+" is Defense and has penalty count of "+playerModel.getTotalPenaltyCount());
+                        }
+                        if(playerModel.getPosition().equals("goalie")){
+                            System.out.println(playerModel.getPlayerName()+" is goalie having save count "+playerModel.getSaveForGoalie());
+                        }
+                    }
+                }
+            }
+        }
         //This will be used to store the information
-        stateMachine.getUpdateStateValue().updatePersistStateValue(currentModel, stateMachine, currentYear);
-        stateMachine.setPersistLeagueStae(persistLeagueState);
-        stateMachine.setCurrentState(stateMachine.getPersistLeagueState());
-        stateMachine.getCurrentState().entry();
+//        stateMachine.getUpdateStateValue().updatePersistStateValue(currentModel, stateMachine, currentYear);
+//        stateMachine.setPersistLeagueStae(persistLeagueState);
+//        stateMachine.setCurrentState(stateMachine.getPersistLeagueState());
+//        stateMachine.getCurrentState().entry();
 
     }
 }

@@ -32,6 +32,7 @@ public class LeagueModel implements ILeagueModel {
     private List<String> generalManagers;
     @Expose
     private GamePlayConfigModel gameplayConfig;
+    private float penaltyChance;
 
     IGamePlayConfigModel iGamePlayConfigModel;
 
@@ -41,6 +42,14 @@ public class LeagueModel implements ILeagueModel {
         conferenceModel = new ConferenceModel();
         freeAgentModel = new FreeAgentModel();
         coachModel = new CoachModel();
+    }
+
+    public float getPenaltyChance() {
+        return penaltyChance;
+    }
+
+    public void setPenaltyChance(float penaltyChance) {
+        this.penaltyChance = penaltyChance;
     }
 
     public String getLeagueName() {
