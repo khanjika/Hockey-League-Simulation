@@ -1,6 +1,6 @@
 package statemachine.states;
 
-import league.LeagueModel;
+import leagueobjectmodel.LeagueModel;
 import statemachine.StateMachine;
 
 import java.util.Calendar;

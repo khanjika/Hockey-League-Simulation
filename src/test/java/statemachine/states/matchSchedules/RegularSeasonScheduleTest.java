@@ -1,8 +1,8 @@
 package statemachine.states.matchSchedules;
 
-import league.LeagueModelTest;
+import leagueobjectmodel.LeagueModelTest;
 import org.junit.jupiter.api.Test;
-import teams.TeamsModel;
+import leagueobjectmodel.TeamsModel;
 
 import java.util.List;
 

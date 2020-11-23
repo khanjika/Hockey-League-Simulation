@@ -1,8 +1,8 @@
 package training;
 
-import gameplayconfig.InjuriesModel;
-import players.PlayerModel;
-import teams.HeadCoachModel;
+import leagueobjectmodel.InjuriesModel;
+import leagueobjectmodel.PlayerModel;
+import leagueobjectmodel.HeadCoachModel;
 
 import java.time.LocalDate;
 

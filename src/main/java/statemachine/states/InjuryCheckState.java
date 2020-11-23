@@ -1,10 +1,10 @@
 package statemachine.states;
 
-import league.LeagueModel;
-import players.IPlayerModel;
-import players.PlayerModel;
+import leagueobjectmodel.LeagueModel;
+import leagueobjectmodel.IPlayerModel;
+import leagueobjectmodel.PlayerModel;
 import statemachine.StateMachine;
-import teams.TeamsModel;
+import leagueobjectmodel.TeamsModel;
 
 import java.time.LocalDate;
 

@@ -1,17 +1,17 @@
 package cli;
 
-import coach.CoachModel;
-import conference.ConferenceModel;
-import conference.ConferenceValidator;
-import divison.DivisonModel;
-import divison.DivisonValidator;
-import freeagent.FreeAgentModel;
-import generalmanagers.GeneralManagersModel;
-import league.LeagueModel;
-import players.PlayerModel;
-import teams.HeadCoachModel;
-import teams.ITeamsModel;
-import teams.TeamsModel;
+import leagueobjectmodel.CoachModel;
+import leagueobjectmodel.ConferenceModel;
+import leagueobjectmodel.ConferenceValidator;
+import leagueobjectmodel.DivisonModel;
+import leagueobjectmodel.DivisonValidator;
+import leagueobjectmodel.FreeAgentModel;
+import leagueobjectmodel.GeneralManagersModel;
+import leagueobjectmodel.LeagueModel;
+import leagueobjectmodel.PlayerModel;
+import leagueobjectmodel.HeadCoachModel;
+import leagueobjectmodel.ITeamsModel;
+import leagueobjectmodel.TeamsModel;
 
 import java.util.ArrayList;
 import java.util.List;

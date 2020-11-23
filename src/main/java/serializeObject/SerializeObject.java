@@ -2,7 +2,7 @@ package serializeObject;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import league.LeagueModel;
+import leagueobjectmodel.LeagueModel;
 
 import java.io.FileWriter;
 import java.io.IOException;

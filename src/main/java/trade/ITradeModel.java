@@ -1,6 +1,6 @@
 package trade;
 
-import players.PlayerModel;
+import leagueobjectmodel.PlayerModel;
 
 import java.util.List;
 

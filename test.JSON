@@ -1764,6 +1764,9 @@
       "injuryDaysLow": 1,
       "injuryDaysHigh": 260
     },
+    "training": {
+      "daysUntilStatIncreaseCheck": 0
+    },
     "trading": {
       "lossPoint": 8,
       "randomTradeOfferChance": 0.05,

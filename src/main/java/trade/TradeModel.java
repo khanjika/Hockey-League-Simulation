@@ -1,7 +1,7 @@
 package trade;
 
 import com.google.gson.annotations.Expose;
-import players.PlayerModel;
+import leagueobjectmodel.PlayerModel;
 
 import java.util.List;
 

@@ -1,10 +1,10 @@
 package trade;
 
-import gameplayconfig.TradingModel;
-import league.LeagueModel;
+import leagueobjectmodel.TradingModel;
+import leagueobjectmodel.LeagueModel;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
-import teams.TeamsModel;
+import leagueobjectmodel.TeamsModel;
 
 import java.util.List;
 

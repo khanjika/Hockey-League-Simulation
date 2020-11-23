@@ -1,11 +1,11 @@
 package statemachine.states;
 
-import conference.ConferenceModel;
-import divison.DivisonModel;
-import league.LeagueModel;
-import players.PlayerModel;
+import leagueobjectmodel.ConferenceModel;
+import leagueobjectmodel.DivisonModel;
+import leagueobjectmodel.LeagueModel;
+import leagueobjectmodel.PlayerModel;
 import statemachine.StateMachine;
-import teams.TeamsModel;
+import leagueobjectmodel.TeamsModel;
 import training.ITraining;
 import training.Training;
 
