@@ -16,7 +16,7 @@ public interface IUpdateStateValue {
 
     void updateTrainingSateValue(StateMachine stateMachine,LeagueModel leagueModel);
 
-    void updateSimulateGameStateValue(StateMachine stateMachine, LeagueModel leagueModel, TeamsModel teamOne,TeamsModel teamTwo);
+    void updateSimulateGameStateValue(StateMachine stateMachine, LeagueModel leagueModel, TeamsModel teamOne,TeamsModel teamTwo,boolean isPlayOff);
 
     void updateTradingStateValue(StateMachine stateMachine, LeagueModel leagueModel);
 

@@ -17,6 +17,7 @@ public class SimulateGameState implements ITransition {
     LeagueModel leagueModel;
     TeamsModel teamOne;
     TeamsModel teamTwo;
+    boolean isThisPlayOff;
     TeamsModel winnerTeam;
     TeamsModel losserTeam;
     ITransition injuryCheckState;
@@ -33,11 +34,12 @@ public class SimulateGameState implements ITransition {
 //        this.teamTwo = teamsModelTwo;
 //    }
 
-    public void updateSimulateGameStateValue(StateMachine stateMachine, LeagueModel leagueModel, TeamsModel teamsModelOne, TeamsModel teamsModelTwo){
+    public void updateSimulateGameStateValue(StateMachine stateMachine, LeagueModel leagueModel, TeamsModel teamsModelOne, TeamsModel teamsModelTwo,boolean isPlayOff){
         this.stateMachine = stateMachine;
         this.leagueModel = leagueModel;
         this.teamOne = teamsModelOne;
         this.teamTwo = teamsModelTwo;
+        isThisPlayOff=isPlayOff;
     }
     @Override
     public void entry() {
@@ -95,10 +97,8 @@ public class SimulateGameState implements ITransition {
 //        stateMachine.getCurrentState().entry();
 //
 
-        StartSimulation obj=new StartSimulation(teamOne,teamTwo,leagueModel);
+        StartSimulation obj=new StartSimulation(teamOne,teamTwo,leagueModel,isThisPlayOff);
         obj.separatePlayerByPosition();
-
-
 
     }
 

@@ -65,7 +65,7 @@ public class InitializeSeasonState implements ITransition {
             }
             currentDaysCount++;
             for (int j = (i - 1) * (int) matchesPlayedInOneDay; j < i * matchesPlayedInOneDay; j++) {
-                stateMachine.getUpdateStateValue().updateSimulateGameStateValue(stateMachine, updatedLeagueModelObject, currentSeasonSchedule.get(j).get(0), currentSeasonSchedule.get(j).get(1));
+                stateMachine.getUpdateStateValue().updateSimulateGameStateValue(stateMachine, updatedLeagueModelObject, currentSeasonSchedule.get(j).get(0), currentSeasonSchedule.get(j).get(1),false);
                 stateMachine.setCurrentState(stateMachine.getSimulateGameState());
                 stateMachine.setCurrentDate(currentDate);
                 stateMachine.getCurrentState().entry();
@@ -96,7 +96,7 @@ public class InitializeSeasonState implements ITransition {
                 stateMachine.getUpdateStateValue().updateTrainingSateValue(stateMachine,updatedLeagueModelObject);
                 stateMachine.getCurrentState().entry();
             }
-            stateMachine.getUpdateStateValue().updateSimulateGameStateValue(stateMachine, updatedLeagueModelObject, playOffSchedule.get(i).get(0), playOffSchedule.get(i).get(1));
+            stateMachine.getUpdateStateValue().updateSimulateGameStateValue(stateMachine, updatedLeagueModelObject, playOffSchedule.get(i).get(0), playOffSchedule.get(i).get(1),true);
             stateMachine.setCurrentState(stateMachine.getSimulateGameState());
             stateMachine.setCurrentDate(currentDate);
             stateMachine.getCurrentState().entry();

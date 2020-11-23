@@ -2,6 +2,7 @@ package simulateGame;
 
 import league.LeagueModel;
 import players.PlayerModel;
+import players.PlayerPosition;
 import teams.TeamsModel;
 
 import java.util.ArrayList;
@@ -17,9 +18,8 @@ public class StartSimulation {
 
     private static TeamsModel teamOneObject;
     private static TeamsModel teamTwoObject;
-    private static TeamsModel attackingTeam;
-    private static TeamsModel defendingTeam;
     private int averageShotsOnGoal = 40;
+    private boolean isThisPlayOff;
     private static LeagueModel leagueModelObject;
     private List<PlayerModel> listOfGoalieOfTeamOne = new ArrayList<>();
     private List<PlayerModel> listOfGoaliesOfTeamTwo = new ArrayList<>();
@@ -38,14 +38,14 @@ public class StartSimulation {
     int penaltyCounter = 0;
 
 
-    public StartSimulation(TeamsModel teamOne, TeamsModel teamTwo, LeagueModel leagueModel) {
+    public StartSimulation(TeamsModel teamOne, TeamsModel teamTwo, LeagueModel leagueModel, boolean isPlayOff) {
         teamOneObject = teamOne;
         teamTwoObject = teamTwo;
         leagueModelObject = leagueModel;
+        isThisPlayOff = isPlayOff;
     }
 
     public void separatePlayerByPosition() {
-
         leagueModelObject.setPenaltyChance((float) 0.5);
         System.out.println("Inside separate player");
         for (PlayerModel playerModel : teamOneObject.getPlayers()) {
@@ -69,6 +69,8 @@ public class StartSimulation {
             }
         }
 
+        System.out.println(listOfGoalieOfTeamOne.size());
+        System.out.println(listOfGoaliesOfTeamTwo.size());
         setAverageShotsOnGoal();
         initializeSlots();
     }
@@ -104,12 +106,14 @@ public class StartSimulation {
         fillCurrentShiftData();
         for (int i = 0; i < 3; i++) {
 
-            if (i == 2) {
+            if (i == 2 && isThisPlayOff==false) {
                 replaceCurrentGoalie();
             }
             for (int j = 0; j < 40; j++) {
                 //calling method every time
                 //swapping the postion of both the team
+
+
                 if (j == 37) {
                     replaceDefenseAndForward();
                 }
@@ -124,7 +128,6 @@ public class StartSimulation {
     }
 
     public void performOperation() {
-        //here i need to make a change where i re initialize the list every time i calculate the shooting state. because team will change alternatively,
         float attackingTeamShootingState = getShootingState(currentShiftForwardOfTeamOne);
         float defendingTwoShootingState = getShootingState(currentShiftForwardOfTeamTwo);
         float attackingTeamCheckingState = getCheckingState(currentShiftDefenseOfTeamOne);
@@ -132,40 +135,27 @@ public class StartSimulation {
         float attackingTeamSavingState = getSavingState(currentShiftGoalieOfTeamOne);
         float defendingTeamSavingState = getSavingState(currentShiftGoalieOfTeamTwo);
         if (attackingTeamShootingState >= defendingTwoShootingState) {
-            //attacking team has made a shot
             if (defendingTeamCheckingState >= attackingTeamCheckingState && penaltyCounter == 0) {
-                //defending team has prevented the shot
-                //penalty will be here
                 double randomChanceNumber = Math.random();
                 if (randomChanceNumber >= leagueModelObject.getPenaltyChance()) {
                     performPenalty(currentShiftDefenseOfTeamTwo);
                 }
             } else {
-                //now it is time for the goalie of the defending team to do all the work
                 if (defendingTeamSavingState >= attackingTeamSavingState) {
-                    //shot is prevented by the defending team by the goalie
                     int save = listOfGoaliesOfTeamTwo.get(0).getSaveForGoalie();
-                    //  System.out.println("Save count is "+save);
                     listOfGoaliesOfTeamTwo.get(0).setSaveForGoalie(save + 1);
-                    //System.out.println("Save count after updating is "+listOfGoaliesOfTeamTwo.get(0).getSaveForGoalie()+listOfGoalieOfTeamOne.get(0));
                 } else {
-                    //goal!!!
-                    //here setting overall team count as well as a attributing a forward for that goal
-                    attackingTeam.setGoalCount(attackingTeam.getGoalCount() + 1);
                     int currentGaolCount = listOfForwardOfTeamOne.get(0).getGoalScorerCount();
-                    // System.out.println(currentGaolCount+" for the player "+listOfForwardOfTeamOne.get(0).getPlayerName());
                     listOfForwardOfTeamOne.get(0).setGoalScorerCount(currentGaolCount + 1);
                 }
             }
 
         } else {
-            //no shot from the attacking team. is time for the defending team!!!!!!!
             swapTurnOfTeam();
             performOperation();
         }
 
     }
-
 
     public float getShootingState(List<PlayerModel> playerModelList) {
         float shootingState = 0;
@@ -174,7 +164,6 @@ public class StartSimulation {
         }
         return shootingState;
     }
-
 
     public float getCheckingState(List<PlayerModel> playerModelList) {
         float checkingState = 0;
@@ -220,9 +209,14 @@ public class StartSimulation {
             currentShiftForwardOfTeamOne.add(listOfForwardOfTeamOne.get(0));
             currentShiftForwardOfTeamOne.add(listOfForwardOfTeamOne.get(1));
             currentShiftForwardOfTeamOne.add(listOfForwardOfTeamOne.get(2));
-
-            currentShiftGoalieOfTeamOne.add(listOfGoalieOfTeamOne.get(0));
-            currentShiftGoalieOfTeamTwo.add(listOfGoaliesOfTeamTwo.get(0));
+           if(isThisPlayOff){
+               currentShiftGoalieOfTeamOne.add(getBestGoalieFromTheTeam(listOfGoalieOfTeamOne));
+               currentShiftGoalieOfTeamTwo.add(getBestGoalieFromTheTeam(listOfGoaliesOfTeamTwo));
+           }
+           else {
+               currentShiftGoalieOfTeamOne.add(listOfGoalieOfTeamOne.get(0));
+               currentShiftGoalieOfTeamTwo.add(listOfGoaliesOfTeamTwo.get(0));
+           }
 
             currentShiftDefenseOfTeamTwo.add(listOfDefenseOfTeamTwo.get(0));
             currentShiftDefenseOfTeamTwo.add(listOfDefenseOfTeamTwo.get(1));
@@ -237,7 +231,6 @@ public class StartSimulation {
 
     public void performPenalty(List<PlayerModel> currentDefenseList) {
         try {
-            System.out.println("Penelty is occured");
             currentDefenseList.get(0).setTotalPenaltyCount(currentDefenseList.get(0).getTotalPenaltyCount() + 1);
             currentDefenseList.get(0).setCurrentPenaltyCount(4);
             penaltyCounter = 4;
@@ -251,6 +244,7 @@ public class StartSimulation {
         try {
             currentShiftGoalieOfTeamOne.remove(0);
             currentShiftGoalieOfTeamTwo.remove(0);
+            System.out.println(listOfGoalieOfTeamOne.size());
             currentShiftGoalieOfTeamOne.add(listOfGoalieOfTeamOne.get(1));
             currentShiftGoalieOfTeamTwo.add(listOfGoaliesOfTeamTwo.get(1));
         } catch (NullPointerException n) {
@@ -280,5 +274,20 @@ public class StartSimulation {
         } catch (NullPointerException n) {
             System.out.println(n.getMessage());
         }
+    }
+
+
+    public PlayerModel getBestGoalieFromTheTeam(List<PlayerModel> list) {
+        PlayerModel currentBestGoalie = null;
+        for (PlayerModel playerModel : list) {
+            if (playerModel.getPosition().equals("goalie")) {
+                if (currentBestGoalie == null) {
+                    currentBestGoalie = playerModel;
+                } else if (playerModel.getSaving() > currentBestGoalie.getSaving()) {
+                    currentBestGoalie = playerModel;
+                }
+            }
+        }
+        return currentBestGoalie;
     }
 }

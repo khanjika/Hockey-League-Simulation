@@ -33,8 +33,8 @@ public class UpdateStateValue implements IUpdateStateValue{
     }
 
     @Override
-    public void updateSimulateGameStateValue(StateMachine stateMachine, LeagueModel leagueModel, TeamsModel teamOne, TeamsModel teamTwo) {
-        ((SimulateGameState)stateMachine.getSimulateGameState()).updateSimulateGameStateValue(stateMachine, leagueModel, teamOne, teamTwo);
+    public void updateSimulateGameStateValue(StateMachine stateMachine, LeagueModel leagueModel, TeamsModel teamOne, TeamsModel teamTwo,boolean isPlayOff) {
+        ((SimulateGameState)stateMachine.getSimulateGameState()).updateSimulateGameStateValue(stateMachine, leagueModel, teamOne, teamTwo,isPlayOff);
     }
 
     @Override
