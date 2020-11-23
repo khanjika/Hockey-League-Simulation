@@ -1,5 +1,6 @@
 package statemachine;
 
+import org.apache.log4j.Logger;
 import statemachine.states.*;
 import statemachine.states.updateStateValue.IUpdateStateValue;
 import statemachine.states.updateStateValue.UpdateStateValue;
@@ -7,6 +8,7 @@ import statemachine.states.updateStateValue.UpdateStateValue;
 import java.time.LocalDate;
 
 public class StateMachine {
+    final static Logger logger = Logger.getLogger(StateMachine.class);
     ITransition importJson;
     ITransition playerTeamChoice;
     ITransition loadTeam;
@@ -24,6 +26,7 @@ public class StateMachine {
     IUpdateStateValue updateStateValue;
 
     public StateMachine() {
+        logger.debug ("inside state machine const");
         importJson = new ImportJsonState(this);
         loadTeam = new LoadTeamState(this);
         createTeam = new CreateTeamState(this);
