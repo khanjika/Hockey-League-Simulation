@@ -132,6 +132,9 @@ public class CreateTeamCli implements ICreateTeamCli {
         float saving;
         float checking;
         int age;
+        int birthDay;
+        int birthMonth;
+        int birthYear;
         int goalies = 2;
         int skaters = 18;
         int totalPlayers = 20;
@@ -154,6 +157,9 @@ public class CreateTeamCli implements ICreateTeamCli {
                 checking = currentAvailablePlayers.get(choice - 1).getChecking();
                 shooting = currentAvailablePlayers.get(choice - 1).getShooting();
                 skating = currentAvailablePlayers.get(choice - 1).getSkating();
+                birthDay = currentAvailablePlayers.get(choice - 1).getBirthDay();
+                birthMonth = currentAvailablePlayers.get(choice - 1).getBirthMonth();
+                birthYear = currentAvailablePlayers.get(choice - 1).getBirthYear();
                 if (position.equals("goalie")) {
                     goalies--;
                 } else {
@@ -166,7 +172,7 @@ public class CreateTeamCli implements ICreateTeamCli {
                     System.out.printf("Enter %d more goalies", goalies);
                     System.out.println();
                 } else {
-                    player = new PlayerModel(name, position, captain, age, skating, shooting, checking, saving);
+                    player = new PlayerModel(name, position, captain, age, skating, shooting, checking, saving,birthDay,birthMonth,birthYear);
                     userCreatedPlayers.add(player);
                     currentAvailablePlayers.remove(choice - 1);
                     players++;

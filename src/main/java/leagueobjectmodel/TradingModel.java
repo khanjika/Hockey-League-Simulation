@@ -14,42 +14,52 @@ public class TradingModel implements ITradingModel {
     @Expose
     private float randomAcceptanceChance;
 
+    @Override
     public int getLossPoint() {
         return lossPoint;
     }
 
+    @Override
     public void setLossPoint(int lossPoint) {
         this.lossPoint = lossPoint;
     }
 
+    @Override
     public float getRandomTradeOfferChance() {
         return randomTradeOfferChance;
     }
 
+    @Override
     public void setRandomTradeOfferChance(float randomTradeOfferChance) {
         this.randomTradeOfferChance = randomTradeOfferChance;
     }
 
+    @Override
     public int getMaxPlayersPerTrade() {
         return maxPlayersPerTrade;
     }
 
+    @Override
     public void setMaxPlayersPerTrade(int maxPlayersPerTrade) {
         this.maxPlayersPerTrade = maxPlayersPerTrade;
     }
 
+    @Override
     public float getRandomAcceptanceChance() {
         return randomAcceptanceChance;
     }
 
+    @Override
     public void setRandomAcceptanceChance(float randomAcceptanceChance) {
         this.randomAcceptanceChance = randomAcceptanceChance;
     }
 
+    @Override
     public GmTable getGmTable() {
         return gmTable;
     }
 
+    @Override
     public void setGmTable(GmTable gmTable) {
         this.gmTable = gmTable;
     }

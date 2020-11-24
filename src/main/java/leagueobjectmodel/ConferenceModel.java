@@ -16,18 +16,22 @@ public class ConferenceModel implements IConferenceModel {
         divisonModel = new DivisonModel();
     }
 
+    @Override
     public String getConferenceName() {
         return conferenceName;
     }
 
+    @Override
     public void setConferenceName(String conferenceName) {
         this.conferenceName = conferenceName;
     }
 
+    @Override
     public List<DivisonModel> getDivisions() {
         return divisions;
     }
 
+    @Override
     public void setDivisions(List<DivisonModel> divisions) {
         this.divisions = divisions;
     }

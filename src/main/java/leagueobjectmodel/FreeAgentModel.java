@@ -2,6 +2,7 @@ package leagueobjectmodel;
 
 import com.google.gson.annotations.Expose;
 
+import java.time.LocalDate;
 import java.util.*;
 
 public class FreeAgentModel implements IFreeAgentModel {
@@ -19,14 +20,14 @@ public class FreeAgentModel implements IFreeAgentModel {
     private float checking;
     @Expose
     private float saving;
-    private int birthDay;
-    private int birthMonth;
-    private int birthYear;
     private float freeAgentStrength;
     private int days;
     private boolean isRetired;
     private int retirementLikelyHood;
     private AgingModel agingModel;
+    private int birthDay;
+    private int birthMonth;
+    private int birthYear;
 
     public String getPlayerName() {
         return playerName;
@@ -76,74 +77,92 @@ public class FreeAgentModel implements IFreeAgentModel {
         this.checking = checking;
     }
 
+    @Override
     public float getSaving() {
         return saving;
     }
 
+    @Override
     public void setSaving(float saving) {
         this.saving = saving;
     }
 
+    @Override
     public float getFreeAgentStrength() {
         return freeAgentStrength;
     }
 
+    @Override
     public void setFreeAgentStrength(float freeAgentStrength) {
         this.freeAgentStrength = freeAgentStrength;
     }
 
+    @Override
     public int getDays() {
         return days;
     }
 
+    @Override
     public void setDays(int days) {
         this.days = days;
     }
 
+    @Override
     public boolean isRetired() {
         return isRetired;
     }
 
+    @Override
     public void setRetired(boolean retired) {
         isRetired = retired;
     }
 
+    @Override
     public int getRetirementLikelyHood() {
         return retirementLikelyHood;
     }
 
+    @Override
     public void setRetirementLikelyHood(int retirementLikelyHood) {
         this.retirementLikelyHood = retirementLikelyHood;
     }
 
+    @Override
     public AgingModel getAgingModel() {
         return agingModel;
     }
 
+    @Override
     public void setAgingModel(AgingModel agingModel) {
         this.agingModel = agingModel;
     }
 
+    @Override
     public int getBirthDay() {
         return birthDay;
     }
 
+    @Override
     public void setBirthDay(int birthDay) {
         this.birthDay = birthDay;
     }
 
+    @Override
     public int getBirthMonth() {
         return birthMonth;
     }
 
+    @Override
     public void setBirthMonth(int birthMonth) {
         this.birthMonth = birthMonth;
     }
 
+    @Override
     public int getBirthYear() {
         return birthYear;
     }
 
+    @Override
     public void setBirthYear(int birthYear) {
         this.birthYear = birthYear;
     }
@@ -163,6 +182,7 @@ public class FreeAgentModel implements IFreeAgentModel {
 
     @Override
     public void aging(FreeAgentModel freeAgentModel, int daysToAge) {
+        LocalDate birthday = LocalDate.of(freeAgentModel.getBirthYear(),freeAgentModel.getBirthMonth(),freeAgentModel.getBirthDay());
         int days = freeAgentModel.getDays();
         int age = freeAgentModel.getAge();
         if (days + daysToAge >= 365) {
@@ -178,7 +198,8 @@ public class FreeAgentModel implements IFreeAgentModel {
     }
 
 
-    private int checkRetirement(FreeAgentModel freeAgentModel) {
+    @Override
+    public int checkRetirement(FreeAgentModel freeAgentModel) {
         int freeAgentAge = freeAgentModel.getAge();
         int averageRetirementAge = agingModel.getAverageRetirementAge();
         int maximumAge = agingModel.getMaximumAge();
