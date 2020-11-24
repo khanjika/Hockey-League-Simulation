@@ -28,7 +28,7 @@ public class PlayerModelTest {
 
     @Test
     public void PlayerModel() {
-        PlayerModel playerModel = new PlayerModel("Zankrut", "forward", true, 25, 10, 10, 10, 10);
+        PlayerModel playerModel = new PlayerModel("Zankrut", "forward", true, 25, 10, 10, 10, 10,1,1,1);
         assertEquals("Zankrut", playerModel.getPlayerName(), "Faled to get player name in player constructor");
     }
 

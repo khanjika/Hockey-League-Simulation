@@ -19,15 +19,15 @@ public class ImportJsonState implements ITransition {
     public ImportJsonState(StateMachine currentStateMachine) {
         stateMachine = currentStateMachine;
     }
-//    public ImportJsonState(String[] args, StateMachine currentStateMachine) {
-//        if (args.length == 0) {
-//            cliArgument = null;
-//        } else {
-//            cliArgument = args[0];
-//        }
-//        initialCli = new InitialCli();
-//        stateMachine = currentStateMachine;
-//    }
+    public ImportJsonState(String[] args, StateMachine currentStateMachine) {
+        if (args.length == 0) {
+            cliArgument = null;
+        } else {
+            cliArgument = args[0];
+        }
+        //initialCli = new InitialCli();
+        stateMachine = currentStateMachine;
+    }
 
     public void updateImportJsonStateValue(String[] args, StateMachine currentStateMachine){
         if (args.length == 0) {

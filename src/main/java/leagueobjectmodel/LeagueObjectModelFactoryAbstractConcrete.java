@@ -2,14 +2,21 @@ package leagueobjectmodel;
 
 public class LeagueObjectModelFactoryAbstractConcrete extends LeagueObjectModelAbstractFactory {
     private ILeagueModel league;
+    private ILeagueValidator leagueValidator;
     private IConferenceModel conference;
+    private IConferenceValidator conferenceValidator;
     private IDivisonModel division;
+    private IDivisonValidator divisonValidator;
     private ITeamsModel teams;
+    private ITeamsValidator teamsValidator;
     private IPlayerModel player;
+    private IPlayerValidator playerValidator;
     private IGamePlayConfigModel gamePlayConfig;
     private IHeadCoachModel headCoach;
+    private ICoachValidator coachValidator;
     private ICoachModel coach;
     private IGeneralManagersModel generalManagers;
+    private IGeneralManagersValidator generalManagersValidator;
 
     @Override
     public ILeagueModel getLeague() {
@@ -123,5 +130,96 @@ public class LeagueObjectModelFactoryAbstractConcrete extends LeagueObjectModelA
     @Override
     public void setGeneralManagers(IGeneralManagersModel generalManagers) {
         this.generalManagers = generalManagers;
+    }
+
+    @Override
+    public ILeagueValidator getLeagueValidator() {
+        if (leagueValidator == null) {
+            leagueValidator = new LeagueValidator();
+        }
+        return leagueValidator;
+    }
+
+    @Override
+    public void setLeagueValidator(ILeagueValidator leagueValidator) {
+        this.leagueValidator = leagueValidator;
+    }
+
+    @Override
+    public IConferenceValidator getConferenceValidator() {
+        if (conferenceValidator == null) {
+            conferenceValidator = new ConferenceValidator();
+        }
+        return conferenceValidator;
+    }
+
+    @Override
+    public void setConferenceValidator(IConferenceValidator conferenceValidator) {
+        this.conferenceValidator = conferenceValidator;
+    }
+
+    @Override
+    public IDivisonValidator getDivisonValidator() {
+        if (divisonValidator == null) {
+            divisonValidator = new DivisonValidator();
+        }
+        return divisonValidator;
+    }
+
+    @Override
+    public void setDivisonValidator(IDivisonValidator divisonValidator) {
+        this.divisonValidator = divisonValidator;
+    }
+
+    @Override
+    public ITeamsValidator getTeamsValidator() {
+        if (teamsValidator == null) {
+            teamsValidator = new TeamsValidator();
+        }
+        return teamsValidator;
+    }
+
+    @Override
+    public void setTeamsValidator(ITeamsValidator teamsValidator) {
+        this.teamsValidator = teamsValidator;
+    }
+
+    @Override
+    public IPlayerValidator getPlayerValidator() {
+        if (playerValidator == null) {
+            playerValidator = new PlayerValidator();
+        }
+        return playerValidator;
+    }
+
+    @Override
+    public void setPlayerValidator(IPlayerValidator playerValidator) {
+        this.playerValidator = playerValidator;
+    }
+
+    @Override
+    public ICoachValidator getCoachValidator() {
+        if (coachValidator == null) {
+            coachValidator = new CoachValidator();
+        }
+        return coachValidator;
+    }
+
+    @Override
+    public void setCoachValidator(ICoachValidator coachValidator) {
+        this.coachValidator = coachValidator;
+    }
+
+    @Override
+    public IGeneralManagersValidator getGeneralManagersValidator() {
+        if (generalManagersValidator == null) {
+            generalManagersValidator = new GeneralManagersValidator();
+        }
+        return generalManagersValidator;
+    }
+
+    @Override
+    public void setGeneralManagersValidator(IGeneralManagersValidator generalManagersValidator) {
+        this.generalManagersValidator = generalManagersValidator;
     }
 }

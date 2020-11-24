@@ -6,10 +6,12 @@ public class GameResolverModel implements IGameResolverModel {
     @Expose
     private float randomWinChance;
 
+    @Override
     public float getRandomWinChance() {
         return randomWinChance;
     }
 
+    @Override
     public void setRandomWinChance(float randomWinChance) {
         this.randomWinChance = randomWinChance;
     }

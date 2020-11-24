@@ -48,7 +48,7 @@ public class PlayerModel implements IPlayerModel {
         freeAgentModel = new FreeAgentModel();
     }
 
-    public PlayerModel(String playerName, String position, Boolean captain, int age, float skating, float shooting, float checking, float saving) {
+    public PlayerModel(String playerName, String position, Boolean captain, int age, float skating, float shooting, float checking, float saving, int birthDay, int birthMonth, int birthYear) {
         this.playerName = playerName;
         this.position = position;
         this.captain = captain;
@@ -57,180 +57,227 @@ public class PlayerModel implements IPlayerModel {
         this.shooting = shooting;
         this.checking = checking;
         this.saving = saving;
+        this.birthDay = birthDay;
+        this.birthMonth = birthMonth;
+        this.birthYear = birthYear;
     }
 
+    @Override
     public String getPlayerName() {
         return playerName;
     }
 
+    @Override
     public void setPlayerName(String playerName) {
         this.playerName = playerName;
     }
 
+    @Override
     public String getPosition() {
         return position;
     }
 
+    @Override
     public void setPosition(String position) {
         this.position = position;
     }
 
+    @Override
     public Boolean isCaptain() {
         return captain;
     }
 
+    @Override
     public void setCaptain(Boolean captain) {
         this.captain = captain;
     }
 
+    @Override
     public int getAge() {
         return age;
     }
 
+    @Override
     public void setAge(int age) {
         this.age = age;
     }
 
+    @Override
     public float getSkating() {
         return skating;
     }
 
+    @Override
     public void setSkating(float skating) {
         this.skating = skating;
     }
 
+    @Override
     public float getShooting() {
         return shooting;
     }
 
+    @Override
     public void setShooting(float shooting) {
         this.shooting = shooting;
     }
 
+    @Override
     public float getChecking() {
         return checking;
     }
 
+    @Override
     public void setChecking(float checking) {
         this.checking = checking;
     }
 
+    @Override
     public float getSaving() {
         return saving;
     }
 
+    @Override
     public void setSaving(float saving) {
         this.saving = saving;
     }
 
+    @Override
     public float getPlayerStrength() {
         return playerStrength;
     }
 
+    @Override
     public void setPlayerStrength(float playerStrength) {
         this.playerStrength = playerStrength;
     }
 
+    @Override
     public boolean isPlayerInjured() {
         return isPlayerInjured;
     }
 
+    @Override
     public void setPlayerInjured(boolean playerInjured) {
         isPlayerInjured = playerInjured;
     }
 
+    @Override
     public LocalDate getInjuredDate() {
         return injuredDate;
     }
 
+    @Override
     public void setInjuredDate(LocalDate injuredDate) {
         this.injuredDate = injuredDate;
     }
 
+    @Override
     public int getInjuryDays() {
         return injuryDays;
     }
 
+    @Override
     public void setInjuryDays(int injuryDays) {
         this.injuryDays = injuryDays;
     }
 
+    @Override
     public LocalDate getRecoveryDate() {
         return recoveryDate;
     }
 
+    @Override
     public void setRecoveryDate(LocalDate recoveryDate) {
         this.recoveryDate = recoveryDate;
     }
 
+    @Override
     public Boolean isPlayerRetired() {
         return isPlayerRetired;
     }
 
+    @Override
     public void setPlayerRetired(Boolean playerRetired) {
         isPlayerRetired = playerRetired;
     }
 
+    @Override
     public int getDays() {
         return days;
     }
 
+    @Override
     public void setDays(int days) {
         this.days = days;
     }
 
+    @Override
     public int getRetirementLikelyHood() {
         return retirementLikelyHood;
     }
 
+    @Override
     public void setRetirementLikelyHood(int retirementLikelyHood) {
         this.retirementLikelyHood = retirementLikelyHood;
     }
 
+    @Override
     public AgingModel getAgingModel() {
         return agingModel;
     }
 
+    @Override
     public void setAgingModel(AgingModel agingModel) {
         this.agingModel = agingModel;
     }
 
+    @Override
     public List<FreeAgentModel> getFreeAgentsList() {
         return freeAgentsList;
     }
 
+    @Override
     public void setFreeAgentsList(List<FreeAgentModel> freeAgentsList) {
         this.freeAgentsList = freeAgentsList;
     }
 
+    @Override
     public InjuriesModel getInjuriesModel() {
         return injuriesModel;
     }
 
+    @Override
     public void setInjuriesModel(InjuriesModel injuriesModel) {
         this.injuriesModel = injuriesModel;
     }
 
+    @Override
     public int getBirthDay() {
         return birthDay;
     }
 
+    @Override
     public void setBirthDay(int birthDay) {
         this.birthDay = birthDay;
     }
 
+    @Override
     public int getBirthMonth() {
         return birthMonth;
     }
 
+    @Override
     public void setBirthMonth(int birthMonth) {
         this.birthMonth = birthMonth;
     }
 
+    @Override
     public int getBirthYear() {
         return birthYear;
     }
 
+    @Override
     public void setBirthYear(int birthYear) {
         this.birthYear = birthYear;
     }
@@ -277,7 +324,8 @@ public class PlayerModel implements IPlayerModel {
         }
     }
 
-    private void recoverPlayer(PlayerModel playerModel, LocalDate date) {
+    @Override
+    public void recoverPlayer(PlayerModel playerModel, LocalDate date) {
         try {
             long recoveryDayDifference = 0;
             if (playerModel.getRecoveryDate() != null) {
@@ -301,7 +349,7 @@ public class PlayerModel implements IPlayerModel {
     public void aging(PlayerModel playerModel, int daysToAge, LocalDate date) {
         try {
             LocalDate playerBirthDay = LocalDate.of(playerModel.getBirthYear(),playerModel.getBirthMonth(),playerModel.getBirthDay());
-            System.out.println("Player Name: "+playerModel.getPlayerName()+"Player Birthday: "+playerBirthDay);
+            //System.out.println("Player Name: "+playerModel.getPlayerName()+"Player Birthday: "+playerBirthDay);
             int days = playerModel.getDays();
             int playerAge = playerModel.getAge();
             if (days + daysToAge >= 365) {
@@ -323,11 +371,13 @@ public class PlayerModel implements IPlayerModel {
                 replacePlayerWithFreeAgent(playerModel, replacementFreeAgent);
             }
         } catch (Exception e) {
+            System.out.println("Player INFO: " +playerModel.getPlayerName()+" ---- "+playerModel.getBirthMonth());
             System.out.println("Error in aging method of player model" + e);
         }
     }
 
-    private void replacePlayerWithFreeAgent(PlayerModel playerModel, FreeAgentModel replacementFreeAgent) {
+    @Override
+    public void replacePlayerWithFreeAgent(PlayerModel playerModel, FreeAgentModel replacementFreeAgent) {
         try {
             if (replacementFreeAgent == null) {
                 return;
@@ -353,7 +403,8 @@ public class PlayerModel implements IPlayerModel {
         }
     }
 
-    private int checkPlayerRetirementPossibility(PlayerModel playerModel) {
+    @Override
+    public int checkPlayerRetirementPossibility(PlayerModel playerModel) {
         int playerAge = playerModel.getAge();
         int averageRetirementAge = agingModel.getAverageRetirementAge();
         int maximumAge = agingModel.getMaximumAge();

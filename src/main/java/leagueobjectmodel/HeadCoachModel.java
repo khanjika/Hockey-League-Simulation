@@ -25,42 +25,52 @@ public class HeadCoachModel implements IHeadCoachModel {
         this.saving = saving;
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public void setName(String name) {
         this.name = name;
     }
 
+    @Override
     public float getSkating() {
         return skating;
     }
 
+    @Override
     public void setSkating(float skating) {
         this.skating = skating;
     }
 
+    @Override
     public float getShooting() {
         return shooting;
     }
 
+    @Override
     public void setShooting(float shooting) {
         this.shooting = shooting;
     }
 
+    @Override
     public float getChecking() {
         return checking;
     }
 
+    @Override
     public void setChecking(float checking) {
         this.checking = checking;
     }
 
+    @Override
     public float getSaving() {
         return saving;
     }
 
+    @Override
     public void setSaving(float saving) {
         this.saving = saving;
     }

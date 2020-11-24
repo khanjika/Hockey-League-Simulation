@@ -30,50 +30,62 @@ public class LeagueModel implements ILeagueModel {
         coachModel = new CoachModel();
     }
 
+    @Override
     public String getLeagueName() {
         return leagueName;
     }
 
+    @Override
     public void setLeagueName(String leagueName) {
         this.leagueName = leagueName;
     }
 
+    @Override
     public List<ConferenceModel> getConferences() {
         return conferences;
     }
 
+    @Override
     public void setConferences(List<ConferenceModel> conferences) {
         this.conferences = conferences;
     }
 
+    @Override
     public List<FreeAgentModel> getFreeAgents() {
         return freeAgents;
     }
 
+    @Override
     public void setFreeAgents(List<FreeAgentModel> freeAgents) {
         this.freeAgents = freeAgents;
     }
 
+    @Override
     public List<CoachModel> getCoaches() {
         return coaches;
     }
 
+    @Override
     public void setCoaches(List<CoachModel> coaches) {
         this.coaches = coaches;
     }
 
+    @Override
     public List<GeneralManagersModel> getGeneralManagers() {
         return generalManagers;
     }
 
+    @Override
     public void setGeneralManagers(List<GeneralManagersModel> generalManagers) {
         this.generalManagers = generalManagers;
     }
 
+    @Override
     public GamePlayConfigModel getGameplayConfig() {
         return gameplayConfig;
     }
 
+    @Override
     public void setGameplayConfig(GamePlayConfigModel gameplayConfig) {
         this.gameplayConfig = gameplayConfig;
     }

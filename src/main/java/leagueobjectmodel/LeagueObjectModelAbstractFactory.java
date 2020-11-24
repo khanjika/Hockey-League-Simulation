@@ -46,4 +46,32 @@ public abstract class LeagueObjectModelAbstractFactory {
     public abstract IGeneralManagersModel getGeneralManagers();
 
     public abstract void setGeneralManagers(IGeneralManagersModel generalManagers);
+
+    public abstract ILeagueValidator getLeagueValidator();
+
+    public abstract void setLeagueValidator(ILeagueValidator leagueValidator);
+
+    public abstract IConferenceValidator getConferenceValidator();
+
+    public abstract void setConferenceValidator(IConferenceValidator conferenceValidator);
+
+    public abstract IDivisonValidator getDivisonValidator();
+
+    public abstract void setDivisonValidator(IDivisonValidator divisonValidator);
+
+    public abstract ITeamsValidator getTeamsValidator();
+
+    public abstract void setTeamsValidator(ITeamsValidator teamsValidator);
+
+    public abstract IPlayerValidator getPlayerValidator();
+
+    public abstract void setPlayerValidator(IPlayerValidator playerValidator);
+
+    public abstract ICoachValidator getCoachValidator();
+
+    public abstract void setCoachValidator(ICoachValidator coachValidator);
+
+    public abstract IGeneralManagersValidator getGeneralManagersValidator();
+
+    public abstract void setGeneralManagersValidator(IGeneralManagersValidator generalManagersValidator);
 }
