@@ -30,6 +30,7 @@ public class CreateTeamCli implements ICreateTeamCli {
     private HeadCoachModel userEnteredHeadCoachName;
     private final DisplayPersons displayPersons;
     private static ITeamsModel iTeamsModel;
+    private ICli iCli;
     Scanner scannerObject;
     List<PlayerModel> userCreatedPlayers;
     int choice;
@@ -41,6 +42,7 @@ public class CreateTeamCli implements ICreateTeamCli {
         userCreatedPlayers = new ArrayList<>();
         displayPersons = new DisplayPersons();
         iTeamsModel = new TeamsModel();
+        iCli = CliAbstractFactory.getInstance().getCli();
     }
 
 
@@ -147,7 +149,8 @@ public class CreateTeamCli implements ICreateTeamCli {
 
             displayPersons.displayPlayers(currentAvailablePlayers);
             System.out.println("Enter Player " + (players + 1));
-            choice = scannerObject.nextInt();
+            //choice = scannerObject.nextInt();
+            choice = iCli.readIntInput();
             if (choice > 0 && choice <= currentAvailablePlayers.size()) {
                 name = currentAvailablePlayers.get(choice - 1).getPlayerName();
                 captain = false;
