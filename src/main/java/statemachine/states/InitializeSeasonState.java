@@ -25,6 +25,7 @@ public class InitializeSeasonState implements ITransition {
     ITransition tradingState;
     ITransition persistLeagueState;
     IPlayoffSchedule playoffSchedule;
+    private int totalMatches;
     private int currentSimulationYear;
 
     public InitializeSeasonState(StateMachine stateMachine) {
@@ -49,7 +50,7 @@ public class InitializeSeasonState implements ITransition {
     public void entry() {
         iRegularSeasonSchedule = new RegularSeasonSchedule();
         List<List<TeamsModel>> currentSeasonSchedule = iRegularSeasonSchedule.generateSeasonSchedule(updatedLeagueModelObject);
-        int totalMatches = currentSeasonSchedule.size();
+        totalMatches = currentSeasonSchedule.size();
         long availableDaysForMatches = DAYS.between(iDeadlines.getRegularSeasonStartDate(currentSimulationYear), iDeadlines.getEndOfRegularSeasonDate(currentSimulationYear + 1));
         long matchesPlayedInOneDay = totalMatches / availableDaysForMatches;
         long availableDaysForTrade = DAYS.between(iDeadlines.getRegularSeasonStartDate(currentSimulationYear), iDeadlines.getTradeDeadlineDate(currentSimulationYear + 1));
@@ -82,6 +83,7 @@ public class InitializeSeasonState implements ITransition {
             currentDate = regularSeasonStartDate.plusDays(i);
 
         }
+
         LocalDate playOffStartDate = iDeadlines.getPlayOffStartDate(currentSimulationYear);
         currentDate = playOffStartDate;
         long availableDaysForPlayOff = DAYS.between(iDeadlines.getPlayOffStartDate(currentSimulationYear), iDeadlines.getLastDayOfStanleyCup(currentSimulationYear + 1));
@@ -120,6 +122,34 @@ public class InitializeSeasonState implements ITransition {
 
     @Override
     public void task() {
+        System.out.println("--------Regular Season Complete------");
+        for(ConferenceModel conferenceModel:updatedLeagueModelObject.getConferences()){
+            for(DivisonModel divisonModel:conferenceModel.getDivisions()){
+                for(TeamsModel teamsModel:divisonModel.getTeams()){
+                    int goalByTeam=0;
+                    int penaltyCOunt=0;
+                    int saveCount=0;
+                    for(PlayerModel playerModel:teamsModel.getPlayers()){
+                        goalByTeam=playerModel.getGoalScorerCount()+goalByTeam;
+                        penaltyCOunt=playerModel.getTotalPenaltyCount()+penaltyCOunt;
+                        saveCount=playerModel.getSaveForGoalie()+saveCount;
+//                        if(playerModel.getPosition().equals("defense")){
+//                            System.out.println(playerModel.getPlayerName()+" is Defense and has penalty count of "+playerModel.getTotalPenaltyCount());
+//                        }
+//                        if(playerModel.getPosition().equals("goalie")){
+//                            System.out.println(playerModel.getPlayerName()+" is goalie having save count "+playerModel.getSaveForGoalie());
+//                        }
+                    }
+                    System.out.println(totalMatches);
+                    float valeu =goalByTeam/totalMatches;
+                    double averagePenaltyCount= totalMatches/penaltyCOunt;
+                    double averageSaveCount = totalMatches/saveCount;
+                    System.out.println("Goal For the Team is "+goalByTeam+" Team Name "+teamsModel.getTeamName()+" Average is "+valeu);
+                    System.out.println("Total penalty count is "+penaltyCOunt+" Average penalty per game is "+averagePenaltyCount);
+                    System.out.println("Total Save count is "+saveCount+" Average penalty per game is "+averageSaveCount);
+                }
+            }
+        }
         exit();
     }
 

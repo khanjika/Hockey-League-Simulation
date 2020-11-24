@@ -8,12 +8,7 @@ import teams.TeamsModel;
 import java.util.ArrayList;
 import java.util.List;
 
-//ONE THING I NEED TO CHANGE IS RIGHT NOW LIST OF PLAYER CONTAINS ALL THE LIST OF FOR THE TEAM HOWEVER I ONLY NEED 3 PLAYER FOR DEFENSE AND
-//SO ON...
 
-//ALL THE METHOD OF CALCULATING SHOULD HAVE SOME FORM OF PRE CONDITION
-
-//PERFORM PANLTY COUNT NEEDS TO BE ZERO
 public class StartSimulation {
 
     private static TeamsModel teamOneObject;
@@ -37,7 +32,6 @@ public class StartSimulation {
 
     int penaltyCounter = 0;
 
-
     public StartSimulation(TeamsModel teamOne, TeamsModel teamTwo, LeagueModel leagueModel, boolean isPlayOff) {
         teamOneObject = teamOne;
         teamTwoObject = teamTwo;
@@ -47,9 +41,7 @@ public class StartSimulation {
 
     public void separatePlayerByPosition() {
         leagueModelObject.setPenaltyChance((float) 0.5);
-        System.out.println("Inside separate player");
         for (PlayerModel playerModel : teamOneObject.getPlayers()) {
-
             if (playerModel.getPosition().equals("forward")) {
                 listOfForwardOfTeamOne.add(playerModel);
             } else if (playerModel.getPosition().equals("goalie")) {
@@ -68,16 +60,12 @@ public class StartSimulation {
                 listOfDefenseOfTeamTwo.add(playerModel);
             }
         }
-
-        System.out.println(listOfGoalieOfTeamOne.size());
-        System.out.println(listOfGoaliesOfTeamTwo.size());
         setAverageShotsOnGoal();
         initializeSlots();
     }
 
 
     public void setAverageShotsOnGoal() {
-        System.out.println("inside average shots on goal");
         float teamOneShootingState = 0;
         float teamTwoShootingState = 0;
         float teamOneSkatingState = 0;
@@ -94,8 +82,13 @@ public class StartSimulation {
             }
             teamTwoSkatingState = playerModel.getSkating();
         }
-        //change the average goal chance
         if (teamOneShootingState >= teamTwoShootingState) {
+            int skatingStateDifference= (int) (teamOneSkatingState-teamTwoSkatingState);
+            if(skatingStateDifference<10){
+                averageShotsOnGoal=averageShotsOnGoal-skatingStateDifference;
+            }else {
+                averageShotsOnGoal=averageShotsOnGoal-10;
+            }
 
         }
 
@@ -158,6 +151,9 @@ public class StartSimulation {
     }
 
     public float getShootingState(List<PlayerModel> playerModelList) {
+        if(playerModelList==null){
+            throw new NullPointerException();
+        }
         float shootingState = 0;
         for (PlayerModel playerModel : playerModelList) {
             shootingState = shootingState + playerModel.getShooting();
@@ -166,6 +162,9 @@ public class StartSimulation {
     }
 
     public float getCheckingState(List<PlayerModel> playerModelList) {
+        if(playerModelList==null){
+            throw new NullPointerException();
+        }
         float checkingState = 0;
         for (PlayerModel playerModel : playerModelList) {
             if (playerModel.getCurrentPenaltyCount() > 0) {
@@ -178,6 +177,9 @@ public class StartSimulation {
     }
 
     public float getSavingState(List<PlayerModel> playerModelList) {
+        if(playerModelList==null){
+            throw new NullPointerException();
+        }
         float savingSate = 0;
         for (PlayerModel playerModel : playerModelList) {
             savingSate = savingSate + playerModel.getSaving();
@@ -244,7 +246,6 @@ public class StartSimulation {
         try {
             currentShiftGoalieOfTeamOne.remove(0);
             currentShiftGoalieOfTeamTwo.remove(0);
-            System.out.println(listOfGoalieOfTeamOne.size());
             currentShiftGoalieOfTeamOne.add(listOfGoalieOfTeamOne.get(1));
             currentShiftGoalieOfTeamTwo.add(listOfGoaliesOfTeamTwo.get(1));
         } catch (NullPointerException n) {
@@ -278,6 +279,9 @@ public class StartSimulation {
 
 
     public PlayerModel getBestGoalieFromTheTeam(List<PlayerModel> list) {
+        if(list==null){
+            throw new NullPointerException();
+        }
         PlayerModel currentBestGoalie = null;
         for (PlayerModel playerModel : list) {
             if (playerModel.getPosition().equals("goalie")) {
