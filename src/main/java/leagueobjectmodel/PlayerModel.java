@@ -348,8 +348,11 @@ public class PlayerModel implements IPlayerModel {
     @Override
     public void aging(PlayerModel playerModel, int daysToAge, LocalDate date) {
         try {
+            if(playerModel == null){
+                throw new NullPointerException("Player Model is Null inside Aging method");
+            }
             LocalDate playerBirthDay = LocalDate.of(playerModel.getBirthYear(),playerModel.getBirthMonth(),playerModel.getBirthDay());
-            //System.out.println("Player Name: "+playerModel.getPlayerName()+"Player Birthday: "+playerBirthDay);
+
             int days = playerModel.getDays();
             int playerAge = playerModel.getAge();
             if (days + daysToAge >= 365) {

@@ -19,6 +19,7 @@ public class CreateTeamCli implements ICreateTeamCli {
     private HeadCoachModel userEnteredHeadCoachName;
     private final DisplayPersons displayPersons;
     private static ITeamsModel iTeamsModel;
+    private ICli iCli;
     private static ILeagueModel iLeagueModel;
     Scanner scannerObject;
     List<PlayerModel> userCreatedPlayers;
@@ -32,6 +33,7 @@ public class CreateTeamCli implements ICreateTeamCli {
         displayPersons = new DisplayPersons();
         iTeamsModel = new TeamsModel();
         iLeagueModel = LeagueObjectModelAbstractFactory.getInstance().getLeague();
+        iCli = CliAbstractFactory.getInstance().getCli();
     }
 
 
@@ -102,7 +104,6 @@ public class CreateTeamCli implements ICreateTeamCli {
     private boolean isTeamInformationSetProperly(ILeagueModel leagueModel) {
         System.out.println("Enter New Team name");
         this.userEnteredTeamName = scannerObject.nextLine();
-        iLeagueModel.setCurrentTeam(this.userEnteredTeamName);
         if (isStringValid(userEnteredTeamName)) {
             if (isManagerValid(leagueModel)) {
                 if (isHeadCoachValid(leagueModel)) {
@@ -139,7 +140,8 @@ public class CreateTeamCli implements ICreateTeamCli {
 
             displayPersons.displayPlayers(currentAvailablePlayers);
             System.out.println("Enter Player " + (players + 1));
-            choice = scannerObject.nextInt();
+            //choice = scannerObject.nextInt();
+            choice = iCli.readIntInput();
             if (choice > 0 && choice <= currentAvailablePlayers.size()) {
                 name = currentAvailablePlayers.get(choice - 1).getPlayerName();
                 captain = false;

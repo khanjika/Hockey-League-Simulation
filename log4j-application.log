@@ -50,111 +50,14 @@
 2020-11-24 11:16:27 DEBUG StateMachine:29 - inside state machine const
 2020-11-24 11:17:26 DEBUG Main:11 - inside main
 2020-11-24 11:17:26 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 12:19:07 DEBUG Main:11 - inside main
-2020-11-24 12:19:07 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 17:16:37 DEBUG Main:11 - inside main
-2020-11-24 17:16:37 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 17:18:53 DEBUG Main:11 - inside main
-2020-11-24 17:18:53 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 17:19:58 DEBUG Main:11 - inside main
-2020-11-24 17:19:58 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 17:20:49 DEBUG Main:11 - inside main
-2020-11-24 17:20:49 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 17:21:24 DEBUG Main:11 - inside main
-2020-11-24 17:21:24 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 17:22:49 DEBUG Main:11 - inside main
-2020-11-24 17:22:49 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 17:24:15 DEBUG Main:11 - inside main
-2020-11-24 17:24:15 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 17:26:53 DEBUG Main:11 - inside main
-2020-11-24 17:26:53 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 17:48:36 DEBUG Main:11 - inside main
-2020-11-24 17:48:36 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 17:53:32 DEBUG Main:11 - inside main
-2020-11-24 17:53:32 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 17:56:25 DEBUG Main:11 - inside main
-2020-11-24 17:56:25 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 18:45:06 DEBUG Main:11 - inside main
-2020-11-24 18:45:06 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 18:46:45 DEBUG Main:11 - inside main
-2020-11-24 18:46:45 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 18:47:17 DEBUG Main:11 - inside main
-2020-11-24 18:47:17 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 18:51:20 DEBUG Main:11 - inside main
-2020-11-24 18:51:20 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 18:52:22 DEBUG Main:11 - inside main
-2020-11-24 18:52:22 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 18:53:12 DEBUG Main:11 - inside main
-2020-11-24 18:53:12 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 18:56:20 DEBUG Main:11 - inside main
-2020-11-24 18:56:20 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 19:14:37 DEBUG Main:11 - inside main
-2020-11-24 19:14:37 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 19:19:14 DEBUG Main:11 - inside main
-2020-11-24 19:19:14 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 19:22:13 DEBUG Main:11 - inside main
-2020-11-24 19:22:13 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 19:24:29 DEBUG Main:11 - inside main
-2020-11-24 19:24:29 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 19:26:35 DEBUG Main:11 - inside main
-2020-11-24 19:26:35 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 19:28:17 DEBUG Main:11 - inside main
-2020-11-24 19:28:17 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 19:28:44 DEBUG Main:11 - inside main
-2020-11-24 19:28:44 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 19:29:07 DEBUG Main:11 - inside main
-2020-11-24 19:29:07 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 20:16:39 DEBUG Main:11 - inside main
-2020-11-24 20:16:39 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 20:17:28 DEBUG Main:11 - inside main
-2020-11-24 20:17:28 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 20:20:50 DEBUG Main:11 - inside main
-2020-11-24 20:20:50 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 20:23:17 DEBUG Main:11 - inside main
-2020-11-24 20:23:17 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 20:24:27 DEBUG Main:11 - inside main
-2020-11-24 20:24:27 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 20:25:14 DEBUG Main:11 - inside main
-2020-11-24 20:25:14 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 20:26:45 DEBUG Main:11 - inside main
-2020-11-24 20:26:45 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 20:27:55 DEBUG Main:11 - inside main
-2020-11-24 20:27:55 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 20:29:37 DEBUG Main:11 - inside main
-2020-11-24 20:29:37 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 20:30:33 DEBUG Main:11 - inside main
-2020-11-24 20:30:33 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 20:31:12 DEBUG Main:11 - inside main
-2020-11-24 20:31:12 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 21:44:06 DEBUG Main:11 - inside main
-2020-11-24 21:44:06 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 21:44:28 DEBUG Main:11 - inside main
-2020-11-24 21:44:28 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 21:48:05 DEBUG Main:11 - inside main
-2020-11-24 21:48:05 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 21:51:20 DEBUG Main:11 - inside main
-2020-11-24 21:51:20 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 21:55:15 DEBUG Main:11 - inside main
-2020-11-24 21:55:15 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 22:01:19 DEBUG Main:11 - inside main
-2020-11-24 22:01:19 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 22:12:37 DEBUG Main:11 - inside main
-2020-11-24 22:12:37 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 22:15:59 DEBUG Main:11 - inside main
-2020-11-24 22:15:59 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 22:28:42 DEBUG Main:11 - inside main
-2020-11-24 22:28:42 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 22:31:01 DEBUG Main:11 - inside main
-2020-11-24 22:31:01 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 22:31:33 DEBUG Main:11 - inside main
-2020-11-24 22:31:33 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 22:36:12 DEBUG Main:11 - inside main
-2020-11-24 22:36:12 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 22:40:47 DEBUG Main:11 - inside main
-2020-11-24 22:40:47 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 22:43:10 DEBUG Main:11 - inside main
-2020-11-24 22:43:10 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 22:46:04 DEBUG Main:11 - inside main
-2020-11-24 22:46:04 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 22:47:54 DEBUG Main:11 - inside main
-2020-11-24 22:47:54 DEBUG StateMachine:29 - inside state machine const
+2020-11-24 17:53:44 DEBUG Main:11 - inside main
+2020-11-24 17:53:44 DEBUG StateMachine:29 - inside state machine const
+2020-11-24 18:29:41 DEBUG StateMachine:29 - inside state machine const
+2020-11-24 18:29:41 DEBUG StateMachine:29 - inside state machine const
+2020-11-24 18:29:41 DEBUG StateMachine:29 - inside state machine const
+2020-11-24 18:29:41 DEBUG StateMachine:29 - inside state machine const
+2020-11-24 18:29:41 DEBUG StateMachine:29 - inside state machine const
+2020-11-24 18:29:41 DEBUG StateMachine:29 - inside state machine const
+2020-11-24 18:29:41 DEBUG StateMachine:29 - inside state machine const
+2020-11-24 18:29:41 DEBUG StateMachine:29 - inside state machine const
+2020-11-24 18:29:41 DEBUG StateMachine:29 - inside state machine const
