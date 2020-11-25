@@ -1,7 +1,11 @@
 package leagueobjectmodel;
 
+import com.google.gson.annotations.Expose;
+
 public class GeneralManagersModel implements IGeneralManagersModel {
+    @Expose
     private String name;
+    @Expose
     private String personality;
 
     public GeneralManagersModel() {

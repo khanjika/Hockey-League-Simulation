@@ -2,13 +2,10 @@ package leagueobjectmodel;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.Expose;
-
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Random;
-
 import static java.time.temporal.ChronoUnit.DAYS;
-
 
 public class PlayerModel implements IPlayerModel {
 
@@ -33,6 +30,7 @@ public class PlayerModel implements IPlayerModel {
     private int birthDay;
     private int birthMonth;
     private int birthYear;
+    private boolean active;
     private float playerStrength;
     private int retirementLikelyHood;
     private int injuryDays;
@@ -60,6 +58,14 @@ public class PlayerModel implements IPlayerModel {
         this.birthDay = birthDay;
         this.birthMonth = birthMonth;
         this.birthYear = birthYear;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     @Override
@@ -287,11 +293,11 @@ public class PlayerModel implements IPlayerModel {
         try {
             float strength = 0;
             if (playerModel.getPosition().equals(PlayerPosition.FORWARD.toString())) {
-                strength = playerModel.getSkating() + playerModel.getShooting() + (playerModel.getChecking() / 2);
+                strength = calculateForwardStrength(playerModel);
             } else if (playerModel.getPosition().equals(PlayerPosition.DEFENSE.toString())) {
-                strength = playerModel.getSkating() + playerModel.getChecking() + (playerModel.getShooting() / 2);
+                strength = calculateDefenseStrength(playerModel);
             } else if (playerModel.getPosition().equals(PlayerPosition.GOALIE.toString())) {
-                strength = playerModel.getSkating() + playerModel.getShooting();
+                strength = calculateGoalieStrength(playerModel);
             }
             if (playerModel.isPlayerInjured()) {
                 playerModel.setPlayerStrength(strength / 2);
@@ -303,6 +309,20 @@ public class PlayerModel implements IPlayerModel {
         }
     }
 
+    @Override
+    public float calculateForwardStrength(PlayerModel playerModel){
+        return playerModel.getSkating() + playerModel.getShooting() + (playerModel.getChecking() / 2);
+    }
+
+    @Override
+    public float calculateDefenseStrength(PlayerModel playerModel){
+        return playerModel.getSkating() + playerModel.getChecking() + (playerModel.getShooting() / 2);
+    }
+
+    @Override
+    public float calculateGoalieStrength(PlayerModel playerModel){
+        return playerModel.getSkating() + playerModel.getSaving();
+    }
     @Override
     public void checkPlayerInjury(PlayerModel playerModel, LocalDate date) {
         if (playerModel.isPlayerInjured()) {

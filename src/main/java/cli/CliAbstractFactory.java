@@ -29,4 +29,7 @@ public abstract class CliAbstractFactory {
     public abstract InputStream getIn();
 
     public abstract void setIn(InputStream in);
+
+    public abstract IDisplayPersons getDisplayPersons();
+
 }

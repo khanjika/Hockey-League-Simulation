@@ -30,5 +30,12 @@ public interface ILeagueModel {
     GamePlayConfigModel getGameplayConfig();
 
     void setGameplayConfig(GamePlayConfigModel gameplayConfig);
+
+    List<FreeAgentModel> getForwards();
+
+    List<FreeAgentModel> getDefenses();
+
+    List<FreeAgentModel> getGoalies();
+
     boolean storeLeagueInformation(ILeagueModel leagueModel);
 }

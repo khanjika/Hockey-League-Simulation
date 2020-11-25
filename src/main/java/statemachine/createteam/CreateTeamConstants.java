@@ -12,7 +12,16 @@ public enum CreateTeamConstants {
     EnterConference("Enter Conference name in which you want to create new Team"),
     EnterDivision("Enter Division name in which you want to create new Team"),
     EnterTeam("Enter new team name to be created"),
-    Instruction("Here You need to create a new Team in the EXISTING division")
+    EnterCaptain("Select a captain for the team"),
+    EnterManager("Select a Manager for the team"),
+    EnterCoach("Select a Head Coach for the team"),
+    Enter("Enter "),
+    EnterGoalies(" more Goalies for the team"),
+    EnterForwards(" more Forwards for the team"),
+    EnterDefense(" more Defense for the team"),
+    TeamCaptain(" is the team captain"),
+    Instruction("Here You need to create a new Team in the EXISTING division"),
+    DisplayPlayerList("The newly created team players")
     ;
 
     private String value;

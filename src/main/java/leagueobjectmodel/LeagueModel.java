@@ -2,9 +2,9 @@ package leagueobjectmodel;
 
 import com.google.gson.annotations.Expose;
 import database.serializeobject.ISerializeObject;
-import database.serializeobject.SerializeObject;
 import database.serializeobject.SerializeObjectAbstractFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class LeagueModel implements ILeagueModel {
@@ -104,6 +104,39 @@ public class LeagueModel implements ILeagueModel {
     @Override
     public void setGameplayConfig(GamePlayConfigModel gameplayConfig) {
         this.gameplayConfig = gameplayConfig;
+    }
+
+    @Override
+    public List<FreeAgentModel> getForwards(){
+        List<FreeAgentModel>forwards = new ArrayList<>();
+        for (FreeAgentModel freeAgent : this.getFreeAgents()){
+            if (freeAgent.getPosition().equals(PlayerPosition.FORWARD.toString())){
+                forwards.add(freeAgent);
+            }
+        }
+        return forwards;
+    }
+
+    @Override
+    public List<FreeAgentModel> getDefenses(){
+        List<FreeAgentModel> defense = new ArrayList<>();
+        for ( FreeAgentModel freeAgent : this.getFreeAgents()){
+            if (freeAgent.getPosition().equals(PlayerPosition.DEFENSE.toString())){
+                defense.add(freeAgent);
+            }
+        }
+        return defense;
+    }
+
+    @Override
+    public List<FreeAgentModel> getGoalies(){
+        List<FreeAgentModel> goalies = new ArrayList<>();
+        for ( FreeAgentModel freeAgent : this.getFreeAgents()){
+            if (freeAgent.getPosition().equals(PlayerPosition.GOALIE.toString())){
+                goalies.add(freeAgent);
+            }
+        }
+        return goalies;
     }
 
     @Override

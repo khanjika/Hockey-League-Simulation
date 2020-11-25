@@ -21,4 +21,5 @@ public class SortTeams implements ISortTeams {
         freeAgents.sort(Comparator.comparing(FreeAgentModel::getFreeAgentStrength).reversed());
         return freeAgents;
     }
+
 }

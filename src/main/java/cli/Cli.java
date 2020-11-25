@@ -30,4 +30,5 @@ public class Cli implements ICli {
     public int readIntInput(){
         return sc.nextInt();
     }
+
 }
