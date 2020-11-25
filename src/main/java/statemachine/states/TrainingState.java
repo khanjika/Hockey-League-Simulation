@@ -2,8 +2,8 @@ package statemachine.states;
 
 import leagueobjectmodel.*;
 import statemachine.StateMachine;
-import training.ITraining;
-import training.Training;
+import statemachine.training.ITraining;
+import statemachine.training.Training;
 
 public class TrainingState implements ITransition {
 

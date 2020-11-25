@@ -31,7 +31,7 @@ public class StateMachine {
         loadTeam = new LoadTeamState(this);
         createTeam = new CreateTeamState(this);
         playerSeasonsChoice = new PlayerSeasonsChoiceState(this);
-      //  persistLeagueState = new PersistLeagueState(this);
+        persistLeagueState = new PersistLeagueState(this);
         initlailizeSeasonState = new InitializeSeasonState(this);
         trainingState = new TrainingState(this);
         simulateGameState = new SimulateGameState(this);

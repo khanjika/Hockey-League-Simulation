@@ -2,7 +2,6 @@ package statemachine.states;
 
 import leagueobjectmodel.*;
 import statemachine.StateMachine;
-
 import java.util.Random;
 
 public class SimulateGameState implements ITransition {

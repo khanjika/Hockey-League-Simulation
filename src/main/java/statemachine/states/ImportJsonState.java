@@ -1,7 +1,7 @@
 package statemachine.states;
 
-import cli.IInitCli;
-import cli.InitialCli;
+import statemachine.jsonparser.IInitCli;
+import statemachine.jsonparser.InitialCli;
 import leagueobjectmodel.*;
 import statemachine.StateMachine;
 
@@ -14,6 +14,8 @@ public class ImportJsonState implements ITransition {
 
     public ImportJsonState(StateMachine currentStateMachine) {
         stateMachine = currentStateMachine;
+
+        initialCli = new InitialCli();
     }
     public ImportJsonState(String[] args, StateMachine currentStateMachine) {
         if (args.length == 0) {
@@ -21,7 +23,6 @@ public class ImportJsonState implements ITransition {
         } else {
             cliArgument = args[0];
         }
-        //initialCli = new InitialCli();
         stateMachine = currentStateMachine;
     }
 
@@ -31,7 +32,6 @@ public class ImportJsonState implements ITransition {
         } else {
             cliArgument = args[0];
         }
-        initialCli = new InitialCli();
         stateMachine = currentStateMachine;
 
     }
@@ -70,8 +70,8 @@ public class ImportJsonState implements ITransition {
 
     @Override
     public void task() {
-//        createTeamState = stateMachine.getCreateTeam();
-//        stateMachine.setCreateTeam(createTeamState);
+        createTeamState = stateMachine.getCreateTeam();
+        stateMachine.setCreateTeam(createTeamState);
         stateMachine.getUpdateStateValue().updateCreateTeamStateValue(stateMachine,inMemoryLeagueModel);
         stateMachine.setCurrentState(stateMachine.getCreateTeam());
         exit();

@@ -50,7 +50,7 @@ public class RegularSeasonSchedule implements IRegularSeasonSchedule {
                         }
                     }
 
-                    //Here first i will call the method for training
+                    //Here first i will call the method for statemachine.training
                     //Then i will call the method for trade offer
                     //For trade offer i need to pass any league model object and i also need to apss two team along with the win and loss point with that
                     //Then in return i will get league model with the updated league object that might have traded teams.

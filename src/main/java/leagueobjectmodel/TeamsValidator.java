@@ -1,6 +1,6 @@
 package leagueobjectmodel;
 
-import serializeobject.FileValidator;
+import database.serializeobject.FileValidator;
 
 import java.util.Objects;
 

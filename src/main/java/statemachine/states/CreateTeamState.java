@@ -1,6 +1,6 @@
 package statemachine.states;
 
-import cli.CreateTeamCli;
+import statemachine.createteam.CreateTeamCli;
 import leagueobjectmodel.ILeagueModel;
 import leagueobjectmodel.LeagueModel;
 import leagueobjectmodel.LeagueObjectModelAbstractFactory;
@@ -56,13 +56,17 @@ public class CreateTeamState implements ITransition {
         this.updatedLeagueModel = createTeamCli.createNewTeam(currentModel);
      //   PlayoffSchedule playoffSchedule = new PlayoffSchedule();
        // playoffSchedule.generatePlayoffSchedule(updatedLeagueModel);
+        if (this.updatedLeagueModel == null){
+            System.out.println("Team already exists");
+            task();
+        }
         exit();
     }
 
     @Override
     public void exit() {
         //THIS IS USED FOR SERIALIZTION PUROPOSE
-      //  SerializeObject serializeObject = new SerializeObject();
+      //SerializeObject serializeObject = new SerializeObject();
         //serializeObject.serializeLeagueObject(this.updatedLeagueModel);
         stateMachine.getUpdateStateValue().updatePlayerSeasonChoiceStateValue(stateMachine,updatedLeagueModel);
         stateMachine.setCurrentState(stateMachine.getPlayerSeasonsChoice());
