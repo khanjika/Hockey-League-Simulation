@@ -1,11 +1,9 @@
-package trade;
-
-import leagueobjectmodel.TradingModel;
-import leagueobjectmodel.LeagueModel;
-import leagueobjectmodel.TeamsModel;
-
-public interface IFindPlayerToSwap {
-    LeagueModel findPlayersToSwap(LeagueModel league, TeamsModel team, ITradeTeamPojo tradingTeamDetails);
-
-    ITradeModel offeredPlayer(TeamsModel team, TradingModel tradeModel);
-}
+//package trade;
+//
+//import leagueobjectmodel.*;
+//
+//public interface IFindPlayerToSwap {
+//    LeagueModel findPlayersToSwap(ILeagueModel league, ITeamsModel team, ITradeTeamPojo tradingTeamDetails);
+//
+//    ITradeModel offeredPlayer(ITeamsModel team, TradingModel tradeModel);
+//}

@@ -3,13 +3,7 @@ package cli;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import leagueobjectmodel.ConferenceModel;
-import leagueobjectmodel.DivisonModel;
-import leagueobjectmodel.ILeagueValidator;
-import leagueobjectmodel.LeagueModel;
-import leagueobjectmodel.LeagueValidator;
-import leagueobjectmodel.PlayerModel;
-import leagueobjectmodel.TeamsModel;
+import leagueobjectmodel.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,22 +13,24 @@ import java.nio.file.Paths;
 
 public class CliCommunication implements ICliCommunication {
 
-    public LeagueModel leagueModel;
+    public ILeagueModel leagueModel;
     public static ObjectMapper objectMapper;
     private final ILeagueValidator leagueValidator;
-   // private final loadTeamCli loadTeamCli;
+    private static LeagueObjectModelAbstractFactory leagueObjectModelAbstractFactory;
+    private loadTeamCli loadTeamCli;
 
     public CliCommunication() {
         objectMapper = new ObjectMapper();
-        leagueValidator = new LeagueValidator();
-        //loadTeamCli = new loadTeamCli();
+        leagueValidator = LeagueObjectModelAbstractFactory.getInstance().getLeagueValidator();
+        leagueObjectModelAbstractFactory = LeagueObjectModelAbstractFactory.getInstance();
     }
 
 
-//    @Override
-//    public boolean loadTeamFromDatabase() {
-//        return loadTeamCli.getData();
-//    }
+    @Override
+    public boolean loadTeamFromDatabase() {
+        loadTeamCli = new loadTeamCli();
+        return loadTeamCli.getData();
+    }
 
     @Override
     public boolean isFileExist(String fileName) {
@@ -50,11 +46,13 @@ public class CliCommunication implements ICliCommunication {
 
 
     @Override
-    public LeagueModel parseJson(String fileName) {
+    public ILeagueModel parseJson(String fileName) {
+
         try {
             byte[] mapData = Files.readAllBytes(Paths.get(fileName));
             JsonNode data = objectMapper.readTree(mapData);
             leagueModel = fromJson(data, LeagueModel.class);
+            leagueObjectModelAbstractFactory.setLeague(leagueModel);
             if (leagueValidator.validateLeagueObject(leagueModel)) {
                 System.out.println("Your Provided JSON is valid.");
                 for (ConferenceModel conferenceModel : leagueModel.getConferences()) {

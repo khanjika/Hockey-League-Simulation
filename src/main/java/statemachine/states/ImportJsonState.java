@@ -2,19 +2,15 @@ package statemachine.states;
 
 import cli.IInitCli;
 import cli.InitialCli;
-import leagueobjectmodel.ConferenceModel;
-import leagueobjectmodel.DivisonModel;
-import leagueobjectmodel.LeagueModel;
-import leagueobjectmodel.PlayerModel;
+import leagueobjectmodel.*;
 import statemachine.StateMachine;
-import leagueobjectmodel.TeamsModel;
 
 public class ImportJsonState implements ITransition {
     StateMachine stateMachine;
     IInitCli initialCli;
     ITransition createTeamState;
     private String cliArgument;
-    private LeagueModel inMemoryLeagueModel;
+    private ILeagueModel inMemoryLeagueModel;
 
     public ImportJsonState(StateMachine currentStateMachine) {
         stateMachine = currentStateMachine;

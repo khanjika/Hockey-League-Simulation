@@ -1,17 +1,6 @@
 package cli;
 
-import leagueobjectmodel.CoachModel;
-import leagueobjectmodel.ConferenceModel;
-import leagueobjectmodel.ConferenceValidator;
-import leagueobjectmodel.DivisonModel;
-import leagueobjectmodel.DivisonValidator;
-import leagueobjectmodel.FreeAgentModel;
-import leagueobjectmodel.GeneralManagersModel;
-import leagueobjectmodel.LeagueModel;
-import leagueobjectmodel.PlayerModel;
-import leagueobjectmodel.HeadCoachModel;
-import leagueobjectmodel.ITeamsModel;
-import leagueobjectmodel.TeamsModel;
+import leagueobjectmodel.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +19,7 @@ public class CreateTeamCli implements ICreateTeamCli {
     private HeadCoachModel userEnteredHeadCoachName;
     private final DisplayPersons displayPersons;
     private static ITeamsModel iTeamsModel;
+    private static ILeagueModel iLeagueModel;
     Scanner scannerObject;
     List<PlayerModel> userCreatedPlayers;
     int choice;
@@ -41,15 +31,16 @@ public class CreateTeamCli implements ICreateTeamCli {
         userCreatedPlayers = new ArrayList<>();
         displayPersons = new DisplayPersons();
         iTeamsModel = new TeamsModel();
+        iLeagueModel = LeagueObjectModelAbstractFactory.getInstance().getLeague();
     }
 
 
     @Override
-    public LeagueModel createNewTeam(LeagueModel leagueModel) {
+    public ILeagueModel createNewTeam(ILeagueModel leagueModel) {
         if (isConferenceNameValid(leagueModel)) {
             if (isDivisionNameValid(leagueModel)) {
                 if (this.isTeamInformationSetProperly(leagueModel)) {
-                    LeagueModel newlyCreatedLeagueModelObject = getNewlyCreatedLeagueObject(leagueModel);
+                    ILeagueModel newlyCreatedLeagueModelObject = getNewlyCreatedLeagueObject(leagueModel);
                     System.out.println("=====================================");
                     for (ConferenceModel conferenceModel : newlyCreatedLeagueModelObject.getConferences()) {
                         System.out.println("Conference name->    " + conferenceModel.getConferenceName());
@@ -68,7 +59,7 @@ public class CreateTeamCli implements ICreateTeamCli {
         return null;
     }
 
-    private boolean isConferenceNameValid(LeagueModel leagueModel) {
+    private boolean isConferenceNameValid(ILeagueModel leagueModel) {
         System.out.println("=====================================");
         System.out.println("Here You need to create a new Team in the EXISTING division");
         System.out.println("=====================================");
@@ -90,7 +81,7 @@ public class CreateTeamCli implements ICreateTeamCli {
         return true;
     }
 
-    private boolean isDivisionNameValid(LeagueModel leagueModel) {
+    private boolean isDivisionNameValid(ILeagueModel leagueModel) {
         System.out.println("Enter Division name In which You want to create new Team");
         String divisionName = scannerObject.nextLine();
         if (isStringValid(divisionName)) {
@@ -108,9 +99,10 @@ public class CreateTeamCli implements ICreateTeamCli {
         return true;
     }
 
-    private boolean isTeamInformationSetProperly(LeagueModel leagueModel) {
+    private boolean isTeamInformationSetProperly(ILeagueModel leagueModel) {
         System.out.println("Enter New Team name");
         this.userEnteredTeamName = scannerObject.nextLine();
+        iLeagueModel.setCurrentTeam(this.userEnteredTeamName);
         if (isStringValid(userEnteredTeamName)) {
             if (isManagerValid(leagueModel)) {
                 if (isHeadCoachValid(leagueModel)) {
@@ -123,7 +115,7 @@ public class CreateTeamCli implements ICreateTeamCli {
         return true;
     }
 
-    private boolean isPlayersValid(LeagueModel leagueModel) {
+    private boolean isPlayersValid(ILeagueModel leagueModel) {
         String name;
         String position;
         Boolean captain;
@@ -189,7 +181,7 @@ public class CreateTeamCli implements ICreateTeamCli {
         return (goalies == 0 && skaters == 0);
     }
 
-    private boolean isHeadCoachValid(LeagueModel leagueModel) {
+    private boolean isHeadCoachValid(ILeagueModel leagueModel) {
         String name;
         float skating;
         float shooting;
@@ -215,7 +207,7 @@ public class CreateTeamCli implements ICreateTeamCli {
         }
     }
 
-    private boolean isManagerValid(LeagueModel leagueModel) {
+    private boolean isManagerValid(ILeagueModel leagueModel) {
 
         displayPersons.displayManagers(leagueModel.getGeneralManagers());
         choice = scannerObject.nextInt();
@@ -231,7 +223,7 @@ public class CreateTeamCli implements ICreateTeamCli {
     }
 
 
-    private LeagueModel getNewlyCreatedLeagueObject(LeagueModel leagueModel) {
+    private ILeagueModel getNewlyCreatedLeagueObject(ILeagueModel leagueModel) {
         TeamsModel teamsModel = new TeamsModel();
         teamsModel.setTeamName(this.userEnteredTeamName);
         teamsModel.setGeneralManager(this.userEnteredGeneralManagerName);

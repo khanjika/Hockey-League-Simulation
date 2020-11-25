@@ -1,6 +1,8 @@
 package leagueobjectmodel;
 
 import com.google.gson.annotations.Expose;
+import serializeobject.ISerializeObject;
+import serializeobject.SerializeObject;
 
 import java.util.List;
 
@@ -9,7 +11,9 @@ public class LeagueModel implements ILeagueModel {
     private final IConferenceModel conferenceModel;
     private final IFreeAgentModel freeAgentModel;
     private final ICoachModel coachModel;
-    IGamePlayConfigModel iGamePlayConfigModel;
+    private IGamePlayConfigModel iGamePlayConfigModel;
+    private ISerializeObject serializeObject = new SerializeObject();
+
     @Expose
     private String leagueName;
     @Expose
@@ -22,12 +26,12 @@ public class LeagueModel implements ILeagueModel {
     private List<GeneralManagersModel> generalManagers;
     @Expose
     private GamePlayConfigModel gameplayConfig;
-
+    private String currentTeam;
 
     public LeagueModel() {
-        conferenceModel = new ConferenceModel();
-        freeAgentModel = new FreeAgentModel();
-        coachModel = new CoachModel();
+        conferenceModel = LeagueObjectModelAbstractFactory.getInstance().getConference();
+        freeAgentModel = LeagueObjectModelAbstractFactory.getInstance().getFreeAgentModel();
+        coachModel = LeagueObjectModelAbstractFactory.getInstance().getCoach();
     }
 
     @Override
@@ -48,6 +52,16 @@ public class LeagueModel implements ILeagueModel {
     @Override
     public void setConferences(List<ConferenceModel> conferences) {
         this.conferences = conferences;
+    }
+
+    @Override
+    public String getCurrentTeam() {
+        return currentTeam;
+    }
+
+    @Override
+    public void setCurrentTeam(String currentTeam) {
+        this.currentTeam = currentTeam;
     }
 
     @Override
@@ -90,4 +104,8 @@ public class LeagueModel implements ILeagueModel {
         this.gameplayConfig = gameplayConfig;
     }
 
+    @Override
+    public boolean storeLeagueInformation(ILeagueModel leagueModel){
+        return serializeObject.serializeLeagueObject(leagueModel,leagueModel.getCurrentTeam());
+    }
 }

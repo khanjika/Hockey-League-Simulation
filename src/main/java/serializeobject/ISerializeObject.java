@@ -1,7 +1,7 @@
 package serializeobject;
 
-import leagueobjectmodel.LeagueModel;
+import leagueobjectmodel.ILeagueModel;
 
 public interface ISerializeObject {
-    boolean serializeLeagueObject(LeagueModel leagueModel,String name);
+    boolean serializeLeagueObject(ILeagueModel leagueModel,String name);
 }

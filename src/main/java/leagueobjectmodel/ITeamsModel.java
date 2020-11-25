@@ -19,6 +19,8 @@ public interface ITeamsModel {
 
     void setHeadCoach(HeadCoachModel headCoach);
 
+    void setTeamStrength(float teamStrength);
+
     List<PlayerModel> getPlayers();
 
     void setPlayers(List<PlayerModel> players);
@@ -29,7 +31,7 @@ public interface ITeamsModel {
 
     void setGeneralManager(GeneralManagersModel generalManager);
 
-    abstract void calculateTeamStrength(TeamsModel teamsModel);
+    abstract void calculateTeamStrength(ITeamsModel teamsModel);
 
     int getWinPoint();
 

@@ -1,28 +1,22 @@
 package statemachine.states;
 
-import leagueobjectmodel.ConferenceModel;
-import leagueobjectmodel.DivisonModel;
-import leagueobjectmodel.GamePlayConfigModel;
-import leagueobjectmodel.GameResolverModel;
-import leagueobjectmodel.LeagueModel;
+import leagueobjectmodel.*;
 import statemachine.StateMachine;
-import leagueobjectmodel.ITeamsModel;
-import leagueobjectmodel.TeamsModel;
 
 import java.util.Random;
 
 public class SimulateGameState implements ITransition {
     StateMachine stateMachine;
-    LeagueModel leagueModel;
-    TeamsModel teamOne;
-    TeamsModel teamTwo;
-    TeamsModel winnerTeam;
-    TeamsModel losserTeam;
-    ITransition injuryCheckState;
-    ITeamsModel teamsModel;
+    ILeagueModel leagueModel;
+    ITeamsModel teamOne;
+    ITeamsModel teamTwo;
+    ITeamsModel winnerTeam;
+    ITeamsModel losserTeam;
+    ILeagueModel iLeagueModel;
 
     public SimulateGameState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
+        iLeagueModel = LeagueObjectModelAbstractFactory.getInstance().getLeague();
     }
 
 //    public SimulateGameState(StateMachine stateMachine, LeagueModel leagueModel, TeamsModel teamsModelOne, TeamsModel teamsModelTwo) {
@@ -32,7 +26,7 @@ public class SimulateGameState implements ITransition {
 //        this.teamTwo = teamsModelTwo;
 //    }
 
-    public void updateSimulateGameStateValue(StateMachine stateMachine, LeagueModel leagueModel, TeamsModel teamsModelOne, TeamsModel teamsModelTwo){
+    public void updateSimulateGameStateValue(StateMachine stateMachine, ILeagueModel leagueModel, ITeamsModel teamsModelOne, ITeamsModel teamsModelTwo){
         this.stateMachine = stateMachine;
         this.leagueModel = leagueModel;
         this.teamOne = teamsModelOne;
@@ -96,13 +90,15 @@ public class SimulateGameState implements ITransition {
         stateMachine.getCurrentState().entry();
 
 
+        iLeagueModel.storeLeagueInformation(leagueModel);
+
     }
 
     @Override
     public void exit() {
     }
 
-    public float getTeamStrength(TeamsModel teamsModel) {
+    public float getTeamStrength(ITeamsModel teamsModel) {
         teamsModel.calculateTeamStrength(teamsModel);
         return teamsModel.getTeamStrength();
     }

@@ -1,10 +1,10 @@
 package statemachine.states.matchSchedules;
 
-import leagueobjectmodel.LeagueModel;
-import leagueobjectmodel.TeamsModel;
+import leagueobjectmodel.ILeagueModel;
+import leagueobjectmodel.ITeamsModel;
 
 import java.util.List;
 
 public interface IRegularSeasonSchedule {
-    List<List<TeamsModel>> generateSeasonSchedule(LeagueModel leagueModel);
+    List<List<ITeamsModel>> generateSeasonSchedule(ILeagueModel leagueModel);
 }

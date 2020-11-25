@@ -1,25 +1,21 @@
 package statemachine.states;
 
-import leagueobjectmodel.ConferenceModel;
-import leagueobjectmodel.DivisonModel;
-import leagueobjectmodel.LeagueModel;
-import leagueobjectmodel.PlayerModel;
+import leagueobjectmodel.*;
 import statemachine.StateMachine;
-import leagueobjectmodel.TeamsModel;
 import training.ITraining;
 import training.Training;
 
 public class TrainingState implements ITransition {
 
     StateMachine stateMachine;
-    LeagueModel leagueModel;
+    ILeagueModel leagueModel;
     ITraining iTraining;
 
     public TrainingState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
     }
 
-  public  void updateTrainingStateValue(StateMachine stateMachine, LeagueModel leagueModel){
+  public  void updateTrainingStateValue(StateMachine stateMachine, ILeagueModel leagueModel){
         this.stateMachine = stateMachine;
         this.leagueModel = leagueModel;
     }

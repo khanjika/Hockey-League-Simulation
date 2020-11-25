@@ -5,7 +5,7 @@ public class DivisonValidator implements IDivisonValidator {
     private static final ITeamsValidator teamsValidator = new TeamsValidator();
 
     @Override
-    public boolean validateDivisionObject(DivisonModel divisonModel) {
+    public boolean validateDivisionObject(IDivisonModel divisonModel) {
         if (divisonModel.getDivisionName() == "" || divisonModel.getDivisionName() == null) {
             return false;
         } else {
@@ -22,7 +22,7 @@ public class DivisonValidator implements IDivisonValidator {
     }
 
     @Override
-    public boolean isDivisionExist(LeagueModel leagueModel, String divisionName) {
+    public boolean isDivisionExist(ILeagueModel leagueModel, String divisionName) {
         for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
             for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
                 if (divisonModel.getDivisionName().equalsIgnoreCase(divisionName)) {

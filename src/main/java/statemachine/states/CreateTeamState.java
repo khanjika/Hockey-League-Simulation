@@ -1,15 +1,17 @@
 package statemachine.states;
 
 import cli.CreateTeamCli;
+import leagueobjectmodel.ILeagueModel;
 import leagueobjectmodel.LeagueModel;
+import leagueobjectmodel.LeagueObjectModelAbstractFactory;
 import statemachine.StateMachine;
 
 public class CreateTeamState implements ITransition {
     StateMachine stateMachine;
-    LeagueModel currentModel;
+    ILeagueModel currentModel;
     CreateTeamCli createTeamCli;
 
-    LeagueModel updatedLeagueModel;
+    ILeagueModel updatedLeagueModel;
     PlayerSeasonsChoiceState playerSeasonsChoiceState;
 
     public CreateTeamState(StateMachine stateMachine) {
@@ -23,9 +25,9 @@ public class CreateTeamState implements ITransition {
 //        this.stateMachine = stateMachine;
 //    }
 
-    public void updateCreateTeamStateValue(LeagueModel leagueModel, StateMachine stateMachine){
+    public void updateCreateTeamStateValue(ILeagueModel leagueModel, StateMachine stateMachine){
         createTeamCli = new CreateTeamCli();
-        this.currentModel = leagueModel;
+        this.currentModel = LeagueObjectModelAbstractFactory.getInstance().getLeague();
         this.stateMachine = stateMachine;
     }
     public StateMachine getStateMachine() {
@@ -36,7 +38,7 @@ public class CreateTeamState implements ITransition {
         this.stateMachine = stateMachine;
     }
 
-    public LeagueModel getUpdatedLeagueModel() {
+    public ILeagueModel getUpdatedLeagueModel() {
         return updatedLeagueModel;
     }
 

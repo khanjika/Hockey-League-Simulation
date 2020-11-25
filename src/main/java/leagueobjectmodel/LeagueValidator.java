@@ -15,7 +15,7 @@ public class LeagueValidator implements ILeagueValidator {
     }
 
     @Override
-    public boolean validateLeagueObject(LeagueModel leagueModel) {
+    public boolean validateLeagueObject(ILeagueModel leagueModel) {
 
         if (leagueModel.getLeagueName() == "" || leagueModel.getLeagueName() == null) {
             System.out.println("League name can not be empty");
@@ -65,6 +65,5 @@ public class LeagueValidator implements ILeagueValidator {
             System.out.println("Number of free agents is less than 20");
         }
         return validateFlag;
-//       return true;
     }
 }

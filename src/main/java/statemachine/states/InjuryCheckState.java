@@ -1,17 +1,14 @@
 package statemachine.states;
 
-import leagueobjectmodel.LeagueModel;
-import leagueobjectmodel.IPlayerModel;
-import leagueobjectmodel.PlayerModel;
+import leagueobjectmodel.*;
 import statemachine.StateMachine;
-import leagueobjectmodel.TeamsModel;
 
 import java.time.LocalDate;
 
 public class InjuryCheckState implements ITransition {
     StateMachine stateMachine;
-    LeagueModel leagueModel;
-    TeamsModel teamsModelTemp;
+    ILeagueModel leagueModel;
+    ITeamsModel teamsModelTemp;
     LocalDate currentDate;
     IPlayerModel playerModel;
 
@@ -27,7 +24,7 @@ public class InjuryCheckState implements ITransition {
 //        currentDate = stateMachine.getCurrentDate();
 //    }
 
-    public void updateInjuryCheckStateValue(StateMachine stateMachine, LeagueModel leagueModel, TeamsModel teamsModel){
+    public void updateInjuryCheckStateValue(StateMachine stateMachine, ILeagueModel leagueModel, ITeamsModel teamsModel){
         this.stateMachine = stateMachine;
         this.leagueModel = leagueModel;
         this.teamsModelTemp = teamsModel;

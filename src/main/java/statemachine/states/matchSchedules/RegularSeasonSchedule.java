@@ -1,9 +1,6 @@
 package statemachine.states.matchSchedules;
 
-import leagueobjectmodel.ConferenceModel;
-import leagueobjectmodel.DivisonModel;
-import leagueobjectmodel.LeagueModel;
-import leagueobjectmodel.TeamsModel;
+import leagueobjectmodel.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,10 +8,11 @@ import java.util.List;
 public class RegularSeasonSchedule implements IRegularSeasonSchedule {
 
 
-    List<List<TeamsModel>> regularSchedule;
+    List<List<ITeamsModel>> regularSchedule;
+
 
     @Override
-    public List<List<TeamsModel>> generateSeasonSchedule(LeagueModel leagueModel) {
+    public List<List<ITeamsModel>> generateSeasonSchedule(ILeagueModel leagueModel) {
         regularSchedule = new ArrayList<>();
         for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
             List<TeamsModel> teamsOfDifferentConference = getOutOfConferenceTeamList(conferenceModel.getConferenceName(), leagueModel.getConferences());

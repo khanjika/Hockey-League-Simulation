@@ -1,7 +1,8 @@
 package cli;
 
+import leagueobjectmodel.ILeagueModel;
 import leagueobjectmodel.LeagueModel;
 
 public interface ICreateTeamCli {
-    LeagueModel createNewTeam(LeagueModel leagueModel);
+    ILeagueModel createNewTeam(ILeagueModel leagueModel);
 }

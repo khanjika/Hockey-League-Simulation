@@ -1,6 +1,8 @@
 package statemachine.states;
 
+import leagueobjectmodel.ILeagueModel;
 import leagueobjectmodel.LeagueModel;
+import leagueobjectmodel.LeagueObjectModelAbstractFactory;
 import statemachine.StateMachine;
 
 import java.util.Calendar;
@@ -8,8 +10,9 @@ import java.util.Scanner;
 
 public class PlayerSeasonsChoiceState implements ITransition {
     StateMachine stateMachine;
-    LeagueModel currentModel;
+    ILeagueModel currentModel;
     Integer enteredInput;
+    ILeagueModel iLeagueModel;
     ITransition persistLeagueState;
     InitializeSeasonState initializeSeasonState;
 
@@ -22,9 +25,10 @@ public class PlayerSeasonsChoiceState implements ITransition {
 //        this.currentModel = leagueModel;
 //    }
 //
-    public void updatePlayerSeasonChoiceStateValue(LeagueModel leagueModel, StateMachine stateMachine){
+    public void updatePlayerSeasonChoiceStateValue(ILeagueModel leagueModel, StateMachine stateMachine){
         this.stateMachine = stateMachine;
         this.currentModel = leagueModel;
+        iLeagueModel = LeagueObjectModelAbstractFactory.getInstance().getLeague();
     }
 
     public StateMachine getStateMachine() {
@@ -70,7 +74,7 @@ public class PlayerSeasonsChoiceState implements ITransition {
         }
         //This will be used to store the information
 //        stateMachine.getUpdateStateValue().updatePersistStateValue(currentModel, stateMachine, currentYear);
-//        stateMachine.setPersistLeagueStae(persistLeagueState);
+//        stateMachine.setPersistLeagueState(persistLeagueState);
 //        stateMachine.setCurrentState(stateMachine.getPersistLeagueState());
 //        stateMachine.getCurrentState().entry();
 

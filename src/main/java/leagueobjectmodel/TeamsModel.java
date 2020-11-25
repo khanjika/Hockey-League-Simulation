@@ -21,6 +21,11 @@ public class TeamsModel implements ITeamsModel {
     private int lossPointForTrading;
 
     @Override
+    public void setTeamStrength(float teamStrength) {
+        this.teamStrength = teamStrength;
+    }
+
+    @Override
     public int getLossPointForTrading() {
         return lossPointForTrading;
     }
@@ -93,8 +98,8 @@ public class TeamsModel implements ITeamsModel {
     }
 
     @Override
-    public void calculateTeamStrength(TeamsModel teamsModel) {
-        teamsModel.teamStrength = 0;
+    public void calculateTeamStrength(ITeamsModel teamsModel) {
+        this.teamStrength = 0;
         for (PlayerModel playerModel : teamsModel.getPlayers()) {
             this.teamStrength += playerModel.getPlayerStrength();
         }

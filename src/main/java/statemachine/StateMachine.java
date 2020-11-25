@@ -153,9 +153,9 @@ public class StateMachine {
         return loadTeam;
     }
 
-//    public ITransition playerChoiceCreateTeam() {
-//        return createTeam;
-//    }
+    public ITransition playerChoiceCreateTeam() {
+        return createTeam;
+    }
 
     public ITransition teamLoaded() {
         return playerSeasonsChoice;

@@ -1,15 +1,9 @@
 package statemachine.states;
 
-import leagueobjectmodel.ConferenceModel;
-import leagueobjectmodel.DivisonModel;
-import leagueobjectmodel.GamePlayConfigModel;
-import leagueobjectmodel.LeagueModel;
+import leagueobjectmodel.*;
 import statemachine.states.matchSchedules.Deadlines;
 import statemachine.states.matchSchedules.IDeadlines;
-import leagueobjectmodel.IPlayerModel;
-import leagueobjectmodel.PlayerModel;
 import statemachine.StateMachine;
-import leagueobjectmodel.TeamsModel;
 
 import java.time.LocalDate;
 
@@ -19,7 +13,7 @@ public class AgingState implements ITransition {
 
     IDeadlines iDeadlines;
     StateMachine stateMachine;
-    LeagueModel leagueModel;
+    ILeagueModel leagueModel;
     LocalDate currentDate;
     IPlayerModel iPlayerModel;
     private int daysToAge;
@@ -35,7 +29,7 @@ public class AgingState implements ITransition {
 //        iDeadlines = new Deadlines();
 //    }
 
-     public void updateAgingStateValue(StateMachine stateMachine, LeagueModel leagueModel){
+     public void updateAgingStateValue(StateMachine stateMachine, ILeagueModel leagueModel){
          this.stateMachine = stateMachine;
          this.leagueModel = leagueModel;
          iDeadlines = new Deadlines();

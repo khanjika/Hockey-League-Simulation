@@ -1,10 +1,13 @@
 package leagueobjectmodel;
 
+import serializeobject.FileValidator;
+
 import java.util.Objects;
 
 public class TeamsValidator implements ITeamsValidator {
     private static final IPlayerValidator playerValidator = new PlayerValidator();
     private static final IHeadCoachValidator headCoachValidator = new HeadCoachValidator();
+    private static final FileValidator fileValidator= new FileValidator();
     private boolean isPlayerCaptain = false;
     private int playerCount = 0;
 
@@ -50,6 +53,10 @@ public class TeamsValidator implements ITeamsValidator {
             System.out.println("There seems to be no captain");
             return false;
         }
+    }
+    @Override
+    public boolean isTeamAlreadyExist(String teamName){
+        return fileValidator.isFileExist(teamName);
     }
 
     private boolean isStringValid(String str) {

@@ -11,6 +11,8 @@ public class LeagueObjectModelFactoryAbstractConcrete extends LeagueObjectModelA
     private ITeamsValidator teamsValidator;
     private IPlayerModel player;
     private IPlayerValidator playerValidator;
+    private IFreeAgentModel freeAgent;
+    private IFreeAgentValidator freeAgentValidator;
     private IGamePlayConfigModel gamePlayConfig;
     private IHeadCoachModel headCoach;
     private ICoachValidator coachValidator;
@@ -29,6 +31,32 @@ public class LeagueObjectModelFactoryAbstractConcrete extends LeagueObjectModelA
     @Override
     public void setLeague(ILeagueModel league) {
         this.league = league;
+    }
+
+    @Override
+    public IFreeAgentModel getFreeAgentModel(){
+        if (freeAgent == null){
+            freeAgent = new FreeAgentModel();
+        }
+        return freeAgent;
+    }
+
+    @Override
+    public void setFreeAgentModel(IFreeAgentModel freeAgent){
+        this.freeAgent = freeAgent;
+    }
+
+    @Override
+    public IFreeAgentValidator getFreeAgentModelValidator(){
+        if (freeAgentValidator == null){
+            freeAgentValidator = new FreeAgentValidator();
+        }
+        return freeAgentValidator;
+    }
+
+    @Override
+    public void setFreeAgentModelValidator(IFreeAgentValidator freeAgentValidator){
+        this.freeAgentValidator = freeAgentValidator;
     }
 
     @Override
