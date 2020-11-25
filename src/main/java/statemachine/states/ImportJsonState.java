@@ -1,21 +1,20 @@
 package statemachine.states;
 
-import statemachine.jsonparser.IInitCli;
-import statemachine.jsonparser.InitialCli;
 import leagueobjectmodel.*;
 import statemachine.StateMachine;
+import statemachine.jsonparser.IParser;
+import statemachine.jsonparser.ParserAbstractFactory;
 
 public class ImportJsonState implements ITransition {
     StateMachine stateMachine;
-    IInitCli initialCli;
+    IParser parser;
     ITransition createTeamState;
     private String cliArgument;
     private ILeagueModel inMemoryLeagueModel;
 
     public ImportJsonState(StateMachine currentStateMachine) {
         stateMachine = currentStateMachine;
-
-        initialCli = new InitialCli();
+        parser = ParserAbstractFactory.getInstance().getParser();
     }
     public ImportJsonState(String[] args, StateMachine currentStateMachine) {
         if (args.length == 0) {
@@ -50,7 +49,7 @@ public class ImportJsonState implements ITransition {
             stateMachine.setCurrentState(stateMachine.playerChoiceLoadTeam());
             exit();
         } else {
-            inMemoryLeagueModel = initialCli.parseJson(cliArgument);
+            inMemoryLeagueModel = parser.parseJson(cliArgument);
             if(inMemoryLeagueModel==null){
                 throw new RuntimeException("Error while parsing the in Memory Legaue Model");
             }

@@ -1,14 +1,16 @@
 package statemachine.states;
 
-import statemachine.jsonparser.CliCommunication;
+import statemachine.jsonparser.IParser;
+import statemachine.jsonparser.Parser;
 import leagueobjectmodel.ILeagueModel;
 import leagueobjectmodel.LeagueObjectModelAbstractFactory;
 import statemachine.StateMachine;
+import statemachine.jsonparser.ParserAbstractFactory;
 
 public class LoadTeamState implements ITransition {
     StateMachine stateMachine;
     ILeagueModel currentLeague;
-    CliCommunication cliCommunication;
+    IParser parser;
 
     public LoadTeamState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
@@ -30,8 +32,8 @@ public class LoadTeamState implements ITransition {
 
     @Override
     public void task() {
-        cliCommunication = new CliCommunication();
-        currentLeague = cliCommunication.loadTeamFromDatabase();
+        parser = ParserAbstractFactory.getInstance().getParser();
+        currentLeague = parser.loadTeamFromDatabase();
         if (currentLeague == null){
             task();
         }

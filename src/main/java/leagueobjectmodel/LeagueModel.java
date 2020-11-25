@@ -3,6 +3,7 @@ package leagueobjectmodel;
 import com.google.gson.annotations.Expose;
 import database.serializeobject.ISerializeObject;
 import database.serializeobject.SerializeObject;
+import database.serializeobject.SerializeObjectAbstractFactory;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class LeagueModel implements ILeagueModel {
     private final IFreeAgentModel freeAgentModel;
     private final ICoachModel coachModel;
     private IGamePlayConfigModel iGamePlayConfigModel;
-    private ISerializeObject serializeObject = new SerializeObject();
+    private ISerializeObject serializeObject;
 
     @Expose
     private String leagueName;
@@ -32,6 +33,7 @@ public class LeagueModel implements ILeagueModel {
         conferenceModel = LeagueObjectModelAbstractFactory.getInstance().getConference();
         freeAgentModel = LeagueObjectModelAbstractFactory.getInstance().getFreeAgentModel();
         coachModel = LeagueObjectModelAbstractFactory.getInstance().getCoach();
+        serializeObject = SerializeObjectAbstractFactory.getInstance().getSerializeObject();
     }
 
     @Override

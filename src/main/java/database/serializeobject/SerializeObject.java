@@ -10,7 +10,7 @@ import java.io.IOException;
 
 
 public class SerializeObject implements ISerializeObject {
-    FileValidator fileValidator = new FileValidator();
+    IFileValidator fileValidator = new FileValidator();
     @Override
     public boolean serializeLeagueObject(ILeagueModel leagueModel,String name) {
 
@@ -18,24 +18,27 @@ public class SerializeObject implements ISerializeObject {
         String path = fileValidator.filePath(name);
         FileWriter writer;
         try {
-            System.out.println(leagueModel.getCoaches().size());
-            if(fileValidator.isFileExist(path)){
-                writer = new FileWriter(path);
-                gson.toJson(leagueModel, writer);
-            }
-            else{
+            if (fileNotExist(path)) {
                 File file = new File(path);
-                System.out.println(path);
                 file.createNewFile();
-                writer = new FileWriter(path);
-                gson.toJson(leagueModel, writer);
             }
+            writer = new FileWriter(path);
+            gson.toJson(leagueModel, writer);
             writer.flush();
             writer.close();
             return true;
         } catch (IOException exception) {
             exception.printStackTrace();
             return false;
+        }
+    }
+
+    private boolean fileNotExist(String path){
+        if(fileValidator.isFileExist(path)){
+            return false;
+        }
+        else{
+            return true;
         }
     }
 }

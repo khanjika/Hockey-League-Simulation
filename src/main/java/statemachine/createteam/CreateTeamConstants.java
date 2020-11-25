@@ -1,0 +1,27 @@
+package statemachine.createteam;
+
+public enum CreateTeamConstants {
+    LineSeperator("========================================================="),
+    ConferenceName("Conference name->    "),
+    DivisionName("Division name->     "),
+    TeamNames("Team is--->   "),
+    ChoiceError("Enter a valid choice from the displayed list"),
+    InvalidString("Invalid String (Please enter string only)"),
+    NotInJson("Does not exist in the provided JSON"),
+    Success("In memory Team created Successfully!!"),
+    EnterConference("Enter Conference name in which you want to create new Team"),
+    EnterDivision("Enter Division name in which you want to create new Team"),
+    EnterTeam("Enter new team name to be created"),
+    Instruction("Here You need to create a new Team in the EXISTING division")
+    ;
+
+    private String value;
+
+    CreateTeamConstants(String value) {
+        this.value = value;
+    }
+
+    public String getValue() {
+        return value;
+    }
+}

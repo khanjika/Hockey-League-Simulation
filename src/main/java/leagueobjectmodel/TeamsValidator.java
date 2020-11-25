@@ -1,13 +1,14 @@
 package leagueobjectmodel;
 
-import database.serializeobject.FileValidator;
+import database.serializeobject.IFileValidator;
+import database.serializeobject.SerializeObjectAbstractFactory;
 
 import java.util.Objects;
 
 public class TeamsValidator implements ITeamsValidator {
     private static final IPlayerValidator playerValidator = new PlayerValidator();
     private static final IHeadCoachValidator headCoachValidator = new HeadCoachValidator();
-    private static final FileValidator fileValidator= new FileValidator();
+    private static final IFileValidator fileValidator= SerializeObjectAbstractFactory.getInstance().getFileValidator();
     private boolean isPlayerCaptain = false;
     private int playerCount = 0;
 
