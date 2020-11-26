@@ -2,14 +2,14 @@ package statemachine.states;
 
 import leagueobjectmodel.LeagueModel;
 import statemachine.StateMachine;
-import trade.GenerateTradeOffer;
-import trade.IGenerateTradeOffer;
+//import trade.GenerateTradeOffer;
+//import trade.IGenerateTradeOffer;
 
 public class TradingState implements ITransition {
 
     StateMachine stateMachine;
     LeagueModel leagueModel;
-    IGenerateTradeOffer iGenerateTradeOffer;
+    //IGenerateTradeOffer iGenerateTradeOffer;
 
     public TradingState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
@@ -31,8 +31,8 @@ public class TradingState implements ITransition {
 
     @Override
     public void task() {
-        iGenerateTradeOffer = new GenerateTradeOffer();
-        iGenerateTradeOffer.checkTrading(leagueModel);
+        //iGenerateTradeOffer = new GenerateTradeOffer();
+        //iGenerateTradeOffer.checkTrading(leagueModel);
         exit();
     }
 
