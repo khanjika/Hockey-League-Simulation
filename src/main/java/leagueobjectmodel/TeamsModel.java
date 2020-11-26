@@ -118,4 +118,23 @@ public class TeamsModel implements ITeamsModel {
     public void setLossPoint(int lossPoint) {
         this.lossPoint = lossPoint;
     }
+
+
+    @Override
+    public PlayerModel getBestGoalieFromTheTeam(List<PlayerModel> list) {
+        if(list==null){
+            throw new NullPointerException();
+        }
+        PlayerModel currentBestGoalie = null;
+        for (PlayerModel playerModel : list) {
+            if (playerModel.getPosition().equals("goalie")) {
+                if (currentBestGoalie == null) {
+                    currentBestGoalie = playerModel;
+                } else if (playerModel.getSaving() > currentBestGoalie.getSaving()) {
+                    currentBestGoalie = playerModel;
+                }
+            }
+        }
+        return currentBestGoalie;
+    }
 }

@@ -38,4 +38,6 @@ public interface ITeamsModel {
     int getLossPoint();
 
     void setLossPoint(int lossPoint);
+
+    PlayerModel getBestGoalieFromTheTeam(List<PlayerModel> list);
 }

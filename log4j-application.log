@@ -1,70 +1,25 @@
-2020-11-20 15:36:03 DEBUG Main:11 - inside main
-2020-11-20 15:40:12 DEBUG Main:11 - inside main
-2020-11-20 15:40:16 DEBUG StateMachine:29 - inside state machine const
-2020-11-23 17:36:52 DEBUG Main:11 - inside main
-2020-11-23 17:36:52 DEBUG StateMachine:29 - inside state machine const
-2020-11-23 21:03:20 DEBUG Main:11 - inside main
-2020-11-23 21:03:20 DEBUG StateMachine:29 - inside state machine const
-2020-11-23 21:13:06 DEBUG Main:11 - inside main
-2020-11-23 21:13:06 DEBUG StateMachine:29 - inside state machine const
-2020-11-23 21:16:24 DEBUG Main:11 - inside main
-2020-11-23 21:16:24 DEBUG StateMachine:29 - inside state machine const
-2020-11-23 21:35:01 DEBUG Main:11 - inside main
-2020-11-23 21:35:01 DEBUG StateMachine:29 - inside state machine const
-2020-11-23 21:40:52 DEBUG Main:11 - inside main
-2020-11-23 21:40:52 DEBUG StateMachine:29 - inside state machine const
-2020-11-23 21:44:33 DEBUG Main:11 - inside main
-2020-11-23 21:44:33 DEBUG StateMachine:29 - inside state machine const
-2020-11-23 21:47:45 DEBUG Main:11 - inside main
-2020-11-23 21:47:45 DEBUG StateMachine:29 - inside state machine const
-2020-11-23 22:02:35 DEBUG Main:11 - inside main
-2020-11-23 22:02:35 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 11:13:38 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 11:13:38 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 11:13:38 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 11:13:38 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 11:13:38 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 11:13:38 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 11:13:38 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 11:13:38 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 11:13:38 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 11:15:42 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 11:15:42 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 11:15:42 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 11:15:42 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 11:15:42 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 11:15:42 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 11:15:42 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 11:15:42 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 11:15:42 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 11:16:19 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 11:16:19 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 11:16:19 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 11:16:19 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 11:16:19 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 11:16:19 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 11:16:19 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 11:16:19 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 11:16:19 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 11:16:27 DEBUG Main:11 - inside main
-2020-11-24 11:16:27 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 11:17:26 DEBUG Main:11 - inside main
-2020-11-24 11:17:26 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 14:16:23 DEBUG Main:11 - inside main
-2020-11-24 14:16:23 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 14:19:48 DEBUG Main:11 - inside main
-2020-11-24 14:19:48 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 14:37:08 DEBUG Main:11 - inside main
-2020-11-24 14:37:08 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 14:38:41 DEBUG Main:11 - inside main
-2020-11-24 14:38:41 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 14:58:05 DEBUG Main:11 - inside main
-2020-11-24 14:58:05 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 15:00:33 DEBUG Main:11 - inside main
-2020-11-24 15:00:33 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 15:01:48 DEBUG Main:11 - inside main
-2020-11-24 15:01:48 DEBUG StateMachine:29 - inside state machine const
-2020-11-24 15:03:47 DEBUG Main:11 - inside main
-2020-11-24 15:03:47 DEBUG StateMachine:29 - inside state machine const
-2020-11-25 16:30:04 DEBUG Main:11 - inside main
-2020-11-25 16:30:04 DEBUG StateMachine:29 - inside state machine const
+2020-11-25 23:18:59 DEBUG Main:11 - inside main
+2020-11-25 23:18:59 DEBUG StateMachine:29 - inside state machine const
+2020-11-26 11:54:58 DEBUG Main:11 - inside main
+2020-11-26 11:54:58 DEBUG StateMachine:29 - inside state machine const
+2020-11-26 12:13:26 DEBUG Main:11 - inside main
+2020-11-26 12:13:26 DEBUG StateMachine:29 - inside state machine const
+2020-11-26 12:16:03 DEBUG Main:11 - inside main
+2020-11-26 12:16:03 DEBUG StateMachine:29 - inside state machine const
+2020-11-26 12:18:58 DEBUG Main:11 - inside main
+2020-11-26 12:18:58 DEBUG StateMachine:29 - inside state machine const
+2020-11-26 12:26:41 DEBUG Main:11 - inside main
+2020-11-26 12:26:41 DEBUG StateMachine:29 - inside state machine const
+2020-11-26 12:29:16 DEBUG Main:11 - inside main
+2020-11-26 12:29:16 DEBUG StateMachine:29 - inside state machine const
+2020-11-26 12:58:40 DEBUG Main:11 - inside main
+2020-11-26 12:58:40 DEBUG StateMachine:29 - inside state machine const
+2020-11-26 12:59:49 DEBUG StateMachine:29 - inside state machine const
+2020-11-26 12:59:49 DEBUG StateMachine:29 - inside state machine const
+2020-11-26 12:59:49 DEBUG StateMachine:29 - inside state machine const
+2020-11-26 12:59:49 DEBUG StateMachine:29 - inside state machine const
+2020-11-26 12:59:49 DEBUG StateMachine:29 - inside state machine const
+2020-11-26 12:59:49 DEBUG StateMachine:29 - inside state machine const
+2020-11-26 12:59:49 DEBUG StateMachine:29 - inside state machine const
+2020-11-26 12:59:49 DEBUG StateMachine:29 - inside state machine const
+2020-11-26 12:59:49 DEBUG StateMachine:29 - inside state machine const

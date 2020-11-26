@@ -1,8 +1,8 @@
 package statesTest;
 
 import org.junit.jupiter.api.Test;
-import statemachine.StateMachine;
-import statemachine.states.LoadTeamState;
+import statemachine.states.statemachine.StateMachine;
+import statemachine.states.statemachine.states.LoadTeamState;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
