@@ -2,6 +2,7 @@ package leagueobjectmodel;
 
 import com.google.gson.annotations.Expose;
 
+import java.util.Comparator;
 import java.util.List;
 
 public class TeamsModel implements ITeamsModel {
@@ -118,5 +119,17 @@ public class TeamsModel implements ITeamsModel {
     @Override
     public void setLossPoint(int lossPoint) {
         this.lossPoint = lossPoint;
+    }
+
+    @Override
+    public List<PlayerModel> sortPlayersOfTeamAscending(List<PlayerModel> players) {
+        players.sort(Comparator.comparing(PlayerModel::getPlayerStrength));
+        return players;
+    }
+
+    @Override
+    public List<PlayerModel> sortPlayersOfTeamDescending(List<PlayerModel> players) {
+        players.sort(Comparator.comparing(PlayerModel::getPlayerStrength).reversed());
+        return players;
     }
 }
