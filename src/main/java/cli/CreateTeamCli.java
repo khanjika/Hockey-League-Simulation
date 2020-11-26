@@ -1,16 +1,17 @@
 package cli;
 
-import coach.CoachModel;
-import conference.ConferenceModel;
-import conference.ConferenceValidator;
-import divison.DivisonModel;
-import divison.DivisonValidator;
-import freeagent.FreeAgentModel;
-import league.LeagueModel;
-import players.PlayerModel;
-import teams.HeadCoachModel;
-import teams.ITeamsModel;
-import teams.TeamsModel;
+import leagueobjectmodel.CoachModel;
+import leagueobjectmodel.ConferenceModel;
+import leagueobjectmodel.ConferenceValidator;
+import leagueobjectmodel.DivisonModel;
+import leagueobjectmodel.DivisonValidator;
+import leagueobjectmodel.FreeAgentModel;
+import leagueobjectmodel.GeneralManagersModel;
+import leagueobjectmodel.LeagueModel;
+import leagueobjectmodel.PlayerModel;
+import leagueobjectmodel.HeadCoachModel;
+import leagueobjectmodel.ITeamsModel;
+import leagueobjectmodel.TeamsModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +26,7 @@ public class CreateTeamCli implements ICreateTeamCli {
     private String userEnteredConferenceName;
     private String userEnteredDivisionName;
     private String userEnteredTeamName;
-    private String userEnteredGeneralManagerName;
+    private GeneralManagersModel userEnteredGeneralManagerName;
     private HeadCoachModel userEnteredHeadCoachName;
     private final DisplayPersons displayPersons;
     private static ITeamsModel iTeamsModel;
@@ -131,6 +132,9 @@ public class CreateTeamCli implements ICreateTeamCli {
         float saving;
         float checking;
         int age;
+        int birthDay;
+        int birthMonth;
+        int birthYear;
         int goalies = 2;
         int skaters = 18;
         int totalPlayers = 20;
@@ -153,6 +157,9 @@ public class CreateTeamCli implements ICreateTeamCli {
                 checking = currentAvailablePlayers.get(choice - 1).getChecking();
                 shooting = currentAvailablePlayers.get(choice - 1).getShooting();
                 skating = currentAvailablePlayers.get(choice - 1).getSkating();
+                birthDay = currentAvailablePlayers.get(choice - 1).getBirthDay();
+                birthMonth = currentAvailablePlayers.get(choice - 1).getBirthMonth();
+                birthYear = currentAvailablePlayers.get(choice - 1).getBirthYear();
                 if (position.equals("goalie")) {
                     goalies--;
                 } else {
@@ -165,7 +172,7 @@ public class CreateTeamCli implements ICreateTeamCli {
                     System.out.printf("Enter %d more goalies", goalies);
                     System.out.println();
                 } else {
-                    player = new PlayerModel(name, position, captain, age, skating, shooting, checking, saving);
+                    player = new PlayerModel(name, position, captain, age, skating, shooting, checking, saving,birthDay,birthMonth,birthYear);
                     userCreatedPlayers.add(player);
                     currentAvailablePlayers.remove(choice - 1);
                     players++;
@@ -212,7 +219,7 @@ public class CreateTeamCli implements ICreateTeamCli {
 
         displayPersons.displayManagers(leagueModel.getGeneralManagers());
         choice = scannerObject.nextInt();
-        List<String> managersList = leagueModel.getGeneralManagers();
+        List<GeneralManagersModel> managersList = leagueModel.getGeneralManagers();
         if (choice > 0 && choice <= managersList.size()) {
             this.userEnteredGeneralManagerName = managersList.get(choice - 1);
             leagueModel.getGeneralManagers().remove(choice - 1);

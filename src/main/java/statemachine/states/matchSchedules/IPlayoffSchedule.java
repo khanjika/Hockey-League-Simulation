@@ -1,7 +1,7 @@
 package statemachine.states.matchSchedules;
 
-import league.LeagueModel;
-import teams.TeamsModel;
+import leagueobjectmodel.LeagueModel;
+import leagueobjectmodel.TeamsModel;
 
 import java.util.List;
 

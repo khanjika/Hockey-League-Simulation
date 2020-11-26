@@ -1,7 +1,7 @@
 package trade;
 
-import league.LeagueModel;
-import teams.TeamsModel;
+import leagueobjectmodel.LeagueModel;
+import leagueobjectmodel.TeamsModel;
 
 public interface IAcceptRejectTrade {
     LeagueModel acceptRejectTrade(ITradeTeamPojo Team2, ITradeTeamPojo Team1, ITradeModel trade, LeagueModel league);

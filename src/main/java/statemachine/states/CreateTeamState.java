@@ -1,7 +1,7 @@
 package statemachine.states;
 
 import cli.CreateTeamCli;
-import league.LeagueModel;
+import leagueobjectmodel.LeagueModel;
 import statemachine.StateMachine;
 
 public class CreateTeamState implements ITransition {

@@ -1,0 +1,225 @@
+package leagueobjectmodel;
+
+public class LeagueObjectModelFactoryAbstractConcrete extends LeagueObjectModelAbstractFactory {
+    private ILeagueModel league;
+    private ILeagueValidator leagueValidator;
+    private IConferenceModel conference;
+    private IConferenceValidator conferenceValidator;
+    private IDivisonModel division;
+    private IDivisonValidator divisonValidator;
+    private ITeamsModel teams;
+    private ITeamsValidator teamsValidator;
+    private IPlayerModel player;
+    private IPlayerValidator playerValidator;
+    private IGamePlayConfigModel gamePlayConfig;
+    private IHeadCoachModel headCoach;
+    private ICoachValidator coachValidator;
+    private ICoachModel coach;
+    private IGeneralManagersModel generalManagers;
+    private IGeneralManagersValidator generalManagersValidator;
+
+    @Override
+    public ILeagueModel getLeague() {
+        if (league == null) {
+            league = new LeagueModel();
+        }
+        return league;
+    }
+
+    @Override
+    public void setLeague(ILeagueModel league) {
+        this.league = league;
+    }
+
+    @Override
+    public IConferenceModel getConference() {
+        if (conference == null) {
+            conference = new ConferenceModel();
+        }
+        return conference;
+    }
+
+    @Override
+    public void setConference(IConferenceModel conference) {
+        this.conference = conference;
+    }
+
+    @Override
+    public IDivisonModel getDivision() {
+        if (division == null) {
+            division = new DivisonModel();
+        }
+        return division;
+    }
+
+    @Override
+    public void setDivision(IDivisonModel division) {
+        this.division = division;
+    }
+
+    @Override
+    public ITeamsModel getTeams() {
+        if (teams == null) {
+            teams = new TeamsModel();
+        }
+        return teams;
+    }
+
+    @Override
+    public void setTeams(ITeamsModel teams) {
+        this.teams = teams;
+    }
+
+    @Override
+    public IPlayerModel getPlayer() {
+        if (player == null) {
+            player = new PlayerModel();
+        }
+        return player;
+    }
+
+    @Override
+    public void setPlayer(IPlayerModel player) {
+        this.player = player;
+    }
+
+    @Override
+    public IGamePlayConfigModel getGamePlayConfig() {
+        if (gamePlayConfig == null) {
+            gamePlayConfig = new GamePlayConfigModel();
+        }
+        return gamePlayConfig;
+    }
+
+    @Override
+    public void setGamePlayConfig(IGamePlayConfigModel gamePlayConfig) {
+        this.gamePlayConfig = gamePlayConfig;
+    }
+
+    @Override
+    public IHeadCoachModel getHeadCoach() {
+        if (headCoach == null) {
+            headCoach = new HeadCoachModel();
+        }
+        return headCoach;
+    }
+
+    @Override
+    public void setHeadCoach(IHeadCoachModel headCoach) {
+        this.headCoach = headCoach;
+    }
+
+    @Override
+    public ICoachModel getCoach() {
+        return coach;
+    }
+
+    @Override
+    public void setCoach(ICoachModel coach) {
+        this.coach = coach;
+    }
+
+    @Override
+    public IGeneralManagersModel getGeneralManagers() {
+        if (generalManagers == null) {
+            generalManagers = new GeneralManagersModel();
+        }
+        return generalManagers;
+    }
+
+    @Override
+    public void setGeneralManagers(IGeneralManagersModel generalManagers) {
+        this.generalManagers = generalManagers;
+    }
+
+    @Override
+    public ILeagueValidator getLeagueValidator() {
+        if (leagueValidator == null) {
+            leagueValidator = new LeagueValidator();
+        }
+        return leagueValidator;
+    }
+
+    @Override
+    public void setLeagueValidator(ILeagueValidator leagueValidator) {
+        this.leagueValidator = leagueValidator;
+    }
+
+    @Override
+    public IConferenceValidator getConferenceValidator() {
+        if (conferenceValidator == null) {
+            conferenceValidator = new ConferenceValidator();
+        }
+        return conferenceValidator;
+    }
+
+    @Override
+    public void setConferenceValidator(IConferenceValidator conferenceValidator) {
+        this.conferenceValidator = conferenceValidator;
+    }
+
+    @Override
+    public IDivisonValidator getDivisonValidator() {
+        if (divisonValidator == null) {
+            divisonValidator = new DivisonValidator();
+        }
+        return divisonValidator;
+    }
+
+    @Override
+    public void setDivisonValidator(IDivisonValidator divisonValidator) {
+        this.divisonValidator = divisonValidator;
+    }
+
+    @Override
+    public ITeamsValidator getTeamsValidator() {
+        if (teamsValidator == null) {
+            teamsValidator = new TeamsValidator();
+        }
+        return teamsValidator;
+    }
+
+    @Override
+    public void setTeamsValidator(ITeamsValidator teamsValidator) {
+        this.teamsValidator = teamsValidator;
+    }
+
+    @Override
+    public IPlayerValidator getPlayerValidator() {
+        if (playerValidator == null) {
+            playerValidator = new PlayerValidator();
+        }
+        return playerValidator;
+    }
+
+    @Override
+    public void setPlayerValidator(IPlayerValidator playerValidator) {
+        this.playerValidator = playerValidator;
+    }
+
+    @Override
+    public ICoachValidator getCoachValidator() {
+        if (coachValidator == null) {
+            coachValidator = new CoachValidator();
+        }
+        return coachValidator;
+    }
+
+    @Override
+    public void setCoachValidator(ICoachValidator coachValidator) {
+        this.coachValidator = coachValidator;
+    }
+
+    @Override
+    public IGeneralManagersValidator getGeneralManagersValidator() {
+        if (generalManagersValidator == null) {
+            generalManagersValidator = new GeneralManagersValidator();
+        }
+        return generalManagersValidator;
+    }
+
+    @Override
+    public void setGeneralManagersValidator(IGeneralManagersValidator generalManagersValidator) {
+        this.generalManagersValidator = generalManagersValidator;
+    }
+}

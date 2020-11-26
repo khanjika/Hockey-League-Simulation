@@ -1,9 +1,8 @@
 package simulateGame;
 
-import league.LeagueModel;
-import players.PlayerModel;
-import players.PlayerPosition;
-import teams.TeamsModel;
+import leagueobjectmodel.LeagueModel;
+import leagueobjectmodel.PlayerModel;
+import leagueobjectmodel.TeamsModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,18 +31,19 @@ public class StartSimulation {
 
     int penaltyCounter = 0;
 
-    public StartSimulation(TeamsModel teamOne, TeamsModel teamTwo, LeagueModel leagueModel, boolean isPlayOff) {
+    GameSimulationAbstractFactory objFactory;
+    public StartSimulation(TeamsModel teamOne, TeamsModel teamTwo, LeagueModel leagueModel, boolean isPlayOff,GameSimulationAbstractFactory obj) {
         teamOneObject = teamOne;
         teamTwoObject = teamTwo;
         leagueModelObject = leagueModel;
         isThisPlayOff = isPlayOff;
+        this.objFactory=obj;
     }
-
     public void separatePlayerByPosition() {
         leagueModelObject.setPenaltyChance((float) 0.5);
         for (PlayerModel playerModel : teamOneObject.getPlayers()) {
             if (playerModel.getPosition().equals("forward")) {
-                listOfForwardOfTeamOne.add(playerModel);
+               listOfForwardOfTeamOne.add(playerModel);
             } else if (playerModel.getPosition().equals("goalie")) {
                 listOfGoalieOfTeamOne.add(playerModel);
             } else {
@@ -60,6 +60,15 @@ public class StartSimulation {
                 listOfDefenseOfTeamTwo.add(playerModel);
             }
         }
+        objFactory.getGameConfig().setListOfForwardOfTeamOne(listOfForwardOfTeamOne);
+        objFactory.getGameConfig().setListOfForwardOfTeamTwo(listOfForwardOfTeamTwo);
+        objFactory.getGameConfig().setListOfDefenseOfTeamOne(listOfDefenseOfTeamOne);
+        objFactory.getGameConfig().setListOfDefenseOfTeamTwo(listOfDefenseOfTeamTwo);
+        objFactory.getGameConfig().setListOfGoalieOfTeamOne(listOfGoalieOfTeamOne);
+        objFactory.getGameConfig().setListOfGoaliesOfTeamTwo(listOfGoaliesOfTeamTwo);
+
+        objFactory.getSwapTurn().setAbstractFactoryObject(objFactory);
+
         setAverageShotsOnGoal();
         initializeSlots();
     }
@@ -91,22 +100,16 @@ public class StartSimulation {
             }
 
         }
-
+        objFactory.getGameConfig().setAverageShotsOnGoal(averageShotsOnGoal);
     }
 
     public void initializeSlots() {
-
         fillCurrentShiftData();
         for (int i = 0; i < 3; i++) {
-
             if (i == 2 && isThisPlayOff==false) {
-                replaceCurrentGoalie();
+               replaceCurrentGoalie();
             }
             for (int j = 0; j < 40; j++) {
-                //calling method every time
-                //swapping the postion of both the team
-
-
                 if (j == 37) {
                     replaceDefenseAndForward();
                 }
@@ -115,31 +118,30 @@ public class StartSimulation {
                     penaltyCounter--;
                 }
                 swapTurnOfTeam();
-
             }
         }
     }
 
     public void performOperation() {
-        float attackingTeamShootingState = getShootingState(currentShiftForwardOfTeamOne);
-        float defendingTwoShootingState = getShootingState(currentShiftForwardOfTeamTwo);
-        float attackingTeamCheckingState = getCheckingState(currentShiftDefenseOfTeamOne);
-        float defendingTeamCheckingState = getCheckingState(currentShiftDefenseOfTeamTwo);
-        float attackingTeamSavingState = getSavingState(currentShiftGoalieOfTeamOne);
-        float defendingTeamSavingState = getSavingState(currentShiftGoalieOfTeamTwo);
+        float attackingTeamShootingState = getShootingState(objFactory.getGameConfig().getCurrentShiftForwardOfTeamOne());
+        float defendingTwoShootingState = getShootingState(objFactory.getGameConfig().getCurrentShiftForwardOfTeamTwo());
+        float attackingTeamCheckingState = getCheckingState(objFactory.getGameConfig().getCurrentShiftDefenseOfTeamOne());
+        float defendingTeamCheckingState = getCheckingState(objFactory.getGameConfig().getCurrentShiftDefenseOfTeamTwo());
+        float attackingTeamSavingState = getSavingState(objFactory.getGameConfig().getCurrentShiftGoalieOfTeamOne());
+        float defendingTeamSavingState = getSavingState(objFactory.getGameConfig().getCurrentShiftGoalieOfTeamTwo());
         if (attackingTeamShootingState >= defendingTwoShootingState) {
             if (defendingTeamCheckingState >= attackingTeamCheckingState && penaltyCounter == 0) {
                 double randomChanceNumber = Math.random();
                 if (randomChanceNumber >= leagueModelObject.getPenaltyChance()) {
-                    performPenalty(currentShiftDefenseOfTeamTwo);
+                    performPenalty(objFactory.getGameConfig().getCurrentShiftDefenseOfTeamTwo());
                 }
             } else {
                 if (defendingTeamSavingState >= attackingTeamSavingState) {
-                    int save = listOfGoaliesOfTeamTwo.get(0).getSaveForGoalie();
-                    listOfGoaliesOfTeamTwo.get(0).setSaveForGoalie(save + 1);
+                    int save = objFactory.getGameConfig().getListOfGoaliesOfTeamTwo().get(0).getSaveForGoalie();
+                    objFactory.getGameConfig().getListOfGoaliesOfTeamTwo().get(0).setSaveForGoalie(save + 1);
                 } else {
-                    int currentGaolCount = listOfForwardOfTeamOne.get(0).getGoalScorerCount();
-                    listOfForwardOfTeamOne.get(0).setGoalScorerCount(currentGaolCount + 1);
+                    int currentGaolCount = objFactory.getGameConfig().getListOfForwardOfTeamOne().get(0).getGoalScorerCount();
+                    objFactory.getGameConfig().getListOfForwardOfTeamOne().get(0).setGoalScorerCount(currentGaolCount + 1);
                 }
             }
 
@@ -189,18 +191,7 @@ public class StartSimulation {
 
 
     public void swapTurnOfTeam() {
-        List<PlayerModel> tempDefenseList;
-        List<PlayerModel> tempForwardList;
-        List<PlayerModel> tempGoalieList;
-        tempDefenseList = currentShiftDefenseOfTeamOne;
-        tempForwardList = currentShiftForwardOfTeamOne;
-        tempGoalieList = currentShiftGoalieOfTeamOne;
-        currentShiftGoalieOfTeamOne = currentShiftGoalieOfTeamTwo;
-        currentShiftForwardOfTeamOne = currentShiftForwardOfTeamTwo;
-        currentShiftDefenseOfTeamOne = currentShiftDefenseOfTeamTwo;
-        currentShiftGoalieOfTeamTwo = tempGoalieList;
-        currentShiftForwardOfTeamTwo = tempForwardList;
-        currentShiftDefenseOfTeamTwo = tempDefenseList;
+        objFactory.getSwapTurn().swapTurnOfTeam();
     }
 
 
@@ -225,6 +216,16 @@ public class StartSimulation {
             currentShiftForwardOfTeamTwo.add(listOfForwardOfTeamTwo.get(0));
             currentShiftForwardOfTeamTwo.add(listOfForwardOfTeamTwo.get(1));
             currentShiftForwardOfTeamTwo.add(listOfForwardOfTeamTwo.get(2));
+
+
+            objFactory.getGameConfig().setCurrentShiftDefenseOfTeamOne(currentShiftDefenseOfTeamOne);
+            objFactory.getGameConfig().setCurrentShiftDefenseOfTeamTwo(currentShiftDefenseOfTeamTwo);
+            objFactory.getGameConfig().setCurrentShiftForwardOfTeamOne(currentShiftForwardOfTeamOne);
+            objFactory.getGameConfig().setCurrentShiftForwardOfTeamTwo(currentShiftForwardOfTeamTwo);
+            objFactory.getGameConfig().setCurrentShiftGoalieOfTeamOne(currentShiftGoalieOfTeamOne);
+            objFactory.getGameConfig().setCurrentShiftGoalieOfTeamTwo(currentShiftGoalieOfTeamTwo);
+
+
         } catch (NullPointerException e) {
             System.out.println(e.getMessage());
         }
@@ -242,39 +243,11 @@ public class StartSimulation {
     }
 
     public void replaceCurrentGoalie() {
-
-        try {
-            currentShiftGoalieOfTeamOne.remove(0);
-            currentShiftGoalieOfTeamTwo.remove(0);
-            currentShiftGoalieOfTeamOne.add(listOfGoalieOfTeamOne.get(1));
-            currentShiftGoalieOfTeamTwo.add(listOfGoaliesOfTeamTwo.get(1));
-        } catch (NullPointerException n) {
-            System.out.println(n.getMessage());
-        }
+        objFactory.getSwapTurn().swapTurnOfGoalie();
     }
 
     public void replaceDefenseAndForward() {
-        try {
-            currentShiftForwardOfTeamOne.clear();
-            currentShiftForwardOfTeamTwo.clear();
-            currentShiftDefenseOfTeamOne.clear();
-            currentShiftDefenseOfTeamTwo.clear();
-
-            currentShiftDefenseOfTeamOne.add(listOfDefenseOfTeamOne.get(2));
-            currentShiftDefenseOfTeamOne.add(listOfDefenseOfTeamOne.get(3));
-            currentShiftForwardOfTeamOne.add(listOfForwardOfTeamOne.get(2));
-            currentShiftForwardOfTeamOne.add(listOfForwardOfTeamOne.get(3));
-            currentShiftForwardOfTeamOne.add(listOfForwardOfTeamOne.get(4));
-
-            currentShiftDefenseOfTeamTwo.add(listOfDefenseOfTeamTwo.get(2));
-            currentShiftDefenseOfTeamTwo.add(listOfDefenseOfTeamTwo.get(3));
-            currentShiftForwardOfTeamTwo.add(listOfForwardOfTeamTwo.get(2));
-            currentShiftForwardOfTeamTwo.add(listOfForwardOfTeamTwo.get(3));
-            currentShiftForwardOfTeamTwo.add(listOfForwardOfTeamTwo.get(4));
-
-        } catch (NullPointerException n) {
-            System.out.println(n.getMessage());
-        }
+        objFactory.getSwapTurn().swapTurnOfForwardAndDefense();
     }
 
 

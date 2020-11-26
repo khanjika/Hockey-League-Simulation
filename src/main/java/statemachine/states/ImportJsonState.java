@@ -2,12 +2,12 @@ package statemachine.states;
 
 import cli.IInitCli;
 import cli.InitialCli;
-import conference.ConferenceModel;
-import divison.DivisonModel;
-import league.LeagueModel;
-import players.PlayerModel;
+import leagueobjectmodel.ConferenceModel;
+import leagueobjectmodel.DivisonModel;
+import leagueobjectmodel.LeagueModel;
+import leagueobjectmodel.PlayerModel;
 import statemachine.StateMachine;
-import teams.TeamsModel;
+import leagueobjectmodel.TeamsModel;
 
 public class ImportJsonState implements ITransition {
     StateMachine stateMachine;
@@ -19,15 +19,15 @@ public class ImportJsonState implements ITransition {
     public ImportJsonState(StateMachine currentStateMachine) {
         stateMachine = currentStateMachine;
     }
-//    public ImportJsonState(String[] args, StateMachine currentStateMachine) {
-//        if (args.length == 0) {
-//            cliArgument = null;
-//        } else {
-//            cliArgument = args[0];
-//        }
-//        initialCli = new InitialCli();
-//        stateMachine = currentStateMachine;
-//    }
+    public ImportJsonState(String[] args, StateMachine currentStateMachine) {
+        if (args.length == 0) {
+            cliArgument = null;
+        } else {
+            cliArgument = args[0];
+        }
+        //initialCli = new InitialCli();
+        stateMachine = currentStateMachine;
+    }
 
     public void updateImportJsonStateValue(String[] args, StateMachine currentStateMachine){
         if (args.length == 0) {

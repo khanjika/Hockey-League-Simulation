@@ -1,12 +1,12 @@
 package statemachine.states;
 
-import conference.ConferenceModel;
-import divison.DivisonModel;
-import league.LeagueModel;
-import players.PlayerModel;
+import leagueobjectmodel.ConferenceModel;
+import leagueobjectmodel.DivisonModel;
+import leagueobjectmodel.LeagueModel;
+import leagueobjectmodel.PlayerModel;
 import statemachine.states.matchSchedules.*;
 import statemachine.StateMachine;
-import teams.TeamsModel;
+import leagueobjectmodel.TeamsModel;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -142,8 +142,21 @@ public class InitializeSeasonState implements ITransition {
                     }
                     System.out.println(totalMatches);
                     float valeu =goalByTeam/totalMatches;
-                    double averagePenaltyCount= totalMatches/penaltyCOunt;
-                    double averageSaveCount = totalMatches/saveCount;
+                    double averagePenaltyCount=0;
+                    try {
+                       averagePenaltyCount= totalMatches/penaltyCOunt;
+                    }
+                    catch (ArithmeticException exception){
+                        System.out.println("Divide By  zero exception in average penalty count "+exception.getMessage());
+                    }
+                    System.out.println(teamsModel.getTeamName()+" HAs saving count "+saveCount);
+                    double averageSaveCount = 0;
+                    try {
+                        averageSaveCount = totalMatches/saveCount;
+                    }
+                    catch (ArithmeticException exception){
+                        System.out.println("Divide by zero in average save count "+exception.getMessage());
+                    }
                     System.out.println("Goal For the Team is "+goalByTeam+" Team Name "+teamsModel.getTeamName()+" Average is "+valeu);
                     System.out.println("Total penalty count is "+penaltyCOunt+" Average penalty per game is "+averagePenaltyCount);
                     System.out.println("Total Save count is "+saveCount+" Average penalty per game is "+averageSaveCount);

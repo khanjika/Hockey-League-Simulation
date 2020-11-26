@@ -3,13 +3,13 @@ package cli;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import conference.ConferenceModel;
-import divison.DivisonModel;
-import league.ILeagueValidator;
-import league.LeagueModel;
-import league.LeagueValidator;
-import players.PlayerModel;
-import teams.TeamsModel;
+import leagueobjectmodel.ConferenceModel;
+import leagueobjectmodel.DivisonModel;
+import leagueobjectmodel.ILeagueValidator;
+import leagueobjectmodel.LeagueModel;
+import leagueobjectmodel.LeagueValidator;
+import leagueobjectmodel.PlayerModel;
+import leagueobjectmodel.TeamsModel;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,19 +22,19 @@ public class CliCommunication implements ICliCommunication {
     public LeagueModel leagueModel;
     public static ObjectMapper objectMapper;
     private final ILeagueValidator leagueValidator;
-    private final loadTeamCli loadTeamCli;
+   // private final loadTeamCli loadTeamCli;
 
     public CliCommunication() {
         objectMapper = new ObjectMapper();
         leagueValidator = new LeagueValidator();
-        loadTeamCli = new loadTeamCli();
+        //loadTeamCli = new loadTeamCli();
     }
 
 
-    @Override
-    public boolean loadTeamFromDatabase() {
-        return loadTeamCli.getData();
-    }
+//    @Override
+//    public boolean loadTeamFromDatabase() {
+//        return loadTeamCli.getData();
+//    }
 
     @Override
     public boolean isFileExist(String fileName) {

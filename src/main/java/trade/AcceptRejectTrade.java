@@ -1,12 +1,12 @@
 package trade;
 
-import conference.ConferenceModel;
-import divison.DivisonModel;
-import league.LeagueModel;
-import players.PlayerModel;
-import teams.AfterTradingTeamValidator;
-import teams.IAfterTradingTeamValidator;
-import teams.TeamsModel;
+import leagueobjectmodel.ConferenceModel;
+import leagueobjectmodel.DivisonModel;
+import leagueobjectmodel.LeagueModel;
+import leagueobjectmodel.PlayerModel;
+import leagueobjectmodel.AfterTradingTeamValidator;
+import leagueobjectmodel.IAfterTradingTeamValidator;
+import leagueobjectmodel.TeamsModel;
 
 import java.util.ArrayList;
 import java.util.List;

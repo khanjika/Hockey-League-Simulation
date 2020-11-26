@@ -1,9 +1,14 @@
+import org.apache.log4j.Logger;
 import statemachine.StateMachine;
 
 
 public class Main {
+
+    final static Logger logger = Logger.getLogger(Main.class);
+
     public static void main(String[] args) throws Exception {
         Main main = new Main();
+        logger.debug ("inside main");
         main.StateEntry(args);
     }
 
@@ -12,7 +17,6 @@ public class Main {
         stateMachine.getUpdateStateValue().updateImportJsonStateValue(stateMachine,args);
         stateMachine.setCurrentState(stateMachine.getImportJson());
         stateMachine.entry();
-
     }
 
 }

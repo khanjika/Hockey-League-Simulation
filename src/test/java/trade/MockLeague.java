@@ -1,15 +1,9 @@
 package trade;
 
 
-import conference.ConferenceModel;
-import divison.DivisonModel;
-import freeagent.FreeAgentModel;
-import gameplayconfig.*;
-import league.LeagueModel;
-import players.PlayerModel;
-import teams.HeadCoachModel;
-import teams.TeamsModel;
-import teams.TeamsModelTest;
+import leagueobjectmodel.*;
+import leagueobjectmodel.LeagueModel;
+import leagueobjectmodel.TeamsModelTest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -101,7 +95,7 @@ public class MockLeague {
         headCoachModel.setChecking(0.3f);
         headCoachModel.setSaving(0.5f);
         teamsModel.setHeadCoach(headCoachModel);
-        teamsModel.setGeneralManager("Mister Fred");
+       // teamsModel.setGeneralManager("Mister Fred");
         teamsModel.setTeamName("Boston");
         teamsModel.setUserCreatedTeam(false);
         boolean isCaptain = true;
@@ -133,7 +127,7 @@ public class MockLeague {
         headCoachModel.setChecking(0.3f);
         headCoachModel.setSaving(0.5f);
         teamsModel.setHeadCoach(headCoachModel);
-        teamsModel.setGeneralManager("Mister Fred");
+        //teamsModel.setGeneralManager("Mister Fred");
         teamsModel.setTeamName("Halifax");
         teamsModel.setUserCreatedTeam(false);
         boolean isCaptain = true;

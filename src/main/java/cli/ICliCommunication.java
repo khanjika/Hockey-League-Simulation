@@ -1,10 +1,10 @@
 package cli;
 
-import league.LeagueModel;
+import leagueobjectmodel.LeagueModel;
 
 public interface ICliCommunication {
 
-    boolean loadTeamFromDatabase();
+//    boolean loadTeamFromDatabase();
 
     boolean isFileExist(String fileName);
 

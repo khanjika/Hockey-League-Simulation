@@ -1,15 +1,15 @@
 package statemachine.states;
 
-import conference.ConferenceModel;
-import divison.DivisonModel;
-import gameplayconfig.GamePlayConfigModel;
-import league.LeagueModel;
+import leagueobjectmodel.ConferenceModel;
+import leagueobjectmodel.DivisonModel;
+import leagueobjectmodel.GamePlayConfigModel;
+import leagueobjectmodel.LeagueModel;
 import statemachine.states.matchSchedules.Deadlines;
 import statemachine.states.matchSchedules.IDeadlines;
-import players.IPlayerModel;
-import players.PlayerModel;
+import leagueobjectmodel.IPlayerModel;
+import leagueobjectmodel.PlayerModel;
 import statemachine.StateMachine;
-import teams.TeamsModel;
+import leagueobjectmodel.TeamsModel;
 
 import java.time.LocalDate;
 
@@ -58,12 +58,15 @@ public class AgingState implements ITransition {
             daysToAge = 183;
         }
         GamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
+        System.out.println(gamePlayConfigModel.getAging().getMaximumAge());
         iPlayerModel.setAgingModel(gamePlayConfigModel.getAging());
         iPlayerModel.setFreeAgentsList(leagueModel.getFreeAgents());
         for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
             for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
                 for (TeamsModel teamsModel : divisonModel.getTeams()) {
+                    System.out.println("TEAM NAME: "+ teamsModel.getTeamName());
                     for (PlayerModel playerModelTemp : teamsModel.getPlayers()) {
+                        System.out.println("PLAYER NAME: "+playerModelTemp.getPlayerName());
                         iPlayerModel.aging(playerModelTemp, daysToAge, currentDate);
                     }
                 }

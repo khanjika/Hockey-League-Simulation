@@ -1,18 +1,15 @@
 package statemachine.states;
 
-import conference.ConferenceModel;
-import divison.DivisonModel;
-import league.LeagueModel;
-import players.PlayerModel;
-import statemachine.StateMachine;
-import teams.TeamsModel;
 
+;
+import leagueobjectmodel.*;
+import statemachine.StateMachine;
 import java.util.Calendar;
 import java.util.Scanner;
 
 public class PlayerSeasonsChoiceState implements ITransition {
     StateMachine stateMachine;
-    LeagueModel currentModel;
+   LeagueModel currentModel;
     Integer enteredInput;
     ITransition persistLeagueState;
     InitializeSeasonState initializeSeasonState;
@@ -73,21 +70,21 @@ public class PlayerSeasonsChoiceState implements ITransition {
 
         }
 
-//        for(ConferenceModel conferenceModel:currentModel.getConferences()){
-//            for(DivisonModel divisonModel:conferenceModel.getDivisions()){
-//                for(TeamsModel teamsModel:divisonModel.getTeams()){
-//                    for(PlayerModel playerModel:teamsModel.getPlayers()){
-//                        System.out.println(playerModel.getPlayerName()+" has goal "+playerModel.getGoalScorerCount());
-//                        if(playerModel.getPosition().equals("defense")){
-//                            System.out.println(playerModel.getPlayerName()+" is Defense and has penalty count of "+playerModel.getTotalPenaltyCount());
-//                        }
-//                        if(playerModel.getPosition().equals("goalie")){
-//                            System.out.println(playerModel.getPlayerName()+" is goalie having save count "+playerModel.getSaveForGoalie());
-//                        }
-//                    }
-//                }
-//            }
-//        }
+        for(ConferenceModel conferenceModel:currentModel.getConferences()){
+            for(DivisonModel divisonModel:conferenceModel.getDivisions()){
+                for(TeamsModel teamsModel:divisonModel.getTeams()){
+                    for(PlayerModel playerModel:teamsModel.getPlayers()){
+                        System.out.println(playerModel.getPlayerName()+" has goal "+playerModel.getGoalScorerCount());
+                        if(playerModel.getPosition().equals("defense")){
+                            System.out.println(playerModel.getPlayerName()+" is Defense and has penalty count of "+playerModel.getTotalPenaltyCount());
+                        }
+                        if(playerModel.getPosition().equals("goalie")){
+                            System.out.println(playerModel.getPlayerName()+" is goalie having save count "+playerModel.getSaveForGoalie());
+                        }
+                    }
+                }
+            }
+        }
         //This will be used to store the information
 //        stateMachine.getUpdateStateValue().updatePersistStateValue(currentModel, stateMachine, currentYear);
 //        stateMachine.setPersistLeagueStae(persistLeagueState);
