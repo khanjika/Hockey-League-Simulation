@@ -10,8 +10,9 @@ public class Training implements ITraining {
 
     TrainingConstants constants = new TrainingConstants();
     private static LocalDate currentDate;
-    private static InjuriesModel currentInjuriesModel;
+    private InjuriesModel currentInjuriesModel;
 
+    @Override
     public void performTraining(PlayerModel player, HeadCoachModel headCoach, LocalDate currentDate) {
         Training.currentDate = currentDate;
         boolean isPlayerInjured = false;
@@ -43,7 +44,7 @@ public class Training implements ITraining {
                 isPlayerInjured = true;
             }
         }
-        if (isPlayerInjured == true) {
+        if (isPlayerInjured) {
             player.setPlayerInjured(true);
             player.calculatePlayerStrength(player);
         }

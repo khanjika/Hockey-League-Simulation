@@ -31,7 +31,23 @@ public interface ITeamsModel {
 
     void setGeneralManager(GeneralManagersModel generalManager);
 
-    abstract void calculateTeamStrength(ITeamsModel teamsModel);
+    void calculateTeamStrength(ITeamsModel teamsModel);
+
+    List<PlayerModel> getTotalForwards();
+
+    List<PlayerModel> getTotalDefenses();
+
+    List<PlayerModel> getTotalGoalies();
+
+    List<PlayerModel> getActiveRoasters();
+
+    void setActiveRoasters(List<PlayerModel> activeRoasters);
+
+    List<PlayerModel> getInactiveRoasters();
+
+    void setInactiveRoasters(List<PlayerModel> inactiveRoasters);
+
+    void roasterReplacement(PlayerModel currentPlayer);
 
     int getWinPoint();
 

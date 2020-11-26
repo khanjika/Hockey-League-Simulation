@@ -11,8 +11,4 @@ public class TrainingAbstractFactoryConcrete extends TrainingAbstractFactory{
         return training;
     }
 
-    @Override
-    public void setTraining(ITraining training) {
-        this.training = training;
-    }
 }

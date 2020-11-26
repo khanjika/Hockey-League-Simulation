@@ -1,10 +1,8 @@
-import cli.Cli;
 import cli.CliAbstractFactory;
 import cli.ICli;
 import leagueobjectmodel.IPlayerModel;
 import leagueobjectmodel.IPlayerValidator;
 import leagueobjectmodel.LeagueObjectModelAbstractFactory;
-import leagueobjectmodel.PlayerModel;
 import org.junit.jupiter.api.Test;
 
 public class RandomTest {

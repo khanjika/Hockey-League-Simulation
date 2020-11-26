@@ -21,7 +21,9 @@ public enum CreateTeamConstants {
     EnterDefense(" more Defense for the team"),
     TeamCaptain(" is the team captain"),
     Instruction("Here You need to create a new Team in the EXISTING division"),
-    DisplayPlayerList("The newly created team players")
+    DisplayPlayerList("The newly created team players"),
+    DisplayActivePlayers("Active team players list"),
+    DisplayInactivePlayers("Inactive team players list")
     ;
 
     private String value;

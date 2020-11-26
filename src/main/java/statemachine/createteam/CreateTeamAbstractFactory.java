@@ -11,5 +11,4 @@ public abstract class CreateTeamAbstractFactory {
     }
 
     public abstract ICreateTeam getCreateTeam();
-    public abstract void setCreateTeam(ICreateTeam createTeamCli);
 }

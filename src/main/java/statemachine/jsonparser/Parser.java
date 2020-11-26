@@ -44,19 +44,8 @@ public class Parser implements IParser {
             byte[] mapData = Files.readAllBytes(Paths.get(fileName));
             JsonNode data = objectMapper.readTree(mapData);
             leagueModel = fromJson(data, LeagueModel.class);
-            leagueObjectModelAbstractFactory.setLeague(leagueModel);
             if (leagueValidator.validateLeagueObject(leagueModel)) {
                 iCli.printOutput(ParserConstants.FileValid.getValue());
-                for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
-                    for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
-                        for (TeamsModel teamsModel : divisonModel.getTeams()) {
-                            for (PlayerModel playerModel : teamsModel.getPlayers()) {
-                                playerModel.calculatePlayerStrength(playerModel);
-                            }
-                        }
-                    }
-                }
-
                 return leagueModel;
             } else {
                 iCli.printOutput(ParserConstants.FileInvalid.getValue());
@@ -66,7 +55,7 @@ public class Parser implements IParser {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+        return leagueModel;
     }
 
 

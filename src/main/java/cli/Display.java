@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class DisplayPersons implements IDisplayPersons{
+public class Display implements IDisplay {
 
     ICli cli = CliAbstractFactory.getInstance().getCli();
     CliAbstractFactory out= CliAbstractFactory.getInstance();
@@ -134,7 +134,7 @@ public class DisplayPersons implements IDisplayPersons{
     }
 
     @Override
-    public void displayPlayers(List<FreeAgentModel> freeAgentModel) {
+    public void displayFreeAgents(List<FreeAgentModel> freeAgentModel) {
 
         Map<Integer, Integer> columnLength = new HashMap<Integer, Integer>();
         StringBuilder format = new StringBuilder();

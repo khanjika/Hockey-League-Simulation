@@ -11,8 +11,4 @@ public class ParserAbstractFactoryConcrete extends ParserAbstractFactory{
         return parser;
     }
 
-    @Override
-    public void setParser(IParser parser) {
-        this.parser = parser;
-    }
 }

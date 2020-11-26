@@ -69,24 +69,27 @@ public class LeagueModelTest {
         leagueModel.setConferences(conferenceModelObjectList);
         List<FreeAgentModel> freeAgentModelList = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
-            FreeAgentModel freeAgentModel = MockFreeAgent.getFreeAgentModel();
+            FreeAgentModel freeAgentModel = MockFreeAgent.getForwardFreeAgentModel();
+            freeAgentModelList.add(freeAgentModel);
+            freeAgentModel = MockFreeAgent.getDefenseFreeAgentModel();
+            freeAgentModelList.add(freeAgentModel);
+            freeAgentModel = MockFreeAgent.getGoalieFreeAgentModel();
             freeAgentModelList.add(freeAgentModel);
         }
         leagueModel.setFreeAgents(freeAgentModelList);
         List<CoachModel> coachModelsList = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
             CoachModel coachModel = MockCoach.getValidCoachModel();
+            coachModelsList.add(coachModel);
         }
-        List<String> generalManagers = new ArrayList<String>() {
-            {
-                add("Arthy");
-                add("Roshan");
-                add("Zankrut");
-                add("Khanjiga");
+        List<GeneralManagersModel> generalManagers = new ArrayList<>();
+            for (int i = 0; i < 2; i++){
+                GeneralManagersModel generalManagersModel = MockGeneralManagers.getGeneralManagersModel();
+                generalManagers.add(generalManagersModel);
             }
-        };
+
         leagueModel.setCoaches(coachModelsList);
-        //leagueModel.setGeneralManagers(generalManagers);
+        leagueModel.setGeneralManagers(generalManagers);
         leagueModel.setGameplayConfig(gamePLayModel);
         gamePLayModel.setTrading(tradingModel);
         gamePLayModel.setGameResolver(gameResolverModel);

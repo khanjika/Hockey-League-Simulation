@@ -2,9 +2,11 @@ package leagueobjectmodel;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.Expose;
+
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Random;
+
 import static java.time.temporal.ChronoUnit.DAYS;
 
 public class PlayerModel implements IPlayerModel {
@@ -58,14 +60,6 @@ public class PlayerModel implements IPlayerModel {
         this.birthDay = birthDay;
         this.birthMonth = birthMonth;
         this.birthYear = birthYear;
-    }
-
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
     }
 
     @Override
@@ -209,6 +203,16 @@ public class PlayerModel implements IPlayerModel {
     }
 
     @Override
+    public boolean getActive() {
+        return active;
+    }
+
+    @Override
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    @Override
     public int getDays() {
         return days;
     }
@@ -343,6 +347,7 @@ public class PlayerModel implements IPlayerModel {
             }
         }
     }
+
 
     @Override
     public void recoverPlayer(PlayerModel playerModel, LocalDate date) {

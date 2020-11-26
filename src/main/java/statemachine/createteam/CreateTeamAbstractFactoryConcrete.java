@@ -10,9 +10,4 @@ public class CreateTeamAbstractFactoryConcrete extends CreateTeamAbstractFactory
         }
         return createTeamCli;
     }
-
-    @Override
-    public void setCreateTeam(ICreateTeam createTeamCli) {
-        this.createTeamCli = createTeamCli;
-    }
 }

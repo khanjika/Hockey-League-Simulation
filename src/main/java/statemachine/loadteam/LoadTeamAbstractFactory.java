@@ -12,5 +12,4 @@ public abstract class LoadTeamAbstractFactory {
     }
 
     public abstract ILoadTeam getLoadTeam();
-    public abstract void setLoadTeam(ILoadTeam loadTeam);
 }

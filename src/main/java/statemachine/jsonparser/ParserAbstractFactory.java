@@ -11,5 +11,4 @@ public abstract class ParserAbstractFactory {
     }
 
     public abstract IParser getParser();
-    public abstract void setParser(IParser parser);
 }

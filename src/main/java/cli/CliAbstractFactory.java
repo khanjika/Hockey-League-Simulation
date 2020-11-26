@@ -30,6 +30,6 @@ public abstract class CliAbstractFactory {
 
     public abstract void setIn(InputStream in);
 
-    public abstract IDisplayPersons getDisplayPersons();
+    public abstract IDisplay getDisplayPersons();
 
 }

@@ -11,8 +11,4 @@ public class LoadTeamAbstractFactoryConcrete extends LoadTeamAbstractFactory{
         return loadTeam;
     }
 
-    @Override
-    public void setLoadTeam(ILoadTeam loadTeam) {
-        this.loadTeam = loadTeam;
-    }
 }

@@ -43,6 +43,7 @@ public class InjuryCheckState implements ITransition {
         for (PlayerModel playerModel : teamsModelTemp.getPlayers()) {
             playerModel.setInjuriesModel(leagueModel.getGameplayConfig().getInjuries());
             playerModel.checkPlayerInjury(playerModel, currentDate);
+            teamsModelTemp.roasterReplacement(playerModel);
         }
     }
 

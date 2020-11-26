@@ -10,7 +10,7 @@ public class CliAbstractFactoryConcrete extends CliAbstractFactory {
     private Scanner sc;
     private PrintStream out;
     private InputStream in;
-    private IDisplayPersons displayPersons;
+    private IDisplay displayPersons;
 
     @Override
     public ICli getCli() {
@@ -65,9 +65,9 @@ public class CliAbstractFactoryConcrete extends CliAbstractFactory {
     }
 
     @Override
-    public IDisplayPersons getDisplayPersons() {
+    public IDisplay getDisplayPersons() {
         if(displayPersons == null){
-            displayPersons = new DisplayPersons();
+            displayPersons = new Display();
         }
         return displayPersons;
     }

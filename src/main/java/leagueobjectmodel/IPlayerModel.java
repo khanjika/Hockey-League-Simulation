@@ -13,7 +13,7 @@ public interface IPlayerModel {
 
     void setBirthMonth(int birthMonth);
 
-    boolean isActive();
+    boolean getActive();
 
     void setActive(boolean active);
 

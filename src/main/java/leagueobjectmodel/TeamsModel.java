@@ -2,7 +2,8 @@ package leagueobjectmodel;
 
 import com.google.gson.annotations.Expose;
 
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class TeamsModel implements ITeamsModel {
 
@@ -19,6 +20,8 @@ public class TeamsModel implements ITeamsModel {
     private int winPoint;
     private int lossPoint;
     private int lossPointForTrading;
+    private List<PlayerModel> activeRoasters;
+    private List<PlayerModel> inactiveRoasters;
 
     @Override
     public void setTeamStrength(float teamStrength) {
@@ -99,10 +102,87 @@ public class TeamsModel implements ITeamsModel {
 
     @Override
     public void calculateTeamStrength(ITeamsModel teamsModel) {
+        ISortTeams sortTeams = new SortTeams();
         this.teamStrength = 0;
         for (PlayerModel playerModel : teamsModel.getPlayers()) {
             this.teamStrength += playerModel.getPlayerStrength();
         }
+        setActiveRoasters(sortTeams.sortActiveRoasters(teamsModel.getPlayers()));
+        setInactiveRoasters(teamsModel.getPlayers().stream()
+                .filter(v -> !getActiveRoasters().contains(v)).collect(Collectors.toList()));
+    }
+
+    @Override
+    public List<PlayerModel> getActiveRoasters(){
+        return activeRoasters;
+    }
+
+    @Override
+    public void setActiveRoasters(List<PlayerModel> activeRoasters){
+        this.activeRoasters = activeRoasters;
+    }
+
+    @Override
+    public List<PlayerModel> getInactiveRoasters(){
+        return inactiveRoasters;
+    }
+
+    @Override
+    public void setInactiveRoasters(List<PlayerModel> inactiveRoasters){
+        this.inactiveRoasters = inactiveRoasters;
+    }
+
+    @Override
+    public void roasterReplacement(PlayerModel currentPlayer){
+        List<PlayerModel> matchedInactivePlayers = new ArrayList<>();
+        if(currentPlayer.isPlayerInjured() == false){
+            return;
+        }
+        for(PlayerModel player : this.getInactiveRoasters()){
+            if(player.getPosition().equals(currentPlayer.getPosition()) && player.isPlayerInjured() == false){
+                matchedInactivePlayers.add(player);
+            }
+        }
+        if(matchedInactivePlayers.size() == 0){
+            return;
+        }
+        PlayerModel replacementPlayer = Collections.max(matchedInactivePlayers, Comparator.comparing(v -> v.getPlayerStrength()));
+        getActiveRoasters().remove(currentPlayer);
+        currentPlayer.setActive(false);
+        getActiveRoasters().add(replacementPlayer);
+        replacementPlayer.setActive(true);
+    }
+    @Override
+    public List<PlayerModel> getTotalForwards(){
+        List<PlayerModel> forwards = new ArrayList<>();
+        for (PlayerModel player : this.getPlayers()){
+            if (player.getPosition().equals(PlayerPosition.FORWARD.toString())){
+                forwards.add(player);
+            }
+        }
+        return forwards;
+    }
+
+    @Override
+    public List<PlayerModel> getTotalDefenses(){
+        List<PlayerModel> defenses = new ArrayList<>();
+        for (PlayerModel player : this.getPlayers()){
+            if (player.getPosition().equals(PlayerPosition.DEFENSE.toString())){
+                defenses.add(player);
+            }
+        }
+        return defenses;
+    }
+
+    @Override
+    public List<PlayerModel> getTotalGoalies(){
+        List<PlayerModel> goalies = new ArrayList<>();
+        for (PlayerModel player : this.getPlayers()){
+            if (player.getPosition().equals(PlayerPosition.GOALIE.toString())){
+                goalies.add(player);
+            }
+        }
+        return goalies;
     }
 
     @Override

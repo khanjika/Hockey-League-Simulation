@@ -9,4 +9,6 @@ public interface ISortTeams {
 
     List<FreeAgentModel> sortFreeAgentDescending(List<FreeAgentModel> freeagents);
 
+    List<PlayerModel> sortActiveRoasters(List<PlayerModel> players);
+
 }
