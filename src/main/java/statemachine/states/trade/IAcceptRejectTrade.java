@@ -2,6 +2,9 @@ package statemachine.states.trade;
 
 import leagueobjectmodel.ILeagueModel;
 import leagueobjectmodel.ITeamsModel;
+import leagueobjectmodel.PlayerModel;
+
+import java.util.List;
 
 public interface IAcceptRejectTrade {
     ILeagueModel acceptRejectTrade(ILeagueModel league);
@@ -10,8 +13,6 @@ public interface IAcceptRejectTrade {
 
     ILeagueModel tradeAccepted(ILeagueModel league);
 
-    boolean swapTeam1(ITeamsModel team);
-
-    boolean swapTeam2(ITeamsModel team);
+    boolean swapTeam(ITeamsModel team, List<PlayerModel> team1, List<PlayerModel> team2);
 
 }

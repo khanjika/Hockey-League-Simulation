@@ -6,6 +6,7 @@ import leagueobjectmodel.PlayerModel;
 import java.util.List;
 
 public class TradeTeamPojo implements ITradeTeamPojo {
+
     @Expose
     private String teamName;
     @Expose

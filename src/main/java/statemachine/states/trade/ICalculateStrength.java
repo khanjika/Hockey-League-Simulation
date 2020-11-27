@@ -9,7 +9,7 @@ import java.util.List;
 public interface ICalculateStrength {
     HashMap findStrength(ITeamsModel team);
 
-    int findStrengthWeakness(ITradeTeamPojo teamPojo, HashMap strengthMap);
+    int findTeamStrengthWeakness(ITradeTeamPojo teamPojo, HashMap strengthMap);
 
     float findTeamStrength(List<PlayerModel> players);
 }
