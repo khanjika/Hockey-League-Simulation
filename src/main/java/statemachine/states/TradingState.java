@@ -1,6 +1,6 @@
 package statemachine.states;
 
-import leagueobjectmodel.LeagueModel;
+import leagueobjectmodel.ILeagueModel;
 import statemachine.StateMachine;
 //import trade.GenerateTradeOffer;
 //import trade.IGenerateTradeOffer;
@@ -8,7 +8,7 @@ import statemachine.StateMachine;
 public class TradingState implements ITransition {
 
     StateMachine stateMachine;
-    LeagueModel leagueModel;
+    ILeagueModel leagueModel;
     //IGenerateTradeOffer iGenerateTradeOffer;
 
     public TradingState(StateMachine stateMachine) {
@@ -19,7 +19,7 @@ public class TradingState implements ITransition {
 //
 //    }
 //
-    public void updateTradingStateValue(StateMachine stateMachine, LeagueModel leagueModel){
+    public void updateTradingStateValue(StateMachine stateMachine, ILeagueModel leagueModel){
         this.stateMachine = stateMachine;
         this.leagueModel = leagueModel;
     }

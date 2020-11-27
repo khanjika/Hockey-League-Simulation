@@ -29,6 +29,9 @@ public class LoadTeam implements ILoadTeam{
 
         iCli.printOutput(LoadTeamConstants.TeamName.getValue());
         String teamName = iCli.readStringInput();
+        if(teamName.isEmpty() || teamName.equals("")){
+            getData();
+        }
         if (isTeamExist(teamName)) {
             iCli.printOutput(LoadTeamConstants.TeamExist.getValue());
             iLeagueModel = parser.parseJson(fileValidator.filePath(teamName));

@@ -107,6 +107,9 @@ public class CreateTeam implements ICreateTeam {
     private boolean isTeamInformationSetProperly(ILeagueModel leagueModel) {
         iCli.printOutput(CreateTeamConstants.EnterTeam.getValue());
         this.userEnteredTeamName = iCli.readStringInput();
+        if(this.userEnteredTeamName.isEmpty()){
+            isTeamInformationSetProperly(leagueModel);
+        }
         if (iTeamsValidator.isTeamAlreadyExist(this.userEnteredTeamName)) {
             return false;
         }

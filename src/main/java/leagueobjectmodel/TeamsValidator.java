@@ -1,15 +1,27 @@
 package leagueobjectmodel;
 
+import database.serializeobject.IFileValidator;
+import database.serializeobject.SerializeObjectAbstractFactory;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class TeamsValidator implements ITeamsValidator {
     private static final IPlayerValidator playerValidator = new PlayerValidator();
     private static final IHeadCoachValidator headCoachValidator = new HeadCoachValidator();
     private static final IFileValidator fileValidator= SerializeObjectAbstractFactory.getInstance().getFileValidator();
+    private ITeamsModel teamsModel;
+    private IFreeAgentModel freeAgent;
     private boolean isPlayerCaptain = false;
     private int defense = 0;
     private int goalie = 0;
     private int forward = 0;
+
+    public TeamsValidator(){
+        teamsModel = LeagueObjectModelAbstractFactory.getInstance ().getTeams ();
+        freeAgent = LeagueObjectModelAbstractFactory.getInstance ().getFreeAgent ();
+    }
 
     @Override
     public boolean validateTeamObject(TeamsModel teamsModel) {
@@ -103,9 +115,9 @@ public class TeamsValidator implements ITeamsValidator {
 
         for (int i = 0; i < teamPlayers.size (); i++) {
             String position = teamPlayers.get (i).getPosition ();
-            if (position.equals (playerPosition.forward.toString ())) {
+            if (position.equals (PlayerPosition.FORWARD.toString())) {
                 counterForward = counterForward + 1;
-            } else if (position.equals (playerPosition.goalie.toString ())) {
+            } else if (position.equals (PlayerPosition.GOALIE.toString())) {
                 counterGoalie = counterGoalie + 1;
             } else {
                 counterDefense = counterDefense + 1;
@@ -116,26 +128,26 @@ public class TeamsValidator implements ITeamsValidator {
         } else {
             if (counterForward < forward ) {
                 int forwardRequired = forward - counterForward;
-                addFromFreeAgent (forwardRequired, teamPlayers, freeAgents, playerPosition.forward.toString ());
+                addFromFreeAgent (forwardRequired, teamPlayers, freeAgents, PlayerPosition.FORWARD.toString());
             } else if(counterForward > forward) {
                 int noOfForwardRemoved = counterForward - forward;
-                removePlayers (noOfForwardRemoved, teamPlayers, freeAgents, playerPosition.forward.toString ());
+                removePlayers (noOfForwardRemoved, teamPlayers, freeAgents, PlayerPosition.FORWARD.toString());
             }
 
             if (counterDefense < defense) {
                 int defenseRequired = defense - counterDefense;
-                addFromFreeAgent (defenseRequired, teamPlayers, freeAgents, playerPosition.defense.toString ());
+                addFromFreeAgent (defenseRequired, teamPlayers, freeAgents, PlayerPosition.DEFENSE.toString());
             } else if (counterDefense > defense){
                 int noOfDefenseRemoved = counterDefense - defense;
-                removePlayers (noOfDefenseRemoved, teamPlayers, freeAgents, playerPosition.defense.toString ());
+                removePlayers (noOfDefenseRemoved, teamPlayers, freeAgents, PlayerPosition.DEFENSE.toString());
             }
 
             if (counterGoalie < goalie) {
                 int goaliesRequired = goalie - counterGoalie;
-                addFromFreeAgent (goaliesRequired, teamPlayers, freeAgents, playerPosition.goalie.toString ());
+                addFromFreeAgent (goaliesRequired, teamPlayers, freeAgents, PlayerPosition.GOALIE.toString());
             } else if (counterGoalie > goalie){
                 int noOfGoaliesRemoved = counterGoalie - goalie;
-                removePlayers (noOfGoaliesRemoved, teamPlayers, freeAgents, playerPosition.goalie.toString ());
+                removePlayers (noOfGoaliesRemoved, teamPlayers, freeAgents, PlayerPosition.GOALIE.toString());
             }
             return leagueModel;
         }
@@ -162,7 +174,7 @@ public class TeamsValidator implements ITeamsValidator {
 
     public void addFromFreeAgent(int playersRequired, List<PlayerModel> players, List<FreeAgentModel> freeAgents, String position) {
         int counter = 0;
-        List<IFreeAgentModel> agentsRemoved = new ArrayList<> ();
+        List<IFreeAgentModel> agentsRemoved = new ArrayList<>();
 
         for (FreeAgentModel agent : freeAgents) {
             agent.calculateFreeAgentStrength (agent);

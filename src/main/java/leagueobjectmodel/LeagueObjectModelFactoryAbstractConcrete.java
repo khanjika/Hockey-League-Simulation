@@ -19,7 +19,6 @@ public class LeagueObjectModelFactoryAbstractConcrete extends LeagueObjectModelA
     private ICoachModel coach;
     private IGeneralManagersModel generalManagers;
     private IGeneralManagersValidator generalManagersValidator;
-    private IFreeAgentModel freeAgent;
 
     @Override
     public IFreeAgentModel getFreeAgent() {
