@@ -23,3 +23,19 @@
 2020-11-26 12:59:49 DEBUG StateMachine:29 - inside state machine const
 2020-11-26 12:59:49 DEBUG StateMachine:29 - inside state machine const
 2020-11-26 12:59:49 DEBUG StateMachine:29 - inside state machine const
+2020-11-26 20:20:21 DEBUG Main:11 - inside main
+2020-11-26 20:20:21 DEBUG StateMachine:29 - inside state machine const
+2020-11-26 20:35:14 DEBUG Main:11 - inside main
+2020-11-26 20:35:14 DEBUG StateMachine:29 - inside state machine const
+2020-11-26 20:37:17 DEBUG Main:11 - inside main
+2020-11-26 20:37:17 DEBUG StateMachine:29 - inside state machine const
+2020-11-26 20:37:25 DEBUG Main:11 - inside main
+2020-11-26 20:37:25 DEBUG StateMachine:29 - inside state machine const
+2020-11-26 20:37:27 DEBUG Main:11 - inside main
+2020-11-26 20:37:27 DEBUG StateMachine:29 - inside state machine const
+2020-11-26 20:50:33 DEBUG Main:11 - inside main
+2020-11-26 20:50:33 DEBUG StateMachine:29 - inside state machine const
+2020-11-26 21:16:47 DEBUG Main:11 - inside main
+2020-11-26 21:16:47 DEBUG StateMachine:29 - inside state machine const
+2020-11-26 21:18:52 DEBUG Main:11 - inside main
+2020-11-26 21:18:52 DEBUG StateMachine:29 - inside state machine const

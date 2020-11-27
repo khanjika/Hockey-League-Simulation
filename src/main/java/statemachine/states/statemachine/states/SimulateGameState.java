@@ -3,6 +3,7 @@ package statemachine.states.statemachine.states;
 import leagueobjectmodel.*;
 import statemachine.states.statemachine.states.simulateGame.GameSimulationAbstractFactory;
 import statemachine.states.statemachine.states.simulateGame.GameSimulationAbstractFactoryConcrete;
+import statemachine.states.statemachine.states.simulateGame.IStartSimulation;
 import statemachine.states.statemachine.states.simulateGame.StartSimulation;
 
 import statemachine.states.statemachine.StateMachine;
@@ -143,23 +144,18 @@ public class SimulateGameState implements ITransition {
         stateMachine.getUpdateStateValue().updateInjuryCheckStateValue(stateMachine, leagueModel, teamTwo);
         stateMachine.setCurrentState(stateMachine.getInjuryCheckState());
         stateMachine.getCurrentState().entry();
-        StartSimulation obj = null;
+        IStartSimulation obj = null;
+        obj = GameSimulationAbstractFactory.getGameSimulationInstance().getStartSimulation();
         try {
-             obj=new StartSimulation(teamOne,teamTwo,leagueModel,isThisPlayOff,gameSimulationAbstractFactory);
+           obj.setRequiredAttributeForSimulation(teamOne,teamTwo,leagueModel,isThisPlayOff,gameSimulationAbstractFactory);
+            obj.separatePlayerByPosition();
+            obj.setAverageShotsOnGoal();
+            obj.initializeShifts();
         }catch (NullPointerException exception){
             System.out.println("Exception in the game simulation abstract factory"+exception.getMessage());
         }
         catch (Exception e){
             System.out.println("Exception while initializing constructor of the game simulation "+e.getMessage());
-        }
-        try {
-            obj.separatePlayerByPosition();
-           obj.setAverageShotsOnGoal();
-           obj.initializeShifts();
-        }
-        catch (Exception e){
-            System.out.println("Exception occured while simulationg the game ");
-            e.printStackTrace();
         }
 
     }

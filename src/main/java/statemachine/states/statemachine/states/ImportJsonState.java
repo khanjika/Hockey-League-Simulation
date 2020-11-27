@@ -2,12 +2,8 @@ package statemachine.states.statemachine.states;
 
 import cli.IInitCli;
 import cli.InitialCli;
-import leagueobjectmodel.ConferenceModel;
-import leagueobjectmodel.DivisonModel;
-import leagueobjectmodel.LeagueModel;
-import leagueobjectmodel.PlayerModel;
+import leagueobjectmodel.*;
 import statemachine.states.statemachine.StateMachine;
-import leagueobjectmodel.TeamsModel;
 
 public class ImportJsonState implements ITransition {
     StateMachine stateMachine;
@@ -58,6 +54,7 @@ public class ImportJsonState implements ITransition {
             if(inMemoryLeagueModel==null){
                 throw new RuntimeException("Error while parsing the in Memory Legaue Model");
             }
+            LeagueObjectModelAbstractFactory.getInstance().setLeague(inMemoryLeagueModel);
             for (ConferenceModel conferenceModel : inMemoryLeagueModel.getConferences()) {
                 for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
                     for (TeamsModel teamsModel : divisonModel.getTeams()) {

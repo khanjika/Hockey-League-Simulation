@@ -4,6 +4,7 @@ public class GameSimulationAbstractFactoryConcrete extends GameSimulationAbstrac
 
   private static ISwapTurn iSwapTurn;
   private static IGameConfiguration gameConfiguration;
+  private static IStartSimulation startSimulation;
 
 
     @Override
@@ -30,5 +31,22 @@ public class GameSimulationAbstractFactoryConcrete extends GameSimulationAbstrac
     @Override
     public void setGameConfig(IGameConfiguration gameConfig) {
             gameConfiguration=gameConfig;
+    }
+
+    @Override
+    public IStartSimulation getStartSimulation() {
+        if(startSimulation==null){
+            try {
+                startSimulation=new StartSimulation();
+            }catch (Exception e){
+
+            }
+        }
+        return startSimulation;
+    }
+
+    @Override
+    public void setStartSimulation(IStartSimulation simulation) {
+        startSimulation=simulation;
     }
 }

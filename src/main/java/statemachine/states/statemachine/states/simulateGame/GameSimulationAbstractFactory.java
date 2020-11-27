@@ -19,4 +19,8 @@ public abstract class GameSimulationAbstractFactory {
     public abstract IGameConfiguration getGameConfig();
 
     public abstract void setGameConfig(IGameConfiguration gameConfig);
+
+    public abstract IStartSimulation getStartSimulation();
+
+    public abstract void setStartSimulation(IStartSimulation simulation);
 }
