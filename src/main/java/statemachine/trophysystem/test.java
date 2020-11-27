@@ -1,11 +1,15 @@
 package statemachine.trophysystem;
 
+import leagueobjectmodel.IHeadCoachModel;
+import leagueobjectmodel.LeagueObjectModelAbstractFactory;
+
 public class test {
+
     public static void main(String[] args) {
-        Subject subject = new BestTeam();
-        IObserver observer = new TrophySystem();
-        IObserver observer1 = new Display();
+        IHeadCoachModel coach = LeagueObjectModelAbstractFactory.getInstance().getHeadCoach();
+        CoachStandingSubject subject = CoachStandingSubject.getInstance(); // game simulation
+        IObserver observer = new CoachStandingObserver();
         subject.attach(observer);
-        subject.attach(observer1);
+        subject.notifyCoachStanding(coach); // game simulation
     }
 }

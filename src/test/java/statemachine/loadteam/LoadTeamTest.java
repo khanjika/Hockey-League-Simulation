@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class LoadTeamTest {
     @Test
     void getUserInputTest() {
-        ByteArrayInputStream userinput = new ByteArrayInputStream("testing".getBytes());
+        ByteArrayInputStream userinput = new ByteArrayInputStream("robteam".getBytes());
         System.setIn(userinput);
         ICli cli = new MockCli();
         CliAbstractFactory.getInstance().setCli(cli);

@@ -23,7 +23,7 @@ public interface IPlayerModel {
 
     abstract void calculatePlayerStrength(PlayerModel playerModel);
 
-    abstract void checkPlayerInjury(PlayerModel playerModel, LocalDate date);
+    void checkPlayerInjury(PlayerModel playerModel, LocalDate date);
 
     void recoverPlayer(PlayerModel playerModel, LocalDate date);
 

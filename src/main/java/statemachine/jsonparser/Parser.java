@@ -44,6 +44,7 @@ public class Parser implements IParser {
             byte[] mapData = Files.readAllBytes(Paths.get(fileName));
             JsonNode data = objectMapper.readTree(mapData);
             leagueModel = fromJson(data, LeagueModel.class);
+            leagueObjectModelAbstractFactory.setLeague(leagueModel);
             if (leagueValidator.validateLeagueObject(leagueModel)) {
                 iCli.printOutput(ParserConstants.FileValid.getValue());
                 return leagueModel;

@@ -31,6 +31,25 @@ public class SortTeams implements ISortTeams {
                         || v.getPosition().equals(PlayerPosition.DEFENSE.toString()))
                         && v.isPlayerInjured() == false).limit(18)
                 .collect(Collectors.toList()));
+//        int defense = 0;
+//        for(PlayerModel player : activeRoaster){
+//            if(player.getPosition().equals(PlayerPosition.DEFENSE.toString())){
+//                defense ++;
+//            }
+//        }
+//        System.out.println(activeRoaster.size());
+//        System.out.println(defense);
+//        if (defense < 2){
+//            for (int i = 0; i < (2 - defense); i++){
+//                activeRoaster = sortPlayersDescending(activeRoaster);
+//                activeRoaster.remove(0);
+//                System.out.println(activeRoaster.size());
+//            }
+//            activeRoaster.addAll(sortPlayersDescending(players).stream()
+//                    .filter(v -> v.getPosition().equals(PlayerPosition.DEFENSE.toString())
+//                            && v.isPlayerInjured() == false).limit(2 - defense)
+//                    .collect(Collectors.toList()));
+//        }
         activeRoaster.addAll(sortPlayersDescending(players).stream().filter(v ->
                 v.getPosition().equals(PlayerPosition.GOALIE.toString())
                         && v.isPlayerInjured() == false).limit(2).collect(Collectors.toList()));

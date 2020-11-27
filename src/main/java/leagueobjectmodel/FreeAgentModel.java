@@ -25,8 +25,11 @@ public class FreeAgentModel implements IFreeAgentModel {
     private boolean isRetired;
     private int retirementLikelyHood;
     private AgingModel agingModel;
+    @Expose
     private int birthDay;
+    @Expose
     private int birthMonth;
+    @Expose
     private int birthYear;
 
     public String getPlayerName() {

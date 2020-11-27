@@ -29,10 +29,13 @@ public class PlayerModel implements IPlayerModel {
     private float checking;
     @Expose
     private float saving;
+    @Expose
     private int birthDay;
+    @Expose
     private int birthMonth;
+    @Expose
     private int birthYear;
-    private boolean active;
+    private boolean isActive;
     private float playerStrength;
     private int retirementLikelyHood;
     private int injuryDays;
@@ -204,12 +207,12 @@ public class PlayerModel implements IPlayerModel {
 
     @Override
     public boolean getActive() {
-        return active;
+        return isActive;
     }
 
     @Override
     public void setActive(boolean active) {
-        this.active = active;
+        this.isActive = active;
     }
 
     @Override
@@ -327,11 +330,10 @@ public class PlayerModel implements IPlayerModel {
     public float calculateGoalieStrength(PlayerModel playerModel){
         return playerModel.getSkating() + playerModel.getSaving();
     }
+
     @Override
     public void checkPlayerInjury(PlayerModel playerModel, LocalDate date) {
-        if (playerModel.isPlayerInjured()) {
-            return;
-        } else {
+        if (playerModel.isPlayerInjured() == false) {
             float randomInjuryChance = injuriesModel.getRandomInjuryChance();
             int injuryDaysLow = injuriesModel.getInjuryDaysLow();
             int injuryDaysHigh = injuriesModel.getInjuryDaysHigh();
@@ -348,7 +350,6 @@ public class PlayerModel implements IPlayerModel {
         }
     }
 
-
     @Override
     public void recoverPlayer(PlayerModel playerModel, LocalDate date) {
         try {
@@ -364,6 +365,9 @@ public class PlayerModel implements IPlayerModel {
                 playerModel.setInjuredDate(null);
                 playerModel.setRecoveryDate(null);
                 System.out.println(playerModel.getPlayerName() + " Player Recovered from Injury");
+            }
+            if(playerModel.isPlayerInjured() == false){
+
             }
         } catch (Exception e) {
             System.out.println("Error in checkPlayerInjury method of player model" + e);

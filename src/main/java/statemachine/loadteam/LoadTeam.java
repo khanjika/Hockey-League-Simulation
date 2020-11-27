@@ -2,24 +2,24 @@ package statemachine.loadteam;
 
 import cli.CliAbstractFactory;
 import cli.ICli;
-import statemachine.jsonparser.Parser;
-import leagueobjectmodel.*;
-import database.serializeobject.FileValidator;
-
-import java.util.Scanner;
+import database.serializeobject.IFileValidator;
+import database.serializeobject.SerializeObjectAbstractFactory;
+import leagueobjectmodel.ILeagueModel;
+import leagueobjectmodel.ITeamsValidator;
+import leagueobjectmodel.LeagueObjectModelAbstractFactory;
+import statemachine.jsonparser.IParser;
+import statemachine.jsonparser.ParserAbstractFactory;
 
 public class LoadTeam implements ILoadTeam{
     private static ILeagueModel iLeagueModel;
     private static ITeamsValidator iTeamsValidator;
-    private static Parser parser;
-    private static FileValidator fileValidator;
+    private static IParser parser;
+    private static IFileValidator fileValidator;
     private ICli iCli;
-    Scanner scannerObject;
 
     public LoadTeam() {
-        parser = new Parser();
-        fileValidator = new FileValidator();
-        scannerObject = new Scanner(System.in);
+        parser = ParserAbstractFactory.getInstance().getParser();
+        fileValidator = SerializeObjectAbstractFactory.getInstance().getFileValidator();
         iTeamsValidator = LeagueObjectModelAbstractFactory.getInstance().getTeamsValidator();
         iCli = CliAbstractFactory.getInstance().getCli();
     }

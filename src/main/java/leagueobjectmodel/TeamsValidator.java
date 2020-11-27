@@ -30,8 +30,6 @@ public class TeamsValidator implements ITeamsValidator {
                 else{
                     goalie++;
                 }
-                System.out.println(teamsModel.getTeamName());
-                System.out.println(forward+defense+goalie);
                 if (playerValidator.validatePlayerObject(playerModel)) {
                     if (playerModel.isCaptain() && isPlayerCaptain == true) {
                         isPlayerCaptain = false;

@@ -22,7 +22,7 @@ public class Display implements IDisplay {
         Map<Integer, Integer> columnLength = new HashMap<Integer, Integer>();
         StringBuilder format = new StringBuilder();
         String[] header = {"Number", "Name", "Position",
-                "Age", "Checking", "Skating", "Shooting", "Saving"};
+                 "Checking", "Skating", "Shooting", "Saving"};
 
         IntStream.range(0, header.length).forEach(a -> {
             if (columnLength.get(a) == null) {
@@ -46,12 +46,12 @@ public class Display implements IDisplay {
         format.append("|\n");
         cli.printOutput(line);
         out.getOut().printf(format.toString(), header[0], header[1], header[2], header[3], header[4], header[5]
-                , header[6], header[7]);
+                , header[6]);
         cli.printOutput(line);
         IntStream.range(0, players.size()).forEach(index -> {
             out.getOut().printf(format.toString(),
                     index + 1, players.get(index).getPlayerName(), players.get(index).getPosition(),
-                    players.get(index).getAge(), players.get(index).getChecking(),
+                    players.get(index).getChecking(),
                     players.get(index).getSkating(), players.get(index).getShooting(),
                     players.get(index).getSaving());
         });
@@ -139,7 +139,7 @@ public class Display implements IDisplay {
         Map<Integer, Integer> columnLength = new HashMap<Integer, Integer>();
         StringBuilder format = new StringBuilder();
         String[] header = {"Number", "Name", "Position",
-                "Age", "Checking", "Skating", "Shooting", "Saving"};
+                 "Checking", "Skating", "Shooting", "Saving"};
 
         IntStream.range(0, header.length).forEach(a -> {
             if (columnLength.get(a) == null) {
@@ -163,12 +163,12 @@ public class Display implements IDisplay {
         format.append("|\n");
         cli.printOutput(line);
         out.getOut().printf(format.toString(), header[0], header[1], header[2], header[3], header[4], header[5]
-                , header[6], header[7]);
+                , header[6]);
         cli.printOutput(line);
         IntStream.range(0, freeAgentModel.size()).forEach(index -> {
             out.getOut().printf(format.toString(),
                     index + 1, freeAgentModel.get(index).getPlayerName(), freeAgentModel.get(index).getPosition(),
-                    freeAgentModel.get(index).getAge(), freeAgentModel.get(index).getChecking(),
+                     freeAgentModel.get(index).getChecking(),
                     freeAgentModel.get(index).getSkating(), freeAgentModel.get(index).getShooting(),
                     freeAgentModel.get(index).getSaving());
         });

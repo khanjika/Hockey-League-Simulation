@@ -1,5 +1,5 @@
 package statemachine.trophysystem;
 
 public interface IObserver {
-    void update();
+    void update(Subject subject);
 }

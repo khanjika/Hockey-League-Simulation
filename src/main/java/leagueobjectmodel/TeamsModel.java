@@ -151,6 +151,7 @@ public class TeamsModel implements ITeamsModel {
         currentPlayer.setActive(false);
         getActiveRoasters().add(replacementPlayer);
         replacementPlayer.setActive(true);
+        System.out.println(currentPlayer.getPlayerName()+" replaced with "+replacementPlayer.getPlayerName());
     }
     @Override
     public List<PlayerModel> getTotalForwards(){

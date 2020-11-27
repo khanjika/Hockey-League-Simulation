@@ -42,6 +42,7 @@ public class AgingState implements ITransition {
 
     @Override
     public void task() {
+        ISortTeams sortTeams = new SortTeams();
         iPlayerModel = new PlayerModel();
         daysToAge = 1;
         currentDate = stateMachine.getCurrentDate();
@@ -63,6 +64,7 @@ public class AgingState implements ITransition {
                         System.out.println("PLAYER NAME: "+playerModelTemp.getPlayerName());
                         iPlayerModel.aging(playerModelTemp, daysToAge, currentDate);
                     }
+                    sortTeams.sortActiveRoasters(teamsModel.getPlayers());
                 }
             }
         }

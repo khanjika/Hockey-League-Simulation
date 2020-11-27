@@ -1,29 +1,32 @@
 package statemachine.trophysystem;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
 public abstract class Subject {
     private List<IObserver> observers;
+    protected Map<String,Object> subjectMap;
 
     public Subject(){
-        observers =new ArrayList<IObserver>();
+        this.observers =new ArrayList<>();
+        this.subjectMap = new HashMap<>();
     }
 
     public void attach(IObserver observer){
         observers.add(observer);
-        notifyObservers();
     }
 
     public void detach(IObserver observer){
-        observers.add(observer);
+        observers.remove(observer);
     }
 
     public void notifyObservers(){
-        ListIterator<IObserver> observerList = observers.listIterator();
-        while(observerList.hasNext()){
-            observerList.next().update();
+        for (IObserver observer : observers){
+            observer.update(this);
         }
+        subjectMap.clear();
+    }
+
+    public Object getValue(String key){
+        return subjectMap.get(key);
     }
 }

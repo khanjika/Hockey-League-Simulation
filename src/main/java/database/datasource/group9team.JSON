@@ -9045,6 +9045,382 @@
                   "birthYear": 1989
                 }
               ]
+            },
+            {
+              "teamName": "group9team",
+              "generalManager": {
+                "name": "Pat Bishop",
+                "personality": "normal"
+              },
+              "headCoach": {
+                "name": "Don Marley",
+                "skating": 0.19,
+                "shooting": 0.52,
+                "checking": 0.26,
+                "saving": 0.11
+              },
+              "players": [
+                {
+                  "playerName": "Tina Greenbaum",
+                  "position": "forward",
+                  "captain": true,
+                  "age": 0,
+                  "shooting": 19.0,
+                  "checking": 1.0,
+                  "saving": 16.0,
+                  "birthDay": 27,
+                  "birthMonth": 2,
+                  "birthYear": 1986
+                },
+                {
+                  "playerName": "Roger Chang",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 0,
+                  "shooting": 5.0,
+                  "checking": 1.0,
+                  "saving": 11.0,
+                  "birthDay": 10,
+                  "birthMonth": 9,
+                  "birthYear": 1987
+                },
+                {
+                  "playerName": "Rob Rogers",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 0,
+                  "shooting": 8.0,
+                  "checking": 20.0,
+                  "saving": 4.0,
+                  "birthDay": 1,
+                  "birthMonth": 12,
+                  "birthYear": 1987
+                },
+                {
+                  "playerName": "Jimmy Cherry",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 0,
+                  "shooting": 5.0,
+                  "checking": 14.0,
+                  "saving": 10.0,
+                  "birthDay": 24,
+                  "birthMonth": 9,
+                  "birthYear": 2000
+                },
+                {
+                  "playerName": "Nancy Samson",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 0,
+                  "shooting": 15.0,
+                  "checking": 10.0,
+                  "saving": 2.0,
+                  "birthDay": 22,
+                  "birthMonth": 12,
+                  "birthYear": 1996
+                },
+                {
+                  "playerName": "Raghav Bishop",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 0,
+                  "shooting": 15.0,
+                  "checking": 5.0,
+                  "saving": 12.0,
+                  "birthDay": 2,
+                  "birthMonth": 3,
+                  "birthYear": 2001
+                },
+                {
+                  "playerName": "Mozhgan Nelson",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 0,
+                  "shooting": 16.0,
+                  "checking": 15.0,
+                  "saving": 14.0,
+                  "birthDay": 15,
+                  "birthMonth": 6,
+                  "birthYear": 1997
+                },
+                {
+                  "playerName": "Nancy Liu",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 0,
+                  "shooting": 14.0,
+                  "checking": 9.0,
+                  "saving": 18.0,
+                  "birthDay": 27,
+                  "birthMonth": 4,
+                  "birthYear": 1996
+                },
+                {
+                  "playerName": "Tina Jones",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 0,
+                  "shooting": 2.0,
+                  "checking": 16.0,
+                  "saving": 8.0,
+                  "birthDay": 15,
+                  "birthMonth": 4,
+                  "birthYear": 1994
+                },
+                {
+                  "playerName": "Bonnie Williamson",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 0,
+                  "shooting": 7.0,
+                  "checking": 17.0,
+                  "saving": 14.0,
+                  "birthDay": 15,
+                  "birthMonth": 3,
+                  "birthYear": 1985
+                },
+                {
+                  "playerName": "Karan Smith",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 0,
+                  "shooting": 1.0,
+                  "checking": 7.0,
+                  "saving": 8.0,
+                  "birthDay": 8,
+                  "birthMonth": 2,
+                  "birthYear": 1988
+                },
+                {
+                  "playerName": "Fred Fei",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 0,
+                  "shooting": 4.0,
+                  "checking": 12.0,
+                  "saving": 6.0,
+                  "birthDay": 25,
+                  "birthMonth": 2,
+                  "birthYear": 1998
+                },
+                {
+                  "playerName": "Shakuntala Page",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 0,
+                  "shooting": 8.0,
+                  "checking": 1.0,
+                  "saving": 14.0,
+                  "birthDay": 21,
+                  "birthMonth": 12,
+                  "birthYear": 1999
+                },
+                {
+                  "playerName": "Shakuntala Greenbaum",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 0,
+                  "shooting": 12.0,
+                  "checking": 5.0,
+                  "saving": 16.0,
+                  "birthDay": 19,
+                  "birthMonth": 6,
+                  "birthYear": 1997
+                },
+                {
+                  "playerName": "Mary Jones",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 0,
+                  "shooting": 9.0,
+                  "checking": 11.0,
+                  "saving": 7.0,
+                  "birthDay": 6,
+                  "birthMonth": 7,
+                  "birthYear": 1989
+                },
+                {
+                  "playerName": "Roger Thomson",
+                  "position": "forward",
+                  "captain": false,
+                  "age": 0,
+                  "shooting": 17.0,
+                  "checking": 16.0,
+                  "saving": 11.0,
+                  "birthDay": 4,
+                  "birthMonth": 11,
+                  "birthYear": 1991
+                },
+                {
+                  "playerName": "Shakuntala Fei",
+                  "position": "defense",
+                  "captain": false,
+                  "age": 0,
+                  "shooting": 20.0,
+                  "checking": 11.0,
+                  "saving": 4.0,
+                  "birthDay": 4,
+                  "birthMonth": 4,
+                  "birthYear": 1993
+                },
+                {
+                  "playerName": "Nancy Singh",
+                  "position": "defense",
+                  "captain": false,
+                  "age": 0,
+                  "shooting": 19.0,
+                  "checking": 6.0,
+                  "saving": 2.0,
+                  "birthDay": 10,
+                  "birthMonth": 11,
+                  "birthYear": 1993
+                },
+                {
+                  "playerName": "Don Bishop",
+                  "position": "defense",
+                  "captain": false,
+                  "age": 0,
+                  "shooting": 11.0,
+                  "checking": 9.0,
+                  "saving": 15.0,
+                  "birthDay": 6,
+                  "birthMonth": 6,
+                  "birthYear": 1993
+                },
+                {
+                  "playerName": "Sammy Khatri",
+                  "position": "defense",
+                  "captain": false,
+                  "age": 0,
+                  "shooting": 16.0,
+                  "checking": 6.0,
+                  "saving": 18.0,
+                  "birthDay": 17,
+                  "birthMonth": 6,
+                  "birthYear": 1995
+                },
+                {
+                  "playerName": "Prabhjot Marley",
+                  "position": "defense",
+                  "captain": false,
+                  "age": 0,
+                  "shooting": 10.0,
+                  "checking": 7.0,
+                  "saving": 15.0,
+                  "birthDay": 14,
+                  "birthMonth": 9,
+                  "birthYear": 1992
+                },
+                {
+                  "playerName": "Mozhgan Burbchuk",
+                  "position": "defense",
+                  "captain": false,
+                  "age": 0,
+                  "shooting": 12.0,
+                  "checking": 6.0,
+                  "saving": 11.0,
+                  "birthDay": 25,
+                  "birthMonth": 5,
+                  "birthYear": 2001
+                },
+                {
+                  "playerName": "Bonnie Nelson",
+                  "position": "defense",
+                  "captain": false,
+                  "age": 0,
+                  "shooting": 1.0,
+                  "checking": 2.0,
+                  "saving": 8.0,
+                  "birthDay": 8,
+                  "birthMonth": 1,
+                  "birthYear": 1985
+                },
+                {
+                  "playerName": "Jimmy Halen",
+                  "position": "defense",
+                  "captain": false,
+                  "age": 0,
+                  "shooting": 16.0,
+                  "checking": 16.0,
+                  "saving": 18.0,
+                  "birthDay": 8,
+                  "birthMonth": 12,
+                  "birthYear": 2000
+                },
+                {
+                  "playerName": "Abraham Khatri",
+                  "position": "defense",
+                  "captain": false,
+                  "age": 0,
+                  "shooting": 20.0,
+                  "checking": 12.0,
+                  "saving": 7.0,
+                  "birthDay": 19,
+                  "birthMonth": 1,
+                  "birthYear": 1992
+                },
+                {
+                  "playerName": "Sai Williamson",
+                  "position": "defense",
+                  "captain": false,
+                  "age": 0,
+                  "shooting": 16.0,
+                  "checking": 9.0,
+                  "saving": 17.0,
+                  "birthDay": 2,
+                  "birthMonth": 9,
+                  "birthYear": 1991
+                },
+                {
+                  "playerName": "Raghav Greenbaum",
+                  "position": "goalie",
+                  "captain": false,
+                  "age": 0,
+                  "shooting": 4.0,
+                  "checking": 19.0,
+                  "saving": 17.0,
+                  "birthDay": 26,
+                  "birthMonth": 5,
+                  "birthYear": 1991
+                },
+                {
+                  "playerName": "Walter Rogers",
+                  "position": "goalie",
+                  "captain": false,
+                  "age": 0,
+                  "shooting": 19.0,
+                  "checking": 10.0,
+                  "saving": 3.0,
+                  "birthDay": 28,
+                  "birthMonth": 4,
+                  "birthYear": 1986
+                },
+                {
+                  "playerName": "Karan Bishop",
+                  "position": "goalie",
+                  "captain": false,
+                  "age": 0,
+                  "shooting": 18.0,
+                  "checking": 12.0,
+                  "saving": 2.0,
+                  "birthDay": 6,
+                  "birthMonth": 10,
+                  "birthYear": 1998
+                },
+                {
+                  "playerName": "Rashita Smith",
+                  "position": "goalie",
+                  "captain": false,
+                  "age": 0,
+                  "shooting": 7.0,
+                  "checking": 9.0,
+                  "saving": 6.0,
+                  "birthDay": 1,
+                  "birthMonth": 11,
+                  "birthYear": 2002
+                }
+              ]
             }
           ]
         },
@@ -12066,114 +12442,6 @@
   ],
   "freeAgents": [
     {
-      "playerName": "Shakuntala Fei",
-      "position": "defense",
-      "age": 0,
-      "skating": 5.0,
-      "shooting": 20.0,
-      "checking": 11.0,
-      "saving": 4.0,
-      "birthDay": 4,
-      "birthMonth": 4,
-      "birthYear": 1993
-    },
-    {
-      "playerName": "Raghav Greenbaum",
-      "position": "goalie",
-      "age": 0,
-      "skating": 1.0,
-      "shooting": 4.0,
-      "checking": 19.0,
-      "saving": 17.0,
-      "birthDay": 26,
-      "birthMonth": 5,
-      "birthYear": 1991
-    },
-    {
-      "playerName": "Tina Greenbaum",
-      "position": "forward",
-      "age": 0,
-      "skating": 8.0,
-      "shooting": 19.0,
-      "checking": 1.0,
-      "saving": 16.0,
-      "birthDay": 27,
-      "birthMonth": 2,
-      "birthYear": 1986
-    },
-    {
-      "playerName": "Nancy Singh",
-      "position": "defense",
-      "age": 0,
-      "skating": 15.0,
-      "shooting": 19.0,
-      "checking": 6.0,
-      "saving": 2.0,
-      "birthDay": 10,
-      "birthMonth": 11,
-      "birthYear": 1993
-    },
-    {
-      "playerName": "Walter Rogers",
-      "position": "goalie",
-      "age": 0,
-      "skating": 16.0,
-      "shooting": 19.0,
-      "checking": 10.0,
-      "saving": 3.0,
-      "birthDay": 28,
-      "birthMonth": 4,
-      "birthYear": 1986
-    },
-    {
-      "playerName": "Don Bishop",
-      "position": "defense",
-      "age": 0,
-      "skating": 15.0,
-      "shooting": 11.0,
-      "checking": 9.0,
-      "saving": 15.0,
-      "birthDay": 6,
-      "birthMonth": 6,
-      "birthYear": 1993
-    },
-    {
-      "playerName": "Karan Bishop",
-      "position": "goalie",
-      "age": 0,
-      "skating": 14.0,
-      "shooting": 18.0,
-      "checking": 12.0,
-      "saving": 2.0,
-      "birthDay": 6,
-      "birthMonth": 10,
-      "birthYear": 1998
-    },
-    {
-      "playerName": "Rashita Smith",
-      "position": "goalie",
-      "age": 0,
-      "skating": 1.0,
-      "shooting": 7.0,
-      "checking": 9.0,
-      "saving": 6.0,
-      "birthDay": 1,
-      "birthMonth": 11,
-      "birthYear": 2002
-    },
-    {
-      "playerName": "Roger Chang",
-      "position": "forward",
-      "age": 0,
-      "skating": 16.0,
-      "shooting": 5.0,
-      "checking": 1.0,
-      "saving": 11.0,
-      "birthDay": 10,
-      "birthMonth": 9,
-      "birthYear": 1987
-    },
-    {
       "playerName": "Abraham Bonham",
       "position": "goalie",
       "age": 0,
@@ -12184,30 +12452,6 @@
       "birthDay": 5,
       "birthMonth": 6,
       "birthYear": 1996
-    },
-    {
-      "playerName": "Rob Rogers",
-      "position": "forward",
-      "age": 0,
-      "skating": 9.0,
-      "shooting": 8.0,
-      "checking": 20.0,
-      "saving": 4.0,
-      "birthDay": 1,
-      "birthMonth": 12,
-      "birthYear": 1987
-    },
-    {
-      "playerName": "Sammy Khatri",
-      "position": "defense",
-      "age": 0,
-      "skating": 20.0,
-      "shooting": 16.0,
-      "checking": 6.0,
-      "saving": 18.0,
-      "birthDay": 17,
-      "birthMonth": 6,
-      "birthYear": 1995
     },
     {
       "playerName": "Raghav Singh",
@@ -12222,18 +12466,6 @@
       "birthYear": 1991
     },
     {
-      "playerName": "Prabhjot Marley",
-      "position": "defense",
-      "age": 0,
-      "skating": 2.0,
-      "shooting": 10.0,
-      "checking": 7.0,
-      "saving": 15.0,
-      "birthDay": 14,
-      "birthMonth": 9,
-      "birthYear": 1992
-    },
-    {
       "playerName": "Nancy Page",
       "position": "goalie",
       "age": 0,
@@ -12244,42 +12476,6 @@
       "birthDay": 16,
       "birthMonth": 7,
       "birthYear": 1990
-    },
-    {
-      "playerName": "Mozhgan Burbchuk",
-      "position": "defense",
-      "age": 0,
-      "skating": 7.0,
-      "shooting": 12.0,
-      "checking": 6.0,
-      "saving": 11.0,
-      "birthDay": 25,
-      "birthMonth": 5,
-      "birthYear": 2001
-    },
-    {
-      "playerName": "Jimmy Cherry",
-      "position": "forward",
-      "age": 0,
-      "skating": 14.0,
-      "shooting": 5.0,
-      "checking": 14.0,
-      "saving": 10.0,
-      "birthDay": 24,
-      "birthMonth": 9,
-      "birthYear": 2000
-    },
-    {
-      "playerName": "Bonnie Nelson",
-      "position": "defense",
-      "age": 0,
-      "skating": 5.0,
-      "shooting": 1.0,
-      "checking": 2.0,
-      "saving": 8.0,
-      "birthDay": 8,
-      "birthMonth": 1,
-      "birthYear": 1985
     },
     {
       "playerName": "Shakuntala Halen",
@@ -12294,30 +12490,6 @@
       "birthYear": 1986
     },
     {
-      "playerName": "Jimmy Halen",
-      "position": "defense",
-      "age": 0,
-      "skating": 4.0,
-      "shooting": 16.0,
-      "checking": 16.0,
-      "saving": 18.0,
-      "birthDay": 8,
-      "birthMonth": 12,
-      "birthYear": 2000
-    },
-    {
-      "playerName": "Abraham Khatri",
-      "position": "defense",
-      "age": 0,
-      "skating": 3.0,
-      "shooting": 20.0,
-      "checking": 12.0,
-      "saving": 7.0,
-      "birthDay": 19,
-      "birthMonth": 1,
-      "birthYear": 1992
-    },
-    {
       "playerName": "Chris Samson",
       "position": "goalie",
       "age": 0,
@@ -12328,18 +12500,6 @@
       "birthDay": 18,
       "birthMonth": 2,
       "birthYear": 1986
-    },
-    {
-      "playerName": "Sai Williamson",
-      "position": "defense",
-      "age": 0,
-      "skating": 9.0,
-      "shooting": 16.0,
-      "checking": 9.0,
-      "saving": 17.0,
-      "birthDay": 2,
-      "birthMonth": 9,
-      "birthYear": 1991
     },
     {
       "playerName": "John Burbchuk",
@@ -12402,18 +12562,6 @@
       "birthYear": 1989
     },
     {
-      "playerName": "Nancy Samson",
-      "position": "forward",
-      "age": 0,
-      "skating": 11.0,
-      "shooting": 15.0,
-      "checking": 10.0,
-      "saving": 2.0,
-      "birthDay": 22,
-      "birthMonth": 12,
-      "birthYear": 1996
-    },
-    {
       "playerName": "Roger Smith",
       "position": "defense",
       "age": 0,
@@ -12438,18 +12586,6 @@
       "birthYear": 2001
     },
     {
-      "playerName": "Raghav Bishop",
-      "position": "forward",
-      "age": 0,
-      "skating": 9.0,
-      "shooting": 15.0,
-      "checking": 5.0,
-      "saving": 12.0,
-      "birthDay": 2,
-      "birthMonth": 3,
-      "birthYear": 2001
-    },
-    {
       "playerName": "Rob Hendrix",
       "position": "defense",
       "age": 0,
@@ -12460,42 +12596,6 @@
       "birthDay": 2,
       "birthMonth": 8,
       "birthYear": 1987
-    },
-    {
-      "playerName": "Mozhgan Nelson",
-      "position": "forward",
-      "age": 0,
-      "skating": 18.0,
-      "shooting": 16.0,
-      "checking": 15.0,
-      "saving": 14.0,
-      "birthDay": 15,
-      "birthMonth": 6,
-      "birthYear": 1997
-    },
-    {
-      "playerName": "Nancy Liu",
-      "position": "forward",
-      "age": 0,
-      "skating": 13.0,
-      "shooting": 14.0,
-      "checking": 9.0,
-      "saving": 18.0,
-      "birthDay": 27,
-      "birthMonth": 4,
-      "birthYear": 1996
-    },
-    {
-      "playerName": "Tina Jones",
-      "position": "forward",
-      "age": 0,
-      "skating": 14.0,
-      "shooting": 2.0,
-      "checking": 16.0,
-      "saving": 8.0,
-      "birthDay": 15,
-      "birthMonth": 4,
-      "birthYear": 1994
     },
     {
       "playerName": "Prabhjot Chang",
@@ -12520,42 +12620,6 @@
       "birthDay": 6,
       "birthMonth": 7,
       "birthYear": 1989
-    },
-    {
-      "playerName": "Bonnie Williamson",
-      "position": "forward",
-      "age": 0,
-      "skating": 16.0,
-      "shooting": 7.0,
-      "checking": 17.0,
-      "saving": 14.0,
-      "birthDay": 15,
-      "birthMonth": 3,
-      "birthYear": 1985
-    },
-    {
-      "playerName": "Karan Smith",
-      "position": "forward",
-      "age": 0,
-      "skating": 19.0,
-      "shooting": 1.0,
-      "checking": 7.0,
-      "saving": 8.0,
-      "birthDay": 8,
-      "birthMonth": 2,
-      "birthYear": 1988
-    },
-    {
-      "playerName": "Fred Fei",
-      "position": "forward",
-      "age": 0,
-      "skating": 4.0,
-      "shooting": 4.0,
-      "checking": 12.0,
-      "saving": 6.0,
-      "birthDay": 25,
-      "birthMonth": 2,
-      "birthYear": 1998
     },
     {
       "playerName": "Jimmy Williamson",
@@ -12642,18 +12706,6 @@
       "birthYear": 1994
     },
     {
-      "playerName": "Shakuntala Page",
-      "position": "forward",
-      "age": 0,
-      "skating": 7.0,
-      "shooting": 8.0,
-      "checking": 1.0,
-      "saving": 14.0,
-      "birthDay": 21,
-      "birthMonth": 12,
-      "birthYear": 1999
-    },
-    {
       "playerName": "Mohammed Jones",
       "position": "goalie",
       "age": 0,
@@ -12666,18 +12718,6 @@
       "birthYear": 2000
     },
     {
-      "playerName": "Shakuntala Greenbaum",
-      "position": "forward",
-      "age": 0,
-      "skating": 14.0,
-      "shooting": 12.0,
-      "checking": 5.0,
-      "saving": 16.0,
-      "birthDay": 19,
-      "birthMonth": 6,
-      "birthYear": 1997
-    },
-    {
       "playerName": "Roger Halen",
       "position": "goalie",
       "age": 0,
@@ -12688,30 +12728,6 @@
       "birthDay": 14,
       "birthMonth": 9,
       "birthYear": 1997
-    },
-    {
-      "playerName": "Mary Jones",
-      "position": "forward",
-      "age": 0,
-      "skating": 13.0,
-      "shooting": 9.0,
-      "checking": 11.0,
-      "saving": 7.0,
-      "birthDay": 6,
-      "birthMonth": 7,
-      "birthYear": 1989
-    },
-    {
-      "playerName": "Roger Thomson",
-      "position": "forward",
-      "age": 0,
-      "skating": 6.0,
-      "shooting": 17.0,
-      "checking": 16.0,
-      "saving": 11.0,
-      "birthDay": 4,
-      "birthMonth": 11,
-      "birthYear": 1991
     },
     {
       "playerName": "Mozhgan Greenbaum",
@@ -13015,13 +13031,6 @@
     }
   ],
   "coaches": [
-    {
-      "name": "Don Marley",
-      "skating": 0.19,
-      "shooting": 0.52,
-      "checking": 0.26,
-      "saving": 0.11
-    },
     {
       "name": "Hardik Page",
       "skating": 0.78,
@@ -13696,10 +13705,6 @@
     }
   ],
   "generalManagers": [
-    {
-      "name": "Pat Bishop",
-      "personality": "normal"
-    },
     {
       "name": "Pat Hendrix",
       "personality": "normal"
