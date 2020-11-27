@@ -3,6 +3,7 @@ package statemachine.states.statemachine.states.simulateGame;
 import leagueobjectmodel.LeagueModel;
 import leagueobjectmodel.PlayerModel;
 import leagueobjectmodel.TeamsModel;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +27,7 @@ public class GameConfiguration implements IGameConfiguration {
     private List<PlayerModel> currentShiftDefenseOfTeamTwo = new ArrayList<>();
     private List<PlayerModel> currentShiftForwardOfTeamOne = new ArrayList<>();
     private List<PlayerModel> currentShiftForwardOfTeamTwo = new ArrayList<>();
-
+    final static Logger logger = Logger.getLogger(GameConfiguration.class);
     GameSimulationAbstractFactory objFactory;
     int penaltyCounter = 0;
 
@@ -209,12 +210,15 @@ public class GameConfiguration implements IGameConfiguration {
 
             }
             objFactory.getGameConfig().setAverageShotsOnGoal(averageShotsOnGoal);
+            logger.info("Average goal on shots are set");
         }
         catch (NullPointerException nullPointerException){
-            throw new NullPointerException();
+            logger.error("Null pointer exception in the setAverageGoal Method");
+            throw nullPointerException;
         }
         catch (Exception e){
-            throw new Exception();
+            logger.error("Exception occured in the setAverageGoal Method");
+            throw e;
         }
 
     }

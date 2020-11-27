@@ -10,12 +10,18 @@ public class Deadlines implements IDeadlines {
 
     @Override
     public LocalDate getRegularSeasonStartDate(int year) {
+        if(year==0){
+            throw new IllegalArgumentException("variable year is not initialized properly for match schedule class");
+        }
         LocalDate date = LocalDate.of(year, 10, 1);
         return date;
     }
 
     @Override
     public LocalDate getTradeDeadlineDate(int year) {
+        if(year==0){
+            throw new IllegalArgumentException("variable year is not initialized properly for match schedule class");
+        }
         YearMonth ym = YearMonth.of(year, Month.FEBRUARY);
         LocalDate ld = ym.atDay(1);
         int ordinal = 4;
@@ -25,6 +31,9 @@ public class Deadlines implements IDeadlines {
 
     @Override
     public LocalDate getEndOfRegularSeasonDate(int year) {
+        if(year==0){
+            throw new IllegalArgumentException("variable year is not initialized properly for match schedule class");
+        }
         YearMonth ym = YearMonth.of(year, Month.APRIL);
         LocalDate ld = ym.atDay(1);
         int ordinal = 1;
@@ -34,7 +43,10 @@ public class Deadlines implements IDeadlines {
 
     @Override
     public LocalDate getPlayOffStartDate(int year) {
-        YearMonth ym = YearMonth.of(year, Month.APRIL); // Or pass '2' for 'February'.
+        if(year==0){
+            throw new IllegalArgumentException("variable year is not initialized properly for match schedule class");
+        }
+        YearMonth ym = YearMonth.of(year, Month.APRIL);
         LocalDate ld = ym.atDay(1);
         int ordinal = 2;
         LocalDate playOffStartDate = ld.with(TemporalAdjusters.dayOfWeekInMonth(ordinal, DayOfWeek.WEDNESDAY));
@@ -44,6 +56,9 @@ public class Deadlines implements IDeadlines {
 
     @Override
     public LocalDate getLastDayOfStanleyCup(int year) {
+        if(year==0){
+            throw new IllegalArgumentException("variable year is not initialized properly for match schedule class");
+        }
         LocalDate lastDayForSatnlyCup = LocalDate.of(year, 6, 1);
         return lastDayForSatnlyCup;
     }

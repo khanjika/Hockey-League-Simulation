@@ -1,11 +1,15 @@
 package statemachine.states.statemachine.states.simulateGame;
 
+import org.apache.log4j.Logger;
+
 public abstract class GameSimulationAbstractFactory {
 
     private static GameSimulationAbstractFactoryConcrete instance;
+    final static Logger logger = Logger.getLogger(GameSimulationAbstractFactory.class);
 
     public static GameSimulationAbstractFactory getGameSimulationInstance(){
             if(instance==null){
+                logger.info("New Object of GameSimulationAbstractFactory is created");
                 instance=new GameSimulationAbstractFactoryConcrete();
             }
             return instance;

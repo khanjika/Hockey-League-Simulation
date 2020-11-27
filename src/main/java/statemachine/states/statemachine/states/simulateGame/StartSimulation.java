@@ -1,16 +1,21 @@
 package statemachine.states.statemachine.states.simulateGame;
 
 import leagueobjectmodel.*;
-import org.omg.CORBA.TRANSACTION_MODE;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
+//NO USE OF NEW IN EXCEPTION
+//MATCH SCEDULE EXCEPTION HANDLING WITH ILLEGAL ARGUMENT
+//STATE Error Handling
 public class StartSimulation implements IStartSimulation{
 
     private static TeamsModel teamOneObject;
     private static TeamsModel teamTwoObject;
+    private int averageShotsOnGoal = 40;
+    private boolean isThisPlayOff;
     private static LeagueModel leagueModelObject;
     private List<PlayerModel> listOfGoalieOfTeamOne = new ArrayList<>();
     private List<PlayerModel> listOfGoaliesOfTeamTwo = new ArrayList<>();
@@ -25,30 +30,30 @@ public class StartSimulation implements IStartSimulation{
     private List<PlayerModel> currentShiftDefenseOfTeamTwo = new ArrayList<>();
     private List<PlayerModel> currentShiftForwardOfTeamOne = new ArrayList<>();
     private List<PlayerModel> currentShiftForwardOfTeamTwo = new ArrayList<>();
-    private int penaltyCounter = 0;
-    private boolean isThisPlayOff;
-    private static IGameConfiguration gameConfiguration;
-    GameSimulationAbstractFactory objFactory;
-    IPlayerModel playerModel;
 
-    public StartSimulation(){ }
+    int penaltyCounter = 0;
+    private int maxPenalty=4;
+    private static IGameConfiguration gameConfiguration;
+    private  GameSimulationAbstractFactory objFactory;
+    private LeagueObjectModelAbstractFactory leagueObjectModelAbstractFactory;
+    final static Logger logger = Logger.getLogger(StartSimulation.class);
+    public StartSimulation() {
+    }
 
     public void setRequiredAttributeForSimulation(TeamsModel teamOne, TeamsModel teamTwo, LeagueModel leagueModel, boolean isPlayOff, GameSimulationAbstractFactory obj) throws Exception {
+       if(teamOne==null || teamTwo==null || leagueModel==null || obj==null){
+           throw new NullPointerException();
+       }
         teamOneObject = teamOne;
         teamTwoObject = teamTwo;
         leagueModelObject = leagueModel;
         isThisPlayOff = isPlayOff;
-        if (obj == null) {
-            throw new NullPointerException();
-        }
-        this.objFactory = obj;
-        gameConfiguration = obj.getGameConfig();
-        playerModel = LeagueObjectModelAbstractFactory.getInstance().getPlayer();
-        System.out.println("Data is set for the simulation ");
+        this.objFactory=obj;
+        gameConfiguration=obj.getGameConfig();
+        leagueObjectModelAbstractFactory=LeagueObjectModelAbstractFactory.getInstance();
     }
 
-    @Override
-    public void separatePlayerByPosition() throws Exception {
+    public void separatePlayerByPosition(){
         leagueModelObject.setPenaltyChance((float) 0.5);
         for (PlayerModel playerModel : teamOneObject.getPlayers()) {
             if (playerModel.getPosition().equals((PlayerPosition.FORWARD.toString()))) {
@@ -68,35 +73,35 @@ public class StartSimulation implements IStartSimulation{
                 listOfDefenseOfTeamTwo.add(playerModel);
             }
         }
-        gameConfiguration.setListOfForwardOfTeamOne(listOfForwardOfTeamOne);
-        gameConfiguration.setListOfForwardOfTeamTwo(listOfForwardOfTeamTwo);
-        gameConfiguration.setListOfDefenseOfTeamOne(listOfDefenseOfTeamOne);
-        gameConfiguration.setListOfDefenseOfTeamTwo(listOfDefenseOfTeamTwo);
-        gameConfiguration.setListOfGoalieOfTeamOne(listOfGoalieOfTeamOne);
-        gameConfiguration.setListOfGoaliesOfTeamTwo(listOfGoaliesOfTeamTwo);
-        objFactory.getSwapTurn().setAbstractFactoryObject(objFactory);
+
+        if(listOfDefenseOfTeamOne==null||listOfDefenseOfTeamTwo==null||listOfForwardOfTeamOne==null||listOfForwardOfTeamTwo==null||listOfGoalieOfTeamOne==null||listOfGoaliesOfTeamTwo==null){
+            logger.error("Null pointer exception while separating player by position and adding them to the list");
+            throw new NullPointerException();
+        }
+        else {
+            gameConfiguration.setListOfForwardOfTeamOne(listOfForwardOfTeamOne);
+            gameConfiguration.setListOfForwardOfTeamTwo(listOfForwardOfTeamTwo);
+            gameConfiguration.setListOfDefenseOfTeamOne(listOfDefenseOfTeamOne);
+            gameConfiguration.setListOfDefenseOfTeamTwo(listOfDefenseOfTeamTwo);
+            gameConfiguration.setListOfGoalieOfTeamOne(listOfGoalieOfTeamOne);
+            gameConfiguration.setListOfGoaliesOfTeamTwo(listOfGoaliesOfTeamTwo);
+            objFactory.getSwapTurn().setAbstractFactoryObject(objFactory);
+        }
     }
 
-    @Override
-    public void setAverageShotsOnGoal() throws Exception {
+    public void setAverageShotsOnGoal() throws Exception{
         gameConfiguration.setAbstractFactoryObject(objFactory);
         gameConfiguration.setAverageShotsOnGoal();
     }
 
-    @Override
-    public void initializeShifts() throws Exception {
-        try {
-            fillCurrentShiftData();
-        }
-        catch (Exception e){
-            throw new Exception();
-        }
-        for (int i = 0; i < 3; i++) {
-            if (i == 2 && isThisPlayOff == false) {
+    public void initializeShifts() throws Exception{
+        fillCurrentShiftData();
+        for (int period = 0; period < 3; period++) {
+            if (period == 2 && isThisPlayOff==false) {
                 replaceCurrentGoalie();
             }
-            for (int j = 0; j < 40; j++) {
-                if (j == 37) {
+            for (int shifts= 0; shifts < 40; shifts++) {
+                if (shifts == 37) {
                     replaceDefenseAndForward();
                 }
                 performGameSimulation();
@@ -137,35 +142,40 @@ public class StartSimulation implements IStartSimulation{
                 swapTurnOfTeam();
                 performGameSimulation();
             }
-        } catch (Exception e) {
-            throw new Exception();
+            logger.info("Shift complete for "+teamOneObject.getTeamName()+" and "+teamTwoObject.getTeamName());
+        }
+        catch (Exception e){
+            logger.error("Exception occurred while performing shift simulation between two teams");
+            throw e;
         }
     }
 
-    public float getShootingState(List<PlayerModel> playerModelList) {
-        if (playerModelList == null) {
+    public float getShootingState(List<PlayerModel> playerModelList){
+        if(playerModelList==null){
             throw new NullPointerException();
         }
-        return playerModel.getShootingState(playerModelList);
+        return leagueObjectModelAbstractFactory.getPlayer().getShootingState(playerModelList);
     }
 
     public float getCheckingState(List<PlayerModel> playerModelList) {
-        if (playerModelList == null) {
+        if(playerModelList==null){
             throw new NullPointerException();
         }
-        return playerModel.getCheckingState(playerModelList);
+        return leagueObjectModelAbstractFactory.getPlayer().getCheckingState(playerModelList);
     }
 
     public float getSavingState(List<PlayerModel> playerModelList) {
-        if (playerModelList == null) {
+        if(playerModelList==null){
             throw new NullPointerException();
         }
-        return playerModel.getSavingState(playerModelList);
+        return leagueObjectModelAbstractFactory.getPlayer().getSavingState(playerModelList);
     }
+
 
     public void swapTurnOfTeam() {
         objFactory.getSwapTurn().swapTurnOfTeam();
     }
+
 
     public void fillCurrentShiftData() {
         try {
@@ -174,10 +184,11 @@ public class StartSimulation implements IStartSimulation{
             currentShiftForwardOfTeamOne.add(listOfForwardOfTeamOne.get(0));
             currentShiftForwardOfTeamOne.add(listOfForwardOfTeamOne.get(1));
             currentShiftForwardOfTeamOne.add(listOfForwardOfTeamOne.get(2));
-            if (isThisPlayOff) {
+            if(isThisPlayOff){
                 currentShiftGoalieOfTeamOne.add(getBestGoalieFromTheTeam(listOfGoalieOfTeamOne));
                 currentShiftGoalieOfTeamTwo.add(getBestGoalieFromTheTeam(listOfGoaliesOfTeamTwo));
-            } else {
+            }
+            else {
                 currentShiftGoalieOfTeamOne.add(listOfGoalieOfTeamOne.get(0));
                 currentShiftGoalieOfTeamTwo.add(listOfGoaliesOfTeamTwo.get(0));
             }
@@ -188,6 +199,7 @@ public class StartSimulation implements IStartSimulation{
             currentShiftForwardOfTeamTwo.add(listOfForwardOfTeamTwo.get(1));
             currentShiftForwardOfTeamTwo.add(listOfForwardOfTeamTwo.get(2));
 
+
             gameConfiguration.setCurrentShiftDefenseOfTeamOne(currentShiftDefenseOfTeamOne);
             gameConfiguration.setCurrentShiftDefenseOfTeamTwo(currentShiftDefenseOfTeamTwo);
             gameConfiguration.setCurrentShiftForwardOfTeamOne(currentShiftForwardOfTeamOne);
@@ -195,8 +207,10 @@ public class StartSimulation implements IStartSimulation{
             gameConfiguration.setCurrentShiftGoalieOfTeamOne(currentShiftGoalieOfTeamOne);
             gameConfiguration.setCurrentShiftGoalieOfTeamTwo(currentShiftGoalieOfTeamTwo);
 
+
         } catch (NullPointerException e) {
-            System.out.println("Exception while filling current shift information" + e.getMessage());
+            logger.error("Exception while filling current shift information"+e.getMessage());
+            throw e;
         }
     }
 
@@ -205,9 +219,10 @@ public class StartSimulation implements IStartSimulation{
         try {
             currentDefenseList.get(0).setTotalPenaltyCount(currentDefenseList.get(0).getTotalPenaltyCount() + 1);
             currentDefenseList.get(0).setCurrentPenaltyCount(4);
-            penaltyCounter = 4;
+            penaltyCounter = maxPenalty;
         } catch (NullPointerException e) {
-            throw new NullPointerException();
+            logger.error("Exception while performing penalty for the currentDefense list"+e.getMessage());
+            throw e;
         }
     }
 
@@ -219,11 +234,12 @@ public class StartSimulation implements IStartSimulation{
         objFactory.getSwapTurn().swapTurnOfForwardAndDefense();
     }
 
-    public PlayerModel getBestGoalieFromTheTeam(List<PlayerModel> list) {
-        if (list == null) {
+
+    public PlayerModel getBestGoalieFromTheTeam(List<PlayerModel> list) throws NullPointerException{
+        if(list==null){
+            logger.error("List is null while getting best goalie from the team during game simulation");
             throw new NullPointerException();
         }
-        ITeamsModel teamsModel=LeagueObjectModelAbstractFactory.getInstance().getTeams();
-        return teamsModel.getBestGoalieFromTheTeam(list);
+        return leagueObjectModelAbstractFactory.getTeams().getBestGoalieFromTheTeam(list);
     }
 }
