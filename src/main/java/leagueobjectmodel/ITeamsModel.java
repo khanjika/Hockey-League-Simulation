@@ -56,4 +56,8 @@ public interface ITeamsModel {
     int getLossPoint();
 
     void setLossPoint(int lossPoint);
+
+    List<PlayerModel> sortPlayersOfTeamAscending(List<PlayerModel> players);
+
+    List<PlayerModel> sortPlayersOfTeamDescending(List<PlayerModel> players);
 }

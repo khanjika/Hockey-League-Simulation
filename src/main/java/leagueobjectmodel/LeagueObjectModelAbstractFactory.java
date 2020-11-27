@@ -6,7 +6,7 @@ public abstract class LeagueObjectModelAbstractFactory {
 
     public static LeagueObjectModelAbstractFactory getInstance() {
         if (unique_instance == null) {
-            unique_instance = new LeagueObjectModelFactoryAbstractConcrete();
+            unique_instance = new LeagueObjectModelFactoryAbstractConcrete ();
         }
         return unique_instance;
     }
@@ -82,4 +82,8 @@ public abstract class LeagueObjectModelAbstractFactory {
     public abstract IGeneralManagersValidator getGeneralManagersValidator();
 
     public abstract void setGeneralManagersValidator(IGeneralManagersValidator generalManagersValidator);
+
+    public abstract IFreeAgentModel getFreeAgent();
+
+    public abstract void setFreeAgent(IFreeAgentModel freeAgent);
 }

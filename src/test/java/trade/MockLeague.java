@@ -1,9 +1,7 @@
 package trade;
 
-
 import leagueobjectmodel.*;
-import leagueobjectmodel.LeagueModel;
-import leagueobjectmodel.TeamsModelTest;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +12,7 @@ public class MockLeague {
     public static LeagueModel getLeagueObject() {
         LeagueModel leagueModel = new LeagueModel();
         GamePlayConfigModel gamePLayModel = new GamePlayConfigModel();
-        TradingModel tradingModel = new TradingModel();
+        TradingModel tradingModel = new TradingModel ();
         tradingModel.setLossPoint(8);
         tradingModel.setMaxPlayersPerTrade(1);
         tradingModel.setRandomAcceptanceChance(1f);

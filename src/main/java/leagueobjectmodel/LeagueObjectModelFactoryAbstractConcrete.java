@@ -19,11 +19,25 @@ public class LeagueObjectModelFactoryAbstractConcrete extends LeagueObjectModelA
     private ICoachModel coach;
     private IGeneralManagersModel generalManagers;
     private IGeneralManagersValidator generalManagersValidator;
+    private IFreeAgentModel freeAgent;
+
+    @Override
+    public IFreeAgentModel getFreeAgent() {
+        if (freeAgent == null) {
+            freeAgent = new FreeAgentModel ();
+        }
+        return freeAgent;
+    }
+
+    @Override
+    public void setFreeAgent(IFreeAgentModel freeAgent) {
+        this.freeAgent = freeAgent;
+    }
 
     @Override
     public ILeagueModel getLeague() {
         if (league == null) {
-            league = new LeagueModel();
+            league = new LeagueModel ();
         }
         return league;
     }
@@ -62,7 +76,7 @@ public class LeagueObjectModelFactoryAbstractConcrete extends LeagueObjectModelA
     @Override
     public IConferenceModel getConference() {
         if (conference == null) {
-            conference = new ConferenceModel();
+            conference = new ConferenceModel ();
         }
         return conference;
     }
@@ -75,7 +89,7 @@ public class LeagueObjectModelFactoryAbstractConcrete extends LeagueObjectModelA
     @Override
     public IDivisonModel getDivision() {
         if (division == null) {
-            division = new DivisonModel();
+            division = new DivisonModel ();
         }
         return division;
     }
@@ -88,7 +102,7 @@ public class LeagueObjectModelFactoryAbstractConcrete extends LeagueObjectModelA
     @Override
     public ITeamsModel getTeams() {
         if (teams == null) {
-            teams = new TeamsModel();
+            teams = new TeamsModel ();
         }
         return teams;
     }
@@ -101,7 +115,7 @@ public class LeagueObjectModelFactoryAbstractConcrete extends LeagueObjectModelA
     @Override
     public IPlayerModel getPlayer() {
         if (player == null) {
-            player = new PlayerModel();
+            player = new PlayerModel ();
         }
         return player;
     }
@@ -114,7 +128,7 @@ public class LeagueObjectModelFactoryAbstractConcrete extends LeagueObjectModelA
     @Override
     public IGamePlayConfigModel getGamePlayConfig() {
         if (gamePlayConfig == null) {
-            gamePlayConfig = new GamePlayConfigModel();
+            gamePlayConfig = new GamePlayConfigModel ();
         }
         return gamePlayConfig;
     }
@@ -127,7 +141,7 @@ public class LeagueObjectModelFactoryAbstractConcrete extends LeagueObjectModelA
     @Override
     public IHeadCoachModel getHeadCoach() {
         if (headCoach == null) {
-            headCoach = new HeadCoachModel();
+            headCoach = new HeadCoachModel ();
         }
         return headCoach;
     }
@@ -150,7 +164,7 @@ public class LeagueObjectModelFactoryAbstractConcrete extends LeagueObjectModelA
     @Override
     public IGeneralManagersModel getGeneralManagers() {
         if (generalManagers == null) {
-            generalManagers = new GeneralManagersModel();
+            generalManagers = new GeneralManagersModel ();
         }
         return generalManagers;
     }
@@ -163,7 +177,7 @@ public class LeagueObjectModelFactoryAbstractConcrete extends LeagueObjectModelA
     @Override
     public ILeagueValidator getLeagueValidator() {
         if (leagueValidator == null) {
-            leagueValidator = new LeagueValidator();
+            leagueValidator = new LeagueValidator ();
         }
         return leagueValidator;
     }
@@ -176,7 +190,7 @@ public class LeagueObjectModelFactoryAbstractConcrete extends LeagueObjectModelA
     @Override
     public IConferenceValidator getConferenceValidator() {
         if (conferenceValidator == null) {
-            conferenceValidator = new ConferenceValidator();
+            conferenceValidator = new ConferenceValidator ();
         }
         return conferenceValidator;
     }
@@ -189,7 +203,7 @@ public class LeagueObjectModelFactoryAbstractConcrete extends LeagueObjectModelA
     @Override
     public IDivisonValidator getDivisonValidator() {
         if (divisonValidator == null) {
-            divisonValidator = new DivisonValidator();
+            divisonValidator = new DivisonValidator ();
         }
         return divisonValidator;
     }
@@ -202,7 +216,7 @@ public class LeagueObjectModelFactoryAbstractConcrete extends LeagueObjectModelA
     @Override
     public ITeamsValidator getTeamsValidator() {
         if (teamsValidator == null) {
-            teamsValidator = new TeamsValidator();
+            teamsValidator = new TeamsValidator ();
         }
         return teamsValidator;
     }
@@ -215,7 +229,7 @@ public class LeagueObjectModelFactoryAbstractConcrete extends LeagueObjectModelA
     @Override
     public IPlayerValidator getPlayerValidator() {
         if (playerValidator == null) {
-            playerValidator = new PlayerValidator();
+            playerValidator = new PlayerValidator ();
         }
         return playerValidator;
     }
@@ -228,7 +242,7 @@ public class LeagueObjectModelFactoryAbstractConcrete extends LeagueObjectModelA
     @Override
     public ICoachValidator getCoachValidator() {
         if (coachValidator == null) {
-            coachValidator = new CoachValidator();
+            coachValidator = new CoachValidator ();
         }
         return coachValidator;
     }
@@ -241,7 +255,7 @@ public class LeagueObjectModelFactoryAbstractConcrete extends LeagueObjectModelA
     @Override
     public IGeneralManagersValidator getGeneralManagersValidator() {
         if (generalManagersValidator == null) {
-            generalManagersValidator = new GeneralManagersValidator();
+            generalManagersValidator = new GeneralManagersValidator ();
         }
         return generalManagersValidator;
     }
