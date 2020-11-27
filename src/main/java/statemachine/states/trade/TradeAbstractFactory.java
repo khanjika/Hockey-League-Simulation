@@ -1,91 +1,30 @@
 package statemachine.states.trade;
 
-public class TradeAbstractFactory implements ITradeAbstractFactory {
+public abstract class TradeAbstractFactory {
 
     private static TradeAbstractFactory uniqueInstance = null;
-    private IGenerateTradeOffer tradeOffer;
-    private IFindOfferedPlayers offeredPlayers;
-    private IAcceptRejectTrade acceptRejectTrade;
-    private ITradeModel tradeModel;
-    private ITradeTeamPojo tradeTeamPojo;
-    private IFindTeamToSwap teamToSwap;
-    private ICalculateStrength calculateStrength;
 
-//    private TradeAbstractFactory() {
-//        tradeOffer = new GenerateTradeOffer ();
-//        offeredPlayers = new FindOfferedPlayers ();
-//        teamToSwap = new FindTeamToSwap ();
-//        acceptRejectTrade = new AcceptRejectTrade ();
-//        tradeModel = new TradeModel ();
-//        tradeTeamPojo = new TradeTeamPojo ();
-//        calculateStrength = new CalculateStrength ();
-//    }
-
-    public static ITradeAbstractFactory getUniqueInstance() {
+    public static TradeAbstractFactory instance() {
         if (null == uniqueInstance) {
-            uniqueInstance = new TradeAbstractFactory ();
+            uniqueInstance = new TradeAbstractFactoryConcrete ();
         }
         return uniqueInstance;
     }
 
-    public static ITradeAbstractFactory getInstance() {
-        return new TradeAbstractFactory ();
-    }
+    public abstract IAcceptRejectTrade createAcceptRejectTrade();
 
+    public abstract IFindOfferedPlayers createOfferedPlayers();
 
-    @Override
-    public IAcceptRejectTrade getAcceptRejectTrade() {
-        if (acceptRejectTrade == null) {
-            acceptRejectTrade = new AcceptRejectTrade ();
-        }
-        return acceptRejectTrade;
-    }
+    public abstract IGenerateTradeOffer createTradeOffer();
 
-    @Override
-    public IFindOfferedPlayers getOfferedPlayers() {
-        if (offeredPlayers == null) {
-            offeredPlayers = new FindOfferedPlayers ();
-        }
-        return offeredPlayers;
-    }
+    public abstract ITradeModel createTradeModel();
 
-    @Override
-    public IGenerateTradeOffer getTradeOffer() {
-        if (tradeOffer == null) {
-            tradeOffer = new GenerateTradeOffer ();
-        }
-        return tradeOffer;
-    }
+    public abstract ITradeTeamPojo createTeamPojo();
 
-    @Override
-    public ITradeModel getTradeModel() {
-        if(tradeModel == null){
-            tradeModel = new TradeModel ();
-        }
-        return tradeModel;
-    }
+    public abstract IFindTeamToSwap createTeamToSwap();
 
-    @Override
-    public ITradeTeamPojo getTeamPojo() {
-       if(tradeTeamPojo == null){
-           tradeTeamPojo = new TradeTeamPojo ();
-       }
-       return tradeTeamPojo;
-    }
+    public abstract ICalculateStrength createStrength();
 
-    @Override
-    public IFindTeamToSwap getTeamToSwap() {
-       if(teamToSwap == null){
-           teamToSwap = new FindTeamToSwap ();
-       }
-       return teamToSwap;
-    }
+    public abstract IUserTradeCli createUserTradeCli();
 
-    @Override
-    public ICalculateStrength getStrength() {
-        if(calculateStrength == null){
-            calculateStrength = new CalculateStrength ();
-        }
-        return calculateStrength;
-    }
 }

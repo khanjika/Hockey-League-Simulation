@@ -20,7 +20,7 @@ public class CalculateStrength implements ICalculateStrength {
     }
 
     @Override
-    public int findStrengthWeakness(ITradeTeamPojo teamDetails, HashMap strengthMap) {
+    public int findTeamStrengthWeakness(ITradeTeamPojo teamDetails, HashMap strengthMap) {
         int counterForward = 0;
         int counterDefense = 0;
         int counterGoalie = 0;
@@ -43,10 +43,6 @@ public class CalculateStrength implements ICalculateStrength {
         teamDetails.setIsForwardStrong (counterForward);
         teamDetails.setIsGoalieStrong (counterGoalie);
         totalCounter = counterForward + counterDefense + counterGoalie;
-        logger.debug (counterForward);
-        logger.debug (counterDefense);
-        logger.debug (counterGoalie);
-        logger.debug (totalCounter);
         return totalCounter;
 
     }
@@ -84,5 +80,4 @@ public class CalculateStrength implements ICalculateStrength {
         }
         return totalStrength;
     }
-
 }

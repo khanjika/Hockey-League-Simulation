@@ -21,6 +21,9 @@ public class LeagueObjectModelFactoryAbstractConcrete extends LeagueObjectModelA
 
     @Override
     public IFreeAgentModel getFreeAgent() {
+        if (freeAgent == null) {
+            freeAgent = new FreeAgentModel ();
+        }
         return freeAgent;
     }
 

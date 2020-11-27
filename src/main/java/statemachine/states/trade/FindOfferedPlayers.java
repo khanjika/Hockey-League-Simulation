@@ -1,6 +1,5 @@
 package statemachine.states.trade;
 
-
 import leagueobjectmodel.*;
 import org.apache.log4j.Logger;
 
@@ -11,21 +10,19 @@ import java.util.List;
 public class FindOfferedPlayers implements IFindOfferedPlayers {
 
     private ITeamsModel teamsModel;
-    private IFreeAgentModel freeAgentModel;
+    private IFreeAgentModel freeAgent;
     private ITradeModel model;
     private ICalculateStrength calculateStrength;
-    private ITradeTeamPojo teamDetails;
     private IFindTeamToSwap findTeamToSwap;
     private ITradeTeamPojo teamPojo;
 
     public FindOfferedPlayers() {
-        freeAgentModel = LeagueObjectModelAbstractFactory.getInstance ().getFreeAgent ();
-        findTeamToSwap = TradeAbstractFactory.getUniqueInstance ().getTeamToSwap ();
+        freeAgent = LeagueObjectModelAbstractFactory.getInstance ().getFreeAgent ();
         teamsModel = LeagueObjectModelAbstractFactory.getInstance ().getTeams ();
-        teamDetails = TradeAbstractFactory.getInstance ().getTeamPojo ();
-        model = TradeAbstractFactory.getUniqueInstance ().getTradeModel ();
-        calculateStrength = TradeAbstractFactory.getUniqueInstance ().getStrength ();
-        teamPojo = TradeAbstractFactory.getUniqueInstance ().getTeamPojo ();
+        findTeamToSwap = TradeAbstractFactory.instance ().createTeamToSwap ();
+        model = TradeAbstractFactory.instance ().createTradeModel ();
+        calculateStrength = TradeAbstractFactory.instance ().createStrength ();
+        teamPojo = TradeAbstractFactory.instance ().createTeamPojo ();
     }
 
     private static final Logger logger = Logger.getLogger (FindOfferedPlayers.class);
@@ -43,7 +40,7 @@ public class FindOfferedPlayers implements IFindOfferedPlayers {
     }
 
     public void identifyTypeOfTrade(HashMap strengthMap, ILeagueModel league) {
-        int totalCounter = calculateStrength.findStrengthWeakness (teamPojo, strengthMap);
+        int totalCounter = calculateStrength.findTeamStrengthWeakness (teamPojo, strengthMap);
         List<PlayerModel> offeredPlayer = new ArrayList<> ();
         model.setTradeInitiatingTeam (teamPojo);
 
@@ -77,7 +74,7 @@ public class FindOfferedPlayers implements IFindOfferedPlayers {
             agent.calculateFreeAgentStrength (agent);
         }
 
-        freeAgentModel.sortFreeAgentDescending (freeAgents);
+        freeAgent.sortFreeAgentDescending (freeAgents);
         for (int i = 0; i < freeAgents.size (); i++) {
             if (freeAgents.get (i).getPosition ().equals (position)) {
                 freeAgentStrength = freeAgents.get (i).getFreeAgentStrength ();

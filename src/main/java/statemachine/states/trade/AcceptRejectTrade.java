@@ -1,16 +1,19 @@
 package statemachine.states.trade;
 
 import leagueobjectmodel.*;
+import org.apache.log4j.Logger;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class AcceptRejectTrade implements IAcceptRejectTrade {
 
     private ITradeModel model;
+    private ITeamsValidator teamsValidator;
+    private static final Logger logger = Logger.getLogger (AcceptRejectTrade.class);
 
     public AcceptRejectTrade() {
-        model = TradeAbstractFactory.getUniqueInstance ().getTradeModel ();
+        model = TradeAbstractFactory.instance ().createTradeModel ();
+        teamsValidator = LeagueObjectModelAbstractFactory.getInstance ().getTeamsValidator ();
     }
 
     @Override
@@ -27,8 +30,10 @@ public class AcceptRejectTrade implements IAcceptRejectTrade {
         }
 
         if (offeredPlayerStrength > requestedPlayerStrength) {
+            logger.debug ("Trade Accepted");
             leagueModel = tradeAccepted (leagueModel);
         } else {
+            logger.debug ("Trade Rejected by team:" + model.getTradeOfferedTeam ().getTeamName ());
             leagueModel = tradeRejected (leagueModel);
         }
         return leagueModel;
@@ -46,6 +51,16 @@ public class AcceptRejectTrade implements IAcceptRejectTrade {
 
     @Override
     public ILeagueModel tradeAccepted(ILeagueModel league) {
+        logger.info ("Players offered:");
+        for (int i = 0; i < model.getOfferedPlayer ().size (); i++) {
+            logger.info ("Player name:" + model.getOfferedPlayer ().get (i).getPlayerName ());
+            logger.info ("Player position:" + model.getOfferedPlayer ().get (i).getPosition ());
+        }
+        logger.info ("Players requested:");
+        for (int i = 0; i < model.getRequestedPlayers ().size (); i++) {
+            logger.info ("Player name:" + model.getRequestedPlayers ().get (i).getPlayerName ());
+            logger.info ("Player position:" + model.getRequestedPlayers ().get (i).getPosition ());
+        }
         boolean successTeam1 = false;
         boolean successTeam2 = false;
 
@@ -57,7 +72,6 @@ public class AcceptRejectTrade implements IAcceptRejectTrade {
         String TradingDivision2 = model.getTradeOfferedTeam ().getDivisionName ();
         String TradingConference2 = model.getTradeOfferedTeam ().getConferenceName ();
 
-
         for (ConferenceModel conference : league.getConferences ()) {
             for (DivisonModel division : conference.getDivisions ()) {
                 for (TeamsModel team : division.getTeams ()) {
@@ -65,12 +79,16 @@ public class AcceptRejectTrade implements IAcceptRejectTrade {
                     String divisionName = division.getDivisionName ();
                     String conferenceName = conference.getConferenceName ();
                     if (teamName.equals (TradingTeam1) && divisionName.equals (TradingDivision1) && conferenceName.equals (TradingConference1)) {
-                        successTeam1 = swapTeam1 (team);
+                        successTeam1 = swapTeam (team, model.getRequestedPlayers (), model.getOfferedPlayer ());
                         team.calculateTeamStrength (team);
+                        teamsValidator.isCaptainPresent (team.getPlayers ());
+                        teamsValidator.NoOfPlayersInTeam (team.getPlayers (), league);
                     }
                     if (teamName.equals (TradingTeam2) && divisionName.equals (TradingDivision2) && conferenceName.equals (TradingConference2)) {
-                        successTeam2 = swapTeam2 (team);
+                        successTeam2 = swapTeam (team, model.getOfferedPlayer (), model.getRequestedPlayers ());
                         team.calculateTeamStrength (team);
+                        teamsValidator.isCaptainPresent (team.getPlayers ());
+                        teamsValidator.NoOfPlayersInTeam (team.getPlayers (), league);
                     }
                     if (successTeam1 && successTeam2) {
                         break;
@@ -83,44 +101,22 @@ public class AcceptRejectTrade implements IAcceptRejectTrade {
     }
 
     @Override
-    public boolean swapTeam1(ITeamsModel team) {
+    public boolean swapTeam(ITeamsModel team, List<PlayerModel> team1, List<PlayerModel> team2) {
         List<PlayerModel> t1 = team.getPlayers ();
-        for (int i = 0; i < model.getRequestedPlayers ().size (); i++) {
-            PlayerModel requestedPlayer = model.getRequestedPlayers ().get (i);
-            t1.add (requestedPlayer);
+        for (int i = 0; i < team1.size (); i++) {
+            PlayerModel player1 = team1.get (i);
+            t1.add (player1);
         }
-        for (int i = 0; i < model.getOfferedPlayer ().size (); i++) {
-            PlayerModel offeredPlayer = model.getOfferedPlayer ().get (i);
+        for (int i = 0; i < team2.size (); i++) {
+            PlayerModel player2 = team2.get (i);
             for (int j = 0; j < t1.size (); j++) {
-                if (offeredPlayer.equals (t1.get (j))) {
-                    t1.remove (offeredPlayer);
+                if (player2.equals (t1.get (j))) {
+                    t1.remove (player2);
                     break;
                 }
             }
         }
         team.setPlayers (t1);
-        return true;
-    }
-
-    @Override
-    public boolean swapTeam2(ITeamsModel team) {
-        List<PlayerModel> t2 = new ArrayList<> ();
-
-        t2 = team.getPlayers ();
-        for (int i = 0; i < model.getOfferedPlayer ().size (); i++) {
-            PlayerModel weakPlayer = model.getOfferedPlayer ().get (i);
-            t2.add (weakPlayer);
-        }
-        for (int i = 0; i < model.getRequestedPlayers ().size (); i++) {
-            PlayerModel strongPlayer = model.getRequestedPlayers ().get (i);
-            for (int j = 0; j < t2.size (); j++) {
-                if (strongPlayer.equals (t2.get (j))) {
-                    t2.remove (strongPlayer);
-                    break;
-                }
-            }
-        }
-        team.setPlayers (t2);
         return true;
     }
 }

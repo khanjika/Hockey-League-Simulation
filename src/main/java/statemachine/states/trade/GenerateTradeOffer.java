@@ -9,9 +9,9 @@ public class GenerateTradeOffer implements IGenerateTradeOffer {
     private IFindOfferedPlayers findOfferedPlayers;
 
     public GenerateTradeOffer() {
-        tradingTeamDetails = TradeAbstractFactory.getUniqueInstance ().getTeamPojo ();
-        model = TradeAbstractFactory.getUniqueInstance ().getTradeModel ();
-        findOfferedPlayers = TradeAbstractFactory.getUniqueInstance ().getOfferedPlayers ();
+        tradingTeamDetails = TradeAbstractFactory.instance ().createTeamPojo ();
+        model = TradeAbstractFactory.instance ().createTradeModel ();
+        findOfferedPlayers = TradeAbstractFactory.instance ().createOfferedPlayers ();
     }
 
     private static final Logger logger = Logger.getLogger (GenerateTradeOffer.class);
@@ -46,37 +46,35 @@ public class GenerateTradeOffer implements IGenerateTradeOffer {
     @Override
     public ILeagueModel checkTrading(ILeagueModel leagueModel) {
         logger.debug ("Inside Trading");
-
-        try {
-            IGamePlayConfigModel gameConfig = leagueModel.getGameplayConfig ();
-            ITradingModel tradeModel = gameConfig.getTrading ();
-            for (IConferenceModel conference : leagueModel.getConferences ()) {
-                String conferenceName = conference.getConferenceName ();
-                for (IDivisonModel division : conference.getDivisions ()) {
-                    String divisionName = division.getDivisionName ();
-                    for (ITeamsModel team : division.getTeams ()) {
-                        String teamName = team.getTeamName ();
-                        if (!team.isUserCreatedTeam ()) {
-                            float lossPoint = team.getLossPoint ();
-                            if (calculateLossPoint (lossPoint, tradeModel)) {
-                                if (makeTradeOffer (tradeModel, team)) {
-                                    team.setLossPointForTrading (0);
-                                    logger.debug ("Trade initiated by team:" + " " + teamName);
-                                    tradingTeamDetails.setConferenceName (conferenceName);
-                                    tradingTeamDetails.setDivisionName (divisionName);
-                                    tradingTeamDetails.setTeamName (teamName);
-                                    tradingTeamDetails.setUserCreated (false);
-                                    tradingTeamDetails.setPlayersList (team.getPlayers ());
-                                    model.setTradeInitiatingTeam (tradingTeamDetails);
-                                    findOfferedPlayers.findStrength (leagueModel, team, model);
-                                }
-                            }
-                        }
+        if (leagueModel == null) {
+            throw new NullPointerException ();
+        }
+        IGamePlayConfigModel gameConfig = leagueModel.getGameplayConfig ();
+        ITradingModel tradeModel = gameConfig.getTrading ();
+        for (IConferenceModel conference : leagueModel.getConferences ()) {
+            String conferenceName = conference.getConferenceName ();
+            for (IDivisonModel division : conference.getDivisions ()) {
+                String divisionName = division.getDivisionName ();
+                for (ITeamsModel team : division.getTeams ()) {
+                    String teamName = team.getTeamName ();
+                    if (!team.isUserCreatedTeam ()) {
+                        float lossPoint = team.getLossPoint ();
+                        //if (calculateLossPoint (lossPoint, tradeModel)) {
+                        //if (makeTradeOffer (tradeModel, team)) {
+                        team.setLossPointForTrading (0);
+                        logger.debug ("Trade initiated by team:" + " " + teamName);
+                        tradingTeamDetails.setConferenceName (conferenceName);
+                        tradingTeamDetails.setDivisionName (divisionName);
+                        tradingTeamDetails.setTeamName (teamName);
+                        tradingTeamDetails.setUserCreated (false);
+                        tradingTeamDetails.setPlayersList (team.getPlayers ());
+                        model.setTradeInitiatingTeam (tradingTeamDetails);
+                        findOfferedPlayers.findStrength (leagueModel, team, model);
+                        //}
+                        //}
                     }
                 }
             }
-        } catch (NullPointerException e) {
-            logger.error ("Error while performing trading !!");
         }
         return leagueModel;
     }
