@@ -142,7 +142,6 @@ public class StartSimulation implements IStartSimulation{
                 swapTurnOfTeam();
                 performGameSimulation();
             }
-            logger.info("Shift complete for "+teamOneObject.getTeamName()+" and "+teamTwoObject.getTeamName());
         }
         catch (Exception e){
             logger.error("Exception occurred while performing shift simulation between two teams");

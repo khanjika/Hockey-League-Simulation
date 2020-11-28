@@ -1,9 +1,7 @@
 package statemachine.states.statemachine.states.matchSchedules;
 
-import leagueobjectmodel.ConferenceModel;
-import leagueobjectmodel.DivisonModel;
-import leagueobjectmodel.LeagueModel;
-import leagueobjectmodel.TeamsModel;
+import leagueobjectmodel.*;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,69 +10,71 @@ public class RegularSeasonSchedule implements IRegularSeasonSchedule {
 
 
     List<List<TeamsModel>> regularSchedule;
+    final static Logger logger = Logger.getLogger(RegularSeasonSchedule.class);
 
     @Override
     public List<List<TeamsModel>> generateSeasonSchedule(LeagueModel leagueModel) {
+        if (leagueModel == null) {
+            logger.error("League Model object is not initialized in the Regular Season PlayOff schedule");
+            throw new NullPointerException("League Model object is not initialized in the Regular Season PlayOff schedule");
+        }
         regularSchedule = new ArrayList<>();
-        for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
-            List<TeamsModel> teamsOfDifferentConference = getOutOfConferenceTeamList(conferenceModel.getConferenceName(), leagueModel.getConferences());
-            for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
-                List<TeamsModel> teamsOfDifferentDivision = getOutOfDivisionTeamList(divisonModel.getDivisionName(), conferenceModel.getDivisions());
-                for (TeamsModel teamsModel : divisonModel.getTeams()) {
-                    List<TeamsModel> sameDivisionTeamList = getSameDivisionTeamList(teamsModel.getTeamName(), divisonModel);
-                    //adding teams for same division
-                    List<TeamsModel> individualTeams = new ArrayList<>();
-                    for (TeamsModel obj : sameDivisionTeamList) {
-                        //game will be played 4 times
-                        for (int i = 0; i < 4; i++) {
-                            individualTeams.add(obj);
-                            individualTeams.add(teamsModel);
-                            regularSchedule.add(new ArrayList<>(individualTeams));
-                            individualTeams.clear();
+        try {
+            for (IConferenceModel conferenceModel : leagueModel.getConferences()) {
+                List<TeamsModel> teamsOfDifferentConference = getOutOfConferenceTeamList(conferenceModel.getConferenceName(), leagueModel.getConferences());
+                for (IDivisonModel divisonModel : conferenceModel.getDivisions()) {
+                    List<TeamsModel> teamsOfDifferentDivision = getOutOfDivisionTeamList(divisonModel.getDivisionName(), conferenceModel.getDivisions());
+                    for (TeamsModel teamsModel : divisonModel.getTeams()) {
+                        List<TeamsModel> sameDivisionTeamList = getSameDivisionTeamList(teamsModel.getTeamName(), divisonModel);
+                        List<TeamsModel> individualTeams = new ArrayList<>();
+                        for (TeamsModel obj : sameDivisionTeamList) {
+                            for (int i = 0; i < 4; i++) {
+                                individualTeams.add(obj);
+                                individualTeams.add(teamsModel);
+                                regularSchedule.add(new ArrayList<>(individualTeams));
+                                individualTeams.clear();
+                            }
+                        }
+                        for (TeamsModel obj : teamsOfDifferentDivision) {
+                            for (int i = 0; i < 4; i++) {
+                                individualTeams.add(obj);
+                                individualTeams.add(teamsModel);
+                                regularSchedule.add(new ArrayList<>(individualTeams));
+                                individualTeams.clear();
+                            }
+                        }
+                        for (TeamsModel obj : teamsOfDifferentConference) {
+                            for (int i = 0; i < 2; i++) {
+                                individualTeams.add(obj);
+                                individualTeams.add(teamsModel);
+                                regularSchedule.add(new ArrayList<>(individualTeams));
+                                individualTeams.clear();
+                            }
                         }
                     }
-                    //adding teams for different division
-                    for (TeamsModel obj : teamsOfDifferentDivision) {
-                        for (int i = 0; i < 4; i++) {
-                            individualTeams.add(obj);
-                            individualTeams.add(teamsModel);
-                            regularSchedule.add(new ArrayList<>(individualTeams));
-                            individualTeams.clear();
-                        }
-                    }
-                    //adding teams for different division
-                    for (TeamsModel obj : teamsOfDifferentConference) {
-                        for (int i = 0; i < 2; i++) {
-                            individualTeams.add(obj);
-                            individualTeams.add(teamsModel);
-                            regularSchedule.add(new ArrayList<>(individualTeams));
-                            individualTeams.clear();
-                        }
-                    }
-
-                    //Here first i will call the method for training
-                    //Then i will call the method for trade offer
-                    //For trade offer i need to pass any league model object and i also need to apss two team along with the win and loss point with that
-                    //Then in return i will get league model with the updated league object that might have traded teams.
-
-
                 }
             }
         }
+        catch (Exception e){
+            logger.error("Exception while parsing in Regular Season Schedule schedule class (generateSeasonSchedule method)");
+            throw e;
+        }
+
         return regularSchedule;
     }
 
 
     private List<TeamsModel> getOutOfConferenceTeamList(String conferenceName, List<ConferenceModel> conferenceModelList) {
-        List<TeamsModel> differentConferenceTeamList = new ArrayList<>();
-        if (conferenceName == null || conferenceName.equals("")) {
-            return null;
+        if (conferenceModelList == null || conferenceName.isEmpty()) {
+            logger.error("Null conference list or conference name in Regular Season schedule class (getOutOfConferenceTeamList method)");
+            throw new NullPointerException("Null conference list or conference name in Regular Season schedule class (getOutOfConferenceTeamList method)");
         }
-        for (ConferenceModel conferenceModel : conferenceModelList) {
+        List<TeamsModel> differentConferenceTeamList = new ArrayList<>();
+        for (IConferenceModel conferenceModel : conferenceModelList) {
             if (conferenceModel.getConferenceName().equals(conferenceName)) {
                 continue;
             } else {
-                for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
+                for (IDivisonModel divisonModel : conferenceModel.getDivisions()) {
                     differentConferenceTeamList.addAll(divisonModel.getTeams());
                 }
             }
@@ -83,10 +83,11 @@ public class RegularSeasonSchedule implements IRegularSeasonSchedule {
     }
 
     private List<TeamsModel> getOutOfDivisionTeamList(String divisionName, List<DivisonModel> divisionModelList) {
-        List<TeamsModel> differentDivisionTeamList = new ArrayList<>();
-        if (divisionName == null || divisionName.equals("")) {
-            return null;
+        if (divisionModelList == null || divisionName.isEmpty()) {
+            logger.error("Null divisionModelList or divisionModelList in Regular Season schedule class (getOutOfDivisionTeamList method)");
+            throw new NullPointerException("Null divisionModelList or conference name in Regular Season schedule class (getOutOfDivisionTeamList method)");
         }
+        List<TeamsModel> differentDivisionTeamList = new ArrayList<>();
         for (DivisonModel divisonModel : divisionModelList) {
             if (divisonModel.getDivisionName().equals(divisionName)) {
                 continue;
@@ -97,11 +98,12 @@ public class RegularSeasonSchedule implements IRegularSeasonSchedule {
         return differentDivisionTeamList;
     }
 
-    private List<TeamsModel> getSameDivisionTeamList(String teamName, DivisonModel divisonModel) {
-        List<TeamsModel> sameDivisionTeamList = new ArrayList<>();
-        if (teamName == null || teamName.equals("")) {
-            return null;
+    private List<TeamsModel> getSameDivisionTeamList(String teamName, IDivisonModel divisonModel) {
+        if ( divisonModel== null || teamName.isEmpty()) {
+            logger.error("Null divisonModel or teamName in Regular Season schedule class (getSameDivisionTeamList method)");
+            throw new NullPointerException("Null divisonModel or teamName in Regular Season schedule class (getSameDivisionTeamList method)");
         }
+        List<TeamsModel> sameDivisionTeamList = new ArrayList<>();
         for (TeamsModel teamsModel : divisonModel.getTeams()) {
             if (teamsModel.getTeamName().equals(teamName)) {
                 continue;
