@@ -1,9 +1,9 @@
 package statesTest;
 
 import org.junit.jupiter.api.Test;
-import statemachine.StateMachine;
-import statemachine.states.ITransition;
-import statemachine.states.TradingState;
+import statemachine.states.statemachine.StateMachine;
+import statemachine.states.statemachine.states.ITransition;
+import statemachine.states.statemachine.states.TradingState;
 
 import static org.junit.jupiter.api.Assertions.*;
 

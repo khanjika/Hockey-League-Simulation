@@ -114,4 +114,10 @@ public interface IPlayerModel {
     void replacePlayerWithFreeAgent(PlayerModel playerModel, FreeAgentModel replacementFreeAgent);
 
     int checkPlayerRetirementPossibility(PlayerModel playerModel);
+
+    float getShootingState(List<PlayerModel> playerModelList);
+
+    float getCheckingState(List<PlayerModel> playerModelList);
+
+    float getSavingState(List<PlayerModel> playerModelList);
 }

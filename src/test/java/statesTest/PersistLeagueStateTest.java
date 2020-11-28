@@ -2,8 +2,8 @@
 //
 //import leagueobjectmodel.LeagueModel;
 //import org.junit.jupiter.api.Test;
-//import statemachine.StateMachine;
-//import statemachine.states.PersistLeagueState;
+//import statemachine.states.statemachine.StateMachine;
+//import statemachine.states.statemachine.states.PersistLeagueState;
 //
 //import static org.junit.jupiter.api.Assertions.assertTrue;
 //

@@ -27,13 +27,24 @@ public class LeagueModel implements ILeagueModel {
     private List<GeneralManagersModel> generalManagers;
     @Expose
     private GamePlayConfigModel gameplayConfig;
+    private float penaltyChance;
+
     private String currentTeam;
+
 
     public LeagueModel() {
         conferenceModel = LeagueObjectModelAbstractFactory.getInstance().getConference();
         freeAgentModel = LeagueObjectModelAbstractFactory.getInstance().getFreeAgentModel();
         coachModel = LeagueObjectModelAbstractFactory.getInstance().getCoach();
         serializeObject = SerializeObjectAbstractFactory.getInstance().getSerializeObject();
+    }
+
+    public float getPenaltyChance() {
+        return penaltyChance;
+    }
+
+    public void setPenaltyChance(float penaltyChance) {
+        this.penaltyChance = penaltyChance;
     }
 
     @Override

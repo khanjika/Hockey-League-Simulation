@@ -4,7 +4,7 @@ import leagueobjectmodel.ConferenceModel;
 import leagueobjectmodel.DivisonModel;
 import leagueobjectmodel.LeagueModel;
 import org.junit.jupiter.api.Test;
-import statemachine.StateMachine;
+import statemachine.states.statemachine.StateMachine;
 import leagueobjectmodel.TeamsModel;
 import trade.MockLeague;
 

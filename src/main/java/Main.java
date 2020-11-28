@@ -1,5 +1,5 @@
 import org.apache.log4j.Logger;
-import statemachine.StateMachine;
+import statemachine.states.statemachine.StateMachine;
 
 
 public class Main {

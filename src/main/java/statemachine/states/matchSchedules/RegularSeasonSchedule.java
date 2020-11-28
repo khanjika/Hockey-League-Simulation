@@ -1,6 +1,7 @@
 package statemachine.states.matchSchedules;
 
 import leagueobjectmodel.*;
+import statemachine.states.statemachine.states.matchSchedules.IRegularSeasonSchedule;
 
 import java.util.ArrayList;
 import java.util.List;

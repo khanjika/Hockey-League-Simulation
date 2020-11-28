@@ -46,6 +46,11 @@ public class PlayerModel implements IPlayerModel {
     private InjuriesModel injuriesModel;
     private IFreeAgentModel freeAgentModel;
     private List<FreeAgentModel> freeAgentsList;
+    private int saveForGoalie;
+    private int goalScorerCount;
+    private int currentPenaltyCount;
+    private int totalPenaltyCount;
+
 
     public PlayerModel() {
         freeAgentModel = new FreeAgentModel();
@@ -65,7 +70,38 @@ public class PlayerModel implements IPlayerModel {
         this.birthYear = birthYear;
     }
 
-    @Override
+    public int getCurrentPenaltyCount() {
+        return currentPenaltyCount;
+    }
+
+    public void setCurrentPenaltyCount(int currentPenaltyCount) {
+        this.currentPenaltyCount = currentPenaltyCount;
+    }
+
+    public int getTotalPenaltyCount() {
+        return totalPenaltyCount;
+    }
+
+    public void setTotalPenaltyCount(int totalPenaltyCount) {
+        this.totalPenaltyCount = totalPenaltyCount;
+    }
+
+    public int getGoalScorerCount() {
+        return goalScorerCount;
+    }
+
+    public void setGoalScorerCount(int goalScorerCount) {
+        this.goalScorerCount = goalScorerCount;
+    }
+
+    public int getSaveForGoalie() {
+        return saveForGoalie;
+    }
+
+    public void setSaveForGoalie(int saveForGoalie) {
+        this.saveForGoalie = saveForGoalie;
+    }
+
     public String getPlayerName() {
         return playerName;
     }
@@ -459,4 +495,45 @@ public class PlayerModel implements IPlayerModel {
         playerModel.setRetirementLikelyHood(likelyHood);
         return likelyHood;
     }
+
+    @Override
+    public float getShootingState(List<PlayerModel> playerModelList){
+        if(playerModelList==null){
+            throw new NullPointerException();
+        }
+        float shootingState = 0;
+        for (PlayerModel playerModel : playerModelList) {
+            shootingState = shootingState + playerModel.getShooting();
+        }
+        return shootingState;
+    }
+
+    @Override
+    public float getCheckingState(List<PlayerModel> playerModelList) {
+        if(playerModelList==null){
+            throw new NullPointerException();
+        }
+        float checkingState = 0;
+        for (PlayerModel playerModel : playerModelList) {
+            if (playerModel.getCurrentPenaltyCount() > 0) {
+                playerModel.setCurrentPenaltyCount(playerModel.getCurrentPenaltyCount() - 1);
+            } else {
+                checkingState = checkingState + playerModel.getChecking();
+            }
+        }
+        return checkingState;
+    }
+
+    @Override
+    public float getSavingState(List<PlayerModel> playerModelList) {
+        if(playerModelList==null){
+            throw new NullPointerException();
+        }
+        float savingSate = 0;
+        for (PlayerModel playerModel : playerModelList) {
+            savingSate = savingSate + playerModel.getSaving();
+        }
+        return savingSate;
+    }
+
 }
