@@ -43,12 +43,12 @@ public class InitializeSeasonState implements ITransition {
         this.stateMachine = stateMachine;
         this.updatedLeagueModelObject = updatedLeagueModel;
         currentSimulationYear = currentYear;
-        iDeadlines = new Deadlines();
+        iDeadlines = MatchScheduleAbstractFactory.getMatchScheduleInstance().getDeadline();
     }
 
     @Override
     public void entry() {
-        iRegularSeasonSchedule = new RegularSeasonSchedule();
+        iRegularSeasonSchedule = MatchScheduleAbstractFactory.getMatchScheduleInstance().getRegularSeason();
         List<List<TeamsModel>> currentSeasonSchedule = iRegularSeasonSchedule.generateSeasonSchedule(updatedLeagueModelObject);
         totalMatches = currentSeasonSchedule.size();
         long availableDaysForMatches = DAYS.between(iDeadlines.getRegularSeasonStartDate(currentSimulationYear), iDeadlines.getEndOfRegularSeasonDate(currentSimulationYear + 1));
@@ -88,7 +88,7 @@ public class InitializeSeasonState implements ITransition {
         currentDate = playOffStartDate;
         long availableDaysForPlayOff = DAYS.between(iDeadlines.getPlayOffStartDate(currentSimulationYear), iDeadlines.getLastDayOfStanleyCup(currentSimulationYear + 1));
         int trainingDaysPassed = (int) availableDaysForPlayOff;
-        playoffSchedule = new PlayoffSchedule();
+        playoffSchedule = MatchScheduleAbstractFactory.getMatchScheduleInstance().getPLayOff();
         List<List<TeamsModel>> playOffSchedule = playoffSchedule.generatePlayoffSchedule(updatedLeagueModelObject);
         int numberOfPlayOffMatch = playOffSchedule.size();
         for (int i = 0; i < numberOfPlayOffMatch; i++) {
@@ -183,5 +183,8 @@ public class InitializeSeasonState implements ITransition {
                 }
             }
         }
+
+        MatchScheduleAbstractFactory.getMatchScheduleInstance().setRegularSeason(null);
+        MatchScheduleAbstractFactory.getMatchScheduleInstance().setPlayOff(null);
     }
 }

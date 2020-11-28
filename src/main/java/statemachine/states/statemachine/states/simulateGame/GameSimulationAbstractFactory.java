@@ -15,7 +15,6 @@ public abstract class GameSimulationAbstractFactory {
             return instance;
     }
 
-
     public abstract ISwapTurn getSwapTurn();
 
     public abstract void setSwapTurn(ISwapTurn swapTurn);

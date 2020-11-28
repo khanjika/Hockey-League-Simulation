@@ -2,6 +2,7 @@ package statemachine.states.statemachine.states.simulateGame;
 
 import leagueobjectmodel.LeagueModel;
 import leagueobjectmodel.PlayerModel;
+import leagueobjectmodel.PlayerPosition;
 import leagueobjectmodel.TeamsModel;
 import org.apache.log4j.Logger;
 
@@ -180,8 +181,6 @@ public class GameConfiguration implements IGameConfiguration {
         this.penaltyCounter = penaltyCounter;
     }
 
-
-
     public void setAverageShotsOnGoal() throws Exception{
         float teamOneShootingState = 0;
         float teamTwoShootingState = 0;
@@ -189,13 +188,13 @@ public class GameConfiguration implements IGameConfiguration {
         float teamTwoSkatingState = 0;
         try {
             for (PlayerModel playerModel : listOfDefenseOfTeamOne) {
-                if (playerModel.getPosition().equals("defense")) {
+                if (playerModel.getPosition().equals(PlayerPosition.DEFENSE.toString())) {
                     teamOneShootingState = playerModel.getShooting();
                 }
                 teamOneSkatingState = playerModel.getSkating();
             }
             for (PlayerModel playerModel : listOfDefenseOfTeamTwo) {
-                if (playerModel.getPosition().equals("defense")) {
+                if (playerModel.getPosition().equals(PlayerPosition.DEFENSE.toString())) {
                     teamTwoShootingState = playerModel.getShooting();
                 }
                 teamTwoSkatingState = playerModel.getSkating();

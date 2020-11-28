@@ -8,6 +8,7 @@ import java.util.List;
 public class SwapTurn implements ISwapTurn {
 
     GameSimulationAbstractFactory objFactory;
+    IGameConfiguration gameConfiguration;
     final static Logger logger = Logger.getLogger(SwapTurn.class);
 
     @Override
@@ -19,24 +20,24 @@ public class SwapTurn implements ISwapTurn {
         List<PlayerModel> tempDefenseList;
         List<PlayerModel> tempForwardList;
         List<PlayerModel> tempGoalieList;
-        tempDefenseList = objFactory.getGameConfig().getCurrentShiftDefenseOfTeamOne();
-        tempForwardList = objFactory.getGameConfig().getCurrentShiftForwardOfTeamOne();
-        tempGoalieList = objFactory.getGameConfig().getCurrentShiftGoalieOfTeamOne();
-        objFactory.getGameConfig().setCurrentShiftGoalieOfTeamOne(objFactory.getGameConfig().getCurrentShiftGoalieOfTeamTwo());
-        objFactory.getGameConfig().setCurrentShiftForwardOfTeamOne(objFactory.getGameConfig().getCurrentShiftForwardOfTeamTwo());
-        objFactory.getGameConfig().setCurrentShiftDefenseOfTeamOne(objFactory.getGameConfig().getCurrentShiftDefenseOfTeamTwo());
-        objFactory.getGameConfig().setCurrentShiftGoalieOfTeamTwo(tempGoalieList);
-        objFactory.getGameConfig().setCurrentShiftForwardOfTeamTwo(tempForwardList);
-        objFactory.getGameConfig().setCurrentShiftDefenseOfTeamTwo(tempDefenseList);
+        tempDefenseList = gameConfiguration.getCurrentShiftDefenseOfTeamOne();
+        tempForwardList = gameConfiguration.getCurrentShiftForwardOfTeamOne();
+        tempGoalieList = gameConfiguration.getCurrentShiftGoalieOfTeamOne();
+        gameConfiguration.setCurrentShiftGoalieOfTeamOne(gameConfiguration.getCurrentShiftGoalieOfTeamTwo());
+        gameConfiguration.setCurrentShiftForwardOfTeamOne(gameConfiguration.getCurrentShiftForwardOfTeamTwo());
+        gameConfiguration.setCurrentShiftDefenseOfTeamOne(gameConfiguration.getCurrentShiftDefenseOfTeamTwo());
+        gameConfiguration.setCurrentShiftGoalieOfTeamTwo(tempGoalieList);
+        gameConfiguration.setCurrentShiftForwardOfTeamTwo(tempForwardList);
+        gameConfiguration.setCurrentShiftDefenseOfTeamTwo(tempDefenseList);
     }
 
     @Override
     public void swapTurnOfGoalie() {
         try {
-            objFactory.getGameConfig().getCurrentShiftGoalieOfTeamOne().remove(0);
-            objFactory.getGameConfig().getCurrentShiftGoalieOfTeamTwo().remove(0);
-            objFactory.getGameConfig().getCurrentShiftGoalieOfTeamOne().add(objFactory.getGameConfig().getListOfGoalieOfTeamOne().get(1));
-            objFactory.getGameConfig().getCurrentShiftGoalieOfTeamTwo().add(objFactory.getGameConfig().getListOfGoaliesOfTeamTwo().get(1));
+            gameConfiguration.getCurrentShiftGoalieOfTeamOne().remove(0);
+            gameConfiguration.getCurrentShiftGoalieOfTeamTwo().remove(0);
+            gameConfiguration.getCurrentShiftGoalieOfTeamOne().add(gameConfiguration.getListOfGoalieOfTeamOne().get(1));
+            gameConfiguration.getCurrentShiftGoalieOfTeamTwo().add(gameConfiguration.getListOfGoaliesOfTeamTwo().get(1));
         } catch (NullPointerException nullPointerException) {
             logger.error("Exception occurred while performing swap of goalies ");
             throw nullPointerException;
@@ -47,22 +48,22 @@ public class SwapTurn implements ISwapTurn {
     public void swapTurnOfForwardAndDefense() {
 
         try {
-            objFactory.getGameConfig().getCurrentShiftForwardOfTeamOne().clear();
-            objFactory.getGameConfig().getCurrentShiftForwardOfTeamTwo().clear();
-            objFactory.getGameConfig().getCurrentShiftDefenseOfTeamOne().clear();
-            objFactory.getGameConfig().getCurrentShiftDefenseOfTeamTwo().clear();
+            gameConfiguration.getCurrentShiftForwardOfTeamOne().clear();
+            gameConfiguration.getCurrentShiftForwardOfTeamTwo().clear();
+            gameConfiguration.getCurrentShiftDefenseOfTeamOne().clear();
+            gameConfiguration.getCurrentShiftDefenseOfTeamTwo().clear();
 
-            objFactory.getGameConfig().getCurrentShiftDefenseOfTeamOne().add(objFactory.getGameConfig().getListOfDefenseOfTeamOne().get(2));
-            objFactory.getGameConfig().getCurrentShiftDefenseOfTeamOne().add(objFactory.getGameConfig().getListOfDefenseOfTeamOne().get(3));
-            objFactory.getGameConfig().getCurrentShiftForwardOfTeamOne().add(objFactory.getGameConfig().getListOfForwardOfTeamOne().get(2));
-            objFactory.getGameConfig().getCurrentShiftForwardOfTeamOne().add(objFactory.getGameConfig().getListOfForwardOfTeamOne().get(3));
-            objFactory.getGameConfig().getCurrentShiftForwardOfTeamOne().add(objFactory.getGameConfig().getListOfForwardOfTeamOne().get(4));
+            gameConfiguration.getCurrentShiftDefenseOfTeamOne().add(gameConfiguration.getListOfDefenseOfTeamOne().get(2));
+            gameConfiguration.getCurrentShiftDefenseOfTeamOne().add(gameConfiguration.getListOfDefenseOfTeamOne().get(3));
+            gameConfiguration.getCurrentShiftForwardOfTeamOne().add(gameConfiguration.getListOfForwardOfTeamOne().get(2));
+            gameConfiguration.getCurrentShiftForwardOfTeamOne().add(gameConfiguration.getListOfForwardOfTeamOne().get(3));
+            gameConfiguration.getCurrentShiftForwardOfTeamOne().add(gameConfiguration.getListOfForwardOfTeamOne().get(4));
 
-            objFactory.getGameConfig().getCurrentShiftDefenseOfTeamTwo().add(objFactory.getGameConfig().getListOfDefenseOfTeamTwo().get(2));
-            objFactory.getGameConfig().getCurrentShiftDefenseOfTeamTwo().add(objFactory.getGameConfig().getListOfDefenseOfTeamTwo().get(3));
-            objFactory.getGameConfig().getCurrentShiftForwardOfTeamTwo().add(objFactory.getGameConfig().getListOfForwardOfTeamTwo().get(2));
-            objFactory.getGameConfig().getCurrentShiftForwardOfTeamTwo().add(objFactory.getGameConfig().getListOfForwardOfTeamTwo().get(3));
-            objFactory.getGameConfig().getCurrentShiftForwardOfTeamTwo().add(objFactory.getGameConfig().getListOfForwardOfTeamTwo().get(4));
+            gameConfiguration.getCurrentShiftDefenseOfTeamTwo().add(gameConfiguration.getListOfDefenseOfTeamTwo().get(2));
+            gameConfiguration.getCurrentShiftDefenseOfTeamTwo().add(gameConfiguration.getListOfDefenseOfTeamTwo().get(3));
+            gameConfiguration.getCurrentShiftForwardOfTeamTwo().add(gameConfiguration.getListOfForwardOfTeamTwo().get(2));
+            gameConfiguration.getCurrentShiftForwardOfTeamTwo().add(gameConfiguration.getListOfForwardOfTeamTwo().get(3));
+            gameConfiguration.getCurrentShiftForwardOfTeamTwo().add(objFactory.getGameConfig().getListOfForwardOfTeamTwo().get(4));
 
 
         } catch (NullPointerException nullPointerException) {
@@ -79,5 +80,6 @@ public class SwapTurn implements ISwapTurn {
             throw new NullPointerException();
         }
         this.objFactory = gameSimulationAbstractFactory;
+        this.gameConfiguration=gameSimulationAbstractFactory.getGameConfig();
     }
 }

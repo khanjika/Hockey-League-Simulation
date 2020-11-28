@@ -4,12 +4,12 @@ import leagueobjectmodel.ConferenceModel;
 import leagueobjectmodel.DivisonModel;
 import leagueobjectmodel.GamePlayConfigModel;
 import leagueobjectmodel.LeagueModel;
-import statemachine.states.statemachine.states.matchSchedules.Deadlines;
 import statemachine.states.statemachine.states.matchSchedules.IDeadlines;
 import leagueobjectmodel.IPlayerModel;
 import leagueobjectmodel.PlayerModel;
 import statemachine.states.statemachine.StateMachine;
 import leagueobjectmodel.TeamsModel;
+import statemachine.states.statemachine.states.matchSchedules.MatchScheduleAbstractFactory;
 
 import java.time.LocalDate;
 
@@ -38,7 +38,7 @@ public class AgingState implements ITransition {
      public void updateAgingStateValue(StateMachine stateMachine, LeagueModel leagueModel){
          this.stateMachine = stateMachine;
          this.leagueModel = leagueModel;
-         iDeadlines = new Deadlines();
+         iDeadlines = MatchScheduleAbstractFactory.getMatchScheduleInstance().getDeadline();
     }
 
     @Override
