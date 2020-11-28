@@ -4,14 +4,13 @@ import leagueobjectmodel.LeagueModel;
 import leagueobjectmodel.IPlayerModel;
 import leagueobjectmodel.PlayerModel;
 import statemachine.states.statemachine.StateMachine;
-import leagueobjectmodel.TeamsModel;
-
+import leagueobjectmodel.*;
 import java.time.LocalDate;
 
 public class InjuryCheckState implements ITransition {
     StateMachine stateMachine;
-    LeagueModel leagueModel;
-    TeamsModel teamsModelTemp;
+    ILeagueModel leagueModel;
+    ITeamsModel teamsModelTemp;
     LocalDate currentDate;
     IPlayerModel playerModel;
 
@@ -27,7 +26,7 @@ public class InjuryCheckState implements ITransition {
 //        currentDate = stateMachine.getCurrentDate();
 //    }
 
-    public void updateInjuryCheckStateValue(StateMachine stateMachine, LeagueModel leagueModel, TeamsModel teamsModel){
+    public void updateInjuryCheckStateValue(StateMachine stateMachine, ILeagueModel leagueModel, ITeamsModel teamsModel){
         this.stateMachine = stateMachine;
         this.leagueModel = leagueModel;
         this.teamsModelTemp = teamsModel;
@@ -46,6 +45,7 @@ public class InjuryCheckState implements ITransition {
         for (PlayerModel playerModel : teamsModelTemp.getPlayers()) {
             playerModel.setInjuriesModel(leagueModel.getGameplayConfig().getInjuries());
             playerModel.checkPlayerInjury(playerModel, currentDate);
+            teamsModelTemp.roasterReplacement(playerModel);
         }
     }
 

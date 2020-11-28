@@ -1,7 +1,6 @@
 package cli;
 
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.Scanner;
 
@@ -11,6 +10,7 @@ public class CliAbstractFactoryConcrete extends CliAbstractFactory {
     private Scanner sc;
     private PrintStream out;
     private InputStream in;
+    private IDisplay displayPersons;
 
     @Override
     public ICli getCli() {
@@ -62,5 +62,13 @@ public class CliAbstractFactoryConcrete extends CliAbstractFactory {
     @Override
     public void setIn(InputStream in) {
         this.in = in;
+    }
+
+    @Override
+    public IDisplay getDisplayPersons() {
+        if(displayPersons == null){
+            displayPersons = new Display();
+        }
+        return displayPersons;
     }
 }

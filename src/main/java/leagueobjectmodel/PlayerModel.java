@@ -9,7 +9,6 @@ import java.util.Random;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 
-
 public class PlayerModel implements IPlayerModel {
 
     @Expose
@@ -30,9 +29,13 @@ public class PlayerModel implements IPlayerModel {
     private float checking;
     @Expose
     private float saving;
+    @Expose
     private int birthDay;
+    @Expose
     private int birthMonth;
+    @Expose
     private int birthYear;
+    private boolean isActive;
     private float playerStrength;
     private int retirementLikelyHood;
     private int injuryDays;
@@ -239,6 +242,16 @@ public class PlayerModel implements IPlayerModel {
     }
 
     @Override
+    public boolean getActive() {
+        return isActive;
+    }
+
+    @Override
+    public void setActive(boolean active) {
+        this.isActive = active;
+    }
+
+    @Override
     public int getDays() {
         return days;
     }
@@ -323,11 +336,11 @@ public class PlayerModel implements IPlayerModel {
         try {
             float strength = 0;
             if (playerModel.getPosition().equals(PlayerPosition.FORWARD.toString())) {
-                strength = playerModel.getSkating() + playerModel.getShooting() + (playerModel.getChecking() / 2);
+                strength = calculateForwardStrength(playerModel);
             } else if (playerModel.getPosition().equals(PlayerPosition.DEFENSE.toString())) {
-                strength = playerModel.getSkating() + playerModel.getChecking() + (playerModel.getShooting() / 2);
+                strength = calculateDefenseStrength(playerModel);
             } else if (playerModel.getPosition().equals(PlayerPosition.GOALIE.toString())) {
-                strength = playerModel.getSkating() + playerModel.getShooting();
+                strength = calculateGoalieStrength(playerModel);
             }
             if (playerModel.isPlayerInjured()) {
                 playerModel.setPlayerStrength(strength / 2);
@@ -340,10 +353,23 @@ public class PlayerModel implements IPlayerModel {
     }
 
     @Override
+    public float calculateForwardStrength(PlayerModel playerModel){
+        return playerModel.getSkating() + playerModel.getShooting() + (playerModel.getChecking() / 2);
+    }
+
+    @Override
+    public float calculateDefenseStrength(PlayerModel playerModel){
+        return playerModel.getSkating() + playerModel.getChecking() + (playerModel.getShooting() / 2);
+    }
+
+    @Override
+    public float calculateGoalieStrength(PlayerModel playerModel){
+        return playerModel.getSkating() + playerModel.getSaving();
+    }
+
+    @Override
     public void checkPlayerInjury(PlayerModel playerModel, LocalDate date) {
-        if (playerModel.isPlayerInjured()) {
-            return;
-        } else {
+        if (playerModel.isPlayerInjured() == false) {
             float randomInjuryChance = injuriesModel.getRandomInjuryChance();
             int injuryDaysLow = injuriesModel.getInjuryDaysLow();
             int injuryDaysHigh = injuriesModel.getInjuryDaysHigh();
@@ -375,6 +401,9 @@ public class PlayerModel implements IPlayerModel {
                 playerModel.setInjuredDate(null);
                 playerModel.setRecoveryDate(null);
                 System.out.println(playerModel.getPlayerName() + " Player Recovered from Injury");
+            }
+            if(playerModel.isPlayerInjured() == false){
+
             }
         } catch (Exception e) {
             System.out.println("Error in checkPlayerInjury method of player model" + e);

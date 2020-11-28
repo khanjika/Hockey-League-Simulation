@@ -78,18 +78,24 @@ public class TeamsModelTest {
         boolean isCaptain = true;
         String playerName = "A";
         List<PlayerModel> playerModelObjectList = new ArrayList<>();
-        for (int i = 0; i < 18; i++) {
-
+        for (int i = 0; i < 16; i++) {
             playerName = playerName + i;
             PlayerModel playerModel = PlayerModelTest.getPlayerModel(playerName, "forward", isCaptain, 20, 10, 10, 10, 10);
             isCaptain = false;
             playerModelObjectList.add(playerModel);
         }
-        PlayerModel playerModel;
-        playerModel = PlayerModelTest.getPlayerModel(playerName + 19, "goalie", false, 20, 10, 10, 10, 10);
-        playerModelObjectList.add(playerModel);
-        playerModel = PlayerModelTest.getPlayerModel(playerName + 19, "goalie", false, 20, 10, 10, 10, 10);
-        playerModelObjectList.add(playerModel);
+        for (int i = 0; i < 10; i++) {
+            playerName = playerName + i;
+            PlayerModel playerModel = PlayerModelTest.getPlayerModel(playerName, "defense", isCaptain, 20, 10, 10, 10, 10);
+            isCaptain = false;
+            playerModelObjectList.add(playerModel);
+        }
+        for (int i = 0; i < 8; i++) {
+            playerName = playerName + i;
+            PlayerModel playerModel = PlayerModelTest.getPlayerModel(playerName, "goalie", isCaptain, 20, 10, 10, 10, 10);
+            isCaptain = false;
+            playerModelObjectList.add(playerModel);
+        }
         teamsModel.setPlayers(playerModelObjectList);
         return teamsModel;
     }

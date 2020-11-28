@@ -1,5 +1,7 @@
 package statemachine.states.statemachine.states.updateStateValue;
 
+import leagueobjectmodel.ILeagueModel;
+import leagueobjectmodel.ITeamsModel;
 import leagueobjectmodel.LeagueModel;
 
 import statemachine.states.statemachine.StateMachine;
@@ -8,22 +10,22 @@ import leagueobjectmodel.TeamsModel;
 public interface IUpdateStateValue {
     void updateImportJsonStateValue(StateMachine stateMachine,String[] userArgument);
 
-    void updateCreateTeamStateValue(StateMachine stateMachine, LeagueModel leagueModel);
+    void updateCreateTeamStateValue(StateMachine stateMachine, ILeagueModel leagueModel);
 
-    void updatePlayerSeasonChoiceStateValue(StateMachine stateMachine, LeagueModel leagueModel);
+    void updatePlayerSeasonChoiceStateValue(StateMachine stateMachine, ILeagueModel leagueModel);
 
-    void updateInitializeSeasonStateValue(StateMachine stateMachine,LeagueModel leagueModel, int year);
+    void updateInitializeSeasonStateValue(StateMachine stateMachine,ILeagueModel leagueModel, int year);
 
-    void updateTrainingSateValue(StateMachine stateMachine,LeagueModel leagueModel);
+    void updateTrainingSateValue(StateMachine stateMachine,ILeagueModel leagueModel);
 
-    void updateSimulateGameStateValue(StateMachine stateMachine, LeagueModel leagueModel, TeamsModel teamOne,TeamsModel teamTwo,boolean isPlayOff);
+    void updateSimulateGameStateValue(StateMachine stateMachine, ILeagueModel leagueModel, ITeamsModel teamOne, ITeamsModel teamTwo,boolean isPlayOff);
 
-    void updateTradingStateValue(StateMachine stateMachine, LeagueModel leagueModel);
+    void updateTradingStateValue(StateMachine stateMachine, ILeagueModel leagueModel);
 
-    void updateAgingStateValue(StateMachine stateMachine, LeagueModel leagueModel);
+    void updateAgingStateValue(StateMachine stateMachine, ILeagueModel leagueModel);
 
-    void updateInjuryCheckStateValue(StateMachine stateMachine, LeagueModel leagueModel, TeamsModel teamsModel);
+    void updateInjuryCheckStateValue(StateMachine stateMachine, ILeagueModel leagueModel, ITeamsModel teamsModel);
 
-   // void updatePersistStateValue(LeagueModel leagueModel, StateMachine stateMachine, int year);
+    void updatePersistStateValue(ILeagueModel leagueModel, StateMachine stateMachine, int year);
 }
 

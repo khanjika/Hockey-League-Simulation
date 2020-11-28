@@ -9,11 +9,11 @@ import java.util.List;
 public class RegularSeasonSchedule implements IRegularSeasonSchedule {
 
 
-    List<List<TeamsModel>> regularSchedule;
+    List<List<ITeamsModel>> regularSchedule;
     final static Logger logger = Logger.getLogger(RegularSeasonSchedule.class);
 
     @Override
-    public List<List<TeamsModel>> generateSeasonSchedule(LeagueModel leagueModel) {
+    public List<List<ITeamsModel>> generateSeasonSchedule(ILeagueModel leagueModel) {
         if (leagueModel == null) {
             logger.error("League Model object is not initialized in the Regular Season PlayOff schedule");
             throw new NullPointerException("League Model object is not initialized in the Regular Season PlayOff schedule");

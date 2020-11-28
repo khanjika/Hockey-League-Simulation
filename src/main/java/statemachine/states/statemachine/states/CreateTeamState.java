@@ -1,31 +1,27 @@
 package statemachine.states.statemachine.states;
 
-import cli.CreateTeamCli;
+import statemachine.createteam.CreateTeam;
+import leagueobjectmodel.ILeagueModel;
 import leagueobjectmodel.LeagueModel;
 import statemachine.states.statemachine.StateMachine;
+import leagueobjectmodel.LeagueObjectModelAbstractFactory;
+import statemachine.createteam.CreateTeamAbstractFactory;
+import statemachine.createteam.ICreateTeam;
 
 public class CreateTeamState implements ITransition {
     StateMachine stateMachine;
-    LeagueModel currentModel;
-    CreateTeamCli createTeamCli;
+    ILeagueModel currentModel;
+    ICreateTeam createTeam;
 
-    LeagueModel updatedLeagueModel;
+    ILeagueModel updatedLeagueModel;
     PlayerSeasonsChoiceState playerSeasonsChoiceState;
 
     public CreateTeamState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
     }
-
-//    public CreateTeamState(LeagueModel leagueModel, StateMachine stateMachine) {
-//        iLeagueModel = new LeagueModel();
-//        createTeamCli = new CreateTeamCli();
-//        this.currentModel = leagueModel;
-//        this.stateMachine = stateMachine;
-//    }
-
-    public void updateCreateTeamStateValue(LeagueModel leagueModel, StateMachine stateMachine){
-        createTeamCli = new CreateTeamCli();
-        this.currentModel = leagueModel;
+    public void updateCreateTeamStateValue(ILeagueModel leagueModel, StateMachine stateMachine){
+        createTeam = CreateTeamAbstractFactory.getInstance().getCreateTeam();
+        this.currentModel = LeagueObjectModelAbstractFactory.getInstance().getLeague();
         this.stateMachine = stateMachine;
     }
     public StateMachine getStateMachine() {
@@ -36,7 +32,7 @@ public class CreateTeamState implements ITransition {
         this.stateMachine = stateMachine;
     }
 
-    public LeagueModel getUpdatedLeagueModel() {
+    public ILeagueModel getUpdatedLeagueModel() {
         return updatedLeagueModel;
     }
 
@@ -51,16 +47,20 @@ public class CreateTeamState implements ITransition {
 
     @Override
     public void task() {
-        this.updatedLeagueModel = createTeamCli.createNewTeam(currentModel);
+        this.updatedLeagueModel = createTeam.createNewTeam(currentModel);
      //   PlayoffSchedule playoffSchedule = new PlayoffSchedule();
        // playoffSchedule.generatePlayoffSchedule(updatedLeagueModel);
+        if (this.updatedLeagueModel == null){
+            System.out.println("Team already exists");
+            task();
+        }
         exit();
     }
 
     @Override
     public void exit() {
         //THIS IS USED FOR SERIALIZTION PUROPOSE
-      //  SerializeObject serializeObject = new SerializeObject();
+      //SerializeObject serializeObject = new SerializeObject();
         //serializeObject.serializeLeagueObject(this.updatedLeagueModel);
         stateMachine.getUpdateStateValue().updatePlayerSeasonChoiceStateValue(stateMachine,updatedLeagueModel);
         stateMachine.setCurrentState(stateMachine.getPlayerSeasonsChoice());

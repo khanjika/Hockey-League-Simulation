@@ -1,7 +1,10 @@
 package leagueobjectmodel;
 
 import com.google.gson.annotations.Expose;
+import database.serializeobject.ISerializeObject;
+import database.serializeobject.SerializeObjectAbstractFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class LeagueModel implements ILeagueModel {
@@ -9,7 +12,9 @@ public class LeagueModel implements ILeagueModel {
     private final IConferenceModel conferenceModel;
     private final IFreeAgentModel freeAgentModel;
     private final ICoachModel coachModel;
-    IGamePlayConfigModel iGamePlayConfigModel;
+    private IGamePlayConfigModel iGamePlayConfigModel;
+    private ISerializeObject serializeObject;
+
     @Expose
     private String leagueName;
     @Expose
@@ -24,11 +29,14 @@ public class LeagueModel implements ILeagueModel {
     private GamePlayConfigModel gameplayConfig;
     private float penaltyChance;
 
+    private String currentTeam;
+
 
     public LeagueModel() {
-        conferenceModel = new ConferenceModel();
-        freeAgentModel = new FreeAgentModel();
-        coachModel = new CoachModel();
+        conferenceModel = LeagueObjectModelAbstractFactory.getInstance().getConference();
+        freeAgentModel = LeagueObjectModelAbstractFactory.getInstance().getFreeAgentModel();
+        coachModel = LeagueObjectModelAbstractFactory.getInstance().getCoach();
+        serializeObject = SerializeObjectAbstractFactory.getInstance().getSerializeObject();
     }
 
     public float getPenaltyChance() {
@@ -57,6 +65,16 @@ public class LeagueModel implements ILeagueModel {
     @Override
     public void setConferences(List<ConferenceModel> conferences) {
         this.conferences = conferences;
+    }
+
+    @Override
+    public String getCurrentTeam() {
+        return currentTeam;
+    }
+
+    @Override
+    public void setCurrentTeam(String currentTeam) {
+        this.currentTeam = currentTeam;
     }
 
     @Override
@@ -99,4 +117,41 @@ public class LeagueModel implements ILeagueModel {
         this.gameplayConfig = gameplayConfig;
     }
 
+    @Override
+    public List<FreeAgentModel> getForwards(){
+        List<FreeAgentModel>forwards = new ArrayList<>();
+        for (FreeAgentModel freeAgent : this.getFreeAgents()){
+            if (freeAgent.getPosition().equals(PlayerPosition.FORWARD.toString())){
+                forwards.add(freeAgent);
+            }
+        }
+        return forwards;
+    }
+
+    @Override
+    public List<FreeAgentModel> getDefenses(){
+        List<FreeAgentModel> defense = new ArrayList<>();
+        for ( FreeAgentModel freeAgent : this.getFreeAgents()){
+            if (freeAgent.getPosition().equals(PlayerPosition.DEFENSE.toString())){
+                defense.add(freeAgent);
+            }
+        }
+        return defense;
+    }
+
+    @Override
+    public List<FreeAgentModel> getGoalies(){
+        List<FreeAgentModel> goalies = new ArrayList<>();
+        for ( FreeAgentModel freeAgent : this.getFreeAgents()){
+            if (freeAgent.getPosition().equals(PlayerPosition.GOALIE.toString())){
+                goalies.add(freeAgent);
+            }
+        }
+        return goalies;
+    }
+
+    @Override
+    public boolean storeLeagueInformation(ILeagueModel leagueModel){
+        return serializeObject.serializeLeagueObject(leagueModel,leagueModel.getCurrentTeam());
+    }
 }

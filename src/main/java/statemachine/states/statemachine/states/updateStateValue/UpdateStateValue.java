@@ -1,5 +1,7 @@
 package statemachine.states.statemachine.states.updateStateValue;
 
+import leagueobjectmodel.ILeagueModel;
+import leagueobjectmodel.ITeamsModel;
 import leagueobjectmodel.LeagueModel;
 import statemachine.states.statemachine.StateMachine;
 import statemachine.states.statemachine.states.*;
@@ -13,47 +15,51 @@ public class UpdateStateValue implements IUpdateStateValue{
     }
 
     @Override
-    public void updateCreateTeamStateValue(StateMachine stateMachine, LeagueModel leagueModel) {
+    public void updateCreateTeamStateValue(StateMachine stateMachine, ILeagueModel leagueModel) {
         ((CreateTeamState)(stateMachine.getCreateTeam())).updateCreateTeamStateValue(leagueModel, stateMachine);
     }
 
     @Override
-    public void updatePlayerSeasonChoiceStateValue(StateMachine stateMachine, LeagueModel leagueModel) {
+    public void updatePlayerSeasonChoiceStateValue(StateMachine stateMachine, ILeagueModel leagueModel) {
         ((PlayerSeasonsChoiceState)(stateMachine.getPlayerSeasonsChoice())).updatePlayerSeasonChoiceStateValue(leagueModel, stateMachine);
     }
 
     @Override
-    public void updateInitializeSeasonStateValue(StateMachine stateMachine, LeagueModel leagueModel, int year) {
+    public void updateInitializeSeasonStateValue(StateMachine stateMachine, ILeagueModel leagueModel, int year) {
         ((InitializeSeasonState)(stateMachine.getInitlailizeSeasonState())).updateInitializeSeasonStateValue(stateMachine, leagueModel, year);
     }
 
     @Override
-    public void updateTrainingSateValue(StateMachine stateMachine, LeagueModel leagueModel) {
+    public void updateTrainingSateValue(StateMachine stateMachine, ILeagueModel leagueModel) {
         ((TrainingState)(stateMachine.getTrainingState())).updateTrainingStateValue(stateMachine, leagueModel);
     }
 
-    @Override
-    public void updateSimulateGameStateValue(StateMachine stateMachine, LeagueModel leagueModel, TeamsModel teamOne, TeamsModel teamTwo,boolean isPlayOff) {
+//    @Override
+//<<<<<<< HEAD:src/main/java/statemachine/states/statemachine/states/updateStateValue/UpdateStateValue.java
+//    public void updateSimulateGameStateValue(StateMachine stateMachine, LeagueModel leagueModel, TeamsModel teamOne, TeamsModel teamTwo,boolean isPlayOff) {
+//        ((SimulateGameState)stateMachine.getSimulateGameState()).updateSimulateGameStateValue(stateMachine, leagueModel, teamOne, teamTwo,isPlayOff);
+//=======
+    public void updateSimulateGameStateValue(StateMachine stateMachine, ILeagueModel leagueModel, ITeamsModel teamOne, ITeamsModel teamTwo,boolean isPlayOff) {
         ((SimulateGameState)stateMachine.getSimulateGameState()).updateSimulateGameStateValue(stateMachine, leagueModel, teamOne, teamTwo,isPlayOff);
     }
 
     @Override
-    public void updateTradingStateValue(StateMachine stateMachine, LeagueModel leagueModel) {
+    public void updateTradingStateValue(StateMachine stateMachine, ILeagueModel leagueModel) {
         ((TradingState)stateMachine.getTradingState()).updateTradingStateValue(stateMachine, leagueModel);
     }
 
     @Override
-    public void updateAgingStateValue(StateMachine stateMachine, LeagueModel leagueModel) {
+    public void updateAgingStateValue(StateMachine stateMachine, ILeagueModel leagueModel) {
         ((AgingState)stateMachine.getAgingState()).updateAgingStateValue(stateMachine, leagueModel);
     }
 
     @Override
-    public void updateInjuryCheckStateValue(StateMachine stateMachine, LeagueModel leagueModel, TeamsModel teamsModel) {
+    public void updateInjuryCheckStateValue(StateMachine stateMachine, ILeagueModel leagueModel, ITeamsModel teamsModel) {
         ((InjuryCheckState)stateMachine.getInjuryCheckState()).updateInjuryCheckStateValue(stateMachine, leagueModel, teamsModel);
     }
 
-//    @Override
-//    public void updatePersistStateValue(LeagueModel leagueModel, StateMachine stateMachine, int year) {
-//        ((PersistLeagueState)stateMachine.getPersistLeagueState()).updatePersistLeagueStateValue(leagueModel, stateMachine, year);
-//    }
+    @Override
+    public void updatePersistStateValue(ILeagueModel leagueModel, StateMachine stateMachine, int year) {
+        ((PersistLeagueState)stateMachine.getPersistLeagueState()).updatePersistLeagueStateValue(leagueModel, stateMachine, year);
+    }
 }

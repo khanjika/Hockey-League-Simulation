@@ -2,5 +2,5 @@ package leagueobjectmodel;
 
 public interface ILeagueValidator {
 
-    boolean validateLeagueObject(LeagueModel model);
+    boolean validateLeagueObject(ILeagueModel model);
 }

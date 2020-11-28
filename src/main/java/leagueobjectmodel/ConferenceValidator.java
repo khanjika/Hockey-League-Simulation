@@ -13,7 +13,7 @@ public class ConferenceValidator implements IConferenceValidator {
     }
 
     @Override
-    public boolean validateConferenceObject(ConferenceModel conferenceModel) {
+    public boolean validateConferenceObject(IConferenceModel conferenceModel) {
 
         if (conferenceModel.getConferenceName() == null || conferenceModel.getConferenceName() == "") {
             return false;
@@ -38,7 +38,7 @@ public class ConferenceValidator implements IConferenceValidator {
     }
 
     @Override
-    public boolean isConferenceExist(LeagueModel leagueModel, String conferenceName) {
+    public boolean isConferenceExist(ILeagueModel leagueModel, String conferenceName) {
         for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
             if (conferenceModel.getConferenceName().equalsIgnoreCase(conferenceName)) {
                 return true;

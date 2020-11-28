@@ -1,11 +1,11 @@
 package statemachine.states.statemachine.states.matchSchedules;
 
-import leagueobjectmodel.LeagueModel;
-import leagueobjectmodel.TeamsModel;
+import leagueobjectmodel.ILeagueModel;
+import leagueobjectmodel.ITeamsModel;
 
 import java.util.List;
 
 public interface IPlayoffSchedule {
 
-    List<List<TeamsModel>> generatePlayoffSchedule(LeagueModel leagueModel);
+    List<List<ITeamsModel>> generatePlayoffSchedule(ILeagueModel leagueModel);
 }

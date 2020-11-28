@@ -15,7 +15,7 @@ public class PlayoffSchedule implements IPlayoffSchedule {
     final static Logger logger = Logger.getLogger(PlayoffSchedule.class);
 
     @Override
-    public List<List<TeamsModel>> generatePlayoffSchedule(LeagueModel leagueModel) {
+    public List<List<ITeamsModel>> generatePlayoffSchedule(ILeagueModel leagueModel) {
         if(leagueModel==null){
             logger.error("League Model object is not initialized in the PlayOff schedule");
             throw new NullPointerException("League Model object is not initialized in the PlayOff schedule");
@@ -39,11 +39,11 @@ public class PlayoffSchedule implements IPlayoffSchedule {
             throw e;
         }
         List<TeamsModel> wildCardTeam = getWildCardTeam(leagueModel);
-        List<List<TeamsModel>> finalSchedule = generateScheduleWithWIldCard(topTeamFromDivisionList, wildCardTeam);
+        List<List<ITeamsModel>> finalSchedule = generateScheduleWithWIldCard(topTeamFromDivisionList, wildCardTeam);
         return finalSchedule;
     }
 
-    private List<TeamsModel> getWildCardTeam(LeagueModel leagueModel) {
+    private List<TeamsModel> getWildCardTeam(ILeagueModel leagueModel) {
         if(leagueModel==null){
             logger.error("League Model object is not initialized in the PlayOff schedule");
             throw new NullPointerException("League Model object is not initialized in the PlayOff schedule");
@@ -67,12 +67,12 @@ public class PlayoffSchedule implements IPlayoffSchedule {
         return allTeamsList;
     }
 
-    List<List<TeamsModel>> generateScheduleWithWIldCard(List<List<TeamsModel>> topTeamFromDivisionList, List<TeamsModel> wildCardList) {
+    List<List<ITeamsModel>> generateScheduleWithWIldCard(List<List<TeamsModel>> topTeamFromDivisionList, List<TeamsModel> wildCardList) {
         if(topTeamFromDivisionList==null || wildCardList==null){
             logger.error("Top team from division list or wild card list is not initialized in the PlayOff schedule");
             throw new NullPointerException("Top team from division list or wild card list is not initialized in the PlayOff schedule");
         }
-        List<List<TeamsModel>> schedule = new ArrayList<>();
+        List<List<ITeamsModel>> schedule = new ArrayList<>();
         int i = 0;
         int wildCardTeamCount = 0;
 
@@ -81,12 +81,12 @@ public class PlayoffSchedule implements IPlayoffSchedule {
                 if (wildCardTeamCount > 2) {
                     break;
                 }
-                List<TeamsModel> matchWithWildCard = new ArrayList<>();
+                List<ITeamsModel> matchWithWildCard = new ArrayList<>();
                 System.out.println(wildCardTeamCount);
                 matchWithWildCard.add(teamsModelList.get(wildCardTeamCount));
                 matchWithWildCard.add(wildCardList.get(i));
                 schedule.add(matchWithWildCard);
-                List<TeamsModel> matchWithEachOther = new ArrayList<>();
+                List<ITeamsModel> matchWithEachOther = new ArrayList<>();
                 matchWithEachOther.add(teamsModelList.get(i + 1));
                 matchWithEachOther.add(teamsModelList.get(i + 2));
                 schedule.add(matchWithEachOther);

@@ -7,7 +7,6 @@ import statemachine.states.statemachine.states.simulateGame.IStartSimulation;
 import statemachine.states.statemachine.states.simulateGame.StartSimulation;
 
 import statemachine.states.statemachine.StateMachine;
-
 import java.util.Random;
 
 public class SimulateGameState implements ITransition {
@@ -18,16 +17,26 @@ public class SimulateGameState implements ITransition {
     boolean isThisPlayOff;
     TeamsModel winnerTeam;
     TeamsModel losserTeam;
+    ILeagueModel iLeagueModel;
 
     public SimulateGameState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
+        iLeagueModel = LeagueObjectModelAbstractFactory.getInstance().getLeague();
     }
 
-    public void updateSimulateGameStateValue(StateMachine stateMachine, LeagueModel leagueModel, TeamsModel teamsModelOne, TeamsModel teamsModelTwo,boolean isPlayOff){
+
+//    public SimulateGameState(StateMachine stateMachine, LeagueModel leagueModel, TeamsModel teamsModelOne, TeamsModel teamsModelTwo) {
+//        this.stateMachine = stateMachine;
+//        this.leagueModel = leagueModel;
+//        this.teamOne = teamsModelOne;
+//        this.teamTwo = teamsModelTwo;
+//    }
+
+    public void updateSimulateGameStateValue(StateMachine stateMachine, ILeagueModel leagueModel, ITeamsModel teamsModelOne, ITeamsModel teamsModelTwo,boolean isPlayOff){
         this.stateMachine = stateMachine;
-        this.leagueModel = leagueModel;
-        this.teamOne = teamsModelOne;
-        this.teamTwo = teamsModelTwo;
+        this.leagueModel = (LeagueModel) leagueModel;
+        this.teamOne = (TeamsModel) teamsModelOne;
+        this.teamTwo = (TeamsModel) teamsModelTwo;
         isThisPlayOff=isPlayOff;
     }
     @Override
@@ -84,6 +93,9 @@ public class SimulateGameState implements ITransition {
         stateMachine.setCurrentState(stateMachine.getInjuryCheckState());
         stateMachine.getCurrentState().entry();
         exit();
+
+
+        iLeagueModel.storeLeagueInformation(leagueModel);
     }
 
     @Override
@@ -102,7 +114,7 @@ public class SimulateGameState implements ITransition {
         }
     }
 
-    public float getTeamStrength(TeamsModel teamsModel) {
+    public float getTeamStrength(ITeamsModel teamsModel) {
         teamsModel.calculateTeamStrength(teamsModel);
         return teamsModel.getTeamStrength();
     }

@@ -1,16 +1,21 @@
 package statemachine.states.statemachine.states;
 
-import cli.CliCommunication;
-import leagueobjectmodel.LeagueModel;
+
 import statemachine.states.statemachine.StateMachine;
+import statemachine.jsonparser.IParser;
+import statemachine.jsonparser.Parser;
+import leagueobjectmodel.ILeagueModel;
+import leagueobjectmodel.LeagueObjectModelAbstractFactory;
+import statemachine.jsonparser.ParserAbstractFactory;
 
 public class LoadTeamState implements ITransition {
     StateMachine stateMachine;
-    LeagueModel currentLeague;
-    CliCommunication cliCommunication;
+    ILeagueModel currentLeague;
+    IParser parser;
 
     public LoadTeamState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
+        currentLeague = LeagueObjectModelAbstractFactory.getInstance().getLeague();
     }
 
     public StateMachine getStateMachine() {
@@ -28,17 +33,20 @@ public class LoadTeamState implements ITransition {
 
     @Override
     public void task() {
-//        cliCommunication = new CliCommunication();
-//        if (cliCommunication.loadTeamFromDatabase()) {
-//            exit();
-//        } else {
-//            System.out.println("Encountered Error while loading Team");
-//        }
-
+        parser = ParserAbstractFactory.getInstance().getParser();
+        currentLeague = parser.loadTeamFromDatabase();
+        if (currentLeague == null){
+            task();
+        }
+        else {
+            exit();
+        }
     }
 
     @Override
     public void exit() {
+        System.out.println(currentLeague.getLeagueName());
+        stateMachine.getUpdateStateValue().updatePlayerSeasonChoiceStateValue(stateMachine,currentLeague);
         stateMachine.setCurrentState(stateMachine.teamLoaded());
         stateMachine.getCurrentState().entry();
     }

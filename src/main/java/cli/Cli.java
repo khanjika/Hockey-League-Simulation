@@ -23,11 +23,12 @@ public class Cli implements ICli {
 
     @Override
     public String readStringInput(){
-        return sc.nextLine();
+        return sc.nextLine().toLowerCase();
     }
 
     @Override
     public int readIntInput(){
         return sc.nextInt();
     }
+
 }

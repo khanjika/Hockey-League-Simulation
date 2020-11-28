@@ -1,5 +1,6 @@
 package statemachine.states.statemachine.states;
 
+
 import leagueobjectmodel.ConferenceModel;
 import leagueobjectmodel.DivisonModel;
 import leagueobjectmodel.GamePlayConfigModel;
@@ -10,6 +11,7 @@ import leagueobjectmodel.PlayerModel;
 import statemachine.states.statemachine.StateMachine;
 import leagueobjectmodel.TeamsModel;
 import statemachine.states.statemachine.states.matchSchedules.MatchScheduleAbstractFactory;
+import leagueobjectmodel.*;
 
 import java.time.LocalDate;
 
@@ -19,7 +21,7 @@ public class AgingState implements ITransition {
 
     IDeadlines iDeadlines;
     StateMachine stateMachine;
-    LeagueModel leagueModel;
+    ILeagueModel leagueModel;
     LocalDate currentDate;
     IPlayerModel iPlayerModel;
     private int daysToAge;
@@ -35,7 +37,7 @@ public class AgingState implements ITransition {
 //        iDeadlines = new Deadlines();
 //    }
 
-     public void updateAgingStateValue(StateMachine stateMachine, LeagueModel leagueModel){
+     public void updateAgingStateValue(StateMachine stateMachine, ILeagueModel leagueModel){
          this.stateMachine = stateMachine;
          this.leagueModel = leagueModel;
          iDeadlines = MatchScheduleAbstractFactory.getMatchScheduleInstance().getDeadline();
@@ -48,6 +50,7 @@ public class AgingState implements ITransition {
 
     @Override
     public void task() {
+        ISortTeams sortTeams = new SortTeams();
         iPlayerModel = new PlayerModel();
         daysToAge = 1;
         currentDate = stateMachine.getCurrentDate();
@@ -69,6 +72,7 @@ public class AgingState implements ITransition {
                         System.out.println("PLAYER NAME: "+playerModelTemp.getPlayerName());
                         iPlayerModel.aging(playerModelTemp, daysToAge, currentDate);
                     }
+                    sortTeams.sortActiveRoasters(teamsModel.getPlayers());
                 }
             }
         }
