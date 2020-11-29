@@ -1,9 +1,9 @@
 package statemachine.trophysystem;
 
-import cli.IDisplay;
+import cli.ICli;
 import leagueobjectmodel.ILeagueModel;
 
 public interface IObserver {
     void update(ILeagueModel leagueModel,int year);
-    void getHistoryOfWinners(IDisplay display);
+    void getHistoryOfWinners(ICli display);
 }

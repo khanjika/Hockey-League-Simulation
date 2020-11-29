@@ -2,13 +2,14 @@ package statemachine.states.statemachine.states;
 
 import leagueobjectmodel.ILeagueModel;
 import statemachine.states.statemachine.StateMachine;
-import statemachine.trophysystem.TrophySystem;
+import statemachine.trophysystem.ITrophySystem;
+import statemachine.trophysystem.TrophySystemAbstractFactory;
 
 public class TrophySystemState implements ITransition{
 
     StateMachine stateMachine;
     ILeagueModel leagueModel;
-    TrophySystem trophySystem = TrophySystem.getInstance();
+    ITrophySystem trophySystem = TrophySystemAbstractFactory.getInstance().getTrophySystem();
     int year;
 
     public TrophySystemState(StateMachine stateMachine) {
@@ -32,6 +33,6 @@ public class TrophySystemState implements ITransition{
 
     @Override
     public void exit() {
-        return;
+
     }
 }

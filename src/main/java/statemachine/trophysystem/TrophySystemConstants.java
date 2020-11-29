@@ -8,6 +8,10 @@ public enum TrophySystemConstants {
     DefenseManTrophy("Rob Hawkey Memorial Cup"),
     ForwardManTrophy("Maurice Richard Trophy"),
     GoalieTrophy("Vezina Trophy"),
+    LineSpace("\n"),
+    LineSeperator("=================================="),
+    Year("Winner of the trophy of the year "),
+    Winner(" is ")
     ;
 
 

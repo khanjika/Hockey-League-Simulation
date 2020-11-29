@@ -1,6 +1,6 @@
 package statemachine.trophysystem;
 
-import cli.IDisplay;
+import cli.ICli;
 import leagueobjectmodel.*;
 
 import java.util.*;
@@ -28,11 +28,15 @@ public class ForwardStandingObserver implements IObserver{
     }
 
     @Override
-    public void getHistoryOfWinners(IDisplay display){
+    public void getHistoryOfWinners(ICli display){
         SortedSet<Integer> years = new TreeSet<>(forwardWinners.keySet()).descendingSet();
+        display.printOutput(TrophySystemConstants.LineSeperator.getValue() + TrophySystemConstants.LineSpace.getValue() +
+                TrophySystemConstants.ForwardManTrophy.getValue() + TrophySystemConstants.LineSpace.getValue()
+                + TrophySystemConstants.LineSeperator.getValue());
         for(Integer currentYear: years){
-            display.displayAwards(TrophySystemConstants.ForwardManTrophy.getValue()
-                    ,forwardWinners.get(currentYear).getPlayerName(),currentYear);
+            display.printOutput(TrophySystemConstants.Year.getValue() + currentYear
+                    + TrophySystemConstants.Winner.getValue() +forwardWinners.get(currentYear).getPlayerName()
+                    + TrophySystemConstants.LineSpace.getValue());
         }
     }
 }

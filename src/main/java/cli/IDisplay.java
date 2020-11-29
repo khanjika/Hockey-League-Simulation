@@ -15,6 +15,4 @@ public interface IDisplay {
     void displayManagers(List<GeneralManagersModel> generalManagers);
 
     void displayFreeAgents(List<FreeAgentModel> freeAgentModel);
-
-    void displayAwards(String trophy, String winner, int year);
 }

@@ -7,7 +7,8 @@ import statemachine.states.statemachine.states.matchSchedules.IDeadlines;
 import statemachine.states.statemachine.states.matchSchedules.IPlayoffSchedule;
 import statemachine.states.statemachine.states.matchSchedules.IRegularSeasonSchedule;
 import statemachine.states.statemachine.states.matchSchedules.MatchScheduleAbstractFactory;
-import statemachine.trophysystem.TrophySystem;
+import statemachine.trophysystem.ITrophySystem;
+import statemachine.trophysystem.TrophySystemAbstractFactory;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -26,6 +27,7 @@ public class InitializeSeasonState implements ITransition {
     ITransition tradingState;
     ITransition persistLeagueState;
     IPlayoffSchedule playoffSchedule;
+    ITrophySystem trophySystem;
     private int totalMatches;
     private int currentSimulationYear;
 
@@ -45,7 +47,7 @@ public class InitializeSeasonState implements ITransition {
         this.updatedLeagueModelObject = updatedLeagueModel;
         currentSimulationYear = currentYear;
         iDeadlines = MatchScheduleAbstractFactory.getMatchScheduleInstance().getDeadline();
-
+        trophySystem = TrophySystemAbstractFactory.getInstance().getTrophySystem();
     }
 
     @Override
@@ -86,8 +88,8 @@ public class InitializeSeasonState implements ITransition {
 
         }
 
-        TrophySystem obj = TrophySystem.getInstance();
-        obj.performCalculationBeforePlayOff(updatedLeagueModelObject,currentSimulationYear);
+        trophySystem.performCalculationBeforePlayOff(updatedLeagueModelObject,currentSimulationYear);
+
         LocalDate playOffStartDate = iDeadlines.getPlayOffStartDate(currentSimulationYear);
         currentDate = playOffStartDate;
         long availableDaysForPlayOff = DAYS.between(iDeadlines.getPlayOffStartDate(currentSimulationYear), iDeadlines.getLastDayOfStanleyCup(currentSimulationYear + 1));
@@ -119,7 +121,7 @@ public class InitializeSeasonState implements ITransition {
             }
         }
 
-        obj.performCalculationAfterPlayOff(updatedLeagueModelObject, currentSimulationYear);
+        trophySystem.performCalculationAfterPlayOff(updatedLeagueModelObject, currentSimulationYear);
 
         System.out.println("Stanly Cup Winner Determined");
         System.out.println("Winner is " + winnerTeam.getTeamName() + " With Points " + winnerTeam.getWinPoint() + " For the year " + currentSimulationYear);
@@ -189,5 +191,9 @@ public class InitializeSeasonState implements ITransition {
 
         MatchScheduleAbstractFactory.getMatchScheduleInstance().setRegularSeason(null);
         MatchScheduleAbstractFactory.getMatchScheduleInstance().setPlayOff(null);
+        System.out.println("=========================================================================================================================================");
+        stateMachine.getUpdateStateValue().updateTrophyStateValue(updatedLeagueModelObject, stateMachine , currentSimulationYear);
+        stateMachine.setCurrentState(stateMachine.getTrophySystemState());
+        stateMachine.getCurrentState().entry();
     }
 }

@@ -71,10 +71,6 @@ public class PlayerSeasonsChoiceState implements ITransition {
             stateMachine.getUpdateStateValue().updateInitializeSeasonStateValue(stateMachine, currentModel, currentYear + i);
             stateMachine.setCurrentState(stateMachine.getInitlailizeSeasonState());
             stateMachine.getCurrentState().entry();
-            System.out.println("=========================================================================================================================================");
-            stateMachine.getUpdateStateValue().updateTrophyStateValue(currentModel, stateMachine , currentYear + i);
-            stateMachine.setCurrentState(stateMachine.getTrophySystemState());
-            stateMachine.getCurrentState().entry();
         }
 
 

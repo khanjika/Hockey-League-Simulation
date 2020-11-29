@@ -1,6 +1,6 @@
 package statemachine.trophysystem;
 
-import cli.IDisplay;
+import cli.ICli;
 import leagueobjectmodel.ConferenceModel;
 import leagueobjectmodel.DivisonModel;
 import leagueobjectmodel.ILeagueModel;
@@ -29,19 +29,32 @@ public class TeamStandingObserver implements IObserver{
                 System.out.println("in loop");
             }
         }
-        bestTeamWinners.put(year, Collections.max(bestTeamOfEachDivision,Comparator.comparing(TeamsModel::getWinPoint)));
-        lowestTeamWinners.put(year, Collections.max(bestTeamOfEachDivision,Comparator.comparing(TeamsModel::getLossPoint)));
+        bestTeamWinners.put(year, Collections.max(bestTeamOfEachDivision,Comparator
+                .comparing(TeamsModel::getWinPoint)));
+        lowestTeamWinners.put(year, Collections.max(bestTeamOfEachDivision,Comparator
+                .comparing(TeamsModel::getLossPoint)));
     }
 
     @Override
-    public void getHistoryOfWinners(IDisplay display){
+    public void getHistoryOfWinners(ICli display){
         SortedSet<Integer> years = new TreeSet<>(bestTeamWinners.keySet()).descendingSet();
+        display.printOutput(TrophySystemConstants.LineSeperator.getValue() + TrophySystemConstants.LineSpace.getValue() + TrophySystemConstants.BestTeamTrophy.getValue()
+                + TrophySystemConstants.LineSpace.getValue()
+                + TrophySystemConstants.LineSeperator.getValue());
         for(Integer currentYear: years){
-            display.displayAwards(TrophySystemConstants.BestTeamTrophy.getValue(), bestTeamWinners.get(currentYear).getTeamName(), currentYear);
+            display.printOutput(TrophySystemConstants.Year.getValue() + currentYear
+                    + TrophySystemConstants.Winner.getValue() + bestTeamWinners.get(currentYear).getTeamName()
+                    + TrophySystemConstants.LineSpace.getValue());
         }
         years = new TreeSet<>(lowestTeamWinners.keySet()).descendingSet();
+        display.printOutput(TrophySystemConstants.LineSeperator.getValue() + TrophySystemConstants.LineSpace.getValue() +
+                TrophySystemConstants.LowestTeamTrophy.getValue()
+                + TrophySystemConstants.LineSpace.getValue()
+                + TrophySystemConstants.LineSeperator.getValue());
         for(Integer currentYear: years){
-            display.displayAwards(TrophySystemConstants.LowestTeamTrophy.getValue(), lowestTeamWinners.get(currentYear).getTeamName(),currentYear);
+            display.printOutput(TrophySystemConstants.Year.getValue() + currentYear
+                    + TrophySystemConstants.Winner.getValue() +lowestTeamWinners.get(currentYear).getTeamName()
+                    + TrophySystemConstants.LineSpace.getValue());
         }
     }
 }

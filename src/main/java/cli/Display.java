@@ -176,8 +176,4 @@ public class Display implements IDisplay {
         cli.printOutput(line);
     }
 
-    @Override
-    public void displayAwards(String trophy, String winner, int year){
-        System.out.println("The " + trophy + " winner is ------>" + winner + " in the year " + year);
-    }
 }

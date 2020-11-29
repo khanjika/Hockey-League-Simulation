@@ -1,5 +1,6 @@
 package statemachine.trophysystem;
 
+import cli.ICli;
 import cli.IDisplay;
 import leagueobjectmodel.ILeagueModel;
 
@@ -22,7 +23,7 @@ public abstract class Subject {
         }
     }
 
-    public void notifyObservers(IDisplay display){
+    public void notifyObservers(ICli display){
         for (IObserver observer : observers){
             observer.getHistoryOfWinners(display);
         }

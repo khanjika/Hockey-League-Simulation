@@ -1,21 +1,16 @@
 package statemachine.trophysystem;
 
 import cli.CliAbstractFactory;
+import cli.ICli;
 import cli.IDisplay;
 import leagueobjectmodel.ILeagueModel;
 
-public class TrophySystem {
+public class TrophySystem implements ITrophySystem{
 
     EndOfPlayOffStandingSubject subject;
     EndOfSeasonStandingSubject subject1;
     AwardWinnersSubject subject2;
-    IDisplay display = CliAbstractFactory.getInstance().getDisplay();
-
-    private static TrophySystem unique_instance = new TrophySystem();
-
-    public static TrophySystem getInstance() {
-        return unique_instance;
-    }
+    ICli display = CliAbstractFactory.getInstance().getCli();
 
     public TrophySystem() {
         subject = EndOfPlayOffStandingSubject.getInstance();
@@ -45,14 +40,17 @@ public class TrophySystem {
         subject2.attach(observer5);
     }
 
+    @Override
     public void performCalculationBeforePlayOff(ILeagueModel leagueModel,int year){
         subject.notifyObservers(leagueModel, year);
     }
 
+    @Override
     public void performCalculationAfterPlayOff(ILeagueModel leagueModel,int year) {
         subject1.notifyObservers(leagueModel, year);
     }
 
+    @Override
     public void awardWinners(){
         subject2.notifyObservers(display);
     }

@@ -247,7 +247,7 @@ public class PlayerModel implements IPlayerModel {
     }
 
     @Override
-    public void setActive(boolean active) {
+    public void setIsActive(boolean active) {
         this.isActive = active;
     }
 

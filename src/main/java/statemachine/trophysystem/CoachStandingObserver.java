@@ -1,6 +1,6 @@
 package statemachine.trophysystem;
 
-import cli.IDisplay;
+import cli.ICli;
 import leagueobjectmodel.*;
 import java.util.*;
 
@@ -23,10 +23,15 @@ public class CoachStandingObserver implements IObserver {
     }
 
     @Override
-    public void getHistoryOfWinners(IDisplay display) {
+    public void getHistoryOfWinners(ICli display) {
         SortedSet<Integer> years = new TreeSet<>(bestCoachWinners.keySet()).descendingSet();
+        display.printOutput(TrophySystemConstants.LineSeperator.getValue()  + TrophySystemConstants.LineSpace.getValue()
+                + TrophySystemConstants.CoachTrophy.getValue() + TrophySystemConstants.LineSpace.getValue()
+                + TrophySystemConstants.LineSeperator.getValue());
         for(Integer currentYear: years){
-            display.displayAwards(TrophySystemConstants.CoachTrophy.getValue(), bestCoachWinners.get(currentYear).getName() , currentYear);
+            display.printOutput(TrophySystemConstants.Year.getValue() + currentYear
+                    + TrophySystemConstants.Winner.getValue() +bestCoachWinners.get(currentYear).getName()
+                    + TrophySystemConstants.LineSpace.getValue());
         }
     }
 
