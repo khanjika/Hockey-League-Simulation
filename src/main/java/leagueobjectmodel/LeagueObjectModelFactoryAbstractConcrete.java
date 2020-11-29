@@ -17,6 +17,8 @@ public class LeagueObjectModelFactoryAbstractConcrete extends LeagueObjectModelA
     private ICoachModel coach;
     private IGeneralManagersModel generalManagers;
     private IGeneralManagersValidator generalManagersValidator;
+    private IFreeAgentModel freeAgentModel;
+    private IPlayerModel newPlayerModel;
 
     @Override
     public ILeagueModel getLeague() {
@@ -221,5 +223,27 @@ public class LeagueObjectModelFactoryAbstractConcrete extends LeagueObjectModelA
     @Override
     public void setGeneralManagersValidator(IGeneralManagersValidator generalManagersValidator) {
         this.generalManagersValidator = generalManagersValidator;
+    }
+
+    @Override
+    public IFreeAgentModel getFreeAgentModel() {
+        if (freeAgentModel == null){
+            freeAgentModel = new FreeAgentModel();
+        }
+        return freeAgentModel;
+    }
+
+    @Override
+    public void setFreeAgentModel(IFreeAgentModel freeAgentModel) {
+        this.freeAgentModel = freeAgentModel;
+    }
+
+    @Override
+    public IPlayerModel getNewPlayerModel() {
+        return newPlayerModel = new PlayerModel() ;
+    }
+
+    public void setNewPlayerModel(IPlayerModel newPlayerModel) {
+        this.newPlayerModel = newPlayerModel;
     }
 }

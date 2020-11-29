@@ -2,6 +2,9 @@ package leagueobjectmodel;
 
 import com.google.gson.annotations.Expose;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class TeamsModel implements ITeamsModel {
@@ -19,6 +22,7 @@ public class TeamsModel implements ITeamsModel {
     private int winPoint;
     private int lossPoint;
     private int lossPointForTrading;
+    private ITeamsModel[] draftTrades = new ITeamsModel[7];
 
     @Override
     public int getLossPointForTrading() {
@@ -118,5 +122,15 @@ public class TeamsModel implements ITeamsModel {
     @Override
     public void setLossPoint(int lossPoint) {
         this.lossPoint = lossPoint;
+    }
+
+    @Override
+    public ITeamsModel[] getDraftTrades() {
+        return draftTrades;
+    }
+
+    @Override
+    public void setDraftTrades(ITeamsModel[] draftTrades) {
+        this.draftTrades = draftTrades;
     }
 }

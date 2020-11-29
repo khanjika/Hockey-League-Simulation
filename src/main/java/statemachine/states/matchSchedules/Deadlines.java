@@ -47,4 +47,10 @@ public class Deadlines implements IDeadlines {
         LocalDate lastDayForSatnlyCup = LocalDate.of(year, 6, 1);
         return lastDayForSatnlyCup;
     }
+
+    @Override
+    public LocalDate getPlayerDraftStartDate(int year) {
+        LocalDate playerDraftStartDate = LocalDate.of(year, 7, 15);
+        return playerDraftStartDate;
+    }
 }

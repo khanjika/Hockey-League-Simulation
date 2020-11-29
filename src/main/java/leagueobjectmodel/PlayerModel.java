@@ -348,13 +348,17 @@ public class PlayerModel implements IPlayerModel {
     @Override
     public void aging(PlayerModel playerModel, int daysToAge, LocalDate date) {
         try {
-            if(playerModel == null){
+            if (playerModel == null) {
                 throw new NullPointerException("Player Model is Null inside Aging method");
             }
-            LocalDate playerBirthDay = LocalDate.of(playerModel.getBirthYear(),playerModel.getBirthMonth(),playerModel.getBirthDay());
+            LocalDate playerBirthDay = LocalDate.of(playerModel.getBirthYear(), playerModel.getBirthMonth(), playerModel.getBirthDay());
+            int playerAge = date.getYear()-playerModel.getBirthYear();
+            playerModel.setAge(playerAge);
 
+
+            long differenceInDays = DAYS.between(playerBirthDay, date);
+            System.out.println("Difference in days - " + differenceInDays);
             int days = playerModel.getDays();
-            int playerAge = playerModel.getAge();
             if (days + daysToAge >= 365) {
                 playerModel.setAge(playerAge + 1);
                 playerModel.setDays(0);
@@ -374,7 +378,7 @@ public class PlayerModel implements IPlayerModel {
                 replacePlayerWithFreeAgent(playerModel, replacementFreeAgent);
             }
         } catch (Exception e) {
-            System.out.println("Player INFO: " +playerModel.getPlayerName()+" ---- "+playerModel.getBirthMonth());
+            System.out.println("Player INFO: " + playerModel.getPlayerName() + " ---- " + playerModel.getBirthMonth());
             System.out.println("Error in aging method of player model" + e);
         }
     }

@@ -24,6 +24,8 @@ public class StateMachine {
     ITransition injuryCheckState;
     ITransition tradingState;
     IUpdateStateValue updateStateValue;
+    ITransition playerDraftState;
+
 
     public StateMachine() {
         logger.debug ("inside state machine const");
@@ -40,6 +42,7 @@ public class StateMachine {
         trainingState = new TrainingState(this);
         updateStateValue=new UpdateStateValue();
         tradingState=new TradingState(this);
+        playerDraftState=new PlayerDraftState(this);
     }
     public IUpdateStateValue getUpdateStateValue() {
         return updateStateValue;
@@ -197,4 +200,11 @@ public class StateMachine {
         this.tradingState = tradingState;
     }
 
+    public ITransition getPlayerDraftState() {
+        return playerDraftState;
+    }
+
+    public void setPlayerDraftState(ITransition playerDraftState) {
+        this.playerDraftState = playerDraftState;
+    }
 }

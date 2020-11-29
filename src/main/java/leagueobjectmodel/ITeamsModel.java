@@ -38,4 +38,8 @@ public interface ITeamsModel {
     int getLossPoint();
 
     void setLossPoint(int lossPoint);
+
+    ITeamsModel[] getDraftTrades();
+
+    void setDraftTrades(ITeamsModel[] draftTrades);
 }

@@ -1,9 +1,6 @@
 package statemachine.states.matchSchedules;
 
-import leagueobjectmodel.ConferenceModel;
-import leagueobjectmodel.DivisonModel;
-import leagueobjectmodel.LeagueModel;
-import leagueobjectmodel.TeamsModel;
+import leagueobjectmodel.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -82,6 +79,5 @@ public class PlayoffSchedule implements IPlayoffSchedule {
             return teamTwoWinPoint - teamOneWinPoint;
         }
     };
-
 
 }

@@ -39,11 +39,11 @@ public interface IFreeAgentModel {
 
     void setBirthYear(int birthYear);
 
-    abstract void calculateFreeAgentStrength(FreeAgentModel freeAgentModel);
+    void calculateFreeAgentStrength(FreeAgentModel freeAgentModel);
 
-    abstract void aging(FreeAgentModel freeAgentModel, int daysToAge);
+    void aging(FreeAgentModel freeAgentModel, int daysToAge);
 
     int checkRetirement(FreeAgentModel freeAgentModel);
 
-    abstract FreeAgentModel getReplacementFreeAgent(List<FreeAgentModel> freeAgents, String playerPosition);
+    FreeAgentModel getReplacementFreeAgent(List<FreeAgentModel> freeAgents, String playerPosition);
 }

@@ -28,6 +28,7 @@ public class FreeAgentModel implements IFreeAgentModel {
     private int birthDay;
     private int birthMonth;
     private int birthYear;
+    private IFreeAgentModel ifreeAgent;
 
     public String getPlayerName() {
         return playerName;
@@ -182,7 +183,7 @@ public class FreeAgentModel implements IFreeAgentModel {
 
     @Override
     public void aging(FreeAgentModel freeAgentModel, int daysToAge) {
-        LocalDate birthday = LocalDate.of(freeAgentModel.getBirthYear(),freeAgentModel.getBirthMonth(),freeAgentModel.getBirthDay());
+        LocalDate birthday = LocalDate.of(freeAgentModel.getBirthYear(), freeAgentModel.getBirthMonth(), freeAgentModel.getBirthDay());
         int days = freeAgentModel.getDays();
         int age = freeAgentModel.getAge();
         if (days + daysToAge >= 365) {
@@ -242,7 +243,7 @@ public class FreeAgentModel implements IFreeAgentModel {
         FreeAgentModel replacementFreeAgent = Collections.max(matchedfreeAgents, Comparator.comparing(f -> f.getFreeAgentStrength()));
         freeAgents.remove(replacementFreeAgent);
         return replacementFreeAgent;
-
     }
+
 
 }

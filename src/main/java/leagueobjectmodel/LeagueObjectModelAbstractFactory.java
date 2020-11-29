@@ -74,4 +74,10 @@ public abstract class LeagueObjectModelAbstractFactory {
     public abstract IGeneralManagersValidator getGeneralManagersValidator();
 
     public abstract void setGeneralManagersValidator(IGeneralManagersValidator generalManagersValidator);
+
+    public abstract IFreeAgentModel getFreeAgentModel();
+
+    public abstract void setFreeAgentModel(IFreeAgentModel freeAgentModel);
+
+    public abstract IPlayerModel getNewPlayerModel();
 }
