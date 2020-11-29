@@ -15,7 +15,7 @@ public class LeagueValidator implements ILeagueValidator {
     }
 
     @Override
-    public boolean validateLeagueObject(LeagueModel leagueModel) {
+    public boolean validateLeagueObject(ILeagueModel leagueModel) {
 
         if (leagueModel.getLeagueName() == "" || leagueModel.getLeagueName() == null) {
             System.out.println("League name can not be empty");
@@ -30,7 +30,6 @@ public class LeagueValidator implements ILeagueValidator {
             }
         }
         for (FreeAgentModel freeAgentModel : leagueModel.getFreeAgents()) {
-            System.out.println("Validating Free Agents  " +freeAgentModel );
             if (freeAgentValidator.validateFreeAgentObject(freeAgentModel)) {
                 continue;
             } else {
@@ -65,6 +64,5 @@ public class LeagueValidator implements ILeagueValidator {
             System.out.println("Number of free agents is less than 20");
         }
         return validateFlag;
-//       return true;
     }
 }

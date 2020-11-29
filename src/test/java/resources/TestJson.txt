@@ -13,7 +13,7 @@
       "injuryDaysLow": 1,
       "injuryDaysHigh": 260
     },
-    "training": {
+    "statemachine.training": {
       "daysUntilStatIncreaseCheck": 100
     },
     "trading": {

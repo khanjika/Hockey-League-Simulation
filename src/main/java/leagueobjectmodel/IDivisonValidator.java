@@ -2,7 +2,7 @@ package leagueobjectmodel;
 
 public interface IDivisonValidator {
 
-    boolean validateDivisionObject(DivisonModel divisonModel);
+    boolean validateDivisionObject(IDivisonModel divisonModel);
 
-    boolean isDivisionExist(LeagueModel leagueModel, String divisionName);
+    boolean isDivisionExist(ILeagueModel leagueModel, String divisionName);
 }

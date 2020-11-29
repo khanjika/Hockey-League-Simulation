@@ -1,9 +1,7 @@
 package statemachine.states.matchSchedules;
 
-import leagueobjectmodel.ConferenceModel;
-import leagueobjectmodel.DivisonModel;
-import leagueobjectmodel.LeagueModel;
-import leagueobjectmodel.TeamsModel;
+import leagueobjectmodel.*;
+import statemachine.states.statemachine.states.matchSchedules.IRegularSeasonSchedule;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,10 +9,11 @@ import java.util.List;
 public class RegularSeasonSchedule implements IRegularSeasonSchedule {
 
 
-    List<List<TeamsModel>> regularSchedule;
+    List<List<ITeamsModel>> regularSchedule;
+
 
     @Override
-    public List<List<TeamsModel>> generateSeasonSchedule(LeagueModel leagueModel) {
+    public List<List<ITeamsModel>> generateSeasonSchedule(ILeagueModel leagueModel) {
         regularSchedule = new ArrayList<>();
         for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
             List<TeamsModel> teamsOfDifferentConference = getOutOfConferenceTeamList(conferenceModel.getConferenceName(), leagueModel.getConferences());
@@ -52,7 +51,7 @@ public class RegularSeasonSchedule implements IRegularSeasonSchedule {
                         }
                     }
 
-                    //Here first i will call the method for training
+                    //Here first i will call the method for statemachine.training
                     //Then i will call the method for trade offer
                     //For trade offer i need to pass any league model object and i also need to apss two team along with the win and loss point with that
                     //Then in return i will get league model with the updated league object that might have traded teams.

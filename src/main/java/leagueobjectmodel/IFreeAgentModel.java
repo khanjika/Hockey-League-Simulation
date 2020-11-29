@@ -45,5 +45,9 @@ public interface IFreeAgentModel {
 
     int checkRetirement(FreeAgentModel freeAgentModel);
 
-    FreeAgentModel getReplacementFreeAgent(List<FreeAgentModel> freeAgents, String playerPosition);
+
+    abstract FreeAgentModel getReplacementFreeAgent(List<FreeAgentModel> freeAgents, String playerPosition);
+
+    List<FreeAgentModel> sortFreeAgentDescending(List<FreeAgentModel> freeAgents);
+
 }

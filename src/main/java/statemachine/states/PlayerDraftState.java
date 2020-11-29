@@ -1,8 +1,9 @@
 package statemachine.states;
 
 import leagueobjectmodel.*;
-import statemachine.StateMachine;
 import statemachine.states.playerdraft.PlayerDraft;
+import statemachine.states.statemachine.StateMachine;
+import statemachine.states.statemachine.states.ITransition;
 
 import java.util.ArrayList;
 import java.util.List;

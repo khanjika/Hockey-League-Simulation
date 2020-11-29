@@ -1,8 +1,8 @@
 package statesTest;
 
 import org.junit.jupiter.api.Test;
-import statemachine.StateMachine;
-import statemachine.states.InitializeSeasonState;
+import statemachine.states.statemachine.StateMachine;
+import statemachine.states.statemachine.states.InitializeSeasonState;
 
 import static org.junit.jupiter.api.Assertions.fail;
 

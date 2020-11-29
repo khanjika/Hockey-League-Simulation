@@ -6,7 +6,7 @@ public abstract class LeagueObjectModelAbstractFactory {
 
     public static LeagueObjectModelAbstractFactory getInstance() {
         if (unique_instance == null) {
-            unique_instance = new LeagueObjectModelFactoryAbstractConcrete();
+            unique_instance = new LeagueObjectModelFactoryAbstractConcrete ();
         }
         return unique_instance;
     }
@@ -22,6 +22,14 @@ public abstract class LeagueObjectModelAbstractFactory {
     public abstract IDivisonModel getDivision();
 
     public abstract void setDivision(IDivisonModel division);
+
+    public abstract IFreeAgentModel getFreeAgentModel();
+
+    public abstract void setFreeAgentModel(IFreeAgentModel freeAgentModel);
+
+    public abstract IFreeAgentValidator getFreeAgentModelValidator();
+
+    public abstract void setFreeAgentModelValidator(IFreeAgentValidator freeAgentValidator);
 
     public abstract ITeamsModel getTeams();
 
@@ -75,9 +83,10 @@ public abstract class LeagueObjectModelAbstractFactory {
 
     public abstract void setGeneralManagersValidator(IGeneralManagersValidator generalManagersValidator);
 
-    public abstract IFreeAgentModel getFreeAgentModel();
-
-    public abstract void setFreeAgentModel(IFreeAgentModel freeAgentModel);
 
     public abstract IPlayerModel getNewPlayerModel();
+    public abstract IFreeAgentModel getFreeAgent();
+
+    public abstract void setFreeAgent(IFreeAgentModel freeAgent);
+
 }

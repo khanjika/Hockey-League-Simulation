@@ -245,5 +245,11 @@ public class FreeAgentModel implements IFreeAgentModel {
         return replacementFreeAgent;
     }
 
+    @Override
+    public List<FreeAgentModel> sortFreeAgentDescending(List<FreeAgentModel> freeAgents) {
+        freeAgents.sort(Comparator.comparing(FreeAgentModel::getFreeAgentStrength).reversed());
+        return freeAgents;
+    }
+
 
 }

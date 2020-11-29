@@ -1,5 +1,5 @@
 import org.apache.log4j.Logger;
-import statemachine.StateMachine;
+import statemachine.states.statemachine.StateMachine;
 
 
 public class Main {
@@ -18,5 +18,6 @@ public class Main {
         stateMachine.setCurrentState(stateMachine.getImportJson());
         stateMachine.entry();
     }
+
 
 }

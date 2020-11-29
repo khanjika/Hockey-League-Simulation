@@ -2,7 +2,7 @@ package leagueobjectmodel;
 
 public interface IConferenceValidator {
 
-    boolean validateConferenceObject(ConferenceModel conferenceModel);
+    boolean validateConferenceObject(IConferenceModel conferenceModel);
 
-    boolean isConferenceExist(LeagueModel leagueModel, String conferenceName);
+    boolean isConferenceExist(ILeagueModel leagueModel, String conferenceName);
 }

@@ -5,6 +5,10 @@ import com.google.gson.annotations.Expose;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.Comparator;
 import java.util.List;
 
 public class TeamsModel implements ITeamsModel {
@@ -22,9 +26,14 @@ public class TeamsModel implements ITeamsModel {
     private int winPoint;
     private int lossPoint;
     private int lossPointForTrading;
-    private ITeamsModel[] draftTrades = new ITeamsModel[7];
+    private List<PlayerModel> activeRoasters;
+    private List<PlayerModel> inactiveRoasters;
 
     @Override
+    public void setTeamStrength(float teamStrength) {
+        this.teamStrength = teamStrength;
+    }
+
     public int getLossPointForTrading() {
         return lossPointForTrading;
     }
@@ -97,11 +106,89 @@ public class TeamsModel implements ITeamsModel {
     }
 
     @Override
-    public void calculateTeamStrength(TeamsModel teamsModel) {
-        teamsModel.teamStrength = 0;
+    public void calculateTeamStrength(ITeamsModel teamsModel) {
+        ISortTeams sortTeams = new SortTeams();
+        this.teamStrength = 0;
         for (PlayerModel playerModel : teamsModel.getPlayers()) {
             this.teamStrength += playerModel.getPlayerStrength();
         }
+        setActiveRoasters(sortTeams.sortActiveRoasters(teamsModel.getPlayers()));
+        setInactiveRoasters(teamsModel.getPlayers().stream()
+                .filter(v -> !getActiveRoasters().contains(v)).collect(Collectors.toList()));
+    }
+
+    @Override
+    public List<PlayerModel> getActiveRoasters(){
+        return activeRoasters;
+    }
+
+    @Override
+    public void setActiveRoasters(List<PlayerModel> activeRoasters){
+        this.activeRoasters = activeRoasters;
+    }
+
+    @Override
+    public List<PlayerModel> getInactiveRoasters(){
+        return inactiveRoasters;
+    }
+
+    @Override
+    public void setInactiveRoasters(List<PlayerModel> inactiveRoasters){
+        this.inactiveRoasters = inactiveRoasters;
+    }
+
+    @Override
+    public void roasterReplacement(PlayerModel currentPlayer){
+        List<PlayerModel> matchedInactivePlayers = new ArrayList<>();
+        if(currentPlayer.isPlayerInjured() == false){
+            return;
+        }
+        for(PlayerModel player : this.getInactiveRoasters()){
+            if(player.getPosition().equals(currentPlayer.getPosition()) && player.isPlayerInjured() == false){
+                matchedInactivePlayers.add(player);
+            }
+        }
+        if(matchedInactivePlayers.size() == 0){
+            return;
+        }
+        PlayerModel replacementPlayer = Collections.max(matchedInactivePlayers, Comparator.comparing(v -> v.getPlayerStrength()));
+        getActiveRoasters().remove(currentPlayer);
+        currentPlayer.setActive(false);
+        getActiveRoasters().add(replacementPlayer);
+        replacementPlayer.setActive(true);
+        System.out.println(currentPlayer.getPlayerName()+" replaced with "+replacementPlayer.getPlayerName());
+    }
+    @Override
+    public List<PlayerModel> getTotalForwards(){
+        List<PlayerModel> forwards = new ArrayList<>();
+        for (PlayerModel player : this.getPlayers()){
+            if (player.getPosition().equals(PlayerPosition.FORWARD.toString())){
+                forwards.add(player);
+            }
+        }
+        return forwards;
+    }
+
+    @Override
+    public List<PlayerModel> getTotalDefenses(){
+        List<PlayerModel> defenses = new ArrayList<>();
+        for (PlayerModel player : this.getPlayers()){
+            if (player.getPosition().equals(PlayerPosition.DEFENSE.toString())){
+                defenses.add(player);
+            }
+        }
+        return defenses;
+    }
+
+    @Override
+    public List<PlayerModel> getTotalGoalies(){
+        List<PlayerModel> goalies = new ArrayList<>();
+        for (PlayerModel player : this.getPlayers()){
+            if (player.getPosition().equals(PlayerPosition.GOALIE.toString())){
+                goalies.add(player);
+            }
+        }
+        return goalies;
     }
 
     @Override
@@ -124,13 +211,31 @@ public class TeamsModel implements ITeamsModel {
         this.lossPoint = lossPoint;
     }
 
+    public PlayerModel getBestGoalieFromTheTeam(List<PlayerModel> list) {
+        if (list == null) {
+            throw new NullPointerException();
+        }
+        PlayerModel currentBestGoalie = null;
+        for (PlayerModel playerModel : list) {
+            if (playerModel.getPosition().equals("goalie")) {
+                if (currentBestGoalie == null) {
+                    currentBestGoalie = playerModel;
+                } else if (playerModel.getSaving() > currentBestGoalie.getSaving()) {
+                    currentBestGoalie = playerModel;
+                }
+            }
+        }
+        return currentBestGoalie;
+    }
     @Override
-    public ITeamsModel[] getDraftTrades() {
-        return draftTrades;
+    public List<PlayerModel> sortPlayersOfTeamAscending(List<PlayerModel> players) {
+        players.sort(Comparator.comparing(PlayerModel::getPlayerStrength));
+        return players;
     }
 
     @Override
-    public void setDraftTrades(ITeamsModel[] draftTrades) {
-        this.draftTrades = draftTrades;
+    public List<PlayerModel> sortPlayersOfTeamDescending(List<PlayerModel> players) {
+        players.sort(Comparator.comparing(PlayerModel::getPlayerStrength).reversed());
+        return players;
     }
 }
