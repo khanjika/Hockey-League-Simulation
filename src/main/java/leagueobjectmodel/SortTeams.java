@@ -27,33 +27,17 @@ public class SortTeams implements ISortTeams {
     @Override
     public List<PlayerModel> sortActiveRoasters(List<PlayerModel> players){
         List<PlayerModel> activeRoaster = (sortPlayersDescending(players).stream()
-                .filter(v -> (v.getPosition().equals(PlayerPosition.FORWARD.toString())
-                        || v.getPosition().equals(PlayerPosition.DEFENSE.toString()))
-                        && v.isPlayerInjured() == false).limit(18)
+                .filter(v -> (v.getPosition().equals(PlayerPosition.FORWARD.toString()))
+                        && v.isPlayerInjured() == false).limit(9)
                 .collect(Collectors.toList()));
-//        int defense = 0;
-//        for(PlayerModel player : activeRoaster){
-//            if(player.getPosition().equals(PlayerPosition.DEFENSE.toString())){
-//                defense ++;
-//            }
-//        }
-//        System.out.println(activeRoaster.size());
-//        System.out.println(defense);
-//        if (defense < 2){
-//            for (int i = 0; i < (2 - defense); i++){
-//                activeRoaster = sortPlayersDescending(activeRoaster);
-//                activeRoaster.remove(0);
-//                System.out.println(activeRoaster.size());
-//            }
-//            activeRoaster.addAll(sortPlayersDescending(players).stream()
-//                    .filter(v -> v.getPosition().equals(PlayerPosition.DEFENSE.toString())
-//                            && v.isPlayerInjured() == false).limit(2 - defense)
-//                    .collect(Collectors.toList()));
-//        }
+        activeRoaster.addAll(sortPlayersDescending(players).stream().filter(v ->
+                v.getPosition().equals(PlayerPosition.DEFENSE.toString())
+                        && v.isPlayerInjured() == false).limit(9).collect(Collectors.toList()));
         activeRoaster.addAll(sortPlayersDescending(players).stream().filter(v ->
                 v.getPosition().equals(PlayerPosition.GOALIE.toString())
                         && v.isPlayerInjured() == false).limit(2).collect(Collectors.toList()));
-        activeRoaster.forEach(v -> v.setActive(true));
+        activeRoaster.forEach(v -> v.setIsActive(true));
+        players.stream().filter(v -> activeRoaster.contains(v) == false).forEach(p -> p.setIsActive(false));
         return activeRoaster;
     }
 

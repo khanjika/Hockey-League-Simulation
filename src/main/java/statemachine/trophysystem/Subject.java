@@ -1,32 +1,31 @@
 package statemachine.trophysystem;
 
+import cli.ICli;
+import cli.IDisplay;
+import leagueobjectmodel.ILeagueModel;
+
 import java.util.*;
 
 public abstract class Subject {
     private List<IObserver> observers;
-    protected Map<String,Object> subjectMap;
 
     public Subject(){
         this.observers =new ArrayList<>();
-        this.subjectMap = new HashMap<>();
     }
 
     public void attach(IObserver observer){
         observers.add(observer);
     }
 
-    public void detach(IObserver observer){
-        observers.remove(observer);
-    }
-
-    public void notifyObservers(){
+    public void notifyObservers(ILeagueModel leagueModel, int year){
         for (IObserver observer : observers){
-            observer.update(this);
+            observer.update(leagueModel, year);
         }
-        subjectMap.clear();
     }
 
-    public Object getValue(String key){
-        return subjectMap.get(key);
+    public void notifyObservers(ICli display){
+        for (IObserver observer : observers){
+            observer.getHistoryOfWinners(display);
+        }
     }
 }

@@ -23,6 +23,8 @@ public class StateMachine {
     ITransition injuryCheckState;
     ITransition tradingState;
     IUpdateStateValue updateStateValue;
+    ITransition trophySystemState;
+
 
     public StateMachine() {
         logger.debug ("inside state machine const");
@@ -39,6 +41,7 @@ public class StateMachine {
         trainingState = new TrainingState(this);
         updateStateValue=new UpdateStateValue();
         tradingState=new TradingState(this);
+        trophySystemState = new TrophySystemState(this);
     }
     public IUpdateStateValue getUpdateStateValue() {
         return updateStateValue;
@@ -194,6 +197,14 @@ public class StateMachine {
 
     public void setTradingState(ITransition tradingState) {
         this.tradingState = tradingState;
+    }
+
+    public ITransition getTrophySystemState() {
+        return trophySystemState;
+    }
+
+    public void setTrophySystemState(ITransition trophySystemState) {
+        this.trophySystemState = trophySystemState;
     }
 
 }

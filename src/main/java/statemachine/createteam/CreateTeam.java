@@ -33,7 +33,7 @@ public class CreateTeam implements ICreateTeam {
         userCreatedPlayers = new ArrayList<>();
         teamInactiveRoasters = new ArrayList<>();
         teamActiveRoasters = new ArrayList<>();
-        displayPersons = CliAbstractFactory.getInstance().getDisplayPersons();
+        displayPersons = CliAbstractFactory.getInstance().getDisplay();
         iTeamsModel = LeagueObjectModelAbstractFactory.getInstance().getTeams();
         newlyCreatedLeagueModelObject = LeagueObjectModelAbstractFactory.getInstance().getLeague();
         iCli = CliAbstractFactory.getInstance().getCli();
@@ -191,6 +191,9 @@ public class CreateTeam implements ICreateTeam {
         iCli.printOutput(CreateTeamConstants.DisplayActivePlayers.getValue());
         displayPersons.displayTeamPlayers(teamActiveRoasters);
         choice = iCli.readIntInput();
+        if(choice < 0 || choice > teamActiveRoasters.size()){
+            getCaptain();
+        }
         teamActiveRoasters.get(choice - 1).setCaptain(true);
         iCli.printOutput(teamActiveRoasters.get(choice - 1).getPlayerName() + CreateTeamConstants.TeamCaptain.getValue());
     }

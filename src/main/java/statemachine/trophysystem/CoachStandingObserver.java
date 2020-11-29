@@ -1,46 +1,38 @@
 package statemachine.trophysystem;
 
-import leagueobjectmodel.IHeadCoachModel;
-
+import cli.ICli;
+import leagueobjectmodel.*;
 import java.util.*;
 
 public class CoachStandingObserver implements IObserver {
 
-    private HashMap<IHeadCoachModel, Integer> coachStanding;
+    private HashMap<Integer, HeadCoachModel> bestCoachWinners = new HashMap<>();
 
-    public CoachStandingObserver(){
-        this.coachStanding = new HashMap<>();
+    @Override
+    public void update(ILeagueModel leagueModel, int year) {
+        List<HeadCoachModel> bestCoachOfEachTeam = new ArrayList<>();
+        for(ConferenceModel conference : leagueModel.getConferences()){
+            for(DivisonModel division : conference.getDivisions()) {
+                for(TeamsModel team : division.getTeams()){
+                    bestCoachOfEachTeam.add(team.getHeadCoach());
+                }
+            }
+        }
+        bestCoachWinners.put(year, Collections.max(bestCoachOfEachTeam,Comparator
+                .comparing(HeadCoachModel::getTrainingPlayerPoints)));
     }
 
     @Override
-    public void update(Subject subject) {
-        IHeadCoachModel coachModel = (IHeadCoachModel) subject.getValue("coach");
-
-        if (coachStanding.containsKey(coachModel)){
-            coachStanding.put(coachModel, coachStanding.get(coachModel) + 1);
-        }else{
-            coachStanding.put(coachModel, 1);
+    public void getHistoryOfWinners(ICli display) {
+        SortedSet<Integer> years = new TreeSet<>(bestCoachWinners.keySet()).descendingSet();
+        display.printOutput(TrophySystemConstants.LineSeperator.getValue()  + TrophySystemConstants.LineSpace.getValue()
+                + TrophySystemConstants.CoachTrophy.getValue() + TrophySystemConstants.LineSpace.getValue()
+                + TrophySystemConstants.LineSeperator.getValue());
+        for(Integer currentYear: years){
+            display.printOutput(TrophySystemConstants.Year.getValue() + currentYear
+                    + TrophySystemConstants.Winner.getValue() +bestCoachWinners.get(currentYear).getName()
+                    + TrophySystemConstants.LineSpace.getValue());
         }
-        System.out.println("in update");
     }
 
-    public IHeadCoachModel getBestCoach(){
-        return getFirstCoach("desc");
-    }
-
-    private IHeadCoachModel getFirstCoach(String order){
-        if(coachStanding.isEmpty()){
-            return null;
-        }
-        Set<Map.Entry<IHeadCoachModel, Integer>> entrySet = coachStanding.entrySet();
-        List<Map.Entry<IHeadCoachModel, Integer>> standingsList = new LinkedList<>(entrySet);
-        standingsList.sort((o1, o2) -> {
-            if (order.equals("desc")){
-                return o1.getValue().compareTo(o2.getValue());
-            } else{
-                return o2.getValue().compareTo(o1.getValue());
-            }
-        });
-        return standingsList.get(0).getKey();
-    }
 }
