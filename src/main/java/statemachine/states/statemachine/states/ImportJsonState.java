@@ -1,19 +1,21 @@
-package statemachine.states;
+package statemachine.states.statemachine.states;
 
-import cli.IInitCli;
-import cli.InitialCli;
 import leagueobjectmodel.*;
-import statemachine.StateMachine;
+
+import statemachine.states.statemachine.StateMachine;
+import statemachine.jsonparser.IParser;
+import statemachine.jsonparser.ParserAbstractFactory;
 
 public class ImportJsonState implements ITransition {
     StateMachine stateMachine;
-    IInitCli initialCli;
+    IParser parser;
     ITransition createTeamState;
     private String cliArgument;
-    private LeagueModel inMemoryLeagueModel;
+    private ILeagueModel inMemoryLeagueModel;
 
     public ImportJsonState(StateMachine currentStateMachine) {
         stateMachine = currentStateMachine;
+        parser = ParserAbstractFactory.getInstance().getParser();
     }
     public ImportJsonState(String[] args, StateMachine currentStateMachine) {
         if (args.length == 0) {
@@ -21,7 +23,6 @@ public class ImportJsonState implements ITransition {
         } else {
             cliArgument = args[0];
         }
-        //initialCli = new InitialCli();
         stateMachine = currentStateMachine;
     }
 
@@ -31,7 +32,6 @@ public class ImportJsonState implements ITransition {
         } else {
             cliArgument = args[0];
         }
-        initialCli = new InitialCli();
         stateMachine = currentStateMachine;
 
     }
@@ -50,7 +50,7 @@ public class ImportJsonState implements ITransition {
             stateMachine.setCurrentState(stateMachine.playerChoiceLoadTeam());
             exit();
         } else {
-            inMemoryLeagueModel = initialCli.parseJson(cliArgument);
+            inMemoryLeagueModel = parser.parseJson(cliArgument);
             if(inMemoryLeagueModel==null){
                 throw new RuntimeException("Error while parsing the in Memory Legaue Model");
             }
@@ -71,8 +71,8 @@ public class ImportJsonState implements ITransition {
 
     @Override
     public void task() {
-//        createTeamState = stateMachine.getCreateTeam();
-//        stateMachine.setCreateTeam(createTeamState);
+        createTeamState = stateMachine.getCreateTeam();
+        stateMachine.setCreateTeam(createTeamState);
         stateMachine.getUpdateStateValue().updateCreateTeamStateValue(stateMachine,inMemoryLeagueModel);
         stateMachine.setCurrentState(stateMachine.getCreateTeam());
         exit();
