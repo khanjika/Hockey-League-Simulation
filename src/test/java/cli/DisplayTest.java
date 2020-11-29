@@ -4,7 +4,7 @@ import leagueobjectmodel.MockTeam;
 import org.junit.jupiter.api.Test;
 
 public class DisplayTest {
-    IDisplay display = CliAbstractFactory.getInstance().getDisplayPersons();
+    IDisplay display = CliAbstractFactory.getInstance().getDisplay();
     @Test
     void displayTeamPlayersTest(){
         display.displayTeamPlayers(MockTeam.validTeamPlayers());

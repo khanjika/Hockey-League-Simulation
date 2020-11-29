@@ -33,7 +33,7 @@ public class CreateTeam implements ICreateTeam {
         userCreatedPlayers = new ArrayList<>();
         teamInactiveRoasters = new ArrayList<>();
         teamActiveRoasters = new ArrayList<>();
-        displayPersons = CliAbstractFactory.getInstance().getDisplayPersons();
+        displayPersons = CliAbstractFactory.getInstance().getDisplay();
         iTeamsModel = LeagueObjectModelAbstractFactory.getInstance().getTeams();
         newlyCreatedLeagueModelObject = LeagueObjectModelAbstractFactory.getInstance().getLeague();
         iCli = CliAbstractFactory.getInstance().getCli();

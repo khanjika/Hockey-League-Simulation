@@ -1,7 +1,9 @@
 package statemachine.states.statemachine.states;
 
 
-import leagueobjectmodel.*;
+import leagueobjectmodel.ILeagueModel;
+import leagueobjectmodel.LeagueModel;
+import leagueobjectmodel.LeagueObjectModelAbstractFactory;
 import statemachine.states.statemachine.StateMachine;
 
 import java.util.Calendar;
@@ -69,30 +71,34 @@ public class PlayerSeasonsChoiceState implements ITransition {
             stateMachine.getUpdateStateValue().updateInitializeSeasonStateValue(stateMachine, currentModel, currentYear + i);
             stateMachine.setCurrentState(stateMachine.getInitlailizeSeasonState());
             stateMachine.getCurrentState().entry();
-
+            System.out.println("=========================================================================================================================================");
+            stateMachine.getUpdateStateValue().updateTrophyStateValue(currentModel, stateMachine , currentYear + i);
+            stateMachine.setCurrentState(stateMachine.getTrophySystemState());
+            stateMachine.getCurrentState().entry();
         }
 
-        for (ConferenceModel conferenceModel : currentModel.getConferences()) {
-            for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
-                for (TeamsModel teamsModel : divisonModel.getTeams()) {
-                    for (PlayerModel playerModel : teamsModel.getPlayers()) {
-                        System.out.println(playerModel.getPlayerName() + " has goal " + playerModel.getGoalScorerCount());
-                        if (playerModel.getPosition().equals("defense")) {
-                            System.out.println(playerModel.getPlayerName() + " is Defense and has penalty count of " + playerModel.getTotalPenaltyCount());
-                        }
-                        if (playerModel.getPosition().equals("goalie")) {
-                            System.out.println(playerModel.getPlayerName() + " is goalie having save count " + playerModel.getSaveForGoalie());
-                        }
-                    }
-                }
-            }
-        }
+
+//        for (ConferenceModel conferenceModel : currentModel.getConferences()) {
+//            for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
+//                for (TeamsModel teamsModel : divisonModel.getTeams()) {
+//                    for (PlayerModel playerModel : teamsModel.getPlayers()) {
+//                        System.out.println(playerModel.getPlayerName() + " has goal " + playerModel.getGoalScorerCount());
+//                        if (playerModel.getPosition().equals("defense")) {
+//                            System.out.println(playerModel.getPlayerName() + " is Defense and has penalty count of " + playerModel.getTotalPenaltyCount());
+//                        }
+//                        if (playerModel.getPosition().equals("goalie")) {
+//                            System.out.println(playerModel.getPlayerName() + " is goalie having save count " + playerModel.getSaveForGoalie());
+//                        }
+//                    }
+//                }
+//            }
+//        }
+        iLeagueModel.storeLeagueInformation(currentModel);
         //This will be used to store the information
 //        stateMachine.getUpdateStateValue().updatePersistStateValue(currentModel, stateMachine, currentYear);
 //        stateMachine.setPersistLeagueState(persistLeagueState);
 //        stateMachine.setCurrentState(stateMachine.getPersistLeagueState());
 //        stateMachine.getCurrentState().entry();
-
     }
 }
 
