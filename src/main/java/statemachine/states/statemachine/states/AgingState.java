@@ -4,6 +4,7 @@ package statemachine.states.statemachine.states;
 import leagueobjectmodel.ConferenceModel;
 import leagueobjectmodel.DivisonModel;
 import leagueobjectmodel.GamePlayConfigModel;
+import org.apache.log4j.Logger;
 import statemachine.states.statemachine.states.matchSchedules.IDeadlines;
 import leagueobjectmodel.IPlayerModel;
 import leagueobjectmodel.PlayerModel;
@@ -27,16 +28,10 @@ public class AgingState implements ITransition {
     private int daysToAge;
     private final int DAYS_TO_AGE_AFTER_SEASON_ENDS=183;
 
-
+    final static Logger logger = Logger.getLogger(AgingState.class);
     public AgingState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
     }
-//
-//    public AgingState(StateMachine stateMachine, LeagueModel leagueModel) {
-//        this.stateMachine = stateMachine;
-//        this.leagueModel = leagueModel;
-//        iDeadlines = new Deadlines();
-//    }
 
      public void updateAgingStateValue(StateMachine stateMachine, ILeagueModel leagueModel){
          this.stateMachine = stateMachine;
@@ -86,8 +81,6 @@ public class AgingState implements ITransition {
     }
 
     @Override
-    public void exit() {
-
-    }
+    public void exit() { }
 
 }

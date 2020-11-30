@@ -28,7 +28,7 @@ public class PlayerDraftState implements ITransition {
         this.leagueModel = LeagueObjectModelAbstractFactory.getInstance().getLeague();
         this.teamsModel = LeagueObjectModelAbstractFactory.getInstance().getTeams();
 
-        System.out.println(leagueModel);
+        System.out.println(leagueModel+"==="+teamsModel);
         task();
     }
 

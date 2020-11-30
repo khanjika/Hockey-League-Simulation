@@ -11,6 +11,14 @@ import java.util.stream.Collectors;
 public class TeamsModel implements ITeamsModel {
 
     private final IPlayerModel playerModel;
+    Comparator<PlayerModel> playerModelComparator = new Comparator<PlayerModel>() {
+        @Override
+        public int compare(PlayerModel o1, PlayerModel o2) {
+            float playerOneStrength = o1.getPlayerStrength();
+            float playerTwoStrength = o2.getPlayerStrength();
+            return (int) (playerOneStrength - playerTwoStrength);
+        }
+    };
     @Expose
     private String teamName;
     @Expose
@@ -148,9 +156,9 @@ public class TeamsModel implements ITeamsModel {
         }
         PlayerModel replacementPlayer = Collections.max(matchedInactivePlayers, Comparator.comparing(v -> v.getPlayerStrength()));
         getActiveRoasters().remove(currentPlayer);
-        currentPlayer.setActive(false);
+        currentPlayer.setIsActive(false);
         getActiveRoasters().add(replacementPlayer);
-        replacementPlayer.setActive(true);
+        replacementPlayer.setIsActive(true);
         System.out.println(currentPlayer.getPlayerName() + " replaced with " + replacementPlayer.getPlayerName());
     }
 
@@ -240,6 +248,42 @@ public class TeamsModel implements ITeamsModel {
     public void addDrafterPlayerToTeam(IPlayerModel draftedPlayer) {
         this.players.add((PlayerModel) draftedPlayer);
         this.setPlayers(this.players);
-        System.out.println("SIZE OF TEAM AFTER DRAFT "+this.getTeamName()+" -- "+this.getPlayers().size());
+        System.out.println("SIZE OF TEAM AFTER DRAFT " + this.getTeamName() + " -- " + this.getPlayers().size());
+    }
+
+    @Override
+    public void resolveRoostersToThirty() {
+        System.out.println(this.getPlayers());
+        List<PlayerModel> allRoosters = this.players;
+        List<PlayerModel> forwardRooster = new ArrayList<>();
+        List<PlayerModel> defenseRoosters = new ArrayList<>();
+        List<PlayerModel> goalieRoosters = new ArrayList<>();
+        for (int i = 0; i < allRoosters.size(); i++) {
+            if (allRoosters.get(i).getPosition().equals(PlayerPosition.FORWARD.toString())) {
+                forwardRooster.add(allRoosters.get(i));
+            } else if (allRoosters.get(i).getPosition().equals(PlayerPosition.DEFENSE.toString())) {
+                defenseRoosters.add(allRoosters.get(i));
+            } else if (allRoosters.get(i).getPosition().equals(PlayerPosition.GOALIE.toString())) {
+                goalieRoosters.add(allRoosters.get(i));
+            }
+        }
+        Collections.sort(forwardRooster, playerModelComparator);
+        Collections.sort(defenseRoosters, playerModelComparator);
+        Collections.sort(goalieRoosters, playerModelComparator);
+        List<PlayerModel> roosterList = new ArrayList<>();
+        roosterList.addAll(fetchRequiredRoosterFromList(forwardRooster,16));
+        roosterList.addAll(fetchRequiredRoosterFromList(defenseRoosters,10));
+        roosterList.addAll(fetchRequiredRoosterFromList(goalieRoosters,4));
+        System.out.println("ROOSTER LIST SIZE - "  +roosterList.size());
+        this.setPlayers(roosterList);
+    }
+
+    @Override
+    public List<PlayerModel> fetchRequiredRoosterFromList(List<PlayerModel> roosterList, int requiredPlayers) {
+    List<PlayerModel> list = new ArrayList<>();
+    for (int i =0 ; i<requiredPlayers;i++){
+        list.add(roosterList.get(i));
+    }
+    return list;
     }
 }

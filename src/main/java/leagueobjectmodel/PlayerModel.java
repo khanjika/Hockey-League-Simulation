@@ -255,7 +255,7 @@ public class PlayerModel implements IPlayerModel {
     }
 
     @Override
-    public void setActive(boolean active) {
+    public void setIsActive(boolean active) {
         this.isActive = active;
     }
 
@@ -376,7 +376,7 @@ public class PlayerModel implements IPlayerModel {
     }
 
     @Override
-    public void checkPlayerInjury(PlayerModel playerModel, LocalDate date) {
+    public void checkPlayerInjury(IPlayerModel playerModel, LocalDate date) {
         try{
             if (playerModel == null || date == null) {
                 throw new NullPointerException("Argument Null inside checkPlayerInjury");

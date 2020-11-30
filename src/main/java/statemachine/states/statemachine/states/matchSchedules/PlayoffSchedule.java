@@ -67,7 +67,7 @@ public class PlayoffSchedule implements IPlayoffSchedule {
         return allTeamsList;
     }
 
-    List<List<ITeamsModel>> generateScheduleWithWIldCard(List<List<TeamsModel>> topTeamFromDivisionList, List<TeamsModel> wildCardList) {
+   private List<List<ITeamsModel>> generateScheduleWithWIldCard(List<List<TeamsModel>> topTeamFromDivisionList, List<TeamsModel> wildCardList) {
         if(topTeamFromDivisionList==null || wildCardList==null){
             logger.error("Top team from division list or wild card list is not initialized in the PlayOff schedule");
             throw new NullPointerException("Top team from division list or wild card list is not initialized in the PlayOff schedule");

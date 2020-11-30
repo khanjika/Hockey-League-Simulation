@@ -2,10 +2,8 @@ package statemachine.states.statemachine.states.updateStateValue;
 
 import leagueobjectmodel.ILeagueModel;
 import leagueobjectmodel.ITeamsModel;
-import leagueobjectmodel.LeagueModel;
 import statemachine.states.statemachine.StateMachine;
 import statemachine.states.statemachine.states.*;
-import leagueobjectmodel.TeamsModel;
 
 public class UpdateStateValue implements IUpdateStateValue{
 
@@ -15,8 +13,8 @@ public class UpdateStateValue implements IUpdateStateValue{
     }
 
     @Override
-    public void updateCreateTeamStateValue(StateMachine stateMachine, ILeagueModel leagueModel) {
-        ((CreateTeamState)(stateMachine.getCreateTeam())).updateCreateTeamStateValue(leagueModel, stateMachine);
+    public void updateCreateTeamStateValue(StateMachine stateMachine) {
+        ((CreateTeamState)(stateMachine.getCreateTeam())).updateCreateTeamStateValue(stateMachine);
     }
 
     @Override
@@ -61,5 +59,10 @@ public class UpdateStateValue implements IUpdateStateValue{
     @Override
     public void updatePersistStateValue(ILeagueModel leagueModel, StateMachine stateMachine, int year) {
         ((PersistLeagueState)stateMachine.getPersistLeagueState()).updatePersistLeagueStateValue(leagueModel, stateMachine, year);
+    }
+
+    @Override
+    public void updateTrophyStateValue(ILeagueModel leagueModel, StateMachine stateMachine, int year){
+        ((TrophySystemState)stateMachine.getTrophySystemState()).updateTrophyStateValue(stateMachine,leagueModel, year);
     }
 }

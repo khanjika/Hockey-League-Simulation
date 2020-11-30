@@ -15,15 +15,14 @@ public interface IPlayerModel {
 
     boolean getActive();
 
-    void setActive(boolean active);
+    void setIsActive(boolean active);
 
     int getBirthYear();
 
     void setBirthYear(int birthYear);
 
-    abstract void calculatePlayerStrength(IPlayerModel playerModel);
 
-    void checkPlayerInjury(PlayerModel playerModel, LocalDate date);
+    abstract  void checkPlayerInjury(IPlayerModel playerModel, LocalDate date);
 
     void recoverPlayer(PlayerModel playerModel, LocalDate date);
 
@@ -104,6 +103,8 @@ public interface IPlayerModel {
     abstract IInjuriesModel getInjuriesModel();
 
     abstract void setInjuriesModel(IInjuriesModel injuriesModel);
+
+    void calculatePlayerStrength(IPlayerModel playerModel);
 
     float calculateForwardStrength(IPlayerModel playerModel);
 

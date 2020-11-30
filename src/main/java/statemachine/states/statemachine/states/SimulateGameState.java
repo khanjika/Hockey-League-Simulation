@@ -1,12 +1,10 @@
 package statemachine.states.statemachine.states;
 
 import leagueobjectmodel.*;
-import statemachine.states.statemachine.states.simulateGame.GameSimulationAbstractFactory;
-import statemachine.states.statemachine.states.simulateGame.GameSimulationAbstractFactoryConcrete;
-import statemachine.states.statemachine.states.simulateGame.IStartSimulation;
-import statemachine.states.statemachine.states.simulateGame.StartSimulation;
-
 import statemachine.states.statemachine.StateMachine;
+import statemachine.states.statemachine.states.simulateGame.GameSimulationAbstractFactory;
+import statemachine.states.statemachine.states.simulateGame.IStartSimulation;
+
 import java.util.Random;
 
 public class SimulateGameState implements ITransition {
@@ -94,8 +92,6 @@ public class SimulateGameState implements ITransition {
         stateMachine.getCurrentState().entry();
         exit();
 
-
-        iLeagueModel.storeLeagueInformation(leagueModel);
     }
 
     @Override

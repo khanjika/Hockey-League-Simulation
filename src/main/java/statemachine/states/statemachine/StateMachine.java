@@ -25,6 +25,7 @@ public class StateMachine {
     ITransition tradingState;
     IUpdateStateValue updateStateValue;
     ITransition playerDraftState;
+    ITransition trophySystemState;
 
 
     public StateMachine() {
@@ -43,6 +44,8 @@ public class StateMachine {
         updateStateValue=new UpdateStateValue();
         tradingState=new TradingState(this);
         playerDraftState=new PlayerDraftState(this);
+
+        trophySystemState = new TrophySystemState(this);
     }
     public IUpdateStateValue getUpdateStateValue() {
         return updateStateValue;
@@ -199,7 +202,6 @@ public class StateMachine {
     public void setTradingState(ITransition tradingState) {
         this.tradingState = tradingState;
     }
-
     public ITransition getPlayerDraftState() {
         return playerDraftState;
     }
@@ -207,4 +209,12 @@ public class StateMachine {
     public void setPlayerDraftState(ITransition playerDraftState) {
         this.playerDraftState = playerDraftState;
     }
+    public ITransition getTrophySystemState() {
+        return trophySystemState;
+    }
+
+    public void setTrophySystemState(ITransition trophySystemState) {
+        this.trophySystemState = trophySystemState;
+    }
+
 }

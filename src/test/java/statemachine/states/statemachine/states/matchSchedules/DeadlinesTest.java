@@ -9,11 +9,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DeadlinesTest {
 
-    Deadlines deadlines;
+    IDeadlines deadlines;
 
     @BeforeEach
     void createObj() {
-        deadlines = new Deadlines();
+        deadlines = MatchScheduleAbstractFactoryTest.getMatchScheduleInstance().getDeadline();
     }
 
     @Test
@@ -50,4 +50,5 @@ class DeadlinesTest {
         LocalDate date = deadlines.getLastDayOfStanleyCup(2020);
         assertEquals(lastDayForSatnlyCup, date);
     }
+
 }

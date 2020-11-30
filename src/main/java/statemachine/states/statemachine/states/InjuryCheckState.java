@@ -1,7 +1,9 @@
 package statemachine.states.statemachine.states;
 
+
 import leagueobjectmodel.IPlayerModel;
 import leagueobjectmodel.PlayerModel;
+import org.apache.log4j.Logger;
 import statemachine.states.statemachine.StateMachine;
 import leagueobjectmodel.*;
 import java.time.LocalDate;
@@ -9,27 +11,26 @@ import java.time.LocalDate;
 public class InjuryCheckState implements ITransition {
     StateMachine stateMachine;
     ILeagueModel leagueModel;
-    ITeamsModel teamsModelTemp;
+    ITeamsModel teamsModel;
     LocalDate currentDate;
     IPlayerModel playerModel;
-
+    final static Logger logger = Logger.getLogger(InjuryCheckState.class);
     public InjuryCheckState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
     }
 
-//    public InjuryCheckState(StateMachine stateMachine, LeagueModel leagueModel, TeamsModel teamsModel) {
-//
-//        this.stateMachine = stateMachine;
-//        this.leagueModel = leagueModel;
-//        this.teamsModelTemp = teamsModel;
-//        currentDate = stateMachine.getCurrentDate();
-//    }
-
     public void updateInjuryCheckStateValue(StateMachine stateMachine, ILeagueModel leagueModel, ITeamsModel teamsModel){
-        this.stateMachine = stateMachine;
-        this.leagueModel = leagueModel;
-        this.teamsModelTemp = teamsModel;
-        currentDate = stateMachine.getCurrentDate();
+        if(stateMachine==null || leagueModel==null || teamsModel==null){
+            logger.error("Variables not intialized properly in the injury check state");
+            throw new NullPointerException("Variables not intialized properly in the injury check state");
+        }
+        else {
+            this.stateMachine = stateMachine;
+            this.leagueModel = leagueModel;
+            this.teamsModel = teamsModel;
+            currentDate = stateMachine.getCurrentDate();
+        }
+
     }
 
     @Override
@@ -39,16 +40,17 @@ public class InjuryCheckState implements ITransition {
 
     @Override
     public void task() {
-        playerModel = new PlayerModel();
+        playerModel =LeagueObjectModelAbstractFactory.getInstance().getPlayer();
         playerModel.setInjuriesModel(leagueModel.getGameplayConfig().getInjuries());
-        for (PlayerModel playerModel : teamsModelTemp.getPlayers()) {
+        for (PlayerModel playerModel : teamsModel.getPlayers()) {
             playerModel.setInjuriesModel(leagueModel.getGameplayConfig().getInjuries());
             playerModel.checkPlayerInjury(playerModel, currentDate);
-            teamsModelTemp.roasterReplacement(playerModel);
+            teamsModel.roasterReplacement(playerModel);
         }
     }
 
     @Override
     public void exit() {
+        LeagueObjectModelAbstractFactory.getInstance().setPlayer(null);
     }
 }

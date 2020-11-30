@@ -2,15 +2,12 @@ package statemachine.states.statemachine.states.updateStateValue;
 
 import leagueobjectmodel.ILeagueModel;
 import leagueobjectmodel.ITeamsModel;
-import leagueobjectmodel.LeagueModel;
-
 import statemachine.states.statemachine.StateMachine;
-import leagueobjectmodel.TeamsModel;
 
 public interface IUpdateStateValue {
     void updateImportJsonStateValue(StateMachine stateMachine,String[] userArgument);
 
-    void updateCreateTeamStateValue(StateMachine stateMachine, ILeagueModel leagueModel);
+    void updateCreateTeamStateValue(StateMachine stateMachine);
 
     void updatePlayerSeasonChoiceStateValue(StateMachine stateMachine, ILeagueModel leagueModel);
 
@@ -27,5 +24,7 @@ public interface IUpdateStateValue {
     void updateInjuryCheckStateValue(StateMachine stateMachine, ILeagueModel leagueModel, ITeamsModel teamsModel);
 
     void updatePersistStateValue(ILeagueModel leagueModel, StateMachine stateMachine, int year);
+
+    void updateTrophyStateValue(ILeagueModel leagueModel, StateMachine stateMachine, int year);
 }
 
