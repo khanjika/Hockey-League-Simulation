@@ -1,5 +1,7 @@
 package statemachine.training;
 
+import leagueobjectmodel.IInjuriesModel;
+
 import leagueobjectmodel.IPlayerModel;
 import leagueobjectmodel.InjuriesModel;
 import leagueobjectmodel.PlayerModel;
@@ -12,7 +14,7 @@ import java.time.LocalDate;
 public class Training implements ITraining {
 
     private static LocalDate currentDate;
-    private InjuriesModel currentInjuriesModel;
+    private IInjuriesModel currentInjuriesModel;
     final static Logger logger = Logger.getLogger(Training.class);
     @Override
     public void performTraining(IPlayerModel player, HeadCoachModel headCoach, LocalDate currentDate) {
@@ -56,7 +58,7 @@ public class Training implements ITraining {
     }
 
     @Override
-    public void setInjuriesModel(InjuriesModel injuriesModel) {
+    public void setInjuriesModel(IInjuriesModel injuriesModel) {
         currentInjuriesModel = injuriesModel;
     }
 

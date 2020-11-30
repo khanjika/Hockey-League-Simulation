@@ -12,4 +12,6 @@ public interface IDeadlines {
     LocalDate getPlayOffStartDate(int year);
 
     LocalDate getLastDayOfStanleyCup(int year);
+
+    LocalDate getPlayerDraftStartDate(int year);
 }

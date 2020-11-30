@@ -3970,8 +3970,7 @@
   "gameplayConfig": {
     "aging": {
       "averageRetirementAge": 35,
-      "maximumAge": 50,
-      "statDecayChance": 0.0
+      "maximumAge": 50
     },
     "injuries": {
       "randomInjuryChance": 0.05,

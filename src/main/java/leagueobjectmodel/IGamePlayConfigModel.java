@@ -1,15 +1,11 @@
 package leagueobjectmodel;
 
 public interface IGamePlayConfigModel {
-    AgingModel getAging();
+    IAgingModel getAging();
 
     void setAging(AgingModel aging);
 
-    GameResolverModel getGameResolver();
-
-    void setGameResolver(GameResolverModel gameResolver);
-
-    InjuriesModel getInjuries();
+    IInjuriesModel getInjuries();
 
     void setInjuries(InjuriesModel injuries);
 

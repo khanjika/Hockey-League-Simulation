@@ -23,6 +23,7 @@ import statemachine.trophysystem.TrophySystemAbstractFactory;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 
@@ -57,6 +58,7 @@ public class InitializeSeasonState implements ITransition {
         this.updatedLeagueModelObject = updatedLeagueModel;
         currentSimulationYear = currentYear;
         iDeadlines = MatchScheduleAbstractFactory.getMatchScheduleInstance().getDeadline();
+        LeagueObjectModelAbstractFactory.getInstance().setLeague(updatedLeagueModel);
         trophySystem = TrophySystemAbstractFactory.getInstance().getTrophySystem();
     }
 
@@ -145,11 +147,20 @@ public class InitializeSeasonState implements ITransition {
             }
         }
 
+        System.out.println("Stanly Cup Winner Determined");
+        System.out.println("Winner is " + winnerTeam.getTeamName() + " With Points " + winnerTeam.getWinPoint() + " For the year " + currentSimulationYear);
+
+        //Drafting State
+       // stateMachine.getUpdateStateValue().updateSimulateGameStateValue(stateMachine, updatedLeagueModelObject, playOffSchedule.get(i).get(0), playOffSchedule.get(i).get(1));
+        stateMachine.setCurrentState(stateMachine.getPlayerDraftState());
+        //stateMachine.getUpdateStateValue().updatePla
+        stateMachine.setCurrentDate(iDeadlines.getPlayerDraftStartDate(currentSimulationYear));
+        stateMachine.getCurrentState().entry();
+
         cli.printOutput("Stanly Cup Winner Determined");
         cli.printOutput("Winner is " + winnerTeam.getTeamName() + " With Points " + winnerTeam.getWinPoint() + " For the year " + currentSimulationYear);
 
         trophySystem.performCalculationAfterPlayOff(updatedLeagueModelObject, currentSimulationYear);
-
         task();
     }
 
@@ -178,6 +189,7 @@ public class InitializeSeasonState implements ITransition {
                         throw exception;
                     }
                     double averageSaveCount = 0;
+                    System.out.println("Save count "+saveCount);
                     try {
                         averageSaveCount = totalMatches/saveCount;
                     }

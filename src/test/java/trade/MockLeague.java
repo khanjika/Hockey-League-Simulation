@@ -47,8 +47,6 @@ public class MockLeague {
         leagueModel.setGameplayConfig(gamePLayModel);
         gamePLayModel.setTrading(tradingModel);
         gamePLayModel.setAging(agingModel);
-        gamePLayModel.setGameResolver(gameResolverModel);
-        gamePLayModel.setTraining(trainingModel);
         leagueModel.setGameplayConfig(gamePLayModel);
         return leagueModel;
     }
