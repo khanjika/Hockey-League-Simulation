@@ -6,8 +6,6 @@ public class GamePlayConfigModel implements IGamePlayConfigModel {
     @Expose
     AgingModel aging;
     @Expose
-    GameResolverModel gameResolver;
-    @Expose
     InjuriesModel injuries;
     @Expose
     TrainingModel training;
@@ -16,14 +14,13 @@ public class GamePlayConfigModel implements IGamePlayConfigModel {
 
     public GamePlayConfigModel() {
         aging = new AgingModel();
-        gameResolver = new GameResolverModel();
         injuries = new InjuriesModel();
         training = new TrainingModel();
         trading = new TradingModel();
     }
 
     @Override
-    public AgingModel getAging() {
+    public IAgingModel getAging() {
         return aging;
     }
 
@@ -32,18 +29,9 @@ public class GamePlayConfigModel implements IGamePlayConfigModel {
         this.aging = aging;
     }
 
-    @Override
-    public GameResolverModel getGameResolver() {
-        return gameResolver;
-    }
 
     @Override
-    public void setGameResolver(GameResolverModel gameResolver) {
-        this.gameResolver = gameResolver;
-    }
-
-    @Override
-    public InjuriesModel getInjuries() {
+    public IInjuriesModel getInjuries() {
         return injuries;
     }
 

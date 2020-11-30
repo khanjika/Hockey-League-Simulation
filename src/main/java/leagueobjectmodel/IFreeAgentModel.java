@@ -1,8 +1,33 @@
 package leagueobjectmodel;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface IFreeAgentModel {
+    String getPlayerName();
+
+    void setPlayerName(String playerName);
+
+    String getPosition();
+
+    void setPosition(String position);
+
+    int getAge();
+
+    abstract void setAge(int age);
+
+    float getSkating();
+
+    void setSkating(float skating);
+
+    float getShooting();
+
+    void setShooting(float shooting);
+
+    float getChecking();
+
+    void setChecking(float checking);
+
     float getSaving();
 
     void setSaving(float saving);
@@ -23,9 +48,9 @@ public interface IFreeAgentModel {
 
     void setRetirementLikelyHood(int retirementLikelyHood);
 
-    AgingModel getAgingModel();
+    IAgingModel getAgingModel();
 
-    void setAgingModel(AgingModel agingModel);
+    void setAgingModel(IAgingModel agingModel);
 
     int getBirthDay();
 
@@ -41,10 +66,9 @@ public interface IFreeAgentModel {
 
     void calculateFreeAgentStrength(FreeAgentModel freeAgentModel);
 
-    void aging(FreeAgentModel freeAgentModel, int daysToAge);
+    void aging(IFreeAgentModel freeAgentModel, LocalDate date, int daysToAge);
 
-    int checkRetirement(FreeAgentModel freeAgentModel);
-
+    int checkRetirement(IFreeAgentModel freeAgentModel);
 
     abstract FreeAgentModel getReplacementFreeAgent(List<FreeAgentModel> freeAgents, String playerPosition);
 

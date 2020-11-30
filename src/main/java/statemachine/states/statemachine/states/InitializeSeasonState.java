@@ -47,7 +47,7 @@ public class InitializeSeasonState implements ITransition {
         this.updatedLeagueModelObject = updatedLeagueModel;
         currentSimulationYear = currentYear;
         iDeadlines = MatchScheduleAbstractFactory.getMatchScheduleInstance().getDeadline();
-
+        LeagueObjectModelAbstractFactory.getInstance().setLeague(updatedLeagueModel);
     }
 
     @Override

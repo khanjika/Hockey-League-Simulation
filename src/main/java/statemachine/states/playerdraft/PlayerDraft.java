@@ -25,9 +25,9 @@ public class PlayerDraft implements IPlayerDraft {
     private float PER_OF_GOALIE_PLAYERS = 0.1F;
     private boolean captain = false;
     List<IPlayerModel> draftedPlayers = new ArrayList<>();
-    List<ITeamsModel> teamList = new ArrayList<>();
 
 
+    @Override
     public String generatePlayerName() {
         String playerName = null;
         int value = random.nextInt(PLAYER_FIRST_NAMES.length);
@@ -37,6 +37,7 @@ public class PlayerDraft implements IPlayerDraft {
         return playerName;
     }
 
+    @Override
     public int generatePlayerAge() {
         int playerAge = 0;
         int value = random.nextInt(PLAYER_AGES.length);
@@ -45,18 +46,21 @@ public class PlayerDraft implements IPlayerDraft {
     }
 
 
+    @Override
     public int generatePlayerBirthYear(int playerAge) {
         int playerBirthYear = 0;
         playerBirthYear = LocalDate.now().getYear() - playerAge;
         return playerBirthYear;
     }
 
+    @Override
     public int generatePlayerBirthMonth() {
         int playerBirthMonth = 0;
         playerBirthMonth = random.nextInt(12);
         return playerBirthMonth;
     }
 
+    @Override
     public int generatePlayerBirthDay(int month) {
         int playerBirthDay = 0;
         if (month == Month.February.ordinal()) {
@@ -70,6 +74,7 @@ public class PlayerDraft implements IPlayerDraft {
         return playerBirthDay;
     }
 
+    @Override
     public int generatePlayerSkatingStat(String position) {
         int skating = 0;
         int value = 0;
@@ -86,6 +91,7 @@ public class PlayerDraft implements IPlayerDraft {
         return skating;
     }
 
+    @Override
     public int generatePlayerShootingStat(String position) {
         int shooting = 0;
         int value = 0;
@@ -102,6 +108,7 @@ public class PlayerDraft implements IPlayerDraft {
         return shooting;
     }
 
+    @Override
     public int generatePlayerCheckingStat(String position) {
         int checking=0;
         int value=0;
@@ -118,6 +125,7 @@ public class PlayerDraft implements IPlayerDraft {
         return checking;
     }
 
+    @Override
     public int generatePlayerSavingStat(String position) {
         int checking = 0;
         int value = 0;
@@ -134,8 +142,9 @@ public class PlayerDraft implements IPlayerDraft {
         return checking;
     }
 
-    public List<IPlayerModel> draftPlayers() {
-        int totalNumberOfPlayers = NO_OF_TEAMS * NO_OF_DRAFTS;
+    @Override
+    public List<IPlayerModel> draftPlayers(int totalTeams) {
+        int totalNumberOfPlayers = totalTeams * NO_OF_DRAFTS;
         int totalForwardPlayers = Math.round(totalNumberOfPlayers * PER_OF_FORWARD_PLAYERS);
         int totalDefensePlayers = Math.round(totalNumberOfPlayers * PER_OF_DEFENSE_PLAYERS);
         int totalGoaliePlayers = Math.round(totalNumberOfPlayers * PER_OF_GOALIE_PLAYERS);
@@ -148,7 +157,8 @@ public class PlayerDraft implements IPlayerDraft {
         return draftedPlayers;
     }
 
-    private List<IPlayerModel> draftGoaliePlayer(int totalGoaliePlayers) {
+    @Override
+    public List<IPlayerModel> draftGoaliePlayer(int totalGoaliePlayers) {
         List<IPlayerModel> goaliePlayerList = new ArrayList<>();
         for (int i = 0; i < totalGoaliePlayers; i++) {
             IPlayerModel player = LeagueObjectModelAbstractFactory.getInstance().getNewPlayerModel();
@@ -167,12 +177,14 @@ public class PlayerDraft implements IPlayerDraft {
             player.setBirthYear(playerBirthYear);
             player.setBirthMonth(playerBirthMonth);
             player.setBirthDay(playerBirthDay);
+            player.calculatePlayerStrength(player);
             goaliePlayerList.add(player);
         }
         return goaliePlayerList;
     }
 
-    private List<IPlayerModel> draftDefensePlayers(int totalDefensePlayers) {
+    @Override
+    public List<IPlayerModel> draftDefensePlayers(int totalDefensePlayers) {
         List<IPlayerModel> defensePlayerList = new ArrayList<>();
         for (int i = 0; i < totalDefensePlayers; i++) {
             IPlayerModel player = LeagueObjectModelAbstractFactory.getInstance().getNewPlayerModel();
@@ -191,12 +203,14 @@ public class PlayerDraft implements IPlayerDraft {
             player.setBirthYear(playerBirthYear);
             player.setBirthMonth(playerBirthMonth);
             player.setBirthDay(playerBirthDay);
+            player.calculatePlayerStrength(player);
             defensePlayerList.add(player);
         }
         return defensePlayerList;
     }
 
-    private List<IPlayerModel> draftForwardPlayers(int totalForwardPlayers) {
+    @Override
+    public List<IPlayerModel> draftForwardPlayers(int totalForwardPlayers) {
         List<IPlayerModel> forwardPlayerList = new ArrayList<>();
         for (int i = 0; i < totalForwardPlayers; i++) {
             IPlayerModel player = LeagueObjectModelAbstractFactory.getInstance().getNewPlayerModel();
@@ -215,36 +229,10 @@ public class PlayerDraft implements IPlayerDraft {
             player.setBirthYear(playerBirthYear);
             player.setBirthMonth(playerBirthMonth);
             player.setBirthDay(playerBirthDay);
+            player.calculatePlayerStrength(player);
             forwardPlayerList.add(player);
         }
         return forwardPlayerList;
     }
-
-    public void getTeamStandingList(ILeagueModel leagueModel){
-        System.out.println("Inside Team Standing List method");
-        for(IConferenceModel conferenceModel : leagueModel.getConferences()){
-            for(IDivisonModel divisonModel : conferenceModel.getDivisions()){
-                List<TeamsModel> teams = divisonModel.getTeams();
-                Collections.sort(teams,teamModelComparator);
-                for(int i=0;i<teams.size();i++){
-                   // System.out.println("Team Name"+teams.get(i).getTeamName()+" Win Point "+teams.get(i).getWinPoint());
-                    teamList.add(teams.get(i));
-                }
-                for(int i = 0; i<teamList.size();i++){
-                    System.out.println("Team Name: "+teamList.get(i).getTeamName()+" Win Point "+teamList.get(i).getWinPoint());
-                }
-            }
-        }
-    }
-
-    public static Comparator<TeamsModel> teamModelComparator = new Comparator<TeamsModel>() {
-        @Override
-        public int compare(TeamsModel o1, TeamsModel o2) {
-            int teamOneWinPoint = o1.getWinPoint();
-            int teamTwoWinPoint = o2.getWinPoint();
-            return teamTwoWinPoint - teamOneWinPoint;
-        }
-    };
-
 
 }

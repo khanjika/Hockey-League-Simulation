@@ -1,6 +1,6 @@
 package statemachine.training;
 
-import leagueobjectmodel.InjuriesModel;
+import leagueobjectmodel.IInjuriesModel;
 import leagueobjectmodel.PlayerModel;
 import leagueobjectmodel.HeadCoachModel;
 
@@ -10,7 +10,7 @@ public class Training implements ITraining {
 
     TrainingConstants constants = new TrainingConstants();
     private static LocalDate currentDate;
-    private InjuriesModel currentInjuriesModel;
+    private IInjuriesModel currentInjuriesModel;
 
     @Override
     public void performTraining(PlayerModel player, HeadCoachModel headCoach, LocalDate currentDate) {
@@ -51,7 +51,7 @@ public class Training implements ITraining {
     }
 
     @Override
-    public void setInjuriesModel(InjuriesModel injuriesModel) {
+    public void setInjuriesModel(IInjuriesModel injuriesModel) {
         currentInjuriesModel = injuriesModel;
     }
 

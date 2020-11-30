@@ -1,11 +1,9 @@
 import cli.CliAbstractFactory;
 import cli.ICli;
-import leagueobjectmodel.*;
 import leagueobjectmodel.IPlayerModel;
 import leagueobjectmodel.IPlayerValidator;
 import leagueobjectmodel.LeagueObjectModelAbstractFactory;
 import org.junit.jupiter.api.Test;
-import statemachine.states.PlayerDraftState;
 import statemachine.states.playerdraft.PlayerDraft;
 
 import java.util.ArrayList;
@@ -50,7 +48,7 @@ public class RandomTest {
 //            System.out.println(name);
 //        }
 
-        List<IPlayerModel> draftedPlayers = abc.draftPlayers();
+        List<IPlayerModel> draftedPlayers = abc.draftPlayers(5);
         System.out.println(draftedPlayers.size());
         for(int i = 0;i<draftedPlayers.size();i++){
             System.out.println(i+" - "+draftedPlayers.get(i).getPlayerName());

@@ -11,6 +11,14 @@ import static java.time.temporal.ChronoUnit.DAYS;
 
 public class PlayerModel implements IPlayerModel {
 
+    private final int RETIRE_LIKELIHOOD_THRESHOLD = 90;
+    private final int MAX_RETIRE_LIKELIHOOD = 100;
+    private final int LOW_RETIRE_LIKELIHOOD = 50;
+    private final int AVERAGE_RETIRE_LIKELIHOOD = 60;
+    private final int MEDIUM_RETIRE_LIKELIHOOD = 70;
+    private final int HIGH_RETIRE_LIKELIHOOD = 99;
+    private final int MIN_DIFFERENCE = -5;
+    private final int MAX_DIFFERENCE = -10;
     @Expose
     private String playerName;
     @Expose
@@ -42,15 +50,15 @@ public class PlayerModel implements IPlayerModel {
     private boolean isPlayerInjured;
     private LocalDate injuredDate;
     private LocalDate recoveryDate;
-    private AgingModel agingModel;
-    private InjuriesModel injuriesModel;
+    private IAgingModel agingModel;
+    private IInjuriesModel injuriesModel;
     private IFreeAgentModel freeAgentModel;
     private List<FreeAgentModel> freeAgentsList;
     private int saveForGoalie;
     private int goalScorerCount;
     private int currentPenaltyCount;
     private int totalPenaltyCount;
-
+    private Random random = LeagueObjectModelAbstractFactory.getInstance().createRandom();
 
     public PlayerModel() {
         freeAgentModel = new FreeAgentModel();
@@ -272,12 +280,12 @@ public class PlayerModel implements IPlayerModel {
     }
 
     @Override
-    public AgingModel getAgingModel() {
+    public IAgingModel getAgingModel() {
         return agingModel;
     }
 
     @Override
-    public void setAgingModel(AgingModel agingModel) {
+    public void setAgingModel(IAgingModel agingModel) {
         this.agingModel = agingModel;
     }
 
@@ -292,12 +300,12 @@ public class PlayerModel implements IPlayerModel {
     }
 
     @Override
-    public InjuriesModel getInjuriesModel() {
+    public IInjuriesModel getInjuriesModel() {
         return injuriesModel;
     }
 
     @Override
-    public void setInjuriesModel(InjuriesModel injuriesModel) {
+    public void setInjuriesModel(IInjuriesModel injuriesModel) {
         this.injuriesModel = injuriesModel;
     }
 
@@ -332,7 +340,7 @@ public class PlayerModel implements IPlayerModel {
     }
 
     @Override
-    public void calculatePlayerStrength(PlayerModel playerModel) {
+    public void calculatePlayerStrength(IPlayerModel playerModel) {
         try {
             float strength = 0;
             if (playerModel.getPosition().equals(PlayerPosition.FORWARD.toString())) {
@@ -353,22 +361,26 @@ public class PlayerModel implements IPlayerModel {
     }
 
     @Override
-    public float calculateForwardStrength(PlayerModel playerModel){
+    public float calculateForwardStrength(IPlayerModel playerModel){
         return playerModel.getSkating() + playerModel.getShooting() + (playerModel.getChecking() / 2);
     }
 
     @Override
-    public float calculateDefenseStrength(PlayerModel playerModel){
+    public float calculateDefenseStrength(IPlayerModel playerModel){
         return playerModel.getSkating() + playerModel.getChecking() + (playerModel.getShooting() / 2);
     }
 
     @Override
-    public float calculateGoalieStrength(PlayerModel playerModel){
+    public float calculateGoalieStrength(IPlayerModel playerModel){
         return playerModel.getSkating() + playerModel.getSaving();
     }
 
     @Override
     public void checkPlayerInjury(PlayerModel playerModel, LocalDate date) {
+        try{
+            if (playerModel == null || date == null) {
+                throw new NullPointerException("Argument Null inside checkPlayerInjury");
+            }
         if (playerModel.isPlayerInjured() == false) {
             float randomInjuryChance = injuriesModel.getRandomInjuryChance();
             int injuryDaysLow = injuriesModel.getInjuryDaysLow();
@@ -384,11 +396,17 @@ public class PlayerModel implements IPlayerModel {
                 System.out.println(playerModel.getPlayerName() + " Player Injured for " + playerModel.getInjuryDays() + " Days");
             }
         }
+    }catch (Exception e){
+            System.out.println("Error in checkPlayerInjury method of player model" + e);
+        }
     }
 
     @Override
     public void recoverPlayer(PlayerModel playerModel, LocalDate date) {
         try {
+            if (playerModel == null || date == null) {
+                throw new NullPointerException("Argument is Null inside recover method");
+            }
             long recoveryDayDifference = 0;
             if (playerModel.getRecoveryDate() != null) {
                 recoveryDayDifference = DAYS.between(playerModel.getRecoveryDate(), date);
@@ -413,26 +431,24 @@ public class PlayerModel implements IPlayerModel {
     @Override
     public void aging(PlayerModel playerModel, int daysToAge, LocalDate date) {
         try {
-            if (playerModel == null) {
-                throw new NullPointerException("Player Model is Null inside Aging method");
+            if (playerModel == null || daysToAge == 0 || date == null) {
+                throw new NullPointerException("Argument is Null inside Aging method");
             }
-            LocalDate playerBirthDay = LocalDate.of(playerModel.getBirthYear(), playerModel.getBirthMonth(), playerModel.getBirthDay());
-            int playerAge = date.getYear()-playerModel.getBirthYear();
+            int playerAge = date.getYear() - playerModel.getBirthYear();
+            LocalDate playerBirthDate = LocalDate.of(playerModel.getBirthYear(), playerModel.getBirthMonth(), playerModel.getBirthDay());
+            LocalDate upcomingBirthDate = LocalDate.of(date.getYear(), playerModel.getBirthMonth(), playerModel.getBirthDay());
+            LocalDate agingDate = date.plusDays(daysToAge);
             playerModel.setAge(playerAge);
-
-
-            long differenceInDays = DAYS.between(playerBirthDay, date);
-            System.out.println("Difference in days - " + differenceInDays);
-            int days = playerModel.getDays();
-            if (days + daysToAge >= 365) {
-                playerModel.setAge(playerAge + 1);
-                playerModel.setDays(0);
+            if (upcomingBirthDate.isBefore(agingDate)) {
+                playerModel.setAge(agingDate.getYear() - playerModel.getBirthYear() + 1);
             } else {
-                playerModel.setDays(days + daysToAge);
+                playerModel.setAge(agingDate.getYear() - playerModel.getBirthYear());
             }
+            checkStatDecayDueToBirthDay(playerModel,date,daysToAge);
             playerModel.recoverPlayer(playerModel, date);
             int retirementLikelyHood = checkPlayerRetirementPossibility(playerModel);
-            if (retirementLikelyHood >= 90) {
+            if (retirementLikelyHood >= RETIRE_LIKELIHOOD_THRESHOLD) {
+                System.out.println("Player Retired: "+playerModel.getPlayerName());
                 playerModel.setPlayerRetired(true);
             }
             if (playerModel.isPlayerRetired()) {
@@ -443,16 +459,36 @@ public class PlayerModel implements IPlayerModel {
                 replacePlayerWithFreeAgent(playerModel, replacementFreeAgent);
             }
         } catch (Exception e) {
-            System.out.println("Player INFO: " + playerModel.getPlayerName() + " ---- " + playerModel.getBirthMonth());
             System.out.println("Error in aging method of player model" + e);
         }
     }
 
     @Override
+    public void checkStatDecayDueToBirthDay(PlayerModel playerModel, LocalDate date, int daysToAge){
+        if(playerModel == null || date == null || daysToAge == 0){
+            throw new NullPointerException("Argument missing in checkStatDecayDueToBirthDay method");
+        }
+        LocalDate upcomingBirthDate = LocalDate.of(date.getYear(), playerModel.getBirthMonth(), playerModel.getBirthDay());
+        LocalDate agingDate = date.plusDays(daysToAge);
+        if(upcomingBirthDate.equals(agingDate) || upcomingBirthDate.isBefore(agingDate)){
+            double statDecayChance = agingModel.getStatDecayChance()*100;
+            double randomStatDecayChance = random.nextInt(101-0)+0;
+            if(randomStatDecayChance <= statDecayChance){
+                playerModel.setShooting(playerModel.getShooting()-1);
+                playerModel.setSaving(playerModel.getSaving()-1);
+                playerModel.setChecking(playerModel.getChecking()-1);
+                playerModel.setSkating(playerModel.getSkating()-1);
+                System.out.println(playerModel.getPlayerName()+" Stat decreased by 1 point on his Birthday");
+            }
+        }
+    }
+
+
+    @Override
     public void replacePlayerWithFreeAgent(PlayerModel playerModel, FreeAgentModel replacementFreeAgent) {
         try {
-            if (replacementFreeAgent == null) {
-                return;
+            if (replacementFreeAgent == null || playerModel == null) {
+                throw new NullPointerException("Argument null in replacePlayerWithFreeAgent");
             }
             System.out.println("Replacing Player " + playerModel.getPlayerName() + " With Free Agent " + replacementFreeAgent.getPlayerName());
             playerModel.setPlayerName(replacementFreeAgent.getPlayerName());
@@ -477,28 +513,31 @@ public class PlayerModel implements IPlayerModel {
 
     @Override
     public int checkPlayerRetirementPossibility(PlayerModel playerModel) {
+        if(playerModel == null){
+            throw new NullPointerException("Argument null in checkPlayerRetirementPossibility method");
+        }
         int playerAge = playerModel.getAge();
         int averageRetirementAge = agingModel.getAverageRetirementAge();
         int maximumAge = agingModel.getMaximumAge();
         int likelyHood = playerModel.getRetirementLikelyHood();
-        Random randomObj = new Random();
         if (playerAge >= maximumAge) {
-            likelyHood = 100;
+            likelyHood = MAX_RETIRE_LIKELIHOOD;
         } else {
             int AgeDifference = averageRetirementAge - playerAge;
             if (AgeDifference >= 0) {
-                likelyHood = randomObj.nextInt(50);
-            } else if (AgeDifference >= -5) {
-                likelyHood = randomObj.nextInt(60 - 50) + 50;
-            } else if (AgeDifference >= -10) {
-                likelyHood = randomObj.nextInt(70 - 60) + 60;
+                likelyHood = random.nextInt(LOW_RETIRE_LIKELIHOOD);
+            } else if (AgeDifference >= MIN_DIFFERENCE) {
+                likelyHood = random.nextInt(AVERAGE_RETIRE_LIKELIHOOD - LOW_RETIRE_LIKELIHOOD) + LOW_RETIRE_LIKELIHOOD;
+            } else if (AgeDifference >= MAX_DIFFERENCE) {
+                likelyHood = random.nextInt(MEDIUM_RETIRE_LIKELIHOOD - AVERAGE_RETIRE_LIKELIHOOD) + AVERAGE_RETIRE_LIKELIHOOD;
             } else {
-                likelyHood = randomObj.nextInt(99 - 70) + 70;
+                likelyHood = random.nextInt(HIGH_RETIRE_LIKELIHOOD - MEDIUM_RETIRE_LIKELIHOOD) + MEDIUM_RETIRE_LIKELIHOOD;
             }
         }
         playerModel.setRetirementLikelyHood(likelyHood);
         return likelyHood;
     }
+
 
     @Override
     public float getShootingState(List<PlayerModel> playerModelList){

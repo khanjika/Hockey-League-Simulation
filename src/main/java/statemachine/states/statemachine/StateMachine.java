@@ -1,7 +1,7 @@
 package statemachine.states.statemachine;
 
 import org.apache.log4j.Logger;
-import statemachine.states.PlayerDraftState;
+import statemachine.states.statemachine.states.PlayerDraftState;
 import statemachine.states.statemachine.states.*;
 import statemachine.states.statemachine.states.updateStateValue.IUpdateStateValue;
 import statemachine.states.statemachine.states.updateStateValue.UpdateStateValue;

@@ -62,4 +62,6 @@ public interface ITeamsModel {
     List<PlayerModel> sortPlayersOfTeamAscending(List<PlayerModel> players);
 
     List<PlayerModel> sortPlayersOfTeamDescending(List<PlayerModel> players);
+
+    void addDrafterPlayerToTeam(IPlayerModel draftedPlayer);
 }

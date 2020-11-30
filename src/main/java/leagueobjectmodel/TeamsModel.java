@@ -2,17 +2,15 @@ package leagueobjectmodel;
 
 import com.google.gson.annotations.Expose;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
-
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class TeamsModel implements ITeamsModel {
 
+    private final IPlayerModel playerModel;
     @Expose
     private String teamName;
     @Expose
@@ -21,17 +19,16 @@ public class TeamsModel implements ITeamsModel {
     private HeadCoachModel headCoach;
     @Expose
     private List<PlayerModel> players;
-    private final IPlayerModel playerModel;
     private float teamStrength;
     private int winPoint;
     private int lossPoint;
     private int lossPointForTrading;
     private List<PlayerModel> activeRoasters;
     private List<PlayerModel> inactiveRoasters;
+    private boolean isUserCreatedTeam;
 
-    @Override
-    public void setTeamStrength(float teamStrength) {
-        this.teamStrength = teamStrength;
+    public TeamsModel() {
+        playerModel = LeagueObjectModelAbstractFactory.getInstance().getPlayer();
     }
 
     public int getLossPointForTrading() {
@@ -53,12 +50,6 @@ public class TeamsModel implements ITeamsModel {
         isUserCreatedTeam = userCreatedTeam;
     }
 
-    private boolean isUserCreatedTeam;
-
-    public TeamsModel() {
-        playerModel = new PlayerModel();
-    }
-
     @Override
     public String getTeamName() {
         return teamName;
@@ -68,7 +59,6 @@ public class TeamsModel implements ITeamsModel {
     public void setTeamName(String teamName) {
         this.teamName = teamName;
     }
-
 
     @Override
     public HeadCoachModel getHeadCoach() {
@@ -96,6 +86,11 @@ public class TeamsModel implements ITeamsModel {
     }
 
     @Override
+    public void setTeamStrength(float teamStrength) {
+        this.teamStrength = teamStrength;
+    }
+
+    @Override
     public GeneralManagersModel getGeneralManager() {
         return generalManager;
     }
@@ -118,37 +113,37 @@ public class TeamsModel implements ITeamsModel {
     }
 
     @Override
-    public List<PlayerModel> getActiveRoasters(){
+    public List<PlayerModel> getActiveRoasters() {
         return activeRoasters;
     }
 
     @Override
-    public void setActiveRoasters(List<PlayerModel> activeRoasters){
+    public void setActiveRoasters(List<PlayerModel> activeRoasters) {
         this.activeRoasters = activeRoasters;
     }
 
     @Override
-    public List<PlayerModel> getInactiveRoasters(){
+    public List<PlayerModel> getInactiveRoasters() {
         return inactiveRoasters;
     }
 
     @Override
-    public void setInactiveRoasters(List<PlayerModel> inactiveRoasters){
+    public void setInactiveRoasters(List<PlayerModel> inactiveRoasters) {
         this.inactiveRoasters = inactiveRoasters;
     }
 
     @Override
-    public void roasterReplacement(PlayerModel currentPlayer){
+    public void roasterReplacement(PlayerModel currentPlayer) {
         List<PlayerModel> matchedInactivePlayers = new ArrayList<>();
-        if(currentPlayer.isPlayerInjured() == false){
+        if (currentPlayer.isPlayerInjured() == false) {
             return;
         }
-        for(PlayerModel player : this.getInactiveRoasters()){
-            if(player.getPosition().equals(currentPlayer.getPosition()) && player.isPlayerInjured() == false){
+        for (PlayerModel player : this.getInactiveRoasters()) {
+            if (player.getPosition().equals(currentPlayer.getPosition()) && player.isPlayerInjured() == false) {
                 matchedInactivePlayers.add(player);
             }
         }
-        if(matchedInactivePlayers.size() == 0){
+        if (matchedInactivePlayers.size() == 0) {
             return;
         }
         PlayerModel replacementPlayer = Collections.max(matchedInactivePlayers, Comparator.comparing(v -> v.getPlayerStrength()));
@@ -156,13 +151,14 @@ public class TeamsModel implements ITeamsModel {
         currentPlayer.setActive(false);
         getActiveRoasters().add(replacementPlayer);
         replacementPlayer.setActive(true);
-        System.out.println(currentPlayer.getPlayerName()+" replaced with "+replacementPlayer.getPlayerName());
+        System.out.println(currentPlayer.getPlayerName() + " replaced with " + replacementPlayer.getPlayerName());
     }
+
     @Override
-    public List<PlayerModel> getTotalForwards(){
+    public List<PlayerModel> getTotalForwards() {
         List<PlayerModel> forwards = new ArrayList<>();
-        for (PlayerModel player : this.getPlayers()){
-            if (player.getPosition().equals(PlayerPosition.FORWARD.toString())){
+        for (PlayerModel player : this.getPlayers()) {
+            if (player.getPosition().equals(PlayerPosition.FORWARD.toString())) {
                 forwards.add(player);
             }
         }
@@ -170,10 +166,10 @@ public class TeamsModel implements ITeamsModel {
     }
 
     @Override
-    public List<PlayerModel> getTotalDefenses(){
+    public List<PlayerModel> getTotalDefenses() {
         List<PlayerModel> defenses = new ArrayList<>();
-        for (PlayerModel player : this.getPlayers()){
-            if (player.getPosition().equals(PlayerPosition.DEFENSE.toString())){
+        for (PlayerModel player : this.getPlayers()) {
+            if (player.getPosition().equals(PlayerPosition.DEFENSE.toString())) {
                 defenses.add(player);
             }
         }
@@ -181,10 +177,10 @@ public class TeamsModel implements ITeamsModel {
     }
 
     @Override
-    public List<PlayerModel> getTotalGoalies(){
+    public List<PlayerModel> getTotalGoalies() {
         List<PlayerModel> goalies = new ArrayList<>();
-        for (PlayerModel player : this.getPlayers()){
-            if (player.getPosition().equals(PlayerPosition.GOALIE.toString())){
+        for (PlayerModel player : this.getPlayers()) {
+            if (player.getPosition().equals(PlayerPosition.GOALIE.toString())) {
                 goalies.add(player);
             }
         }
@@ -227,6 +223,7 @@ public class TeamsModel implements ITeamsModel {
         }
         return currentBestGoalie;
     }
+
     @Override
     public List<PlayerModel> sortPlayersOfTeamAscending(List<PlayerModel> players) {
         players.sort(Comparator.comparing(PlayerModel::getPlayerStrength));
@@ -237,5 +234,12 @@ public class TeamsModel implements ITeamsModel {
     public List<PlayerModel> sortPlayersOfTeamDescending(List<PlayerModel> players) {
         players.sort(Comparator.comparing(PlayerModel::getPlayerStrength).reversed());
         return players;
+    }
+
+    @Override
+    public void addDrafterPlayerToTeam(IPlayerModel draftedPlayer) {
+        this.players.add((PlayerModel) draftedPlayer);
+        this.setPlayers(this.players);
+        System.out.println("SIZE OF TEAM AFTER DRAFT "+this.getTeamName()+" -- "+this.getPlayers().size());
     }
 }

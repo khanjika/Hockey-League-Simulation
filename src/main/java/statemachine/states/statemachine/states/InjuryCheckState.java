@@ -1,6 +1,5 @@
 package statemachine.states.statemachine.states;
 
-import leagueobjectmodel.LeagueModel;
 import leagueobjectmodel.IPlayerModel;
 import leagueobjectmodel.PlayerModel;
 import statemachine.states.statemachine.StateMachine;

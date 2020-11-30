@@ -1,9 +1,13 @@
-package statemachine.states;
+package statemachine.states.statemachine.states;
 
-import leagueobjectmodel.*;
-import statemachine.states.playerdraft.PlayerDraft;
+import leagueobjectmodel.ILeagueModel;
+import leagueobjectmodel.IPlayerModel;
+import leagueobjectmodel.ITeamsModel;
+import leagueobjectmodel.LeagueObjectModelAbstractFactory;
+import statemachine.states.playerdraft.IDraftSelectionOrder;
+import statemachine.states.playerdraft.IPlayerDraft;
+import statemachine.states.playerdraft.PlayerDraftAbstractFactory;
 import statemachine.states.statemachine.StateMachine;
-import statemachine.states.statemachine.states.ITransition;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,12 +43,12 @@ public class PlayerDraftState implements ITransition {
     @Override
     public void task() {
         System.out.println(" Task Method of Player Draft State");
-        PlayerDraft playerDraft = new PlayerDraft();
-        List<IPlayerModel> newDraftedPlayers =  playerDraft.draftPlayers();
-        for(int i=0; i<newDraftedPlayers.size();i++){
-            System.out.println("Drafted Player Name" + newDraftedPlayers.get(i).getPlayerName());
-        }
-        playerDraft.getTeamStandingList(leagueModel);
+        IPlayerDraft playerDraft = PlayerDraftAbstractFactory.getInstance().createPlayerDraft();
+        IDraftSelectionOrder draftSelectionOrder = PlayerDraftAbstractFactory.getInstance().createDraftSelectionOrder();
+        List<ITeamsModel> teamStandingList = draftSelectionOrder.getTeamStandingList(leagueModel);
+        int totalTeams = teamStandingList.size();
+        List<IPlayerModel> newDraftedPlayers = playerDraft.draftPlayers(totalTeams);
+        draftSelectionOrder.draftingRounds(newDraftedPlayers);
     }
 
     @Override
