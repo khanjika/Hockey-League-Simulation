@@ -64,7 +64,7 @@ public class PlayerSeasonsChoiceState implements ITransition {
 
 
     @Override
-    public void exit() {
+    public void exit() throws Exception {
         try {
             for (ConferenceModel conferenceModel : currentModel.getConferences()) {
                 for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
