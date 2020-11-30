@@ -11,6 +11,6 @@ public class SerializeObjectTest {
     void serializeLeagueObjectTest() {
         ILeagueModel leagueModel = LeagueModelTest.getLeagueObject();
         ISerializeObject serializeObject = SerializeObjectAbstractFactory.getInstance().getSerializeObject();
-        assertTrue(serializeObject.serializeLeagueObject(leagueModel,"robteam"));
+        assertTrue(serializeObject.serializeLeagueObject(leagueModel,"testedteam"));
     }
 }

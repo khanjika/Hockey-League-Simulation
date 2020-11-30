@@ -2,14 +2,14 @@ package database.serializeobject;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class FileValidatorTest {
     IFileValidator file = SerializeObjectAbstractFactory.getInstance().getFileValidator();
     @Test
     void isFileExistTest(){
-        assertFalse(file.isFileExist("testingTeam"));
+        assertFalse(file.isFileExist("testing Team"));
+        assertTrue(file.isFileExist("robteam"));
     }
     public String filePath(String name){
         return "src\\test\\java\\database\\datasource\\"+name+".JSON";

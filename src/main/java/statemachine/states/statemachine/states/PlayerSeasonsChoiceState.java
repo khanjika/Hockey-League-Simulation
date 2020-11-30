@@ -73,7 +73,6 @@ public class PlayerSeasonsChoiceState implements ITransition {
             stateMachine.getCurrentState().entry();
         }
 
-        currentModel.getGameplayConfig().getTrading().getGmTable();
 //        for (ConferenceModel conferenceModel : currentModel.getConferences()) {
 //            for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
 //                for (TeamsModel teamsModel : divisonModel.getTeams()) {
