@@ -10,6 +10,15 @@ import java.util.stream.Collectors;
 
 public class TeamsModel implements ITeamsModel {
 
+    private final IPlayerModel playerModel;
+    Comparator<PlayerModel> playerModelComparator = new Comparator<PlayerModel>() {
+        @Override
+        public int compare(PlayerModel o1, PlayerModel o2) {
+            float playerOneStrength = o1.getPlayerStrength();
+            float playerTwoStrength = o2.getPlayerStrength();
+            return (int) (playerOneStrength - playerTwoStrength);
+        }
+    };
     @Expose
     private String teamName;
     @Expose
@@ -18,13 +27,14 @@ public class TeamsModel implements ITeamsModel {
     private HeadCoachModel headCoach;
     @Expose
     private List<PlayerModel> players;
-    private final IPlayerModel playerModel;
     private float teamStrength;
     private int winPoint;
     private int lossPoint;
     private int lossPointForTrading;
     private List<PlayerModel> activeRoasters;
     private List<PlayerModel> inactiveRoasters;
+    private boolean isUserCreatedTeam;
+
     private int isGoalieStrong;
     private int isForwardStrong;
     private int isDefenseStrong;
@@ -70,10 +80,6 @@ public class TeamsModel implements ITeamsModel {
         this.isDefenseStrong = isDefenseStrong;
     }
 
-    @Override
-    public void setTeamStrength(float teamStrength) {
-        this.teamStrength = teamStrength;
-    }
 
     public int getLossPointForTrading() {
         return lossPointForTrading;
@@ -94,8 +100,6 @@ public class TeamsModel implements ITeamsModel {
         isUserCreatedTeam = userCreatedTeam;
     }
 
-    private boolean isUserCreatedTeam;
-
     public TeamsModel() {
         playerModel = new PlayerModel ();
     }
@@ -109,7 +113,6 @@ public class TeamsModel implements ITeamsModel {
     public void setTeamName(String teamName) {
         this.teamName = teamName;
     }
-
 
     @Override
     public HeadCoachModel getHeadCoach() {
@@ -134,6 +137,11 @@ public class TeamsModel implements ITeamsModel {
     @Override
     public float getTeamStrength() {
         return teamStrength;
+    }
+
+    @Override
+    public void setTeamStrength(float teamStrength) {
+        this.teamStrength = teamStrength;
     }
 
     @Override
@@ -180,6 +188,26 @@ public class TeamsModel implements ITeamsModel {
 
     @Override
     public void roasterReplacement(PlayerModel currentPlayer) {
+//<<<<<<< HEAD
+//        List<PlayerModel> matchedInactivePlayers = new ArrayList<>();
+//        if (currentPlayer.isPlayerInjured() == false) {
+//            return;
+//        }
+//        for (PlayerModel player : this.getInactiveRoasters()) {
+//            if (player.getPosition().equals(currentPlayer.getPosition()) && player.isPlayerInjured() == false) {
+//                matchedInactivePlayers.add(player);
+//            }
+//        }
+//        if (matchedInactivePlayers.size() == 0) {
+//            return;
+//        }
+//        PlayerModel replacementPlayer = Collections.max(matchedInactivePlayers, Comparator.comparing(v -> v.getPlayerStrength()));
+//        getActiveRoasters().remove(currentPlayer);
+//        currentPlayer.setIsActive(false);
+//        getActiveRoasters().add(replacementPlayer);
+//        replacementPlayer.setIsActive(true);
+//        System.out.println(currentPlayer.getPlayerName() + " replaced with " + replacementPlayer.getPlayerName());
+//=======
         List<PlayerModel> matchedInactivePlayers = new ArrayList<> ();
         if (currentPlayer.isPlayerInjured () == false) {
             return;
@@ -202,10 +230,17 @@ public class TeamsModel implements ITeamsModel {
 
     @Override
     public List<PlayerModel> getTotalForwards() {
+//<<<<<<< HEAD
+//        List<PlayerModel> forwards = new ArrayList<>();
+//        for (PlayerModel player : this.getPlayers()) {
+//            if (player.getPosition().equals(PlayerPosition.FORWARD.toString())) {
+//                forwards.add(player);
+//=======
         List<PlayerModel> forwards = new ArrayList<> ();
         for (PlayerModel player : this.getPlayers ()) {
             if (player.getPosition ().equals (PlayerPosition.FORWARD.toString ())) {
                 forwards.add (player);
+
             }
         }
         return forwards;
@@ -213,10 +248,11 @@ public class TeamsModel implements ITeamsModel {
 
     @Override
     public List<PlayerModel> getTotalDefenses() {
-        List<PlayerModel> defenses = new ArrayList<> ();
-        for (PlayerModel player : this.getPlayers ()) {
-            if (player.getPosition ().equals (PlayerPosition.DEFENSE.toString ())) {
-                defenses.add (player);
+        List<PlayerModel> defenses = new ArrayList<>();
+        for (PlayerModel player : this.getPlayers()) {
+            if (player.getPosition().equals(PlayerPosition.DEFENSE.toString())) {
+                defenses.add(player);
+
             }
         }
         return defenses;
@@ -224,10 +260,12 @@ public class TeamsModel implements ITeamsModel {
 
     @Override
     public List<PlayerModel> getTotalGoalies() {
-        List<PlayerModel> goalies = new ArrayList<> ();
-        for (PlayerModel player : this.getPlayers ()) {
-            if (player.getPosition ().equals (PlayerPosition.GOALIE.toString ())) {
-                goalies.add (player);
+
+        List<PlayerModel> goalies = new ArrayList<>();
+        for (PlayerModel player : this.getPlayers()) {
+            if (player.getPosition().equals(PlayerPosition.GOALIE.toString())) {
+                goalies.add(player);
+
             }
         }
         return goalies;
@@ -253,7 +291,6 @@ public class TeamsModel implements ITeamsModel {
         this.lossPoint = lossPoint;
     }
 
-    @Override
     public PlayerModel getBestGoalieFromTheTeam(List<PlayerModel> list) {
         if (list == null) {
             throw new NullPointerException ();
@@ -281,5 +318,48 @@ public class TeamsModel implements ITeamsModel {
     public List<PlayerModel> sortPlayersOfTeamDescending(List<PlayerModel> players) {
         players.sort (Comparator.comparing (PlayerModel::getPlayerStrength).reversed ());
         return players;
+    }
+
+    @Override
+    public void addDrafterPlayerToTeam(IPlayerModel draftedPlayer) {
+        this.players.add((PlayerModel) draftedPlayer);
+        this.setPlayers(this.players);
+        System.out.println("SIZE OF TEAM AFTER DRAFT " + this.getTeamName() + " -- " + this.getPlayers().size());
+    }
+
+    @Override
+    public void resolveRoostersToThirty() {
+        System.out.println(this.getPlayers());
+        List<PlayerModel> allRoosters = this.players;
+        List<PlayerModel> forwardRooster = new ArrayList<>();
+        List<PlayerModel> defenseRoosters = new ArrayList<>();
+        List<PlayerModel> goalieRoosters = new ArrayList<>();
+        for (int i = 0; i < allRoosters.size(); i++) {
+            if (allRoosters.get(i).getPosition().equals(PlayerPosition.FORWARD.toString())) {
+                forwardRooster.add(allRoosters.get(i));
+            } else if (allRoosters.get(i).getPosition().equals(PlayerPosition.DEFENSE.toString())) {
+                defenseRoosters.add(allRoosters.get(i));
+            } else if (allRoosters.get(i).getPosition().equals(PlayerPosition.GOALIE.toString())) {
+                goalieRoosters.add(allRoosters.get(i));
+            }
+        }
+        Collections.sort(forwardRooster, playerModelComparator);
+        Collections.sort(defenseRoosters, playerModelComparator);
+        Collections.sort(goalieRoosters, playerModelComparator);
+        List<PlayerModel> roosterList = new ArrayList<>();
+        roosterList.addAll(fetchRequiredRoosterFromList(forwardRooster,16));
+        roosterList.addAll(fetchRequiredRoosterFromList(defenseRoosters,10));
+        roosterList.addAll(fetchRequiredRoosterFromList(goalieRoosters,4));
+        System.out.println("ROOSTER LIST SIZE - "  +roosterList.size());
+        this.setPlayers(roosterList);
+    }
+
+    @Override
+    public List<PlayerModel> fetchRequiredRoosterFromList(List<PlayerModel> roosterList, int requiredPlayers) {
+    List<PlayerModel> list = new ArrayList<>();
+    for (int i =0 ; i<requiredPlayers;i++){
+        list.add(roosterList.get(i));
+    }
+    return list;
     }
 }

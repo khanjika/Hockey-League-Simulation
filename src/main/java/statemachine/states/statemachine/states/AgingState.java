@@ -4,7 +4,6 @@ package statemachine.states.statemachine.states;
 import leagueobjectmodel.ConferenceModel;
 import leagueobjectmodel.DivisonModel;
 import leagueobjectmodel.GamePlayConfigModel;
-import leagueobjectmodel.LeagueModel;
 import org.apache.log4j.Logger;
 import statemachine.states.statemachine.states.matchSchedules.IDeadlines;
 import leagueobjectmodel.IPlayerModel;
@@ -25,7 +24,10 @@ public class AgingState implements ITransition {
     ILeagueModel leagueModel;
     LocalDate currentDate;
     IPlayerModel iPlayerModel;
+   IFreeAgentModel iFreeAgentModel;
     private int daysToAge;
+    private final int DAYS_TO_AGE_AFTER_SEASON_ENDS=183;
+
     final static Logger logger = Logger.getLogger(AgingState.class);
     public AgingState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
@@ -45,25 +47,31 @@ public class AgingState implements ITransition {
     @Override
     public void task() {
         ISortTeams sortTeams = new SortTeams();
-        iPlayerModel = new PlayerModel();
+        iPlayerModel = LeagueObjectModelAbstractFactory.getInstance().getPlayer();
+        iFreeAgentModel = LeagueObjectModelAbstractFactory.getInstance().getFreeAgentModel();
         daysToAge = 1;
         currentDate = stateMachine.getCurrentDate();
         int currentYear = currentDate.getYear();
         long tempDays = DAYS.between(currentDate, iDeadlines.getEndOfRegularSeasonDate(currentYear));
         System.out.println(tempDays);
         if (tempDays == 1) {
-            daysToAge = 183;
+            daysToAge = DAYS_TO_AGE_AFTER_SEASON_ENDS;
         }
         GamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
         System.out.println(gamePlayConfigModel.getAging().getMaximumAge());
         iPlayerModel.setAgingModel(gamePlayConfigModel.getAging());
         iPlayerModel.setFreeAgentsList(leagueModel.getFreeAgents());
+        System.out.println(gamePlayConfigModel.getAging());
+        System.out.println(iFreeAgentModel);
+        iFreeAgentModel.setAgingModel(gamePlayConfigModel.getAging());
+        System.out.println(gamePlayConfigModel.getAging());
+        for(IFreeAgentModel freeAgent : leagueModel.getFreeAgents()){
+            iFreeAgentModel.aging(freeAgent,currentDate,daysToAge);
+        }
         for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
             for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
                 for (TeamsModel teamsModel : divisonModel.getTeams()) {
-                    System.out.println("TEAM NAME: "+ teamsModel.getTeamName());
                     for (PlayerModel playerModelTemp : teamsModel.getPlayers()) {
-                        System.out.println("PLAYER NAME: "+playerModelTemp.getPlayerName());
                         iPlayerModel.aging(playerModelTemp, daysToAge, currentDate);
                     }
                     sortTeams.sortActiveRoasters(teamsModel.getPlayers());

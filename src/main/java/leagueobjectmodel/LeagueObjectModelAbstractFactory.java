@@ -1,5 +1,7 @@
 package leagueobjectmodel;
 
+import java.util.Random;
+
 public abstract class LeagueObjectModelAbstractFactory {
 
     private static LeagueObjectModelAbstractFactory unique_instance = null;
@@ -83,7 +85,13 @@ public abstract class LeagueObjectModelAbstractFactory {
 
     public abstract void setGeneralManagersValidator(IGeneralManagersValidator generalManagersValidator);
 
+
+    public abstract IPlayerModel getNewPlayerModel();
     public abstract IFreeAgentModel getFreeAgent();
 
     public abstract void setFreeAgent(IFreeAgentModel freeAgent);
+
+    public abstract Random createRandom();
+
+    public abstract void setRandom(Random random);
 }

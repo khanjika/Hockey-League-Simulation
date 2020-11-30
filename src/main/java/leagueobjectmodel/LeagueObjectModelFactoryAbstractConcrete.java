@@ -1,5 +1,7 @@
 package leagueobjectmodel;
 
+import java.util.Random;
+
 public class LeagueObjectModelFactoryAbstractConcrete extends LeagueObjectModelAbstractFactory {
     private ILeagueModel league;
     private ILeagueValidator leagueValidator;
@@ -19,6 +21,9 @@ public class LeagueObjectModelFactoryAbstractConcrete extends LeagueObjectModelA
     private ICoachModel coach;
     private IGeneralManagersModel generalManagers;
     private IGeneralManagersValidator generalManagersValidator;
+    private IFreeAgentModel freeAgentModel;
+    private IPlayerModel newPlayerModel;
+    private Random random;
 
     @Override
     public IFreeAgentModel getFreeAgent() {
@@ -263,4 +268,28 @@ public class LeagueObjectModelFactoryAbstractConcrete extends LeagueObjectModelA
     public void setGeneralManagersValidator(IGeneralManagersValidator generalManagersValidator) {
         this.generalManagersValidator = generalManagersValidator;
     }
+
+    @Override
+    public IPlayerModel getNewPlayerModel() {
+        return newPlayerModel = new PlayerModel() ;
+    }
+
+    public void setNewPlayerModel(IPlayerModel newPlayerModel) {
+        this.newPlayerModel = newPlayerModel;
+    }
+
+    @Override
+    public Random createRandom() {
+        if(random == null){
+            random = new Random();
+        }
+        return random;
+    }
+
+    @Override
+    public void setRandom(Random random) {
+        this.random = random;
+    }
 }
+
+

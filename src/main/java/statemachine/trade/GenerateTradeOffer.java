@@ -44,6 +44,7 @@ public class GenerateTradeOffer implements IGenerateTradeOffer {
     @Override
     public ILeagueModel checkTrading(ILeagueModel leagueModel) {
         logger.debug ("Inside Trading");
+        System.out.println("Inside Trading");
         if (leagueModel == null) {
             throw new NullPointerException ();
         }

@@ -92,7 +92,6 @@ public class LeagueModelTest {
         leagueModel.setGeneralManagers(generalManagers);
         leagueModel.setGameplayConfig(gamePLayModel);
         gamePLayModel.setTrading(tradingModel);
-        gamePLayModel.setGameResolver(gameResolverModel);
         gamePLayModel.setInjuries(injuriesModel);
         gamePLayModel.setAging(agingModel);
         return leagueModel;

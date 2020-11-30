@@ -57,12 +57,17 @@ public interface ITeamsModel {
 
     void setLossPoint(int lossPoint);
 
-
     PlayerModel getBestGoalieFromTheTeam(List<PlayerModel> list);
 
     List<PlayerModel> sortPlayersOfTeamAscending(List<PlayerModel> players);
 
     List<PlayerModel> sortPlayersOfTeamDescending(List<PlayerModel> players);
+
+    void addDrafterPlayerToTeam(IPlayerModel draftedPlayer);
+
+    void resolveRoostersToThirty();
+
+    List<PlayerModel> fetchRequiredRoosterFromList(List<PlayerModel> roosterList, int requiredPlayers);
 
     int getIsGoalieStrong();
 
