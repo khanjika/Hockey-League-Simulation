@@ -2,7 +2,6 @@ package statemachine.states.statemachine.states;
 
 import leagueobjectmodel.ConferenceModel;
 import leagueobjectmodel.DivisonModel;
-import leagueobjectmodel.LeagueModel;
 import leagueobjectmodel.PlayerModel;
 import org.apache.log4j.Logger;
 import statemachine.states.statemachine.StateMachine;

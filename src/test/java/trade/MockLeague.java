@@ -2,10 +2,8 @@ package trade;
 
 import leagueobjectmodel.*;
 
-
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class MockLeague {
 
@@ -49,8 +47,6 @@ public class MockLeague {
         leagueModel.setGameplayConfig(gamePLayModel);
         gamePLayModel.setTrading(tradingModel);
         gamePLayModel.setAging(agingModel);
-        gamePLayModel.setGameResolver(gameResolverModel);
-        gamePLayModel.setTraining(trainingModel);
         leagueModel.setGameplayConfig(gamePLayModel);
         return leagueModel;
     }

@@ -335,7 +335,7 @@ public class PlayerModelTest {
     void checkPlayerInjury() {
         MockLeague league = new MockLeague();
         LeagueModel leagueModel = MockLeague.getLeagueObject();
-        InjuriesModel injuriesModel = leagueModel.getGameplayConfig().getInjuries();
+        IInjuriesModel injuriesModel = leagueModel.getGameplayConfig().getInjuries();
         LocalDate date = LocalDate.now();
         PlayerModel playerModel = MockPlayer.getPlayerModel();
         playerModel.setInjuriesModel(injuriesModel);

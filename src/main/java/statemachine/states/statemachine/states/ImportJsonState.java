@@ -1,6 +1,5 @@
 package statemachine.states.statemachine.states;
 
-
 import leagueobjectmodel.*;
 import org.apache.log4j.Logger;
 import statemachine.states.statemachine.StateMachine;

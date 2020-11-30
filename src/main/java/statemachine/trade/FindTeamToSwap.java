@@ -9,24 +9,14 @@ import java.util.List;
 
 public class FindTeamToSwap implements IFindTeamToSwap {
 
+    private static final Logger logger = Logger.getLogger (FindTeamToSwap.class);
+    private static int flag = 0;
     private ITeamsModel teamsModel;
     private ITradeModel model;
     private ICalculateStrength calculateStrength;
     private IAcceptRejectTrade acceptRejectTrade;
-    private ITradeTeamPojo teamDetails;
     private IUserTradeCli userTradeCli;
-
-    public FindTeamToSwap() {
-        teamsModel = LeagueObjectModelAbstractFactory.getInstance ().getTeams ();
-        model = TradeAbstractFactory.instance ().createTradeModel ();
-        calculateStrength = TradeAbstractFactory.instance ().createStrength ();
-        acceptRejectTrade = TradeAbstractFactory.instance ().createAcceptRejectTrade ();
-        userTradeCli = TradeAbstractFactory.instance ().createUserTradeCli ();
-        teamDetails = TradeAbstractFactory.instance ().createTeamPojo ();
-    }
-
-    private static final Logger logger = Logger.getLogger (FindTeamToSwap.class);
-    private static int flag = 0;
+    private ITeamsModel offeredTeam;
 
     private enum playerPosition {
         forward,
@@ -34,47 +24,51 @@ public class FindTeamToSwap implements IFindTeamToSwap {
         goalie
     }
 
+    public FindTeamToSwap() {
+        teamsModel = LeagueObjectModelAbstractFactory.getInstance ().getTeams ();
+        model = TradeAbstractFactory.instance ().createTradeModel ();
+        calculateStrength = TradeAbstractFactory.instance ().createStrength ();
+        acceptRejectTrade = TradeAbstractFactory.instance ().createAcceptRejectTrade ();
+        userTradeCli = TradeAbstractFactory.instance ().createUserTradeCli ();
+    }
+
     @Override
-    public ILeagueModel find(ILeagueModel league) {
-        findPossibleTeam (league);
-        if (model.getTradeOfferedTeam ().isUserCreated ()) {
+    public ILeagueModel find(ILeagueModel league, int totalCounter, ITeamsModel team) {
+        findTeamToTradePLayer (league, totalCounter, team);
+        if (offeredTeam.isUserCreatedTeam ()) {
             int userInput = userTradeCli.displayTeamDetails ();
             if (userInput == 1) {
-                league = acceptRejectTrade.tradeAccepted (league);
+                league = acceptRejectTrade.tradeAccepted (league, team, offeredTeam);
             }
         } else {
-            league = acceptRejectTrade.acceptRejectTrade (league);
+            league = acceptRejectTrade.acceptRejectTrade (league, team, offeredTeam);
         }
         return league;
     }
 
-
     @Override
-    public void findPossibleTeam(ILeagueModel league) {
-        String generateTradeTeam = model.getTradeInitiatingTeam ().getTeamName ();
-        String generateTradeDivision = model.getTradeInitiatingTeam ().getDivisionName ();
-        String generateTradeConference = model.getTradeInitiatingTeam ().getConferenceName ();
-        for (ConferenceModel conference : league.getConferences ()) {
-            String potentialConferenceName = conference.getConferenceName ();
-            for (DivisonModel division : conference.getDivisions ()) {
-                String potentialDivisionName = division.getDivisionName ();
-                for (TeamsModel team : division.getTeams ()) {
-                    boolean isUserCreated = team.isUserCreatedTeam ();
-                    String potentialTeamName = team.getTeamName ();
-                    if (potentialTeamName.equals (generateTradeTeam) && (potentialDivisionName.equals (generateTradeDivision)) && (potentialConferenceName.equals (generateTradeConference))) {
+    public ITeamsModel findTeamToTradePLayer(ILeagueModel league, int totalCounter, ITeamsModel teamInitiatingTrade) {
+        for (IConferenceModel conference : league.getConferences ()) {
+            for (IDivisonModel division : conference.getDivisions ()) {
+                for (ITeamsModel team : division.getTeams ()) {
+                    if (team.equals (teamInitiatingTrade)) {
                     } else {
-                        HashMap<String, Float> strengthMap = calculateStrength.findStrength (team);
-                        int totalStrengthCounter = calculateStrength.findTeamStrengthWeakness (teamDetails, strengthMap);
-                        if (totalStrengthCounter > 0) {
-                            selectTeam (team);
+                        if (totalCounter < 1) {
+                            findTeamToTradePick (team, teamInitiatingTrade);
+                        } else {
+                            if (totalCounter > 0) {
+                                HashMap<String, Float> strengthMap = calculateStrength.findPositionStrength (team);
+                                int totalStrengthCounter = calculateStrength.totalStrengthCounter (team, strengthMap, league);
+                                if (totalStrengthCounter > 0) {
+                                    selectTeam (team, teamInitiatingTrade);
+                                }
+                            } else {
+                                findTeamToTradePick (team, teamInitiatingTrade);
+                            }
                         }
                     }
                     if (flag == 1) {
-                        teamDetails.setConferenceName (potentialConferenceName);
-                        teamDetails.setDivisionName (potentialDivisionName);
-                        teamDetails.setTeamName (potentialTeamName);
-                        teamDetails.setUserCreated (isUserCreated);
-                        model.setTradeOfferedTeam (teamDetails);
+                        offeredTeam = team;
                         break;
                     }
                 }
@@ -87,36 +81,59 @@ public class FindTeamToSwap implements IFindTeamToSwap {
                 break;
             }
         }
+        return offeredTeam;
     }
 
-    public void selectTeam(TeamsModel team) {
+    public void findTeamToTradePick(ITeamsModel team, ITeamsModel teamInitiating) {
+        List<PlayerModel> listOfPlayers = new ArrayList<> ();
+        float teamOfferedStrength = calculateStrength.findTeamStrength (team.getPlayers ());
+        float teamInitiatingStrength = calculateStrength.findTeamStrength (teamInitiating.getPlayers ());
+        if (teamOfferedStrength > teamInitiatingStrength) {
+            List<PlayerModel> offeredTeamPlayer = teamsModel.sortPlayersOfTeamDescending (team.getPlayers ());
+            ITeamsModel[] roundPick = teamInitiating.getDraftTrade ();
+            for (int i = 6; i >= 0; i--) {
+                if (roundPick[i] == null) {
+                    roundPick[i] = team;
+                    PlayerModel player = offeredTeamPlayer.get (i);
+                    listOfPlayers.add (player);
+                    model.setRequestedPlayers (listOfPlayers);
+                    flag = 1;
+                    break;
+                }
+            }
+        }
+    }
+
+    @Override
+    public List<PlayerModel> selectTeam(ITeamsModel team, ITeamsModel teamInitiatingTrade) {
         List<PlayerModel> requestedPlayers = new ArrayList<> ();
-        if (model.getTradeInitiatingTeam ().getIsGoalieStrong () == 0) {
+        if (teamInitiatingTrade.getIsGoalieStrong () == 0) {
             logger.debug ("Need a goalie to make the team strong !!");
-            if (teamDetails.getIsGoalieStrong () == 1) {
-                findSuitablePlayers (team, playerPosition.goalie.toString (), requestedPlayers);
+            if (team.getIsGoalieStrong () == 1) {
+                findSuitablePlayers (team, playerPosition.goalie.toString (), requestedPlayers, teamInitiatingTrade);
             }
         }
-        if (model.getTradeInitiatingTeam ().getIsForwardStrong () == 0) {
+        if (teamInitiatingTrade.getIsForwardStrong () == 0) {
             logger.debug ("Need a forward player to make the team strong !!");
-            if (teamDetails.getIsForwardStrong () == 1) {
-                findSuitablePlayers (team, playerPosition.forward.toString (), requestedPlayers);
+            if (team.getIsForwardStrong () == 1) {
+                findSuitablePlayers (team, playerPosition.forward.toString (), requestedPlayers, teamInitiatingTrade);
             }
         }
-        if (model.getTradeInitiatingTeam ().getIsDefenseStrong () == 0) {
+        if (teamInitiatingTrade.getIsDefenseStrong () == 0) {
             logger.debug ("Need a defense player to make the team strong !!");
-            if (teamDetails.getIsDefenseStrong () == 1) {
-                findSuitablePlayers (team, playerPosition.defense.toString (), requestedPlayers);
+            if (team.getIsDefenseStrong () == 1) {
+                findSuitablePlayers (team, playerPosition.defense.toString (), requestedPlayers, teamInitiatingTrade);
             }
         }
+        return requestedPlayers;
     }
 
-    public void findSuitablePlayers(TeamsModel teams, String position, List<PlayerModel> requestedPlayers) {
+    public void findSuitablePlayers(ITeamsModel teams, String position, List<PlayerModel> requestedPlayers, ITeamsModel teamInitiatingTrade) {
         float initiatingWeakPositionStrength = 0;
         float possiblePlayerStrength;
         int counter = 0;
 
-        List<PlayerModel> initiatingTeamPlayers = teamsModel.sortPlayersOfTeamDescending (model.getTradeInitiatingTeam ().getPlayersList ());
+        List<PlayerModel> initiatingTeamPlayers = teamsModel.sortPlayersOfTeamDescending (teamInitiatingTrade.getPlayers ());
         List<PlayerModel> offeredTradeTeamPlayers = teamsModel.sortPlayersOfTeamDescending (teams.getPlayers ());
         List<PlayerModel> offeredPlayers = model.getOfferedPlayer ();
         List<PlayerModel> playersOfThatPosition = new ArrayList<> ();
@@ -148,7 +165,6 @@ public class FindTeamToSwap implements IFindTeamToSwap {
             } else {
                 float strength = teamStrength + offeredPlayerStrength - possiblePlayerStrength;
                 if (strength > teamStrength) {
-                    logger.debug ("Trade with this team");
                     flag = 1;
                     PlayerModel p = playersOfThatPosition.get (i);
                     requestedPlayers.add (p);

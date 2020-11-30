@@ -21,9 +21,8 @@ public interface IPlayerModel {
 
     void setBirthYear(int birthYear);
 
-    abstract void calculatePlayerStrength(IPlayerModel playerModel);
 
-    void checkPlayerInjury(IPlayerModel playerModel, LocalDate date);
+    abstract  void checkPlayerInjury(IPlayerModel playerModel, LocalDate date);
 
     void recoverPlayer(PlayerModel playerModel, LocalDate date);
 
@@ -93,23 +92,27 @@ public interface IPlayerModel {
 
     void setRetirementLikelyHood(int retirementLikelyHood);
 
-    AgingModel getAgingModel();
+    IAgingModel getAgingModel();
 
-    abstract void setAgingModel(AgingModel agingModel);
+    abstract void setAgingModel(IAgingModel agingModel);
 
     List<FreeAgentModel> getFreeAgentsList();
 
     abstract void setFreeAgentsList(List<FreeAgentModel> freeAgentsList);
 
-    abstract InjuriesModel getInjuriesModel();
+    abstract IInjuriesModel getInjuriesModel();
 
-    abstract void setInjuriesModel(InjuriesModel injuriesModel);
+    abstract void setInjuriesModel(IInjuriesModel injuriesModel);
+
+    void calculatePlayerStrength(IPlayerModel playerModel);
 
     float calculateForwardStrength(IPlayerModel playerModel);
 
     float calculateDefenseStrength(IPlayerModel playerModel);
 
     float calculateGoalieStrength(IPlayerModel playerModel);
+
+    void checkStatDecayDueToBirthDay(PlayerModel playerModel, LocalDate date, int daysToAge);
 
     void replacePlayerWithFreeAgent(PlayerModel playerModel, FreeAgentModel replacementFreeAgent);
 

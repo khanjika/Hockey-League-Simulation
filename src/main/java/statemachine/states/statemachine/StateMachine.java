@@ -1,6 +1,7 @@
 package statemachine.states.statemachine;
 
 import org.apache.log4j.Logger;
+import statemachine.states.statemachine.states.PlayerDraftState;
 import statemachine.states.statemachine.states.*;
 import statemachine.states.statemachine.states.updateStateValue.IUpdateStateValue;
 import statemachine.states.statemachine.states.updateStateValue.UpdateStateValue;
@@ -23,6 +24,7 @@ public class StateMachine {
     ITransition injuryCheckState;
     ITransition tradingState;
     IUpdateStateValue updateStateValue;
+    ITransition playerDraftState;
     ITransition trophySystemState;
 
 
@@ -41,6 +43,8 @@ public class StateMachine {
         trainingState = new TrainingState(this);
         updateStateValue=new UpdateStateValue();
         tradingState=new TradingState(this);
+        playerDraftState=new PlayerDraftState(this);
+
         trophySystemState = new TrophySystemState(this);
     }
     public IUpdateStateValue getUpdateStateValue() {
@@ -198,7 +202,13 @@ public class StateMachine {
     public void setTradingState(ITransition tradingState) {
         this.tradingState = tradingState;
     }
+    public ITransition getPlayerDraftState() {
+        return playerDraftState;
+    }
 
+    public void setPlayerDraftState(ITransition playerDraftState) {
+        this.playerDraftState = playerDraftState;
+    }
     public ITransition getTrophySystemState() {
         return trophySystemState;
     }
