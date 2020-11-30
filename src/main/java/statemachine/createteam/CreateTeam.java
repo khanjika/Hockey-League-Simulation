@@ -25,7 +25,7 @@ public class CreateTeam implements ICreateTeam {
     private List<PlayerModel> userCreatedPlayers;
     private List<PlayerModel> teamActiveRoasters;
     private List<PlayerModel> teamInactiveRoasters;
-    private int choice;
+    int choice;
 
     public CreateTeam() {
         conferenceValidator = LeagueObjectModelAbstractFactory.getInstance().getConferenceValidator();

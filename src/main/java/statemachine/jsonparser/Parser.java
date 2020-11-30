@@ -30,6 +30,7 @@ public class Parser implements IParser {
         iCli = CliAbstractFactory.getInstance().getCli();
     }
 
+
     @Override
     public ILeagueModel loadTeamFromDatabase() {
         loadTeam = LoadTeamAbstractFactory.getInstance().getLoadTeam();
@@ -43,12 +44,11 @@ public class Parser implements IParser {
             byte[] mapData = Files.readAllBytes(Paths.get(fileName));
             JsonNode data = objectMapper.readTree(mapData);
             leagueModel = fromJson(data, LeagueModel.class);
+            leagueObjectModelAbstractFactory.setLeague(leagueModel);
             if (leagueValidator.validateLeagueObject(leagueModel)) {
-                leagueObjectModelAbstractFactory.setLeague(leagueModel);
                 iCli.printOutput(ParserConstants.FileValid.getValue());
                 return leagueModel;
             } else {
-                leagueModel = null;
                 iCli.printOutput(ParserConstants.FileInvalid.getValue());
             }
         } catch (IOException e) {
