@@ -15,7 +15,7 @@ public interface IPlayerModel {
 
     boolean getActive();
 
-    void setActive(boolean active);
+    void setIsActive(boolean active);
 
     int getBirthYear();
 

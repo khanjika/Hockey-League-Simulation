@@ -7,6 +7,7 @@ public class AgingModel implements IAgingModel {
     private int averageRetirementAge;
     @Expose
     private int maximumAge;
+    @Expose
     private float statDecayChance;
 
     @Override

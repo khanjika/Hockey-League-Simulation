@@ -27,7 +27,6 @@ package statemachine.states.statemachine.states;
 
 
 import leagueobjectmodel.ILeagueModel;
-import leagueobjectmodel.LeagueModel;
 import statemachine.states.statemachine.StateMachine;
 
 public class PersistLeagueState implements ITransition {
@@ -61,6 +60,7 @@ public class PersistLeagueState implements ITransition {
 
     @Override
     public void task() {
+//        iLeagueModel.storeLeagueInformation(iLeagueModel);
 //        if(iLeagueModel.storeLeagueInformation(c)){
 //            System.out.println("=====================================");
 //            System.out.println("Your data have been successfully stored in the database");

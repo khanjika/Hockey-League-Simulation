@@ -20,5 +20,9 @@ public interface IHeadCoachModel {
     float getSaving();
 
     void setSaving(float saving);
+
+    int getTrainingPlayerPoints();
+
+    void setTrainingPlayerPoints(int trainingPlayerPoints);
 }
 

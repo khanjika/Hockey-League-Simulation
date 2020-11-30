@@ -4,6 +4,7 @@ import com.google.gson.annotations.Expose;
 
 public class TradingModel implements ITradingModel {
 
+    @Expose
     private GmTable gmTable;
     @Expose
     private int lossPoint;
@@ -65,8 +66,11 @@ public class TradingModel implements ITradingModel {
     }
 
     public class GmTable {
+        @Expose
         private float shrewd;
+        @Expose
         private float gambler;
+        @Expose
         private float normal;
 
         public  GmTable(){}

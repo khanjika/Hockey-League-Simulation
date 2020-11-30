@@ -149,9 +149,9 @@ public class TeamsModel implements ITeamsModel {
         }
         PlayerModel replacementPlayer = Collections.max(matchedInactivePlayers, Comparator.comparing(v -> v.getPlayerStrength()));
         getActiveRoasters().remove(currentPlayer);
-        currentPlayer.setActive(false);
+        currentPlayer.setIsActive(false);
         getActiveRoasters().add(replacementPlayer);
-        replacementPlayer.setActive(true);
+        replacementPlayer.setIsActive(true);
         System.out.println(currentPlayer.getPlayerName()+" replaced with "+replacementPlayer.getPlayerName());
     }
     @Override

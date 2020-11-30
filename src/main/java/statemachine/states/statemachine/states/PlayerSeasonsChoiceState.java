@@ -5,6 +5,9 @@ import cli.CliAbstractFactory;
 import cli.ICli;
 import leagueobjectmodel.*;
 import org.apache.log4j.Logger;
+import leagueobjectmodel.ILeagueModel;
+import leagueobjectmodel.LeagueModel;
+import leagueobjectmodel.LeagueObjectModelAbstractFactory;
 import statemachine.states.statemachine.StateMachine;
 
 import java.util.Calendar;
@@ -58,10 +61,10 @@ public class PlayerSeasonsChoiceState implements ITransition {
             stateMachine.getUpdateStateValue().updateInitializeSeasonStateValue(stateMachine, currentModel, currentYear + i);
             stateMachine.setCurrentState(stateMachine.getInitlailizeSeasonState());
             stateMachine.getCurrentState().entry();
-
         }
         exit();
     }
+
 
     @Override
     public void exit() {
@@ -86,12 +89,28 @@ public class PlayerSeasonsChoiceState implements ITransition {
             throw e;
         }
 
+        currentModel.getGameplayConfig().getTrading().getGmTable();
+//        for (ConferenceModel conferenceModel : currentModel.getConferences()) {
+//            for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
+//                for (TeamsModel teamsModel : divisonModel.getTeams()) {
+//                    for (PlayerModel playerModel : teamsModel.getPlayers()) {
+//                        System.out.println(playerModel.getPlayerName() + " has goal " + playerModel.getGoalScorerCount());
+//                        if (playerModel.getPosition().equals("defense")) {
+//                            System.out.println(playerModel.getPlayerName() + " is Defense and has penalty count of " + playerModel.getTotalPenaltyCount());
+//                        }
+//                        if (playerModel.getPosition().equals("goalie")) {
+//                            System.out.println(playerModel.getPlayerName() + " is goalie having save count " + playerModel.getSaveForGoalie());
+//                        }
+//                    }
+//                }
+//            }
+//        }
+        iLeagueModel.storeLeagueInformation(currentModel);
         //This will be used to store the information
 //        stateMachine.getUpdateStateValue().updatePersistStateValue(currentModel, stateMachine, currentYear);
 //        stateMachine.setPersistLeagueState(persistLeagueState);
 //        stateMachine.setCurrentState(stateMachine.getPersistLeagueState());
 //        stateMachine.getCurrentState().entry();
-
     }
 }
 

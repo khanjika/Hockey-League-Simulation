@@ -13,6 +13,7 @@ public class HeadCoachModel implements IHeadCoachModel {
     private float checking;
     @Expose
     private float saving;
+    private int trainingPlayerPoints;
 
     public HeadCoachModel() {
     }
@@ -73,5 +74,15 @@ public class HeadCoachModel implements IHeadCoachModel {
     @Override
     public void setSaving(float saving) {
         this.saving = saving;
+    }
+
+    @Override
+    public int getTrainingPlayerPoints() {
+        return trainingPlayerPoints;
+    }
+
+    @Override
+    public void setTrainingPlayerPoints(int trainingPlayerPoints) {
+        this.trainingPlayerPoints = trainingPlayerPoints;
     }
 }

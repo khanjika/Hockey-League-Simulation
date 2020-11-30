@@ -5,7 +5,6 @@ import com.google.gson.annotations.Expose;
 public class GamePlayConfigModel implements IGamePlayConfigModel {
     @Expose
     AgingModel aging;
-    @Expose
     GameResolverModel gameResolver;
     @Expose
     InjuriesModel injuries;

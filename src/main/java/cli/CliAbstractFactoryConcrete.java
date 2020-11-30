@@ -65,7 +65,7 @@ public class CliAbstractFactoryConcrete extends CliAbstractFactory {
     }
 
     @Override
-    public IDisplay getDisplayPersons() {
+    public IDisplay getDisplay() {
         if(displayPersons == null){
             displayPersons = new Display();
         }
