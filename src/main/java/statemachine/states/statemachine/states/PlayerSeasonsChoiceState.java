@@ -64,7 +64,7 @@ public class PlayerSeasonsChoiceState implements ITransition {
 
 
     @Override
-    public void exit() {
+    public void exit() throws Exception {
         try {
             for (IConferenceModel conferenceModel : currentModel.getConferences()) {
                 for (IDivisonModel divisonModel : conferenceModel.getDivisions()) {
@@ -85,12 +85,9 @@ public class PlayerSeasonsChoiceState implements ITransition {
             logger.error("Error while parsing the league Object");
             throw e;
         }
-        iLeagueModel.storeLeagueInformation(currentModel);
-        //This will be used to store the information
-//        stateMachine.getUpdateStateValue().updatePersistStateValue(currentModel, stateMachine, currentYear);
-//        stateMachine.setPersistLeagueState(persistLeagueState);
-//        stateMachine.setCurrentState(stateMachine.getPersistLeagueState());
-//        stateMachine.getCurrentState().entry();
+        stateMachine.getUpdateStateValue().updatePersistStateValue(currentModel, stateMachine, 0);
+        stateMachine.setCurrentState(stateMachine.getPersistLeagueState());
+        stateMachine.getCurrentState().entry();
     }
 }
 

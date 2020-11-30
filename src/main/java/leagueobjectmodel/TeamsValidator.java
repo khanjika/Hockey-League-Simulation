@@ -1,7 +1,7 @@
 package leagueobjectmodel;
 
-import database.serializeobject.IFileValidator;
-import database.serializeobject.SerializeObjectAbstractFactory;
+import database.IFileValidator;
+import database.SerializeObjectAbstractFactory;
 
 import java.util.ArrayList;
 import java.util.List;

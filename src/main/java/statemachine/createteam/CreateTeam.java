@@ -7,6 +7,7 @@ import leagueobjectmodel.*;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -127,16 +128,22 @@ public class CreateTeam implements ICreateTeam {
     }
 
     private void getTeamInformation(ILeagueModel leagueModel){
-        getManager(leagueModel);
-        getHeadCoach(leagueModel);
-        getForwards(leagueModel.getForwards(),leagueModel);
-        getDefense(leagueModel.getDefenses(),leagueModel);
-        getGoalies(leagueModel.getGoalies(),leagueModel);
-        ISortTeams sortTeams = new SortTeams();
-        teamActiveRoasters = sortTeams.sortActiveRoasters(this.userCreatedPlayers);
-        teamInactiveRoasters = this.userCreatedPlayers.stream()
-                .filter(v -> !teamActiveRoasters.contains(v)).collect(Collectors.toList());
-        getCaptain();
+        try {
+            getManager(leagueModel);
+            getHeadCoach(leagueModel);
+            getForwards(leagueModel.getForwards(), leagueModel);
+            getDefense(leagueModel.getDefenses(), leagueModel);
+            getGoalies(leagueModel.getGoalies(), leagueModel);
+            ISortTeams sortTeams = new SortTeams();
+            teamActiveRoasters = sortTeams.sortActiveRoasters(this.userCreatedPlayers);
+            teamInactiveRoasters = this.userCreatedPlayers.stream()
+                    .filter(v -> !teamActiveRoasters.contains(v)).collect(Collectors.toList());
+            getCaptain();
+        }catch (InputMismatchException error){
+            iCli.printOutput(CreateTeamConstants.ChoiceError.getValue());
+            logger.error(CreateTeamConstants.LogErrorCreateTeam.getValue());
+            throw error;
+        }
         iCli.printOutput(CreateTeamConstants.DisplayPlayerList.getValue());
         displayPersons.displayTeamPlayers(userCreatedPlayers);
         iCli.printOutput(CreateTeamConstants.DisplayInactivePlayers.getValue());
@@ -149,7 +156,11 @@ public class CreateTeam implements ICreateTeam {
         while(player < requiredForwards){
             iCli.printOutput(CreateTeamConstants.Enter.getValue() + (requiredForwards - player) + CreateTeamConstants.EnterForwards.getValue());
             displayPersons.displayFreeAgents(availableForwards);
-            choice = iCli.readIntInput();
+            try{
+                choice = iCli.readIntInput();
+            }catch (InputMismatchException e){
+                throw new InputMismatchException();
+            }
             if (choice > 0 && choice <= availableForwards.size()){
                 createTeamPlayer(availableForwards.get(choice - 1));
                 leagueModel.getFreeAgents().remove(availableForwards.get(choice - 1));
@@ -165,7 +176,11 @@ public class CreateTeam implements ICreateTeam {
         while(player < requiredDefenses){
             iCli.printOutput(CreateTeamConstants.Enter.getValue() + (requiredDefenses - player) + CreateTeamConstants.EnterDefense.getValue());
             displayPersons.displayFreeAgents(availableDefense);
-            choice = iCli.readIntInput();
+            try{
+                choice = iCli.readIntInput();
+            }catch (InputMismatchException e){
+                throw new InputMismatchException();
+            }
             if (choice > 0 && choice <= availableDefense.size()){
                 createTeamPlayer(availableDefense.get(choice - 1));
                 leagueModel.getFreeAgents().remove(availableDefense.get(choice - 1));
@@ -181,7 +196,11 @@ public class CreateTeam implements ICreateTeam {
         while(player < requiredGoalies){
             iCli.printOutput(CreateTeamConstants.Enter.getValue() + (requiredGoalies - player) + CreateTeamConstants.EnterGoalies.getValue());
             displayPersons.displayFreeAgents(availableGoalies);
-            choice = iCli.readIntInput();
+            try{
+                choice = iCli.readIntInput();
+            }catch (InputMismatchException e){
+                throw new InputMismatchException();
+            }
             if (choice > 0 && choice <= availableGoalies.size()){
                 createTeamPlayer(availableGoalies.get(choice - 1));
                 leagueModel.getFreeAgents().remove(availableGoalies.get(choice - 1));
@@ -195,7 +214,11 @@ public class CreateTeam implements ICreateTeam {
         iCli.printOutput(CreateTeamConstants.EnterCaptain.getValue());
         iCli.printOutput(CreateTeamConstants.DisplayActivePlayers.getValue());
         displayPersons.displayTeamPlayers(teamActiveRoasters);
-        choice = iCli.readIntInput();
+        try{
+            choice = iCli.readIntInput();
+        }catch (InputMismatchException e){
+            throw new InputMismatchException();
+        }
         if(choice < 0 || choice > teamActiveRoasters.size()){
             getCaptain();
         }
@@ -238,7 +261,12 @@ public class CreateTeam implements ICreateTeam {
         float checking;
         iCli.printOutput(CreateTeamConstants.EnterCoach.getValue());
         displayPersons.displayCoaches(leagueModel.getCoaches());
-        choice = iCli.readIntInput();
+
+        try{
+            choice = iCli.readIntInput();
+        }catch (InputMismatchException e){
+            throw new InputMismatchException();
+        }
         List<ICoachModel> coachList = leagueModel.getCoaches();
         HeadCoachModel headCoach;
         if (choice > 0 && choice <= coachList.size()) {
@@ -259,7 +287,12 @@ public class CreateTeam implements ICreateTeam {
     private void getManager(ILeagueModel leagueModel) {
         iCli.printOutput(CreateTeamConstants.EnterManager.getValue());
         displayPersons.displayManagers(leagueModel.getGeneralManagers());
-        choice = iCli.readIntInput();
+
+        try{
+            choice = iCli.readIntInput();
+        }catch (InputMismatchException e){
+            throw new InputMismatchException();
+        }
         List<IGeneralManagersModel> managersList = leagueModel.getGeneralManagers();
         if (choice > 0 && choice <= managersList.size()) {
             this.userEnteredGeneralManagerName = managersList.get(choice - 1);
