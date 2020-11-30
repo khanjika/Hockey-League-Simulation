@@ -6,6 +6,7 @@ import database.serializeobject.IDeserializeObject;
 import database.serializeobject.IFileValidator;
 import database.serializeobject.SerializeObjectAbstractFactory;
 import leagueobjectmodel.ILeagueModel;
+import leagueobjectmodel.ILeagueValidator;
 import leagueobjectmodel.ITeamsValidator;
 import leagueobjectmodel.LeagueObjectModelAbstractFactory;
 import org.apache.log4j.Logger;
@@ -15,6 +16,7 @@ public class LoadTeam implements ILoadTeam{
     private static ITeamsValidator iTeamsValidator;
     private static IDeserializeObject parser;
     private static IFileValidator fileValidator;
+    private static ILeagueValidator leagueValidator;
     private ICli iCli;
     final static Logger logger = Logger.getLogger(LoadTeam.class);
 
@@ -22,6 +24,7 @@ public class LoadTeam implements ILoadTeam{
         parser = SerializeObjectAbstractFactory.instance().createParser();
         fileValidator = SerializeObjectAbstractFactory.instance().createFileValidator();
         iTeamsValidator = LeagueObjectModelAbstractFactory.getInstance().getTeamsValidator();
+        leagueValidator = LeagueObjectModelAbstractFactory.getInstance().getLeagueValidator();
         iCli = CliAbstractFactory.getInstance().getCli();
     }
 
@@ -33,16 +36,22 @@ public class LoadTeam implements ILoadTeam{
             getData();
         }
         if (isTeamExist(teamName)) {
-            logger.info(LoadTeamConstants.LogInfoTraining.getValue());
             iCli.printOutput(LoadTeamConstants.TeamExist.getValue());
             iLeagueModel = parser.parseJson(fileValidator.filePath(teamName));
+            if(iLeagueModel == null) {
+                logger.error(LoadTeamConstants.ValidationError.getValue());
+                return null;
+            }
             iLeagueModel.setCurrentTeam(teamName);
             iCli.printOutput(LoadTeamConstants.LoadData.getValue());
             iCli.printOutput(LoadTeamConstants.LineSeperator.getValue());
-        }else {
+            logger.info(LoadTeamConstants.LogInfoLoadTeam.getValue());
+            return iLeagueModel;
+            }
+        else {
             iCli.printOutput(LoadTeamConstants.TeamNotExist.getValue());
         }
-        return iLeagueModel;
+        return null;
     }
 
     private boolean isTeamExist(String teamName) {

@@ -6,7 +6,8 @@ public enum LoadTeamConstants {
     TeamExist("The Team name entered exists in the league"),
     LoadData("Loading the data...."),
     TeamNotExist("Team does not exists!. Please provide a valid team name to continue..."),
-    LogInfoTraining("League loaded from location to memory");
+    LogInfoLoadTeam("League loaded from location to memory"),
+    ValidationError("League json not valid");
     private String value;
 
     LoadTeamConstants(String value) {

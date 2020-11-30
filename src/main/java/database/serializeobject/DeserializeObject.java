@@ -56,7 +56,7 @@ public class DeserializeObject implements IDeserializeObject {
             logger.error(ParserConstants.LogError.getValue(),error);
             iCli.printOutput(ParserConstants.Error.getValue() + error);
         }
-        return leagueModel;
+        return null;
     }
 
 
