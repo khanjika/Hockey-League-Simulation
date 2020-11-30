@@ -1,14 +1,15 @@
 package statemachine.states.statemachine.states;
 
+
+import database.serializeobject.IDeserializeObject;
+import database.serializeobject.SerializeObjectAbstractFactory;
 import leagueobjectmodel.*;
 import org.apache.log4j.Logger;
 import statemachine.states.statemachine.StateMachine;
-import statemachine.jsonparser.IParser;
-import statemachine.jsonparser.ParserAbstractFactory;
 
 public class ImportJsonState implements ITransition {
     StateMachine stateMachine;
-    IParser parser;
+    IDeserializeObject parser;
     ITransition createTeamState;
     private String cliArgument;
     private ILeagueModel inMemoryLeagueModel;
@@ -16,7 +17,7 @@ public class ImportJsonState implements ITransition {
 
     public ImportJsonState(StateMachine currentStateMachine) {
         stateMachine = currentStateMachine;
-        parser = ParserAbstractFactory.getInstance().getParser();
+        parser = SerializeObjectAbstractFactory.instance().createParser();
     }
 
     public void updateImportJsonStateValue(String[] args, StateMachine currentStateMachine){

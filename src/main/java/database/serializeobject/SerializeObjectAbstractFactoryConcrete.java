@@ -5,7 +5,7 @@ public class SerializeObjectAbstractFactoryConcrete extends SerializeObjectAbstr
     private ISerializeObject serializeObject;
 
     @Override
-    public IFileValidator getFileValidator() {
+    public IFileValidator createFileValidator() {
         if(fileValidator == null){
             fileValidator = new FileValidator();
         }
@@ -18,7 +18,7 @@ public class SerializeObjectAbstractFactoryConcrete extends SerializeObjectAbstr
     }
 
     @Override
-    public ISerializeObject getSerializeObject() {
+    public ISerializeObject createSerializeObject() {
         if (serializeObject == null){
             serializeObject = new SerializeObject();
         }
@@ -28,5 +28,15 @@ public class SerializeObjectAbstractFactoryConcrete extends SerializeObjectAbstr
     @Override
     public void setSerializeObject(ISerializeObject serializeObject) {
         this.serializeObject = serializeObject;
+    }
+
+    private IDeserializeObject parser;
+
+    @Override
+    public IDeserializeObject createParser() {
+        if (parser == null){
+            parser = new DeserializeObject();
+        }
+        return parser;
     }
 }

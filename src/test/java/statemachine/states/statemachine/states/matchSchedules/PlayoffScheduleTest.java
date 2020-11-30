@@ -3,12 +3,8 @@ package statemachine.states.statemachine.states.matchSchedules;
 import LeagueMockObject.MockLeagueAbstractFactory;
 import leagueobjectmodel.ILeagueModel;
 import leagueobjectmodel.ITeamsModel;
-import leagueobjectmodel.TeamsModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import statemachine.jsonparser.IParser;
-import statemachine.jsonparser.Parser;
-import statemachine.jsonparser.ParserAbstractFactory;
 
 import java.util.List;
 

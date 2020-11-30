@@ -2,8 +2,8 @@ package statemachine.trophysystem;
 
 import cli.CliAbstractFactory;
 import cli.ICli;
-import cli.IDisplay;
 import leagueobjectmodel.ILeagueModel;
+import org.apache.log4j.Logger;
 
 public class TrophySystem implements ITrophySystem{
 
@@ -11,6 +11,8 @@ public class TrophySystem implements ITrophySystem{
     EndOfSeasonStandingSubject subject1;
     AwardWinnersSubject subject2;
     ICli display = CliAbstractFactory.getInstance().getCli();
+
+    final static Logger logger = Logger.getLogger(TrophySystem.class);
 
     public TrophySystem() {
         subject = EndOfPlayOffStandingSubject.getInstance();
@@ -42,11 +44,19 @@ public class TrophySystem implements ITrophySystem{
 
     @Override
     public void performCalculationBeforePlayOff(ILeagueModel leagueModel,int year){
+        if(leagueModel == null){
+            logger.error(TrophySystemConstants.LogError.getValue());
+            throw new NullPointerException(TrophySystemConstants.ExceptionError.getValue());
+        }
         subject.notifyObservers(leagueModel, year);
     }
 
     @Override
     public void performCalculationAfterPlayOff(ILeagueModel leagueModel,int year) {
+        if(leagueModel == null) {
+            logger.error(TrophySystemConstants.LogError.getValue());
+            throw new NullPointerException(TrophySystemConstants.ExceptionError.getValue());
+        }
         subject1.notifyObservers(leagueModel, year);
     }
 

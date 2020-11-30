@@ -26,7 +26,7 @@ public class CreateTeamState implements ITransition {
     }
 
     public void updateCreateTeamStateValue(StateMachine stateMachine) {
-        createTeam = CreateTeamAbstractFactory.getInstance().getCreateTeam();
+        createTeam = CreateTeamAbstractFactory.instance().createCreateTeam();
         this.currentModel = LeagueObjectModelAbstractFactory.getInstance().getLeague();
         if(this.currentModel==null){
             throw new NullPointerException("Exception while fetching league model object from the abstract factory");

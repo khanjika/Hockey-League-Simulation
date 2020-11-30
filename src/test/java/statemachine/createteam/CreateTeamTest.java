@@ -18,7 +18,7 @@ public class CreateTeamTest {
         System.setIn(userinput);
         ICli cli = new MockCli();
         CliAbstractFactory.getInstance().setCli(cli);
-        ICreateTeam createTeam = CreateTeamAbstractFactory.getInstance().getCreateTeam();
+        ICreateTeam createTeam = CreateTeamAbstractFactory.instance().createCreateTeam();
         ILeagueModel leagueModel = LeagueModelTest.getLeagueObject();
         ILeagueModel leagueModelAfterCreate = createTeam.createNewTeam(leagueModel);
         assertNotNull(leagueModelAfterCreate);

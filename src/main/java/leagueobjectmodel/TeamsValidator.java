@@ -10,7 +10,7 @@ import java.util.Objects;
 public class TeamsValidator implements ITeamsValidator {
     private static final IPlayerValidator playerValidator = new PlayerValidator();
     private static final IHeadCoachValidator headCoachValidator = new HeadCoachValidator();
-    private static final IFileValidator fileValidator= SerializeObjectAbstractFactory.getInstance().getFileValidator();
+    private static final IFileValidator fileValidator= SerializeObjectAbstractFactory.instance().createFileValidator();
     private static final int totalForward = 16;
     private static final int totalDefense = 10;
     private static final int totalGoalie = 4;
@@ -70,9 +70,6 @@ public class TeamsValidator implements ITeamsValidator {
             if (forward == 16 && defense == 10 && goalie == 4) {
                 return true;
             } else {
-                System.out.println(forward);
-                System.out.println(defense);
-                System.out.println(goalie);
                 System.out.println("Player Position Count is not valid in team --> "+teamsModel.getTeamName());
                 return false;
             }

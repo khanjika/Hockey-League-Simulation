@@ -4,6 +4,8 @@ import cli.CliAbstractFactory;
 import cli.ICli;
 import cli.IDisplay;
 import leagueobjectmodel.*;
+import org.apache.log4j.Logger;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -26,6 +28,7 @@ public class CreateTeam implements ICreateTeam {
     private List<PlayerModel> teamActiveRoasters;
     private List<PlayerModel> teamInactiveRoasters;
     int choice;
+    final static Logger logger = Logger.getLogger(CreateTeam.class);
 
     public CreateTeam() {
         conferenceValidator = LeagueObjectModelAbstractFactory.getInstance().getConferenceValidator();
@@ -46,6 +49,7 @@ public class CreateTeam implements ICreateTeam {
             if (isDivisionNameValid(leagueModel)) {
                 if (this.isTeamInformationSetProperly(leagueModel)) {
                     newlyCreatedLeagueModelObject = getNewlyCreatedLeagueObject(leagueModel);
+                    logger.info(CreateTeamConstants.LogInfoCreateTeam.getValue());
                     iCli.printOutput(CreateTeamConstants.LineSeperator.getValue());
                     for (ConferenceModel conferenceModel : newlyCreatedLeagueModelObject.getConferences()) {
                         iCli.printOutput(CreateTeamConstants.ConferenceName.getValue() + conferenceModel.getConferenceName());
@@ -61,6 +65,7 @@ public class CreateTeam implements ICreateTeam {
                 }
             }
         }
+        logger.error(CreateTeamConstants.LogErrorCreateTeam.getValue());
         return null;
     }
 

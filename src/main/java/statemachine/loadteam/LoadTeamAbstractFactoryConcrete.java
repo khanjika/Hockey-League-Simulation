@@ -4,7 +4,7 @@ public class LoadTeamAbstractFactoryConcrete extends LoadTeamAbstractFactory{
     private ILoadTeam loadTeam;
 
     @Override
-    public ILoadTeam getLoadTeam() {
+    public ILoadTeam createLoadTeam() {
         if (loadTeam == null){
             loadTeam = new LoadTeam();
         }
