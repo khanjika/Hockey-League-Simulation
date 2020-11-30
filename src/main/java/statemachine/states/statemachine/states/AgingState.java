@@ -1,7 +1,10 @@
 package statemachine.states.statemachine.states;
 
 
+
 import leagueobjectmodel.*;
+import leagueobjectmodel.ConferenceModel;
+import leagueobjectmodel.DivisonModel;
 import org.apache.log4j.Logger;
 import statemachine.states.statemachine.StateMachine;
 import statemachine.states.statemachine.states.matchSchedules.IDeadlines;
@@ -59,7 +62,9 @@ public class AgingState implements ITransition {
         if (tempDays == 1) {
             daysToAge = DAYS_TO_AGE_AFTER_SEASON_ENDS;
         }
-        GamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
+
+        IGamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
+        System.out.println(gamePlayConfigModel.getAging().getMaximumAge());
         iPlayerModel.setAgingModel(gamePlayConfigModel.getAging());
         iPlayerModel.setFreeAgentsList(leagueModel.getFreeAgents());
         iFreeAgentModel.setAgingModel(gamePlayConfigModel.getAging());
@@ -72,18 +77,18 @@ public class AgingState implements ITransition {
             logger.error("Error while traversing the Freeagent");
             throw e;
         }
+
         try {
-            for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
-                for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
-                    for (TeamsModel teamsModel : divisonModel.getTeams()) {
-                        for (PlayerModel playerModelTemp : teamsModel.getPlayers()) {
-                            iPlayerModel.aging(playerModelTemp, daysToAge, currentDate);
-                        }
-                        sortTeams.sortActiveRoasters(teamsModel.getPlayers());
+        for (IConferenceModel conferenceModel : leagueModel.getConferences()) {
+            for (IDivisonModel divisonModel : conferenceModel.getDivisions()) {
+                for (ITeamsModel teamsModel : divisonModel.getTeams()) {
+                    for (PlayerModel playerModelTemp : teamsModel.getPlayers()) {
+                        iPlayerModel.aging(playerModelTemp, daysToAge, currentDate);
                     }
+                    sortTeams.sortActiveRoasters(teamsModel.getPlayers());
                 }
             }
-        } catch (Exception e) {
+        }} catch (Exception e) {
             logger.error("Error while parsing the league object and calculate aging");
             throw e;
         }

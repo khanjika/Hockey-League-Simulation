@@ -1,7 +1,7 @@
 package LeagueMockObject;
 
-import database.serializeobject.IDeserializeObject;
-import database.serializeobject.SerializeObjectAbstractFactory;
+import database.IDeserializeObject;
+import database.SerializeObjectAbstractFactory;
 import leagueobjectmodel.ILeagueModel;
 
 public class MockLeagueAbstractFactoryConcrete extends MockLeagueAbstractFactory {

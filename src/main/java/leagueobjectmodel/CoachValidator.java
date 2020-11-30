@@ -3,7 +3,7 @@ package leagueobjectmodel;
 public class CoachValidator implements ICoachValidator {
 
     @Override
-    public boolean validateCoachObject(CoachModel coachModel) {
+    public boolean validateCoachObject(ICoachModel coachModel) {
         return isStringValid(coachModel.getName()) && isStatValid(coachModel.getSkating()) && isStatValid(coachModel.getShooting()) && isStatValid(coachModel.getSaving()) && isStatValid(coachModel.getChecking());
     }
 

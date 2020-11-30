@@ -1,7 +1,7 @@
 package statemachine.jsonparser;
 
-import database.serializeobject.IDeserializeObject;
-import database.serializeobject.SerializeObjectAbstractFactory;
+import database.IDeserializeObject;
+import database.SerializeObjectAbstractFactory;
 import leagueobjectmodel.ILeagueModel;
 import org.junit.jupiter.api.Test;
 

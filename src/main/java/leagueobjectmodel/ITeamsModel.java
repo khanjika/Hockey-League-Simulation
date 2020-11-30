@@ -1,7 +1,10 @@
 package leagueobjectmodel;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import java.util.List;
 
+@JsonDeserialize(as=TeamsModel.class)
 public interface ITeamsModel {
     int getLossPointForTrading();
 
@@ -27,9 +30,9 @@ public interface ITeamsModel {
 
     float getTeamStrength();
 
-    GeneralManagersModel getGeneralManager();
+    IGeneralManagersModel getGeneralManager();
 
-    void setGeneralManager(GeneralManagersModel generalManager);
+    void setGeneralManager(IGeneralManagersModel generalManager);
 
     void calculateTeamStrength(ITeamsModel teamsModel);
 

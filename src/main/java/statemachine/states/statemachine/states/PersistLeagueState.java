@@ -21,6 +21,7 @@ public class PersistLeagueState implements ITransition {
         logger.info("Initializing PersisteLeague State");
         this.stateMachine = stateMachine;
         leagueModel = LeagueObjectModelAbstractFactory.getInstance().getLeague();
+        cli = CliAbstractFactory.getInstance().getCli();
     }
 
     public void updatePersistLeagueStateValue(ILeagueModel leagueModel, StateMachine stateMachine, int year){
@@ -30,7 +31,7 @@ public class PersistLeagueState implements ITransition {
     }
     @Override
     public void entry() {
-        cli.printOutput("Please wait we are storing data in the database..........");
+        cli.printOutput("Please wait we are storing data to the JSON file..........");
         task();
     }
 
@@ -40,7 +41,9 @@ public class PersistLeagueState implements ITransition {
     }
 
     @Override
-    public void exit() throws Exception {
-       // stateMachine.getCurrentState().entry();
+
+    public void exit() {
+        cli.printOutput("Data stored successfully to the JSON file");
+        LeagueObjectModelAbstractFactory.getInstance().setLeague(null);
     }
 }

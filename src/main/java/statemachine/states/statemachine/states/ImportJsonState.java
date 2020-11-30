@@ -1,8 +1,8 @@
 package statemachine.states.statemachine.states;
 
 
-import database.serializeobject.IDeserializeObject;
-import database.serializeobject.SerializeObjectAbstractFactory;
+import database.IDeserializeObject;
+import database.SerializeObjectAbstractFactory;
 import leagueobjectmodel.*;
 import org.apache.log4j.Logger;
 import statemachine.states.statemachine.StateMachine;
@@ -67,6 +67,7 @@ public class ImportJsonState implements ITransition {
                         }
                     }
                 }
+
             }catch (Exception e){
                 logger.error("Error while parsing the league model");
                 throw e;

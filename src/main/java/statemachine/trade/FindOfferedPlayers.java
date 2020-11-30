@@ -32,10 +32,10 @@ public class FindOfferedPlayers implements IFindOfferedPlayers {
 
     @Override
     public ILeagueModel findPossibleTrade(ILeagueModel league, ITeamsModel team) {
-        List<FreeAgentModel> freeAgents = league.getFreeAgents ();
+        List<IFreeAgentModel> freeAgents = league.getFreeAgents ();
 
-        for (FreeAgentModel agent : freeAgents) {
-            agent.calculateFreeAgentStrength (agent);
+        for (IFreeAgentModel agent : freeAgents) {
+            agent.calculateFreeAgentStrength ((FreeAgentModel) agent);
         }
 
         HashMap<String, Float> strengthMap = calculateStrength.findPositionStrength (team);
@@ -71,7 +71,7 @@ public class FindOfferedPlayers implements IFindOfferedPlayers {
         float playerStrength;
         float freeAgentStrength = 0;
         int counter = 0;
-        List<FreeAgentModel> freeAgents = league.getFreeAgents ();
+        List<IFreeAgentModel> freeAgents = league.getFreeAgents ();
         int maxPlayersToTrade = league.getGameplayConfig ().getTrading ().getMaxPlayersPerTrade ();
         List<PlayerModel> playerList = team.getPlayers ();
 

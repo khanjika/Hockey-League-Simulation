@@ -2,38 +2,33 @@ package statemachine.states.statemachine.statesTest;
 
 import org.junit.jupiter.api.Test;
 import statemachine.states.statemachine.StateMachine;
+import statemachine.states.statemachine.states.ImportJsonState;
 import statemachine.states.statemachine.states.PlayerSeasonsChoiceState;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PlayerSeasonsChoiceStateTest {
+
     @Test
-    void isState() {
+    void getStateMachine() {
         try {
             StateMachine stateMachine = new StateMachine();
-            PlayerSeasonsChoiceState playerSeasonsChoiceState = new PlayerSeasonsChoiceState(stateMachine);
-            playerSeasonsChoiceState.setStateMachine(stateMachine);
             stateMachine.setCurrentState(stateMachine.getPlayerSeasonsChoice());
-            StateMachine currentState = playerSeasonsChoiceState.getStateMachine();
-            assertNotNull(currentState);
+            assertTrue(stateMachine.getCurrentState() instanceof PlayerSeasonsChoiceState);
         } catch (Exception exception) {
             fail("State is not valid. Got an Exception");
         }
     }
 
     @Test
-    void setState() {
+    void setStateMachine() {
         try {
             StateMachine stateMachine = new StateMachine();
             stateMachine.setCurrentState(stateMachine.getPlayerSeasonsChoice());
-            PlayerSeasonsChoiceState playerSeasonsChoiceState = new PlayerSeasonsChoiceState(stateMachine);
-            playerSeasonsChoiceState.setStateMachine(stateMachine);
-            StateMachine currentState = playerSeasonsChoiceState.getStateMachine();
-            assertNotNull(currentState);
+            assertTrue(stateMachine.getCurrentState() instanceof PlayerSeasonsChoiceState);
         } catch (Exception exception) {
-            fail("State not set for player seasons choice. Got an Exception");
+            fail("State not set for import Json. Got an Exception");
         }
     }
-
 }

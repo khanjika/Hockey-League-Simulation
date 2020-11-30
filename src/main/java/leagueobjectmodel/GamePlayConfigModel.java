@@ -2,21 +2,18 @@ package leagueobjectmodel;
 
 import com.google.gson.annotations.Expose;
 
+
 public class GamePlayConfigModel implements IGamePlayConfigModel {
     @Expose
-    AgingModel aging;
+    IAgingModel aging;
     @Expose
-    InjuriesModel injuries;
+    IInjuriesModel injuries;
     @Expose
-    TrainingModel training;
+    ITrainingModel training;
     @Expose
-    TradingModel trading;
+    ITradingModel trading;
 
     public GamePlayConfigModel() {
-        aging = new AgingModel();
-        injuries = new InjuriesModel();
-        training = new TrainingModel();
-        trading = new TradingModel();
     }
 
     @Override
@@ -25,7 +22,7 @@ public class GamePlayConfigModel implements IGamePlayConfigModel {
     }
 
     @Override
-    public void setAging(AgingModel aging) {
+    public void setAging(IAgingModel aging) {
         this.aging = aging;
     }
 
@@ -36,27 +33,27 @@ public class GamePlayConfigModel implements IGamePlayConfigModel {
     }
 
     @Override
-    public void setInjuries(InjuriesModel injuries) {
+    public void setInjuries(IInjuriesModel injuries) {
         this.injuries = injuries;
     }
 
     @Override
-    public TrainingModel getTraining() {
+    public ITrainingModel getTraining() {
         return training;
     }
 
     @Override
-    public void setTraining(TrainingModel training) {
+    public void setTraining(ITrainingModel training) {
         this.training = training;
     }
 
     @Override
-    public TradingModel getTrading() {
+    public ITradingModel getTrading() {
         return trading;
     }
 
     @Override
-    public void setTrading(TradingModel trading) {
+    public void setTrading(ITradingModel trading) {
         this.trading = trading;
     }
 

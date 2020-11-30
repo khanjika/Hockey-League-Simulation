@@ -42,6 +42,8 @@ public class TrophySystemState implements ITransition{
         trophySystem.awardWinners();
     }
 
-    @Override
-    public void exit() { }
+
+    public void exit() {
+        TrophySystemAbstractFactory.instance().setTrophySystem(null);
+    }
 }

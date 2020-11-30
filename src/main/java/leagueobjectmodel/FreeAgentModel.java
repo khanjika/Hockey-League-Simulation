@@ -1,6 +1,9 @@
 package leagueobjectmodel;
 
+import cli.CliAbstractFactory;
+import cli.ICli;
 import com.google.gson.annotations.Expose;
+import org.apache.log4j.Logger;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -37,8 +40,8 @@ public class FreeAgentModel implements IFreeAgentModel {
     private int birthMonth;
     private int birthYear;
     private Random random = LeagueObjectModelAbstractFactory.getInstance().createRandom();
-
-
+    final static Logger logger = Logger.getLogger(FreeAgentModel.class);
+    ICli cli = CliAbstractFactory.getInstance().getCli();
     @Override
     public String getPlayerName() {
         return playerName;
@@ -190,85 +193,107 @@ public class FreeAgentModel implements IFreeAgentModel {
     }
 
     @Override
-    public void calculateFreeAgentStrength(FreeAgentModel freeAgentModel) {
-        float strength = 0;
-        if (freeAgentModel.getPosition().equals(PlayerPosition.FORWARD.toString())) {
-            strength = freeAgentModel.getSkating() + freeAgentModel.getShooting() + (freeAgentModel.getChecking() / 2);
-        } else if (freeAgentModel.getPosition().equals(PlayerPosition.DEFENSE.toString())) {
-            strength = freeAgentModel.getSkating() + freeAgentModel.getChecking() + (freeAgentModel.getShooting() / 2);
-        } else if (freeAgentModel.getPosition().equals(PlayerPosition.GOALIE.toString())) {
-            strength = freeAgentModel.getSkating() + freeAgentModel.getShooting();
+    public void calculateFreeAgentStrength(IFreeAgentModel freeAgentModel) {
+        if (freeAgentModel == null) {
+            logger.error("Null pinter exception in the calculateFreeAgentStrength method");
+            throw new NullPointerException();
+        } else {
+            float strength = 0;
+            if (freeAgentModel.getPosition().equals(PlayerPosition.FORWARD.toString())) {
+                strength = freeAgentModel.getSkating() + freeAgentModel.getShooting() + (freeAgentModel.getChecking() / 2);
+            } else if (freeAgentModel.getPosition().equals(PlayerPosition.DEFENSE.toString())) {
+                strength = freeAgentModel.getSkating() + freeAgentModel.getChecking() + (freeAgentModel.getShooting() / 2);
+            } else if (freeAgentModel.getPosition().equals(PlayerPosition.GOALIE.toString())) {
+                strength = freeAgentModel.getSkating() + freeAgentModel.getShooting();
+            }
+            freeAgentModel.setFreeAgentStrength(strength);
+
         }
-        freeAgentModel.setFreeAgentStrength(strength);
+
     }
 
     @Override
     public void aging(IFreeAgentModel freeAgentModel, LocalDate date, int daysToAge) {
-        int playerAge = date.getYear() - freeAgentModel.getBirthYear();
-        LocalDate upcomingBirthDate = LocalDate.of(date.getYear(), freeAgentModel.getBirthMonth(), freeAgentModel.getBirthDay());
-        LocalDate agingDate = date.plusDays(daysToAge);
-        freeAgentModel.setAge(playerAge);
-        if (upcomingBirthDate.isBefore(agingDate)) {
-            freeAgentModel.setAge(agingDate.getYear() - freeAgentModel.getBirthYear() + 1);
+        if (freeAgentModel == null || date == null || daysToAge == 0) {
+            logger.error("Data is not initialized properly inside Aging() method");
+            throw new NullPointerException();
         } else {
-            freeAgentModel.setAge(agingDate.getYear() - freeAgentModel.getBirthYear());
-        }
-        int retirementLikelyHood = checkRetirement(freeAgentModel);
-        if (retirementLikelyHood >= RETIRE_LIKELIHOOD_THRESHOLD) {
-            freeAgentModel.setRetired(true);
+            int playerAge = date.getYear() - freeAgentModel.getBirthYear();
+            LocalDate upcomingBirthDate = LocalDate.of(date.getYear(), freeAgentModel.getBirthMonth(), freeAgentModel.getBirthDay());
+            LocalDate agingDate = date.plusDays(daysToAge);
+            freeAgentModel.setAge(playerAge);
+            if (upcomingBirthDate.isBefore(agingDate)) {
+                freeAgentModel.setAge(agingDate.getYear() - freeAgentModel.getBirthYear() + 1);
+            } else {
+                freeAgentModel.setAge(agingDate.getYear() - freeAgentModel.getBirthYear());
+            }
+            int retirementLikelyHood = checkRetirement(freeAgentModel);
+            if (retirementLikelyHood >= RETIRE_LIKELIHOOD_THRESHOLD) {
+                freeAgentModel.setRetired(true);
+            }
         }
     }
 
 
     @Override
     public int checkRetirement(IFreeAgentModel freeAgentModel) {
-        int freeAgentAge = freeAgentModel.getAge();
-        System.out.println("freeAgent model"+agingModel+" "+freeAgentModel);
-        int averageRetirementAge = agingModel.getAverageRetirementAge();
-        int maximumAge = agingModel.getMaximumAge();
-        int likelyHood = freeAgentModel.getRetirementLikelyHood();
-        if (freeAgentAge >= maximumAge) {
-            likelyHood = MAX_RETIRE_LIKELIHOOD;
+        int likelyHood;
+        if (freeAgentModel == null) {
+            logger.error("Null pinter exception in the calculateFreeAgentStrength method");
+            throw new NullPointerException();
         } else {
-            int AgeDifference = averageRetirementAge - freeAgentAge;
-            if (AgeDifference >= 0) {
-                likelyHood = random.nextInt(LOW_RETIRE_LIKELIHOOD);
-            } else if (AgeDifference >= MIN_DIFFERENCE) {
-                likelyHood = random.nextInt(AVERAGE_RETIRE_LIKELIHOOD - LOW_RETIRE_LIKELIHOOD) + LOW_RETIRE_LIKELIHOOD;
-            } else if (AgeDifference >= MAX_DIFFERENCE) {
-                likelyHood = random.nextInt(MEDIUM_RETIRE_LIKELIHOOD - AVERAGE_RETIRE_LIKELIHOOD) + AVERAGE_RETIRE_LIKELIHOOD;
+            int freeAgentAge = freeAgentModel.getAge();
+            int averageRetirementAge = agingModel.getAverageRetirementAge();
+            int maximumAge = agingModel.getMaximumAge();
+            likelyHood = freeAgentModel.getRetirementLikelyHood();
+            if (freeAgentAge >= maximumAge) {
+                likelyHood = MAX_RETIRE_LIKELIHOOD;
             } else {
-                likelyHood = random.nextInt(HIGH_RETIRE_LIKELIHOOD - MEDIUM_RETIRE_LIKELIHOOD) + MEDIUM_RETIRE_LIKELIHOOD;
+                int AgeDifference = averageRetirementAge - freeAgentAge;
+                if (AgeDifference >= 0) {
+                    likelyHood = random.nextInt(LOW_RETIRE_LIKELIHOOD);
+                } else if (AgeDifference >= MIN_DIFFERENCE) {
+                    likelyHood = random.nextInt(AVERAGE_RETIRE_LIKELIHOOD - LOW_RETIRE_LIKELIHOOD) + LOW_RETIRE_LIKELIHOOD;
+                } else if (AgeDifference >= MAX_DIFFERENCE) {
+                    likelyHood = random.nextInt(MEDIUM_RETIRE_LIKELIHOOD - AVERAGE_RETIRE_LIKELIHOOD) + AVERAGE_RETIRE_LIKELIHOOD;
+                } else {
+                    likelyHood = random.nextInt(HIGH_RETIRE_LIKELIHOOD - MEDIUM_RETIRE_LIKELIHOOD) + MEDIUM_RETIRE_LIKELIHOOD;
+                }
             }
+            freeAgentModel.setRetirementLikelyHood(likelyHood);
         }
-        freeAgentModel.setRetirementLikelyHood(likelyHood);
         return likelyHood;
     }
 
     @Override
-    public FreeAgentModel getReplacementFreeAgent(List<FreeAgentModel> freeAgents, String playerPosition) {
-        List<FreeAgentModel> matchedFreeAgents = new ArrayList<>();
-        if (freeAgents == null) {
-            return null;
+    public IFreeAgentModel getReplacementFreeAgent(List<IFreeAgentModel> freeAgents, String playerPosition) {
+        if(freeAgents==null || playerPosition.isEmpty()){
+            logger.error("Method argument is not intialized properly");
+            throw new NullPointerException();
         }
-        for (FreeAgentModel freeAgent : freeAgents) {
+        List<IFreeAgentModel> matchedFreeAgents = new ArrayList<>();
+        for (IFreeAgentModel freeAgent : freeAgents) {
             if (freeAgent.getPosition().equals(playerPosition)) {
                 matchedFreeAgents.add(freeAgent);
                 calculateFreeAgentStrength(freeAgent);
             }
         }
         if (matchedFreeAgents.size() == 0) {
-            System.out.println("NO MATCH FOUND FOR THE PLAYER WITH POSITION " + playerPosition);
+            cli.printOutput("NO MATCH FOUND FOR THE PLAYER WITH POSITION " + playerPosition);
             System.exit(0);
         }
-        FreeAgentModel replacementFreeAgent = Collections.max(matchedFreeAgents, Comparator.comparing(f -> f.getFreeAgentStrength()));
+        IFreeAgentModel replacementFreeAgent = Collections.max(matchedFreeAgents, Comparator.comparing(f -> f.getFreeAgentStrength()));
         freeAgents.remove(replacementFreeAgent);
         return replacementFreeAgent;
     }
 
     @Override
-    public List<FreeAgentModel> sortFreeAgentDescending(List<FreeAgentModel> freeAgents) {
-        freeAgents.sort(Comparator.comparing(FreeAgentModel::getFreeAgentStrength).reversed());
+    public List<IFreeAgentModel> sortFreeAgentDescending(List<IFreeAgentModel> freeAgents) {
+        if(freeAgents==null){
+            logger.error("Method argument is not intialized properly in sortFreeAgentDescending()");
+            throw new NullPointerException();
+        }
+        freeAgents.sort(Comparator.comparing(IFreeAgentModel::getFreeAgentStrength).reversed());
         return freeAgents;
     }
 

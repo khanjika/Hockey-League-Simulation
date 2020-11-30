@@ -65,9 +65,9 @@ public abstract class LeagueObjectModelAbstractFactory {
 
     public abstract void setConferenceValidator(IConferenceValidator conferenceValidator);
 
-    public abstract IDivisonValidator getDivisonValidator();
+    public abstract IDivisonValidator getDivisionValidator();
 
-    public abstract void setDivisonValidator(IDivisonValidator divisonValidator);
+    public abstract void setDivisionValidator(IDivisonValidator divisionValidator);
 
     public abstract ITeamsValidator getTeamsValidator();
 

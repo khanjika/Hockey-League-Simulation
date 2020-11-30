@@ -25,7 +25,8 @@ public enum CreateTeamConstants {
     DisplayActivePlayers("Active team players list"),
     DisplayInactivePlayers("Inactive team players list"),
     LogInfoCreateTeam("New Team created and saved in memory"),
-    LogErrorCreateTeam("Error occured while creating new team in the existing league")
+    LogErrorCreateTeam("Error occured while creating new team in the existing league"),
+    LogError("Input mismatch error while entering choice")
     ;
 
     private String value;

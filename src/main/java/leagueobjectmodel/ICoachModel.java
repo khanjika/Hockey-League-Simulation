@@ -1,5 +1,9 @@
 package leagueobjectmodel;
 
+
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+@JsonDeserialize(as = CoachModel.class)
 public interface ICoachModel {
     String getName();
 

@@ -32,11 +32,6 @@ public class UpdateStateValue implements IUpdateStateValue{
         ((TrainingState)(stateMachine.getTrainingState())).updateTrainingStateValue(stateMachine, leagueModel);
     }
 
-//    @Override
-//<<<<<<< HEAD:src/main/java/statemachine/states/statemachine/states/updateStateValue/UpdateStateValue.java
-//    public void updateSimulateGameStateValue(StateMachine stateMachine, LeagueModel leagueModel, TeamsModel teamOne, TeamsModel teamTwo,boolean isPlayOff) {
-//        ((SimulateGameState)stateMachine.getSimulateGameState()).updateSimulateGameStateValue(stateMachine, leagueModel, teamOne, teamTwo,isPlayOff);
-//=======
     public void updateSimulateGameStateValue(StateMachine stateMachine, ILeagueModel leagueModel, ITeamsModel teamOne, ITeamsModel teamTwo,boolean isPlayOff) {
         ((SimulateGameState)stateMachine.getSimulateGameState()).updateSimulateGameStateValue(stateMachine, leagueModel, teamOne, teamTwo,isPlayOff);
     }

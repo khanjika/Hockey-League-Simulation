@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface ITeamsValidator {
 
-    boolean validateTeamObject(TeamsModel teamsModel);
+    boolean validateTeamObject(ITeamsModel teamsModel);
     boolean isTeamAlreadyExist(String teamName);
 
     List<PlayerModel> isCaptainPresent(List<PlayerModel> teamPlayers);

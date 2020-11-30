@@ -4,15 +4,8 @@ package statemachine.states.statemachine.states;
 
 import cli.CliAbstractFactory;
 import cli.ICli;
-import leagueobjectmodel.ConferenceModel;
-import leagueobjectmodel.DivisonModel;
-import leagueobjectmodel.LeagueModel;
-import leagueobjectmodel.PlayerModel;
-import org.apache.log4j.Logger;
-import statemachine.states.statemachine.states.matchSchedules.*;
-import statemachine.states.statemachine.StateMachine;
-import leagueobjectmodel.TeamsModel;
 import leagueobjectmodel.*;
+import org.apache.log4j.Logger;
 import statemachine.states.statemachine.StateMachine;
 import statemachine.states.statemachine.states.matchSchedules.IDeadlines;
 import statemachine.states.statemachine.states.matchSchedules.IPlayoffSchedule;
@@ -96,7 +89,7 @@ public class InitializeSeasonState implements ITransition {
                 stateMachine.getCurrentState().entry();
             }
             if (currentDaysCount < availableDaysForTrade) {
-                    stateMachine.getUpdateStateValue().updateTradingStateValue(stateMachine,updatedLeagueModelObject);
+                stateMachine.getUpdateStateValue().updateTradingStateValue(stateMachine,updatedLeagueModelObject);
                 stateMachine.setCurrentState(stateMachine.getTradingState());
                 stateMachine.getCurrentState().entry();
             }
@@ -166,9 +159,9 @@ public class InitializeSeasonState implements ITransition {
     @Override
     public void task() throws Exception {
         cli.printOutput("--------Regular Season Complete------");
-        for(ConferenceModel conferenceModel:updatedLeagueModelObject.getConferences()){
-            for(DivisonModel divisonModel:conferenceModel.getDivisions()){
-                for(TeamsModel teamsModel:divisonModel.getTeams()){
+        for(IConferenceModel conferenceModel:updatedLeagueModelObject.getConferences()){
+            for(IDivisonModel divisonModel:conferenceModel.getDivisions()){
+                for(ITeamsModel teamsModel:divisonModel.getTeams()){
                     int goalByTeam=0;
                     int penaltyCOunt=0;
                     int saveCount=0;

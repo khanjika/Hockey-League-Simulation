@@ -30,7 +30,7 @@ class GamePlayConfigModelTest {
     void getGameResolver() {
         MockLeague league = new MockLeague();
         LeagueModel leagueModel = MockLeague.getLeagueObject();
-        GamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
+        IGamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
         GamePlayConfigModel gamePlayConfigModel1 = new GamePlayConfigModel();
     }
 
@@ -38,7 +38,7 @@ class GamePlayConfigModelTest {
     void setGameResolver() {
         MockLeague league = new MockLeague();
         LeagueModel leagueModel = MockLeague.getLeagueObject();
-        GamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
+        IGamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
         GamePlayConfigModel gamePlayConfigModel1 = new GamePlayConfigModel();
     }
 
@@ -66,7 +66,7 @@ class GamePlayConfigModelTest {
     void getTraining() {
         MockLeague league = new MockLeague();
         LeagueModel leagueModel = MockLeague.getLeagueObject();
-        GamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
+        IGamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
         GamePlayConfigModel gamePlayConfigModel1 = new GamePlayConfigModel();
         gamePlayConfigModel1.setTraining(gamePlayConfigModel.getTraining());
         assertEquals(gamePlayConfigModel.getTraining(), gamePlayConfigModel1.getTraining(), "Error in gettraining of GamePlayConfig");
@@ -76,7 +76,7 @@ class GamePlayConfigModelTest {
     void setTraining() {
         MockLeague league = new MockLeague();
         LeagueModel leagueModel = MockLeague.getLeagueObject();
-        GamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
+        IGamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
         GamePlayConfigModel gamePlayConfigModel1 = new GamePlayConfigModel();
         gamePlayConfigModel1.setTraining(gamePlayConfigModel.getTraining());
         assertEquals(gamePlayConfigModel.getTraining(), gamePlayConfigModel1.getTraining(), "Error in settraining of GamePlayConfig");
@@ -86,7 +86,7 @@ class GamePlayConfigModelTest {
     void getTrading() {
         MockLeague league = new MockLeague();
         LeagueModel leagueModel = MockLeague.getLeagueObject();
-        GamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
+        IGamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
         GamePlayConfigModel gamePlayConfigModel1 = new GamePlayConfigModel();
         gamePlayConfigModel1.setTrading(gamePlayConfigModel.getTrading());
         assertEquals(gamePlayConfigModel.getTrading(), gamePlayConfigModel1.getTrading(), "Error in settraining of GamePlayConfig");
@@ -96,7 +96,7 @@ class GamePlayConfigModelTest {
     void setTrading() {
         MockLeague league = new MockLeague();
         LeagueModel leagueModel = MockLeague.getLeagueObject();
-        GamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
+        IGamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
         GamePlayConfigModel gamePlayConfigModel1 = new GamePlayConfigModel();
         gamePlayConfigModel1.setTrading(gamePlayConfigModel.getTrading());
         assertEquals(gamePlayConfigModel.getTrading(), gamePlayConfigModel1.getTrading(), "Error in settraining of GamePlayConfig");

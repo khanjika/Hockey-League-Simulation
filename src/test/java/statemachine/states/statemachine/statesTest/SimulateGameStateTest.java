@@ -1,44 +1,37 @@
 package statemachine.states.statemachine.statesTest;
 
-import leagueobjectmodel.ConferenceModel;
-import leagueobjectmodel.DivisonModel;
-import leagueobjectmodel.LeagueModel;
+import leagueobjectmodel.*;
 import org.junit.jupiter.api.Test;
 import statemachine.states.statemachine.StateMachine;
-import leagueobjectmodel.TeamsModel;
+import statemachine.states.statemachine.states.ImportJsonState;
+import statemachine.states.statemachine.states.SimulateGameState;
 import trade.MockLeague;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class SimulateGameStateTest {
 
 
     @Test
-    void task() {
-        StateMachine stateMachine = new StateMachine();
-        LeagueModel leagueModel = MockLeague.getLeagueObject();
-        TeamsModel teamOne = null;
-        TeamsModel teamTwo = null;
-        for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
-            for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
-                for (TeamsModel teamsModel : divisonModel.getTeams()) {
-                    if (teamOne == null) {
-                        teamOne = teamsModel;
-                    } else {
-                        teamTwo = teamsModel;
-                    }
-
-                }
-            }
+    void getStateMachine() {
+        try {
+            StateMachine stateMachine = new StateMachine();
+            stateMachine.setCurrentState(stateMachine.getSimulateGameState());
+            assertTrue(stateMachine.getCurrentState() instanceof SimulateGameState);
+        } catch (Exception exception) {
+            fail("State is not valid. Got an Exception");
         }
-//        SimulateGameState simulateGameState = new SimulateGameState(stateMachine, leagueModel, teamOne, teamTwo);
-//        stateMachine.setCurrentState(simulateGameState);
-//        stateMachine.setCurrentDate(LocalDate.now());
-//        simulateGameState.entry();
-//
-//        float strength = simulateGameState.getTeamStrength(teamOne);
-//        assertEquals(75.0, strength);
     }
 
+    @Test
+    void setStateMachine() {
+        try {
+            StateMachine stateMachine = new StateMachine();
+            stateMachine.setCurrentState(stateMachine.getSimulateGameState());
+            assertTrue(stateMachine.getCurrentState() instanceof SimulateGameState);
+        } catch (Exception exception) {
+            fail("State not set for import Json. Got an Exception");
+        }
+    }
 
 }

@@ -1,7 +1,11 @@
 package leagueobjectmodel;
 
+import cli.CliAbstractFactory;
+import cli.ICli;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.Expose;
+import org.apache.log4j.Logger;
+import statemachine.states.statemachine.states.PlayerSeasonsChoiceState;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -53,12 +57,15 @@ public class PlayerModel implements IPlayerModel {
     private IAgingModel agingModel;
     private IInjuriesModel injuriesModel;
     private IFreeAgentModel freeAgentModel;
-    private List<FreeAgentModel> freeAgentsList;
+    private List<IFreeAgentModel> freeAgentsList;
     private int saveForGoalie;
     private int goalScorerCount;
     private int currentPenaltyCount;
     private int totalPenaltyCount;
     private Random random = LeagueObjectModelAbstractFactory.getInstance().createRandom();
+    final static Logger logger = Logger.getLogger(PlayerModel.class);
+    ICli cli = CliAbstractFactory.getInstance().getCli();
+
 
     public PlayerModel() {
         freeAgentModel = new FreeAgentModel();
@@ -290,12 +297,12 @@ public class PlayerModel implements IPlayerModel {
     }
 
     @Override
-    public List<FreeAgentModel> getFreeAgentsList() {
+    public List<IFreeAgentModel> getFreeAgentsList() {
         return freeAgentsList;
     }
 
     @Override
-    public void setFreeAgentsList(List<FreeAgentModel> freeAgentsList) {
+    public void setFreeAgentsList(List<IFreeAgentModel> freeAgentsList) {
         this.freeAgentsList = freeAgentsList;
     }
 
@@ -341,6 +348,10 @@ public class PlayerModel implements IPlayerModel {
 
     @Override
     public void calculatePlayerStrength(IPlayerModel playerModel) {
+        if(playerModel==null){
+            logger.error("Method argument is not set properly in calculatePlayerStrength()");
+            throw new NullPointerException();
+        }
         try {
             float strength = 0;
             if (playerModel.getPosition().equals(PlayerPosition.FORWARD.toString())) {
@@ -362,16 +373,28 @@ public class PlayerModel implements IPlayerModel {
 
     @Override
     public float calculateForwardStrength(IPlayerModel playerModel){
+        if(playerModel==null){
+            logger.error("Method argument is not set properly in calculateForwardStrength()");
+            throw new NullPointerException();
+        }
         return playerModel.getSkating() + playerModel.getShooting() + (playerModel.getChecking() / 2);
     }
 
     @Override
     public float calculateDefenseStrength(IPlayerModel playerModel){
+        if(playerModel==null){
+            logger.error("Method argument is not set properly in calculateDefenseStrength()");
+            throw new NullPointerException();
+        }
         return playerModel.getSkating() + playerModel.getChecking() + (playerModel.getShooting() / 2);
     }
 
     @Override
     public float calculateGoalieStrength(IPlayerModel playerModel){
+        if(playerModel==null){
+            logger.error("Method argument is not set properly in calculateGoalieStrength()");
+            throw new NullPointerException();
+        }
         return playerModel.getSkating() + playerModel.getSaving();
     }
 
@@ -379,6 +402,7 @@ public class PlayerModel implements IPlayerModel {
     public void checkPlayerInjury(IPlayerModel playerModel, LocalDate date) {
         try{
             if (playerModel == null || date == null) {
+                logger.error("Argument Null inside checkPlayerInjury");
                 throw new NullPointerException("Argument Null inside checkPlayerInjury");
             }
         if (playerModel.isPlayerInjured() == false) {
@@ -405,6 +429,7 @@ public class PlayerModel implements IPlayerModel {
     public void recoverPlayer(PlayerModel playerModel, LocalDate date) {
         try {
             if (playerModel == null || date == null) {
+                logger.error("Argument Null inside checkPlayerInjury");
                 throw new NullPointerException("Argument is Null inside recover method");
             }
             long recoveryDayDifference = 0;
@@ -453,8 +478,8 @@ public class PlayerModel implements IPlayerModel {
             }
             if (playerModel.isPlayerRetired()) {
                 String playerPosition = playerModel.getPosition();
-                List<FreeAgentModel> availableFreeAgents = this.getFreeAgentsList();
-                FreeAgentModel replacementFreeAgent = freeAgentModel.getReplacementFreeAgent(availableFreeAgents, playerPosition);
+                List<IFreeAgentModel> availableFreeAgents = this.getFreeAgentsList();
+                IFreeAgentModel replacementFreeAgent = freeAgentModel.getReplacementFreeAgent(availableFreeAgents, playerPosition);
                 System.out.println("Player " + playerModel.getPlayerName() + " is Retired and Replace with FreeAgent " + replacementFreeAgent.getPlayerName());
                 replacePlayerWithFreeAgent(playerModel, replacementFreeAgent);
             }
@@ -485,7 +510,7 @@ public class PlayerModel implements IPlayerModel {
 
 
     @Override
-    public void replacePlayerWithFreeAgent(PlayerModel playerModel, FreeAgentModel replacementFreeAgent) {
+    public void replacePlayerWithFreeAgent(PlayerModel playerModel, IFreeAgentModel replacementFreeAgent) {
         try {
             if (replacementFreeAgent == null || playerModel == null) {
                 throw new NullPointerException("Argument null in replacePlayerWithFreeAgent");
@@ -542,6 +567,7 @@ public class PlayerModel implements IPlayerModel {
     @Override
     public float getShootingState(List<PlayerModel> playerModelList){
         if(playerModelList==null){
+            logger.info("Argument not set properly in getShootingState()");
             throw new NullPointerException();
         }
         float shootingState = 0;
@@ -554,6 +580,7 @@ public class PlayerModel implements IPlayerModel {
     @Override
     public float getCheckingState(List<PlayerModel> playerModelList) {
         if(playerModelList==null){
+            logger.info("Argument not set properly in getCheckingState()");
             throw new NullPointerException();
         }
         float checkingState = 0;
@@ -570,6 +597,7 @@ public class PlayerModel implements IPlayerModel {
     @Override
     public float getSavingState(List<PlayerModel> playerModelList) {
         if(playerModelList==null){
+            logger.info("Argument not set properly in getShootingState()");
             throw new NullPointerException();
         }
         float savingSate = 0;

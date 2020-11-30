@@ -1,7 +1,7 @@
 package leagueobjectmodel;
 
-import database.serializeobject.IFileValidator;
-import database.serializeobject.SerializeObjectAbstractFactory;
+import database.IFileValidator;
+import database.SerializeObjectAbstractFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ public class TeamsValidator implements ITeamsValidator {
     }
 
     @Override
-    public boolean validateTeamObject(TeamsModel teamsModel) {
+    public boolean validateTeamObject(ITeamsModel teamsModel) {
         defense = 0;
         goalie = 0;
         forward = 0;
@@ -111,7 +111,7 @@ public class TeamsValidator implements ITeamsValidator {
         int counterDefense = 0;
         int counterGoalie = 0;
 
-        List<FreeAgentModel> freeAgents = leagueModel.getFreeAgents ();
+        List<IFreeAgentModel> freeAgents = leagueModel.getFreeAgents ();
 
         for (int i = 0; i < teamPlayers.size (); i++) {
             String position = teamPlayers.get (i).getPosition ();
@@ -153,7 +153,7 @@ public class TeamsValidator implements ITeamsValidator {
         }
     }
 
-    public void removePlayers(int noOfRemovedPlayers, List<PlayerModel> players, List<FreeAgentModel> freeAgents, String position) {
+    public void removePlayers(int noOfRemovedPlayers, List<PlayerModel> players, List<IFreeAgentModel> freeAgents, String position) {
         int counter = 0;
         List<PlayerModel> playersRemoved = new ArrayList<> ();
         players = teamsModel.sortPlayersOfTeamAscending (players);
@@ -172,19 +172,19 @@ public class TeamsValidator implements ITeamsValidator {
         }
     }
 
-    public void addFromFreeAgent(int playersRequired, List<PlayerModel> players, List<FreeAgentModel> freeAgents, String position) {
+    public void addFromFreeAgent(int playersRequired, List<PlayerModel> players, List<IFreeAgentModel> freeAgents, String position) {
         int counter = 0;
         List<IFreeAgentModel> agentsRemoved = new ArrayList<>();
 
-        for (FreeAgentModel agent : freeAgents) {
+        for (IFreeAgentModel agent : freeAgents) {
             agent.calculateFreeAgentStrength (agent);
         }
 
-        List<FreeAgentModel> sortFreeAgent = freeAgent.sortFreeAgentDescending (freeAgents);
+        List<IFreeAgentModel> sortFreeAgent = freeAgent.sortFreeAgentDescending (freeAgents);
         for (int i = 0; i < sortFreeAgent.size (); i++) {
             if (counter < playersRequired && sortFreeAgent.get (i).getPosition ().equals (position)) {
                 counter++;
-                FreeAgentModel f = freeAgents.get (i);
+                IFreeAgentModel f = freeAgents.get (i);
                 addingPlayer (f, players);
                 agentsRemoved.add (sortFreeAgent.get (i));
             }
@@ -194,7 +194,7 @@ public class TeamsValidator implements ITeamsValidator {
         }
     }
 
-    public List<PlayerModel> addingPlayer(FreeAgentModel f, List<PlayerModel> players) {
+    public List<PlayerModel> addingPlayer(IFreeAgentModel f, List<PlayerModel> players) {
         PlayerModel playerAdded = new PlayerModel ();
         playerAdded.setPlayerName (f.getPlayerName ());
         playerAdded.setPosition (f.getPosition ());
@@ -209,7 +209,7 @@ public class TeamsValidator implements ITeamsValidator {
         return players;
     }
 
-    public List<FreeAgentModel> addingFreeAgent(PlayerModel p, List<FreeAgentModel> freeAgents) {
+    public List<IFreeAgentModel> addingFreeAgent(PlayerModel p, List<IFreeAgentModel> freeAgents) {
         FreeAgentModel agent = new FreeAgentModel ();
         agent.setPlayerName (p.getPlayerName ());
         agent.setPosition (p.getPosition ());
