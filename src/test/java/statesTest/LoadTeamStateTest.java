@@ -23,7 +23,6 @@ public class LoadTeamStateTest {
         }
     }
 
-
     @Test
     void setState() {
         try {

@@ -22,6 +22,4 @@ public class LoadTeamTest {
         ILeagueModel leagueModel = loadTeamCli.getData();
         assertNull(leagueModel);
     }
-
-
 }

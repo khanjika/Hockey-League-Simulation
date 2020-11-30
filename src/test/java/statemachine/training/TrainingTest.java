@@ -20,6 +20,5 @@ public class TrainingTest {
         training.setInjuriesModel(testModel.getGameplayConfig().getInjuries());
         training.performTraining(team.getPlayers().get(0), team.getHeadCoach(), LocalDate.parse("2021-04-02"));
         assertFalse(testModel.toString().equals(leagueModel.toString()));
-
     }
 }
