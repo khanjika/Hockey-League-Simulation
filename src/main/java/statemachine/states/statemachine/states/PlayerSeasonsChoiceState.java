@@ -47,7 +47,7 @@ public class PlayerSeasonsChoiceState implements ITransition {
     }
 
     @Override
-    public void entry() {
+    public void entry() throws Exception {
         cli.printOutput("Enter Number of season you want to simulate");
         setEnteredInput(cli.readIntInput());
         cli.printOutput("You have entered " + enteredInput);
@@ -55,7 +55,7 @@ public class PlayerSeasonsChoiceState implements ITransition {
     }
 
     @Override
-    public void task() {
+    public void task() throws Exception {
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
         for (int i = 0; i < enteredInput; i++) {
             stateMachine.getUpdateStateValue().updateInitializeSeasonStateValue(stateMachine, currentModel, currentYear + i);

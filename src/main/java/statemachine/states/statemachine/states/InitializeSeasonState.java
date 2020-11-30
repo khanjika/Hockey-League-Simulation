@@ -61,7 +61,7 @@ public class InitializeSeasonState implements ITransition {
     }
 
     @Override
-    public void entry() {
+    public void entry() throws Exception {
         iRegularSeasonSchedule = MatchScheduleAbstractFactory.getMatchScheduleInstance().getRegularSeason();
         List<List<ITeamsModel>> currentSeasonSchedule = iRegularSeasonSchedule.generateSeasonSchedule(updatedLeagueModelObject);
         if(currentSeasonSchedule==null){
@@ -154,7 +154,7 @@ public class InitializeSeasonState implements ITransition {
     }
 
     @Override
-    public void task() {
+    public void task() throws Exception {
         cli.printOutput("--------Regular Season Complete------");
         for(ConferenceModel conferenceModel:updatedLeagueModelObject.getConferences()){
             for(DivisonModel divisonModel:conferenceModel.getDivisions()){
@@ -195,7 +195,7 @@ public class InitializeSeasonState implements ITransition {
     }
 
     @Override
-    public void exit() {
+    public void exit() throws Exception {
         System.out.println("Season simulation ends for the year " + currentSimulationYear);
 //        for(ConferenceModel conferenceModel:updatedLeagueModelObject.getConferences()){
 //            for(DivisonModel divisonModel:conferenceModel.getDivisions()){

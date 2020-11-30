@@ -75,7 +75,7 @@ public class PersistLeagueState implements ITransition {
     }
 
     @Override
-    public void exit() {
+    public void exit() throws Exception {
         stateMachine.getCurrentState().entry();
     }
 }
