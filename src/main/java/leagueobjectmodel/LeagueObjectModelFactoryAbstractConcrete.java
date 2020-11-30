@@ -24,6 +24,7 @@ public class LeagueObjectModelFactoryAbstractConcrete extends LeagueObjectModelA
     private IFreeAgentModel freeAgentModel;
     private IPlayerModel newPlayerModel;
     private Random random;
+    private ISortTeams sortTeams;
 
     @Override
     public IFreeAgentModel getFreeAgent() {
@@ -289,6 +290,19 @@ public class LeagueObjectModelFactoryAbstractConcrete extends LeagueObjectModelA
     @Override
     public void setRandom(Random random) {
         this.random = random;
+    }
+
+    @Override
+    public void setSortTeam(ISortTeams sortTeams) {
+          this.sortTeams=sortTeams;
+    }
+
+    @Override
+    public ISortTeams getSortTeams() {
+        if(sortTeams == null){
+            sortTeams = new SortTeams();
+        }
+        return sortTeams;
     }
 }
 

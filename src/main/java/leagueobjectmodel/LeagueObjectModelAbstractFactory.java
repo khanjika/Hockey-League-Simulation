@@ -94,4 +94,8 @@ public abstract class LeagueObjectModelAbstractFactory {
     public abstract Random createRandom();
 
     public abstract void setRandom(Random random);
+
+    public abstract void setSortTeam(ISortTeams sortTeams);
+
+    public abstract ISortTeams getSortTeams();
 }

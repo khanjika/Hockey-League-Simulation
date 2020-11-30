@@ -4,6 +4,7 @@ import leagueobjectmodel.ILeagueModel;
 import leagueobjectmodel.IPlayerModel;
 import leagueobjectmodel.ITeamsModel;
 import leagueobjectmodel.LeagueObjectModelAbstractFactory;
+import org.apache.log4j.Logger;
 import statemachine.states.playerdraft.IDraftSelectionOrder;
 import statemachine.states.playerdraft.IPlayerDraft;
 import statemachine.states.playerdraft.PlayerDraftAbstractFactory;
@@ -18,8 +19,9 @@ public class PlayerDraftState implements ITransition {
     ILeagueModel leagueModel;
     List<ITeamsModel> teamList = new ArrayList<>();
     ITeamsModel teamsModel;
-
+    final static Logger logger = Logger.getLogger(PlayerDraftState.class);
     public PlayerDraftState(StateMachine stateMachine) {
+        logger.info("Initializing PlayerDraft State");
         this.stateMachine = stateMachine;
     }
 
@@ -27,8 +29,6 @@ public class PlayerDraftState implements ITransition {
     public void entry() {
         this.leagueModel = LeagueObjectModelAbstractFactory.getInstance().getLeague();
         this.teamsModel = LeagueObjectModelAbstractFactory.getInstance().getTeams();
-
-        System.out.println(leagueModel+"==="+teamsModel);
         task();
     }
 
@@ -42,17 +42,20 @@ public class PlayerDraftState implements ITransition {
 
     @Override
     public void task() {
-        System.out.println(" Task Method of Player Draft State");
         IPlayerDraft playerDraft = PlayerDraftAbstractFactory.getInstance().createPlayerDraft();
         IDraftSelectionOrder draftSelectionOrder = PlayerDraftAbstractFactory.getInstance().createDraftSelectionOrder();
-        List<ITeamsModel> teamStandingList = draftSelectionOrder.getTeamStandingList(leagueModel);
-        int totalTeams = teamStandingList.size();
-        List<IPlayerModel> newDraftedPlayers = playerDraft.draftPlayers(totalTeams);
-        draftSelectionOrder.draftingRounds(newDraftedPlayers);
+
+        try {
+            List<ITeamsModel> teamStandingList = draftSelectionOrder.getTeamStandingList(leagueModel);
+            int totalTeams = teamStandingList.size();
+            List<IPlayerModel> newDraftedPlayers = playerDraft.draftPlayers(totalTeams);
+            draftSelectionOrder.draftingRounds(newDraftedPlayers);
+        }catch (Exception e){
+            logger.error("Exception while performing player draft in the state");
+            throw e;
+        }
     }
 
     @Override
-    public void exit() {
-
-    }
+    public void exit() { }
 }

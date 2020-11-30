@@ -1,17 +1,11 @@
 package statemachine.states.statemachine.states;
 
 
-import leagueobjectmodel.ConferenceModel;
-import leagueobjectmodel.DivisonModel;
-import leagueobjectmodel.GamePlayConfigModel;
-import org.apache.log4j.Logger;
-import statemachine.states.statemachine.states.matchSchedules.IDeadlines;
-import leagueobjectmodel.IPlayerModel;
-import leagueobjectmodel.PlayerModel;
-import statemachine.states.statemachine.StateMachine;
-import leagueobjectmodel.TeamsModel;
-import statemachine.states.statemachine.states.matchSchedules.MatchScheduleAbstractFactory;
 import leagueobjectmodel.*;
+import org.apache.log4j.Logger;
+import statemachine.states.statemachine.StateMachine;
+import statemachine.states.statemachine.states.matchSchedules.IDeadlines;
+import statemachine.states.statemachine.states.matchSchedules.MatchScheduleAbstractFactory;
 
 import java.time.LocalDate;
 
@@ -24,63 +18,81 @@ public class AgingState implements ITransition {
     ILeagueModel leagueModel;
     LocalDate currentDate;
     IPlayerModel iPlayerModel;
-   IFreeAgentModel iFreeAgentModel;
+    IFreeAgentModel iFreeAgentModel;
+    ISortTeams sortTeams;
     private int daysToAge;
-    private final int DAYS_TO_AGE_AFTER_SEASON_ENDS=183;
+    private final int DAYS_TO_AGE_AFTER_SEASON_ENDS = 183;
+    private final int oneDaysToAge = 1;
 
     final static Logger logger = Logger.getLogger(AgingState.class);
+
     public AgingState(StateMachine stateMachine) {
+        logger.info("Initializing Aging State");
         this.stateMachine = stateMachine;
     }
 
-     public void updateAgingStateValue(StateMachine stateMachine, ILeagueModel leagueModel){
-         this.stateMachine = stateMachine;
-         this.leagueModel = leagueModel;
-         iDeadlines = MatchScheduleAbstractFactory.getMatchScheduleInstance().getDeadline();
+    public void updateAgingStateValue(StateMachine stateMachine, ILeagueModel leagueModel) throws Exception {
+        if (stateMachine == null || leagueModel == null) {
+            logger.error("LeagueModel or state is not intialized");
+            throw new NullPointerException("LeagueModel or state is not intialized");
+        } else {
+            this.stateMachine = stateMachine;
+            this.leagueModel = leagueModel;
+            iDeadlines = MatchScheduleAbstractFactory.getMatchScheduleInstance().getDeadline();
+        }
     }
 
     @Override
-    public void entry() {
+    public void entry() throws Exception {
+        sortTeams = LeagueObjectModelAbstractFactory.getInstance().getSortTeams();
+        iPlayerModel = LeagueObjectModelAbstractFactory.getInstance().getPlayer();
+        iFreeAgentModel = LeagueObjectModelAbstractFactory.getInstance().getFreeAgentModel();
         task();
     }
 
     @Override
-    public void task() {
-        ISortTeams sortTeams = new SortTeams();
-        iPlayerModel = LeagueObjectModelAbstractFactory.getInstance().getPlayer();
-        iFreeAgentModel = LeagueObjectModelAbstractFactory.getInstance().getFreeAgentModel();
-        daysToAge = 1;
+    public void task() throws Exception {
+        daysToAge = oneDaysToAge;
         currentDate = stateMachine.getCurrentDate();
         int currentYear = currentDate.getYear();
         long tempDays = DAYS.between(currentDate, iDeadlines.getEndOfRegularSeasonDate(currentYear));
-        System.out.println(tempDays);
         if (tempDays == 1) {
             daysToAge = DAYS_TO_AGE_AFTER_SEASON_ENDS;
         }
         GamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
-        System.out.println(gamePlayConfigModel.getAging().getMaximumAge());
         iPlayerModel.setAgingModel(gamePlayConfigModel.getAging());
         iPlayerModel.setFreeAgentsList(leagueModel.getFreeAgents());
-        System.out.println(gamePlayConfigModel.getAging());
-        System.out.println(iFreeAgentModel);
         iFreeAgentModel.setAgingModel(gamePlayConfigModel.getAging());
-        System.out.println(gamePlayConfigModel.getAging());
-        for(IFreeAgentModel freeAgent : leagueModel.getFreeAgents()){
-            iFreeAgentModel.aging(freeAgent,currentDate,daysToAge);
+
+        try {
+            for (IFreeAgentModel freeAgent : leagueModel.getFreeAgents()) {
+                iFreeAgentModel.aging(freeAgent, currentDate, daysToAge);
+            }
+        } catch (Exception e) {
+            logger.error("Error while traversing the Freeagent");
+            throw e;
         }
-        for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
-            for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
-                for (TeamsModel teamsModel : divisonModel.getTeams()) {
-                    for (PlayerModel playerModelTemp : teamsModel.getPlayers()) {
-                        iPlayerModel.aging(playerModelTemp, daysToAge, currentDate);
+        try {
+            for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
+                for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
+                    for (TeamsModel teamsModel : divisonModel.getTeams()) {
+                        for (PlayerModel playerModelTemp : teamsModel.getPlayers()) {
+                            iPlayerModel.aging(playerModelTemp, daysToAge, currentDate);
+                        }
+                        sortTeams.sortActiveRoasters(teamsModel.getPlayers());
                     }
-                    sortTeams.sortActiveRoasters(teamsModel.getPlayers());
                 }
             }
+        } catch (Exception e) {
+            logger.error("Error while parsing the league object and calculate aging");
+            throw e;
         }
+
     }
 
     @Override
-    public void exit() { }
+    public void exit() {
+        LeagueObjectModelAbstractFactory.getInstance().setSortTeam(null);
+    }
 
 }

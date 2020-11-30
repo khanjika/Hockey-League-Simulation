@@ -47,7 +47,7 @@ public class UpdateStateValue implements IUpdateStateValue{
     }
 
     @Override
-    public void updateAgingStateValue(StateMachine stateMachine, ILeagueModel leagueModel) {
+    public void updateAgingStateValue(StateMachine stateMachine, ILeagueModel leagueModel) throws Exception {
         ((AgingState)stateMachine.getAgingState()).updateAgingStateValue(stateMachine, leagueModel);
     }
 

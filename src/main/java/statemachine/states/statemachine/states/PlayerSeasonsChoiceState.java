@@ -18,6 +18,7 @@ public class PlayerSeasonsChoiceState implements ITransition {
     ICli cli = CliAbstractFactory.getInstance().getCli();
 
     public PlayerSeasonsChoiceState(StateMachine stateMachine) {
+        logger.info("Initializing PlayerSeasonsChoice State");
         this.stateMachine = stateMachine;
     }
 

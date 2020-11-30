@@ -1,6 +1,5 @@
 package statemachine.states.statemachine.states;
 
-
 import leagueobjectmodel.IPlayerModel;
 import leagueobjectmodel.PlayerModel;
 import org.apache.log4j.Logger;
@@ -16,6 +15,7 @@ public class InjuryCheckState implements ITransition {
     IPlayerModel playerModel;
     final static Logger logger = Logger.getLogger(InjuryCheckState.class);
     public InjuryCheckState(StateMachine stateMachine) {
+        logger.info("Initializing INjuryCheck State");
         this.stateMachine = stateMachine;
     }
 
@@ -40,13 +40,20 @@ public class InjuryCheckState implements ITransition {
 
     @Override
     public void task() {
-        playerModel =LeagueObjectModelAbstractFactory.getInstance().getPlayer();
+        playerModel = LeagueObjectModelAbstractFactory.getInstance().getPlayer();
         playerModel.setInjuriesModel(leagueModel.getGameplayConfig().getInjuries());
-        for (PlayerModel playerModel : teamsModel.getPlayers()) {
-            playerModel.setInjuriesModel(leagueModel.getGameplayConfig().getInjuries());
-            playerModel.checkPlayerInjury(playerModel, currentDate);
-            teamsModel.roasterReplacement(playerModel);
+
+        try {
+            for (PlayerModel playerModel : teamsModel.getPlayers()) {
+                playerModel.setInjuriesModel(leagueModel.getGameplayConfig().getInjuries());
+                playerModel.checkPlayerInjury(playerModel, currentDate);
+                teamsModel.roasterReplacement(playerModel);
+            }
+        }catch (Exception e){
+            logger.error("Error while parsing the teamModel");
+            throw e;
         }
+
     }
 
     @Override

@@ -1,7 +1,10 @@
 package statemachine.states.statemachine.states;
 
+import cli.CliAbstractFactory;
+import cli.ICli;
 import leagueobjectmodel.ILeagueModel;
 import leagueobjectmodel.LeagueObjectModelAbstractFactory;
+import org.apache.log4j.Logger;
 import statemachine.states.statemachine.StateMachine;
 
 public class PersistLeagueState implements ITransition {
@@ -11,8 +14,11 @@ public class PersistLeagueState implements ITransition {
     ILeagueModel currentLeagueModel;
     ILeagueModel leagueModel;
     private int currentYear;
+    ICli cli = CliAbstractFactory.getInstance().getCli();
+    final static Logger logger = Logger.getLogger(PersistLeagueState.class);
 
     public PersistLeagueState(StateMachine stateMachine) {
+        logger.info("Initializing PersisteLeague State");
         this.stateMachine = stateMachine;
         leagueModel = LeagueObjectModelAbstractFactory.getInstance().getLeague();
     }
@@ -20,11 +26,11 @@ public class PersistLeagueState implements ITransition {
     public void updatePersistLeagueStateValue(ILeagueModel leagueModel, StateMachine stateMachine, int year){
         this.stateMachine = stateMachine;
         this.currentLeagueModel = leagueModel;
-        currentYear = year;
+        this.currentYear = year;
     }
     @Override
     public void entry() {
-        System.out.println("Please wait we are storing data in the database..........");
+        cli.printOutput("Please wait we are storing data in the database..........");
         task();
     }
 
@@ -35,6 +41,6 @@ public class PersistLeagueState implements ITransition {
 
     @Override
     public void exit() throws Exception {
-        stateMachine.getCurrentState().entry();
+       // stateMachine.getCurrentState().entry();
     }
 }

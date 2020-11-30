@@ -1,6 +1,7 @@
 package statemachine.states.statemachine.states;
 
 import leagueobjectmodel.ILeagueModel;
+import org.apache.log4j.Logger;
 import statemachine.states.statemachine.StateMachine;
 import statemachine.trophysystem.ITrophySystem;
 import statemachine.trophysystem.TrophySystemAbstractFactory;
@@ -10,9 +11,11 @@ public class TrophySystemState implements ITransition{
     StateMachine stateMachine;
     ILeagueModel leagueModel;
     ITrophySystem trophySystem = TrophySystemAbstractFactory.instance().createTrophySystem();
+    final static Logger logger = Logger.getLogger(TrophySystemState.class);
     int year;
 
     public TrophySystemState(StateMachine stateMachine) {
+        logger.info("Initializing TrophySystemState State");
         this.stateMachine = stateMachine;
     }
 
@@ -40,7 +43,5 @@ public class TrophySystemState implements ITransition{
     }
 
     @Override
-    public void exit() {
-
-    }
+    public void exit() { }
 }

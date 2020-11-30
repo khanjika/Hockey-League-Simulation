@@ -18,6 +18,7 @@ public class TrainingState implements ITransition {
     ITraining iTraining;
     final static Logger logger = Logger.getLogger(TrainingState.class);
     public TrainingState(StateMachine stateMachine) {
+        logger.info("Initializing Training State");
         this.stateMachine = stateMachine;
     }
 
