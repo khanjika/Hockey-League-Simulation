@@ -11,6 +11,9 @@ public class TeamsValidator implements ITeamsValidator {
     private static final IPlayerValidator playerValidator = new PlayerValidator();
     private static final IHeadCoachValidator headCoachValidator = new HeadCoachValidator();
     private static final IFileValidator fileValidator= SerializeObjectAbstractFactory.getInstance().getFileValidator();
+    private static final int totalForward = 16;
+    private static final int totalDefense = 10;
+    private static final int totalGoalie = 4;
     private ITeamsModel teamsModel;
     private IFreeAgentModel freeAgent;
     private boolean isPlayerCaptain = false;
@@ -123,30 +126,30 @@ public class TeamsValidator implements ITeamsValidator {
                 counterDefense = counterDefense + 1;
             }
         }
-        if (counterForward == forward && counterGoalie == goalie && counterDefense == defense) {
+        if (counterForward == totalForward && counterGoalie == totalGoalie && counterDefense == totalDefense) {
             return leagueModel;
         } else {
-            if (counterForward < forward ) {
-                int forwardRequired = forward - counterForward;
+            if (counterForward < totalForward ) {
+                int forwardRequired = totalForward - counterForward;
                 addFromFreeAgent (forwardRequired, teamPlayers, freeAgents, PlayerPosition.FORWARD.toString());
-            } else if(counterForward > forward) {
-                int noOfForwardRemoved = counterForward - forward;
+            } else if(counterForward > totalForward) {
+                int noOfForwardRemoved = counterForward - totalForward;
                 removePlayers (noOfForwardRemoved, teamPlayers, freeAgents, PlayerPosition.FORWARD.toString());
             }
 
-            if (counterDefense < defense) {
-                int defenseRequired = defense - counterDefense;
+            if (counterDefense < totalDefense) {
+                int defenseRequired = totalDefense - counterDefense;
                 addFromFreeAgent (defenseRequired, teamPlayers, freeAgents, PlayerPosition.DEFENSE.toString());
-            } else if (counterDefense > defense){
-                int noOfDefenseRemoved = counterDefense - defense;
+            } else if (counterDefense > totalDefense){
+                int noOfDefenseRemoved = counterDefense - totalDefense;
                 removePlayers (noOfDefenseRemoved, teamPlayers, freeAgents, PlayerPosition.DEFENSE.toString());
             }
 
-            if (counterGoalie < goalie) {
-                int goaliesRequired = goalie - counterGoalie;
+            if (counterGoalie < totalGoalie) {
+                int goaliesRequired = totalGoalie - counterGoalie;
                 addFromFreeAgent (goaliesRequired, teamPlayers, freeAgents, PlayerPosition.GOALIE.toString());
-            } else if (counterGoalie > goalie){
-                int noOfGoaliesRemoved = counterGoalie - goalie;
+            } else if (counterGoalie > totalGoalie){
+                int noOfGoaliesRemoved = counterGoalie - totalGoalie;
                 removePlayers (noOfGoaliesRemoved, teamPlayers, freeAgents, PlayerPosition.GOALIE.toString());
             }
             return leagueModel;
