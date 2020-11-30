@@ -9,17 +9,18 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayInputStream;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class LoadTeamTest {
     @Test
     void getUserInputTest() {
-        ByteArrayInputStream userinput = new ByteArrayInputStream("robteam".getBytes());
+        ByteArrayInputStream userinput = new ByteArrayInputStream("test Team".getBytes());
         System.setIn(userinput);
         ICli cli = new MockCli();
         CliAbstractFactory.getInstance().setCli(cli);
         ILoadTeam loadTeamCli = LoadTeamAbstractFactory.getInstance().getLoadTeam();
         ILeagueModel leagueModel = loadTeamCli.getData();
-        assertNotNull(leagueModel);
+        assertNull(leagueModel);
     }
 
 

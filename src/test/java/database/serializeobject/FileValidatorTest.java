@@ -9,7 +9,6 @@ public class FileValidatorTest {
     @Test
     void isFileExistTest(){
         assertFalse(file.isFileExist("testing Team"));
-        assertTrue(file.isFileExist("robteam"));
     }
     public String filePath(String name){
         return "src\\test\\java\\database\\datasource\\"+name+".JSON";
