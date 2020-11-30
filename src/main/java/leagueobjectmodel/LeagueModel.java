@@ -1,8 +1,8 @@
 package leagueobjectmodel;
 
 import com.google.gson.annotations.Expose;
-import database.serializeobject.ISerializeObject;
-import database.serializeobject.SerializeObjectAbstractFactory;
+import database.ISerializeObject;
+import database.SerializeObjectAbstractFactory;
 
 import java.util.ArrayList;
 import java.util.List;
