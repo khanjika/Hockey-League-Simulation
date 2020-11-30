@@ -1,5 +1,7 @@
 package statemachine.states.playerdraft;
 
+import cli.CliAbstractFactory;
+import cli.ICli;
 import leagueobjectmodel.*;
 
 import java.util.ArrayList;
@@ -10,6 +12,7 @@ import java.util.List;
 public class DraftSelectionOrder implements IDraftSelectionOrder {
     private final int NO_DRAFTS_ROUNDS = 7;
     List<ITeamsModel> teamList = new ArrayList<>();
+    ICli cli = CliAbstractFactory.getInstance().getCli();
     Comparator<TeamsModel> teamModelComparator = new Comparator<TeamsModel>() {
         @Override
         public int compare(TeamsModel o1, TeamsModel o2) {
@@ -34,11 +37,11 @@ public class DraftSelectionOrder implements IDraftSelectionOrder {
 
     @Override
     public List<ITeamsModel> getTeamStandingList(ILeagueModel leagueModel) {
-        System.out.println("INSIDE TEAM STANDING LIST" + leagueModel);
+       cli.printOutput("INSIDE TEAM STANDING LIST" + leagueModel);
         if (leagueModel == null) {
             throw new NullPointerException("Argument null in getTeamStandingList");
         }
-        System.out.println("Inside Team Standing List method");
+        cli.printOutput("Inside Team Standing List method");
         for (IConferenceModel conferenceModel : leagueModel.getConferences()) {
             for (IDivisonModel divisionModel : conferenceModel.getDivisions()) {
                 List<TeamsModel> teams = divisionModel.getTeams();
@@ -54,14 +57,14 @@ public class DraftSelectionOrder implements IDraftSelectionOrder {
     @Override
     public void draftingRounds(List<IPlayerModel> newDraftedPlayers) {
         for (int i = 0; i < newDraftedPlayers.size(); i++) {
-            System.out.println(newDraftedPlayers.get(i).getPlayerName() + " --  " + newDraftedPlayers.get(i).getPlayerStrength());
+            cli.printOutput(newDraftedPlayers.get(i).getPlayerName() + " --  " + newDraftedPlayers.get(i).getPlayerStrength());
         }
         for (int i = 1; i <= NO_DRAFTS_ROUNDS; i++) {
-            System.out.println("Drafting Round -- " + i);
+            cli.printOutput("Drafting Round -- " + i);
             for (int j = 0; j < teamList.size(); j++) {
-                System.out.println("Inside Team drafting rounds -- " + teamList.get(j).getTeamName());
+                cli.printOutput("Inside Team drafting rounds -- " + teamList.get(j).getTeamName());
                 IPlayerModel bestPlayer = Collections.max(newDraftedPlayers, Comparator.comparing(f -> f.getPlayerStrength()));
-                System.out.println("Best Player" + bestPlayer.getPlayerName());
+                cli.printOutput("Best Player" + bestPlayer.getPlayerName());
                 teamList.get(j).addDrafterPlayerToTeam(bestPlayer);
                 newDraftedPlayers.remove(bestPlayer);
             }

@@ -1,5 +1,7 @@
 package leagueobjectmodel;
 
+import cli.CliAbstractFactory;
+import cli.ICli;
 import com.google.gson.annotations.Expose;
 
 import java.time.LocalDate;
@@ -37,6 +39,7 @@ public class FreeAgentModel implements IFreeAgentModel {
     private int birthMonth;
     private int birthYear;
     private Random random = LeagueObjectModelAbstractFactory.getInstance().createRandom();
+    private ICli cli = CliAbstractFactory.getInstance().getCli();
 
 
     @Override
@@ -223,7 +226,7 @@ public class FreeAgentModel implements IFreeAgentModel {
     @Override
     public int checkRetirement(IFreeAgentModel freeAgentModel) {
         int freeAgentAge = freeAgentModel.getAge();
-        System.out.println("freeAgent model"+agingModel+" "+freeAgentModel);
+        cli.printOutput("freeAgent model"+agingModel+" "+freeAgentModel);
         int averageRetirementAge = agingModel.getAverageRetirementAge();
         int maximumAge = agingModel.getMaximumAge();
         int likelyHood = freeAgentModel.getRetirementLikelyHood();
@@ -258,7 +261,7 @@ public class FreeAgentModel implements IFreeAgentModel {
             }
         }
         if (matchedFreeAgents.size() == 0) {
-            System.out.println("NO MATCH FOUND FOR THE PLAYER WITH POSITION " + playerPosition);
+            cli.printOutput("NO MATCH FOUND FOR THE PLAYER WITH POSITION " + playerPosition);
             System.exit(0);
         }
         FreeAgentModel replacementFreeAgent = Collections.max(matchedFreeAgents, Comparator.comparing(f -> f.getFreeAgentStrength()));

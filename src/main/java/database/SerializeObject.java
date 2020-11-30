@@ -1,5 +1,7 @@
 package database;
 
+import cli.CliAbstractFactory;
+import cli.ICli;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import leagueobjectmodel.ILeagueModel;
@@ -13,6 +15,7 @@ import java.io.IOException;
 public class SerializeObject implements ISerializeObject {
     IFileValidator fileValidator = new FileValidator();
     final static Logger logger = Logger.getLogger(SerializeObject.class);
+    ICli cli = CliAbstractFactory.getInstance().getCli();
 
     @Override
     public boolean serializeLeagueObject(ILeagueModel leagueModel,String name) {
@@ -30,6 +33,7 @@ public class SerializeObject implements ISerializeObject {
             writer.flush();
             writer.close();
             logger.info(FileConstants.LogInfoWrite.getValue());
+            cli.printOutput(FileConstants.SaveLocation.getValue()+ path);
             return true;
         } catch (IOException exception) {
             logger.error(FileConstants.LogErrorWrite.getValue(), exception);

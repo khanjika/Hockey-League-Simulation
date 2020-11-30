@@ -1,5 +1,7 @@
 package leagueobjectmodel;
 
+import cli.CliAbstractFactory;
+import cli.ICli;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.Expose;
 
@@ -59,6 +61,7 @@ public class PlayerModel implements IPlayerModel {
     private int currentPenaltyCount;
     private int totalPenaltyCount;
     private Random random = LeagueObjectModelAbstractFactory.getInstance().createRandom();
+    private ICli cli = CliAbstractFactory.getInstance().getCli();
 
     public PlayerModel() {
         freeAgentModel = new FreeAgentModel();
@@ -356,7 +359,7 @@ public class PlayerModel implements IPlayerModel {
                 playerModel.setPlayerStrength(strength);
             }
         } catch (Exception e) {
-            System.out.println("Error in calculateStrength method of player model" + e);
+            cli.printOutput("Error in calculateStrength method of player model" + e);
         }
     }
 
@@ -393,11 +396,11 @@ public class PlayerModel implements IPlayerModel {
                 playerModel.setInjuryDays(injuryDays);
                 playerModel.setInjuredDate(date);
                 playerModel.setRecoveryDate(date.plusDays(injuryDays));
-                System.out.println(playerModel.getPlayerName() + " Player Injured for " + playerModel.getInjuryDays() + " Days");
+                cli.printOutput(playerModel.getPlayerName() + " Player Injured for " + playerModel.getInjuryDays() + " Days");
             }
         }
     }catch (Exception e){
-            System.out.println("Error in checkPlayerInjury method of player model" + e);
+            cli.printOutput("Error in checkPlayerInjury method of player model" + e);
         }
     }
 
@@ -418,13 +421,13 @@ public class PlayerModel implements IPlayerModel {
                 playerModel.setInjuryDays(0);
                 playerModel.setInjuredDate(null);
                 playerModel.setRecoveryDate(null);
-                System.out.println(playerModel.getPlayerName() + " Player Recovered from Injury");
+                cli.printOutput(playerModel.getPlayerName() + " Player Recovered from Injury");
             }
             if(playerModel.isPlayerInjured() == false){
 
             }
         } catch (Exception e) {
-            System.out.println("Error in checkPlayerInjury method of player model" + e);
+            cli.printOutput("Error in checkPlayerInjury method of player model" + e);
         }
     }
 
@@ -448,18 +451,18 @@ public class PlayerModel implements IPlayerModel {
             playerModel.recoverPlayer(playerModel, date);
             int retirementLikelyHood = checkPlayerRetirementPossibility(playerModel);
             if (retirementLikelyHood >= RETIRE_LIKELIHOOD_THRESHOLD) {
-                System.out.println("Player Retired: "+playerModel.getPlayerName());
+                cli.printOutput("Player Retired: "+playerModel.getPlayerName());
                 playerModel.setPlayerRetired(true);
             }
             if (playerModel.isPlayerRetired()) {
                 String playerPosition = playerModel.getPosition();
                 List<FreeAgentModel> availableFreeAgents = this.getFreeAgentsList();
                 FreeAgentModel replacementFreeAgent = freeAgentModel.getReplacementFreeAgent(availableFreeAgents, playerPosition);
-                System.out.println("Player " + playerModel.getPlayerName() + " is Retired and Replace with FreeAgent " + replacementFreeAgent.getPlayerName());
+                cli.printOutput("Player " + playerModel.getPlayerName() + " is Retired and Replace with FreeAgent " + replacementFreeAgent.getPlayerName());
                 replacePlayerWithFreeAgent(playerModel, replacementFreeAgent);
             }
         } catch (Exception e) {
-            System.out.println("Error in aging method of player model" + e);
+            cli.printOutput("Error in aging method of player model" + e);
         }
     }
 
@@ -478,7 +481,7 @@ public class PlayerModel implements IPlayerModel {
                 playerModel.setSaving(playerModel.getSaving()-1);
                 playerModel.setChecking(playerModel.getChecking()-1);
                 playerModel.setSkating(playerModel.getSkating()-1);
-                System.out.println(playerModel.getPlayerName()+" Stat decreased by 1 point on his Birthday");
+                cli.printOutput(playerModel.getPlayerName()+" Stat decreased by 1 point on his Birthday");
             }
         }
     }
@@ -490,7 +493,7 @@ public class PlayerModel implements IPlayerModel {
             if (replacementFreeAgent == null || playerModel == null) {
                 throw new NullPointerException("Argument null in replacePlayerWithFreeAgent");
             }
-            System.out.println("Replacing Player " + playerModel.getPlayerName() + " With Free Agent " + replacementFreeAgent.getPlayerName());
+            cli.printOutput("Replacing Player " + playerModel.getPlayerName() + " With Free Agent " + replacementFreeAgent.getPlayerName());
             playerModel.setPlayerName(replacementFreeAgent.getPlayerName());
             playerModel.setPosition(replacementFreeAgent.getPosition());
             playerModel.setAge(replacementFreeAgent.getAge());
@@ -507,7 +510,7 @@ public class PlayerModel implements IPlayerModel {
             playerModel.setRetirementLikelyHood(0);
             playerModel.setPlayerRetired(false);
         } catch (Exception e) {
-            System.out.println("Error in replacePlayerWithFreeAgent method of player model");
+            cli.printOutput("Error in replacePlayerWithFreeAgent method of player model");
         }
     }
 

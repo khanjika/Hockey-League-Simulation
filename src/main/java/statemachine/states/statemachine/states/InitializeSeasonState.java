@@ -140,13 +140,10 @@ public class InitializeSeasonState implements ITransition {
             }
         }
 
-        System.out.println("Stanly Cup Winner Determined");
-        System.out.println("Winner is " + winnerTeam.getTeamName() + " With Points " + winnerTeam.getWinPoint() + " For the year " + currentSimulationYear);
+        cli.printOutput("Stanly Cup Winner Determined");
+        cli.printOutput("Winner is " + winnerTeam.getTeamName() + " With Points " + winnerTeam.getWinPoint() + " For the year " + currentSimulationYear);
 
-        //Drafting State
-       // stateMachine.getUpdateStateValue().updateSimulateGameStateValue(stateMachine, updatedLeagueModelObject, playOffSchedule.get(i).get(0), playOffSchedule.get(i).get(1));
         stateMachine.setCurrentState(stateMachine.getPlayerDraftState());
-        //stateMachine.getUpdateStateValue().updatePla
         stateMachine.setCurrentDate(iDeadlines.getPlayerDraftStartDate(currentSimulationYear));
         stateMachine.getCurrentState().entry();
 
@@ -171,7 +168,7 @@ public class InitializeSeasonState implements ITransition {
                         penaltyCOunt=playerModel.getTotalPenaltyCount()+penaltyCOunt;
                         saveCount=playerModel.getSaveForGoalie()+saveCount;
                     }
-                    System.out.println(totalMatches);
+                    cli.printOutput(totalMatches);
                     float valeu =goalByTeam/totalMatches;
                     double averagePenaltyCount=0;
                     if(penaltyCOunt==0){
@@ -188,7 +185,7 @@ public class InitializeSeasonState implements ITransition {
                     if(saveCount==0){
                         saveCount=1;
                     }
-                    System.out.println("Save count "+saveCount+teamsModel.getTeamName()+"=="+divisonModel.getDivisionName());
+                    cli.printOutput("Save count "+saveCount+teamsModel.getTeamName()+"=="+divisonModel.getDivisionName());
                     try {
                         averageSaveCount = totalMatches/saveCount;
                     }
@@ -207,19 +204,7 @@ public class InitializeSeasonState implements ITransition {
 
     @Override
     public void exit() throws Exception {
-        System.out.println("Season simulation ends for the year " + currentSimulationYear);
-//        for(ConferenceModel conferenceModel:updatedLeagueModelObject.getConferences()){
-//            for(DivisonModel divisonModel:conferenceModel.getDivisions()){
-//                System.out.println(divisonModel.getDivisionName());
-//                for(TeamsModel teamsModel:divisonModel.getTeams()){
-//                    System.out.println(teamsModel.getTeamName()+" "+teamsModel.getGeneralManager());
-//                    for(PlayerModel playerModel:teamsModel.getPlayers()){
-//                        System.out.println(playerModel.getPlayerName()+" "+playerModel.getPosition()+" "+playerModel.getAge()+"  "+playerModel.getSkating()+"  "+playerModel.getShooting()+" "+playerModel.getChecking());
-//                    }
-//                }
-//            }
-//        }
-
+        cli.printOutput("Season simulation ends for the year " + currentSimulationYear);
         MatchScheduleAbstractFactory.getMatchScheduleInstance().setRegularSeason(null);
         MatchScheduleAbstractFactory.getMatchScheduleInstance().setPlayOff(null);
         stateMachine.getUpdateStateValue().updateTrophyStateValue(updatedLeagueModelObject, stateMachine , currentSimulationYear);

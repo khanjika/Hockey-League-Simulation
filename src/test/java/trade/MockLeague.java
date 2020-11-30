@@ -89,7 +89,6 @@ public class MockLeague {
         headCoachModel.setChecking(0.3f);
         headCoachModel.setSaving(0.5f);
         teamsModel.setHeadCoach(headCoachModel);
-       // teamsModel.setGeneralManager("Mister Fred");
         teamsModel.setTeamName("Boston");
         teamsModel.setUserCreatedTeam(false);
         boolean isCaptain = true;

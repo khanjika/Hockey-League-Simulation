@@ -1,11 +1,7 @@
 package statemachine.states.playerdraft;
 
-import leagueobjectmodel.ILeagueModel;
 import leagueobjectmodel.IPlayerModel;
-import leagueobjectmodel.ITeamsModel;
-import leagueobjectmodel.TeamsModel;
 
-import java.util.Comparator;
 import java.util.List;
 
 public interface IPlayerDraft {

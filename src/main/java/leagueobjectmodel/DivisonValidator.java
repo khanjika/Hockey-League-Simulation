@@ -1,8 +1,12 @@
 package leagueobjectmodel;
 
+import cli.CliAbstractFactory;
+import cli.ICli;
+
 public class DivisonValidator implements IDivisonValidator {
 
     private static final ITeamsValidator teamsValidator = new TeamsValidator();
+    ICli cli = CliAbstractFactory.getInstance().getCli();
 
     @Override
     public boolean validateDivisionObject(IDivisonModel divisonModel) {
@@ -13,7 +17,7 @@ public class DivisonValidator implements IDivisonValidator {
                 if (teamsValidator.validateTeamObject(teamsModel)) {
                     continue;
                 } else {
-                    System.out.println("Encountered Problem While validating Teams in Division ==> " + divisonModel.getDivisionName());
+                    cli.printOutput("Encountered Problem While validating Teams in Division ==> " + divisonModel.getDivisionName());
                     return false;
                 }
             }

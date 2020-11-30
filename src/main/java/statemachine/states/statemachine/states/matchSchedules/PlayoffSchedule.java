@@ -1,5 +1,7 @@
 package statemachine.states.statemachine.states.matchSchedules;
 
+import cli.CliAbstractFactory;
+import cli.ICli;
 import leagueobjectmodel.*;
 import org.apache.log4j.Logger;
 
@@ -8,10 +10,12 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+
 public class PlayoffSchedule implements IPlayoffSchedule {
 
     List<List<TeamsModel>> topTeamFromDivisionList = new ArrayList<>();
     List<TeamsModel> allTheTopTeams = new ArrayList<>();
+    ICli cli = CliAbstractFactory.getInstance().getCli();
     final static Logger logger = Logger.getLogger(PlayoffSchedule.class);
 
     @Override
@@ -25,7 +29,7 @@ public class PlayoffSchedule implements IPlayoffSchedule {
                 for (IDivisonModel divisonModel : conferenceModel.getDivisions()) {
                     Collections.sort(divisonModel.getTeams(), teamModelComparator);
                     List<TeamsModel> subList = new ArrayList<>();
-                    System.out.println(divisonModel.getTeams().size());
+                    cli.printOutput(divisonModel.getTeams().size());
                     for (int i = 0; i < 3; i++) {
                         subList.add(divisonModel.getTeams().get(i));
                         allTheTopTeams.add(divisonModel.getTeams().get(i));
@@ -82,7 +86,7 @@ public class PlayoffSchedule implements IPlayoffSchedule {
                     break;
                 }
                 List<ITeamsModel> matchWithWildCard = new ArrayList<>();
-                System.out.println(wildCardTeamCount);
+                cli.printOutput(wildCardTeamCount);
                 matchWithWildCard.add(teamsModelList.get(wildCardTeamCount));
                 matchWithWildCard.add(wildCardList.get(i));
                 schedule.add(matchWithWildCard);

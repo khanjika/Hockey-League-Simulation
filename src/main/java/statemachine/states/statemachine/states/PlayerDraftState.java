@@ -1,5 +1,7 @@
 package statemachine.states.statemachine.states;
 
+import cli.CliAbstractFactory;
+import cli.ICli;
 import leagueobjectmodel.ILeagueModel;
 import leagueobjectmodel.IPlayerModel;
 import leagueobjectmodel.ITeamsModel;
@@ -18,6 +20,7 @@ public class PlayerDraftState implements ITransition {
     ILeagueModel leagueModel;
     List<ITeamsModel> teamList = new ArrayList<>();
     ITeamsModel teamsModel;
+    ICli cli = CliAbstractFactory.getInstance().getCli();
 
     public PlayerDraftState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
@@ -28,7 +31,7 @@ public class PlayerDraftState implements ITransition {
         this.leagueModel = LeagueObjectModelAbstractFactory.getInstance().getLeague();
         this.teamsModel = LeagueObjectModelAbstractFactory.getInstance().getTeams();
 
-        System.out.println(leagueModel+"==="+teamsModel);
+        cli.printOutput(leagueModel+"==="+teamsModel);
         task();
     }
 
@@ -42,7 +45,7 @@ public class PlayerDraftState implements ITransition {
 
     @Override
     public void task() {
-        System.out.println(" Task Method of Player Draft State");
+        cli.printOutput(" Task Method of Player Draft State");
         IPlayerDraft playerDraft = PlayerDraftAbstractFactory.getInstance().createPlayerDraft();
         IDraftSelectionOrder draftSelectionOrder = PlayerDraftAbstractFactory.getInstance().createDraftSelectionOrder();
         List<ITeamsModel> teamStandingList = draftSelectionOrder.getTeamStandingList(leagueModel);

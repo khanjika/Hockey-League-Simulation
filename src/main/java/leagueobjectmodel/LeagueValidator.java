@@ -1,10 +1,14 @@
 package leagueobjectmodel;
 
+import cli.CliAbstractFactory;
+import cli.ICli;
+
 public class LeagueValidator implements ILeagueValidator {
 
     private static IConferenceValidator conferenceValidator;
     private static IFreeAgentValidator freeAgentValidator;
     private static ICoachValidator coachValidator;
+    private ICli cli;
 
     private boolean validateFlag = false;
 
@@ -12,20 +16,21 @@ public class LeagueValidator implements ILeagueValidator {
         conferenceValidator = new ConferenceValidator();
         freeAgentValidator = new FreeAgentValidator();
         coachValidator = new CoachValidator();
+        cli = CliAbstractFactory.getInstance().getCli();
     }
 
     @Override
     public boolean validateLeagueObject(ILeagueModel leagueModel) {
 
         if (leagueModel.getLeagueName() == "" || leagueModel.getLeagueName() == null) {
-            System.out.println("League name can not be empty");
+            cli.printOutput("League name can not be empty");
             return false;
         }
         for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
             if (conferenceValidator.validateConferenceObject(conferenceModel)) {
                 continue;
             } else {
-                System.out.println("Encountered Problem While validating Conferences");
+                cli.printOutput("Encountered Problem While validating Conferences");
                 return false;
             }
         }
@@ -33,7 +38,7 @@ public class LeagueValidator implements ILeagueValidator {
             if (freeAgentValidator.validateFreeAgentObject(freeAgentModel)) {
                 continue;
             } else {
-                System.out.println("Encountered Problem While validating Free Agents in the league==> " + leagueModel.getLeagueName());
+                cli.printOutput("Encountered Problem While validating Free Agents in the league==> " + leagueModel.getLeagueName());
                 return false;
             }
         }
@@ -42,7 +47,7 @@ public class LeagueValidator implements ILeagueValidator {
             if (coachValidator.validateCoachObject(coachModel)) {
                 continue;
             } else {
-                System.out.println("Encountered Problem While validating Coach in the League==>" + leagueModel.getLeagueName());
+                cli.printOutput("Encountered Problem While validating Coach in the League==>" + leagueModel.getLeagueName());
             }
         }
 
@@ -52,16 +57,16 @@ public class LeagueValidator implements ILeagueValidator {
                     if (leagueModel.getGeneralManagers().size() > 0) {
                         validateFlag = true;
                     } else {
-                        System.out.println("Not enough Managers");
+                        cli.printOutput("Not enough Managers");
                     }
                 } else {
-                    System.out.println("Not enough coaches");
+                    cli.printOutput("Not enough coaches");
                 }
             } else {
-                System.out.println("Number of Conference is not even");
+                cli.printOutput("Number of Conference is not even");
             }
         } else {
-            System.out.println("Number of free agents is less than 20");
+            cli.printOutput("Number of free agents is less than 20");
         }
         return validateFlag;
     }

@@ -1,15 +1,18 @@
 package leagueobjectmodel;
 
 
+import cli.CliAbstractFactory;
+import cli.ICli;
+
 public class ConferenceValidator implements IConferenceValidator {
 
-    private static IConferenceValidator conferenceValidator;
     private static IDivisonValidator divisonValidator;
     private int numberOfDivision = 0;
+    ICli cli ;
 
     public ConferenceValidator() {
-        //conferenceValidator = new ConferenceValidator();
         divisonValidator = new DivisonValidator();
+        cli = CliAbstractFactory.getInstance().getCli();
     }
 
     @Override
@@ -23,7 +26,7 @@ public class ConferenceValidator implements IConferenceValidator {
                 if (divisonValidator.validateDivisionObject(divisonModel)) {
                     continue;
                 } else {
-                    System.out.println("Encountered problem while validating Divisions in Conferene ==> " + conferenceModel.getConferenceName());
+                    cli.printOutput("Encountered problem while validating Divisions in Conferene ==> " + conferenceModel.getConferenceName());
                     return false;
                 }
 

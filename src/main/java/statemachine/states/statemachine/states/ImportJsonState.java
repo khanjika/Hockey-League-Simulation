@@ -67,7 +67,6 @@ public class ImportJsonState implements ITransition {
                     }
                 }
             }
-            //System.out.println("total team are" +teamCount);
             task();
         }
     }

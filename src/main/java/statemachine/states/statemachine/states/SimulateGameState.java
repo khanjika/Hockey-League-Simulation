@@ -1,5 +1,7 @@
 package statemachine.states.statemachine.states;
 
+import cli.CliAbstractFactory;
+import cli.ICli;
 import leagueobjectmodel.*;
 import statemachine.states.statemachine.StateMachine;
 import statemachine.states.statemachine.states.simulateGame.GameSimulationAbstractFactory;
@@ -16,19 +18,15 @@ public class SimulateGameState implements ITransition {
     TeamsModel winnerTeam;
     TeamsModel losserTeam;
     ILeagueModel iLeagueModel;
+    ICli cli;
 
     public SimulateGameState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
         iLeagueModel = LeagueObjectModelAbstractFactory.getInstance().getLeague();
+        cli = CliAbstractFactory.getInstance().getCli();
     }
 
 
-//    public SimulateGameState(StateMachine stateMachine, LeagueModel leagueModel, TeamsModel teamsModelOne, TeamsModel teamsModelTwo) {
-//        this.stateMachine = stateMachine;
-//        this.leagueModel = leagueModel;
-//        this.teamOne = teamsModelOne;
-//        this.teamTwo = teamsModelTwo;
-//    }
 
     public void updateSimulateGameStateValue(StateMachine stateMachine, ILeagueModel leagueModel, ITeamsModel teamsModelOne, ITeamsModel teamsModelTwo,boolean isPlayOff){
         this.stateMachine = stateMachine;
@@ -103,10 +101,10 @@ public class SimulateGameState implements ITransition {
             startSimulationObj.setAverageShotsOnGoal();
             startSimulationObj.initializeShifts();
         }catch (NullPointerException exception){
-            System.out.println("Exception in the game simulation abstract factory"+exception.getMessage());
+            cli.printOutput("Exception in the game simulation abstract factory"+exception.getMessage());
         }
         catch (Exception e){
-            System.out.println("Exception while initializing constructor of the game simulation "+e.getMessage());
+            cli.printOutput("Exception while initializing constructor of the game simulation "+e.getMessage());
         }
     }
 

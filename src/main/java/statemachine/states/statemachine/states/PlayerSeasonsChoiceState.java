@@ -70,7 +70,7 @@ public class PlayerSeasonsChoiceState implements ITransition {
                 for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
                     for (TeamsModel teamsModel : divisonModel.getTeams()) {
                         for (PlayerModel playerModel : teamsModel.getPlayers()) {
-                            System.out.println(playerModel.getPlayerName() + " has goal " + playerModel.getGoalScorerCount());
+                            cli.printOutput(playerModel.getPlayerName() + " has goal " + playerModel.getGoalScorerCount());
                             if (playerModel.getPosition().equals(PlayerPosition.DEFENSE.toString())) {
                                 cli.printOutput(playerModel.getPlayerName() + " is Defense and has penalty count of " + playerModel.getTotalPenaltyCount());
                             }

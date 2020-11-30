@@ -7,16 +7,11 @@ public class TradingState implements ITransition {
 
     StateMachine stateMachine;
     ILeagueModel leagueModel;
-    //IGenerateTradeOffer iGenerateTradeOffer;
 
     public TradingState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
     }
 
-//    public TradingState(StateMachine stateMachine, LeagueModel leagueModel) {
-//
-//    }
-//
     public void updateTradingStateValue(StateMachine stateMachine, ILeagueModel leagueModel){
         this.stateMachine = stateMachine;
         this.leagueModel = leagueModel;

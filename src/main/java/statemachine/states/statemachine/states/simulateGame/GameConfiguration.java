@@ -3,7 +3,6 @@ package statemachine.states.statemachine.states.simulateGame;
 import leagueobjectmodel.LeagueModel;
 import leagueobjectmodel.PlayerModel;
 import leagueobjectmodel.PlayerPosition;
-import leagueobjectmodel.TeamsModel;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;

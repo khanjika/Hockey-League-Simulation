@@ -1,6 +1,8 @@
 package statemachine.states.statemachine.states;
 
 
+import cli.CliAbstractFactory;
+import cli.ICli;
 import leagueobjectmodel.ILeagueModel;
 import leagueobjectmodel.LeagueObjectModelAbstractFactory;
 import statemachine.loadteam.ILoadTeam;
@@ -11,10 +13,12 @@ public class LoadTeamState implements ITransition {
     StateMachine stateMachine;
     ILeagueModel currentLeague;
     ILoadTeam parser;
+    ICli cli;
 
     public LoadTeamState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
         currentLeague = LeagueObjectModelAbstractFactory.getInstance().getLeague();
+        cli = CliAbstractFactory.getInstance().getCli();
     }
 
     public StateMachine getStateMachine() {
@@ -45,7 +49,7 @@ public class LoadTeamState implements ITransition {
 
     @Override
     public void exit() throws Exception {
-        System.out.println(currentLeague.getLeagueName());
+        cli.printOutput(currentLeague.getLeagueName());
         stateMachine.getUpdateStateValue().updatePlayerSeasonChoiceStateValue(stateMachine,currentLeague);
         stateMachine.setCurrentState(stateMachine.teamLoaded());
         stateMachine.getCurrentState().entry();

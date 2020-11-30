@@ -1,6 +1,8 @@
 package statemachine.states.statemachine.states;
 
 
+import cli.CliAbstractFactory;
+import cli.ICli;
 import leagueobjectmodel.ConferenceModel;
 import leagueobjectmodel.DivisonModel;
 import leagueobjectmodel.GamePlayConfigModel;
@@ -25,6 +27,7 @@ public class AgingState implements ITransition {
     LocalDate currentDate;
     IPlayerModel iPlayerModel;
    IFreeAgentModel iFreeAgentModel;
+   ICli cli = CliAbstractFactory.getInstance().getCli();
     private int daysToAge;
     private final int DAYS_TO_AGE_AFTER_SEASON_ENDS=183;
 
@@ -53,18 +56,18 @@ public class AgingState implements ITransition {
         currentDate = stateMachine.getCurrentDate();
         int currentYear = currentDate.getYear();
         long tempDays = DAYS.between(currentDate, iDeadlines.getEndOfRegularSeasonDate(currentYear));
-        System.out.println(tempDays);
+        cli.printOutput(tempDays);
         if (tempDays == 1) {
             daysToAge = DAYS_TO_AGE_AFTER_SEASON_ENDS;
         }
         GamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
-        System.out.println(gamePlayConfigModel.getAging().getMaximumAge());
+        cli.printOutput(gamePlayConfigModel.getAging().getMaximumAge());
         iPlayerModel.setAgingModel(gamePlayConfigModel.getAging());
         iPlayerModel.setFreeAgentsList(leagueModel.getFreeAgents());
-        System.out.println(gamePlayConfigModel.getAging());
-        System.out.println(iFreeAgentModel);
+        cli.printOutput(gamePlayConfigModel.getAging());
+        cli.printOutput(iFreeAgentModel);
         iFreeAgentModel.setAgingModel(gamePlayConfigModel.getAging());
-        System.out.println(gamePlayConfigModel.getAging());
+        cli.printOutput(gamePlayConfigModel.getAging());
         for(IFreeAgentModel freeAgent : leagueModel.getFreeAgents()){
             iFreeAgentModel.aging(freeAgent,currentDate,daysToAge);
         }
