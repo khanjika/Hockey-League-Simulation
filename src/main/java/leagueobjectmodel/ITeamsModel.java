@@ -68,4 +68,21 @@ public interface ITeamsModel {
     void resolveRoostersToThirty();
 
     List<PlayerModel> fetchRequiredRoosterFromList(List<PlayerModel> roosterList, int requiredPlayers);
+
+    int getIsGoalieStrong();
+
+    void setIsGoalieStrong(int isGoalieStrong);
+
+    int getIsForwardStrong();
+
+    void setIsForwardStrong(int isForwardStrong);
+
+    int getIsDefenseStrong();
+
+    void setIsDefenseStrong(int isDefenseStrong);
+
+    ITeamsModel[] getDraftTrade();
+
+    void setDraftTrade(ITeamsModel[] draftTrade);
+
 }

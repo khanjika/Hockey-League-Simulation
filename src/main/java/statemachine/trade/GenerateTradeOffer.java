@@ -4,17 +4,9 @@ import leagueobjectmodel.*;
 import org.apache.log4j.Logger;
 
 public class GenerateTradeOffer implements IGenerateTradeOffer {
-    private ITradeTeamPojo tradingTeamDetails;
-    private ITradeModel model;
-    private IFindOfferedPlayers findOfferedPlayers;
-
-    public GenerateTradeOffer() {
-        tradingTeamDetails = TradeAbstractFactory.instance ().createTeamPojo ();
-        model = TradeAbstractFactory.instance ().createTradeModel ();
-        findOfferedPlayers = TradeAbstractFactory.instance ().createOfferedPlayers ();
-    }
-
     private static final Logger logger = Logger.getLogger (GenerateTradeOffer.class);
+    private ITeamsModel initiatingTeam = null;
+    private IFindOfferedPlayers findOfferedPlayers;
 
     private enum generalManagerPersonality {
         shrewd,
@@ -22,12 +14,18 @@ public class GenerateTradeOffer implements IGenerateTradeOffer {
         gambler
     }
 
+    public GenerateTradeOffer() {
+        findOfferedPlayers = TradeAbstractFactory.instance ().createOfferedPlayers ();
+    }
+
+    @Override
     public boolean calculateLossPoint(float lossMatches, ITradingModel tradeModel) {
         float lossPoint = tradeModel.getLossPoint ();
         return lossMatches >= lossPoint;
     }
 
-    public boolean makeTradeOffer(ITradingModel tradeModel, ITeamsModel team) {
+    @Override
+    public boolean calculateTradeChance(ITradingModel tradeModel, ITeamsModel team) {
         float randomTradeChance = 0;
         float tradeChance = tradeModel.getRandomTradeOfferChance ();
         String managerPosition = team.getGeneralManager ().getPersonality ();
@@ -53,26 +51,19 @@ public class GenerateTradeOffer implements IGenerateTradeOffer {
         IGamePlayConfigModel gameConfig = leagueModel.getGameplayConfig ();
         ITradingModel tradeModel = gameConfig.getTrading ();
         for (IConferenceModel conference : leagueModel.getConferences ()) {
-            String conferenceName = conference.getConferenceName ();
             for (IDivisonModel division : conference.getDivisions ()) {
-                String divisionName = division.getDivisionName ();
                 for (ITeamsModel team : division.getTeams ()) {
                     String teamName = team.getTeamName ();
                     if (!team.isUserCreatedTeam ()) {
                         float lossPoint = team.getLossPoint ();
-                        //if (calculateLossPoint (lossPoint, tradeModel)) {
-                        //if (makeTradeOffer (tradeModel, team)) {
-                        team.setLossPointForTrading (0);
-                        logger.debug ("Trade initiated by team:" + " " + teamName);
-                        tradingTeamDetails.setConferenceName (conferenceName);
-                        tradingTeamDetails.setDivisionName (divisionName);
-                        tradingTeamDetails.setTeamName (teamName);
-                        tradingTeamDetails.setUserCreated (false);
-                        tradingTeamDetails.setPlayersList (team.getPlayers ());
-                        model.setTradeInitiatingTeam (tradingTeamDetails);
-                        findOfferedPlayers.findStrength (leagueModel, team, model);
-                        //}
-                        //}
+                        if (calculateLossPoint (lossPoint, tradeModel)) {
+                            if (calculateTradeChance (tradeModel, team)) {
+                                team.setLossPointForTrading (0);
+                                logger.debug ("Trade initiated by team:" + " " + teamName);
+                                initiatingTeam = team;
+                                findOfferedPlayers.findPossibleTrade (leagueModel, team);
+                            }
+                        }
                     }
                 }
             }

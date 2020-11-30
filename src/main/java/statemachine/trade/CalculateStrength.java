@@ -1,7 +1,6 @@
 package statemachine.trade;
 
-import leagueobjectmodel.ITeamsModel;
-import leagueobjectmodel.PlayerModel;
+import leagueobjectmodel.*;
 import org.apache.log4j.Logger;
 
 import java.util.HashMap;
@@ -9,9 +8,9 @@ import java.util.List;
 
 public class CalculateStrength implements ICalculateStrength {
     private static final Logger logger = Logger.getLogger (CalculateStrength.class);
-    private final float goodForwardStrength = 400;
-    private final float goodDefenseStrength = 290;
-    private final float goodGoalieStrength = 100;
+    private float averageForwardStrength = 0;
+    private float averageDefenseStrength = 0;
+    private float averageGoalieStrength = 0;
 
     private enum playerPosition {
         forward,
@@ -20,35 +19,31 @@ public class CalculateStrength implements ICalculateStrength {
     }
 
     @Override
-    public int findTeamStrengthWeakness(ITradeTeamPojo teamDetails, HashMap strengthMap) {
+    public int totalStrengthCounter(ITeamsModel team, HashMap strengthMap, ILeagueModel league) {
         int counterForward = 0;
         int counterDefense = 0;
         int counterGoalie = 0;
         int totalCounter;
-
-        float forwardStrength = (float) strengthMap.get (playerPosition.forward.toString ());
-        float defenseStrength = (float) strengthMap.get (playerPosition.defense.toString ());
-        float goalieStrength = (float) strengthMap.get (playerPosition.goalie.toString ());
-
-        if (forwardStrength > goodForwardStrength) {
+        findAveragePositionStrength(league);
+        if ((float) strengthMap.get (playerPosition.forward.toString ()) > averageForwardStrength) {
             counterForward += 1;
         }
-        if (defenseStrength > goodDefenseStrength) {
+        if ((float) strengthMap.get (playerPosition.defense.toString ()) > averageDefenseStrength) {
             counterDefense += 1;
         }
-        if (goalieStrength > goodGoalieStrength) {
+        if ((float) strengthMap.get (playerPosition.goalie.toString ()) > averageGoalieStrength) {
             counterGoalie += 1;
         }
-        teamDetails.setIsDefenseStrong (counterDefense);
-        teamDetails.setIsForwardStrong (counterForward);
-        teamDetails.setIsGoalieStrong (counterGoalie);
+        team.setIsDefenseStrong (counterDefense);
+        team.setIsForwardStrong (counterForward);
+        team.setIsGoalieStrong (counterGoalie);
         totalCounter = counterForward + counterDefense + counterGoalie;
         return totalCounter;
 
     }
 
     @Override
-    public HashMap findStrength(ITeamsModel team) {
+    public HashMap findPositionStrength(ITeamsModel team) {
         float totalForwardStrength = 0;
         float totalDefenseStrength = 0;
         float totalGoalieStrength = 0;
@@ -79,5 +74,35 @@ public class CalculateStrength implements ICalculateStrength {
             totalStrength += players.get (i).getPlayerStrength ();
         }
         return totalStrength;
+    }
+
+    @Override
+    public void findAveragePositionStrength(ILeagueModel league) {
+        HashMap<String, Float> strengthMap = new HashMap<> ();
+
+        int totalTeam = 0;
+        float totalForward = 0;
+        float totaldefense = 0;
+        float totalGoalie = 0;
+        for (IConferenceModel conference : league.getConferences ()) {
+            for (IDivisonModel division : conference.getDivisions ()) {
+                for (ITeamsModel team : division.getTeams ()) {
+                    totalTeam += 1;
+                    HashMap map = findPositionStrength (team);
+                    totalForward = totalForward + (float) map.get ("forward");
+                    totaldefense = totaldefense + (float) map.get ("defense");
+                    totalGoalie = totalGoalie + (float) map.get ("goalie");
+                }
+            }
+        }
+        averageForwardStrength = totalForward / totalTeam;
+        averageForwardStrength = (float) (averageForwardStrength + (averageForwardStrength * 0.10));
+
+        averageDefenseStrength = totaldefense / totalTeam;
+        averageDefenseStrength = (float) (averageDefenseStrength + (averageDefenseStrength * 0.10));
+
+        averageGoalieStrength = totalGoalie / totalTeam;
+        averageGoalieStrength = (float) (averageGoalieStrength + (averageGoalieStrength * 0.10));
+
     }
 }
