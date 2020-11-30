@@ -32,7 +32,7 @@ public class CreateTeam implements ICreateTeam {
 
     public CreateTeam() {
         conferenceValidator = LeagueObjectModelAbstractFactory.getInstance().getConferenceValidator();
-        divisionValidator = LeagueObjectModelAbstractFactory.getInstance().getDivisonValidator();
+        divisionValidator = LeagueObjectModelAbstractFactory.getInstance().getDivisionValidator();
         userCreatedPlayers = new ArrayList<>();
         teamInactiveRoasters = new ArrayList<>();
         teamActiveRoasters = new ArrayList<>();

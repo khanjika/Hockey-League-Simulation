@@ -8,7 +8,7 @@ public class LeagueObjectModelFactoryAbstractConcrete extends LeagueObjectModelA
     private IConferenceModel conference;
     private IConferenceValidator conferenceValidator;
     private IDivisonModel division;
-    private IDivisonValidator divisonValidator;
+    private IDivisonValidator divisionValidator;
     private ITeamsModel teams;
     private ITeamsValidator teamsValidator;
     private IPlayerModel player;
@@ -205,16 +205,16 @@ public class LeagueObjectModelFactoryAbstractConcrete extends LeagueObjectModelA
     }
 
     @Override
-    public IDivisonValidator getDivisonValidator() {
-        if (divisonValidator == null) {
-            divisonValidator = new DivisonValidator ();
+    public IDivisonValidator getDivisionValidator() {
+        if (divisionValidator == null) {
+            divisionValidator = new DivisonValidator ();
         }
-        return divisonValidator;
+        return divisionValidator;
     }
 
     @Override
-    public void setDivisonValidator(IDivisonValidator divisonValidator) {
-        this.divisonValidator = divisonValidator;
+    public void setDivisionValidator(IDivisonValidator divisionValidator) {
+        this.divisionValidator = divisionValidator;
     }
 
     @Override

@@ -1,0 +1,5 @@
+package leagueobjectmodel;
+
+public class LeagueObjectModelFactoryAbstractConcreteTest extends LeagueObjectModelFactoryAbstractTest{
+
+}
