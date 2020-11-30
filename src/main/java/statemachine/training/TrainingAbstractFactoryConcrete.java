@@ -5,7 +5,7 @@ public class TrainingAbstractFactoryConcrete extends TrainingAbstractFactory{
     private ITraining training;
 
     @Override
-    public ITraining getTraining() {
+    public ITraining createTraining() {
         if(training == null){
             training = new Training();
         }

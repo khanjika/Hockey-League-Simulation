@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class SortTeams implements ISortTeams {
-    ITeamsModel teamsModel = LeagueObjectModelAbstractFactory.getInstance().getTeams();
     @Override
     public List<PlayerModel> sortPlayersAscending(List<PlayerModel> players) {
         players.sort(Comparator.comparing(PlayerModel::getPlayerStrength));

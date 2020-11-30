@@ -4,7 +4,7 @@ public class TrophySystemAbstractFactoryConcrete extends TrophySystemAbstractFac
     private ITrophySystem trophySystem;
 
     @Override
-    public ITrophySystem getTrophySystem() {
+    public ITrophySystem createTrophySystem() {
         if(trophySystem == null){
             trophySystem = new TrophySystem();
         }

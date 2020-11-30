@@ -6,14 +6,11 @@ import cli.CliAbstractFactory;
 import cli.ICli;
 import leagueobjectmodel.ConferenceModel;
 import leagueobjectmodel.DivisonModel;
-import leagueobjectmodel.LeagueModel;
 import leagueobjectmodel.PlayerModel;
 import org.apache.log4j.Logger;
-import statemachine.states.statemachine.states.matchSchedules.*;
 import statemachine.states.statemachine.StateMachine;
 import leagueobjectmodel.TeamsModel;
 import leagueobjectmodel.*;
-import statemachine.states.statemachine.StateMachine;
 import statemachine.states.statemachine.states.matchSchedules.IDeadlines;
 import statemachine.states.statemachine.states.matchSchedules.IPlayoffSchedule;
 import statemachine.states.statemachine.states.matchSchedules.IRegularSeasonSchedule;
@@ -57,7 +54,7 @@ public class InitializeSeasonState implements ITransition {
         this.updatedLeagueModelObject = updatedLeagueModel;
         currentSimulationYear = currentYear;
         iDeadlines = MatchScheduleAbstractFactory.getMatchScheduleInstance().getDeadline();
-        trophySystem = TrophySystemAbstractFactory.getInstance().getTrophySystem();
+        trophySystem = TrophySystemAbstractFactory.instance().createTrophySystem();
     }
 
     @Override

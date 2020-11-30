@@ -1,6 +1,5 @@
 package statemachine.training;
 
-import LeagueMockObject.MockLeagueAbstractFactory;
 import leagueobjectmodel.ILeagueModel;
 import leagueobjectmodel.ITeamsModel;
 import leagueobjectmodel.LeagueModelTest;
@@ -17,7 +16,7 @@ public class TrainingTest {
     void trainingLogicTest() {
         ILeagueModel testModel = LeagueModelTest.getLeagueObject();
         ILeagueModel leagueModel = LeagueModelTest.getLeagueObject();
-        ITraining training = TrainingAbstractFactoryTest.getTrainingInstance().getTraining();
+        ITraining training = TrainingAbstractFactoryTest.instance().createTraining();
         ITeamsModel team = testModel.getConferences().get(0).getDivisions().get(0).getTeams().get(0);
         training.setInjuriesModel(testModel.getGameplayConfig().getInjuries());
         training.performTraining(team.getPlayers().get(0), team.getHeadCoach(), LocalDate.parse("2021-04-02"));

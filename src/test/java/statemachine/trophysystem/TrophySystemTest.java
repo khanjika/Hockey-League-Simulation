@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 public class TrophySystemTest {
 
-    ITrophySystem trophySystem = TrophySystemAbstractFactoryTest.getTrophySystemInstance().getTrophySystem();
+    ITrophySystem trophySystem = TrophySystemAbstractFactoryTest.instance().createTrophySystem();
     ILeagueModel leagueModel = MockLeagueAbstractFactory.getMockInstance().createLeague();
 
     void performCalculationBeforePlayOff(){

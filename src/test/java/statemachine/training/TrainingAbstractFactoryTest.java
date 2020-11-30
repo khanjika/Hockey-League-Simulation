@@ -5,14 +5,14 @@ public abstract class TrainingAbstractFactoryTest {
 
     private static TrainingAbstractFactoryTest instance;
 
-    public static TrainingAbstractFactoryTest getTrainingInstance() {
+    public static TrainingAbstractFactoryTest instance() {
         if (instance == null) {
             instance = new TrainingAbstractFactoryConcreteTest();
         }
         return instance;
     }
 
-    public abstract ITraining getTraining();
+    public abstract ITraining createTraining();
 
     public abstract void setTraining(ITraining training);
 }

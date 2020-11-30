@@ -5,12 +5,7 @@ import cli.CliAbstractFactory;
 import cli.ICli;
 import leagueobjectmodel.*;
 import org.apache.log4j.Logger;
-import leagueobjectmodel.ILeagueModel;
-import leagueobjectmodel.LeagueModel;
-import leagueobjectmodel.LeagueObjectModelAbstractFactory;
 import statemachine.states.statemachine.StateMachine;
-import statemachine.trade.IGenerateTradeOffer;
-import statemachine.trade.TradeAbstractFactory;
 
 import java.util.Calendar;
 
@@ -90,8 +85,6 @@ public class PlayerSeasonsChoiceState implements ITransition {
             logger.error("Error while parsing the league Object");
             throw e;
         }
-
-        currentModel.getGameplayConfig().getTrading().getGmTable();
         iLeagueModel.storeLeagueInformation(currentModel);
         //This will be used to store the information
 //        stateMachine.getUpdateStateValue().updatePersistStateValue(currentModel, stateMachine, currentYear);

@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class LoadTeamTest {
@@ -18,7 +17,7 @@ public class LoadTeamTest {
         System.setIn(userinput);
         ICli cli = new MockCli();
         CliAbstractFactory.getInstance().setCli(cli);
-        ILoadTeam loadTeamCli = LoadTeamAbstractFactory.getInstance().getLoadTeam();
+        ILoadTeam loadTeamCli = LoadTeamAbstractFactory.instance().createLoadTeam();
         ILeagueModel leagueModel = loadTeamCli.getData();
         assertNull(leagueModel);
     }

@@ -3,12 +3,12 @@ package statemachine.training;
 public class TrainingAbstractFactoryConcreteTest extends TrainingAbstractFactoryTest{
 
     @Override
-    public ITraining getTraining() {
-        return TrainingAbstractFactory.getInstance().getTraining();
+    public ITraining createTraining() {
+        return TrainingAbstractFactory.instance().createTraining();
     }
 
     @Override
     public void setTraining(ITraining training) {
-        TrainingAbstractFactory.getInstance();
+        TrainingAbstractFactory.instance();
     }
 }

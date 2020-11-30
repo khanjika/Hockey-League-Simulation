@@ -1,8 +1,8 @@
 package mock;
 
+import database.serializeobject.IDeserializeObject;
+import database.serializeobject.SerializeObjectAbstractFactory;
 import leagueobjectmodel.*;
-import statemachine.jsonparser.IParser;
-import statemachine.jsonparser.ParserAbstractFactory;
 import statemachine.trade.ICalculateStrength;
 import statemachine.trade.TradeAbstractFactory;
 
@@ -11,7 +11,7 @@ import java.util.List;
 
 public class ModelMock {
 
-    IParser parse = ParserAbstractFactory.getInstance ().getParser ();
+    IDeserializeObject parse = SerializeObjectAbstractFactory.instance().createParser();
     ICalculateStrength calculateStrength = TradeAbstractFactory.instance ().createStrength ();
 
     private enum playerPosition {

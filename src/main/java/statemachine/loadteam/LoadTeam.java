@@ -2,26 +2,25 @@ package statemachine.loadteam;
 
 import cli.CliAbstractFactory;
 import cli.ICli;
+import database.serializeobject.IDeserializeObject;
 import database.serializeobject.IFileValidator;
 import database.serializeobject.SerializeObjectAbstractFactory;
 import leagueobjectmodel.ILeagueModel;
 import leagueobjectmodel.ITeamsValidator;
 import leagueobjectmodel.LeagueObjectModelAbstractFactory;
 import org.apache.log4j.Logger;
-import statemachine.jsonparser.IParser;
-import statemachine.jsonparser.ParserAbstractFactory;
 
 public class LoadTeam implements ILoadTeam{
     private static ILeagueModel iLeagueModel;
     private static ITeamsValidator iTeamsValidator;
-    private static IParser parser;
+    private static IDeserializeObject parser;
     private static IFileValidator fileValidator;
     private ICli iCli;
     final static Logger logger = Logger.getLogger(LoadTeam.class);
 
     public LoadTeam() {
-        parser = ParserAbstractFactory.getInstance().getParser();
-        fileValidator = SerializeObjectAbstractFactory.getInstance().getFileValidator();
+        parser = SerializeObjectAbstractFactory.instance().createParser();
+        fileValidator = SerializeObjectAbstractFactory.instance().createFileValidator();
         iTeamsValidator = LeagueObjectModelAbstractFactory.getInstance().getTeamsValidator();
         iCli = CliAbstractFactory.getInstance().getCli();
     }

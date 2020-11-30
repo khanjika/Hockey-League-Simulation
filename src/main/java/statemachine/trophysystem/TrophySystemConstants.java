@@ -26,6 +26,8 @@ public enum TrophySystemConstants {
     LogInfoDefenseDisplay("Defense Standing Observer display notified and displayed"),
     LogInfoCoachUpdate("Coach Standing Observer notified and updated"),
     LogInfoCoachDisplay("Coach Standing Observer display notified and displayed"),
+    LogInfoSubjectUpdate("All the observers of the subjects are notified for update"),
+    LogInfoSubjectDisplay("All the observers of the subjects are notified for diplay")
     ;
 
 

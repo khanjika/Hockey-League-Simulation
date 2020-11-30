@@ -29,15 +29,15 @@ public class SerializeObject implements ISerializeObject {
             gson.toJson(leagueModel, writer);
             writer.flush();
             writer.close();
-            logger.info(FileConstant.LogInfoWrite.getValue());
+            logger.info(FileConstants.LogInfoWrite.getValue());
             return true;
         } catch (IOException exception) {
-            logger.error(FileConstant.LogErrorWrite.getValue(), exception);
+            logger.error(FileConstants.LogErrorWrite.getValue(), exception);
             exception.printStackTrace();
             return false;
         }
         catch (Exception error){
-            logger.error(FileConstant.LogErrorWrite.getValue(),error);
+            logger.error(FileConstants.LogErrorWrite.getValue(),error);
             return false;
         }
     }

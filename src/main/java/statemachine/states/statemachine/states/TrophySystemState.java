@@ -9,7 +9,7 @@ public class TrophySystemState implements ITransition{
 
     StateMachine stateMachine;
     ILeagueModel leagueModel;
-    ITrophySystem trophySystem = TrophySystemAbstractFactory.getInstance().getTrophySystem();
+    ITrophySystem trophySystem = TrophySystemAbstractFactory.instance().createTrophySystem();
     int year;
 
     public TrophySystemState(StateMachine stateMachine) {

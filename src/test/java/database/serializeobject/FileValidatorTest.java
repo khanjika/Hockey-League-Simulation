@@ -7,11 +7,11 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class FileValidatorTest {
 
-    IFileValidator file = SerializeObjectAbstractFactory.getInstance().getFileValidator();
+    IFileValidator file = SerializeObjectAbstractFactory.instance().createFileValidator();
 
     @Test
     void isFileExistTest(){
-        assertFalse(file.isFileExist("testingTeam"));
+        assertFalse(file.isFileExist("team, bad"));
     }
 
     @Test
