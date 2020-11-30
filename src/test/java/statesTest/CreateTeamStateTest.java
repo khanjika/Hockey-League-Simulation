@@ -27,7 +27,6 @@ public class CreateTeamStateTest {
     @Test
     void setStateMachine() {
         try {
-
             StateMachine stateMachine = new StateMachine();
             stateMachine.setCurrentState(stateMachine.getCreateTeam());
             CreateTeamState teamState = new CreateTeamState(stateMachine);

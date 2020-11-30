@@ -211,7 +211,6 @@ public class InitializeSeasonState implements ITransition {
 
         MatchScheduleAbstractFactory.getMatchScheduleInstance().setRegularSeason(null);
         MatchScheduleAbstractFactory.getMatchScheduleInstance().setPlayOff(null);
-        System.out.println("=========================================================================================================================================");
         stateMachine.getUpdateStateValue().updateTrophyStateValue(updatedLeagueModelObject, stateMachine , currentSimulationYear);
         stateMachine.setCurrentState(stateMachine.getTrophySystemState());
         stateMachine.getCurrentState().entry();
