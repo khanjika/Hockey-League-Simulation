@@ -27,7 +27,7 @@ public class MockLeague {
         injuriesModel.setInjuryDaysHigh(250);
         injuriesModel.setInjuryDaysLow(1);
         injuriesModel.setRandomInjuryChance(0.05f);
-        java.util.List<ConferenceModel> conferenceModelObjectList = new ArrayList<>();
+        List<IConferenceModel> conferenceModelObjectList = new ArrayList<>();
         for (int i = 0; i < 1; i++) {
             ConferenceModel conferenceModel = getConferenceObject();
             conferenceModelObjectList.add(conferenceModel);
@@ -43,7 +43,7 @@ public class MockLeague {
             freeAgentModelList.add((freeAgentModel1));
             freeAgentModelList.add(freeAgentModel2);
         }
-        leagueModel.setFreeAgents(freeAgentModelList);
+//        leagueModel.setFreeAgents(freeAgentModelList);
         leagueModel.setGameplayConfig(gamePLayModel);
         gamePLayModel.setTrading(tradingModel);
         gamePLayModel.setAging(agingModel);
@@ -54,7 +54,7 @@ public class MockLeague {
     public static ConferenceModel getConferenceObject() {
         ConferenceModel conferenceModel = new ConferenceModel();
         conferenceModel.setConferenceName("Eastern Conference");
-        List<DivisonModel> divisionModelObjectList = new ArrayList<>();
+        List<IDivisonModel> divisionModelObjectList = new ArrayList<>();
         for (int i = 0; i < 1; i++) {
             DivisonModel divisonModel = getDivisionObject();
             divisionModelObjectList.add(divisonModel);
@@ -66,8 +66,8 @@ public class MockLeague {
     public static DivisonModel getDivisionObject() {
         DivisonModel divisonModel = new DivisonModel();
         divisonModel.setDivisionName("Atlantic");
-        TeamsModelTest teamsModelTest = new TeamsModelTest();
-        List<TeamsModel> teamModelObjectList = new ArrayList<>();
+        //TeamsModelTest teamsModelTest = new TeamsModelTest();
+        List<ITeamsModel> teamModelObjectList = new ArrayList<>();
 
         for (int i = 0; i < 1; i++) {
             TeamsModel teamsModel = getTeamsObject1();

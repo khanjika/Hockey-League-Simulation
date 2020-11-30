@@ -7,35 +7,35 @@ public interface ILeagueModel {
 
     void setLeagueName(String leagueName);
 
-    List<ConferenceModel> getConferences();
+    List<IConferenceModel> getConferences();
 
-    void setConferences(List<ConferenceModel> conferences);
+    void setConferences(List<IConferenceModel> conferences);
 
-    List<FreeAgentModel> getFreeAgents();
+    List<IFreeAgentModel> getFreeAgents();
 
-    void setFreeAgents(List<FreeAgentModel> freeAgents);
+    void setFreeAgents(List<IFreeAgentModel> freeAgents);
 
     void setCurrentTeam(String name);
 
     String getCurrentTeam();
 
-    List<CoachModel> getCoaches();
+    List<ICoachModel> getCoaches();
 
-    void setCoaches(List<CoachModel> coaches);
+    void setCoaches(List<ICoachModel> coaches);
 
-    List<GeneralManagersModel> getGeneralManagers();
+    List<IGeneralManagersModel> getGeneralManagers();
 
-    void setGeneralManagers(List<GeneralManagersModel> generalManagers);
+    void setGeneralManagers(List<IGeneralManagersModel> generalManagers);
 
-    GamePlayConfigModel getGameplayConfig();
+    IGamePlayConfigModel getGameplayConfig();
 
     void setGameplayConfig(GamePlayConfigModel gameplayConfig);
 
-    List<FreeAgentModel> getForwards();
+    List<IFreeAgentModel> getForwards();
 
-    List<FreeAgentModel> getDefenses();
+    List<IFreeAgentModel> getDefenses();
 
-    List<FreeAgentModel> getGoalies();
+    List<IFreeAgentModel> getGoalies();
 
     boolean storeLeagueInformation(ILeagueModel leagueModel);
 }

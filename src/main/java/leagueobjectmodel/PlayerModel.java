@@ -53,7 +53,7 @@ public class PlayerModel implements IPlayerModel {
     private IAgingModel agingModel;
     private IInjuriesModel injuriesModel;
     private IFreeAgentModel freeAgentModel;
-    private List<FreeAgentModel> freeAgentsList;
+    private List<IFreeAgentModel> freeAgentsList;
     private int saveForGoalie;
     private int goalScorerCount;
     private int currentPenaltyCount;
@@ -290,12 +290,12 @@ public class PlayerModel implements IPlayerModel {
     }
 
     @Override
-    public List<FreeAgentModel> getFreeAgentsList() {
+    public List<IFreeAgentModel> getFreeAgentsList() {
         return freeAgentsList;
     }
 
     @Override
-    public void setFreeAgentsList(List<FreeAgentModel> freeAgentsList) {
+    public void setFreeAgentsList(List<IFreeAgentModel> freeAgentsList) {
         this.freeAgentsList = freeAgentsList;
     }
 
@@ -453,8 +453,8 @@ public class PlayerModel implements IPlayerModel {
             }
             if (playerModel.isPlayerRetired()) {
                 String playerPosition = playerModel.getPosition();
-                List<FreeAgentModel> availableFreeAgents = this.getFreeAgentsList();
-                FreeAgentModel replacementFreeAgent = freeAgentModel.getReplacementFreeAgent(availableFreeAgents, playerPosition);
+                List<IFreeAgentModel> availableFreeAgents = this.getFreeAgentsList();
+                IFreeAgentModel replacementFreeAgent = freeAgentModel.getReplacementFreeAgent(availableFreeAgents, playerPosition);
                 System.out.println("Player " + playerModel.getPlayerName() + " is Retired and Replace with FreeAgent " + replacementFreeAgent.getPlayerName());
                 replacePlayerWithFreeAgent(playerModel, replacementFreeAgent);
             }
@@ -485,7 +485,7 @@ public class PlayerModel implements IPlayerModel {
 
 
     @Override
-    public void replacePlayerWithFreeAgent(PlayerModel playerModel, FreeAgentModel replacementFreeAgent) {
+    public void replacePlayerWithFreeAgent(PlayerModel playerModel, IFreeAgentModel replacementFreeAgent) {
         try {
             if (replacementFreeAgent == null || playerModel == null) {
                 throw new NullPointerException("Argument null in replacePlayerWithFreeAgent");

@@ -1,9 +1,6 @@
 package cli;
 
-import leagueobjectmodel.CoachModel;
-import leagueobjectmodel.FreeAgentModel;
-import leagueobjectmodel.GeneralManagersModel;
-import leagueobjectmodel.PlayerModel;
+import leagueobjectmodel.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -60,7 +57,7 @@ public class Display implements IDisplay {
     }
 
     @Override
-    public void displayCoaches(List<CoachModel> coaches) {
+    public void displayCoaches(List<ICoachModel> coaches) {
         Map<Integer, Integer> columnLength = new HashMap<Integer, Integer>();
         StringBuilder format = new StringBuilder();
         String[] header = {"Number", "Name", "Checking", "Skating", "Shooting", "Saving"};
@@ -98,7 +95,7 @@ public class Display implements IDisplay {
     }
 
     @Override
-    public void displayManagers(List<GeneralManagersModel> generalManagers) {
+    public void displayManagers(List<IGeneralManagersModel> generalManagers) {
         Map<Integer, Integer> columnLength = new HashMap<Integer, Integer>();
         StringBuilder format = new StringBuilder();
         String[] header = {"Number", "Name", "Personality"};
@@ -134,7 +131,7 @@ public class Display implements IDisplay {
     }
 
     @Override
-    public void displayFreeAgents(List<FreeAgentModel> freeAgentModel) {
+    public void displayFreeAgents(List<IFreeAgentModel> freeAgentModel) {
 
         Map<Integer, Integer> columnLength = new HashMap<Integer, Integer>();
         StringBuilder format = new StringBuilder();

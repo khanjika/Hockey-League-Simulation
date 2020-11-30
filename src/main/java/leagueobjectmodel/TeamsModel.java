@@ -11,18 +11,11 @@ import java.util.stream.Collectors;
 public class TeamsModel implements ITeamsModel {
 
     private final IPlayerModel playerModel;
-    Comparator<PlayerModel> playerModelComparator = new Comparator<PlayerModel>() {
-        @Override
-        public int compare(PlayerModel o1, PlayerModel o2) {
-            float playerOneStrength = o1.getPlayerStrength();
-            float playerTwoStrength = o2.getPlayerStrength();
-            return (int) (playerOneStrength - playerTwoStrength);
-        }
-    };
+
     @Expose
     private String teamName;
     @Expose
-    private GeneralManagersModel generalManager;
+    private IGeneralManagersModel generalManager;
     @Expose
     private HeadCoachModel headCoach;
     @Expose
@@ -145,12 +138,12 @@ public class TeamsModel implements ITeamsModel {
     }
 
     @Override
-    public GeneralManagersModel getGeneralManager() {
+    public IGeneralManagersModel getGeneralManager() {
         return generalManager;
     }
 
     @Override
-    public void setGeneralManager(GeneralManagersModel generalManager) {
+    public void setGeneralManager(IGeneralManagersModel generalManager) {
         this.generalManager = generalManager;
     }
 
@@ -367,4 +360,12 @@ public class TeamsModel implements ITeamsModel {
     }
     return list;
     }
+    Comparator<PlayerModel> playerModelComparator = new Comparator<PlayerModel>() {
+        @Override
+        public int compare(PlayerModel o1, PlayerModel o2) {
+            float playerOneStrength = o1.getPlayerStrength();
+            float playerTwoStrength = o2.getPlayerStrength();
+            return (int) (playerOneStrength - playerTwoStrength);
+        }
+    };
 }

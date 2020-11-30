@@ -68,9 +68,9 @@ public class AcceptRejectTrade implements IAcceptRejectTrade {
         boolean successTeam1 = false;
         boolean successTeam2 = false;
 
-        for (ConferenceModel conference : league.getConferences ()) {
-            for (DivisonModel division : conference.getDivisions ()) {
-                for (TeamsModel team : division.getTeams ()) {
+        for (IConferenceModel conference : league.getConferences ()) {
+            for (IDivisonModel division : conference.getDivisions ()) {
+                for (ITeamsModel team : division.getTeams ()) {
                     if (team.equals (initiateTeam)) {
                         successTeam1 = swapTeam (team, model.getRequestedPlayers (), model.getOfferedPlayer ());
                         teamsValidator.isCaptainPresent (team.getPlayers ());

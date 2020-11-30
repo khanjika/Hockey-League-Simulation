@@ -96,9 +96,9 @@ public interface IPlayerModel {
 
     abstract void setAgingModel(IAgingModel agingModel);
 
-    List<FreeAgentModel> getFreeAgentsList();
+    List<IFreeAgentModel> getFreeAgentsList();
 
-    abstract void setFreeAgentsList(List<FreeAgentModel> freeAgentsList);
+    abstract void setFreeAgentsList(List<IFreeAgentModel> freeAgentsList);
 
     abstract IInjuriesModel getInjuriesModel();
 
@@ -114,7 +114,7 @@ public interface IPlayerModel {
 
     void checkStatDecayDueToBirthDay(PlayerModel playerModel, LocalDate date, int daysToAge);
 
-    void replacePlayerWithFreeAgent(PlayerModel playerModel, FreeAgentModel replacementFreeAgent);
+    void replacePlayerWithFreeAgent(PlayerModel playerModel, IFreeAgentModel replacementFreeAgent);
 
     int checkPlayerRetirementPossibility(PlayerModel playerModel);
 

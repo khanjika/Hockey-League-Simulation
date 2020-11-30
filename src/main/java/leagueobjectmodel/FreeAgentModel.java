@@ -190,7 +190,7 @@ public class FreeAgentModel implements IFreeAgentModel {
     }
 
     @Override
-    public void calculateFreeAgentStrength(FreeAgentModel freeAgentModel) {
+    public void calculateFreeAgentStrength(IFreeAgentModel freeAgentModel) {
         float strength = 0;
         if (freeAgentModel.getPosition().equals(PlayerPosition.FORWARD.toString())) {
             strength = freeAgentModel.getSkating() + freeAgentModel.getShooting() + (freeAgentModel.getChecking() / 2);
@@ -246,12 +246,12 @@ public class FreeAgentModel implements IFreeAgentModel {
     }
 
     @Override
-    public FreeAgentModel getReplacementFreeAgent(List<FreeAgentModel> freeAgents, String playerPosition) {
-        List<FreeAgentModel> matchedFreeAgents = new ArrayList<>();
+    public IFreeAgentModel getReplacementFreeAgent(List<IFreeAgentModel> freeAgents, String playerPosition) {
+        List<IFreeAgentModel> matchedFreeAgents = new ArrayList<>();
         if (freeAgents == null) {
             return null;
         }
-        for (FreeAgentModel freeAgent : freeAgents) {
+        for (IFreeAgentModel freeAgent : freeAgents) {
             if (freeAgent.getPosition().equals(playerPosition)) {
                 matchedFreeAgents.add(freeAgent);
                 calculateFreeAgentStrength(freeAgent);
@@ -261,14 +261,14 @@ public class FreeAgentModel implements IFreeAgentModel {
             System.out.println("NO MATCH FOUND FOR THE PLAYER WITH POSITION " + playerPosition);
             System.exit(0);
         }
-        FreeAgentModel replacementFreeAgent = Collections.max(matchedFreeAgents, Comparator.comparing(f -> f.getFreeAgentStrength()));
+        IFreeAgentModel replacementFreeAgent = Collections.max(matchedFreeAgents, Comparator.comparing(f -> f.getFreeAgentStrength()));
         freeAgents.remove(replacementFreeAgent);
         return replacementFreeAgent;
     }
 
     @Override
-    public List<FreeAgentModel> sortFreeAgentDescending(List<FreeAgentModel> freeAgents) {
-        freeAgents.sort(Comparator.comparing(FreeAgentModel::getFreeAgentStrength).reversed());
+    public List<IFreeAgentModel> sortFreeAgentDescending(List<IFreeAgentModel> freeAgents) {
+        freeAgents.sort(Comparator.comparing(IFreeAgentModel::getFreeAgentStrength).reversed());
         return freeAgents;
     }
 

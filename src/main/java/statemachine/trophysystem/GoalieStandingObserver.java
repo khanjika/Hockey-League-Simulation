@@ -18,9 +18,9 @@ public class GoalieStandingObserver implements IObserver{
     public void update(ILeagueModel leagueModel, int year) {
         logger.info(TrophySystemConstants.LogInfoGoalieUpdate.getValue());
         List<PlayerModel> bestGoalieOfEachTeam = new ArrayList<>();
-        for(ConferenceModel conference : leagueModel.getConferences()){
-            for(DivisonModel division : conference.getDivisions()) {
-                for (TeamsModel team : division.getTeams()) {
+        for(IConferenceModel conference : leagueModel.getConferences()){
+            for(IDivisonModel division : conference.getDivisions()) {
+                for (ITeamsModel team : division.getTeams()) {
                     bestGoalieOfEachTeam.add(Collections.max(team.getPlayers().stream()
                             .filter(l -> l.getPosition().equals(PlayerPosition.GOALIE.toString()))
                             .collect(Collectors.toList()), Comparator.comparing(PlayerModel::getSaveForGoalie)));

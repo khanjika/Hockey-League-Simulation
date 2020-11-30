@@ -1,6 +1,5 @@
 package leagueobjectmodel;
 
-import leagueobjectmodel.AgingModel;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

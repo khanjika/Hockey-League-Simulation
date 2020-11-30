@@ -1,13 +1,15 @@
 package leagueobjectmodel;
 
-import java.util.List;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
+import java.util.List;
+@JsonDeserialize(as = DivisonModel.class)
 public interface IDivisonModel {
     String getDivisionName();
 
     void setDivisionName(String divisionName);
 
-    List<TeamsModel> getTeams();
+    List<ITeamsModel> getTeams();
 
-    void setTeams(List<TeamsModel> teams);
+    void setTeams(List<ITeamsModel> teams);
 }

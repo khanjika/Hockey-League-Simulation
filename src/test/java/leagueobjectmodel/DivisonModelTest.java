@@ -30,14 +30,14 @@ public class DivisonModelTest {
     @Test
     void setTeamsTest() {
         DivisonModel divisonModel = new DivisonModel();
-        divisonModel.setTeams(new ArrayList<TeamsModel>());
+        divisonModel.setTeams(new ArrayList<>());
         assertNotNull(divisonModel.getTeams(), "Failed to set teams in division object");
     }
 
     @Test
     void getTeamsTest() {
         DivisonModel divisonModel = new DivisonModel();
-        divisonModel.setTeams(new ArrayList<TeamsModel>());
+        divisonModel.setTeams(new ArrayList<>());
         assertNotNull(divisonModel.getTeams(), "Failed to get teams in division object");
     }
 
@@ -53,19 +53,19 @@ public class DivisonModelTest {
         assertEquals(mock.getDivisionInformation("atlantic", 1), 1);
     }
 
-    public static DivisonModel getDivisionObject() {
-        DivisonModel divisonModel = new DivisonModel();
-        divisonModel.setDivisionName("Atlantic");
-        TeamsModelTest teamsModelTest = new TeamsModelTest();
-        List<TeamsModel> teamModelObjectList = new ArrayList<>();
-
-        for (int i = 0; i < 2; i++) {
-            TeamsModel teamsModel = TeamsModelTest.getTeamsObject();
-            teamModelObjectList.add(teamsModel);
-        }
-
-        divisonModel.setTeams(teamModelObjectList);
-        return divisonModel;
-    }
+//    public static DivisonModel getDivisionObject() {
+//        DivisonModel divisonModel = new DivisonModel();
+//        divisonModel.setDivisionName("Atlantic");
+//        TeamsModelTest teamsModelTest = new TeamsModelTest();
+//        List<TeamsModel> teamModelObjectList = new ArrayList<>();
+//
+//        for (int i = 0; i < 2; i++) {
+//            TeamsModel teamsModel = TeamsModelTest.getTeamsObject();
+//            teamModelObjectList.add(teamsModel);
+//        }
+//
+//        divisonModel.setTeams(teamModelObjectList);
+//        return divisonModel;
+//    }
 
 }

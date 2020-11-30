@@ -1,5 +1,8 @@
 package leagueobjectmodel;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+@JsonDeserialize(as = GeneralManagersModel.class)
 public interface IGeneralManagersModel {
     String getName();
 

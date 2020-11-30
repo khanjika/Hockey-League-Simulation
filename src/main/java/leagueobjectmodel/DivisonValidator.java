@@ -9,7 +9,7 @@ public class DivisonValidator implements IDivisonValidator {
         if (divisonModel.getDivisionName() == "" || divisonModel.getDivisionName() == null) {
             return false;
         } else {
-            for (TeamsModel teamsModel : divisonModel.getTeams()) {
+            for (ITeamsModel teamsModel : divisonModel.getTeams()) {
                 if (teamsValidator.validateTeamObject(teamsModel)) {
                     continue;
                 } else {
@@ -23,8 +23,8 @@ public class DivisonValidator implements IDivisonValidator {
 
     @Override
     public boolean isDivisionExist(ILeagueModel leagueModel, String divisionName) {
-        for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
-            for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
+        for (IConferenceModel conferenceModel : leagueModel.getConferences()) {
+            for (IDivisonModel divisonModel : conferenceModel.getDivisions()) {
                 if (divisonModel.getDivisionName().equalsIgnoreCase(divisionName)) {
                     return true;
                 }

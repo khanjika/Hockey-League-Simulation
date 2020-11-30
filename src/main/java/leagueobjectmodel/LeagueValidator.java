@@ -21,7 +21,7 @@ public class LeagueValidator implements ILeagueValidator {
             System.out.println("League name can not be empty");
             return false;
         }
-        for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
+        for (IConferenceModel conferenceModel : leagueModel.getConferences()) {
             if (conferenceValidator.validateConferenceObject(conferenceModel)) {
                 continue;
             } else {
@@ -29,8 +29,8 @@ public class LeagueValidator implements ILeagueValidator {
                 return false;
             }
         }
-        for (FreeAgentModel freeAgentModel : leagueModel.getFreeAgents()) {
-            if (freeAgentValidator.validateFreeAgentObject(freeAgentModel)) {
+        for (IFreeAgentModel freeAgentModel : leagueModel.getFreeAgents()) {
+            if (freeAgentValidator.validateFreeAgentObject((FreeAgentModel) freeAgentModel)) {
                 continue;
             } else {
                 System.out.println("Encountered Problem While validating Free Agents in the league==> " + leagueModel.getLeagueName());
@@ -38,7 +38,7 @@ public class LeagueValidator implements ILeagueValidator {
             }
         }
 
-        for (CoachModel coachModel : leagueModel.getCoaches()) {
+        for (ICoachModel coachModel : leagueModel.getCoaches()) {
             if (coachValidator.validateCoachObject(coachModel)) {
                 continue;
             } else {
