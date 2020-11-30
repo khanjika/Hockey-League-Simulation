@@ -145,6 +145,7 @@ public class PlayerDraft implements IPlayerDraft {
     @Override
     public List<IPlayerModel> draftPlayers(int totalTeams) {
         int totalNumberOfPlayers = totalTeams * NO_OF_DRAFTS;
+        System.out.println("total Player to be drafted" +totalNumberOfPlayers);
         int totalForwardPlayers = Math.round(totalNumberOfPlayers * PER_OF_FORWARD_PLAYERS);
         int totalDefensePlayers = Math.round(totalNumberOfPlayers * PER_OF_DEFENSE_PLAYERS);
         int totalGoaliePlayers = Math.round(totalNumberOfPlayers * PER_OF_GOALIE_PLAYERS);
@@ -160,6 +161,7 @@ public class PlayerDraft implements IPlayerDraft {
     @Override
     public List<IPlayerModel> draftGoaliePlayer(int totalGoaliePlayers) {
         List<IPlayerModel> goaliePlayerList = new ArrayList<>();
+        System.out.println("Goalie Player to be drafted" +totalGoaliePlayers);
         for (int i = 0; i < totalGoaliePlayers; i++) {
             IPlayerModel player = LeagueObjectModelAbstractFactory.getInstance().getNewPlayerModel();
             int playerAge = generatePlayerAge();
@@ -186,6 +188,7 @@ public class PlayerDraft implements IPlayerDraft {
     @Override
     public List<IPlayerModel> draftDefensePlayers(int totalDefensePlayers) {
         List<IPlayerModel> defensePlayerList = new ArrayList<>();
+        System.out.println("Defense Player to be drafted" +totalDefensePlayers);
         for (int i = 0; i < totalDefensePlayers; i++) {
             IPlayerModel player = LeagueObjectModelAbstractFactory.getInstance().getNewPlayerModel();
             int playerAge = generatePlayerAge();
@@ -212,6 +215,7 @@ public class PlayerDraft implements IPlayerDraft {
     @Override
     public List<IPlayerModel> draftForwardPlayers(int totalForwardPlayers) {
         List<IPlayerModel> forwardPlayerList = new ArrayList<>();
+        System.out.println("Forward Player to be drafted" +totalForwardPlayers);
         for (int i = 0; i < totalForwardPlayers; i++) {
             IPlayerModel player = LeagueObjectModelAbstractFactory.getInstance().getNewPlayerModel();
             int playerAge = generatePlayerAge();

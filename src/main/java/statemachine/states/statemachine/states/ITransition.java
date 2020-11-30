@@ -1,9 +1,9 @@
 package statemachine.states.statemachine.states;
 
 public interface ITransition {
-    void entry();
+    void entry() throws Exception;
 
-    void task();
+    void task() throws Exception;
 
-    void exit();
+    void exit() throws Exception;
 }

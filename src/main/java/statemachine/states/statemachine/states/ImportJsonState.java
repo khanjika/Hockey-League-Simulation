@@ -43,7 +43,7 @@ public class ImportJsonState implements ITransition {
     }
 
     @Override
-    public void entry() {
+    public void entry() throws Exception {
         if (cliArgument == null) {
             logger.info("User has not provided any argument in the path");
             stateMachine.setCurrentState(stateMachine.playerChoiceLoadTeam());
@@ -73,7 +73,7 @@ public class ImportJsonState implements ITransition {
     }
 
     @Override
-    public void task() {
+    public void task() throws Exception {
         createTeamState = stateMachine.getCreateTeam();
         if(createTeamState==null){
             logger.info("inside the task method of the Import json and the create team state is not initialized");
@@ -86,7 +86,7 @@ public class ImportJsonState implements ITransition {
     }
 
     @Override
-    public void exit() {
+    public void exit() throws Exception {
         stateMachine.getCurrentState().entry();
     }
 }

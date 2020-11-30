@@ -139,15 +139,15 @@ public class StateMachine {
         currentState = newState;
     }
 
-    public void entry() {
+    public void entry() throws Exception {
         currentState.entry();
     }
 
-    public void task() {
+    public void task() throws Exception {
         currentState.task();
     }
 
-    public void exit() {
+    public void exit() throws Exception {
         currentState.exit();
     }
 

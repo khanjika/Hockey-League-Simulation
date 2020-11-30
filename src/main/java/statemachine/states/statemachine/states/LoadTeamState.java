@@ -26,12 +26,13 @@ public class LoadTeamState implements ITransition {
     }
 
     @Override
-    public void entry() {
+    public void entry() throws Exception {
         task();
     }
 
     @Override
-    public void task() {
+
+    public void task() throws Exception {
         parser = LoadTeamAbstractFactory.instance().createLoadTeam();
         currentLeague = parser.getData();
         if (currentLeague == null){
@@ -43,7 +44,7 @@ public class LoadTeamState implements ITransition {
     }
 
     @Override
-    public void exit() {
+    public void exit() throws Exception {
         System.out.println(currentLeague.getLeagueName());
         stateMachine.getUpdateStateValue().updatePlayerSeasonChoiceStateValue(stateMachine,currentLeague);
         stateMachine.setCurrentState(stateMachine.teamLoaded());

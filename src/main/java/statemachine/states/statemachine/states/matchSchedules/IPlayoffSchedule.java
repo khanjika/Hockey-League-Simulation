@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface IPlayoffSchedule {
 
-    List<List<ITeamsModel>> generatePlayoffSchedule(ILeagueModel leagueModel);
+    List<List<ITeamsModel>> generatePlayoffSchedule(ILeagueModel leagueModel) throws Exception;
 }

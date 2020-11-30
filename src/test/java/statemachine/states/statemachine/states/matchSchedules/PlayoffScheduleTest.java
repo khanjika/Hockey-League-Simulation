@@ -20,7 +20,7 @@ class PlayoffScheduleTest {
     }
 
     @Test
-    void generatePlayoffSchedule() {
+    void generatePlayoffSchedule() throws Exception {
         ILeagueModel leagueModel= MockLeagueAbstractFactory.getMockInstance().createLeague();
         List<List<ITeamsModel>> schedule= playoffSchedule.generatePlayoffSchedule(leagueModel);
         assertNotNull(schedule);

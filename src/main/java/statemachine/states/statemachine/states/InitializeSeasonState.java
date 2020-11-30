@@ -56,7 +56,7 @@ public class InitializeSeasonState implements ITransition {
     }
 
     @Override
-    public void entry() {
+    public void entry() throws Exception {
         iRegularSeasonSchedule = MatchScheduleAbstractFactory.getMatchScheduleInstance().getRegularSeason();
         List<List<ITeamsModel>> currentSeasonSchedule = iRegularSeasonSchedule.generateSeasonSchedule(updatedLeagueModelObject);
         if(currentSeasonSchedule==null){
@@ -158,7 +158,7 @@ public class InitializeSeasonState implements ITransition {
     }
 
     @Override
-    public void task() {
+    public void task() throws Exception {
         cli.printOutput("--------Regular Season Complete------");
         for(ConferenceModel conferenceModel:updatedLeagueModelObject.getConferences()){
             for(DivisonModel divisonModel:conferenceModel.getDivisions()){
@@ -174,6 +174,9 @@ public class InitializeSeasonState implements ITransition {
                     System.out.println(totalMatches);
                     float valeu =goalByTeam/totalMatches;
                     double averagePenaltyCount=0;
+                    if(penaltyCOunt==0){
+                        penaltyCOunt=1;
+                    }
                     try {
                        averagePenaltyCount= totalMatches/penaltyCOunt;
                     }
@@ -182,7 +185,10 @@ public class InitializeSeasonState implements ITransition {
                         throw exception;
                     }
                     double averageSaveCount = 0;
-                    System.out.println("Save count "+saveCount);
+                    if(saveCount==0){
+                        saveCount=1;
+                    }
+                    System.out.println("Save count "+saveCount+teamsModel.getTeamName()+"=="+divisonModel.getDivisionName());
                     try {
                         averageSaveCount = totalMatches/saveCount;
                     }
@@ -200,7 +206,7 @@ public class InitializeSeasonState implements ITransition {
     }
 
     @Override
-    public void exit() {
+    public void exit() throws Exception {
         System.out.println("Season simulation ends for the year " + currentSimulationYear);
 //        for(ConferenceModel conferenceModel:updatedLeagueModelObject.getConferences()){
 //            for(DivisonModel divisonModel:conferenceModel.getDivisions()){

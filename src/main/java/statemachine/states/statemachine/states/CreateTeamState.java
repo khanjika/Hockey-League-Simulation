@@ -51,12 +51,12 @@ public class CreateTeamState implements ITransition {
     }
 
     @Override
-    public void entry() {
+    public void entry() throws Exception {
         task();
     }
 
     @Override
-    public void task() {
+    public void task() throws Exception {
         this.updatedLeagueModel = createTeam.createNewTeam(currentModel);
         if (this.updatedLeagueModel == null) {
             cli.printOutput("Team already exists");
@@ -66,7 +66,7 @@ public class CreateTeamState implements ITransition {
     }
 
     @Override
-    public void exit() {
+    public void exit() throws Exception {
         stateMachine.getUpdateStateValue().updatePlayerSeasonChoiceStateValue(stateMachine, updatedLeagueModel);
         if(stateMachine.getPlayerSeasonsChoice()==null){
             throw new NullPointerException("Player season choice state is not initialized properly");

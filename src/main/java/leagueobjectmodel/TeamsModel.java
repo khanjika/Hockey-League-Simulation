@@ -331,6 +331,9 @@ public class TeamsModel implements ITeamsModel {
     public void resolveRoostersToThirty() {
         System.out.println(this.getPlayers());
         List<PlayerModel> allRoosters = this.players;
+        for(int i=0;i<allRoosters.size();i++){
+            System.out.println("TEAM NAME -- "+this.getTeamName()+" --- "+this.players.size());
+        }
         List<PlayerModel> forwardRooster = new ArrayList<>();
         List<PlayerModel> defenseRoosters = new ArrayList<>();
         List<PlayerModel> goalieRoosters = new ArrayList<>();
@@ -356,8 +359,10 @@ public class TeamsModel implements ITeamsModel {
 
     @Override
     public List<PlayerModel> fetchRequiredRoosterFromList(List<PlayerModel> roosterList, int requiredPlayers) {
+        System.out.println("Size pf the list is "+roosterList.size()+"==="+requiredPlayers);
     List<PlayerModel> list = new ArrayList<>();
     for (int i =0 ; i<requiredPlayers;i++){
+        System.out.println(i+"==="+roosterList.get(i));
         list.add(roosterList.get(i));
     }
     return list;

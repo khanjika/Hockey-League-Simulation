@@ -15,7 +15,7 @@ public class PlayoffSchedule implements IPlayoffSchedule {
     final static Logger logger = Logger.getLogger(PlayoffSchedule.class);
 
     @Override
-    public List<List<ITeamsModel>> generatePlayoffSchedule(ILeagueModel leagueModel) {
+    public List<List<ITeamsModel>> generatePlayoffSchedule(ILeagueModel leagueModel) throws Exception {
         if(leagueModel==null){
             logger.error("League Model object is not initialized in the PlayOff schedule");
             throw new NullPointerException("League Model object is not initialized in the PlayOff schedule");
@@ -43,7 +43,7 @@ public class PlayoffSchedule implements IPlayoffSchedule {
         return finalSchedule;
     }
 
-    private List<TeamsModel> getWildCardTeam(ILeagueModel leagueModel) {
+    private List<TeamsModel> getWildCardTeam(ILeagueModel leagueModel) throws Exception{
         if(leagueModel==null){
             logger.error("League Model object is not initialized in the PlayOff schedule");
             throw new NullPointerException("League Model object is not initialized in the PlayOff schedule");
