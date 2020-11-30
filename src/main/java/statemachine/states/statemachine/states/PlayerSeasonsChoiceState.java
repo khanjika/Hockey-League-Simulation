@@ -9,6 +9,8 @@ import leagueobjectmodel.ILeagueModel;
 import leagueobjectmodel.LeagueModel;
 import leagueobjectmodel.LeagueObjectModelAbstractFactory;
 import statemachine.states.statemachine.StateMachine;
+import statemachine.trade.IGenerateTradeOffer;
+import statemachine.trade.TradeAbstractFactory;
 
 import java.util.Calendar;
 

@@ -9,23 +9,12 @@ import java.util.List;
 
 public class FindOfferedPlayers implements IFindOfferedPlayers {
 
+    private static final Logger logger = Logger.getLogger (FindOfferedPlayers.class);
     private ITeamsModel teamsModel;
     private IFreeAgentModel freeAgent;
     private ITradeModel model;
     private ICalculateStrength calculateStrength;
     private IFindTeamToSwap findTeamToSwap;
-    private ITradeTeamPojo teamPojo;
-
-    public FindOfferedPlayers() {
-        freeAgent = LeagueObjectModelAbstractFactory.getInstance ().getFreeAgent ();
-        teamsModel = LeagueObjectModelAbstractFactory.getInstance ().getTeams ();
-        findTeamToSwap = TradeAbstractFactory.instance ().createTeamToSwap ();
-        model = TradeAbstractFactory.instance ().createTradeModel ();
-        calculateStrength = TradeAbstractFactory.instance ().createStrength ();
-        teamPojo = TradeAbstractFactory.instance ().createTeamPojo ();
-    }
-
-    private static final Logger logger = Logger.getLogger (FindOfferedPlayers.class);
 
     private enum playerPosition {
         forward,
@@ -33,48 +22,62 @@ public class FindOfferedPlayers implements IFindOfferedPlayers {
         goalie
     }
 
+    public FindOfferedPlayers() {
+        freeAgent = LeagueObjectModelAbstractFactory.getInstance ().getFreeAgent ();
+        teamsModel = LeagueObjectModelAbstractFactory.getInstance ().getTeams ();
+        findTeamToSwap = TradeAbstractFactory.instance ().createTeamToSwap ();
+        model = TradeAbstractFactory.instance ().createTradeModel ();
+        calculateStrength = TradeAbstractFactory.instance ().createStrength ();
+    }
+
     @Override
-    public void findStrength(ILeagueModel league, ITeamsModel team, ITradeModel tradingTeamDetails) {
-        HashMap<String, Float> strengthMap = calculateStrength.findStrength (team);
-        identifyTypeOfTrade (strengthMap, league);
-    }
-
-    public void identifyTypeOfTrade(HashMap strengthMap, ILeagueModel league) {
-        int totalCounter = calculateStrength.findTeamStrengthWeakness (teamPojo, strengthMap);
-        List<PlayerModel> offeredPlayer = new ArrayList<> ();
-        model.setTradeInitiatingTeam (teamPojo);
-
-        if (totalCounter == 1 || totalCounter == 2) {
-            if (model.getTradeInitiatingTeam ().getIsForwardStrong () == 1) {
-                settingOfferedPlayers (playerPosition.forward.toString (), offeredPlayer, league);
-            }
-            if (model.getTradeInitiatingTeam ().getIsDefenseStrong () == 1) {
-                settingOfferedPlayers (playerPosition.defense.toString (), offeredPlayer, league);
-            }
-            if (model.getTradeInitiatingTeam ().getIsGoalieStrong () == 1) {
-                settingOfferedPlayers (playerPosition.goalie.toString (), offeredPlayer, league);
-            }
-            findTeamToSwap.find (league);
-        } else {
-            logger.debug ("Draft pick");
-        }
-    }
-
-    public void settingOfferedPlayers(String position, List<PlayerModel> offeredPlayer, ILeagueModel league) {
+    public ILeagueModel findPossibleTrade(ILeagueModel league, ITeamsModel team) {
         List<FreeAgentModel> freeAgents = league.getFreeAgents ();
-        int maxPlayersToTrade = league.getGameplayConfig ().getTrading ().getMaxPlayersPerTrade ();
-        List<PlayerModel> playerList = model.getTradeInitiatingTeam ().getPlayersList ();
-        float playerStrength;
-        float freeAgentStrength = 0;
-        int counter = 0;
-
-        teamsModel.sortPlayersOfTeamDescending (playerList);
 
         for (FreeAgentModel agent : freeAgents) {
             agent.calculateFreeAgentStrength (agent);
         }
 
+        HashMap<String, Float> strengthMap = calculateStrength.findPositionStrength (team);
+        int totalCounter = identifyTypeOfTrade (strengthMap, league, team);
+        league = findTeamToSwap.find (league, totalCounter, team);
+        return league;
+    }
+
+    @Override
+    public int identifyTypeOfTrade(HashMap strengthMap, ILeagueModel league, ITeamsModel team) {
+        int totalCounter = calculateStrength.totalStrengthCounter (team, strengthMap, league);
+        List<PlayerModel> offeredPlayer = new ArrayList<> ();
+
+        if (totalCounter > 0) {
+            logger.info ("Trade Player");
+            if (team.getIsForwardStrong () == 1) {
+                setOfferedPlayers (playerPosition.forward.toString (), offeredPlayer, league, team);
+            }
+            if (team.getIsDefenseStrong () == 1) {
+                setOfferedPlayers (playerPosition.defense.toString (), offeredPlayer, league, team);
+            }
+            if (team.getIsGoalieStrong () == 1) {
+                setOfferedPlayers (playerPosition.goalie.toString (), offeredPlayer, league, team);
+            }
+        } else {
+            logger.info ("Trade Draft pick");
+        }
+        return totalCounter;
+    }
+
+    @Override
+    public List<PlayerModel> setOfferedPlayers(String position, List<PlayerModel> offeredPlayer, ILeagueModel league, ITeamsModel team) {
+        float playerStrength;
+        float freeAgentStrength = 0;
+        int counter = 0;
+        List<FreeAgentModel> freeAgents = league.getFreeAgents ();
+        int maxPlayersToTrade = league.getGameplayConfig ().getTrading ().getMaxPlayersPerTrade ();
+        List<PlayerModel> playerList = team.getPlayers ();
+
+        teamsModel.sortPlayersOfTeamDescending (playerList);
         freeAgent.sortFreeAgentDescending (freeAgents);
+
         for (int i = 0; i < freeAgents.size (); i++) {
             if (freeAgents.get (i).getPosition ().equals (position)) {
                 freeAgentStrength = freeAgents.get (i).getFreeAgentStrength ();
@@ -91,12 +94,13 @@ public class FindOfferedPlayers implements IFindOfferedPlayers {
                         offeredPlayer.add (p);
                         model.setOfferedPlayer (offeredPlayer);
                         if (counter == 1 || model.getOfferedPlayer ().size () == 2 || model.getOfferedPlayer ().size () == maxPlayersToTrade) {
-                            break;
+                            return offeredPlayer;
                         }
                     }
                 }
                 counter += 1;
             }
         }
+        return offeredPlayer;
     }
 }

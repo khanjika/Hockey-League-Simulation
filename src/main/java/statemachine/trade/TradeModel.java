@@ -3,41 +3,16 @@ package statemachine.trade;
 import com.google.gson.annotations.Expose;
 import leagueobjectmodel.PlayerModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TradeModel implements ITradeModel {
 
     @Expose
-    private ITradeTeamPojo tradeInitiatingTeam;
+    private List<PlayerModel> offeredPlayer = new ArrayList<> ();
 
     @Expose
-    private ITradeTeamPojo tradeOfferedTeam;
-
-    @Expose
-    private List<PlayerModel> offeredPlayer;
-
-    @Expose
-    private List<PlayerModel> requestedPlayers;
-
-    @Override
-    public ITradeTeamPojo getTradeOfferedTeam() {
-        return tradeOfferedTeam;
-    }
-
-    @Override
-    public void setTradeOfferedTeam(ITradeTeamPojo tradeOfferedTeam) {
-        this.tradeOfferedTeam = tradeOfferedTeam;
-    }
-
-    @Override
-    public ITradeTeamPojo getTradeInitiatingTeam() {
-        return tradeInitiatingTeam;
-    }
-
-    @Override
-    public void setTradeInitiatingTeam(ITradeTeamPojo tradeInitiatingTeam) {
-        this.tradeInitiatingTeam = tradeInitiatingTeam;
-    }
+    private List<PlayerModel> requestedPlayers = new ArrayList<> ();
 
     @Override
     public List<PlayerModel> getOfferedPlayer() {

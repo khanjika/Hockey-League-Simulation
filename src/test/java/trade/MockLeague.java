@@ -2,10 +2,8 @@ package trade;
 
 import leagueobjectmodel.*;
 
-
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class MockLeague {
 
