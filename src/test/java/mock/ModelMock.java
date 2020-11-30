@@ -1,7 +1,7 @@
 package mock;
 
-import database.serializeobject.IDeserializeObject;
-import database.serializeobject.SerializeObjectAbstractFactory;
+import database.IDeserializeObject;
+import database.SerializeObjectAbstractFactory;
 import leagueobjectmodel.*;
 import statemachine.trade.ICalculateStrength;
 import statemachine.trade.TradeAbstractFactory;

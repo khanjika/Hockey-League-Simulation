@@ -41,6 +41,6 @@ public class TrophySystemState implements ITransition{
 
     @Override
     public void exit() {
-
+        TrophySystemAbstractFactory.instance().setTrophySystem(null);
     }
 }

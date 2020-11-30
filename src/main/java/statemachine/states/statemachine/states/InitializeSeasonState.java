@@ -4,15 +4,8 @@ package statemachine.states.statemachine.states;
 
 import cli.CliAbstractFactory;
 import cli.ICli;
-import leagueobjectmodel.ConferenceModel;
-import leagueobjectmodel.DivisonModel;
-import leagueobjectmodel.LeagueModel;
-import leagueobjectmodel.PlayerModel;
-import org.apache.log4j.Logger;
-import statemachine.states.statemachine.states.matchSchedules.*;
-import statemachine.states.statemachine.StateMachine;
-import leagueobjectmodel.TeamsModel;
 import leagueobjectmodel.*;
+import org.apache.log4j.Logger;
 import statemachine.states.statemachine.StateMachine;
 import statemachine.states.statemachine.states.matchSchedules.IDeadlines;
 import statemachine.states.statemachine.states.matchSchedules.IPlayoffSchedule;
