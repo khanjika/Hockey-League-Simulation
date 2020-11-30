@@ -19,12 +19,9 @@ public abstract class TradeAbstractFactory {
 
     public abstract ITradeModel createTradeModel();
 
-    public abstract ITradeTeamPojo createTeamPojo();
-
     public abstract IFindTeamToSwap createTeamToSwap();
 
     public abstract ICalculateStrength createStrength();
 
     public abstract IUserTradeCli createUserTradeCli();
-
 }

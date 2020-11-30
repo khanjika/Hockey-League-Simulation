@@ -1,15 +1,18 @@
 package statemachine.trade;
 
-public class TradeAbstractFactoryConcrete extends TradeAbstractFactory{
+public class TradeAbstractFactoryConcrete extends TradeAbstractFactory {
 
     private IGenerateTradeOffer tradeOffer;
     private IFindOfferedPlayers offeredPlayers;
     private IAcceptRejectTrade acceptRejectTrade;
     private ITradeModel tradeModel;
-    private ITradeTeamPojo tradeTeamPojo;
     private IFindTeamToSwap teamToSwap;
     private ICalculateStrength calculateStrength;
     private IUserTradeCli userTradeCli;
+
+    public TradeAbstractFactoryConcrete() {
+        super ();
+    }
 
     @Override
     public IAcceptRejectTrade createAcceptRejectTrade() {
@@ -44,14 +47,6 @@ public class TradeAbstractFactoryConcrete extends TradeAbstractFactory{
     }
 
     @Override
-    public ITradeTeamPojo createTeamPojo() {
-        if (tradeTeamPojo == null) {
-            tradeTeamPojo = new TradeTeamPojo ();
-        }
-        return tradeTeamPojo;
-    }
-
-    @Override
     public IFindTeamToSwap createTeamToSwap() {
         if (teamToSwap == null) {
             teamToSwap = new FindTeamToSwap ();
@@ -74,4 +69,5 @@ public class TradeAbstractFactoryConcrete extends TradeAbstractFactory{
         }
         return userTradeCli;
     }
+
 }

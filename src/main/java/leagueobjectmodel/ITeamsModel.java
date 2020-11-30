@@ -64,4 +64,20 @@ public interface ITeamsModel {
 
     List<PlayerModel> sortPlayersOfTeamDescending(List<PlayerModel> players);
 
+    int getIsGoalieStrong();
+
+    void setIsGoalieStrong(int isGoalieStrong);
+
+    int getIsForwardStrong();
+
+    void setIsForwardStrong(int isForwardStrong);
+
+    int getIsDefenseStrong();
+
+    void setIsDefenseStrong(int isDefenseStrong);
+
+    ITeamsModel[] getDraftTrade();
+
+    void setDraftTrade(ITeamsModel[] draftTrade);
+
 }
