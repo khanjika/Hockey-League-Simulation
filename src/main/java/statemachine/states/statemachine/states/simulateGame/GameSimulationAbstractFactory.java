@@ -4,7 +4,7 @@ import org.apache.log4j.Logger;
 
 public abstract class GameSimulationAbstractFactory {
 
-    private static GameSimulationAbstractFactoryConcrete instance;
+    private static GameSimulationAbstractFactory instance;
     final static Logger logger = Logger.getLogger(GameSimulationAbstractFactory.class);
 
     public static GameSimulationAbstractFactory getGameSimulationInstance(){

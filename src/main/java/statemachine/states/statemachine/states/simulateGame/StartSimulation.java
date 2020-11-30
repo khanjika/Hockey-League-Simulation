@@ -6,10 +6,6 @@ import org.apache.log4j.Logger;
 import java.util.ArrayList;
 import java.util.List;
 
-
-//NO USE OF NEW IN EXCEPTION
-//MATCH SCEDULE EXCEPTION HANDLING WITH ILLEGAL ARGUMENT
-//STATE Error Handling
 public class StartSimulation implements IStartSimulation{
 
     private static TeamsModel teamOneObject;
@@ -232,7 +228,6 @@ public class StartSimulation implements IStartSimulation{
     public void replaceDefenseAndForward() {
         objFactory.getSwapTurn().swapTurnOfForwardAndDefense();
     }
-
 
     public PlayerModel getBestGoalieFromTheTeam(List<PlayerModel> list) throws NullPointerException{
         if(list==null){

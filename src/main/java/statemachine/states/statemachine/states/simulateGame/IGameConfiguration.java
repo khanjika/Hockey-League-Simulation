@@ -62,4 +62,10 @@ public interface IGameConfiguration {
     void setCurrentShiftForwardOfTeamTwo(List<PlayerModel> currentShiftForwardOfTeamTwo);
 
     void setAverageShotsOnGoal() throws Exception;
+
+    void setPenaltyCounter(int penaltyCounter);
+
+     int getPenaltyCounter();
+
+     int getAverageShotsOnGoal();
 }

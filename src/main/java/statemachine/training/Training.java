@@ -1,8 +1,11 @@
 package statemachine.training;
 
+import leagueobjectmodel.IPlayerModel;
 import leagueobjectmodel.InjuriesModel;
 import leagueobjectmodel.PlayerModel;
 import leagueobjectmodel.HeadCoachModel;
+import org.apache.log4j.Logger;
+import statemachine.states.statemachine.states.InitializeSeasonState;
 
 import java.time.LocalDate;
 
@@ -10,9 +13,9 @@ public class Training implements ITraining {
 
     private static LocalDate currentDate;
     private InjuriesModel currentInjuriesModel;
-
+    final static Logger logger = Logger.getLogger(Training.class);
     @Override
-    public void performTraining(PlayerModel player, HeadCoachModel headCoach, LocalDate currentDate) {
+    public void performTraining(IPlayerModel player, HeadCoachModel headCoach, LocalDate currentDate) {
         Training.currentDate = currentDate;
         boolean isPlayerInjured = false;
         if (headCoach.getChecking() > Math.random()) {
@@ -57,7 +60,7 @@ public class Training implements ITraining {
         currentInjuriesModel = injuriesModel;
     }
 
-    private boolean checkForInjury(PlayerModel player) {
+    private boolean checkForInjury(IPlayerModel player) {
         player.setInjuriesModel(currentInjuriesModel);
         player.checkPlayerInjury(player, currentDate);
         return player.isPlayerInjured();
