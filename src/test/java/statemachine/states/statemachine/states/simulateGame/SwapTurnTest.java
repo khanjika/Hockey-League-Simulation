@@ -2,6 +2,7 @@ package statemachine.states.statemachine.states.simulateGame;
 
 import leagueobjectmodel.PlayerModel;
 import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -26,6 +27,11 @@ class SwapTurnTest {
         factoryMock=GameSimulationAbstractFactoryTest.getGameSimulationInstance();
     }
 
+    @AfterEach
+    void clearData(){
+        GameSimulationAbstractFactoryTest.getGameSimulationInstance().setGameConfig(null);
+        GameSimulationAbstractFactoryTest.getGameSimulationInstance().setSwapTurn(null);
+    }
     @Test
     void swapTurnOfTeam() {
         swapTurn.setAbstractFactoryObject(factory);
@@ -57,6 +63,27 @@ class SwapTurnTest {
 
     @Test
     void swapTurnOfForwardAndDefense() {
+        swapTurn.setAbstractFactoryObject(factory);
+        List<PlayerModel> mockListOne=factoryMock.getMockList();
+        List<PlayerModel> mockListTwo=factoryMock.getMockList();
+        List<PlayerModel> mockListThree=factoryMock.getMockList();
+        List<PlayerModel> mockListFour=factoryMock.getMockList();
+
+        gameConfiguration.setCurrentShiftDefenseOfTeamOne(mockListOne);
+        gameConfiguration.setCurrentShiftDefenseOfTeamTwo(mockListTwo);
+        gameConfiguration.setCurrentShiftForwardOfTeamOne(mockListOne);
+        gameConfiguration.setCurrentShiftForwardOfTeamTwo(mockListTwo);
+
+        gameConfiguration.setListOfDefenseOfTeamOne(mockListThree);
+        gameConfiguration.setListOfForwardOfTeamOne(mockListThree);
+
+        gameConfiguration.setListOfDefenseOfTeamTwo(mockListFour);
+        gameConfiguration.setListOfForwardOfTeamTwo(mockListFour);
+        swapTurn.swapTurnOfForwardAndDefense();
+        assertTrue(gameConfiguration.getCurrentShiftDefenseOfTeamOne().contains(mockListThree.get(2)));
+        assertTrue(gameConfiguration.getCurrentShiftDefenseOfTeamTwo().contains(mockListTwo.get(2)));
+        assertTrue(gameConfiguration.getCurrentShiftForwardOfTeamOne().contains(mockListOne.get(2)));
+        assertTrue(gameConfiguration.getCurrentShiftForwardOfTeamTwo().contains(mockListTwo.get(2)));
     }
 
     @Test

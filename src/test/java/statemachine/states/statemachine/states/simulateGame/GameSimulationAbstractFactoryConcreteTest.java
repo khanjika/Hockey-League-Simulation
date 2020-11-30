@@ -47,6 +47,8 @@ public class GameSimulationAbstractFactoryConcreteTest extends GameSimulationAbs
         playerModels.add(new PlayerModel());
         playerModels.add(new PlayerModel());
         playerModels.add(new PlayerModel());
+        playerModels.add(new PlayerModel());
+        playerModels.add(new PlayerModel());
 
         return playerModels;
     }

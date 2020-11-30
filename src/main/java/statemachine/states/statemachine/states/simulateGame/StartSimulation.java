@@ -229,7 +229,6 @@ public class StartSimulation implements IStartSimulation{
         objFactory.getSwapTurn().swapTurnOfForwardAndDefense();
     }
 
-
     public PlayerModel getBestGoalieFromTheTeam(List<PlayerModel> list) throws NullPointerException{
         if(list==null){
             logger.error("List is null while getting best goalie from the team during game simulation");

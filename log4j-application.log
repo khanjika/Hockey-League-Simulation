@@ -25762,3 +25762,131 @@
 2020-11-29 19:54:31 INFO  GameSimulationAbstractFactory:12 - New Object of GameSimulationAbstractFactory is created
 2020-11-29 19:54:31 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
 2020-11-29 19:54:31 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:25:23 INFO  GameSimulationAbstractFactory:12 - New Object of GameSimulationAbstractFactory is created
+2020-11-29 20:25:23 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:25:23 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:26:03 INFO  GameSimulationAbstractFactory:12 - New Object of GameSimulationAbstractFactory is created
+2020-11-29 20:26:03 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:26:03 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:26:19 INFO  GameSimulationAbstractFactory:12 - New Object of GameSimulationAbstractFactory is created
+2020-11-29 20:26:19 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:26:19 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:27:16 INFO  GameSimulationAbstractFactory:12 - New Object of GameSimulationAbstractFactory is created
+2020-11-29 20:27:16 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:27:16 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:27:49 INFO  GameSimulationAbstractFactory:12 - New Object of GameSimulationAbstractFactory is created
+2020-11-29 20:27:49 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:27:49 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:27:49 ERROR SwapTurn:71 - Exception occurred while performing swap of Forward and Defense 
+2020-11-29 20:28:16 INFO  GameSimulationAbstractFactory:12 - New Object of GameSimulationAbstractFactory is created
+2020-11-29 20:28:16 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:28:16 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:28:22 INFO  GameSimulationAbstractFactory:12 - New Object of GameSimulationAbstractFactory is created
+2020-11-29 20:28:22 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:28:22 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:28:30 INFO  GameSimulationAbstractFactory:12 - New Object of GameSimulationAbstractFactory is created
+2020-11-29 20:28:30 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:28:30 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:28:30 ERROR SwapTurn:71 - Exception occurred while performing swap of Forward and Defense 
+2020-11-29 20:30:42 INFO  GameSimulationAbstractFactory:12 - New Object of GameSimulationAbstractFactory is created
+2020-11-29 20:30:42 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:30:42 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:30:42 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:30:42 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:30:42 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:30:42 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:30:42 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:30:42 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:30:54 INFO  GameSimulationAbstractFactory:12 - New Object of GameSimulationAbstractFactory is created
+2020-11-29 20:30:54 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:30:55 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:30:55 ERROR SwapTurn:71 - Exception occurred while performing swap of Forward and Defense 
+2020-11-29 20:30:55 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:30:55 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:30:55 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:30:55 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:30:55 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:30:55 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:32:01 INFO  GameSimulationAbstractFactory:12 - New Object of GameSimulationAbstractFactory is created
+2020-11-29 20:32:01 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:32:01 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:32:10 INFO  GameSimulationAbstractFactory:12 - New Object of GameSimulationAbstractFactory is created
+2020-11-29 20:32:10 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:32:10 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:32:10 ERROR SwapTurn:71 - Exception occurred while performing swap of Forward and Defense 
+2020-11-29 20:32:10 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:32:10 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:32:10 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:32:10 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:32:10 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:32:10 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:34:09 INFO  GameSimulationAbstractFactory:12 - New Object of GameSimulationAbstractFactory is created
+2020-11-29 20:34:09 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:34:09 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:34:09 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:34:09 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:34:09 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:34:09 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:34:09 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:34:09 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:34:59 INFO  GameSimulationAbstractFactory:12 - New Object of GameSimulationAbstractFactory is created
+2020-11-29 20:34:59 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:34:59 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:34:59 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:34:59 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:34:59 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:34:59 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:34:59 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:34:59 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:35:42 INFO  GameSimulationAbstractFactory:12 - New Object of GameSimulationAbstractFactory is created
+2020-11-29 20:35:42 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:35:42 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:36:30 INFO  GameSimulationAbstractFactory:12 - New Object of GameSimulationAbstractFactory is created
+2020-11-29 20:36:30 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:36:30 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:38:18 INFO  GameSimulationAbstractFactory:12 - New Object of GameSimulationAbstractFactory is created
+2020-11-29 20:38:18 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:38:18 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:38:32 INFO  GameSimulationAbstractFactory:12 - New Object of GameSimulationAbstractFactory is created
+2020-11-29 20:38:32 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:38:32 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:38:32 ERROR SwapTurn:71 - Exception occurred while performing swap of Forward and Defense 
+2020-11-29 20:38:32 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:38:32 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:38:32 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:38:32 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:38:32 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:38:32 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:38:57 INFO  GameSimulationAbstractFactory:12 - New Object of GameSimulationAbstractFactory is created
+2020-11-29 20:38:57 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:38:57 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:39:57 INFO  GameSimulationAbstractFactory:12 - New Object of GameSimulationAbstractFactory is created
+2020-11-29 20:39:57 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:39:57 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:40:13 INFO  GameSimulationAbstractFactory:12 - New Object of GameSimulationAbstractFactory is created
+2020-11-29 20:40:13 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:40:13 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:41:46 INFO  GameSimulationAbstractFactory:12 - New Object of GameSimulationAbstractFactory is created
+2020-11-29 20:41:46 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:41:46 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:41:56 INFO  GameSimulationAbstractFactory:12 - New Object of GameSimulationAbstractFactory is created
+2020-11-29 20:41:56 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:41:56 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:41:56 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:41:56 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:41:56 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:41:56 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:41:56 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:41:56 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:43:06 INFO  GameSimulationAbstractFactory:12 - New Object of GameSimulationAbstractFactory is created
+2020-11-29 20:43:06 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:43:06 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:55:12 INFO  GameSimulationAbstractFactory:12 - New Object of GameSimulationAbstractFactory is created
+2020-11-29 20:55:12 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:55:12 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:55:12 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:55:12 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:55:12 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:55:12 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-29 20:55:12 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-29 20:55:12 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
