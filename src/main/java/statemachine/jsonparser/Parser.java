@@ -5,7 +5,11 @@ import cli.ICli;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import leagueobjectmodel.*;
+import leagueobjectmodel.ILeagueModel;
+import leagueobjectmodel.ILeagueValidator;
+import leagueobjectmodel.LeagueModel;
+import leagueobjectmodel.LeagueObjectModelAbstractFactory;
+import org.apache.log4j.Logger;
 import statemachine.loadteam.ILoadTeam;
 import statemachine.loadteam.LoadTeamAbstractFactory;
 
@@ -22,6 +26,7 @@ public class Parser implements IParser {
     private static LeagueObjectModelAbstractFactory leagueObjectModelAbstractFactory;
     private ILoadTeam loadTeam;
     private ICli iCli;
+    final static Logger logger = Logger.getLogger(Parser.class);
 
     public Parser() {
         objectMapper = new ObjectMapper();
@@ -29,7 +34,6 @@ public class Parser implements IParser {
         leagueObjectModelAbstractFactory = LeagueObjectModelAbstractFactory.getInstance();
         iCli = CliAbstractFactory.getInstance().getCli();
     }
-
 
     @Override
     public ILeagueModel loadTeamFromDatabase() {
@@ -46,15 +50,18 @@ public class Parser implements IParser {
             leagueModel = fromJson(data, LeagueModel.class);
             leagueObjectModelAbstractFactory.setLeague(leagueModel);
             if (leagueValidator.validateLeagueObject(leagueModel)) {
+                logger.info(ParserConstants.LogInfo.getValue());
                 iCli.printOutput(ParserConstants.FileValid.getValue());
                 return leagueModel;
             } else {
                 iCli.printOutput(ParserConstants.FileInvalid.getValue());
             }
-        } catch (IOException e) {
-            iCli.printOutput(ParserConstants.Error.getValue() + e);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException error) {
+            logger.error(ParserConstants.LogError.getValue(),error);
+            iCli.printOutput(ParserConstants.Error.getValue() + error);
+        } catch (Exception error) {
+            logger.error(ParserConstants.LogError.getValue(),error);
+            iCli.printOutput(ParserConstants.Error.getValue() + error);
         }
         return leagueModel;
     }
