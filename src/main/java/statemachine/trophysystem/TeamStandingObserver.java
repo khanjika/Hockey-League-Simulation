@@ -5,6 +5,7 @@ import leagueobjectmodel.ConferenceModel;
 import leagueobjectmodel.DivisonModel;
 import leagueobjectmodel.ILeagueModel;
 import leagueobjectmodel.TeamsModel;
+import org.apache.log4j.Logger;
 
 import java.util.*;
 
@@ -14,9 +15,11 @@ public class TeamStandingObserver implements IObserver{
 
     private final HashMap<Integer, TeamsModel> bestTeamWinners = new HashMap<>();
     private final HashMap<Integer, TeamsModel> lowestTeamWinners = new HashMap<>();
+    final static Logger logger = Logger.getLogger(TeamStandingObserver.class);
 
     @Override
     public void update(ILeagueModel leagueModel, int year) {
+        logger.info(TrophySystemConstants.LogInfoTeamsUpdate.getValue());
         List<TeamsModel> bestTeamOfEachDivision = new ArrayList<>();
         List<TeamsModel> lowestTeamOfEachDivison = new ArrayList<>();
 
@@ -26,7 +29,6 @@ public class TeamStandingObserver implements IObserver{
                         comparing(v -> v.getWinPoint())));
                 lowestTeamOfEachDivison.add(Collections.max(division.getTeams(),
                         comparing(v -> v.getLossPoint())));
-                System.out.println("in loop");
             }
         }
         bestTeamWinners.put(year, Collections.max(bestTeamOfEachDivision,Comparator
@@ -37,6 +39,7 @@ public class TeamStandingObserver implements IObserver{
 
     @Override
     public void getHistoryOfWinners(ICli display){
+        logger.info(TrophySystemConstants.LogInfoTeamsDisplay.getValue());
         SortedSet<Integer> years = new TreeSet<>(bestTeamWinners.keySet()).descendingSet();
         display.printOutput(TrophySystemConstants.LineSeperator.getValue() + TrophySystemConstants.LineSpace.getValue() + TrophySystemConstants.BestTeamTrophy.getValue()
                 + TrophySystemConstants.LineSpace.getValue()

@@ -1,7 +1,6 @@
 package statemachine.trophysystem;
 
 import cli.ICli;
-import cli.IDisplay;
 import leagueobjectmodel.ILeagueModel;
 
 import java.util.*;

@@ -1,4 +1,11 @@
-package statesTest;
+package statemachine.states.statemachine.statesTest;
+
+import leagueobjectmodel.*;
+import statemachine.states.statemachine.StateMachine;
+import statemachine.states.statemachine.states.AgingState;
+import trade.MockLeague;
+
+import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

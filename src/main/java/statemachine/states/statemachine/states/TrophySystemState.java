@@ -21,6 +21,14 @@ public class TrophySystemState implements ITransition{
         this.leagueModel = leagueModel;
         this.year = year;
     }
+
+    public StateMachine getStateMachine() {
+        return stateMachine;
+    }
+
+    public void setStateMachine(StateMachine stateMachine) {
+        this.stateMachine = stateMachine;
+    }
     @Override
     public void entry() {
         task();

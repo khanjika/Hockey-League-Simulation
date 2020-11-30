@@ -2,6 +2,7 @@ package statemachine.trophysystem;
 
 import cli.ICli;
 import leagueobjectmodel.*;
+import org.apache.log4j.Logger;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -10,9 +11,11 @@ public class DefensemanStandingObserver implements IObserver{
 
     PlayerModel currentBestDefenser;
     private HashMap<Integer, PlayerModel> defensemanWinners = new HashMap<>();
+    final static Logger logger = Logger.getLogger(DefensemanStandingObserver.class);
 
     @Override
     public void update(ILeagueModel leagueModel, int year) {
+        logger.info(TrophySystemConstants.LogInfoDefenseUpdate.getValue());
         List<PlayerModel> bestGoalieOfEachTeam = new ArrayList<>();
         for(ConferenceModel conference : leagueModel.getConferences()){
             for(DivisonModel division : conference.getDivisions()) {
@@ -29,6 +32,7 @@ public class DefensemanStandingObserver implements IObserver{
 
     @Override
     public void getHistoryOfWinners(ICli display){
+        logger.info(TrophySystemConstants.LogInfoDefenseDisplay.getValue());
         SortedSet<Integer> years = new TreeSet<>(defensemanWinners.keySet()).descendingSet();
         display.printOutput(TrophySystemConstants.LineSeperator.getValue() + TrophySystemConstants.LineSpace.getValue() +
                 TrophySystemConstants.DefenseManTrophy.getValue() + TrophySystemConstants.LineSpace.getValue()

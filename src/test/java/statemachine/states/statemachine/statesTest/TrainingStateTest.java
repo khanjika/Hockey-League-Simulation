@@ -1,4 +1,4 @@
-package statesTest;
+package statemachine.states.statemachine.statesTest;
 
 class TrainingStateTest {
 

@@ -14,8 +14,6 @@ public class FileValidatorTest {
         assertFalse(file.isFileExist("testingTeam"));
     }
 
-
-
     @Test
     void filePathTest(){
         assertEquals(file.filePath("testingTeam"),"src\\main\\java\\database\\datasource\\testingTeam.JSON");

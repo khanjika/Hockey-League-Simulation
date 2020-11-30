@@ -12,4 +12,6 @@ public abstract class TrainingAbstractFactory {
 
     public abstract ITraining getTraining();
 
+    public abstract void setTraining(ITraining training);
+
 }

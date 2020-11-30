@@ -1,5 +1,6 @@
 package statemachine.training;
 
+
 public class TrainingAbstractFactoryConcrete extends TrainingAbstractFactory{
     private ITraining training;
 
@@ -9,6 +10,11 @@ public class TrainingAbstractFactoryConcrete extends TrainingAbstractFactory{
             training = new Training();
         }
         return training;
+    }
+
+    @Override
+    public void setTraining(ITraining training){
+        this.training = training;
     }
 
 }

@@ -1,4 +1,4 @@
-package statesTest;
+package statemachine.states.statemachine.statesTest;
 
 import leagueobjectmodel.ConferenceModel;
 import leagueobjectmodel.DivisonModel;
