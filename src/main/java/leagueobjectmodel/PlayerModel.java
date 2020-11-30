@@ -332,7 +332,7 @@ public class PlayerModel implements IPlayerModel {
     }
 
     @Override
-    public void calculatePlayerStrength(PlayerModel playerModel) {
+    public void calculatePlayerStrength(IPlayerModel playerModel) {
         try {
             float strength = 0;
             if (playerModel.getPosition().equals(PlayerPosition.FORWARD.toString())) {
@@ -353,22 +353,22 @@ public class PlayerModel implements IPlayerModel {
     }
 
     @Override
-    public float calculateForwardStrength(PlayerModel playerModel){
+    public float calculateForwardStrength(IPlayerModel playerModel){
         return playerModel.getSkating() + playerModel.getShooting() + (playerModel.getChecking() / 2);
     }
 
     @Override
-    public float calculateDefenseStrength(PlayerModel playerModel){
+    public float calculateDefenseStrength(IPlayerModel playerModel){
         return playerModel.getSkating() + playerModel.getChecking() + (playerModel.getShooting() / 2);
     }
 
     @Override
-    public float calculateGoalieStrength(PlayerModel playerModel){
+    public float calculateGoalieStrength(IPlayerModel playerModel){
         return playerModel.getSkating() + playerModel.getSaving();
     }
 
     @Override
-    public void checkPlayerInjury(PlayerModel playerModel, LocalDate date) {
+    public void checkPlayerInjury(IPlayerModel playerModel, LocalDate date) {
         if (playerModel.isPlayerInjured() == false) {
             float randomInjuryChance = injuriesModel.getRandomInjuryChance();
             int injuryDaysLow = injuriesModel.getInjuryDaysLow();

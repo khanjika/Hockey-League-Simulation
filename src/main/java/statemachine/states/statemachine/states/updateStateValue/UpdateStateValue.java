@@ -13,8 +13,8 @@ public class UpdateStateValue implements IUpdateStateValue{
     }
 
     @Override
-    public void updateCreateTeamStateValue(StateMachine stateMachine, ILeagueModel leagueModel) {
-        ((CreateTeamState)(stateMachine.getCreateTeam())).updateCreateTeamStateValue(leagueModel, stateMachine);
+    public void updateCreateTeamStateValue(StateMachine stateMachine) {
+        ((CreateTeamState)(stateMachine.getCreateTeam())).updateCreateTeamStateValue(stateMachine);
     }
 
     @Override
