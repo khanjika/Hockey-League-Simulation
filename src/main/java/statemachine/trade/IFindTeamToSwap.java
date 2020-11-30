@@ -12,4 +12,8 @@ public interface IFindTeamToSwap {
     ITeamsModel findTeamToTradePLayer(ILeagueModel leagueModel, int totalCounter, ITeamsModel team);
 
     List<PlayerModel> selectTeam(ITeamsModel team, ITeamsModel teamInitiatingTrade);
+
+    int findTeamToTradePick(ITeamsModel team, ITeamsModel teamInitiating);
+
+    List<PlayerModel> findSuitablePlayers(ITeamsModel teams, String position, List<PlayerModel> requestedPlayers, ITeamsModel teamInitiatingTrade);
 }
