@@ -24,7 +24,7 @@ public class CalculateStrength implements ICalculateStrength {
         int counterDefense = 0;
         int counterGoalie = 0;
         int totalCounter;
-        findAveragePositionStrength(league);
+        findAveragePositionStrength (league);
         if ((float) strengthMap.get (playerPosition.forward.toString ()) > averageForwardStrength) {
             counterForward += 1;
         }

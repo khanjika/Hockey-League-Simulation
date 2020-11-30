@@ -21,7 +21,7 @@ public class UserTradeCli implements IUserTradeCli {
 
     @Override
     public int displayTeamDetails() {
-        System.out.println ("The players offered and their statistics:-");
+        out.println ("The players offered and their statistics:-");
         for (int i = 0; i < model.getOfferedPlayer ().size (); i++) {
             IPlayerModel player = model.getOfferedPlayer ().get (i);
             out.println ("Player's name: " + " " + player.getPlayerName ());
