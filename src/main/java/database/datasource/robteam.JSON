@@ -3972,9 +3972,6 @@
       "averageRetirementAge": 35,
       "maximumAge": 50
     },
-    "gameResolver": {
-      "randomWinChance": 0.1
-    },
     "injuries": {
       "randomInjuryChance": 0.05,
       "injuryDaysLow": 1,
