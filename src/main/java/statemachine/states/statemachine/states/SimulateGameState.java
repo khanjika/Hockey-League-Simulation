@@ -38,12 +38,12 @@ public class SimulateGameState implements ITransition {
         isThisPlayOff=isPlayOff;
     }
     @Override
-    public void entry() {
+    public void entry() throws Exception {
         task();
     }
 
     @Override
-    public void task() {
+    public void task() throws Exception {
      float teamOneStrength = getTeamStrength(teamOne);
         float teamTwoStrength = getTeamStrength(teamTwo);
 
