@@ -1,8 +1,8 @@
 package LeagueMockObject;
 
+import database.serializeobject.IDeserializeObject;
+import database.serializeobject.SerializeObjectAbstractFactory;
 import leagueobjectmodel.ILeagueModel;
-import statemachine.jsonparser.IParser;
-import statemachine.jsonparser.ParserAbstractFactory;
 
 public class MockLeagueAbstractFactoryConcrete extends MockLeagueAbstractFactory {
 
@@ -11,7 +11,7 @@ public class MockLeagueAbstractFactoryConcrete extends MockLeagueAbstractFactory
     @Override
     public ILeagueModel createLeague() {
         if (leagueModel == null) {
-            IParser parser = ParserAbstractFactory.getInstance().getParser();
+            IDeserializeObject parser = SerializeObjectAbstractFactory.instance().createParser();
             leagueModel = parser.parseJson("src/test/java/league.json");
         }
         return leagueModel;

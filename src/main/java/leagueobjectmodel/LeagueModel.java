@@ -36,7 +36,7 @@ public class LeagueModel implements ILeagueModel {
         conferenceModel = LeagueObjectModelAbstractFactory.getInstance().getConference();
         freeAgentModel = LeagueObjectModelAbstractFactory.getInstance().getFreeAgentModel();
         coachModel = LeagueObjectModelAbstractFactory.getInstance().getCoach();
-        serializeObject = SerializeObjectAbstractFactory.getInstance().getSerializeObject();
+        serializeObject = SerializeObjectAbstractFactory.instance().createSerializeObject();
     }
 
     public float getPenaltyChance() {

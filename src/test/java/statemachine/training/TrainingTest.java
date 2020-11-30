@@ -11,15 +11,15 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 public class TrainingTest {
+
     @Test
     void trainingLogicTest() {
         ILeagueModel testModel = LeagueModelTest.getLeagueObject();
         ILeagueModel leagueModel = LeagueModelTest.getLeagueObject();
-        ITraining training = TrainingAbstractFactory.getInstance().getTraining();
+        ITraining training = TrainingAbstractFactoryTest.instance().createTraining();
         ITeamsModel team = testModel.getConferences().get(0).getDivisions().get(0).getTeams().get(0);
         training.setInjuriesModel(testModel.getGameplayConfig().getInjuries());
         training.performTraining(team.getPlayers().get(0), team.getHeadCoach(), LocalDate.parse("2021-04-02"));
         assertFalse(testModel.toString().equals(leagueModel.toString()));
-
     }
 }

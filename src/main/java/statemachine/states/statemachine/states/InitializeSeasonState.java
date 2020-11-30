@@ -23,7 +23,6 @@ import statemachine.trophysystem.TrophySystemAbstractFactory;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Map;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 
@@ -58,8 +57,9 @@ public class InitializeSeasonState implements ITransition {
         this.updatedLeagueModelObject = updatedLeagueModel;
         currentSimulationYear = currentYear;
         iDeadlines = MatchScheduleAbstractFactory.getMatchScheduleInstance().getDeadline();
+        trophySystem = TrophySystemAbstractFactory.instance().createTrophySystem();
         LeagueObjectModelAbstractFactory.getInstance().setLeague(updatedLeagueModel);
-        trophySystem = TrophySystemAbstractFactory.getInstance().getTrophySystem();
+        trophySystem = TrophySystemAbstractFactory.instance().createTrophySystem();
     }
 
     @Override
@@ -223,7 +223,6 @@ public class InitializeSeasonState implements ITransition {
 
         MatchScheduleAbstractFactory.getMatchScheduleInstance().setRegularSeason(null);
         MatchScheduleAbstractFactory.getMatchScheduleInstance().setPlayOff(null);
-        System.out.println("=========================================================================================================================================");
         stateMachine.getUpdateStateValue().updateTrophyStateValue(updatedLeagueModelObject, stateMachine , currentSimulationYear);
         stateMachine.setCurrentState(stateMachine.getTrophySystemState());
         stateMachine.getCurrentState().entry();

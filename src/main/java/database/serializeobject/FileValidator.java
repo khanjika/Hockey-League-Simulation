@@ -13,6 +13,6 @@ public class FileValidator implements IFileValidator{
     }
     @Override
     public String filePath(String name){
-        return FileConstant.DirectoryPath.getValue()+name+FileConstant.FileType.getValue();
+        return FileConstants.DirectoryPath.getValue()+name+ FileConstants.FileType.getValue();
     }
 }

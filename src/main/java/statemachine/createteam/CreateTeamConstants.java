@@ -23,7 +23,9 @@ public enum CreateTeamConstants {
     Instruction("Here You need to create a new Team in the EXISTING division"),
     DisplayPlayerList("The newly created team players"),
     DisplayActivePlayers("Active team players list"),
-    DisplayInactivePlayers("Inactive team players list")
+    DisplayInactivePlayers("Inactive team players list"),
+    LogInfoCreateTeam("New Team created and saved in memory"),
+    LogErrorCreateTeam("Error occured while creating new team in the existing league")
     ;
 
     private String value;

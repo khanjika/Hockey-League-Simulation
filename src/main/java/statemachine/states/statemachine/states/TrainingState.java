@@ -2,6 +2,7 @@ package statemachine.states.statemachine.states;
 
 import leagueobjectmodel.ConferenceModel;
 import leagueobjectmodel.DivisonModel;
+import leagueobjectmodel.LeagueModel;
 import leagueobjectmodel.PlayerModel;
 import org.apache.log4j.Logger;
 import statemachine.states.statemachine.StateMachine;
@@ -35,7 +36,7 @@ public class TrainingState implements ITransition {
 
         @Override
         public void task() {
-            iTraining = TrainingAbstractFactory.getInstance().getTraining();
+            iTraining = TrainingAbstractFactory.instance().createTraining();
             iTraining.setInjuriesModel(leagueModel.getGameplayConfig().getInjuries());
             try {
                 for (IConferenceModel conferenceModel : leagueModel.getConferences()) {
