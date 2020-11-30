@@ -10,7 +10,7 @@ import leagueobjectmodel.TeamsModel;
 public interface IUpdateStateValue {
     void updateImportJsonStateValue(StateMachine stateMachine,String[] userArgument);
 
-    void updateCreateTeamStateValue(StateMachine stateMachine, ILeagueModel leagueModel);
+    void updateCreateTeamStateValue(StateMachine stateMachine);
 
     void updatePlayerSeasonChoiceStateValue(StateMachine stateMachine, ILeagueModel leagueModel);
 

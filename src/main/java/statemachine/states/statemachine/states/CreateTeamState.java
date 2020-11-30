@@ -1,29 +1,39 @@
 package statemachine.states.statemachine.states;
 
-import statemachine.createteam.CreateTeam;
+import cli.CliAbstractFactory;
+import cli.ICli;
 import leagueobjectmodel.ILeagueModel;
 import leagueobjectmodel.LeagueModel;
-import statemachine.states.statemachine.StateMachine;
 import leagueobjectmodel.LeagueObjectModelAbstractFactory;
+import org.apache.log4j.Logger;
 import statemachine.createteam.CreateTeamAbstractFactory;
 import statemachine.createteam.ICreateTeam;
+import statemachine.states.statemachine.StateMachine;
 
 public class CreateTeamState implements ITransition {
     StateMachine stateMachine;
     ILeagueModel currentModel;
     ICreateTeam createTeam;
-
     ILeagueModel updatedLeagueModel;
-    PlayerSeasonsChoiceState playerSeasonsChoiceState;
-
+    final static Logger logger = Logger.getLogger(CreateTeamState.class);
+    ICli cli = CliAbstractFactory.getInstance().getCli();
     public CreateTeamState(StateMachine stateMachine) {
+        if (stateMachine == null) {
+            logger.error("State machine is not intialized in the create Team state");
+            throw new NullPointerException("State machine is not intialized in the create Team state");
+        }
         this.stateMachine = stateMachine;
     }
-    public void updateCreateTeamStateValue(ILeagueModel leagueModel, StateMachine stateMachine){
+
+    public void updateCreateTeamStateValue(StateMachine stateMachine) {
         createTeam = CreateTeamAbstractFactory.getInstance().getCreateTeam();
         this.currentModel = LeagueObjectModelAbstractFactory.getInstance().getLeague();
+        if(this.currentModel==null){
+            throw new NullPointerException("Exception while fetching league model object from the abstract factory");
+        }
         this.stateMachine = stateMachine;
     }
+
     public StateMachine getStateMachine() {
         return stateMachine;
     }
@@ -48,10 +58,8 @@ public class CreateTeamState implements ITransition {
     @Override
     public void task() {
         this.updatedLeagueModel = createTeam.createNewTeam(currentModel);
-     //   PlayoffSchedule playoffSchedule = new PlayoffSchedule();
-       // playoffSchedule.generatePlayoffSchedule(updatedLeagueModel);
-        if (this.updatedLeagueModel == null){
-            System.out.println("Team already exists");
+        if (this.updatedLeagueModel == null) {
+            cli.printOutput("Team already exists");
             task();
         }
         exit();
@@ -59,12 +67,14 @@ public class CreateTeamState implements ITransition {
 
     @Override
     public void exit() {
-        //THIS IS USED FOR SERIALIZTION PUROPOSE
-      //SerializeObject serializeObject = new SerializeObject();
-        //serializeObject.serializeLeagueObject(this.updatedLeagueModel);
-        stateMachine.getUpdateStateValue().updatePlayerSeasonChoiceStateValue(stateMachine,updatedLeagueModel);
-        stateMachine.setCurrentState(stateMachine.getPlayerSeasonsChoice());
-        stateMachine.getCurrentState().entry();
+        stateMachine.getUpdateStateValue().updatePlayerSeasonChoiceStateValue(stateMachine, updatedLeagueModel);
+        if(stateMachine.getPlayerSeasonsChoice()==null){
+            throw new NullPointerException("Player season choice state is not initialized properly");
+        }
+        else {
+            stateMachine.setCurrentState(stateMachine.getPlayerSeasonsChoice());
+            stateMachine.getCurrentState().entry();
+        }
     }
 
 }

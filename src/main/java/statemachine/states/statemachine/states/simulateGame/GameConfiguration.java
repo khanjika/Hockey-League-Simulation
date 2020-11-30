@@ -10,8 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameConfiguration implements IGameConfiguration {
-    private static TeamsModel teamOneObject;
-    private static TeamsModel teamTwoObject;
     private int averageShotsOnGoal = 40;
     private boolean isThisPlayOff;
     private static LeagueModel leagueModelObject;
@@ -37,40 +35,8 @@ public class GameConfiguration implements IGameConfiguration {
      this.objFactory=gameSimulationAbstractFactory;
     }
 
-    public static TeamsModel getTeamOneObject() {
-        return teamOneObject;
-    }
-
-    public static void setTeamOneObject(TeamsModel teamOneObject) {
-        GameConfiguration.teamOneObject = teamOneObject;
-    }
-
-    public static TeamsModel getTeamTwoObject() {
-        return teamTwoObject;
-    }
-
-    public static void setTeamTwoObject(TeamsModel teamTwoObject) {
-        GameConfiguration.teamTwoObject = teamTwoObject;
-    }
-
-    public int getAverageShotsOnGoal() {
-        return averageShotsOnGoal;
-    }
-
     public void setAverageShotsOnGoal(int averageShotsOnGoal) {
         this.averageShotsOnGoal = averageShotsOnGoal;
-    }
-
-    public boolean isThisPlayOff() {
-        return isThisPlayOff;
-    }
-
-    public void setThisPlayOff(boolean thisPlayOff) {
-        isThisPlayOff = thisPlayOff;
-    }
-
-    public static LeagueModel getLeagueModelObject() {
-        return leagueModelObject;
     }
 
     public  void setLeagueModelObject(LeagueModel leagueModelObject) {
@@ -175,6 +141,11 @@ public class GameConfiguration implements IGameConfiguration {
 
     public int getPenaltyCounter() {
         return penaltyCounter;
+    }
+
+    @Override
+    public int getAverageShotsOnGoal() {
+        return averageShotsOnGoal;
     }
 
     public void setPenaltyCounter(int penaltyCounter) {

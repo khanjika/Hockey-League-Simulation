@@ -5,6 +5,7 @@ import leagueobjectmodel.ConferenceModel;
 import leagueobjectmodel.DivisonModel;
 import leagueobjectmodel.GamePlayConfigModel;
 import leagueobjectmodel.LeagueModel;
+import org.apache.log4j.Logger;
 import statemachine.states.statemachine.states.matchSchedules.IDeadlines;
 import leagueobjectmodel.IPlayerModel;
 import leagueobjectmodel.PlayerModel;
@@ -25,17 +26,10 @@ public class AgingState implements ITransition {
     LocalDate currentDate;
     IPlayerModel iPlayerModel;
     private int daysToAge;
-
-
+    final static Logger logger = Logger.getLogger(AgingState.class);
     public AgingState(StateMachine stateMachine) {
         this.stateMachine = stateMachine;
     }
-//
-//    public AgingState(StateMachine stateMachine, LeagueModel leagueModel) {
-//        this.stateMachine = stateMachine;
-//        this.leagueModel = leagueModel;
-//        iDeadlines = new Deadlines();
-//    }
 
      public void updateAgingStateValue(StateMachine stateMachine, ILeagueModel leagueModel){
          this.stateMachine = stateMachine;
@@ -79,8 +73,6 @@ public class AgingState implements ITransition {
     }
 
     @Override
-    public void exit() {
-
-    }
+    public void exit() { }
 
 }
