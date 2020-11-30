@@ -17,7 +17,7 @@ public class CreateTeam implements ICreateTeam {
     private String userEnteredConferenceName;
     private String userEnteredDivisionName;
     private String userEnteredTeamName;
-    private GeneralManagersModel userEnteredGeneralManagerName;
+    private IGeneralManagersModel userEnteredGeneralManagerName;
     private HeadCoachModel userEnteredHeadCoachName;
     private final IDisplay displayPersons;
     private static ITeamsModel iTeamsModel;
@@ -51,11 +51,11 @@ public class CreateTeam implements ICreateTeam {
                     newlyCreatedLeagueModelObject = getNewlyCreatedLeagueObject(leagueModel);
                     logger.info(CreateTeamConstants.LogInfoCreateTeam.getValue());
                     iCli.printOutput(CreateTeamConstants.LineSeperator.getValue());
-                    for (ConferenceModel conferenceModel : newlyCreatedLeagueModelObject.getConferences()) {
+                    for (IConferenceModel conferenceModel : newlyCreatedLeagueModelObject.getConferences()) {
                         iCli.printOutput(CreateTeamConstants.ConferenceName.getValue() + conferenceModel.getConferenceName());
-                        for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
+                        for (IDivisonModel divisonModel : conferenceModel.getDivisions()) {
                             iCli.printOutput(CreateTeamConstants.DivisionName.getValue() + divisonModel.getDivisionName());
-                            for (TeamsModel teamsModel : divisonModel.getTeams()) {
+                            for (ITeamsModel teamsModel : divisonModel.getTeams()) {
                                 iCli.printOutput(CreateTeamConstants.TeamNames.getValue() + teamsModel.getTeamName());
                             }
                         }
@@ -143,7 +143,7 @@ public class CreateTeam implements ICreateTeam {
         displayPersons.displayTeamPlayers(teamInactiveRoasters);
     }
 
-    private void getForwards(List<FreeAgentModel> availableForwards, ILeagueModel leagueModel){
+    private void getForwards(List<IFreeAgentModel> availableForwards, ILeagueModel leagueModel){
         int requiredForwards = 16;
         int player = 0;
         while(player < requiredForwards){
@@ -159,7 +159,7 @@ public class CreateTeam implements ICreateTeam {
         }
     }
 
-    private void getDefense(List<FreeAgentModel> availableDefense, ILeagueModel leagueModel){
+    private void getDefense(List<IFreeAgentModel> availableDefense, ILeagueModel leagueModel){
         int requiredDefenses = 10;
         int player = 0;
         while(player < requiredDefenses){
@@ -175,7 +175,7 @@ public class CreateTeam implements ICreateTeam {
         }
     }
 
-    private void getGoalies(List<FreeAgentModel> availableGoalies, ILeagueModel leagueModel){
+    private void getGoalies(List<IFreeAgentModel> availableGoalies, ILeagueModel leagueModel){
         int requiredGoalies = 4;
         int player = 0;
         while(player < requiredGoalies){
@@ -203,7 +203,7 @@ public class CreateTeam implements ICreateTeam {
         iCli.printOutput(teamActiveRoasters.get(choice - 1).getPlayerName() + CreateTeamConstants.TeamCaptain.getValue());
     }
 
-    private void createTeamPlayer(FreeAgentModel freeAgentModel){
+    private void createTeamPlayer(IFreeAgentModel freeAgentModel){
         String name;
         String position;
         float skating;
@@ -239,7 +239,7 @@ public class CreateTeam implements ICreateTeam {
         iCli.printOutput(CreateTeamConstants.EnterCoach.getValue());
         displayPersons.displayCoaches(leagueModel.getCoaches());
         choice = iCli.readIntInput();
-        List<CoachModel> coachList = leagueModel.getCoaches();
+        List<ICoachModel> coachList = leagueModel.getCoaches();
         HeadCoachModel headCoach;
         if (choice > 0 && choice <= coachList.size()) {
             name = coachList.get(choice - 1).getName();
@@ -260,7 +260,7 @@ public class CreateTeam implements ICreateTeam {
         iCli.printOutput(CreateTeamConstants.EnterManager.getValue());
         displayPersons.displayManagers(leagueModel.getGeneralManagers());
         choice = iCli.readIntInput();
-        List<GeneralManagersModel> managersList = leagueModel.getGeneralManagers();
+        List<IGeneralManagersModel> managersList = leagueModel.getGeneralManagers();
         if (choice > 0 && choice <= managersList.size()) {
             this.userEnteredGeneralManagerName = managersList.get(choice - 1);
             leagueModel.getGeneralManagers().remove(choice - 1);
@@ -280,11 +280,11 @@ public class CreateTeam implements ICreateTeam {
         teamsModel.setActiveRoasters(this.teamActiveRoasters);
         teamsModel.setInactiveRoasters(this.teamInactiveRoasters);
 
-        for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
+        for (IConferenceModel conferenceModel : leagueModel.getConferences()) {
             if (conferenceModel.getConferenceName().equalsIgnoreCase(userEnteredConferenceName)) {
-                for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
+                for (IDivisonModel divisonModel : conferenceModel.getDivisions()) {
                     if (divisonModel.getDivisionName().equalsIgnoreCase(userEnteredDivisionName)) {
-                        List<TeamsModel> existingCreatedTeamList = divisonModel.getTeams();
+                        List<ITeamsModel> existingCreatedTeamList = divisonModel.getTeams();
                         existingCreatedTeamList.add(teamsModel);
                     }
                 }

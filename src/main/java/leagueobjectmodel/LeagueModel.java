@@ -18,15 +18,15 @@ public class LeagueModel implements ILeagueModel {
     @Expose
     private String leagueName;
     @Expose
-    private List<ConferenceModel> conferences;
+    private List<IConferenceModel> conferences;
     @Expose
-    private List<FreeAgentModel> freeAgents;
+    private List<IFreeAgentModel> freeAgents;
     @Expose
-    private List<CoachModel> coaches;
+    private List<ICoachModel> coaches;
     @Expose
-    private List<GeneralManagersModel> generalManagers;
+    private List<IGeneralManagersModel> generalManagers;
     @Expose
-    private GamePlayConfigModel gameplayConfig;
+    private IGamePlayConfigModel gameplayConfig;
     private float penaltyChance;
 
     private String currentTeam;
@@ -58,12 +58,12 @@ public class LeagueModel implements ILeagueModel {
     }
 
     @Override
-    public List<ConferenceModel> getConferences() {
+    public List<IConferenceModel> getConferences() {
         return conferences;
     }
 
     @Override
-    public void setConferences(List<ConferenceModel> conferences) {
+    public void setConferences(List<IConferenceModel> conferences) {
         this.conferences = conferences;
     }
 
@@ -78,37 +78,37 @@ public class LeagueModel implements ILeagueModel {
     }
 
     @Override
-    public List<FreeAgentModel> getFreeAgents() {
+    public List<IFreeAgentModel> getFreeAgents() {
         return freeAgents;
     }
 
     @Override
-    public void setFreeAgents(List<FreeAgentModel> freeAgents) {
+    public void setFreeAgents(List<IFreeAgentModel> freeAgents) {
         this.freeAgents = freeAgents;
     }
 
     @Override
-    public List<CoachModel> getCoaches() {
+    public List<ICoachModel> getCoaches() {
         return coaches;
     }
 
     @Override
-    public void setCoaches(List<CoachModel> coaches) {
+    public void setCoaches(List<ICoachModel> coaches) {
         this.coaches = coaches;
     }
 
     @Override
-    public List<GeneralManagersModel> getGeneralManagers() {
+    public List<IGeneralManagersModel> getGeneralManagers() {
         return generalManagers;
     }
 
     @Override
-    public void setGeneralManagers(List<GeneralManagersModel> generalManagers) {
+    public void setGeneralManagers(List<IGeneralManagersModel> generalManagers) {
         this.generalManagers = generalManagers;
     }
 
     @Override
-    public GamePlayConfigModel getGameplayConfig() {
+    public IGamePlayConfigModel getGameplayConfig() {
         return gameplayConfig;
     }
 
@@ -118,9 +118,9 @@ public class LeagueModel implements ILeagueModel {
     }
 
     @Override
-    public List<FreeAgentModel> getForwards(){
-        List<FreeAgentModel>forwards = new ArrayList<>();
-        for (FreeAgentModel freeAgent : this.getFreeAgents()){
+    public List<IFreeAgentModel> getForwards(){
+        List<IFreeAgentModel>forwards = new ArrayList<>();
+        for (IFreeAgentModel freeAgent : this.getFreeAgents()){
             if (freeAgent.getPosition().equals(PlayerPosition.FORWARD.toString())){
                 forwards.add(freeAgent);
             }
@@ -129,9 +129,9 @@ public class LeagueModel implements ILeagueModel {
     }
 
     @Override
-    public List<FreeAgentModel> getDefenses(){
-        List<FreeAgentModel> defense = new ArrayList<>();
-        for ( FreeAgentModel freeAgent : this.getFreeAgents()){
+    public List<IFreeAgentModel> getDefenses(){
+        List<IFreeAgentModel> defense = new ArrayList<>();
+        for ( IFreeAgentModel freeAgent : this.getFreeAgents()){
             if (freeAgent.getPosition().equals(PlayerPosition.DEFENSE.toString())){
                 defense.add(freeAgent);
             }
@@ -140,9 +140,9 @@ public class LeagueModel implements ILeagueModel {
     }
 
     @Override
-    public List<FreeAgentModel> getGoalies(){
-        List<FreeAgentModel> goalies = new ArrayList<>();
-        for ( FreeAgentModel freeAgent : this.getFreeAgents()){
+    public List<IFreeAgentModel> getGoalies(){
+        List<IFreeAgentModel> goalies = new ArrayList<>();
+        for ( IFreeAgentModel freeAgent : this.getFreeAgents()){
             if (freeAgent.getPosition().equals(PlayerPosition.GOALIE.toString())){
                 goalies.add(freeAgent);
             }

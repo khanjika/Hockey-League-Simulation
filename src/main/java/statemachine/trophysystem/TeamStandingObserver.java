@@ -1,10 +1,7 @@
 package statemachine.trophysystem;
 
 import cli.ICli;
-import leagueobjectmodel.ConferenceModel;
-import leagueobjectmodel.DivisonModel;
-import leagueobjectmodel.ILeagueModel;
-import leagueobjectmodel.TeamsModel;
+import leagueobjectmodel.*;
 import org.apache.log4j.Logger;
 
 import java.util.*;
@@ -13,18 +10,18 @@ import static java.util.Comparator.comparing;
 
 public class TeamStandingObserver implements IObserver{
 
-    private final HashMap<Integer, TeamsModel> bestTeamWinners = new HashMap<>();
-    private final HashMap<Integer, TeamsModel> lowestTeamWinners = new HashMap<>();
+    private final HashMap<Integer, ITeamsModel> bestTeamWinners = new HashMap<>();
+    private final HashMap<Integer, ITeamsModel> lowestTeamWinners = new HashMap<>();
     final static Logger logger = Logger.getLogger(TeamStandingObserver.class);
 
     @Override
     public void update(ILeagueModel leagueModel, int year) {
         logger.info(TrophySystemConstants.LogInfoTeamsUpdate.getValue());
-        List<TeamsModel> bestTeamOfEachDivision = new ArrayList<>();
-        List<TeamsModel> lowestTeamOfEachDivison = new ArrayList<>();
+        List<ITeamsModel> bestTeamOfEachDivision = new ArrayList<>();
+        List<ITeamsModel> lowestTeamOfEachDivison = new ArrayList<>();
 
-        for(ConferenceModel conference : leagueModel.getConferences()){
-            for(DivisonModel division : conference.getDivisions()){
+        for(IConferenceModel conference : leagueModel.getConferences()){
+            for(IDivisonModel division : conference.getDivisions()){
                 bestTeamOfEachDivision.add(Collections.max(division.getTeams(),
                         comparing(v -> v.getWinPoint())));
                 lowestTeamOfEachDivison.add(Collections.max(division.getTeams(),
@@ -32,9 +29,9 @@ public class TeamStandingObserver implements IObserver{
             }
         }
         bestTeamWinners.put(year, Collections.max(bestTeamOfEachDivision,Comparator
-                .comparing(TeamsModel::getWinPoint)));
+                .comparing(ITeamsModel::getWinPoint)));
         lowestTeamWinners.put(year, Collections.max(bestTeamOfEachDivision,Comparator
-                .comparing(TeamsModel::getLossPoint)));
+                .comparing(ITeamsModel::getLossPoint)));
     }
 
     @Override

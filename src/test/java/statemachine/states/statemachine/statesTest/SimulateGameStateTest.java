@@ -1,11 +1,8 @@
 package statemachine.states.statemachine.statesTest;
 
-import leagueobjectmodel.ConferenceModel;
-import leagueobjectmodel.DivisonModel;
-import leagueobjectmodel.LeagueModel;
+import leagueobjectmodel.*;
 import org.junit.jupiter.api.Test;
 import statemachine.states.statemachine.StateMachine;
-import leagueobjectmodel.TeamsModel;
 import trade.MockLeague;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -17,11 +14,11 @@ class SimulateGameStateTest {
     void task() {
         StateMachine stateMachine = new StateMachine();
         LeagueModel leagueModel = MockLeague.getLeagueObject();
-        TeamsModel teamOne = null;
-        TeamsModel teamTwo = null;
-        for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
-            for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
-                for (TeamsModel teamsModel : divisonModel.getTeams()) {
+        ITeamsModel teamOne = null;
+        ITeamsModel teamTwo = null;
+        for (IConferenceModel conferenceModel : leagueModel.getConferences()) {
+            for (IDivisonModel divisonModel : conferenceModel.getDivisions()) {
+                for (ITeamsModel teamsModel : divisonModel.getTeams()) {
                     if (teamOne == null) {
                         teamOne = teamsModel;
                     } else {

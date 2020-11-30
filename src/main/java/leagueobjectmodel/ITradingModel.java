@@ -1,5 +1,8 @@
 package leagueobjectmodel;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+@JsonDeserialize(as = TradingModel.class)
 public interface ITradingModel {
     int getLossPoint();
 

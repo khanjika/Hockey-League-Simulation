@@ -15,9 +15,9 @@ public class CoachStandingObserver implements IObserver {
     public void update(ILeagueModel leagueModel, int year) {
         logger.info(TrophySystemConstants.LogInfoCoachUpdate.getValue());
         List<HeadCoachModel> bestCoachOfEachTeam = new ArrayList<>();
-        for(ConferenceModel conference : leagueModel.getConferences()){
-            for(DivisonModel division : conference.getDivisions()) {
-                for(TeamsModel team : division.getTeams()){
+        for(IConferenceModel conference : leagueModel.getConferences()){
+            for(IDivisonModel division : conference.getDivisions()) {
+                for(ITeamsModel team : division.getTeams()){
                     bestCoachOfEachTeam.add(team.getHeadCoach());
                 }
             }

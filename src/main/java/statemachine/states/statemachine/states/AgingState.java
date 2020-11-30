@@ -3,7 +3,6 @@ package statemachine.states.statemachine.states;
 
 import leagueobjectmodel.ConferenceModel;
 import leagueobjectmodel.DivisonModel;
-import leagueobjectmodel.GamePlayConfigModel;
 import org.apache.log4j.Logger;
 import statemachine.states.statemachine.states.matchSchedules.IDeadlines;
 import leagueobjectmodel.IPlayerModel;
@@ -57,7 +56,7 @@ public class AgingState implements ITransition {
         if (tempDays == 1) {
             daysToAge = DAYS_TO_AGE_AFTER_SEASON_ENDS;
         }
-        GamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
+        IGamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
         System.out.println(gamePlayConfigModel.getAging().getMaximumAge());
         iPlayerModel.setAgingModel(gamePlayConfigModel.getAging());
         iPlayerModel.setFreeAgentsList(leagueModel.getFreeAgents());
@@ -68,9 +67,9 @@ public class AgingState implements ITransition {
         for(IFreeAgentModel freeAgent : leagueModel.getFreeAgents()){
             iFreeAgentModel.aging(freeAgent,currentDate,daysToAge);
         }
-        for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
-            for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
-                for (TeamsModel teamsModel : divisonModel.getTeams()) {
+        for (IConferenceModel conferenceModel : leagueModel.getConferences()) {
+            for (IDivisonModel divisonModel : conferenceModel.getDivisions()) {
+                for (ITeamsModel teamsModel : divisonModel.getTeams()) {
                     for (PlayerModel playerModelTemp : teamsModel.getPlayers()) {
                         iPlayerModel.aging(playerModelTemp, daysToAge, currentDate);
                     }

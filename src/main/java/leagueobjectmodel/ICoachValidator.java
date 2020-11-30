@@ -1,5 +1,5 @@
 package leagueobjectmodel;
 
 public interface ICoachValidator {
-    boolean validateCoachObject(CoachModel coachModel);
+    boolean validateCoachObject(ICoachModel coachModel);
 }

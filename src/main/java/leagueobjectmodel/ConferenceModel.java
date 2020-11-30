@@ -10,7 +10,7 @@ public class ConferenceModel implements IConferenceModel {
     @Expose
     private String conferenceName;
     @Expose
-    private List<DivisonModel> divisions;
+    private List<IDivisonModel> divisions;
 
     public ConferenceModel() {
         divisonModel = new DivisonModel();
@@ -27,12 +27,12 @@ public class ConferenceModel implements IConferenceModel {
     }
 
     @Override
-    public List<DivisonModel> getDivisions() {
+    public List<IDivisonModel> getDivisions() {
         return divisions;
     }
 
     @Override
-    public void setDivisions(List<DivisonModel> divisions) {
+    public void setDivisions(List<IDivisonModel> divisions) {
         this.divisions = divisions;
     }
 

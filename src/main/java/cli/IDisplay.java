@@ -1,18 +1,15 @@
 package cli;
 
-import leagueobjectmodel.CoachModel;
-import leagueobjectmodel.FreeAgentModel;
-import leagueobjectmodel.GeneralManagersModel;
-import leagueobjectmodel.PlayerModel;
+import leagueobjectmodel.*;
 
 import java.util.List;
 
 public interface IDisplay {
     void displayTeamPlayers(List<PlayerModel> players);
 
-    void displayCoaches(List<CoachModel> coaches);
+    void displayCoaches(List<ICoachModel> coaches);
 
-    void displayManagers(List<GeneralManagersModel> generalManagers);
+    void displayManagers(List<IGeneralManagersModel> generalManagers);
 
-    void displayFreeAgents(List<FreeAgentModel> freeAgentModel);
+    void displayFreeAgents(List<IFreeAgentModel> freeAgentModel);
 }

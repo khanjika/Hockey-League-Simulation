@@ -9,7 +9,7 @@ public class DivisonModel implements IDivisonModel {
     @Expose
     private String divisionName;
     @Expose
-    private List<TeamsModel> teams;
+    private List<ITeamsModel> teams;
 
     public DivisonModel() {
         teamsModel = new TeamsModel();
@@ -27,12 +27,12 @@ public class DivisonModel implements IDivisonModel {
 
 
     @Override
-    public List<TeamsModel> getTeams() {
+    public List<ITeamsModel> getTeams() {
         return teams;
     }
 
     @Override
-    public void setTeams(List<TeamsModel> teams) {
+    public void setTeams(List<ITeamsModel> teams) {
         this.teams = teams;
     }
 }

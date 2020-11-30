@@ -47,7 +47,7 @@ public class SimulateGameState implements ITransition {
      float teamOneStrength = getTeamStrength(teamOne);
         float teamTwoStrength = getTeamStrength(teamTwo);
 
-        GamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
+        IGamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
         float randomChanceToWin = 0.1f;
         Random randomObj = new Random();
         float floatRandomValue = randomObj.nextFloat();
@@ -68,9 +68,9 @@ public class SimulateGameState implements ITransition {
                 losserTeam = teamTwo;
             }
         }
-        for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
-            for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
-                for (TeamsModel teamsModel : divisonModel.getTeams()) {
+        for (IConferenceModel conferenceModel : leagueModel.getConferences()) {
+            for (IDivisonModel divisonModel : conferenceModel.getDivisions()) {
+                for (ITeamsModel teamsModel : divisonModel.getTeams()) {
                     if (teamsModel.getTeamName().equals(winnerTeam.getTeamName())) {
                         teamsModel.setWinPoint(teamsModel.getWinPoint() + 2);
                     }

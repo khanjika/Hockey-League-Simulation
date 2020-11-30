@@ -1,20 +1,23 @@
 package leagueobjectmodel;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+@JsonDeserialize(as = GamePlayConfigModel.class)
 public interface IGamePlayConfigModel {
     IAgingModel getAging();
 
-    void setAging(AgingModel aging);
+    void setAging(IAgingModel aging);
 
     IInjuriesModel getInjuries();
 
-    void setInjuries(InjuriesModel injuries);
+    void setInjuries(IInjuriesModel injuries);
 
-    TrainingModel getTraining();
+    ITrainingModel getTraining();
 
-    void setTraining(TrainingModel training);
+    void setTraining(ITrainingModel training);
 
-    TradingModel getTrading();
+    ITradingModel getTrading();
 
-    void setTrading(TradingModel trading);
+    void setTrading(ITradingModel trading);
 
 }

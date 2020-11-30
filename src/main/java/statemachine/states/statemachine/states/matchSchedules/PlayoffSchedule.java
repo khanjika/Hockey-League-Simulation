@@ -10,8 +10,8 @@ import java.util.List;
 
 public class PlayoffSchedule implements IPlayoffSchedule {
 
-    List<List<TeamsModel>> topTeamFromDivisionList = new ArrayList<>();
-    List<TeamsModel> allTheTopTeams = new ArrayList<>();
+    List<List<ITeamsModel>> topTeamFromDivisionList = new ArrayList<>();
+    List<ITeamsModel> allTheTopTeams = new ArrayList<>();
     final static Logger logger = Logger.getLogger(PlayoffSchedule.class);
 
     @Override
@@ -24,7 +24,7 @@ public class PlayoffSchedule implements IPlayoffSchedule {
             for (IConferenceModel conferenceModel : leagueModel.getConferences()) {
                 for (IDivisonModel divisonModel : conferenceModel.getDivisions()) {
                     Collections.sort(divisonModel.getTeams(), teamModelComparator);
-                    List<TeamsModel> subList = new ArrayList<>();
+                    List<ITeamsModel> subList = new ArrayList<>();
                     System.out.println(divisonModel.getTeams().size());
                     for (int i = 0; i < 3; i++) {
                         subList.add(divisonModel.getTeams().get(i));
@@ -38,21 +38,21 @@ public class PlayoffSchedule implements IPlayoffSchedule {
             logger.error("Exception while parsing in Playoff schedule class (generatePlayoffSchedule method)");
             throw e;
         }
-        List<TeamsModel> wildCardTeam = getWildCardTeam(leagueModel);
+        List<ITeamsModel> wildCardTeam = getWildCardTeam(leagueModel);
         List<List<ITeamsModel>> finalSchedule = generateScheduleWithWIldCard(topTeamFromDivisionList, wildCardTeam);
         return finalSchedule;
     }
 
-    private List<TeamsModel> getWildCardTeam(ILeagueModel leagueModel) throws Exception{
+    private List<ITeamsModel> getWildCardTeam(ILeagueModel leagueModel) throws Exception{
         if(leagueModel==null){
             logger.error("League Model object is not initialized in the PlayOff schedule");
             throw new NullPointerException("League Model object is not initialized in the PlayOff schedule");
         }
-        List<TeamsModel> allTeamsList = new ArrayList<>();
+        List<ITeamsModel> allTeamsList = new ArrayList<>();
         try {
             for (IConferenceModel conferenceModel : leagueModel.getConferences()) {
                 for (IDivisonModel divisonModel : conferenceModel.getDivisions()) {
-                    for (TeamsModel teamsModel : divisonModel.getTeams()) {
+                    for (ITeamsModel teamsModel : divisonModel.getTeams()) {
                         allTeamsList.add(teamsModel);
                     }
                 }
@@ -67,7 +67,7 @@ public class PlayoffSchedule implements IPlayoffSchedule {
         return allTeamsList;
     }
 
-   private List<List<ITeamsModel>> generateScheduleWithWIldCard(List<List<TeamsModel>> topTeamFromDivisionList, List<TeamsModel> wildCardList) {
+   private List<List<ITeamsModel>> generateScheduleWithWIldCard(List<List<ITeamsModel>> topTeamFromDivisionList, List<ITeamsModel> wildCardList) {
         if(topTeamFromDivisionList==null || wildCardList==null){
             logger.error("Top team from division list or wild card list is not initialized in the PlayOff schedule");
             throw new NullPointerException("Top team from division list or wild card list is not initialized in the PlayOff schedule");
@@ -77,7 +77,7 @@ public class PlayoffSchedule implements IPlayoffSchedule {
         int wildCardTeamCount = 0;
 
         try {
-            for (List<TeamsModel> teamsModelList : topTeamFromDivisionList) {
+            for (List<ITeamsModel> teamsModelList : topTeamFromDivisionList) {
                 if (wildCardTeamCount > 2) {
                     break;
                 }
@@ -101,9 +101,9 @@ public class PlayoffSchedule implements IPlayoffSchedule {
         return schedule;
     }
 
-    public static Comparator<TeamsModel> teamModelComparator = new Comparator<TeamsModel>() {
+    public static Comparator<ITeamsModel> teamModelComparator = new Comparator<ITeamsModel>() {
         @Override
-        public int compare(TeamsModel o1, TeamsModel o2) {
+        public int compare(ITeamsModel o1, ITeamsModel o2) {
             int teamOneWinPoint = o1.getWinPoint();
             int teamTwoWinPoint = o2.getWinPoint();
             return teamTwoWinPoint - teamOneWinPoint;

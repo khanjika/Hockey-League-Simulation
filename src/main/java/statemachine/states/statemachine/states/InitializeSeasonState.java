@@ -167,9 +167,9 @@ public class InitializeSeasonState implements ITransition {
     @Override
     public void task() throws Exception {
         cli.printOutput("--------Regular Season Complete------");
-        for(ConferenceModel conferenceModel:updatedLeagueModelObject.getConferences()){
-            for(DivisonModel divisonModel:conferenceModel.getDivisions()){
-                for(TeamsModel teamsModel:divisonModel.getTeams()){
+        for(IConferenceModel conferenceModel:updatedLeagueModelObject.getConferences()){
+            for(IDivisonModel divisonModel:conferenceModel.getDivisions()){
+                for(ITeamsModel teamsModel:divisonModel.getTeams()){
                     int goalByTeam=0;
                     int penaltyCOunt=0;
                     int saveCount=0;

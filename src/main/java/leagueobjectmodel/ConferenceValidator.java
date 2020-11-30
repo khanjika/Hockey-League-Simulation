@@ -18,7 +18,7 @@ public class ConferenceValidator implements IConferenceValidator {
         if (conferenceModel.getConferenceName() == null || conferenceModel.getConferenceName() == "") {
             return false;
         } else {
-            for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
+            for (IDivisonModel divisonModel : conferenceModel.getDivisions()) {
                 numberOfDivision++;
                 if (divisonValidator.validateDivisionObject(divisonModel)) {
                     continue;
@@ -39,7 +39,7 @@ public class ConferenceValidator implements IConferenceValidator {
 
     @Override
     public boolean isConferenceExist(ILeagueModel leagueModel, String conferenceName) {
-        for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
+        for (IConferenceModel conferenceModel : leagueModel.getConferences()) {
             if (conferenceModel.getConferenceName().equalsIgnoreCase(conferenceName)) {
                 return true;
             }

@@ -1,8 +1,10 @@
 package leagueobjectmodel;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import java.time.LocalDate;
 import java.util.List;
-
+@JsonDeserialize(as = FreeAgentModel.class)
 public interface IFreeAgentModel {
     String getPlayerName();
 
@@ -64,14 +66,14 @@ public interface IFreeAgentModel {
 
     void setBirthYear(int birthYear);
 
-    void calculateFreeAgentStrength(FreeAgentModel freeAgentModel);
+    void calculateFreeAgentStrength(IFreeAgentModel freeAgentModel);
 
     void aging(IFreeAgentModel freeAgentModel, LocalDate date, int daysToAge);
 
     int checkRetirement(IFreeAgentModel freeAgentModel);
 
-    abstract FreeAgentModel getReplacementFreeAgent(List<FreeAgentModel> freeAgents, String playerPosition);
+    abstract IFreeAgentModel getReplacementFreeAgent(List<IFreeAgentModel> freeAgents, String playerPosition);
 
-    List<FreeAgentModel> sortFreeAgentDescending(List<FreeAgentModel> freeAgents);
+    List<IFreeAgentModel> sortFreeAgentDescending(List<IFreeAgentModel> freeAgents);
 
 }

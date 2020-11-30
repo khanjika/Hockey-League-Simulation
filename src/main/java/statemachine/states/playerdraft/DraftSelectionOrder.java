@@ -10,9 +10,9 @@ import java.util.List;
 public class DraftSelectionOrder implements IDraftSelectionOrder {
     private final int NO_DRAFTS_ROUNDS = 7;
     List<ITeamsModel> teamList = new ArrayList<>();
-    Comparator<TeamsModel> teamModelComparator = new Comparator<TeamsModel>() {
+    Comparator<ITeamsModel> teamModelComparator = new Comparator<ITeamsModel>() {
         @Override
-        public int compare(TeamsModel o1, TeamsModel o2) {
+        public int compare(ITeamsModel o1, ITeamsModel o2) {
             int teamOneWinPoint = o1.getWinPoint();
             int teamTwoWinPoint = o2.getWinPoint();
             return teamOneWinPoint - teamTwoWinPoint;
@@ -41,7 +41,7 @@ public class DraftSelectionOrder implements IDraftSelectionOrder {
         System.out.println("Inside Team Standing List method");
         for (IConferenceModel conferenceModel : leagueModel.getConferences()) {
             for (IDivisonModel divisionModel : conferenceModel.getDivisions()) {
-                List<TeamsModel> teams = divisionModel.getTeams();
+                List<ITeamsModel> teams = divisionModel.getTeams();
                 Collections.sort(teams, teamModelComparator);
                 for (int i = 0; i < teams.size(); i++) {
                     teamList.add(teams.get(i));
