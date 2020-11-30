@@ -1,8 +1,8 @@
 package statemachine.training;
 
 import leagueobjectmodel.HeadCoachModel;
+import leagueobjectmodel.IInjuriesModel;
 import leagueobjectmodel.IPlayerModel;
-import leagueobjectmodel.InjuriesModel;
 import org.apache.log4j.Logger;
 
 import java.time.LocalDate;
