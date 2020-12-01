@@ -5,7 +5,6 @@ import org.apache.log4j.Logger;
 
 public class GenerateTradeOffer implements IGenerateTradeOffer {
     private static final Logger logger = Logger.getLogger (GenerateTradeOffer.class);
-    private ITeamsModel initiatingTeam = null;
     private IFindOfferedPlayers findOfferedPlayers;
 
     private enum generalManagerPersonality {
@@ -60,7 +59,7 @@ public class GenerateTradeOffer implements IGenerateTradeOffer {
                                 team.setLossPointForTrading (0);
                                 logger.info ("Loss point is set to 0 for team:" + " " + teamName);
                                 logger.info ("Trade is initiated by team:" + " " + teamName);
-                                initiatingTeam = team;
+                                ITeamsModel initiatingTeam = team;
                                 findOfferedPlayers.findPossibleTrade (leagueModel, team);
                             }
                         }
