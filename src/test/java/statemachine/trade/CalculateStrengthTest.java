@@ -3,7 +3,7 @@ package statemachine.trade;
 import leagueobjectmodel.ILeagueModel;
 import leagueobjectmodel.ITeamsModel;
 import leagueobjectmodel.PlayerModel;
-import mock.ModelMock;
+import LeagueMockObject.ModelMock;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 

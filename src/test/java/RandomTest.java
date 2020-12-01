@@ -4,7 +4,7 @@ import leagueobjectmodel.IPlayerModel;
 import leagueobjectmodel.IPlayerValidator;
 import leagueobjectmodel.LeagueObjectModelAbstractFactory;
 import org.junit.jupiter.api.Test;
-import statemachine.states.playerdraft.PlayerDraft;
+import statemachine.playerdraft.PlayerDraft;
 
 import java.util.ArrayList;
 import java.util.List;

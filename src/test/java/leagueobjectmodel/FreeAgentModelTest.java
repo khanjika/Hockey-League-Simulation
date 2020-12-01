@@ -1,7 +1,8 @@
 package leagueobjectmodel;
 
+import LeagueMockObject.MockFreeAgent;
 import LeagueMockObject.MockLeagueAbstractFactory;
-import mock.ModelMock;
+import LeagueMockObject.ModelMock;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 

@@ -4,10 +4,6 @@ import leagueobjectmodel.ICoachModel;
 import leagueobjectmodel.IFreeAgentModel;
 import leagueobjectmodel.ILeagueModel;
 import leagueobjectmodel.IPlayerModel;
-import org.apache.log4j.Logger;
-import statemachine.states.statemachine.states.simulateGame.GameSimulationAbstractFactory;
-import statemachine.states.statemachine.states.simulateGame.GameSimulationAbstractFactoryConcrete;
-import statemachine.states.statemachine.states.simulateGame.ISwapTurn;
 
 public abstract class MockLeagueAbstractFactory  {
     private static MockLeagueAbstractFactoryConcrete instance;

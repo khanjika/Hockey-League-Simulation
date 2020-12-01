@@ -1,7 +1,7 @@
 package leagueobjectmodel;
 
 import org.junit.jupiter.api.Test;
-import trade.MockLeague;
+import LeagueMockObject.MockLeague;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

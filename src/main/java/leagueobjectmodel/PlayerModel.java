@@ -5,7 +5,6 @@ import cli.ICli;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.Expose;
 import org.apache.log4j.Logger;
-import statemachine.states.statemachine.states.PlayerSeasonsChoiceState;
 
 import java.time.LocalDate;
 import java.util.List;
