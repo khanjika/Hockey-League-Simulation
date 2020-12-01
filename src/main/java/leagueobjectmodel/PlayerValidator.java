@@ -35,11 +35,21 @@ public class PlayerValidator implements IPlayerValidator {
     }
 
     private boolean isStringValid(String str) {
-        return str != null && !str.isEmpty();
+        if(str == null || str.isEmpty()){
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 
     private boolean isStatValid(float stat) {
-        return !(stat < 0) || !(stat > 20);
+        if(stat<0 || stat > 20){
+            return false;
+        }
+        else {
+            return false;
+        }
     }
 
     private boolean isAgeValid(int age) {

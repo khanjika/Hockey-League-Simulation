@@ -43,7 +43,6 @@ public class MockLeague {
             freeAgentModelList.add((freeAgentModel1));
             freeAgentModelList.add(freeAgentModel2);
         }
-//        leagueModel.setFreeAgents(freeAgentModelList);
         leagueModel.setGameplayConfig(gamePLayModel);
         gamePLayModel.setTrading(tradingModel);
         gamePLayModel.setAging(agingModel);
@@ -66,7 +65,6 @@ public class MockLeague {
     public static DivisonModel getDivisionObject() {
         DivisonModel divisonModel = new DivisonModel();
         divisonModel.setDivisionName("Atlantic");
-        //TeamsModelTest teamsModelTest = new TeamsModelTest();
         List<ITeamsModel> teamModelObjectList = new ArrayList<>();
 
         for (int i = 0; i < 1; i++) {
@@ -89,7 +87,6 @@ public class MockLeague {
         headCoachModel.setChecking(0.3f);
         headCoachModel.setSaving(0.5f);
         teamsModel.setHeadCoach(headCoachModel);
-       // teamsModel.setGeneralManager("Mister Fred");
         teamsModel.setTeamName("Boston");
         teamsModel.setUserCreatedTeam(false);
         boolean isCaptain = true;
@@ -121,7 +118,6 @@ public class MockLeague {
         headCoachModel.setChecking(0.3f);
         headCoachModel.setSaving(0.5f);
         teamsModel.setHeadCoach(headCoachModel);
-        //teamsModel.setGeneralManager("Mister Fred");
         teamsModel.setTeamName("Halifax");
         teamsModel.setUserCreatedTeam(false);
         boolean isCaptain = true;

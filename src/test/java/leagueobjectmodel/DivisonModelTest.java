@@ -42,19 +42,4 @@ public class DivisonModelTest {
         assertNotNull(divisonModel.getTeams(), "Failed to get teams in division object");
     }
 
-//    public static DivisonModel getDivisionObject() {
-//        DivisonModel divisonModel = new DivisonModel();
-//        divisonModel.setDivisionName("Atlantic");
-//        TeamsModelTest teamsModelTest = new TeamsModelTest();
-//        List<TeamsModel> teamModelObjectList = new ArrayList<>();
-//
-//        for (int i = 0; i < 2; i++) {
-//            TeamsModel teamsModel = TeamsModelTest.getTeamsObject();
-//            teamModelObjectList.add(teamsModel);
-//        }
-//
-//        divisonModel.setTeams(teamModelObjectList);
-//        return divisonModel;
-//    }
-
 }

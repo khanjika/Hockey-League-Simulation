@@ -64,40 +64,7 @@ public class AgingState implements ITransition {
         iPlayerModel.setFreeAgentsList(leagueModel.getFreeAgents());
         iFreeAgentModel.setAgingModel(gamePlayConfigModel.getAging());
 
-//        try {
-//            for (IFreeAgentModel freeAgent : leagueModel.getFreeAgents()) {
-//                freeAgent.setAgingModel(gamePlayConfigModel.getAging());
-//                freeAgent.aging(freeAgent, currentDate, daysToAge);
-//            }
-//        } catch (Exception e) {
-//            logger.error("Error while traversing the Freeagent");
-//            throw e;
-//        }
-//        for (IConferenceModel conferenceModel : leagueModel.getConferences()) {
-//            for (IDivisonModel divisonModel : conferenceModel.getDivisions()) {
-//                for (ITeamsModel teamsModel : divisonModel.getTeams()) {
-//                    for (PlayerModel playerModelTemp : teamsModel.getPlayers()) {
-//                     rthMonth());
-//                    }
-//                    sortTeams.sortActiveRoasters(teamsModel.getPlayers());
-//                }
-//            }
-//        }
 
-        try {
-        for (IConferenceModel conferenceModel : leagueModel.getConferences()) {
-            for (IDivisonModel divisonModel : conferenceModel.getDivisions()) {
-                for (ITeamsModel teamsModel : divisonModel.getTeams()) {
-                    for (PlayerModel playerModelTemp : teamsModel.getPlayers()) {
-                      //  iPlayerModel.aging(playerModelTemp, daysToAge, currentDate);
-                    }
-                    //sortTeams.sortActiveRoasters(teamsModel.getPlayers());
-                }
-            }
-        }} catch (Exception e) {
-            logger.error("Error while parsing the league object and calculate aging");
-            throw e;
-        }
 
     }
 
