@@ -4,6 +4,7 @@ import cli.CliAbstractFactory;
 import cli.ICli;
 import leagueobjectmodel.*;
 import org.apache.log4j.Logger;
+import statemachine.states.statemachine.states.AgingState;
 import statemachine.states.statemachine.states.matchSchedules.PlayoffSchedule;
 
 import java.util.ArrayList;
@@ -60,6 +61,7 @@ public class DraftSelectionOrder implements IDraftSelectionOrder {
     @Override
     public void draftingRounds(List<IPlayerModel> newDraftedPlayers) {
         if(newDraftedPlayers == null){
+            logger.error("Argument Null inside draftingRounds");
             throw new NullPointerException("Argument Null inside draftingRounds");
         }
         for (int i = 1; i <= NO_DRAFTS_ROUNDS; i++) {
@@ -67,6 +69,7 @@ public class DraftSelectionOrder implements IDraftSelectionOrder {
                 IPlayerModel bestPlayer = Collections.max(newDraftedPlayers, Comparator.comparing(f -> f.getPlayerStrength()));
                 teamList.get(j).addDrafterPlayerToTeam(bestPlayer);
                 cli.printOutput("Team " + teamList.get(i) + " Picked Player " + bestPlayer + " in Draftind Round " + i);
+                logger.info("Team " + teamList.get(i) + " Picked Player " + bestPlayer + " in Draftind Round " + i);
                 newDraftedPlayers.remove(bestPlayer);
             }
         }
