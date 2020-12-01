@@ -1,7 +1,7 @@
 import cli.CliAbstractFactory;
 import cli.ICli;
 import org.apache.log4j.Logger;
-import statemachine.states.statemachine.StateMachine;
+import statemachine.states.StateMachine;
 
 
 public class Main {
