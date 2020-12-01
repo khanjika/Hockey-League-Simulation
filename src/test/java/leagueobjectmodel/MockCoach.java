@@ -1,10 +1,12 @@
 package leagueobjectmodel;
 
+import LeagueMockObject.MockLeagueAbstractFactory;
 import leagueobjectmodel.CoachModel;
 
 public class MockCoach {
-    public static CoachModel getValidCoachModel() {
-        CoachModel coachModel = new CoachModel();
+    static ICoachModel coachModel =MockLeagueAbstractFactory.getMockInstance().createCoachModel();
+
+    public static ICoachModel getValidCoachModel() {
         coachModel.setName("Joe Smith");
         coachModel.setSaving(0.5f);
         coachModel.setShooting(0.8f);
@@ -13,8 +15,7 @@ public class MockCoach {
         return coachModel;
     }
 
-    public static CoachModel getInvalidCoachModel() {
-        CoachModel coachModel = new CoachModel();
+    public static ICoachModel getInvalidCoachModel() {
         coachModel.setName("");
         coachModel.setSaving(0.5f);
         coachModel.setShooting(0.8f);
@@ -23,8 +24,7 @@ public class MockCoach {
         return coachModel;
     }
 
-    public static CoachModel getInvalidCoachModel2() {
-        CoachModel coachModel = new CoachModel();
+    public static ICoachModel getInvalidCoachModel2() {
         coachModel.setName("Joe Smith");
         coachModel.setSaving(5f);
         coachModel.setShooting(0.8f);

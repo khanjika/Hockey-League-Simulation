@@ -89,9 +89,9 @@ public class AgingState implements ITransition {
             for (IDivisonModel divisonModel : conferenceModel.getDivisions()) {
                 for (ITeamsModel teamsModel : divisonModel.getTeams()) {
                     for (PlayerModel playerModelTemp : teamsModel.getPlayers()) {
-                        iPlayerModel.aging(playerModelTemp, daysToAge, currentDate);
+                      //  iPlayerModel.aging(playerModelTemp, daysToAge, currentDate);
                     }
-                    sortTeams.sortActiveRoasters(teamsModel.getPlayers());
+                    //sortTeams.sortActiveRoasters(teamsModel.getPlayers());
                 }
             }
         }} catch (Exception e) {

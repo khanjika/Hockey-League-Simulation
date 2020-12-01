@@ -32,6 +32,11 @@ public class MockLeagueAbstractFactoryConcrete extends MockLeagueAbstractFactory
         return new FreeAgentModel();
     }
 
+    @Override
+    public ICoachModel createCoachModel() {
+        return new CoachModel();
+    }
+
     public IPlayerModel createMockPlayer(){
         return leagueModel.getConferences().get(0).getDivisions().get(0).getTeams().get(0).getPlayers().get(0);
     }

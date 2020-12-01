@@ -1,8 +1,6 @@
 package LeagueMockObject;
 
 import leagueobjectmodel.IPlayerModel;
-import leagueobjectmodel.PlayerModel;
-import trade.MockLeague;
 
 public class MockPlayer {
 

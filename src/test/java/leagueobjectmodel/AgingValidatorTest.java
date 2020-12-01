@@ -12,7 +12,7 @@ class AgingValidatorTest {
         AgingModel agingModel = AgingModelTest.getAgingModel(35, 50);
         AgingValidator agingValidator = new AgingValidator();
         assertTrue(agingValidator.validateAging(agingModel));
-        AgingModel InvalidagingModel = AgingModelTest.getAgingModel(0, 0);
-        assertFalse(agingValidator.validateAging(InvalidagingModel));
+        AgingModel InvalidAgingModel = AgingModelTest.getAgingModel(0, 0);
+        assertFalse(agingValidator.validateAging(InvalidAgingModel));
     }
 }

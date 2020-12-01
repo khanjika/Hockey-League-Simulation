@@ -9,12 +9,12 @@ class CoachValidatorTest {
 
     @Test
     void validateCoachObject() {
-        CoachModel coachModel = MockCoach.getValidCoachModel();
+        ICoachModel coachModel = MockCoach.getValidCoachModel();
         CoachValidator coachValidator = new CoachValidator();
         assertTrue(coachValidator.validateCoachObject(coachModel));
-        CoachModel inValidCoachModel = MockCoach.getInvalidCoachModel();
+        ICoachModel inValidCoachModel = MockCoach.getInvalidCoachModel();
         assertFalse(coachValidator.validateCoachObject(inValidCoachModel));
-        CoachModel inValidCoachModel2 = MockCoach.getInvalidCoachModel2();
+        ICoachModel inValidCoachModel2 = MockCoach.getInvalidCoachModel2();
         assertFalse(coachValidator.validateCoachObject(inValidCoachModel2));
     }
 }

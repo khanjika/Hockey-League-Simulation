@@ -489,3 +489,1393 @@
 2020-11-30 22:35:11 INFO  TrophySystemState:18 - Initializing TrophySystemState State
 2020-11-30 22:35:11 INFO  ImportJsonState:53 - user has provided argument in the path
 2020-11-30 22:35:11 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:32 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:32 INFO  FindOfferedPlayers:47 - Team is proceeding with player trading.
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:24 - Players requested in the trade from Cairo Astros
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:26 - Player name: Mary Halen
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:27 - Player position: goalie
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:34 - Players offered in the trade by Vancouver Blues
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:36 - Player name: Chris Marley
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:37 - Player position: forward
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:36 - Player name: Wen Greenbaum
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:37 - Player position: defense
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:71 - Trade is accepted by team: Cairo Astros
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:82 - The number of players in Vancouver Blues after resolving the team's roaster: 30
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:89 - The number of players in Cairo Astros after resolving the team's roaster: 30
+2020-11-30 23:17:32 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:32 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:32 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:32 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:32 INFO  FindOfferedPlayers:47 - Team is proceeding with player trading.
+2020-11-30 23:17:32 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:32 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:64 - Trade is rejected by team: Cairo Astros
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:71 - Trade is accepted by team: Cairo Astros
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:82 - The number of players in Vancouver Blues after resolving the team's roaster: 30
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:89 - The number of players in Cairo Astros after resolving the team's roaster: 30
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:24 - Players requested in the trade from Cairo Astros
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:26 - Player name: Mary Halen
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:27 - Player position: goalie
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:34 - Players offered in the trade by Vancouver Blues
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:36 - Player name: Chris Marley
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:37 - Player position: forward
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:36 - Player name: Wen Greenbaum
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:37 - Player position: defense
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:71 - Trade is accepted by team: Cairo Astros
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:82 - The number of players in Vancouver Blues after resolving the team's roaster: 30
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:89 - The number of players in Cairo Astros after resolving the team's roaster: 30
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:71 - Trade is accepted by team: Cairo Astros
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:82 - The number of players in Vancouver Blues after resolving the team's roaster: 30
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:89 - The number of players in Cairo Astros after resolving the team's roaster: 30
+2020-11-30 23:17:32 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:32 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:24 - Players requested in the trade from Sault Saint Marie Monkeys
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:26 - Player name: Mary Halen
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:27 - Player position: goalie
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:34 - Players offered in the trade by Vancouver Blues
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:36 - Player name: Chris Marley
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:37 - Player position: forward
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:36 - Player name: Wen Greenbaum
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:37 - Player position: defense
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:71 - Trade is accepted by team: Sault Saint Marie Monkeys
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:89 - The number of players in Sault Saint Marie Monkeys after resolving the team's roaster: 30
+2020-11-30 23:17:32 INFO  AcceptRejectTrade:82 - The number of players in Vancouver Blues after resolving the team's roaster: 30
+2020-11-30 23:17:32 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:17:32 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:17:32 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:17:32 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:17:32 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:17:32 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:17:32 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:17:32 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:32 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:17:32 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:17:32 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:17:32 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:32 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:17:32 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:17:32 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:17:32 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:17:32 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:17:32 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:17:32 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:17:32 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:17:32 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:17:32 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:17:32 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:32 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:17:32 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:17:32 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:17:32 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:32 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:17:32 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:17:32 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:17:32 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:17:32 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:17:32 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:17:32 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:17:32 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:17:32 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:17:32 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:17:32 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:32 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:17:32 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:17:32 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:17:32 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:32 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:17:32 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:17:32 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:17:32 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:17:32 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:17:32 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:17:32 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:17:32 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:17:32 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:17:32 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:17:32 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:32 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:17:32 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:17:32 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:17:32 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:32 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:17:32 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:17:32 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:17:33 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:33 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:33 INFO  GenerateTradeOffer:45 - Inside Trading
+2020-11-30 23:17:33 INFO  GenerateTradeOffer:60 - Loss point is set to 0 for team: Vancouver Blues
+2020-11-30 23:17:33 INFO  GenerateTradeOffer:61 - Trade is initiated by team: Vancouver Blues
+2020-11-30 23:17:33 INFO  FindOfferedPlayers:47 - Team is proceeding with player trading.
+2020-11-30 23:17:33 INFO  AcceptRejectTrade:24 - Players requested in the trade from Cairo Astros
+2020-11-30 23:17:33 INFO  AcceptRejectTrade:26 - Player name: Mary Halen
+2020-11-30 23:17:33 INFO  AcceptRejectTrade:27 - Player position: goalie
+2020-11-30 23:17:33 INFO  AcceptRejectTrade:34 - Players offered in the trade by Vancouver Blues
+2020-11-30 23:17:33 INFO  AcceptRejectTrade:36 - Player name: Chris Marley
+2020-11-30 23:17:33 INFO  AcceptRejectTrade:37 - Player position: forward
+2020-11-30 23:17:33 INFO  AcceptRejectTrade:36 - Player name: Wen Greenbaum
+2020-11-30 23:17:33 INFO  AcceptRejectTrade:37 - Player position: defense
+2020-11-30 23:17:33 INFO  AcceptRejectTrade:71 - Trade is accepted by team: Cairo Astros
+2020-11-30 23:17:33 INFO  AcceptRejectTrade:82 - The number of players in Vancouver Blues after resolving the team's roaster: 30
+2020-11-30 23:17:33 INFO  AcceptRejectTrade:89 - The number of players in Cairo Astros after resolving the team's roaster: 30
+2020-11-30 23:17:33 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:33 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:33 INFO  GameSimulationAbstractFactory:12 - New Object of GameSimulationAbstractFactory is created
+2020-11-30 23:17:33 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-30 23:17:33 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-30 23:17:33 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-30 23:17:33 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-30 23:17:33 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-30 23:17:33 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-30 23:17:33 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-30 23:17:33 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-30 23:17:33 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:17:33 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:17:33 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:17:33 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:17:33 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:17:33 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:17:33 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:17:33 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:33 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:17:33 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:17:33 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:17:33 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:33 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:17:33 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:17:33 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:17:33 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:17:33 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:17:33 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:17:33 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:17:33 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:17:33 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:17:33 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:17:33 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:33 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:17:33 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:17:33 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:17:33 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:33 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:17:33 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:17:33 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:17:33 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:33 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:17:33 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:17:33 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:17:33 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:17:33 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:17:33 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:17:33 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:17:33 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:33 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:17:33 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:17:33 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:17:33 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:33 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:17:33 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:17:33 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:17:33 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:17:33 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:17:33 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:17:33 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:17:33 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:17:33 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:17:33 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:17:33 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:33 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:17:33 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:17:33 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:17:33 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:33 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:17:33 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:17:33 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:17:33 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:17:33 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:17:33 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:17:33 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:17:33 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:17:33 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:17:33 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:17:33 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:33 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:17:33 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:17:33 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:17:33 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:33 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:17:33 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:17:33 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:17:33 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:17:33 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:17:33 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:17:33 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:17:33 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:17:33 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:17:33 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:17:33 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:33 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:17:33 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:17:33 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:17:33 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:33 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:17:33 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:17:33 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:17:33 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:17:33 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:17:33 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:17:33 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:17:33 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:17:33 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:17:33 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:17:33 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:33 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:17:33 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:17:33 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:17:33 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:33 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:17:33 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:17:33 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:17:33 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:17:33 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:17:33 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:17:33 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:17:33 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:17:33 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:17:33 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:17:33 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:33 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:17:33 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:17:33 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:17:33 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:33 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:17:33 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:17:33 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:17:33 INFO  MatchScheduleAbstractFactory:13 - New Object of Deadline Class is created
+2020-11-30 23:17:33 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:17:33 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:17:33 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:17:33 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:17:33 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:17:33 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:17:33 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:17:33 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:33 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:17:33 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:17:33 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:17:33 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:33 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:17:33 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:17:33 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:17:33 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:17:33 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:17:33 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:17:33 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:17:33 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:17:33 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:17:33 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:17:33 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:33 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:17:33 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:17:33 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:17:33 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:33 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:17:33 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:17:33 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:17:33 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:17:33 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:17:33 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:17:33 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:17:33 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:17:33 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:17:33 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:17:33 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:33 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:17:33 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:17:33 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:17:33 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:33 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:17:33 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:17:33 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:17:33 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:17:33 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:17:33 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:17:33 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:17:33 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:17:33 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:17:33 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:17:33 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:33 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:17:33 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:17:33 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:17:33 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:33 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:17:33 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:17:33 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:17:33 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:33 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:33 INFO  MatchScheduleAbstractFactory:12 - New Object of MatchScheduleAbstractFactory is created
+2020-11-30 23:17:33 INFO  MatchScheduleAbstractFactory:41 - New Object of playoffSchedule Class is created
+2020-11-30 23:17:33 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:17:33 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:17:33 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:17:33 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:17:33 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:17:33 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:17:33 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:17:33 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:33 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:17:33 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:17:33 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:17:33 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:33 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:17:33 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:17:33 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:17:33 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:17:33 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:17:33 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:17:33 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:17:33 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:17:33 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:17:33 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:17:33 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:33 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:17:33 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:17:33 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:17:33 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:33 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:17:33 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:17:33 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:17:33 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:33 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:33 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:33 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:33 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:33 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:33 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:33 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:33 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:33 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:34 INFO  SerializeObject:32 - Stored data to JSON file
+2020-11-30 23:17:34 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-30 23:17:34 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:17:34 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:17:34 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:17:34 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:17:34 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:17:34 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:17:34 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:17:34 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:34 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:17:34 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:17:34 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:17:34 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:34 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:17:34 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:17:34 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:17:34 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:17:34 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:17:34 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:17:34 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:17:34 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:17:34 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:17:34 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:17:34 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:34 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:17:34 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:17:34 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:17:34 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:34 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:17:34 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:17:34 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:17:34 INFO  MatchScheduleAbstractFactory:27 - New Object of regularSeasonSchedule Class is created
+2020-11-30 23:17:34 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:34 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:34 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:34 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:34 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:34 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:34 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:34 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:34 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:34 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:34 INFO  Subject:22 - All the observers of the subjects are notified for update
+2020-11-30 23:17:34 INFO  ForwardStandingObserver:17 - Forward Standing Observer notified and updated
+2020-11-30 23:17:34 INFO  DefensemanStandingObserver:18 - Defense Standing Observer notified and updated
+2020-11-30 23:17:34 INFO  GoalieStandingObserver:19 - Goalie Standing Observer notified and updated
+2020-11-30 23:17:34 INFO  Subject:22 - All the observers of the subjects are notified for update
+2020-11-30 23:17:34 INFO  ForwardStandingObserver:17 - Forward Standing Observer notified and updated
+2020-11-30 23:17:34 INFO  DefensemanStandingObserver:18 - Defense Standing Observer notified and updated
+2020-11-30 23:17:34 INFO  GoalieStandingObserver:19 - Goalie Standing Observer notified and updated
+2020-11-30 23:17:34 INFO  Subject:22 - All the observers of the subjects are notified for update
+2020-11-30 23:17:34 INFO  TeamStandingObserver:19 - Teams Standing Observer notified and updated
+2020-11-30 23:17:34 INFO  CoachStandingObserver:16 - Coach Standing Observer notified and updated
+2020-11-30 23:17:34 INFO  PlayerStandingObserver:16 - Player Standing Observer notified and updated
+2020-11-30 23:17:34 INFO  Subject:22 - All the observers of the subjects are notified for update
+2020-11-30 23:17:34 INFO  TeamStandingObserver:19 - Teams Standing Observer notified and updated
+2020-11-30 23:17:34 INFO  CoachStandingObserver:16 - Coach Standing Observer notified and updated
+2020-11-30 23:17:34 INFO  PlayerStandingObserver:16 - Player Standing Observer notified and updated
+2020-11-30 23:17:34 INFO  Subject:29 - All the observers of the subjects are notified for diplay
+2020-11-30 23:17:34 INFO  TeamStandingObserver:39 - Teams Standing Observer display notified and displayed
+2020-11-30 23:17:34 INFO  ForwardStandingObserver:35 - Forward Standing Observer display notified and displayed
+2020-11-30 23:17:34 INFO  DefensemanStandingObserver:35 - Defense Standing Observer display notified and displayed
+2020-11-30 23:17:34 INFO  CoachStandingObserver:31 - Coach Standing Observer display notified and displayed
+2020-11-30 23:17:34 INFO  GoalieStandingObserver:36 - Goalie Standing Observer display notified and displayed
+2020-11-30 23:17:34 INFO  PlayerStandingObserver:32 - Player Standing Observer display notified and displayed
+2020-11-30 23:17:34 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:34 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:17:34 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:17:34 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:17:34 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:17:34 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:17:34 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:17:34 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:17:34 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:17:34 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:34 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:17:34 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:17:34 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:17:34 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:34 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:17:34 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:17:34 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:17:34 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:17:34 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:17:34 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:17:34 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:17:34 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:17:34 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:17:34 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:17:34 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:34 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:17:34 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:17:34 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:17:34 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:17:34 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:17:34 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:17:34 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:18:45 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:45 INFO  FindOfferedPlayers:47 - Team is proceeding with player trading.
+2020-11-30 23:18:45 INFO  AcceptRejectTrade:24 - Players requested in the trade from Cairo Astros
+2020-11-30 23:18:45 INFO  AcceptRejectTrade:26 - Player name: Mary Halen
+2020-11-30 23:18:45 INFO  AcceptRejectTrade:27 - Player position: goalie
+2020-11-30 23:18:45 INFO  AcceptRejectTrade:34 - Players offered in the trade by Vancouver Blues
+2020-11-30 23:18:45 INFO  AcceptRejectTrade:36 - Player name: Chris Marley
+2020-11-30 23:18:45 INFO  AcceptRejectTrade:37 - Player position: forward
+2020-11-30 23:18:45 INFO  AcceptRejectTrade:36 - Player name: Wen Greenbaum
+2020-11-30 23:18:45 INFO  AcceptRejectTrade:37 - Player position: defense
+2020-11-30 23:18:45 INFO  AcceptRejectTrade:71 - Trade is accepted by team: Cairo Astros
+2020-11-30 23:18:45 INFO  AcceptRejectTrade:82 - The number of players in Vancouver Blues after resolving the team's roaster: 30
+2020-11-30 23:18:45 INFO  AcceptRejectTrade:89 - The number of players in Cairo Astros after resolving the team's roaster: 30
+2020-11-30 23:18:45 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:45 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:46 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:46 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:46 INFO  FindOfferedPlayers:47 - Team is proceeding with player trading.
+2020-11-30 23:18:46 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:46 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:64 - Trade is rejected by team: Cairo Astros
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:71 - Trade is accepted by team: Cairo Astros
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:82 - The number of players in Vancouver Blues after resolving the team's roaster: 30
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:89 - The number of players in Cairo Astros after resolving the team's roaster: 30
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:24 - Players requested in the trade from Cairo Astros
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:26 - Player name: Mary Halen
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:27 - Player position: goalie
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:34 - Players offered in the trade by Vancouver Blues
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:36 - Player name: Chris Marley
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:37 - Player position: forward
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:36 - Player name: Wen Greenbaum
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:37 - Player position: defense
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:71 - Trade is accepted by team: Cairo Astros
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:82 - The number of players in Vancouver Blues after resolving the team's roaster: 30
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:89 - The number of players in Cairo Astros after resolving the team's roaster: 30
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:71 - Trade is accepted by team: Cairo Astros
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:82 - The number of players in Vancouver Blues after resolving the team's roaster: 30
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:89 - The number of players in Cairo Astros after resolving the team's roaster: 30
+2020-11-30 23:18:46 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:46 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:24 - Players requested in the trade from Sault Saint Marie Monkeys
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:26 - Player name: Mary Halen
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:27 - Player position: goalie
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:34 - Players offered in the trade by Vancouver Blues
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:36 - Player name: Chris Marley
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:37 - Player position: forward
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:36 - Player name: Wen Greenbaum
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:37 - Player position: defense
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:71 - Trade is accepted by team: Sault Saint Marie Monkeys
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:89 - The number of players in Sault Saint Marie Monkeys after resolving the team's roaster: 30
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:82 - The number of players in Vancouver Blues after resolving the team's roaster: 30
+2020-11-30 23:18:46 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:18:46 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:18:46 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:18:46 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:18:46 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:18:46 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:18:46 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:18:46 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:46 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:18:46 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:18:46 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:18:46 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:46 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:18:46 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:18:46 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:18:46 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:18:46 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:18:46 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:18:46 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:18:46 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:18:46 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:18:46 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:18:46 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:46 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:18:46 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:18:46 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:18:46 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:46 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:18:46 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:18:46 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:18:46 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:18:46 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:18:46 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:18:46 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:18:46 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:18:46 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:18:46 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:18:46 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:46 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:18:46 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:18:46 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:18:46 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:46 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:18:46 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:18:46 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:18:46 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:18:46 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:18:46 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:18:46 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:18:46 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:18:46 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:18:46 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:18:46 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:46 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:18:46 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:18:46 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:18:46 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:46 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:18:46 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:18:46 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:18:46 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:46 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:46 INFO  GenerateTradeOffer:45 - Inside Trading
+2020-11-30 23:18:46 INFO  GenerateTradeOffer:60 - Loss point is set to 0 for team: Vancouver Blues
+2020-11-30 23:18:46 INFO  GenerateTradeOffer:61 - Trade is initiated by team: Vancouver Blues
+2020-11-30 23:18:46 INFO  FindOfferedPlayers:47 - Team is proceeding with player trading.
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:24 - Players requested in the trade from Cairo Astros
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:26 - Player name: Mary Halen
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:27 - Player position: goalie
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:34 - Players offered in the trade by Vancouver Blues
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:36 - Player name: Chris Marley
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:37 - Player position: forward
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:36 - Player name: Wen Greenbaum
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:37 - Player position: defense
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:71 - Trade is accepted by team: Cairo Astros
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:82 - The number of players in Vancouver Blues after resolving the team's roaster: 30
+2020-11-30 23:18:46 INFO  AcceptRejectTrade:89 - The number of players in Cairo Astros after resolving the team's roaster: 30
+2020-11-30 23:18:46 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:46 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:46 INFO  GameSimulationAbstractFactory:12 - New Object of GameSimulationAbstractFactory is created
+2020-11-30 23:18:46 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-30 23:18:46 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-30 23:18:46 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-30 23:18:46 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-30 23:18:46 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-30 23:18:46 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-30 23:18:46 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-30 23:18:46 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-30 23:18:46 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:18:46 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:18:46 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:18:46 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:18:46 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:18:46 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:18:46 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:18:46 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:46 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:18:46 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:18:46 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:18:46 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:46 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:18:46 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:18:46 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:18:46 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:18:46 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:18:46 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:18:46 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:18:46 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:18:46 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:18:46 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:18:46 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:46 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:18:46 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:18:46 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:18:46 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:46 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:18:46 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:18:46 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:18:46 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:46 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:18:46 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:18:46 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:18:46 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:18:46 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:18:46 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:18:46 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:18:46 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:46 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:18:46 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:18:46 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:18:46 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:46 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:18:46 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:18:46 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:18:46 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:18:46 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:18:46 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:18:46 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:18:46 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:18:46 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:18:46 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:18:46 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:46 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:18:46 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:18:46 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:18:46 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:46 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:18:46 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:18:46 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:18:46 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:18:46 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:18:46 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:18:46 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:18:46 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:18:46 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:18:46 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:18:46 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:46 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:18:46 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:18:46 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:18:46 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:46 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:18:46 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:18:46 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:18:46 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:18:46 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:18:46 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:18:46 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:18:46 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:18:46 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:18:46 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:18:46 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:46 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:18:46 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:18:46 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:18:46 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:46 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:18:46 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:18:46 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:18:46 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:18:47 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:18:47 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:18:47 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:18:47 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:18:47 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:18:47 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:18:47 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:47 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:18:47 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:18:47 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:18:47 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:47 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:18:47 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:18:47 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:18:47 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:18:47 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:18:47 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:18:47 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:18:47 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:18:47 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:18:47 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:18:47 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:47 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:18:47 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:18:47 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:18:47 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:47 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:18:47 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:18:47 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:18:47 INFO  MatchScheduleAbstractFactory:13 - New Object of Deadline Class is created
+2020-11-30 23:18:47 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:18:47 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:18:47 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:18:47 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:18:47 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:18:47 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:18:47 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:18:47 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:47 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:18:47 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:18:47 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:18:47 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:47 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:18:47 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:18:47 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:18:47 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:18:47 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:18:47 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:18:47 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:18:47 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:18:47 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:18:47 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:18:47 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:47 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:18:47 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:18:47 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:18:47 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:47 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:18:47 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:18:47 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:18:47 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:18:47 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:18:47 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:18:47 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:18:47 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:18:47 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:18:47 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:18:47 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:47 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:18:47 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:18:47 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:18:47 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:47 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:18:47 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:18:47 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:18:47 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:18:47 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:18:47 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:18:47 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:18:47 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:18:47 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:18:47 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:18:47 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:47 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:18:47 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:18:47 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:18:47 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:47 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:18:47 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:18:47 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:18:47 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:47 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:47 INFO  MatchScheduleAbstractFactory:12 - New Object of MatchScheduleAbstractFactory is created
+2020-11-30 23:18:47 INFO  MatchScheduleAbstractFactory:41 - New Object of playoffSchedule Class is created
+2020-11-30 23:18:47 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:18:47 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:18:47 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:18:47 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:18:47 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:18:47 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:18:47 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:18:47 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:47 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:18:47 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:18:47 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:18:47 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:47 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:18:47 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:18:47 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:18:47 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:18:47 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:18:47 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:18:47 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:18:47 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:18:47 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:18:47 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:18:47 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:47 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:18:47 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:18:47 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:18:47 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:47 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:18:47 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:18:47 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:18:47 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:47 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:47 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:47 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:47 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:47 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:47 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:47 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:47 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:47 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:47 INFO  SerializeObject:32 - Stored data to JSON file
+2020-11-30 23:18:47 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-30 23:18:47 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:18:47 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:18:47 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:18:47 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:18:47 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:18:47 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:18:47 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:18:47 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:47 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:18:47 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:18:47 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:18:47 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:47 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:18:47 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:18:47 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:18:47 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:18:47 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:18:47 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:18:47 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:18:47 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:18:47 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:18:47 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:18:47 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:47 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:18:47 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:18:47 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:18:47 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:47 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:18:47 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:18:47 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:18:47 INFO  MatchScheduleAbstractFactory:27 - New Object of regularSeasonSchedule Class is created
+2020-11-30 23:18:47 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:47 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:47 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:47 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:47 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:47 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:47 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:47 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:47 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:47 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:47 INFO  Subject:22 - All the observers of the subjects are notified for update
+2020-11-30 23:18:47 INFO  ForwardStandingObserver:17 - Forward Standing Observer notified and updated
+2020-11-30 23:18:47 INFO  DefensemanStandingObserver:18 - Defense Standing Observer notified and updated
+2020-11-30 23:18:47 INFO  GoalieStandingObserver:19 - Goalie Standing Observer notified and updated
+2020-11-30 23:18:47 INFO  Subject:22 - All the observers of the subjects are notified for update
+2020-11-30 23:18:47 INFO  ForwardStandingObserver:17 - Forward Standing Observer notified and updated
+2020-11-30 23:18:47 INFO  DefensemanStandingObserver:18 - Defense Standing Observer notified and updated
+2020-11-30 23:18:47 INFO  GoalieStandingObserver:19 - Goalie Standing Observer notified and updated
+2020-11-30 23:18:47 INFO  Subject:22 - All the observers of the subjects are notified for update
+2020-11-30 23:18:47 INFO  TeamStandingObserver:19 - Teams Standing Observer notified and updated
+2020-11-30 23:18:47 INFO  CoachStandingObserver:16 - Coach Standing Observer notified and updated
+2020-11-30 23:18:47 INFO  PlayerStandingObserver:16 - Player Standing Observer notified and updated
+2020-11-30 23:18:47 INFO  Subject:22 - All the observers of the subjects are notified for update
+2020-11-30 23:18:47 INFO  TeamStandingObserver:19 - Teams Standing Observer notified and updated
+2020-11-30 23:18:47 INFO  CoachStandingObserver:16 - Coach Standing Observer notified and updated
+2020-11-30 23:18:47 INFO  PlayerStandingObserver:16 - Player Standing Observer notified and updated
+2020-11-30 23:18:47 INFO  Subject:29 - All the observers of the subjects are notified for diplay
+2020-11-30 23:18:47 INFO  TeamStandingObserver:39 - Teams Standing Observer display notified and displayed
+2020-11-30 23:18:47 INFO  ForwardStandingObserver:35 - Forward Standing Observer display notified and displayed
+2020-11-30 23:18:47 INFO  DefensemanStandingObserver:35 - Defense Standing Observer display notified and displayed
+2020-11-30 23:18:47 INFO  CoachStandingObserver:31 - Coach Standing Observer display notified and displayed
+2020-11-30 23:18:47 INFO  GoalieStandingObserver:36 - Goalie Standing Observer display notified and displayed
+2020-11-30 23:18:47 INFO  PlayerStandingObserver:32 - Player Standing Observer display notified and displayed
+2020-11-30 23:18:47 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:47 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:18:47 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:18:47 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:18:47 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:18:47 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:18:47 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:18:47 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:18:47 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:18:47 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:47 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:18:47 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:18:47 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:18:47 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:47 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:18:47 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:18:47 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:18:47 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:18:47 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:18:47 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:18:47 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:18:47 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:18:47 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:18:47 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:18:47 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:47 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:18:47 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:18:47 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:18:47 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:18:47 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:18:47 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:18:47 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:22:55 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:40 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:40 INFO  FindOfferedPlayers:47 - Team is proceeding with player trading.
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:24 - Players requested in the trade from Cairo Astros
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:26 - Player name: Mary Halen
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:27 - Player position: goalie
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:34 - Players offered in the trade by Vancouver Blues
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:36 - Player name: Chris Marley
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:37 - Player position: forward
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:36 - Player name: Wen Greenbaum
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:37 - Player position: defense
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:71 - Trade is accepted by team: Cairo Astros
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:82 - The number of players in Vancouver Blues after resolving the team's roaster: 30
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:89 - The number of players in Cairo Astros after resolving the team's roaster: 30
+2020-11-30 23:24:40 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:40 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:40 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:40 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:40 INFO  FindOfferedPlayers:47 - Team is proceeding with player trading.
+2020-11-30 23:24:40 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:40 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:64 - Trade is rejected by team: Cairo Astros
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:71 - Trade is accepted by team: Cairo Astros
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:82 - The number of players in Vancouver Blues after resolving the team's roaster: 30
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:89 - The number of players in Cairo Astros after resolving the team's roaster: 30
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:24 - Players requested in the trade from Cairo Astros
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:26 - Player name: Mary Halen
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:27 - Player position: goalie
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:34 - Players offered in the trade by Vancouver Blues
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:36 - Player name: Chris Marley
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:37 - Player position: forward
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:36 - Player name: Wen Greenbaum
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:37 - Player position: defense
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:71 - Trade is accepted by team: Cairo Astros
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:82 - The number of players in Vancouver Blues after resolving the team's roaster: 30
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:89 - The number of players in Cairo Astros after resolving the team's roaster: 30
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:71 - Trade is accepted by team: Cairo Astros
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:82 - The number of players in Vancouver Blues after resolving the team's roaster: 30
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:89 - The number of players in Cairo Astros after resolving the team's roaster: 30
+2020-11-30 23:24:40 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:40 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:24 - Players requested in the trade from Sault Saint Marie Monkeys
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:26 - Player name: Mary Halen
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:27 - Player position: goalie
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:34 - Players offered in the trade by Vancouver Blues
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:36 - Player name: Chris Marley
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:37 - Player position: forward
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:36 - Player name: Wen Greenbaum
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:37 - Player position: defense
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:71 - Trade is accepted by team: Sault Saint Marie Monkeys
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:89 - The number of players in Sault Saint Marie Monkeys after resolving the team's roaster: 30
+2020-11-30 23:24:40 INFO  AcceptRejectTrade:82 - The number of players in Vancouver Blues after resolving the team's roaster: 30
+2020-11-30 23:24:41 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:24:41 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:24:41 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:24:41 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:24:41 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:24:41 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:24:41 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:24:41 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:24:41 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:24:41 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:24:41 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:24:41 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:24:41 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:24:41 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:24:41 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:24:41 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:24:41 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:24:41 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:24:41 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:24:41 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:24:41 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:24:41 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:24:41 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:24:41 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:24:41 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:24:41 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:24:41 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:24:41 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:24:41 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:24:41 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:24:41 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:24:41 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:24:41 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:24:41 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:24:41 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:24:41 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:24:41 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:24:41 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:24:41 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:24:41 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:24:41 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:24:41 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:24:41 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:24:41 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:24:41 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:41 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:41 INFO  GenerateTradeOffer:45 - Inside Trading
+2020-11-30 23:24:41 INFO  GenerateTradeOffer:60 - Loss point is set to 0 for team: Vancouver Blues
+2020-11-30 23:24:41 INFO  GenerateTradeOffer:61 - Trade is initiated by team: Vancouver Blues
+2020-11-30 23:24:41 INFO  FindOfferedPlayers:47 - Team is proceeding with player trading.
+2020-11-30 23:24:41 INFO  AcceptRejectTrade:24 - Players requested in the trade from Cairo Astros
+2020-11-30 23:24:41 INFO  AcceptRejectTrade:26 - Player name: Mary Halen
+2020-11-30 23:24:41 INFO  AcceptRejectTrade:27 - Player position: goalie
+2020-11-30 23:24:41 INFO  AcceptRejectTrade:34 - Players offered in the trade by Vancouver Blues
+2020-11-30 23:24:41 INFO  AcceptRejectTrade:36 - Player name: Chris Marley
+2020-11-30 23:24:41 INFO  AcceptRejectTrade:37 - Player position: forward
+2020-11-30 23:24:41 INFO  AcceptRejectTrade:36 - Player name: Wen Greenbaum
+2020-11-30 23:24:41 INFO  AcceptRejectTrade:37 - Player position: defense
+2020-11-30 23:24:41 INFO  AcceptRejectTrade:71 - Trade is accepted by team: Cairo Astros
+2020-11-30 23:24:41 INFO  AcceptRejectTrade:82 - The number of players in Vancouver Blues after resolving the team's roaster: 30
+2020-11-30 23:24:41 INFO  AcceptRejectTrade:89 - The number of players in Cairo Astros after resolving the team's roaster: 30
+2020-11-30 23:24:41 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:41 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:41 INFO  GameSimulationAbstractFactory:12 - New Object of GameSimulationAbstractFactory is created
+2020-11-30 23:24:41 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-30 23:24:41 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-30 23:24:41 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-30 23:24:41 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-30 23:24:41 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-30 23:24:41 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-30 23:24:41 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-30 23:24:41 INFO  GameSimulationAbstractFactoryConcrete:16 - New Object of SwapTurn Class is created
+2020-11-30 23:24:41 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:24:41 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:24:41 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:24:41 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:24:41 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:24:41 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:24:41 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:24:41 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:24:41 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:24:41 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:24:41 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:24:41 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:24:41 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:24:41 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:24:41 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:24:41 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:24:41 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:24:41 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:24:41 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:24:41 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:24:41 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:24:41 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:24:41 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:41 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:24:41 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:24:41 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:24:41 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:24:41 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:24:41 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:24:41 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:24:41 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:24:41 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:24:41 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:24:41 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:24:41 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:24:41 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:24:41 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:24:41 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:24:41 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:24:41 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:24:41 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:24:41 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:24:41 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:24:41 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:24:41 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:24:41 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:24:41 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:24:41 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:24:41 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:24:41 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:24:41 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:24:41 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:24:41 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:24:41 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:24:41 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:24:41 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:24:41 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:24:41 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:24:41 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:24:41 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:24:41 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:24:41 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:24:41 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:24:41 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:24:41 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:24:41 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:24:41 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:24:41 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:24:41 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:24:41 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:24:41 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:24:41 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:24:41 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:24:41 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:24:41 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:24:41 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:24:41 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:24:41 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:24:41 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:24:41 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:24:41 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:24:41 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:24:41 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:24:41 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:24:41 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:24:41 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:24:41 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:24:41 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:24:41 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:24:41 INFO  MatchScheduleAbstractFactory:13 - New Object of Deadline Class is created
+2020-11-30 23:24:41 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:24:41 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:24:41 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:24:41 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:24:41 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:24:41 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:24:41 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:24:41 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:24:41 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:24:41 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:24:41 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:24:41 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:24:41 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:24:41 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:24:41 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:24:41 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:24:41 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:24:41 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:24:41 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:24:41 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:24:41 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:24:41 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:24:41 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:24:41 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:24:41 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:24:41 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:24:41 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:24:41 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:24:41 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:24:41 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:24:41 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:24:41 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:24:41 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:24:41 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:24:41 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:24:41 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:24:41 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:24:41 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:24:41 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:24:41 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:24:41 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:24:41 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:24:41 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:24:41 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:24:41 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:41 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:41 INFO  MatchScheduleAbstractFactory:12 - New Object of MatchScheduleAbstractFactory is created
+2020-11-30 23:24:41 INFO  MatchScheduleAbstractFactory:41 - New Object of playoffSchedule Class is created
+2020-11-30 23:24:41 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:24:41 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:24:41 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:24:41 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:24:41 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:24:41 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:24:41 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:24:41 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:24:41 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:24:41 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:24:41 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:24:41 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:24:41 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:24:41 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:24:41 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:24:41 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:24:41 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:24:41 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:24:41 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:24:41 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:24:41 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:41 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:24:41 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:24:41 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:24:41 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:41 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:41 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:41 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:41 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:42 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:42 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:42 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:42 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:42 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:42 INFO  SerializeObject:32 - Stored data to JSON file
+2020-11-30 23:24:42 INFO  GameSimulationAbstractFactoryConcrete:30 - New Object of GameConfiguration Class is created
+2020-11-30 23:24:42 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:24:42 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:24:42 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:24:42 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:24:42 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:24:42 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:24:42 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:24:42 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:42 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:24:42 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:24:42 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:24:42 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:42 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:24:42 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:24:42 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:24:42 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:24:42 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:24:42 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:24:42 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:24:42 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:24:42 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:24:42 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:24:42 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:42 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:24:42 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:24:42 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:24:42 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:42 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:24:42 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:24:42 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:24:42 INFO  MatchScheduleAbstractFactory:27 - New Object of regularSeasonSchedule Class is created
+2020-11-30 23:24:42 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:42 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:42 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:42 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:42 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:42 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:42 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:42 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:42 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:42 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:42 INFO  Subject:22 - All the observers of the subjects are notified for update
+2020-11-30 23:24:42 INFO  ForwardStandingObserver:17 - Forward Standing Observer notified and updated
+2020-11-30 23:24:42 INFO  DefensemanStandingObserver:18 - Defense Standing Observer notified and updated
+2020-11-30 23:24:42 INFO  GoalieStandingObserver:19 - Goalie Standing Observer notified and updated
+2020-11-30 23:24:42 INFO  Subject:22 - All the observers of the subjects are notified for update
+2020-11-30 23:24:42 INFO  ForwardStandingObserver:17 - Forward Standing Observer notified and updated
+2020-11-30 23:24:42 INFO  DefensemanStandingObserver:18 - Defense Standing Observer notified and updated
+2020-11-30 23:24:42 INFO  GoalieStandingObserver:19 - Goalie Standing Observer notified and updated
+2020-11-30 23:24:42 INFO  Subject:22 - All the observers of the subjects are notified for update
+2020-11-30 23:24:42 INFO  TeamStandingObserver:19 - Teams Standing Observer notified and updated
+2020-11-30 23:24:42 INFO  CoachStandingObserver:16 - Coach Standing Observer notified and updated
+2020-11-30 23:24:42 INFO  PlayerStandingObserver:16 - Player Standing Observer notified and updated
+2020-11-30 23:24:42 INFO  Subject:22 - All the observers of the subjects are notified for update
+2020-11-30 23:24:42 INFO  TeamStandingObserver:19 - Teams Standing Observer notified and updated
+2020-11-30 23:24:42 INFO  CoachStandingObserver:16 - Coach Standing Observer notified and updated
+2020-11-30 23:24:42 INFO  PlayerStandingObserver:16 - Player Standing Observer notified and updated
+2020-11-30 23:24:42 INFO  Subject:29 - All the observers of the subjects are notified for diplay
+2020-11-30 23:24:42 INFO  TeamStandingObserver:39 - Teams Standing Observer display notified and displayed
+2020-11-30 23:24:42 INFO  ForwardStandingObserver:35 - Forward Standing Observer display notified and displayed
+2020-11-30 23:24:42 INFO  DefensemanStandingObserver:35 - Defense Standing Observer display notified and displayed
+2020-11-30 23:24:42 INFO  CoachStandingObserver:31 - Coach Standing Observer display notified and displayed
+2020-11-30 23:24:42 INFO  GoalieStandingObserver:36 - Goalie Standing Observer display notified and displayed
+2020-11-30 23:24:42 INFO  PlayerStandingObserver:32 - Player Standing Observer display notified and displayed
+2020-11-30 23:24:42 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:42 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 23:24:42 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:24:42 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:24:42 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:24:42 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:24:42 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:24:42 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:24:42 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:24:42 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:42 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:24:42 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:24:42 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:24:42 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:42 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:24:42 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:24:42 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 23:24:42 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 23:24:42 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 23:24:42 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 23:24:42 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 23:24:42 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 23:24:42 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 23:24:42 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 23:24:42 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:42 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 23:24:42 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 23:24:42 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 23:24:42 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 23:24:42 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 23:24:42 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 23:24:42 INFO  TrophySystemState:18 - Initializing TrophySystemState State
