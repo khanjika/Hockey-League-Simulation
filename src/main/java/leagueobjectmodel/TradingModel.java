@@ -73,8 +73,10 @@ public class TradingModel implements ITradingModel {
         @Expose
         private float normal;
 
-        public  GmTable(){}
-        public GmTable(float shrewd,float gambler,float normal){
+        public GmTable() {
+        }
+
+        public GmTable(float shrewd, float gambler, float normal) {
             this.shrewd = shrewd;
             this.gambler = gambler;
             this.normal = normal;

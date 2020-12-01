@@ -17,7 +17,14 @@ public class FreeAgentValidator implements IFreeAgentValidator {
     }
 
     private boolean isStatValid(float stat) {
-        return !(stat < 0) || !(stat > 20);
+
+        if(stat<0 || stat>20){
+            return false;
+        }
+        else {
+            return true;
+        }
+
     }
 
     private boolean isAgeValid(int age) {

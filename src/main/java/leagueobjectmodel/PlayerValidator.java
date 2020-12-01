@@ -34,12 +34,21 @@ public class PlayerValidator implements IPlayerValidator {
         return position.equals(PlayerPosition.GOALIE.toString()) || position.equals(PlayerPosition.FORWARD.toString()) || position.equals(PlayerPosition.DEFENSE.toString());
     }
 
-    private boolean isStringValid(String str) {
-        return str != null && !str.isEmpty();
-    }
+        private boolean isStringValid(String str) {
+            if(str==null || str.isEmpty()){
+                return false;
+            }
+            else
+                return true;
+        }
 
     private boolean isStatValid(float stat) {
-        return !(stat < 0) || !(stat > 20);
+        if(stat<0 ||stat>20){
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 
     private boolean isAgeValid(int age) {
