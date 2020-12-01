@@ -13,6 +13,7 @@ public class DivisonModelTest {
     private String divisionName;
     private List<TeamsModel> teams;
 
+
     @Test
     void getDivisionNameTest() {
         DivisonModel divisonModel = new DivisonModel();

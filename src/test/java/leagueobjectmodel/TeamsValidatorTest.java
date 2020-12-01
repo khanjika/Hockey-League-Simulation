@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class TeamsValidatorTest {
 
@@ -57,29 +58,4 @@ class TeamsValidatorTest {
         freeAgentList = validator.addingFreeAgent (player, freeAgentList);
         Assert.assertEquals (freeAgentList.size (), 83);
     }
-
-    @Test
-    void removePlayers() {
-        int noOfRemovedPlayers = 1;
-        String position = PlayerPosition.FORWARD.toString ();
-        List<IFreeAgentModel> freeAgentList = mock.leagueModel ().getFreeAgents ();
-        ITeamsModel team = league.getConferences ().get (0).getDivisions ().get (0).getTeams ().get (0);
-        List<PlayerModel> list = team.getPlayers ();
-        freeAgentList = validator.removePlayers (noOfRemovedPlayers, list, freeAgentList, position);
-
-        Assert.assertEquals (freeAgentList.size (), 83);
-    }
-
-    @Test
-    void addFromFreeAgent() {
-        int playersRequired = 1;
-        String position = PlayerPosition.FORWARD.toString ();
-        List<IFreeAgentModel> freeAgentList = mock.leagueModel ().getFreeAgents ();
-        ITeamsModel team = league.getConferences ().get (0).getDivisions ().get (0).getTeams ().get (0);
-        List<PlayerModel> list = team.getPlayers ();
-        freeAgentList = validator.addFromFreeAgent (playersRequired, list, freeAgentList, position);
-
-        Assert.assertEquals (freeAgentList.size (), 81);
-    }
-
 }

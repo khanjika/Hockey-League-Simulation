@@ -1,5 +1,6 @@
 package LeagueMockObject;
 
+import leagueobjectmodel.ICoachModel;
 import leagueobjectmodel.IFreeAgentModel;
 import leagueobjectmodel.ILeagueModel;
 import leagueobjectmodel.IPlayerModel;
@@ -25,4 +26,6 @@ public abstract class MockLeagueAbstractFactory  {
     public abstract IPlayerModel createPlayer();
 
     public abstract IFreeAgentModel createFreeAgent();
+
+    public abstract ICoachModel createCoachModel();
 }
