@@ -29142,3 +29142,7 @@
 2020-11-30 21:37:13 INFO  GoalieStandingObserver:36 - %statemachine.trophysystem
 2020-11-30 21:37:13 INFO  PlayerStandingObserver:32 - %statemachine.trophysystem
 2020-11-30 21:37:14 INFO  SerializeObject:32 - %statemachine.trophysystem
+2020-11-30 21:40:49 DEBUG Main:10 - %statemachine.trophysystem
+2020-11-30 21:40:49 DEBUG StateMachine:32 - %statemachine.trophysystem
+2020-11-30 21:40:50 INFO  ImportJsonState:52 - %statemachine.trophysystem
+2020-11-30 21:40:50 INFO  DeserializeObject:46 - %statemachine.trophysystem
