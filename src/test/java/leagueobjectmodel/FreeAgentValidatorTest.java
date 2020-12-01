@@ -11,10 +11,10 @@ class FreeAgentValidatorTest {
 
     @Test
     void validateFreeAgentObject() {
-        FreeAgentModel freeAgentModel = MockFreeAgent.getFreeAgentModel();
+        IFreeAgentModel freeAgentModel = MockFreeAgent.getFreeAgentModel();
         FreeAgentValidator freeAgentValidator = new FreeAgentValidator();
         assertTrue(freeAgentValidator.validateFreeAgentObject(freeAgentModel));
-        FreeAgentModel freeAgentModel1 = MockFreeAgent.getInvalidFreeAgentModel();
+        IFreeAgentModel freeAgentModel1 = MockFreeAgent.getInvalidFreeAgentModel();
         assertFalse(freeAgentValidator.validateFreeAgentObject(freeAgentModel1));
 
     }

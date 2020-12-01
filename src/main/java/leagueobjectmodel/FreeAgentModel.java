@@ -204,9 +204,16 @@ public class FreeAgentModel implements IFreeAgentModel {
 
     @Override
     public void aging(IFreeAgentModel freeAgentModel, LocalDate date, int daysToAge) {
+        if( freeAgentModel == null || date ==null || daysToAge == 0){
+            throw new NullPointerException("Error in Aging method of free Agent");
+        }
         int playerAge = date.getYear() - freeAgentModel.getBirthYear();
         LocalDate upcomingBirthDate = LocalDate.of(date.getYear(), freeAgentModel.getBirthMonth(), freeAgentModel.getBirthDay());
         LocalDate agingDate = date.plusDays(daysToAge);
+        if(this.age == 0) {
+            agingDate = date;
+            this.setAge(agingDate.getYear() - freeAgentModel.getBirthYear());
+        }
         freeAgentModel.setAge(playerAge);
         if (upcomingBirthDate.isBefore(agingDate)) {
             freeAgentModel.setAge(agingDate.getYear() - freeAgentModel.getBirthYear() + 1);

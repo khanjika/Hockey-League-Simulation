@@ -24,9 +24,9 @@ public interface IPlayerModel {
 
     abstract  void checkPlayerInjury(IPlayerModel playerModel, LocalDate date);
 
-    void recoverPlayer(PlayerModel playerModel, LocalDate date);
+    void recoverPlayer(IPlayerModel playerModel, LocalDate date);
 
-    abstract void aging(PlayerModel playerModel, int daysToAge, LocalDate date);
+    abstract void aging(IPlayerModel playerModel, int daysToAge, LocalDate date);
 
     String getPlayerName();
 
@@ -112,11 +112,11 @@ public interface IPlayerModel {
 
     float calculateGoalieStrength(IPlayerModel playerModel);
 
-    void checkStatDecayDueToBirthDay(PlayerModel playerModel, LocalDate date, int daysToAge);
+    void checkStatDecayDueToBirthDay(IPlayerModel playerModel, LocalDate date, int daysToAge);
 
-    void replacePlayerWithFreeAgent(PlayerModel playerModel, IFreeAgentModel replacementFreeAgent);
+    void replacePlayerWithFreeAgent(IPlayerModel playerModel, IFreeAgentModel replacementFreeAgent);
 
-    int checkPlayerRetirementPossibility(PlayerModel playerModel);
+    int checkPlayerRetirementPossibility(IPlayerModel playerModel);
 
     float getShootingState(List<PlayerModel> playerModelList);
 

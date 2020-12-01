@@ -1,6 +1,8 @@
 package LeagueMockObject;
 
+import leagueobjectmodel.IFreeAgentModel;
 import leagueobjectmodel.ILeagueModel;
+import leagueobjectmodel.IPlayerModel;
 import org.apache.log4j.Logger;
 import statemachine.states.statemachine.states.simulateGame.GameSimulationAbstractFactory;
 import statemachine.states.statemachine.states.simulateGame.GameSimulationAbstractFactoryConcrete;
@@ -19,4 +21,8 @@ public abstract class MockLeagueAbstractFactory  {
     public abstract ILeagueModel createLeague();
 
     public abstract void setLeague(ILeagueModel league);
+
+    public abstract IPlayerModel createPlayer();
+
+    public abstract IFreeAgentModel createFreeAgent();
 }

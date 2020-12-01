@@ -1,5 +1,5 @@
 package leagueobjectmodel;
 
 public interface IPlayerValidator {
-    boolean validatePlayerObject(PlayerModel playerModel);
+    boolean validatePlayerObject(IPlayerModel playerModel);
 }
