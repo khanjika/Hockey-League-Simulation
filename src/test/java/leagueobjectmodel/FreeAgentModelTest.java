@@ -1,21 +1,26 @@
-//package leagueobjectmodel;
-//
-//import org.junit.jupiter.api.Test;
-//import trade.MockLeague;
-//
-//import java.util.ArrayList;
-//import java.util.List;
-//
-//import static org.junit.jupiter.api.Assertions.assertEquals;
-//
-//public class FreeAgentModelTest {
-//
-//    @Test
-//    void getPlayerName() {
-//        FreeAgentModel freeAgentModel = new FreeAgentModel();
-//        freeAgentModel.setPlayerName("freeagent one");
-//        assertEquals("freeagent one", freeAgentModel.getPlayerName(), "Failed to get freeagent name in Free agent object");
-//    }
+package leagueobjectmodel;
+
+import mock.ModelMock;
+import org.junit.Assert;
+import org.junit.jupiter.api.Test;
+
+import java.util.List;
+
+public class FreeAgentModelTest {
+
+    IFreeAgentModel freeAgentModel = LeagueObjectModelAbstractFactory.getInstance ().getFreeAgentModel ();
+    ModelMock mock = new ModelMock ();
+
+    @Test
+    void sortFreeAgentDescending() {
+        List<IFreeAgentModel> freeAgent = mock.leagueModel ().getFreeAgents ();
+        freeAgent = freeAgentModel.sortFreeAgentDescending (freeAgent);
+
+        Assert.assertTrue (freeAgent.get (0).getFreeAgentStrength () > freeAgent.get (1).getFreeAgentStrength ());
+
+    }
+
+}
 //
 //    @Test
 //    void setPlayerName() {

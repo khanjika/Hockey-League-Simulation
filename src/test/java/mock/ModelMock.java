@@ -12,11 +12,6 @@ public class ModelMock {
 
     IDeserializeObject parse = SerializeObjectAbstractFactory.instance ().createParser ();
 
-    private enum playerPosition {
-        forward,
-        defense,
-        goalie
-    }
 
     public ILeagueModel leagueModel() {
         ILeagueModel league = parse.parseJson ("src/test/java/league.json");
@@ -65,9 +60,9 @@ public class ModelMock {
 
     public HashMap strengthHashMapModel() {
         HashMap<String, Float> strengthMap = new HashMap<> ();
-        strengthMap.put (playerPosition.forward.toString (), (float) 456.5);
-        strengthMap.put (playerPosition.defense.toString (), (float) 314.5);
-        strengthMap.put (playerPosition.goalie.toString (), (float) 91);
+        strengthMap.put (PlayerPosition.FORWARD.toString (), (float) 456.5);
+        strengthMap.put (PlayerPosition.DEFENSE.toString (), (float) 314.5);
+        strengthMap.put (PlayerPosition.GOALIE.toString (), (float) 91);
         return strengthMap;
     }
 }
