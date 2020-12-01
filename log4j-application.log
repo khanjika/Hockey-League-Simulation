@@ -472,3 +472,20 @@
 2020-11-30 22:34:07 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
 2020-11-30 22:34:28 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
 2020-11-30 22:34:49 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
+2020-11-30 22:35:11 INFO  StateMachine:32 - intializing state machine object
+2020-11-30 22:35:11 INFO  ImportJsonState:19 - Initializing ImportJson State
+2020-11-30 22:35:11 INFO  LoadTeamState:17 - Initializing LoadTeam State
+2020-11-30 22:35:11 INFO  CreateTeamState:25 - Initializing CreateTeam State
+2020-11-30 22:35:11 INFO  PlayerSeasonsChoiceState:21 - Initializing PlayerSeasonsChoice State
+2020-11-30 22:35:11 INFO  PersistLeagueState:21 - Initializing PersisteLeague State
+2020-11-30 22:35:11 INFO  InitializeSeasonState:41 - Initializing InitlaizeSeason State
+2020-11-30 22:35:11 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 22:35:11 INFO  SimulateGameState:23 - Initializing SimulateGame State
+2020-11-30 22:35:11 INFO  AgingState:29 - Initializing Aging State
+2020-11-30 22:35:11 INFO  InjuryCheckState:18 - Initializing INjuryCheck State
+2020-11-30 22:35:11 INFO  TrainingState:16 - Initializing Training State
+2020-11-30 22:35:11 INFO  TradingState:17 - Initializing Trading State
+2020-11-30 22:35:11 INFO  PlayerDraftState:24 - Initializing PlayerDraft State
+2020-11-30 22:35:11 INFO  TrophySystemState:18 - Initializing TrophySystemState State
+2020-11-30 22:35:11 INFO  ImportJsonState:53 - user has provided argument in the path
+2020-11-30 22:35:11 INFO  DeserializeObject:47 - File parsed successfully from the given filepath
