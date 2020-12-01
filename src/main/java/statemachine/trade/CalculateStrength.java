@@ -1,22 +1,14 @@
 package statemachine.trade;
 
 import leagueobjectmodel.*;
-import org.apache.log4j.Logger;
 
 import java.util.HashMap;
 import java.util.List;
 
 public class CalculateStrength implements ICalculateStrength {
-    private static final Logger logger = Logger.getLogger (CalculateStrength.class);
     private float averageForwardStrength = 0;
     private float averageDefenseStrength = 0;
     private float averageGoalieStrength = 0;
-
-    private enum playerPosition {
-        forward,
-        defense,
-        goalie
-    }
 
     @Override
     public int totalStrengthCounter(ITeamsModel team, HashMap strengthMap, ILeagueModel league) {
@@ -24,14 +16,14 @@ public class CalculateStrength implements ICalculateStrength {
         int counterDefense = 0;
         int counterGoalie = 0;
         int totalCounter;
-        findAveragePositionStrength(league);
-        if ((float) strengthMap.get (playerPosition.forward.toString ()) > averageForwardStrength) {
+        findAveragePositionStrength (league);
+        if ((float) strengthMap.get (PlayerPosition.FORWARD.toString ()) > averageForwardStrength) {
             counterForward += 1;
         }
-        if ((float) strengthMap.get (playerPosition.defense.toString ()) > averageDefenseStrength) {
+        if ((float) strengthMap.get (PlayerPosition.DEFENSE.toString ()) > averageDefenseStrength) {
             counterDefense += 1;
         }
-        if ((float) strengthMap.get (playerPosition.goalie.toString ()) > averageGoalieStrength) {
+        if ((float) strengthMap.get (PlayerPosition.GOALIE.toString ()) > averageGoalieStrength) {
             counterGoalie += 1;
         }
         team.setIsDefenseStrong (counterDefense);
@@ -50,10 +42,10 @@ public class CalculateStrength implements ICalculateStrength {
         HashMap<String, Float> strengthMap = new HashMap<> ();
         List<PlayerModel> playerList = team.getPlayers ();
         for (int i = 0; i < playerList.size (); i++) {
-            if (playerList.get (i).getPosition ().equals (playerPosition.forward.toString ())) {
+            if (playerList.get (i).getPosition ().equals (PlayerPosition.FORWARD.toString ())) {
                 float forwardStrength = playerList.get (i).getPlayerStrength ();
                 totalForwardStrength += forwardStrength;
-            } else if (playerList.get (i).getPosition ().equals (playerPosition.defense.toString ())) {
+            } else if (playerList.get (i).getPosition ().equals (PlayerPosition.DEFENSE.toString ())) {
                 float defenseStrength = playerList.get (i).getPlayerStrength ();
                 totalDefenseStrength += defenseStrength;
             } else {
@@ -61,9 +53,9 @@ public class CalculateStrength implements ICalculateStrength {
                 totalGoalieStrength += goalieStrength;
             }
         }
-        strengthMap.put (playerPosition.forward.toString (), totalForwardStrength);
-        strengthMap.put (playerPosition.defense.toString (), totalDefenseStrength);
-        strengthMap.put (playerPosition.goalie.toString (), totalGoalieStrength);
+        strengthMap.put (PlayerPosition.FORWARD.toString (), totalForwardStrength);
+        strengthMap.put (PlayerPosition.DEFENSE.toString (), totalDefenseStrength);
+        strengthMap.put (PlayerPosition.GOALIE.toString (), totalGoalieStrength);
         return strengthMap;
     }
 
@@ -78,8 +70,6 @@ public class CalculateStrength implements ICalculateStrength {
 
     @Override
     public void findAveragePositionStrength(ILeagueModel league) {
-        HashMap<String, Float> strengthMap = new HashMap<> ();
-
         int totalTeam = 0;
         float totalForward = 0;
         float totaldefense = 0;

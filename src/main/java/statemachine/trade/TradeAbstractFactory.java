@@ -24,4 +24,6 @@ public abstract class TradeAbstractFactory {
     public abstract ICalculateStrength createStrength();
 
     public abstract IUserTradeCli createUserTradeCli();
+
+    public abstract void setTradeOffer(IGenerateTradeOffer tradeOffer);
 }

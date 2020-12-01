@@ -18,12 +18,6 @@ public class FindTeamToSwap implements IFindTeamToSwap {
     private IUserTradeCli userTradeCli;
     private ITeamsModel offeredTeam;
 
-    private enum playerPosition {
-        forward,
-        defense,
-        goalie
-    }
-
     public FindTeamToSwap() {
         teamsModel = LeagueObjectModelAbstractFactory.getInstance ().getTeams ();
         model = TradeAbstractFactory.instance ().createTradeModel ();
@@ -39,6 +33,8 @@ public class FindTeamToSwap implements IFindTeamToSwap {
             int userInput = userTradeCli.displayTeamDetails ();
             if (userInput == 1) {
                 league = acceptRejectTrade.tradeAccepted (league, team, offeredTeam);
+            } else {
+                logger.info ("Trade Rejected by " + offeredTeam.getTeamName ());
             }
         } else {
             league = acceptRejectTrade.acceptRejectTrade (league, team, offeredTeam);
@@ -69,22 +65,16 @@ public class FindTeamToSwap implements IFindTeamToSwap {
                     }
                     if (flag == 1) {
                         offeredTeam = team;
-                        break;
+                        flag = 0;
+                        return offeredTeam;
                     }
                 }
-                if (flag == 1) {
-                    break;
-                }
-            }
-            if (flag == 1) {
-                flag = 0;
-                break;
             }
         }
         return offeredTeam;
     }
 
-    public void findTeamToTradePick(ITeamsModel team, ITeamsModel teamInitiating) {
+    public int findTeamToTradePick(ITeamsModel team, ITeamsModel teamInitiating) {
         List<PlayerModel> listOfPlayers = new ArrayList<> ();
         float teamOfferedStrength = calculateStrength.findTeamStrength (team.getPlayers ());
         float teamInitiatingStrength = calculateStrength.findTeamStrength (teamInitiating.getPlayers ());
@@ -93,42 +83,41 @@ public class FindTeamToSwap implements IFindTeamToSwap {
             ITeamsModel[] roundPick = teamInitiating.getDraftTrade ();
             for (int i = 6; i >= 0; i--) {
                 if (roundPick[i] == null) {
+                    logger.info (i + 1 + " round draft pick offered by " + teamInitiating.getTeamName ());
                     roundPick[i] = team;
                     PlayerModel player = offeredTeamPlayer.get (i);
                     listOfPlayers.add (player);
                     model.setRequestedPlayers (listOfPlayers);
                     flag = 1;
-                    break;
+                    return i;
                 }
             }
         }
+        return 0;
     }
 
     @Override
     public List<PlayerModel> selectTeam(ITeamsModel team, ITeamsModel teamInitiatingTrade) {
         List<PlayerModel> requestedPlayers = new ArrayList<> ();
         if (teamInitiatingTrade.getIsGoalieStrong () == 0) {
-            logger.debug ("Need a goalie to make the team strong !!");
             if (team.getIsGoalieStrong () == 1) {
-                findSuitablePlayers (team, playerPosition.goalie.toString (), requestedPlayers, teamInitiatingTrade);
+                findSuitablePlayers (team, PlayerPosition.GOALIE.toString (), requestedPlayers, teamInitiatingTrade);
             }
         }
         if (teamInitiatingTrade.getIsForwardStrong () == 0) {
-            logger.debug ("Need a forward player to make the team strong !!");
             if (team.getIsForwardStrong () == 1) {
-                findSuitablePlayers (team, playerPosition.forward.toString (), requestedPlayers, teamInitiatingTrade);
+                findSuitablePlayers (team, PlayerPosition.FORWARD.toString (), requestedPlayers, teamInitiatingTrade);
             }
         }
         if (teamInitiatingTrade.getIsDefenseStrong () == 0) {
-            logger.debug ("Need a defense player to make the team strong !!");
             if (team.getIsDefenseStrong () == 1) {
-                findSuitablePlayers (team, playerPosition.defense.toString (), requestedPlayers, teamInitiatingTrade);
+                findSuitablePlayers (team, PlayerPosition.DEFENSE.toString (), requestedPlayers, teamInitiatingTrade);
             }
         }
         return requestedPlayers;
     }
 
-    public void findSuitablePlayers(ITeamsModel teams, String position, List<PlayerModel> requestedPlayers, ITeamsModel teamInitiatingTrade) {
+    public List<PlayerModel> findSuitablePlayers(ITeamsModel teams, String position, List<PlayerModel> requestedPlayers, ITeamsModel teamInitiatingTrade) {
         float initiatingWeakPositionStrength = 0;
         float possiblePlayerStrength;
         int counter = 0;
@@ -158,7 +147,6 @@ public class FindTeamToSwap implements IFindTeamToSwap {
         }
 
         for (int i = 1; i < playersOfThatPosition.size (); i++) {
-            logger.debug ("Entered");
             possiblePlayerStrength = playersOfThatPosition.get (i).getPlayerStrength ();
             if (possiblePlayerStrength < initiatingWeakPositionStrength) {
                 break;
@@ -169,11 +157,12 @@ public class FindTeamToSwap implements IFindTeamToSwap {
                     PlayerModel p = playersOfThatPosition.get (i);
                     requestedPlayers.add (p);
                     model.setRequestedPlayers (requestedPlayers);
-                    break;
+                    return requestedPlayers;
                 } else {
                     break;
                 }
             }
         }
+        return requestedPlayers;
     }
 }

@@ -21,18 +21,20 @@ public class UserTradeCli implements IUserTradeCli {
 
     @Override
     public int displayTeamDetails() {
-        System.out.println ("The players offered and their statistics:-");
-        for (int i = 0; i < model.getOfferedPlayer ().size (); i++) {
-            IPlayerModel player = model.getOfferedPlayer ().get (i);
-            out.println ("Player's name: " + " " + player.getPlayerName ());
-            out.println ("Player's position: " + " " + player.getPosition ());
-            out.println ("Player's age : " + " " + player.getAge ());
-            out.println ("Player's skating: " + " " + player.getSkating ());
-            out.println ("Player's shooting: " + " " + player.getShooting ());
-            out.println ("Player's checking: " + " " + player.getChecking ());
-            out.println ("Player's saving: " + " " + player.getSaving ());
-            out.println ("Player's strength: " + " " + player.getPlayerStrength ());
-            out.println ("================================================");
+        out.println ("The players offered and their statistics:-");
+        if (model.getOfferedPlayer ().size () > 0) {
+            for (int i = 0; i < model.getOfferedPlayer ().size (); i++) {
+                IPlayerModel player = model.getOfferedPlayer ().get (i);
+                out.println ("Player's name: " + " " + player.getPlayerName ());
+                out.println ("Player's position: " + " " + player.getPosition ());
+                out.println ("Player's age : " + " " + player.getAge ());
+                out.println ("Player's skating: " + " " + player.getSkating ());
+                out.println ("Player's shooting: " + " " + player.getShooting ());
+                out.println ("Player's checking: " + " " + player.getChecking ());
+                out.println ("Player's saving: " + " " + player.getSaving ());
+                out.println ("Player's strength: " + " " + player.getPlayerStrength ());
+                out.println ("================================================");
+            }
         }
 
         System.out.println ("The players requested:-");

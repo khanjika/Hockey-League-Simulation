@@ -7,6 +7,7 @@ public class Main {
     final static Logger logger = Logger.getLogger(Main.class);
 
     public static void main(String[] args) throws Exception {
+        System.out.println("Inside main");
         logger.debug("Main Class initilaized");
         Main.StateEntry(args);
     }

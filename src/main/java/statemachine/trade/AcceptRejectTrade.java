@@ -7,9 +7,9 @@ import java.util.List;
 
 public class AcceptRejectTrade implements IAcceptRejectTrade {
 
+    private static final Logger logger = Logger.getLogger (AcceptRejectTrade.class);
     private ITradeModel model;
     private ITeamsValidator teamsValidator;
-    private static final Logger logger = Logger.getLogger (AcceptRejectTrade.class);
 
     public AcceptRejectTrade() {
         model = TradeAbstractFactory.instance ().createTradeModel ();
@@ -21,10 +21,22 @@ public class AcceptRejectTrade implements IAcceptRejectTrade {
         float offeredPlayerStrength = 0;
         float requestedPlayerStrength = 0;
 
+        logger.info ("Players requested in the trade from " + offeredTeam.getTeamName ());
+        for (int i = 0; i < model.getRequestedPlayers ().size (); i++) {
+            logger.info ("Player name: " + model.getRequestedPlayers ().get (i).getPlayerName ());
+            logger.info ("Player position: " + model.getRequestedPlayers ().get (i).getPosition ());
+        }
+
         if (model.getOfferedPlayer ().isEmpty () == true) {
-            logger.info ("Trade Accepted");
             leagueModel = tradeAccepted (leagueModel, initiateTeam, offeredTeam);
         } else {
+
+            logger.info ("Players offered in the trade by " + initiateTeam.getTeamName ());
+            for (int i = 0; i < model.getOfferedPlayer ().size (); i++) {
+                logger.info ("Player name: " + model.getOfferedPlayer ().get (i).getPlayerName ());
+                logger.info ("Player position: " + model.getOfferedPlayer ().get (i).getPosition ());
+            }
+
             for (int i = 0; i < model.getOfferedPlayer ().size (); i++) {
                 offeredPlayerStrength += model.getOfferedPlayer ().get (i).getPlayerStrength ();
             }
@@ -34,7 +46,6 @@ public class AcceptRejectTrade implements IAcceptRejectTrade {
             }
 
             if (offeredPlayerStrength > requestedPlayerStrength) {
-                logger.info ("Trade Accepted");
                 leagueModel = tradeAccepted (leagueModel, initiateTeam, offeredTeam);
             } else {
                 leagueModel = tradeRejected (leagueModel, initiateTeam, offeredTeam);
@@ -48,23 +59,16 @@ public class AcceptRejectTrade implements IAcceptRejectTrade {
         float randomAcceptanceChance = leagueModel.getGameplayConfig ().getTrading ().getRandomAcceptanceChance ();
 
         if (Math.random () < randomAcceptanceChance) {
-            System.out.println ("Trade Accepted");
             leagueModel = tradeAccepted (leagueModel, initiateTeam, offeredTeam);
         } else {
-            System.out.println ("Trade Rejected");
+            logger.info ("Trade is rejected by team: " + offeredTeam.getTeamName ());
         }
         return leagueModel;
     }
 
 
     public ILeagueModel tradeAccepted(ILeagueModel league, ITeamsModel initiateTeam, ITeamsModel offeredTeam) {
-
-        logger.info ("Players requested:");
-        System.out.println ("Players requested:");
-        for (int i = 0; i < model.getRequestedPlayers ().size (); i++) {
-            System.out.println ("Player name:" + model.getRequestedPlayers ().get (i).getPlayerName ());
-            System.out.println ("Player position:" + model.getRequestedPlayers ().get (i).getPosition ());
-        }
+        logger.info ("Trade is accepted by team: " + offeredTeam.getTeamName ());
         boolean successTeam1 = false;
         boolean successTeam2 = false;
 
@@ -75,12 +79,14 @@ public class AcceptRejectTrade implements IAcceptRejectTrade {
                         successTeam1 = swapTeam (team, model.getRequestedPlayers (), model.getOfferedPlayer ());
                         teamsValidator.isCaptainPresent (team.getPlayers ());
                         teamsValidator.NoOfPlayersInTeam (team.getPlayers (), league);
+                        logger.info ("The number of players in " + team.getTeamName () + " after resolving the team's roaster: " + team.getPlayers ().size ());
                         team.calculateTeamStrength (team);
                     }
                     if (team.equals (offeredTeam)) {
                         successTeam2 = swapTeam (team, model.getOfferedPlayer (), model.getRequestedPlayers ());
                         teamsValidator.isCaptainPresent (team.getPlayers ());
                         teamsValidator.NoOfPlayersInTeam (team.getPlayers (), league);
+                        logger.info ("The number of players in " + team.getTeamName () + " after resolving the team's roaster: " + team.getPlayers ().size ());
                         team.calculateTeamStrength (team);
                     }
                     if (successTeam1 && successTeam2) {
