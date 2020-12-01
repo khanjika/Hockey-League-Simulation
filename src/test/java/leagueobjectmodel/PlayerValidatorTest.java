@@ -1,8 +1,6 @@
 package leagueobjectmodel;
 
-import leagueobjectmodel.PlayerModel;
-import leagueobjectmodel.PlayerValidator;
-import leagueobjectmodel.MockPlayer;
+import LeagueMockObject.MockPlayer;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -12,10 +10,10 @@ class PlayerValidatorTest {
 
     @Test
     void validatePlayerObject() {
-        PlayerModel playerModel = MockPlayer.getPlayerModel();
+        IPlayerModel playerModel = MockPlayer.getPlayerModel();
         PlayerValidator playerValidator = new PlayerValidator();
         assertTrue(playerValidator.validatePlayerObject(playerModel));
-        PlayerModel InValidPlayerModel = MockPlayer.getInvalidPlayerModel();
+        IPlayerModel InValidPlayerModel = MockPlayer.getInvalidPlayerModel();
         assertFalse(playerValidator.validatePlayerObject(InValidPlayerModel));
     }
 }

@@ -11,7 +11,7 @@ public class PlayerValidator implements IPlayerValidator {
     }
 
     @Override
-    public boolean validatePlayerObject(PlayerModel playerModel) {
+    public boolean validatePlayerObject(IPlayerModel playerModel) {
         if (isStringValid(playerModel.getPlayerName()) && isStringValid(playerModel.getPosition()) && playerModel.isCaptain() != null &&
                 isStatValid(playerModel.getSaving()) && isStatValid(playerModel.getShooting()) &&
                 isStatValid(playerModel.getSkating()) && isStatValid(playerModel.getChecking())) {

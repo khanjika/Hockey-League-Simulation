@@ -3,7 +3,7 @@ package leagueobjectmodel;
 public class FreeAgentValidator implements IFreeAgentValidator {
 
     @Override
-    public boolean validateFreeAgentObject(FreeAgentModel freeAgentModel) {
+    public boolean validateFreeAgentObject(IFreeAgentModel freeAgentModel) {
         return isStringValid(freeAgentModel.getPlayerName()) && isStringValid(freeAgentModel.getPosition())
                 && isStatValid(freeAgentModel.getSkating()) && isStatValid(freeAgentModel.getShooting()) && isStatValid(freeAgentModel.getChecking()) && isStatValid(freeAgentModel.getSaving());
     }

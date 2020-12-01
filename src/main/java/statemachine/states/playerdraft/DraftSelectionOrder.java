@@ -1,6 +1,10 @@
 package statemachine.states.playerdraft;
 
+import cli.CliAbstractFactory;
+import cli.ICli;
 import leagueobjectmodel.*;
+import org.apache.log4j.Logger;
+import statemachine.states.statemachine.states.matchSchedules.PlayoffSchedule;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -8,8 +12,11 @@ import java.util.Comparator;
 import java.util.List;
 
 public class DraftSelectionOrder implements IDraftSelectionOrder {
+    final static Logger logger = Logger.getLogger(DraftSelectionOrder.class);
     private final int NO_DRAFTS_ROUNDS = 7;
     List<ITeamsModel> teamList = new ArrayList<>();
+    ICli cli = CliAbstractFactory.getInstance().getCli();
+
     Comparator<ITeamsModel> teamModelComparator = new Comparator<ITeamsModel>() {
         @Override
         public int compare(ITeamsModel o1, ITeamsModel o2) {
@@ -35,6 +42,7 @@ public class DraftSelectionOrder implements IDraftSelectionOrder {
     @Override
     public List<ITeamsModel> getTeamStandingList(ILeagueModel leagueModel) {
         if (leagueModel == null) {
+            logger.error("Argument null in getTeamStandingList");
             throw new NullPointerException("Argument null in getTeamStandingList");
         }
         for (IConferenceModel conferenceModel : leagueModel.getConferences()) {
@@ -51,10 +59,14 @@ public class DraftSelectionOrder implements IDraftSelectionOrder {
 
     @Override
     public void draftingRounds(List<IPlayerModel> newDraftedPlayers) {
+        if(newDraftedPlayers == null){
+            throw new NullPointerException("Argument Null inside draftingRounds");
+        }
         for (int i = 1; i <= NO_DRAFTS_ROUNDS; i++) {
             for (int j = 0; j < teamList.size(); j++) {
                 IPlayerModel bestPlayer = Collections.max(newDraftedPlayers, Comparator.comparing(f -> f.getPlayerStrength()));
                 teamList.get(j).addDrafterPlayerToTeam(bestPlayer);
+                cli.printOutput("Team " + teamList.get(i) + " Picked Player " + bestPlayer + " in Draftind Round " + i);
                 newDraftedPlayers.remove(bestPlayer);
             }
         }

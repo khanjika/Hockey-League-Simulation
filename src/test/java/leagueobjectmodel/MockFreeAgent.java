@@ -1,10 +1,13 @@
 package leagueobjectmodel;
 
-import leagueobjectmodel.FreeAgentModel;
+
+import LeagueMockObject.MockLeagueAbstractFactory;
 
 public class MockFreeAgent {
-    public static FreeAgentModel getFreeAgentModel() {
-        FreeAgentModel freeAgentModel = new FreeAgentModel();
+
+    static IFreeAgentModel freeAgentModel = MockLeagueAbstractFactory.getMockInstance().createFreeAgent();
+
+    public static IFreeAgentModel getFreeAgentModel() {
         freeAgentModel.setPlayerName("Agent one");
         freeAgentModel.setPosition("forward");
         freeAgentModel.setAge(25);
@@ -13,13 +16,14 @@ public class MockFreeAgent {
         freeAgentModel.setChecking(10);
         freeAgentModel.setSaving(10);
         freeAgentModel.setRetired(false);
-        freeAgentModel.setDays(0);
+        freeAgentModel.setBirthDay(1);
+        freeAgentModel.setBirthMonth(1);
+        freeAgentModel.setBirthYear(1997);
         freeAgentModel.setRetirementLikelyHood(0);
         return freeAgentModel;
     }
 
-    public static FreeAgentModel getInvalidFreeAgentModel() {
-        FreeAgentModel freeAgentModel = new FreeAgentModel();
+    public static IFreeAgentModel getInvalidFreeAgentModel() {
         freeAgentModel.setPlayerName("");
         freeAgentModel.setPosition("forward");
         freeAgentModel.setAge(25);
@@ -28,13 +32,14 @@ public class MockFreeAgent {
         freeAgentModel.setChecking(10);
         freeAgentModel.setSaving(10);
         freeAgentModel.setRetired(false);
-        freeAgentModel.setDays(0);
+        freeAgentModel.setBirthDay(1);
+        freeAgentModel.setBirthMonth(1);
+        freeAgentModel.setBirthYear(1997);
         freeAgentModel.setRetirementLikelyHood(0);
         return freeAgentModel;
     }
 
-    public static FreeAgentModel getInvalidStatFreeAgentModel() {
-        FreeAgentModel freeAgentModel = new FreeAgentModel();
+    public static IFreeAgentModel getInvalidStatFreeAgentModel() {
         freeAgentModel.setPlayerName("Agent one");
         freeAgentModel.setPosition("forward");
         freeAgentModel.setAge(25);
@@ -43,14 +48,15 @@ public class MockFreeAgent {
         freeAgentModel.setChecking(10);
         freeAgentModel.setSaving(10);
         freeAgentModel.setRetired(false);
-        freeAgentModel.setDays(0);
+        freeAgentModel.setBirthDay(1);
+        freeAgentModel.setBirthMonth(1);
+        freeAgentModel.setBirthYear(1997);
         freeAgentModel.setRetirementLikelyHood(0);
         return freeAgentModel;
     }
 
 
-    public static FreeAgentModel getForwardFreeAgentModel() {
-        FreeAgentModel freeAgentModel = new FreeAgentModel();
+    public static IFreeAgentModel getForwardFreeAgentModel() {
         freeAgentModel.setPlayerName("Agent one");
         freeAgentModel.setPosition("forward");
         freeAgentModel.setAge(25);
@@ -59,13 +65,14 @@ public class MockFreeAgent {
         freeAgentModel.setChecking(10);
         freeAgentModel.setSaving(10);
         freeAgentModel.setRetired(false);
-        freeAgentModel.setDays(0);
+        freeAgentModel.setBirthDay(1);
+        freeAgentModel.setBirthMonth(1);
+        freeAgentModel.setBirthYear(1997);
         freeAgentModel.setRetirementLikelyHood(0);
         return freeAgentModel;
     }
 
-    public static FreeAgentModel getDefenseFreeAgentModel() {
-        FreeAgentModel freeAgentModel = new FreeAgentModel();
+    public static IFreeAgentModel getDefenseFreeAgentModel() {
         freeAgentModel.setPlayerName("Agent one");
         freeAgentModel.setPosition("defense");
         freeAgentModel.setAge(25);
@@ -73,14 +80,15 @@ public class MockFreeAgent {
         freeAgentModel.setShooting(10);
         freeAgentModel.setChecking(10);
         freeAgentModel.setSaving(10);
-        freeAgentModel.setDays(0);
+        freeAgentModel.setBirthDay(1);
+        freeAgentModel.setBirthMonth(1);
+        freeAgentModel.setBirthYear(1997);
         freeAgentModel.setRetired(false);
         freeAgentModel.setRetirementLikelyHood(0);
         return freeAgentModel;
     }
 
-    public static FreeAgentModel getGoalieFreeAgentModel() {
-        FreeAgentModel freeAgentModel = new FreeAgentModel();
+    public static IFreeAgentModel getGoalieFreeAgentModel() {
         freeAgentModel.setPlayerName("Agent one");
         freeAgentModel.setPosition("goalie");
         freeAgentModel.setAge(25);

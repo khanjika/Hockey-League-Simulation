@@ -1,11 +1,13 @@
 package leagueobjectmodel;
 
+import LeagueMockObject.MockPlayer;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class MockTeam {
-    public static List<PlayerModel> validTeamPlayers(){
-        List<PlayerModel> teamsPlayers = new ArrayList<>();
+    public static List<IPlayerModel> validTeamPlayers(){
+        List<IPlayerModel> teamsPlayers = new ArrayList<>();
         for (int i=0;i<16;i++) {
             teamsPlayers.add(MockPlayer.getForwardPlayer());
         }
