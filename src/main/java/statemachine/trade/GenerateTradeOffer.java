@@ -53,7 +53,7 @@ public class GenerateTradeOffer implements IGenerateTradeOffer {
             for (IDivisonModel division : conference.getDivisions ()) {
                 for (ITeamsModel team : division.getTeams ()) {
                     String teamName = team.getTeamName ();
-                    if (!team.isUserCreatedTeam ()) {
+                    if (team.isUserCreatedTeam () == false) {
                         float lossPoint = team.getLossPoint ();
                         if (calculateLossPoint (lossPoint, tradeModel)) {
                             if (calculateTradeChance (tradeModel, team)) {
