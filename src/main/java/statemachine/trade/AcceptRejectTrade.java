@@ -77,7 +77,6 @@ public class AcceptRejectTrade implements IAcceptRejectTrade {
                 for (ITeamsModel team : division.getTeams ()) {
                     if (team.equals (initiateTeam)) {
                         successTeam1 = swapTeam (team, model.getRequestedPlayers (), model.getOfferedPlayer ());
-                        logger.info ("The number of players in " + team.getTeamName () + " after trading: " + team.getPlayers ().size ());
                         teamsValidator.isCaptainPresent (team.getPlayers ());
                         teamsValidator.NoOfPlayersInTeam (team.getPlayers (), league);
                         logger.info ("The number of players in " + team.getTeamName () + " after resolving the team's roaster: " + team.getPlayers ().size ());
@@ -85,7 +84,6 @@ public class AcceptRejectTrade implements IAcceptRejectTrade {
                     }
                     if (team.equals (offeredTeam)) {
                         successTeam2 = swapTeam (team, model.getOfferedPlayer (), model.getRequestedPlayers ());
-                        logger.info ("The number of players in " + team.getTeamName () + " after trading: " + team.getPlayers ().size ());
                         teamsValidator.isCaptainPresent (team.getPlayers ());
                         teamsValidator.NoOfPlayersInTeam (team.getPlayers (), league);
                         logger.info ("The number of players in " + team.getTeamName () + " after resolving the team's roaster: " + team.getPlayers ().size ());

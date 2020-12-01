@@ -48,14 +48,14 @@ public class AcceptRejectTradeTest {
     }
 
     @Test
-    public void tradeRejected(){
+    public void tradeRejected() {
         leagueModel.getGameplayConfig ().getTrading ().setRandomAcceptanceChance (0);
-        leagueModel = acceptRejectTrade.tradeRejected (leagueModel,team1,team2);
+        leagueModel = acceptRejectTrade.tradeRejected (leagueModel, team1, team2);
         String playerName = leagueModel.getConferences ().get (0).getDivisions ().get (0).getTeams ().get (1).getPlayers ().get (10).getPlayerName ();
         Assert.assertNotEquals (playerName, "Mary Halen");
 
         leagueModel.getGameplayConfig ().getTrading ().setRandomAcceptanceChance (1);
-        leagueModel = acceptRejectTrade.tradeRejected (leagueModel,team1,team2);
+        leagueModel = acceptRejectTrade.tradeRejected (leagueModel, team1, team2);
         String player = leagueModel.getConferences ().get (0).getDivisions ().get (0).getTeams ().get (1).getPlayers ().get (10).getPlayerName ();
 
         Assert.assertEquals (player, "Mary Halen");
