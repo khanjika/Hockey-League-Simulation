@@ -33,6 +33,8 @@ public class FindTeamToSwap implements IFindTeamToSwap {
             int userInput = userTradeCli.displayTeamDetails ();
             if (userInput == 1) {
                 league = acceptRejectTrade.tradeAccepted (league, team, offeredTeam);
+            } else {
+                logger.info ("Trade Rejected by " + offeredTeam.getTeamName ());
             }
         } else {
             league = acceptRejectTrade.acceptRejectTrade (league, team, offeredTeam);
