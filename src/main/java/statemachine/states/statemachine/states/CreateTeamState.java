@@ -22,6 +22,7 @@ public class CreateTeamState implements ITransition {
             logger.error("State machine is not intialized in the create Team state");
             throw new NullPointerException("State machine is not intialized in the create Team state");
         }
+        logger.info("Initializing CreateTeam State");
         this.stateMachine = stateMachine;
     }
 
@@ -29,6 +30,7 @@ public class CreateTeamState implements ITransition {
         createTeam = CreateTeamAbstractFactory.instance().createCreateTeam();
         this.currentModel = LeagueObjectModelAbstractFactory.getInstance().getLeague();
         if(this.currentModel==null){
+            logger.error("Exception while fetching league model object from the abstract factory");
             throw new NullPointerException("Exception while fetching league model object from the abstract factory");
         }
         this.stateMachine = stateMachine;

@@ -8,10 +8,18 @@ public class InjuriesValidator implements IInjuriesValidator {
     }
 
     public boolean isNotNull(float value) {
-        return value != 0;
+        if(value==0){
+            return false;
+        }
+        else
+            return true;
     }
 
     public boolean isNotNull(int value) {
-        return value != 0;
+        if(value==0){
+            return false;
+        }
+        else
+            return true;
     }
 }

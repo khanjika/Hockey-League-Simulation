@@ -3,6 +3,7 @@ package database;
 import cli.CliAbstractFactory;
 import cli.ICli;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import leagueobjectmodel.ILeagueModel;
@@ -26,7 +27,7 @@ public class DeserializeObject implements IDeserializeObject {
     final static Logger logger = Logger.getLogger(DeserializeObject.class);
 
     public DeserializeObject() {
-        objectMapper = new ObjectMapper();
+        objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         leagueValidator = LeagueObjectModelAbstractFactory.getInstance().getLeagueValidator();
         leagueObjectModelAbstractFactory = LeagueObjectModelAbstractFactory.getInstance();
         iCli = CliAbstractFactory.getInstance().getCli();

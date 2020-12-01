@@ -6,6 +6,10 @@ public class TrainingValidator implements ITrainingValidator {
         return isNotNull(trainingModel.getDaysUntilStatIncreaseCheck());
     }
     private boolean isNotNull(int value) {
-        return value != 0;
+        if(value==0){
+            return false;
+        }
+        else
+            return true;
     }
 }

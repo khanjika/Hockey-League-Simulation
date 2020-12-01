@@ -1,3 +1,5 @@
+import cli.CliAbstractFactory;
+import cli.ICli;
 import org.apache.log4j.Logger;
 import statemachine.states.statemachine.StateMachine;
 
@@ -5,9 +7,10 @@ import statemachine.states.statemachine.StateMachine;
 public class Main {
 
     final static Logger logger = Logger.getLogger(Main.class);
+    ICli cli = CliAbstractFactory.getInstance().getCli();
 
     public static void main(String[] args) throws Exception {
-        System.out.println("Inside main");
+        System.out.println("Main class");
         logger.debug("Main Class initilaized");
         Main.StateEntry(args);
     }

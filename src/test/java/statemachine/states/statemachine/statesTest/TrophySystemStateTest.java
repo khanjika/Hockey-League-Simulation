@@ -2,39 +2,33 @@ package statemachine.states.statemachine.statesTest;
 
 import org.junit.jupiter.api.Test;
 import statemachine.states.statemachine.StateMachine;
+import statemachine.states.statemachine.states.ImportJsonState;
 import statemachine.states.statemachine.states.TrophySystemState;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TrophySystemStateTest {
 
     @Test
-    void isStateMachine(){
-        try{
-
+    void getStateMachine() {
+        try {
             StateMachine stateMachine = new StateMachine();
-            TrophySystemState trophySystemState = new TrophySystemState(stateMachine);
-            trophySystemState.setStateMachine(stateMachine);
-            stateMachine.setCurrentState(stateMachine.getCreateTeam());
-            StateMachine currentState = trophySystemState.getStateMachine();
-            assertNotNull(currentState);
-        }catch (Exception exception) {
+            stateMachine.setCurrentState(stateMachine.getTrophySystemState());
+            assertTrue(stateMachine.getCurrentState() instanceof TrophySystemState);
+        } catch (Exception exception) {
             fail("State is not valid. Got an Exception");
         }
     }
 
     @Test
-    void setStateMachine(){
+    void setStateMachine() {
         try {
             StateMachine stateMachine = new StateMachine();
-            stateMachine.setCurrentState(stateMachine.getCreateTeam());
-            TrophySystemState trophySystemState = new TrophySystemState(stateMachine);
-            trophySystemState.setStateMachine(stateMachine);
-            StateMachine currentState = trophySystemState.getStateMachine();
-            assertNotNull(currentState);
+            stateMachine.setCurrentState(stateMachine.getTrophySystemState());
+            assertTrue(stateMachine.getCurrentState() instanceof TrophySystemState);
         } catch (Exception exception) {
-            fail("State not set for create team. Got an Exception");
+            fail("State not set for import Json. Got an Exception");
         }
     }
 }

@@ -1,6 +1,7 @@
 package statemachine.states.statemachine.states;
 
 import leagueobjectmodel.*;
+import org.apache.log4j.Logger;
 import statemachine.states.statemachine.StateMachine;
 import statemachine.states.statemachine.states.simulateGame.GameSimulationAbstractFactory;
 import statemachine.states.statemachine.states.simulateGame.IStartSimulation;
@@ -16,27 +17,22 @@ public class SimulateGameState implements ITransition {
     TeamsModel winnerTeam;
     TeamsModel losserTeam;
     ILeagueModel iLeagueModel;
+    final static Logger logger = Logger.getLogger(SimulateGameState.class);
 
     public SimulateGameState(StateMachine stateMachine) {
+        logger.info("Initializing SimulateGame State");
         this.stateMachine = stateMachine;
         iLeagueModel = LeagueObjectModelAbstractFactory.getInstance().getLeague();
     }
 
-
-//    public SimulateGameState(StateMachine stateMachine, LeagueModel leagueModel, TeamsModel teamsModelOne, TeamsModel teamsModelTwo) {
-//        this.stateMachine = stateMachine;
-//        this.leagueModel = leagueModel;
-//        this.teamOne = teamsModelOne;
-//        this.teamTwo = teamsModelTwo;
-//    }
-
-    public void updateSimulateGameStateValue(StateMachine stateMachine, ILeagueModel leagueModel, ITeamsModel teamsModelOne, ITeamsModel teamsModelTwo,boolean isPlayOff){
+    public void updateSimulateGameStateValue(StateMachine stateMachine, ILeagueModel leagueModel, ITeamsModel teamsModelOne, ITeamsModel teamsModelTwo, boolean isPlayOff) {
         this.stateMachine = stateMachine;
         this.leagueModel = (LeagueModel) leagueModel;
         this.teamOne = (TeamsModel) teamsModelOne;
         this.teamTwo = (TeamsModel) teamsModelTwo;
-        isThisPlayOff=isPlayOff;
+        isThisPlayOff = isPlayOff;
     }
+
     @Override
     public void entry() throws Exception {
         task();
@@ -44,7 +40,7 @@ public class SimulateGameState implements ITransition {
 
     @Override
     public void task() throws Exception {
-     float teamOneStrength = getTeamStrength(teamOne);
+        float teamOneStrength = getTeamStrength(teamOne);
         float teamTwoStrength = getTeamStrength(teamTwo);
 
         IGamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
@@ -68,6 +64,8 @@ public class SimulateGameState implements ITransition {
                 losserTeam = teamTwo;
             }
         }
+
+        try {
         for (IConferenceModel conferenceModel : leagueModel.getConferences()) {
             for (IDivisonModel divisonModel : conferenceModel.getDivisions()) {
                 for (ITeamsModel teamsModel : divisonModel.getTeams()) {
@@ -77,11 +75,15 @@ public class SimulateGameState implements ITransition {
                     if (teamsModel.getTeamName().equals(losserTeam.getTeamName())) {
                         teamsModel.setLossPoint(teamsModel.getLossPoint() + 1);
                         teamsModel.setLossPointForTrading(teamsModel.getLossPointForTrading() + 1);
-
+                        }
                     }
                 }
             }
+        }catch (Exception e){
+            logger.error("Exception while parsing the league model object");
+            throw e;
         }
+
 
         stateMachine.getUpdateStateValue().updateInjuryCheckStateValue(stateMachine, leagueModel, teamOne);
         stateMachine.setCurrentState(stateMachine.getInjuryCheckState());
@@ -95,22 +97,24 @@ public class SimulateGameState implements ITransition {
     }
 
     @Override
-    public void exit() {
+    public void exit() throws Exception {
         IStartSimulation startSimulationObj = GameSimulationAbstractFactory.getGameSimulationInstance().getStartSimulation();
         try {
-            startSimulationObj.setRequiredAttributeForSimulation(teamOne,teamTwo,leagueModel,isThisPlayOff,GameSimulationAbstractFactory.getGameSimulationInstance());
+            startSimulationObj.setRequiredAttributeForSimulation(teamOne, teamTwo, leagueModel, isThisPlayOff, GameSimulationAbstractFactory.getGameSimulationInstance());
             startSimulationObj.separatePlayerByPosition();
             startSimulationObj.setAverageShotsOnGoal();
             startSimulationObj.initializeShifts();
-        }catch (NullPointerException exception){
-            System.out.println("Exception in the game simulation abstract factory"+exception.getMessage());
-        }
-        catch (Exception e){
-            System.out.println("Exception while initializing constructor of the game simulation "+e.getMessage());
+        } catch (Exception exception) {
+            logger.error("Exception while simulating game");
+            throw exception;
         }
     }
 
     public float getTeamStrength(ITeamsModel teamsModel) {
+        if(teamsModel==null){
+            logger.error("TeamModel is not intialized int the getTeamStregth");
+            throw new NullPointerException();
+        }
         teamsModel.calculateTeamStrength(teamsModel);
         return teamsModel.getTeamStrength();
     }

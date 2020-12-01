@@ -36,7 +36,6 @@ public class SwapTurn implements ISwapTurn {
         try {
             gameConfiguration.getCurrentShiftGoalieOfTeamOne().remove(0);
             gameConfiguration.getCurrentShiftGoalieOfTeamTwo().remove(0);
-            System.out.println(gameConfiguration.getCurrentShiftGoalieOfTeamOne());
             gameConfiguration.getCurrentShiftGoalieOfTeamOne().add(gameConfiguration.getListOfGoalieOfTeamOne().get(1));
             gameConfiguration.getCurrentShiftGoalieOfTeamTwo().add(gameConfiguration.getListOfGoaliesOfTeamTwo().get(1));
         } catch (NullPointerException nullPointerException) {
@@ -53,7 +52,6 @@ public class SwapTurn implements ISwapTurn {
             gameConfiguration.getCurrentShiftDefenseOfTeamOne().clear();
             gameConfiguration.getCurrentShiftDefenseOfTeamTwo().clear();
 
-            System.out.println(gameConfiguration.getListOfDefenseOfTeamOne());
             gameConfiguration.getCurrentShiftDefenseOfTeamOne().add(gameConfiguration.getListOfDefenseOfTeamOne().get(2));
             gameConfiguration.getCurrentShiftDefenseOfTeamOne().add(gameConfiguration.getListOfDefenseOfTeamOne().get(3));
             gameConfiguration.getCurrentShiftForwardOfTeamOne().add(gameConfiguration.getListOfForwardOfTeamOne().get(2));

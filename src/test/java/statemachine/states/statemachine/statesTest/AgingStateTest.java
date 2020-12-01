@@ -1,33 +1,39 @@
 package statemachine.states.statemachine.statesTest;
 
 import leagueobjectmodel.*;
+import org.junit.jupiter.api.Test;
 import statemachine.states.statemachine.StateMachine;
 import statemachine.states.statemachine.states.AgingState;
+import statemachine.states.statemachine.states.CreateTeamState;
 import trade.MockLeague;
 
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class AgingStateTest {
 
+    @Test
+    void getAgingState() {
+        try {
+            StateMachine stateMachine = new StateMachine();
+            stateMachine.setCurrentState(stateMachine.getAgingState());
+            assertTrue(stateMachine.getCurrentState() instanceof AgingState);
+        } catch (Exception exception) {
+            fail("State is not valid. Got an Exception");
+        }
+    }
 
-//    @Test
-//    void entry() {
-//        StateMachine stateMachine = new StateMachine();
-//        stateMachine.setCurrentDate(LocalDate.now());
-//        LeagueModel leagueModel = MockLeague.getLeagueObject();
-//        AgingState agingState = new AgingState(stateMachine, leagueModel);
-//        agingState.entry();
-//        for (ConferenceModel conferenceModel : leagueModel.getConferences()) {
-//            for (DivisonModel divisonModel : conferenceModel.getDivisions()) {
-//                for (TeamsModel teamsModel : divisonModel.getTeams()) {
-//                    for (PlayerModel playerModel : teamsModel.getPlayers()) {
-//                        assertEquals(1, playerModel.getDays());
-//                    }
-//                }
-//            }
-//        }
-//    }
+    @Test
+    void setStateMachine() {
+        try {
+            StateMachine stateMachine = new StateMachine();
+            stateMachine.setCurrentState(stateMachine.getAgingState());
+            assertTrue(stateMachine.getCurrentState() instanceof AgingState);
+        } catch (Exception exception) {
+            fail("State not set for create team. Got an Exception");
+        }
+    }
+
 
 }

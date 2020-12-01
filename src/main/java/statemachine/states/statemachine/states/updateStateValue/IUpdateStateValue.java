@@ -19,7 +19,7 @@ public interface IUpdateStateValue {
 
     void updateTradingStateValue(StateMachine stateMachine, ILeagueModel leagueModel);
 
-    void updateAgingStateValue(StateMachine stateMachine, ILeagueModel leagueModel);
+    void updateAgingStateValue(StateMachine stateMachine, ILeagueModel leagueModel) throws Exception;
 
     void updateInjuryCheckStateValue(StateMachine stateMachine, ILeagueModel leagueModel, ITeamsModel teamsModel);
 
