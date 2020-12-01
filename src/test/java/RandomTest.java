@@ -20,15 +20,10 @@ public class RandomTest {
         IPlayerValidator playerValidator = LeagueObjectModelAbstractFactory.getInstance().getPlayerValidator();
 
         ICli obj = CliAbstractFactory.getInstance().getCli();
-        obj.printOutput("adsadsada");
         List<IPlayerModel> playerList = new ArrayList<>();
 
       PlayerDraft abc = new PlayerDraft();
         List<IPlayerModel> draftedPlayers = abc.draftPlayers(5);
-        System.out.println(draftedPlayers.size());
-        for(int i = 0;i<draftedPlayers.size();i++){
-            System.out.println(i+" - "+draftedPlayers.get(i).getPlayerName());
-        }
 
 
     }

@@ -62,7 +62,6 @@ public class AgingState implements ITransition {
         }
 
         IGamePlayConfigModel gamePlayConfigModel = leagueModel.getGameplayConfig();
-        System.out.println(gamePlayConfigModel.getAging().getMaximumAge());
         iPlayerModel.setAgingModel(gamePlayConfigModel.getAging());
         iPlayerModel.setFreeAgentsList(leagueModel.getFreeAgents());
         iFreeAgentModel.setAgingModel(gamePlayConfigModel.getAging());
@@ -92,8 +91,6 @@ public class AgingState implements ITransition {
             for (IDivisonModel divisonModel : conferenceModel.getDivisions()) {
                 for (ITeamsModel teamsModel : divisonModel.getTeams()) {
                     for (PlayerModel playerModelTemp : teamsModel.getPlayers()) {
-                        System.out.println(playerModelTemp.getBirthDay()+"--"+playerModelTemp.getBirthMonth());
-                        System.out.println(playerModelTemp.getPlayerName()+"---"+playerModelTemp.getBirthDay()+"--"+playerModelTemp.getBirthMonth());
                         iPlayerModel.aging(playerModelTemp, daysToAge, currentDate);
                     }
                     sortTeams.sortActiveRoasters(teamsModel.getPlayers());

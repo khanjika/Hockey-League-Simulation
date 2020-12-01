@@ -1,5 +1,7 @@
 package leagueobjectmodel;
 
+import cli.CliAbstractFactory;
+import cli.ICli;
 import database.IFileValidator;
 import database.SerializeObjectAbstractFactory;
 
@@ -8,9 +10,9 @@ import java.util.List;
 import java.util.Objects;
 
 public class TeamsValidator implements ITeamsValidator {
-    private static final IPlayerValidator playerValidator = new PlayerValidator();
-    private static final IHeadCoachValidator headCoachValidator = new HeadCoachValidator();
-    private static final IFileValidator fileValidator= SerializeObjectAbstractFactory.instance().createFileValidator();
+    private static final IPlayerValidator playerValidator = new PlayerValidator ();
+    private static final IHeadCoachValidator headCoachValidator = new HeadCoachValidator ();
+    private static final IFileValidator fileValidator = SerializeObjectAbstractFactory.instance ().createFileValidator ();
     private static final int totalForward = 16;
     private static final int totalDefense = 10;
     private static final int totalGoalie = 4;
@@ -20,8 +22,9 @@ public class TeamsValidator implements ITeamsValidator {
     private int defense = 0;
     private int goalie = 0;
     private int forward = 0;
+    ICli cli = CliAbstractFactory.getInstance().getCli();
 
-    public TeamsValidator(){
+    public TeamsValidator() {
         teamsModel = LeagueObjectModelAbstractFactory.getInstance ().getTeams ();
         freeAgent = LeagueObjectModelAbstractFactory.getInstance ().getFreeAgent ();
     }
@@ -31,21 +34,19 @@ public class TeamsValidator implements ITeamsValidator {
         defense = 0;
         goalie = 0;
         forward = 0;
-        if (Objects.nonNull(teamsModel.getGeneralManager()) && isStringValid(teamsModel.getTeamName())) {
-            for (PlayerModel playerModel : teamsModel.getPlayers()) {
-                if(playerModel.getPosition().equals(PlayerPosition.DEFENSE.toString())){
+        if (Objects.nonNull (teamsModel.getGeneralManager ()) && isStringValid (teamsModel.getTeamName ())) {
+            for (PlayerModel playerModel : teamsModel.getPlayers ()) {
+                if (playerModel.getPosition ().equals (PlayerPosition.DEFENSE.toString ())) {
                     defense++;
-                }
-                else if(playerModel.getPosition().equals(PlayerPosition.FORWARD.toString())){
+                } else if (playerModel.getPosition ().equals (PlayerPosition.FORWARD.toString ())) {
                     forward++;
-                }
-                else{
+                } else {
                     goalie++;
                 }
-                if (playerValidator.validatePlayerObject(playerModel)) {
-                    if (playerModel.isCaptain() && isPlayerCaptain == true) {
+                if (playerValidator.validatePlayerObject (playerModel)) {
+                    if (playerModel.isCaptain () && isPlayerCaptain == true) {
                         isPlayerCaptain = false;
-                        System.out.println("There can be only one captain in the team ==>" + teamsModel.getTeamName());
+                         cli.printOutput("There can be only one captain in the team ==>" + teamsModel.getTeamName ());
                         return false;
                     } else if (playerModel.isCaptain ()) {
                         isPlayerCaptain = true;
@@ -58,7 +59,7 @@ public class TeamsValidator implements ITeamsValidator {
 
 
                 } else {
-                    System.out.println("Encountered Problem while validating Players in team ==> " + teamsModel.getTeamName());
+                    cli.printOutput("Encountered Problem while validating Players in team ==> " + teamsModel.getTeamName ());
                     return false;
                 }
             }
@@ -70,17 +71,18 @@ public class TeamsValidator implements ITeamsValidator {
             if (forward == 16 && defense == 10 && goalie == 4) {
                 return true;
             } else {
-                System.out.println("Player Position Count is not valid in team --> "+teamsModel.getTeamName());
+                cli.printOutput ("Player Position Count is not valid in team --> " + teamsModel.getTeamName ());
                 return false;
             }
         } else {
-            System.out.println("There seems to be no captain in team -->" +teamsModel.getTeamName());
+            cli.printOutput("There seems to be no captain in team -->" + teamsModel.getTeamName ());
             return false;
         }
     }
+
     @Override
-    public boolean isTeamAlreadyExist(String teamName){
-        return fileValidator.isFileExist(teamName);
+    public boolean isTeamAlreadyExist(String teamName) {
+        return fileValidator.isFileExist (teamName);
     }
 
     private boolean isStringValid(String str) {
@@ -119,9 +121,9 @@ public class TeamsValidator implements ITeamsValidator {
 
         for (int i = 0; i < teamPlayers.size (); i++) {
             String position = teamPlayers.get (i).getPosition ();
-            if (position.equals (PlayerPosition.FORWARD.toString())) {
+            if (position.equals (PlayerPosition.FORWARD.toString ())) {
                 counterForward = counterForward + 1;
-            } else if (position.equals (PlayerPosition.GOALIE.toString())) {
+            } else if (position.equals (PlayerPosition.GOALIE.toString ())) {
                 counterGoalie = counterGoalie + 1;
             } else {
                 counterDefense = counterDefense + 1;
@@ -130,34 +132,35 @@ public class TeamsValidator implements ITeamsValidator {
         if (counterForward == totalForward && counterGoalie == totalGoalie && counterDefense == totalDefense) {
             return leagueModel;
         } else {
-            if (counterForward < totalForward ) {
+            if (counterForward < totalForward) {
                 int forwardRequired = totalForward - counterForward;
-                addFromFreeAgent (forwardRequired, teamPlayers, freeAgents, PlayerPosition.FORWARD.toString());
-            } else if(counterForward > totalForward) {
+                addFromFreeAgent (forwardRequired, teamPlayers, freeAgents, PlayerPosition.FORWARD.toString ());
+            } else if (counterForward > totalForward) {
                 int noOfForwardRemoved = counterForward - totalForward;
-                removePlayers (noOfForwardRemoved, teamPlayers, freeAgents, PlayerPosition.FORWARD.toString());
+                removePlayers (noOfForwardRemoved, teamPlayers, freeAgents, PlayerPosition.FORWARD.toString ());
             }
 
             if (counterDefense < totalDefense) {
                 int defenseRequired = totalDefense - counterDefense;
-                addFromFreeAgent (defenseRequired, teamPlayers, freeAgents, PlayerPosition.DEFENSE.toString());
-            } else if (counterDefense > totalDefense){
+                addFromFreeAgent (defenseRequired, teamPlayers, freeAgents, PlayerPosition.DEFENSE.toString ());
+            } else if (counterDefense > totalDefense) {
                 int noOfDefenseRemoved = counterDefense - totalDefense;
-                removePlayers (noOfDefenseRemoved, teamPlayers, freeAgents, PlayerPosition.DEFENSE.toString());
+                removePlayers (noOfDefenseRemoved, teamPlayers, freeAgents, PlayerPosition.DEFENSE.toString ());
             }
 
             if (counterGoalie < totalGoalie) {
                 int goaliesRequired = totalGoalie - counterGoalie;
-                addFromFreeAgent (goaliesRequired, teamPlayers, freeAgents, PlayerPosition.GOALIE.toString());
-            } else if (counterGoalie > totalGoalie){
+                addFromFreeAgent (goaliesRequired, teamPlayers, freeAgents, PlayerPosition.GOALIE.toString ());
+            } else if (counterGoalie > totalGoalie) {
                 int noOfGoaliesRemoved = counterGoalie - totalGoalie;
-                removePlayers (noOfGoaliesRemoved, teamPlayers, freeAgents, PlayerPosition.GOALIE.toString());
+                removePlayers (noOfGoaliesRemoved, teamPlayers, freeAgents, PlayerPosition.GOALIE.toString ());
             }
             return leagueModel;
         }
     }
 
-    public void removePlayers(int noOfRemovedPlayers, List<PlayerModel> players, List<IFreeAgentModel> freeAgents, String position) {
+    @Override
+    public List<IFreeAgentModel> removePlayers(int noOfRemovedPlayers, List<PlayerModel> players, List<IFreeAgentModel> freeAgents, String position) {
         int counter = 0;
         List<PlayerModel> playersRemoved = new ArrayList<> ();
         players = teamsModel.sortPlayersOfTeamAscending (players);
@@ -174,11 +177,13 @@ public class TeamsValidator implements ITeamsValidator {
         for (int j = 0; j < playersRemoved.size (); j++) {
             players.remove (playersRemoved.get (j));
         }
+        return freeAgents;
     }
 
-    public void addFromFreeAgent(int playersRequired, List<PlayerModel> players, List<IFreeAgentModel> freeAgents, String position) {
+    @Override
+    public List<IFreeAgentModel> addFromFreeAgent(int playersRequired, List<PlayerModel> players, List<IFreeAgentModel> freeAgents, String position) {
         int counter = 0;
-        List<IFreeAgentModel> agentsRemoved = new ArrayList<>();
+        List<IFreeAgentModel> agentsRemoved = new ArrayList<> ();
 
         for (IFreeAgentModel agent : freeAgents) {
             agent.calculateFreeAgentStrength (agent);
@@ -196,8 +201,10 @@ public class TeamsValidator implements ITeamsValidator {
         for (int j = 0; j < agentsRemoved.size (); j++) {
             freeAgents.remove (agentsRemoved.get (j));
         }
+        return freeAgents;
     }
 
+    @Override
     public List<PlayerModel> addingPlayer(IFreeAgentModel f, List<PlayerModel> players) {
         PlayerModel playerAdded = new PlayerModel ();
         playerAdded.setPlayerName (f.getPlayerName ());
@@ -213,6 +220,7 @@ public class TeamsValidator implements ITeamsValidator {
         return players;
     }
 
+    @Override
     public List<IFreeAgentModel> addingFreeAgent(PlayerModel p, List<IFreeAgentModel> freeAgents) {
         FreeAgentModel agent = new FreeAgentModel ();
         agent.setPlayerName (p.getPlayerName ());

@@ -1,7 +1,11 @@
 package leagueobjectmodel;
 
+import cli.CliAbstractFactory;
+import cli.ICli;
+
 public class PlayerValidator implements IPlayerValidator {
 
+    ICli cli = CliAbstractFactory.getInstance().getCli();
 
     public PlayerValidator() {
     }
@@ -14,12 +18,12 @@ public class PlayerValidator implements IPlayerValidator {
             if (validatePosition(playerModel.getPosition())) {
                 return true;
             } else {
-                System.out.println("Position for player " + playerModel.getPlayerName() + " is not correct");
+             cli.printOutput("Position for player " + playerModel.getPlayerName() + " is not correct");
                 return false;
             }
         } else {
-            System.out.println("Error:::" + playerModel.getPlayerName() + playerModel.getPosition() + playerModel.isCaptain() + playerModel.getAge() + playerModel.getSaving() + playerModel.getShooting() + playerModel.getChecking());
-            System.out.println("Player Information can not be NULL or EMPTY");
+            cli.printOutput("Error:::" + playerModel.getPlayerName() + playerModel.getPosition() + playerModel.isCaptain() + playerModel.getAge() + playerModel.getSaving() + playerModel.getShooting() + playerModel.getChecking());
+            cli.printOutput("Player Information can not be NULL or EMPTY");
             return false;
         }
     }

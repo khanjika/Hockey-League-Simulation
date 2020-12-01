@@ -1,5 +1,7 @@
 package leagueobjectmodel;
 
+import cli.CliAbstractFactory;
+import cli.ICli;
 import com.google.gson.annotations.Expose;
 
 import java.util.ArrayList;
@@ -27,7 +29,7 @@ public class TeamsModel implements ITeamsModel {
     private List<PlayerModel> activeRoasters;
     private List<PlayerModel> inactiveRoasters;
     private boolean isUserCreatedTeam;
-
+    ICli cli = CliAbstractFactory.getInstance().getCli();
     private int isGoalieStrong;
     private int isForwardStrong;
     private int isDefenseStrong;
@@ -198,7 +200,7 @@ public class TeamsModel implements ITeamsModel {
         currentPlayer.setIsActive (false);
         getActiveRoasters ().add (replacementPlayer);
         replacementPlayer.setIsActive (true);
-        System.out.println (currentPlayer.getPlayerName () + " replaced with " + replacementPlayer.getPlayerName ());
+       cli.printOutput(currentPlayer.getPlayerName () + " replaced with " + replacementPlayer.getPlayerName ());
     }
 
     @Override
@@ -291,16 +293,12 @@ public class TeamsModel implements ITeamsModel {
     public void addDrafterPlayerToTeam(IPlayerModel draftedPlayer) {
         this.players.add((PlayerModel) draftedPlayer);
         this.setPlayers(this.players);
-        System.out.println("SIZE OF TEAM AFTER DRAFT " + this.getTeamName() + " -- " + this.getPlayers().size());
+       cli.printOutput("SIZE OF TEAM AFTER DRAFT " + this.getTeamName() + " -- " + this.getPlayers().size());
     }
 
     @Override
     public void resolveRoostersToThirty() {
-        System.out.println(this.getPlayers());
         List<PlayerModel> allRoosters = this.players;
-        for(int i=0;i<allRoosters.size();i++){
-            System.out.println("TEAM NAME -- "+this.getTeamName()+" --- "+this.players.size());
-        }
         List<PlayerModel> forwardRooster = new ArrayList<>();
         List<PlayerModel> defenseRoosters = new ArrayList<>();
         List<PlayerModel> goalieRoosters = new ArrayList<>();
@@ -320,16 +318,13 @@ public class TeamsModel implements ITeamsModel {
         roosterList.addAll(fetchRequiredRoosterFromList(forwardRooster,16));
         roosterList.addAll(fetchRequiredRoosterFromList(defenseRoosters,10));
         roosterList.addAll(fetchRequiredRoosterFromList(goalieRoosters,4));
-        System.out.println("ROOSTER LIST SIZE - "  +roosterList.size());
         this.setPlayers(roosterList);
     }
 
     @Override
     public List<PlayerModel> fetchRequiredRoosterFromList(List<PlayerModel> roosterList, int requiredPlayers) {
-        System.out.println("Size pf the list is "+roosterList.size()+"==="+requiredPlayers);
     List<PlayerModel> list = new ArrayList<>();
     for (int i =0 ; i<requiredPlayers;i++){
-        System.out.println(i+"==="+roosterList.get(i));
         list.add(roosterList.get(i));
     }
     return list;
