@@ -4,6 +4,7 @@ import cli.CliAbstractFactory;
 import cli.ICli;
 import leagueobjectmodel.ILeagueModel;
 import leagueobjectmodel.LeagueObjectModelAbstractFactory;
+import org.apache.log4j.Logger;
 import statemachine.states.statemachine.StateMachine;
 
 public class PersistLeagueState implements ITransition {
@@ -12,10 +13,12 @@ public class PersistLeagueState implements ITransition {
     StateMachine stateMachine;
     ILeagueModel currentLeagueModel;
     ILeagueModel leagueModel;
-    ICli cli;
     private int currentYear;
+    ICli cli = CliAbstractFactory.getInstance().getCli();
+    final static Logger logger = Logger.getLogger(PersistLeagueState.class);
 
     public PersistLeagueState(StateMachine stateMachine) {
+        logger.info("Initializing PersisteLeague State");
         this.stateMachine = stateMachine;
         leagueModel = LeagueObjectModelAbstractFactory.getInstance().getLeague();
         cli = CliAbstractFactory.getInstance().getCli();
@@ -24,7 +27,7 @@ public class PersistLeagueState implements ITransition {
     public void updatePersistLeagueStateValue(ILeagueModel leagueModel, StateMachine stateMachine, int year){
         this.stateMachine = stateMachine;
         this.currentLeagueModel = leagueModel;
-        currentYear = year;
+        this.currentYear = year;
     }
     @Override
     public void entry() {
@@ -38,6 +41,7 @@ public class PersistLeagueState implements ITransition {
     }
 
     @Override
+
     public void exit() {
         cli.printOutput("Data stored successfully to the JSON file");
         LeagueObjectModelAbstractFactory.getInstance().setLeague(null);

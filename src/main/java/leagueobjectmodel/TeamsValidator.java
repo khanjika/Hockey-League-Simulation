@@ -1,5 +1,7 @@
 package leagueobjectmodel;
 
+import cli.CliAbstractFactory;
+import cli.ICli;
 import database.IFileValidator;
 import database.SerializeObjectAbstractFactory;
 
@@ -20,6 +22,7 @@ public class TeamsValidator implements ITeamsValidator {
     private int defense = 0;
     private int goalie = 0;
     private int forward = 0;
+    ICli cli = CliAbstractFactory.getInstance().getCli();
 
     public TeamsValidator() {
         teamsModel = LeagueObjectModelAbstractFactory.getInstance ().getTeams ();
@@ -43,7 +46,7 @@ public class TeamsValidator implements ITeamsValidator {
                 if (playerValidator.validatePlayerObject (playerModel)) {
                     if (playerModel.isCaptain () && isPlayerCaptain == true) {
                         isPlayerCaptain = false;
-                        System.out.println ("There can be only one captain in the team ==>" + teamsModel.getTeamName ());
+                         cli.printOutput("There can be only one captain in the team ==>" + teamsModel.getTeamName ());
                         return false;
                     } else if (playerModel.isCaptain ()) {
                         isPlayerCaptain = true;
@@ -56,7 +59,7 @@ public class TeamsValidator implements ITeamsValidator {
 
 
                 } else {
-                    System.out.println ("Encountered Problem while validating Players in team ==> " + teamsModel.getTeamName ());
+                    cli.printOutput("Encountered Problem while validating Players in team ==> " + teamsModel.getTeamName ());
                     return false;
                 }
             }
@@ -68,11 +71,11 @@ public class TeamsValidator implements ITeamsValidator {
             if (forward == 16 && defense == 10 && goalie == 4) {
                 return true;
             } else {
-                System.out.println ("Player Position Count is not valid in team --> " + teamsModel.getTeamName ());
+                cli.printOutput ("Player Position Count is not valid in team --> " + teamsModel.getTeamName ());
                 return false;
             }
         } else {
-            System.out.println ("There seems to be no captain in team -->" + teamsModel.getTeamName ());
+            cli.printOutput("There seems to be no captain in team -->" + teamsModel.getTeamName ());
             return false;
         }
     }
@@ -83,7 +86,11 @@ public class TeamsValidator implements ITeamsValidator {
     }
 
     private boolean isStringValid(String str) {
-        return str != null && str != "";
+        if(str==null || str.isEmpty()){
+            return false;
+        }
+        else
+            return true;
     }
 
     @Override

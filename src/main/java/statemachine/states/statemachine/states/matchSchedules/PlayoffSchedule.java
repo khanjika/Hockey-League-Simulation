@@ -25,7 +25,6 @@ public class PlayoffSchedule implements IPlayoffSchedule {
                 for (IDivisonModel divisonModel : conferenceModel.getDivisions()) {
                     Collections.sort(divisonModel.getTeams(), teamModelComparator);
                     List<ITeamsModel> subList = new ArrayList<>();
-                    System.out.println(divisonModel.getTeams().size());
                     for (int i = 0; i < 3; i++) {
                         subList.add(divisonModel.getTeams().get(i));
                         allTheTopTeams.add(divisonModel.getTeams().get(i));
@@ -82,7 +81,6 @@ public class PlayoffSchedule implements IPlayoffSchedule {
                     break;
                 }
                 List<ITeamsModel> matchWithWildCard = new ArrayList<>();
-                System.out.println(wildCardTeamCount);
                 matchWithWildCard.add(teamsModelList.get(wildCardTeamCount));
                 matchWithWildCard.add(wildCardList.get(i));
                 schedule.add(matchWithWildCard);

@@ -8,7 +8,11 @@ public class CoachValidator implements ICoachValidator {
     }
 
     private boolean isStringValid(String str) {
-        return str != null && !str.isEmpty();
+        if(str==null || str.isEmpty()){
+            return false;
+        }
+        else
+            return true;
     }
 
     private boolean isStatValid(float stat) {

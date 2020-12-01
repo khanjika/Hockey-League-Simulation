@@ -29,7 +29,7 @@ public class StateMachine {
 
 
     public StateMachine() {
-        logger.debug ("inside state machine const");
+        logger.info ("intializing state machine object");
         importJson = new ImportJsonState(this);
         loadTeam = new LoadTeamState(this);
         createTeam = new CreateTeamState(this);
@@ -44,7 +44,6 @@ public class StateMachine {
         updateStateValue=new UpdateStateValue();
         tradingState=new TradingState(this);
         playerDraftState=new PlayerDraftState(this);
-
         trophySystemState = new TrophySystemState(this);
     }
     public IUpdateStateValue getUpdateStateValue() {

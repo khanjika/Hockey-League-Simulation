@@ -14,10 +14,6 @@ public class GamePlayConfigModel implements IGamePlayConfigModel {
     ITradingModel trading;
 
     public GamePlayConfigModel() {
-        aging = new AgingModel();
-        injuries = new InjuriesModel();
-        training = new TrainingModel();
-        trading = new TradingModel();
     }
 
     @Override

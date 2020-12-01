@@ -16,6 +16,7 @@ public class ImportJsonState implements ITransition {
     final static Logger logger = Logger.getLogger(ImportJsonState.class);
 
     public ImportJsonState(StateMachine currentStateMachine) {
+        logger.info("Initializing ImportJson State");
         stateMachine = currentStateMachine;
         parser = SerializeObjectAbstractFactory.instance().createParser();
     }
@@ -55,19 +56,22 @@ public class ImportJsonState implements ITransition {
                 throw new NullPointerException("Error while parsing the in Memory League Object");
             }
             LeagueObjectModelAbstractFactory.getInstance().setLeague(inMemoryLeagueModel);
-            int teamCount=0;
-            for (IConferenceModel conferenceModel : inMemoryLeagueModel.getConferences()) {
-                for (IDivisonModel divisonModel : conferenceModel.getDivisions()) {
-                    for (ITeamsModel teamsModel : divisonModel.getTeams()) {
-                        teamCount++;
-                        teamsModel.calculateTeamStrength(teamsModel);
-                        for (IPlayerModel playerModel : teamsModel.getPlayers()) {
-                            playerModel.calculatePlayerStrength(playerModel);
+            try {
+                for (IConferenceModel conferenceModel : inMemoryLeagueModel.getConferences()) {
+                    for (IDivisonModel divisonModel : conferenceModel.getDivisions()) {
+                        for (ITeamsModel teamsModel : divisonModel.getTeams()) {
+                            teamsModel.calculateTeamStrength(teamsModel);
+                            for (IPlayerModel playerModel : teamsModel.getPlayers()) {
+                                playerModel.calculatePlayerStrength(playerModel);
+                            }
                         }
                     }
                 }
+
+            }catch (Exception e){
+                logger.error("Error while parsing the league model");
+                throw e;
             }
-            //System.out.println("total team are" +teamCount);
             task();
         }
     }

@@ -37,7 +37,7 @@ public class UserTradeCli implements IUserTradeCli {
             }
         }
 
-        System.out.println ("The players requested:-");
+        out.print("The players requested:-");
         for (int i = 0; i < model.getRequestedPlayers ().size (); i++) {
             IPlayerModel player = model.getRequestedPlayers ().get (i);
             out.println ("Player's name: " + " " + player.getPlayerName ());

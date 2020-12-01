@@ -1,7 +1,11 @@
 package leagueobjectmodel;
 
+import cli.CliAbstractFactory;
+import cli.ICli;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.Expose;
+import org.apache.log4j.Logger;
+import statemachine.states.statemachine.states.PlayerSeasonsChoiceState;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -59,8 +63,8 @@ public class PlayerModel implements IPlayerModel {
     private int currentPenaltyCount;
     private int totalPenaltyCount;
     private Random random = LeagueObjectModelAbstractFactory.getInstance().createRandom();
-    
-
+    final static Logger logger = Logger.getLogger(PlayerModel.class);
+    ICli cli = CliAbstractFactory.getInstance().getCli();
     public PlayerModel() {
         freeAgentModel = new FreeAgentModel();
     }
@@ -342,6 +346,10 @@ public class PlayerModel implements IPlayerModel {
 
     @Override
     public void calculatePlayerStrength(IPlayerModel playerModel) {
+        if(playerModel==null){
+            logger.error("Method argument is not set properly in calculatePlayerStrength()");
+            throw new NullPointerException();
+        }
         try {
             float strength = 0;
             if (playerModel.getPosition().equals(PlayerPosition.FORWARD.toString())) {
@@ -357,22 +365,35 @@ public class PlayerModel implements IPlayerModel {
                 playerModel.setPlayerStrength(strength);
             }
         } catch (Exception e) {
-            System.out.println("Error in calculateStrength method of player model" + e);
+            cli.printOutput("Error in calculateStrength method of player model" + e);
+            throw e;
         }
     }
 
     @Override
     public float calculateForwardStrength(IPlayerModel playerModel){
+        if(playerModel==null){
+            logger.error("Method argument is not set properly in calculateForwardStrength()");
+            throw new NullPointerException();
+        }
         return playerModel.getSkating() + playerModel.getShooting() + (playerModel.getChecking() / 2);
     }
 
     @Override
     public float calculateDefenseStrength(IPlayerModel playerModel){
+        if(playerModel==null){
+            logger.error("Method argument is not set properly in calculateDefenseStrength()");
+            throw new NullPointerException();
+        }
         return playerModel.getSkating() + playerModel.getChecking() + (playerModel.getShooting() / 2);
     }
 
     @Override
     public float calculateGoalieStrength(IPlayerModel playerModel){
+        if(playerModel==null){
+            logger.error("Method argument is not set properly in calculateGoalieStrength()");
+            throw new NullPointerException();
+        }
         return playerModel.getSkating() + playerModel.getSaving();
     }
 
@@ -380,6 +401,7 @@ public class PlayerModel implements IPlayerModel {
     public void checkPlayerInjury(IPlayerModel playerModel, LocalDate date) {
         try{
             if (playerModel == null || date == null) {
+                logger.error("Argument Null inside checkPlayerInjury");
                 throw new NullPointerException("Argument Null inside checkPlayerInjury");
             }
         if (playerModel.isPlayerInjured() == false) {
@@ -394,11 +416,11 @@ public class PlayerModel implements IPlayerModel {
                 playerModel.setInjuryDays(injuryDays);
                 playerModel.setInjuredDate(date);
                 playerModel.setRecoveryDate(date.plusDays(injuryDays));
-                System.out.println(playerModel.getPlayerName() + " Player Injured for " + playerModel.getInjuryDays() + " Days");
+               cli.printOutput(playerModel.getPlayerName() + " Player Injured for " + playerModel.getInjuryDays() + " Days");
             }
         }
     }catch (Exception e){
-            System.out.println("Error in checkPlayerInjury method of player model" + e);
+           throw e;
         }
     }
 
@@ -406,6 +428,7 @@ public class PlayerModel implements IPlayerModel {
     public void recoverPlayer(IPlayerModel playerModel, LocalDate date) {
         try {
             if (playerModel == null || date == null) {
+                logger.error("Argument Null inside checkPlayerInjury");
                 throw new NullPointerException("Argument is Null inside recover method");
             }
             long recoveryDayDifference = 0;
@@ -419,13 +442,13 @@ public class PlayerModel implements IPlayerModel {
                 playerModel.setInjuryDays(0);
                 playerModel.setInjuredDate(null);
                 playerModel.setRecoveryDate(null);
-                System.out.println(playerModel.getPlayerName() + " Player Recovered from Injury");
+               cli.printOutput(playerModel.getPlayerName() + " Player Recovered from Injury");
             }
             if(playerModel.isPlayerInjured() == false){
 
             }
         } catch (Exception e) {
-            System.out.println("Error in checkPlayerInjury method of player model" + e);
+            throw e;
         }
     }
 
@@ -449,18 +472,18 @@ public class PlayerModel implements IPlayerModel {
             playerModel.recoverPlayer(playerModel, date);
             int retirementLikelyHood = checkPlayerRetirementPossibility(playerModel);
             if (retirementLikelyHood >= RETIRE_LIKELIHOOD_THRESHOLD) {
-                System.out.println("Player Retired: "+playerModel.getPlayerName());
+               cli.printOutput("Player Retired: "+playerModel.getPlayerName());
                 playerModel.setPlayerRetired(true);
             }
             if (playerModel.isPlayerRetired()) {
                 String playerPosition = playerModel.getPosition();
                 List<IFreeAgentModel> availableFreeAgents = this.getFreeAgentsList();
                 IFreeAgentModel replacementFreeAgent = freeAgentModel.getReplacementFreeAgent(availableFreeAgents, playerPosition);
-                System.out.println("Player " + playerModel.getPlayerName() + " is Retired and Replace with FreeAgent " + replacementFreeAgent.getPlayerName());
+              cli.printOutput("Player " + playerModel.getPlayerName() + " is Retired and Replace with FreeAgent " + replacementFreeAgent.getPlayerName());
                 replacePlayerWithFreeAgent(playerModel, replacementFreeAgent);
             }
         } catch (Exception e) {
-            System.out.println("Error in aging method of player model" + e);
+           throw e;
         }
     }
 
@@ -479,7 +502,7 @@ public class PlayerModel implements IPlayerModel {
                 playerModel.setSaving(playerModel.getSaving()-1);
                 playerModel.setChecking(playerModel.getChecking()-1);
                 playerModel.setSkating(playerModel.getSkating()-1);
-                System.out.println(playerModel.getPlayerName()+" Stat decreased by 1 point on his Birthday");
+              cli.printOutput(playerModel.getPlayerName()+" Stat decreased by 1 point on his Birthday");
             }
         }
     }
@@ -491,7 +514,7 @@ public class PlayerModel implements IPlayerModel {
             if (replacementFreeAgent == null || playerModel == null) {
                 throw new NullPointerException("Argument null in replacePlayerWithFreeAgent");
             }
-            System.out.println("Replacing Player " + playerModel.getPlayerName() + " With Free Agent " + replacementFreeAgent.getPlayerName());
+           cli.printOutput("Replacing Player " + playerModel.getPlayerName() + " With Free Agent " + replacementFreeAgent.getPlayerName());
             playerModel.setPlayerName(replacementFreeAgent.getPlayerName());
             playerModel.setPosition(replacementFreeAgent.getPosition());
             playerModel.setAge(replacementFreeAgent.getAge());
@@ -507,8 +530,11 @@ public class PlayerModel implements IPlayerModel {
             playerModel.setRecoveryDate(null);
             playerModel.setRetirementLikelyHood(0);
             playerModel.setPlayerRetired(false);
+            playerModel.setBirthDay(freeAgentModel.getBirthDay());
+            playerModel.setBirthMonth(freeAgentModel.getBirthMonth());
+            playerModel.setBirthYear(freeAgentModel.getBirthYear());
         } catch (Exception e) {
-            System.out.println("Error in replacePlayerWithFreeAgent method of player model");
+          throw e;
         }
     }
 
@@ -543,6 +569,7 @@ public class PlayerModel implements IPlayerModel {
     @Override
     public float getShootingState(List<PlayerModel> playerModelList){
         if(playerModelList==null){
+            logger.info("Argument not set properly in getShootingState()");
             throw new NullPointerException();
         }
         float shootingState = 0;
@@ -555,6 +582,7 @@ public class PlayerModel implements IPlayerModel {
     @Override
     public float getCheckingState(List<PlayerModel> playerModelList) {
         if(playerModelList==null){
+            logger.info("Argument not set properly in getCheckingState()");
             throw new NullPointerException();
         }
         float checkingState = 0;
@@ -571,6 +599,7 @@ public class PlayerModel implements IPlayerModel {
     @Override
     public float getSavingState(List<PlayerModel> playerModelList) {
         if(playerModelList==null){
+            logger.info("Argument not set properly in getShootingState()");
             throw new NullPointerException();
         }
         float savingSate = 0;

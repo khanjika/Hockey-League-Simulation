@@ -3,6 +3,7 @@ package statemachine.states.statemachine.states;
 
 import leagueobjectmodel.ILeagueModel;
 import leagueobjectmodel.LeagueObjectModelAbstractFactory;
+import org.apache.log4j.Logger;
 import statemachine.loadteam.ILoadTeam;
 import statemachine.loadteam.LoadTeamAbstractFactory;
 import statemachine.states.statemachine.StateMachine;
@@ -11,8 +12,9 @@ public class LoadTeamState implements ITransition {
     StateMachine stateMachine;
     ILeagueModel currentLeague;
     ILoadTeam parser;
-
+    final static Logger logger = Logger.getLogger(LoadTeamState.class);
     public LoadTeamState(StateMachine stateMachine) {
+        logger.info("Initializing LoadTeam State");
         this.stateMachine = stateMachine;
         currentLeague = LeagueObjectModelAbstractFactory.getInstance().getLeague();
     }
@@ -27,14 +29,14 @@ public class LoadTeamState implements ITransition {
 
     @Override
     public void entry() throws Exception {
+        parser = LoadTeamAbstractFactory.instance().createLoadTeam();
+        currentLeague = parser.getData();
         task();
     }
 
     @Override
 
     public void task() throws Exception {
-        parser = LoadTeamAbstractFactory.instance().createLoadTeam();
-        currentLeague = parser.getData();
         if (currentLeague == null){
             task();
         }
@@ -45,7 +47,6 @@ public class LoadTeamState implements ITransition {
 
     @Override
     public void exit() throws Exception {
-        System.out.println(currentLeague.getLeagueName());
         stateMachine.getUpdateStateValue().updatePlayerSeasonChoiceStateValue(stateMachine,currentLeague);
         stateMachine.setCurrentState(stateMachine.teamLoaded());
         stateMachine.getCurrentState().entry();

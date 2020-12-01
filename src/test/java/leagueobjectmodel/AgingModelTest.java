@@ -11,7 +11,7 @@ public class AgingModelTest {
 
     @BeforeEach
     void initializeVariable() {
-        agingModel = LeagueObjectModelFactoryAbstractTest.getInstance().getGamePlayConfig().getAging();
+        agingModel = new AgingModel();
     }
 
     @Test

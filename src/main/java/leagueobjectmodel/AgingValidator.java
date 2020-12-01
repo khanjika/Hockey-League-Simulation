@@ -8,6 +8,10 @@ public class AgingValidator implements IAgingValidator {
     }
 
     public boolean isNotNull(int value) {
-        return value != 0;
+        if(value==0){
+            return false;
+        }
+        else
+            return true;
     }
 }
