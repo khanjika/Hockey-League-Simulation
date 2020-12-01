@@ -59,6 +59,7 @@ public class PlayerModel implements IPlayerModel {
     private int currentPenaltyCount;
     private int totalPenaltyCount;
     private Random random = LeagueObjectModelAbstractFactory.getInstance().createRandom();
+    
 
     public PlayerModel() {
         freeAgentModel = new FreeAgentModel();
@@ -402,7 +403,7 @@ public class PlayerModel implements IPlayerModel {
     }
 
     @Override
-    public void recoverPlayer(PlayerModel playerModel, LocalDate date) {
+    public void recoverPlayer(IPlayerModel playerModel, LocalDate date) {
         try {
             if (playerModel == null || date == null) {
                 throw new NullPointerException("Argument is Null inside recover method");
@@ -429,7 +430,7 @@ public class PlayerModel implements IPlayerModel {
     }
 
     @Override
-    public void aging(PlayerModel playerModel, int daysToAge, LocalDate date) {
+    public void aging(IPlayerModel playerModel, int daysToAge, LocalDate date) {
         try {
             if (playerModel == null || daysToAge == 0 || date == null) {
                 throw new NullPointerException("Argument is Null inside Aging method");
@@ -464,7 +465,7 @@ public class PlayerModel implements IPlayerModel {
     }
 
     @Override
-    public void checkStatDecayDueToBirthDay(PlayerModel playerModel, LocalDate date, int daysToAge){
+    public void checkStatDecayDueToBirthDay(IPlayerModel playerModel, LocalDate date, int daysToAge){
         if(playerModel == null || date == null || daysToAge == 0){
             throw new NullPointerException("Argument missing in checkStatDecayDueToBirthDay method");
         }
@@ -485,7 +486,7 @@ public class PlayerModel implements IPlayerModel {
 
 
     @Override
-    public void replacePlayerWithFreeAgent(PlayerModel playerModel, IFreeAgentModel replacementFreeAgent) {
+    public void replacePlayerWithFreeAgent(IPlayerModel playerModel, IFreeAgentModel replacementFreeAgent) {
         try {
             if (replacementFreeAgent == null || playerModel == null) {
                 throw new NullPointerException("Argument null in replacePlayerWithFreeAgent");
@@ -512,7 +513,7 @@ public class PlayerModel implements IPlayerModel {
     }
 
     @Override
-    public int checkPlayerRetirementPossibility(PlayerModel playerModel) {
+    public int checkPlayerRetirementPossibility(IPlayerModel playerModel) {
         if(playerModel == null){
             throw new NullPointerException("Argument null in checkPlayerRetirementPossibility method");
         }

@@ -2,7 +2,7 @@ package LeagueMockObject;
 
 import database.IDeserializeObject;
 import database.SerializeObjectAbstractFactory;
-import leagueobjectmodel.ILeagueModel;
+import leagueobjectmodel.*;
 
 public class MockLeagueAbstractFactoryConcrete extends MockLeagueAbstractFactory {
 
@@ -20,5 +20,19 @@ public class MockLeagueAbstractFactoryConcrete extends MockLeagueAbstractFactory
     @Override
     public void setLeague(ILeagueModel league) {
         leagueModel = league;
+    }
+
+    @Override
+    public IPlayerModel createPlayer() {
+        return new PlayerModel();
+    }
+
+    @Override
+    public IFreeAgentModel createFreeAgent() {
+        return new FreeAgentModel();
+    }
+
+    public IPlayerModel createMockPlayer(){
+        return leagueModel.getConferences().get(0).getDivisions().get(0).getTeams().get(0).getPlayers().get(0);
     }
 }

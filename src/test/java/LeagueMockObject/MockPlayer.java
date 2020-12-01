@@ -1,10 +1,14 @@
-package leagueobjectmodel;
+package LeagueMockObject;
 
+import leagueobjectmodel.IPlayerModel;
 import leagueobjectmodel.PlayerModel;
+import trade.MockLeague;
 
 public class MockPlayer {
-    public static PlayerModel getPlayerModel() {
-        PlayerModel playerModel = new PlayerModel();
+
+    static IPlayerModel playerModel = MockLeagueAbstractFactory.getMockInstance().createPlayer();
+
+    public static IPlayerModel getPlayerModel() {
         playerModel.setPlayerName("Zankrut");
         playerModel.setPosition("forward");
         playerModel.setCaptain(true);
@@ -21,8 +25,7 @@ public class MockPlayer {
         return playerModel;
     }
 
-    public static PlayerModel getForwardPlayer() {
-        PlayerModel playerModel = new PlayerModel();
+    public static IPlayerModel getForwardPlayer() {
         playerModel.setPlayerName("Zankrut");
         playerModel.setPosition("forward");
         playerModel.setCaptain(true);
@@ -39,8 +42,7 @@ public class MockPlayer {
         return playerModel;
     }
 
-    public static PlayerModel getDefensePlayer() {
-        PlayerModel playerModel = new PlayerModel();
+    public static IPlayerModel getDefensePlayer() {
         playerModel.setPlayerName("Zankrut");
         playerModel.setPosition("defense");
         playerModel.setCaptain(true);
@@ -57,8 +59,7 @@ public class MockPlayer {
         return playerModel;
     }
 
-    public static PlayerModel getGoaliePlayer() {
-        PlayerModel playerModel = new PlayerModel();
+    public static IPlayerModel getGoaliePlayer() {
         playerModel.setPlayerName("Zankrut");
         playerModel.setPosition("goalie");
         playerModel.setCaptain(true);
@@ -75,8 +76,7 @@ public class MockPlayer {
         return playerModel;
     }
 
-    public static PlayerModel getInvalidPlayerModel() {
-        PlayerModel playerModel = new PlayerModel();
+    public static IPlayerModel getInvalidPlayerModel() {
         playerModel.setPlayerName("");
         playerModel.setPosition("forward");
         playerModel.setCaptain(true);
@@ -93,8 +93,7 @@ public class MockPlayer {
         return playerModel;
     }
 
-    public static PlayerModel getRetiredPlayer() {
-        PlayerModel playerModel = new PlayerModel();
+    public static IPlayerModel getRetiredPlayer() {
         playerModel.setPlayerName("");
         playerModel.setPosition("forward");
         playerModel.setCaptain(true);
@@ -111,8 +110,7 @@ public class MockPlayer {
         return playerModel;
     }
 
-    public static PlayerModel getPlayer39() {
-        PlayerModel playerModel = new PlayerModel();
+    public static IPlayerModel getPlayer39() {
         playerModel.setPlayerName("");
         playerModel.setPosition("forward");
         playerModel.setCaptain(true);
@@ -129,8 +127,7 @@ public class MockPlayer {
         return playerModel;
     }
 
-    public static PlayerModel getPlayer45() {
-        PlayerModel playerModel = new PlayerModel();
+    public static IPlayerModel getPlayer45() {
         playerModel.setPlayerName("");
         playerModel.setPosition("forward");
         playerModel.setCaptain(true);
@@ -147,8 +144,7 @@ public class MockPlayer {
         return playerModel;
     }
 
-    public static PlayerModel getPlayer() {
-        PlayerModel playerModel = new PlayerModel();
+    public static IPlayerModel getPlayer() {
         playerModel.setPlayerName("Zankrut");
         playerModel.setPosition("forward");
         playerModel.setCaptain(true);
