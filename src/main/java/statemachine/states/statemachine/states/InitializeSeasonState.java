@@ -98,11 +98,6 @@ public class InitializeSeasonState implements ITransition {
                 stateMachine.getCurrentState().entry();
             }
 
-//           stateMachine.getUpdateStateValue().updateAgingStateValue(stateMachine,updatedLeagueModelObject);
-//            stateMachine.setCurrentState(stateMachine.getAgingState());
-//            stateMachine.setCurrentDate(currentDate);
-//            stateMachine.getCurrentState().entry();
-
             currentDate = regularSeasonStartDate.plusDays(i);
 
         }}

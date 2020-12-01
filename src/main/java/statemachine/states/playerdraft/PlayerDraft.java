@@ -3,6 +3,7 @@ package statemachine.states.playerdraft;
 import cli.CliAbstractFactory;
 import cli.ICli;
 import leagueobjectmodel.*;
+import org.apache.log4j.Logger;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -28,7 +29,7 @@ public class PlayerDraft implements IPlayerDraft {
     private boolean captain = false;
     List<IPlayerModel> draftedPlayers = new ArrayList<>();
     ICli cli = CliAbstractFactory.getInstance().getCli();
-
+    final static Logger logger = Logger.getLogger(PlayerDraft.class);
     @Override
     public String generatePlayerName() {
         String playerName = null;
@@ -78,6 +79,10 @@ public class PlayerDraft implements IPlayerDraft {
 
     @Override
     public int generatePlayerSkatingStat(String position) {
+        if(position.isEmpty()){
+            logger.error("Value of position is not totalTeams propely");
+            throw new IllegalArgumentException("Value of position is not initialized propely");
+        }
         int skating = 0;
         int value = 0;
         if (position.equals(PlayerPosition.FORWARD.toString())) {
@@ -95,6 +100,10 @@ public class PlayerDraft implements IPlayerDraft {
 
     @Override
     public int generatePlayerShootingStat(String position) {
+        if(position.isEmpty()){
+            logger.error("Value of position is not totalTeams propely");
+            throw new IllegalArgumentException("Value of position is not initialized propely");
+        }
         int shooting = 0;
         int value = 0;
         if (position.equals(PlayerPosition.FORWARD.toString())) {
@@ -112,6 +121,10 @@ public class PlayerDraft implements IPlayerDraft {
 
     @Override
     public int generatePlayerCheckingStat(String position) {
+        if(position.isEmpty()){
+            logger.error("Value of position is not totalTeams propely");
+            throw new IllegalArgumentException("Value of position is not initialized propely");
+        }
         int checking=0;
         int value=0;
         if (position.equals(PlayerPosition.FORWARD.toString())) {
@@ -129,6 +142,10 @@ public class PlayerDraft implements IPlayerDraft {
 
     @Override
     public int generatePlayerSavingStat(String position) {
+        if(position.isEmpty()){
+            logger.error("Value of position is not totalTeams propely");
+            throw new IllegalArgumentException("Value of position is not initialized propely");
+        }
         int checking = 0;
         int value = 0;
         if (position.equals(PlayerPosition.FORWARD.toString())) {
@@ -146,8 +163,13 @@ public class PlayerDraft implements IPlayerDraft {
 
     @Override
     public List<IPlayerModel> draftPlayers(int totalTeams) {
+        if(totalTeams==0){
+            logger.error("Value of totalGoaliePlayers is not totalTeams propely");
+            throw new IllegalArgumentException("Value of totalTeams is not initialized propely");
+        }
         int totalNumberOfPlayers = totalTeams * NO_OF_DRAFTS;
         cli.printOutput("total Player to be drafted" +totalNumberOfPlayers);
+        logger.info("total Player to be drafted" +totalNumberOfPlayers);
         int totalForwardPlayers = Math.round(totalNumberOfPlayers * PER_OF_FORWARD_PLAYERS);
         int totalDefensePlayers = Math.round(totalNumberOfPlayers * PER_OF_DEFENSE_PLAYERS);
         int totalGoaliePlayers = Math.round(totalNumberOfPlayers * PER_OF_GOALIE_PLAYERS);
@@ -162,8 +184,13 @@ public class PlayerDraft implements IPlayerDraft {
 
     @Override
     public List<IPlayerModel> draftGoaliePlayer(int totalGoaliePlayers) {
+        if(totalGoaliePlayers==0){
+            logger.error("Value of totalGoaliePlayers is not initialized propely");
+            throw new IllegalArgumentException("Value of totalGoaliePlayers is not initialized propely");
+        }
         List<IPlayerModel> goaliePlayerList = new ArrayList<>();
         cli.printOutput("Goalie Player to be drafted" +totalGoaliePlayers);
+        logger.info("Goalie Player to be drafted" +totalGoaliePlayers);
         for (int i = 0; i < totalGoaliePlayers; i++) {
             IPlayerModel player = LeagueObjectModelAbstractFactory.getInstance().getNewPlayerModel();
             int playerAge = generatePlayerAge();
@@ -191,6 +218,7 @@ public class PlayerDraft implements IPlayerDraft {
     public List<IPlayerModel> draftDefensePlayers(int totalDefensePlayers) {
         List<IPlayerModel> defensePlayerList = new ArrayList<>();
         cli.printOutput("Defense Player to be drafted" +totalDefensePlayers);
+        logger.info("Defense Player to be drafted" +totalDefensePlayers);
         for (int i = 0; i < totalDefensePlayers; i++) {
             IPlayerModel player = LeagueObjectModelAbstractFactory.getInstance().getNewPlayerModel();
             int playerAge = generatePlayerAge();
@@ -218,6 +246,7 @@ public class PlayerDraft implements IPlayerDraft {
     public List<IPlayerModel> draftForwardPlayers(int totalForwardPlayers) {
         List<IPlayerModel> forwardPlayerList = new ArrayList<>();
         cli.printOutput("Forward Player to be drafted" +totalForwardPlayers);
+        logger.info("Forward Player to be drafted" +totalForwardPlayers);
         for (int i = 0; i < totalForwardPlayers; i++) {
             IPlayerModel player = LeagueObjectModelAbstractFactory.getInstance().getNewPlayerModel();
             int playerAge = generatePlayerAge();
