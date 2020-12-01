@@ -16,12 +16,6 @@ public class FindOfferedPlayers implements IFindOfferedPlayers {
     private ICalculateStrength calculateStrength;
     private IFindTeamToSwap findTeamToSwap;
 
-    private enum playerPosition {
-        forward,
-        defense,
-        goalie
-    }
-
     public FindOfferedPlayers() {
         freeAgent = LeagueObjectModelAbstractFactory.getInstance ().getFreeAgent ();
         teamsModel = LeagueObjectModelAbstractFactory.getInstance ().getTeams ();
@@ -35,7 +29,7 @@ public class FindOfferedPlayers implements IFindOfferedPlayers {
         List<IFreeAgentModel> freeAgents = league.getFreeAgents ();
 
         for (IFreeAgentModel agent : freeAgents) {
-            agent.calculateFreeAgentStrength ((FreeAgentModel) agent);
+            agent.calculateFreeAgentStrength (agent);
         }
 
         HashMap<String, Float> strengthMap = calculateStrength.findPositionStrength (team);
@@ -50,18 +44,18 @@ public class FindOfferedPlayers implements IFindOfferedPlayers {
         List<PlayerModel> offeredPlayer = new ArrayList<> ();
 
         if (totalCounter > 0) {
-            logger.info ("Trade Player");
+            logger.info ("Team is proceeding with player trading.");
             if (team.getIsForwardStrong () == 1) {
-                setOfferedPlayers (playerPosition.forward.toString (), offeredPlayer, league, team);
+                setOfferedPlayers (PlayerPosition.FORWARD.toString (), offeredPlayer, league, team);
             }
             if (team.getIsDefenseStrong () == 1) {
-                setOfferedPlayers (playerPosition.defense.toString (), offeredPlayer, league, team);
+                setOfferedPlayers (PlayerPosition.DEFENSE.toString (), offeredPlayer, league, team);
             }
             if (team.getIsGoalieStrong () == 1) {
-                setOfferedPlayers (playerPosition.goalie.toString (), offeredPlayer, league, team);
+                setOfferedPlayers (PlayerPosition.GOALIE.toString (), offeredPlayer, league, team);
             }
         } else {
-            logger.info ("Trade Draft pick");
+            logger.info ("Team is proceeding with draft pick.");
         }
         return totalCounter;
     }

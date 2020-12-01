@@ -43,8 +43,7 @@ public class GenerateTradeOffer implements IGenerateTradeOffer {
 
     @Override
     public ILeagueModel checkTrading(ILeagueModel leagueModel) {
-        logger.debug ("Inside Trading");
-        System.out.println("Inside Trading");
+        logger.info ("Inside Trading");
         if (leagueModel == null) {
             throw new NullPointerException ();
         }
@@ -54,12 +53,13 @@ public class GenerateTradeOffer implements IGenerateTradeOffer {
             for (IDivisonModel division : conference.getDivisions ()) {
                 for (ITeamsModel team : division.getTeams ()) {
                     String teamName = team.getTeamName ();
-                    if (!team.isUserCreatedTeam ()) {
+                    if (team.isUserCreatedTeam ()==false) {
                         float lossPoint = team.getLossPoint ();
                         if (calculateLossPoint (lossPoint, tradeModel)) {
                             if (calculateTradeChance (tradeModel, team)) {
                                 team.setLossPointForTrading (0);
-                                logger.debug ("Trade initiated by team:" + " " + teamName);
+                                logger.info ("Loss point is set to 0 for team:" + " " + teamName);
+                                logger.info ("Trade is initiated by team:" + " " + teamName);
                                 initiatingTeam = team;
                                 findOfferedPlayers.findPossibleTrade (leagueModel, team);
                             }

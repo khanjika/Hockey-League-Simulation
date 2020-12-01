@@ -367,7 +367,8 @@ public class PlayerModel implements IPlayerModel {
                 playerModel.setPlayerStrength(strength);
             }
         } catch (Exception e) {
-            System.out.println("Error in calculateStrength method of player model" + e);
+            cli.printOutput("Error in calculateStrength method of player model" + e);
+            throw e;
         }
     }
 
@@ -515,7 +516,7 @@ public class PlayerModel implements IPlayerModel {
             if (replacementFreeAgent == null || playerModel == null) {
                 throw new NullPointerException("Argument null in replacePlayerWithFreeAgent");
             }
-            System.out.println("Replacing Player " + playerModel.getPlayerName() + " With Free Agent " + replacementFreeAgent.getPlayerName());
+           cli.printOutput("Replacing Player " + playerModel.getPlayerName() + " With Free Agent " + replacementFreeAgent.getPlayerName());
             playerModel.setPlayerName(replacementFreeAgent.getPlayerName());
             playerModel.setPosition(replacementFreeAgent.getPosition());
             playerModel.setAge(replacementFreeAgent.getAge());
@@ -531,6 +532,9 @@ public class PlayerModel implements IPlayerModel {
             playerModel.setRecoveryDate(null);
             playerModel.setRetirementLikelyHood(0);
             playerModel.setPlayerRetired(false);
+            playerModel.setBirthDay(freeAgentModel.getBirthDay());
+            playerModel.setBirthMonth(freeAgentModel.getBirthMonth());
+            playerModel.setBirthYear(freeAgentModel.getBirthYear());
         } catch (Exception e) {
             System.out.println("Error in replacePlayerWithFreeAgent method of player model");
         }

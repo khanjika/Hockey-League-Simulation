@@ -75,6 +75,10 @@ public class InitializeSeasonState implements ITransition {
 
         try{
         for (int i = 1; i <= availableDaysForMatches; i++) {
+            stateMachine.getUpdateStateValue().updateAgingStateValue(stateMachine,updatedLeagueModelObject);
+            stateMachine.setCurrentState(stateMachine.getAgingState());
+            stateMachine.setCurrentDate(currentDate);
+            stateMachine.getCurrentState().entry();
             if (i % hundredDayCount == 0) {
                 stateMachine.setCurrentDate(currentDate);
                 stateMachine.setCurrentState(stateMachine.getTrainingState());
@@ -93,10 +97,7 @@ public class InitializeSeasonState implements ITransition {
                 stateMachine.setCurrentState(stateMachine.getTradingState());
                 stateMachine.getCurrentState().entry();
             }
-           stateMachine.getUpdateStateValue().updateAgingStateValue(stateMachine,updatedLeagueModelObject);
-            stateMachine.setCurrentState(stateMachine.getAgingState());
-            stateMachine.setCurrentDate(currentDate);
-            stateMachine.getCurrentState().entry();
+
             currentDate = regularSeasonStartDate.plusDays(i);
 
         }}
@@ -170,7 +171,6 @@ public class InitializeSeasonState implements ITransition {
                         penaltyCOunt=playerModel.getTotalPenaltyCount()+penaltyCOunt;
                         saveCount=playerModel.getSaveForGoalie()+saveCount;
                     }
-                    System.out.println(totalMatches);
                     float valeu =goalByTeam/totalMatches;
                     double averagePenaltyCount=0;
                     if(penaltyCOunt==0){
@@ -187,7 +187,6 @@ public class InitializeSeasonState implements ITransition {
                     if(saveCount==0){
                         saveCount=resetCount;
                     }
-                    System.out.println("Save count "+saveCount+teamsModel.getTeamName()+"=="+divisonModel.getDivisionName());
                     try {
                         averageSaveCount = totalMatches/saveCount;
                     }

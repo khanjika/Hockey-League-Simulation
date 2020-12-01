@@ -181,26 +181,6 @@ public class TeamsModel implements ITeamsModel {
 
     @Override
     public void roasterReplacement(PlayerModel currentPlayer) {
-//<<<<<<< HEAD
-//        List<PlayerModel> matchedInactivePlayers = new ArrayList<>();
-//        if (currentPlayer.isPlayerInjured() == false) {
-//            return;
-//        }
-//        for (PlayerModel player : this.getInactiveRoasters()) {
-//            if (player.getPosition().equals(currentPlayer.getPosition()) && player.isPlayerInjured() == false) {
-//                matchedInactivePlayers.add(player);
-//            }
-//        }
-//        if (matchedInactivePlayers.size() == 0) {
-//            return;
-//        }
-//        PlayerModel replacementPlayer = Collections.max(matchedInactivePlayers, Comparator.comparing(v -> v.getPlayerStrength()));
-//        getActiveRoasters().remove(currentPlayer);
-//        currentPlayer.setIsActive(false);
-//        getActiveRoasters().add(replacementPlayer);
-//        replacementPlayer.setIsActive(true);
-//        System.out.println(currentPlayer.getPlayerName() + " replaced with " + replacementPlayer.getPlayerName());
-//=======
         List<PlayerModel> matchedInactivePlayers = new ArrayList<> ();
         if (currentPlayer.isPlayerInjured () == false) {
             return;
@@ -223,12 +203,6 @@ public class TeamsModel implements ITeamsModel {
 
     @Override
     public List<PlayerModel> getTotalForwards() {
-//<<<<<<< HEAD
-//        List<PlayerModel> forwards = new ArrayList<>();
-//        for (PlayerModel player : this.getPlayers()) {
-//            if (player.getPosition().equals(PlayerPosition.FORWARD.toString())) {
-//                forwards.add(player);
-//=======
         List<PlayerModel> forwards = new ArrayList<> ();
         for (PlayerModel player : this.getPlayers ()) {
             if (player.getPosition ().equals (PlayerPosition.FORWARD.toString ())) {

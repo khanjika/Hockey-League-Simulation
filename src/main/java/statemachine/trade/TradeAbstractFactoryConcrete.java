@@ -39,6 +39,11 @@ public class TradeAbstractFactoryConcrete extends TradeAbstractFactory {
     }
 
     @Override
+    public void setTradeOffer(IGenerateTradeOffer tradeOffer) {
+        this.tradeOffer = tradeOffer;
+    }
+
+    @Override
     public ITradeModel createTradeModel() {
         if (tradeModel == null) {
             tradeModel = new TradeModel ();

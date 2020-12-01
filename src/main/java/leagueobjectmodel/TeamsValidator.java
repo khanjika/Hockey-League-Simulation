@@ -84,7 +84,11 @@ public class TeamsValidator implements ITeamsValidator {
     }
 
     private boolean isStringValid(String str) {
-        return str != null && str != "";
+        if(str==null || str.isEmpty()){
+            return false;
+        }
+        else
+            return true;
     }
 
     @Override
